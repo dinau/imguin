@@ -1,3 +1,13 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [ImGuin](#imguin)
+  - [Usage: Sample program and run](#usage-sample-program-and-run)
+    - [Prerequisite](#prerequisite)
+    - [Build](#build)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # ImGuin 
 Dear Imgui wrapper with Nim language
 
@@ -11,9 +21,13 @@ Dear Imgui wrapper with Nim language
 
 ---
 1. Nim-1.6.10 or later
-1. Add libraries
-1. Clang/LLVM for [Futhark](https://github.com/PMunch/futhark#installation)
+- For Linux Debian 11 Bullseye
 
+   ```sh
+   $ sudo apt install xorg-dev libopengl-dev ibgl1-mesa-glx libgl1-mesa-dev
+   ```
+1. Install Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
+1. Add libraries
    ```sh
    nimble install futhark 
    nimble install glfw 

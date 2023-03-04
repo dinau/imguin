@@ -16,7 +16,7 @@ if hostOS == "windows":
 
 #switch "passC","-std=c++17"
 #
-#switch "define", "release"
+switch "define", "release"
 #switch "define", "danger"
 #
 #switch "opt", "size"

@@ -8,7 +8,7 @@ endif
 
 OPT += -d:glfwStaticLib
 OPT += --maxLoopIterationsVM:90000000
-OPT += --verbosity:1
+#OPT += --verbosity:2
 
 all:
 	nim c $(OPT) $(TARGET).nim

@@ -29,6 +29,7 @@ importc:
 {.compile:joinPath(ImguiRootPath,"imgui_draw.cpp").}
 {.compile:joinPath(ImguiRootPath,"imgui_tables.cpp").}
 {.compile:joinPath(ImguiRootPath,"imgui_widgets.cpp").}
+#
 {.compile:joinPath(ImguiRootPath,"backends/imgui_impl_glfw.cpp").}
 {.compile:joinPath(ImguiRootPath,"backends/imgui_impl_opengl3.cpp").}
 #
@@ -69,7 +70,7 @@ proc main() =
       quit "Error initialising OpenGL"
 
   #// Check opengl version
-  echo "OpenGL Version: $#"  % [ $cast[cstring](glGetString(GL_VERSION))]
+  echo "OpenGL Version: $#"  % [$cast[cstring](glGetString(GL_VERSION))]
 
   #// setup imgui
   discard igCreateContext(nil)
@@ -125,6 +126,7 @@ proc main() =
              1000.0f / igGetIO().Framerate, igGetIO().Framerate)
       igEnd()
 
+    # show further samll window
     if showAnotherWindow:
       doAssert igBegin("imgui Another Window", addr showAnotherWindow, 0)
       igText("Hello from imgui")
