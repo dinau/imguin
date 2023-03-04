@@ -27,6 +27,20 @@ Dear Imgui wrapper with Nim language
       ```sh
       $ sudo apt install xorg-dev libopengl-dev ibgl1-mesa-glx libgl1-mesa-dev
       ```
+      
+      for glfw3 shared link
+
+      ```sh
+      $ sudo apt install libglfw3 libglfw3-dev
+      ```
+
+      for futhark
+
+      ```sh
+      sudo apt install  libclang-dev
+      nimble install --passL:"-L/usr/lib/llvm-11/lib" futhark
+      ```
+
 1. Install Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
 1. Add libraries
    ```sh

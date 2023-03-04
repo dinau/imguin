@@ -4,20 +4,24 @@ switch "hint","User:off"
 switch "hint","XDeclaredButNotUsed:off"
 
 #switch "app","gui" # dismiss back ground Window
-
-const STATIC_LINK_GLFW = true
-const STATIC_LINK_CLANG = false
-
+#
 switch "passC","-D IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
+
+when defined(windows):
+  const STATIC_LINK_GLFW = true
+  const STATIC_LINK_CLANG = false
+  switch "passL","-lgdi32 -limm32"
+else: # for Linux
+  const STATIC_LINK_GLFW = false
+  const STATIC_LINK_CLANG = false
 
 when STATIC_LINK_GLFW: # GLFW static link
   switch "define","glfwStaticLib"
-else: # shared
-  switch "passL","-lglfw3"
-
-#
-when defined(windows):
-  switch "passL","-lgdi32 -limm32"
+else: # shared/dll
+  when defined(windows):
+    switch "passL","-lglfw3"
+  else:
+    switch "passL","-lglfw"
 
 when STATIC_LINK_CLANG: # gcc static link
   switch "passC", "-static"
@@ -92,5 +96,4 @@ switch "cc", TC
 echo ""
 echo "#### Compiler: [ ", TC, " ] ####"
 echo ""
-
 
