@@ -22,11 +22,11 @@ Dear Imgui wrapper with Nim language
 
 ---
 1. Nim-1.6.10 or later
-- For Linux Debian 11 Bullseye
+1. For Linux Debian 11 Bullseye
 
-   ```sh
-   $ sudo apt install xorg-dev libopengl-dev ibgl1-mesa-glx libgl1-mesa-dev
-   ```
+      ```sh
+      $ sudo apt install xorg-dev libopengl-dev ibgl1-mesa-glx libgl1-mesa-dev
+      ```
 1. Install Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
 1. Add libraries
    ```sh
@@ -51,5 +51,7 @@ After build, run `./imguin_glfw_opengl3(.exe)`.
 ### Screen shot
 
 ---
+
+This screen shot is on Windows10.
 
 ![alt](src/img/screenshot1.png)

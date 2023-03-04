@@ -3,16 +3,30 @@ switch "path","../../src" # for "import glad/gl"
 switch "hint","User:off"
 switch "hint","XDeclaredButNotUsed:off"
 
-#switch "app","gui"
+#switch "app","gui" # dismiss back ground Window
 
-const STATIC_LINK = false
+const STATIC_LINK_GLFW = true
+const STATIC_LINK_CLANG = false
+
+switch "passC","-D IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
+
+when STATIC_LINK_GLFW: # GLFW static link
+  switch "define","glfwStaticLib"
+else: # shared
+  switch "passL","-lglfw3"
+
 #
-if hostOS == "windows":
-  when STATIC_LINK: # for static link
-    switch "passC", "-static"
-    switch "passL", "-static"
-  else: # use dll
-    discard
+when defined(windows):
+  switch "passL","-lgdi32 -limm32"
+
+when STATIC_LINK_CLANG: # gcc static link
+  switch "passC", "-static"
+  switch "passL", "-static"
+else:
+  #switch "passL","-l:cimgui.lib -L."
+  when defined(windows): # shared
+    switch "passL","-lgdi32 -limm32"
+    switch "passL","-luser32 -lcomdlg32"
 
 #switch "passC","-std=c++17"
 #

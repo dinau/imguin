@@ -4,19 +4,24 @@ ifeq ($(OS),Windows_NT)
 	EXE = .exe
 endif
 
-.PHONY: clean run dll ver gitup info
+.PHONY: clean run dll ver gitup info danger release
 
-OPT += -d:glfwStaticLib
 OPT += --maxLoopIterationsVM:90000000
 #OPT += --verbosity:2
 
 all:
 	nim c $(OPT) $(TARGET).nim
-	#@nimble build --verbose
+
+danger:
+	nim c -d:danger $(OPT) $(TARGET).nim
+
+rel:
+	nim c -d:relese $(OPT) $(TARGET).nim
+
 clean:
 	@-rm -fr .nimcache
 	@-rm $(TARGET)$(EXE)
-	@#nimble clean --verbose
+
 run:
 	@nimble run --verbose
 

@@ -18,10 +18,13 @@ importc:
   define CIMGUI_USE_OPENGL3
   "generator/output/cimgui_impl.h"
 #
+when defined(windows):
+  {.passC:"""  -DIMGUI_IMPL_API="extern \"C\" __declspec(dllexport)"  """.}
+else:
+  {.passC:""" -DIMGUI_IMPL_API="extern \"C\""  """.}
 
-{.passC:""" -DIMGUI_IMPL_API="extern \"C\""  """.}
+
 {.passC:"-I$#" % [ImguiRootPath].}
-#
 {.compile:joinPath(CImguiRootPath,"cimgui.cpp").}
 #
 {.compile:joinPath(ImguiRootPath,"imgui.cpp").}
@@ -33,14 +36,6 @@ importc:
 {.compile:joinPath(ImguiRootPath,"backends/imgui_impl_glfw.cpp").}
 {.compile:joinPath(ImguiRootPath,"backends/imgui_impl_opengl3.cpp").}
 #
-#{.passL:"-lglfw3".}
-#{.passL:" -l:cimgui.lib -L../../cimgui".}
-#{.passL:"-Ld:/msys32/mingw32/lib".}
-
-#type
-#  IgGuiIO = object
-#    ConfigFlags:ImGuiConfigFlags
-#let ImGuiConfigFlags_DockingEnable {.importc,nodecl,header:"../../cimgui/cimgui.h".}:int32
 
 proc main() =
   glfw.initialize()
@@ -64,24 +59,19 @@ proc main() =
     quit -1
 
   glfw.makeContextCurrent(window)
-  glfw.swapInterval(1) #// enable vsync
+  glfw.swapInterval(1) # enable vsync
 
   if not gladLoadGL(getProcAddress):
       quit "Error initialising OpenGL"
 
-  #// Check opengl version
+  # Check opengl version
   echo "OpenGL Version: $#"  % [$cast[cstring](glGetString(GL_VERSION))]
 
-  #// setup imgui
+  # setup imgui
   discard igCreateContext(nil)
 
-  #// set docking
-  var ioptr = igGetIO()
-  #echo ioptr.repr
-
-  #ioptr.ConfigFlags = ioptr.ConfigFlags or ImGuiConfigFlags_DockingEnable
-  #ioptr.ConfigFlags = ioptr.ConfigFlags or 0x5
-  #ioptr.ConfigFlags = ImGuiConfigFlags_DockingEnable
+  #
+  var pio = igGetIO()
 
   doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr GlfwWindow]( window.getHandle), true)
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
@@ -97,7 +87,7 @@ proc main() =
   while not glfw.shouldClose(window):
     glfw.pollEvents()
 
-    #// start imgui frame
+    # start imgui frame
     ImGui_ImplOpenGL3_NewFrame()
     ImGui_ImplGlfw_NewFrame()
     igNewFrame()
@@ -105,41 +95,46 @@ proc main() =
     if showDemoWindow:
       igShowDemoWindow(addr showDemoWindow)
 
-    #// show a simple window that we created ourselves.
+    # show a simple window that we created ourselves.
     block:
-      discard igBegin("Nim: ImGuin test with Futhark", nil, 0)
+      discard igBegin("Nim: Dear ImGui test with Futhark", nil, 0)
       igText("This is some useful text")
       discard igCheckbox("Demo window", addr showDemoWindow)
       discard igCheckbox("Another window", addr showAnotherWindow)
       discard igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)
       discard igColorEdit3("clear color", col, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
 
-      var buttonSize  = ImVec2(x:1.0f,y:2.0f)
+      var buttonSize:ImVec2
+      buttonSize.x = 0.0f
+      buttonSize.y = 0.0f
+
       if igButton("Button".cstring,buttonSize ):
       #if igSmallButton("Button"):
         inc counter
       igSameLine(0.0f, -1.0f)
       #
       igText("counter = %d", counter)
-
+      #
       igText("Application average %.3f ms/frame (%.1f FPS)",
-             1000.0f / igGetIO().Framerate, igGetIO().Framerate)
+             1000.0f / pio.Framerate, pio.Framerate)
       igEnd()
 
     # show further samll window
     if showAnotherWindow:
       discard igBegin("imgui Another Window", addr showAnotherWindow, 0)
       igText("Hello from imgui")
-      const buttonSize = ImVec2(x:1.0,y:1.0)
+      var buttonSize:ImVec2
+      buttonSize.x = 0.0f
+      buttonSize.y = 0.0f
       if igButton("Close me".cstring, buttonSize):
       #if igSmallButton("Close me".cstring):
         showAnotherWindow = false
       igEnd()
 
-    #// render
+    # render
     igRender()
     glfw.makeContextCurrent(window)
-    glViewport(0.GLint, 0.GLint, (ioptr.DisplaySize.x).GLsizei, (ioptr.DisplaySize.y).GLsizei)
+    glViewport(0, 0, (pio.DisplaySize.x).GLsizei, (pio.DisplaySize.y).GLsizei)
     glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w)
     glClear(GL_COLOR_BUFFER_BIT)
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
