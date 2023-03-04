@@ -107,12 +107,12 @@ proc main() =
 
     #// show a simple window that we created ourselves.
     block:
-      doAssert igBegin("Hello, world!", nil, 0)
+      discard igBegin("Hello, world!", nil, 0)
       igText("This is some useful text")
-      #doAssert igCheckbox("Demo window".cstring, addr showDemoWindow)
-      #doAssert igCheckbox("Another window".cstring, addr showAnotherWindow)
-      #doAssert igSliderFloat("Float".cstring, addr fval, 0.0f, 1.0f, "%.3f", 0)
-      #doAssert igColorEdit3("clear color".cstring, col, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
+      discard igCheckbox("Demo window".cstring, addr showDemoWindow)
+      discard igCheckbox("Another window".cstring, addr showAnotherWindow)
+      discard igSliderFloat("Float".cstring, addr fval, 0.0f, 1.0f, "%.3f", 0)
+      discard igColorEdit3("clear color".cstring, col, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
 
       var buttonSize  = ImVec2(x:1.0f,y:2.0f)
       if igButton("Button".cstring,buttonSize ):
@@ -128,7 +128,7 @@ proc main() =
 
     # show further samll window
     if showAnotherWindow:
-      doAssert igBegin("imgui Another Window", addr showAnotherWindow, 0)
+      discard igBegin("imgui Another Window", addr showAnotherWindow, 0)
       igText("Hello from imgui")
       const buttonSize = ImVec2(x:1.0,y:1.0)
       if igButton("Close me".cstring, buttonSize):
