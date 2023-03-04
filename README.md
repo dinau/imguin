@@ -5,6 +5,7 @@
   - [Usage: Sample program and run](#usage-sample-program-and-run)
     - [Prerequisite](#prerequisite)
     - [Build](#build)
+    - [Screen shot](#screen-shot)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -47,3 +48,8 @@ make
 
 After build, run `./imguin_glfw_opengl3(.exe)`.
 
+### Screen shot
+
+---
+
+![alt](src/img/screenshot1.png)

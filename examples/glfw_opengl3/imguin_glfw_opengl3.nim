@@ -90,9 +90,9 @@ proc main() =
   var showAnotherWindow = false
   var clearColor = ImVec4(x:0.45,y:0.55,z:0.60,w:1.00)
 
-  var fval {.global.} = 0.0f
+  var fval {.global.} = 0.5f
   var counter {.global.} = 0
-  const col:array[3,cfloat] = [0.45f,0.55f,0.60f]
+  var col:array[3,cfloat] = [0.45f,0.55f,0.60f]
 
   while not glfw.shouldClose(window):
     glfw.pollEvents()
@@ -107,12 +107,12 @@ proc main() =
 
     #// show a simple window that we created ourselves.
     block:
-      discard igBegin("Hello, world!", nil, 0)
+      discard igBegin("Nim: ImGuin test with Futhark", nil, 0)
       igText("This is some useful text")
-      discard igCheckbox("Demo window".cstring, addr showDemoWindow)
-      discard igCheckbox("Another window".cstring, addr showAnotherWindow)
-      discard igSliderFloat("Float".cstring, addr fval, 0.0f, 1.0f, "%.3f", 0)
-      discard igColorEdit3("clear color".cstring, col, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
+      discard igCheckbox("Demo window", addr showDemoWindow)
+      discard igCheckbox("Another window", addr showAnotherWindow)
+      discard igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)
+      discard igColorEdit3("clear color", col, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
 
       var buttonSize  = ImVec2(x:1.0f,y:2.0f)
       if igButton("Button".cstring,buttonSize ):
