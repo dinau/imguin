@@ -22,6 +22,7 @@ Dear Imgui wrapper with Nim language
 
 ---
 1. Nim-1.6.10 or later
+1. For Windows10 or later: Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
 1. For Linux Debian 11 Bullseye
 
       ```sh
@@ -41,12 +42,14 @@ Dear Imgui wrapper with Nim language
       nimble install --passL:"-L/usr/lib/llvm-11/lib" futhark
       ```
 
-1. Install Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
+
 1. Add libraries
+
    ```sh
    nimble install futhark 
    nimble install glfw 
    ```
+
 
 ### Build  
 
