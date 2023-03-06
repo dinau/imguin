@@ -21,7 +21,7 @@ when LTO:
   switch "passC", "-fno-strict-aliasing"
   switch "passL", "-fno-strict-aliasing"
 
-include "version.nims"
+#include "version.nims"
 #
 var TC = "gcc"
 #var TC = "clang"
