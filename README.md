@@ -15,7 +15,7 @@
 
 # ImGuin 
 
-[Dear Imgui wrapper](https://github.com/ocornut/imgui) usign [CImGui](https://github.com/cimgui/cimgui) with Nim language
+[Dear Imgui wrapper](https://github.com/ocornut/imgui) using [CImGui](https://github.com/cimgui/cimgui) with Nim language
 
 **Highly under construction at this moment**
 
@@ -55,8 +55,8 @@
    git clone --recursive https://github.com/dinau/imguin
    ```
 
-2. Sample program is here, [examples](https://github.com/dinau/imguin/blob/main/examples).  
-For instance, [glfw_opengl3.nim](https://github.com/dinau/imguin/blob/main/examples/glfw_opengl3):
+2. Sample program is here, [examples](examples).  
+For instance, [imguin_glfw_opengl3.nim](examples/glfw_opengl3/imguin_glfw_opengl3.nim):
 
    ```sh
    cd imguin/examples/glfw_opengl3
@@ -71,10 +71,10 @@ For instance, [glfw_opengl3.nim](https://github.com/dinau/imguin/blob/main/examp
 
 These are screen shots on Windows10.  
 
-[glfw_opengl3](https://github.com/dinau/imguin/blob/main/examples/glfw_opengl3).  
+[glfw_opengl3](examples/glfw_opengl3).  
 ![alt](src/img/screenshot1.png)
 
-[glfw_opengl3_nimgl_imguin_jp](https://github.com/dinau/imguin/blob/main/examples/glfw_opengl3_nimgl_imguin_jp).  
+[glfw_opengl3_nimgl_imguin_jp](examples/glfw_opengl3_nimgl_imguin_jp).  
 ![alt](src/img/screenshot2.png)
 
 ## Update latest Dear ImGui and CImGui
