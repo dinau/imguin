@@ -1,4 +1,4 @@
-TARGET = imguin_glfw_opengl3
+TARGET = glfw_opengl3_nimgl_imguin_jp
 
 ifeq ($(OS),Windows_NT)
 	EXE = .exe

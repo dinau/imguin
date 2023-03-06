@@ -6,11 +6,16 @@
     - [Prerequisite](#prerequisite)
     - [Build](#build)
     - [Screen shot](#screen-shot)
+  - [Update latest Dear ImGui and CImGui](#update-latest-dear-imgui-and-cimgui)
+    - [Prerequisite](#prerequisite-1)
+    - [Update ImGui/CImGui](#update-imguicimgui)
+    - [](#)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # ImGuin 
-Dear Imgui wrapper with Nim language
+
+[Dear Imgui wrapper](https://github.com/ocornut/imgui) usign [CImGui](https://github.com/cimgui/cimgui) with Nim language
 
 **Highly under construction at this moment**
 
@@ -22,50 +27,115 @@ Dear Imgui wrapper with Nim language
 
 ---
 1. Nim-1.6.10 or later
+1. Add libraries
+
+   ```sh
+   nimble install glfw nimgl
+   ```
+
 1. For Linux Debian 11 Bullseye
 
       ```sh
       $ sudo apt install xorg-dev libopengl-dev ibgl1-mesa-glx libgl1-mesa-dev
       ```
       
-      for glfw3 shared link
+      and for glfw3
 
       ```sh
       $ sudo apt install libglfw3 libglfw3-dev
       ```
 
-      for futhark
-
-      ```sh
-      sudo apt install  libclang-dev
-      nimble install --passL:"-L/usr/lib/llvm-11/lib" futhark
-      ```
-
-1. Install Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
-1. Add libraries
-   ```sh
-   nimble install futhark 
-   nimble install glfw 
-   ```
-
 ### Build  
 
 ---
 
-Sample program is [glfw_opengl3.nim](https://github.com/dinau/imguin/blob/main/examples/glfw_opengl3/imguin_glfw_opengl3.nim#enroll-beta).
+1. First clone this project,
 
-```sh
-git clone --recursive https://github.com/dinau/imguin
-cd imguin/examples/glfw_opengl3
-make
-```
+   ```sh
+   git clone --recursive https://github.com/dinau/imguin
+   ```
 
-After build, run `./imguin_glfw_opengl3(.exe)`.
+2. Sample program is here, [examples](https://github.com/dinau/imguin/blob/main/examples).  
+For instance, [glfw_opengl3.nim](https://github.com/dinau/imguin/blob/main/examples/glfw_opengl3):
+
+   ```sh
+   cd imguin/examples/glfw_opengl3
+   make
+   ```
+
+   After build, run `./imguin_glfw_opengl3(.exe)`.
 
 ### Screen shot
 
 ---
 
-This screen shot is on Windows10.
+These are screen shots on Windows10.  
 
+[glfw_opengl3](https://github.com/dinau/imguin/blob/main/examples/glfw_opengl3).  
 ![alt](src/img/screenshot1.png)
+
+[glfw_opengl3_nimgl_imguin_jp](https://github.com/dinau/imguin/blob/main/examples/glfw_opengl3_nimgl_imguin_jp).  
+![alt](src/img/screenshot2.png)
+
+## Update latest Dear ImGui and CImGui
+
+### Prerequisite
+
+---
+
+1. Windows10 or later  
+Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
+
+   ```sh
+   nimble install futhark 
+   ```
+
+1. Linux Debian 11 Bullseye
+
+    ```sh
+    sudo apt install  libclang-dev
+    nimble install --passL:"-L/usr/lib/llvm-11/lib" futhark
+    ```
+
+Important Notice: Confirm Futhark version is v0.9.1 or later.
+
+```sh
+nimble dump futhark
+```
+
+### Update ImGui/CImGui
+
+---
+
+1. First update Dear ImGui and CImGui
+
+   ```sh
+   pwd
+   imguin
+   cd src/private/cimgui
+   git submodule update --init --recursive
+   ```
+
+1. Update definition file[(cimguiDefs.nim)](src/cimguiDefs.nim) for ImGui/CImGui uisng [Futhark](https://github.com/PMunch/futhark),
+
+   ```sh
+   pwd
+   imguin
+   cd src/updater
+   ```
+
+   - Windows OS
+
+      ```sh
+      update_imguin.bat
+      ```
+   - Other OS
+
+      ```sh
+      make
+      ```
+
+1. ImGui/CImGui version is **v1.89.3** at this time. (2023/03)
+
+### 
+
