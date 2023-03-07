@@ -58,7 +58,6 @@
 <ul>
 <li><a href="#user-content-prerequisite-1">Prerequisite</a></li>
 <li><a href="#user-content-update-imguicimgui">Update ImGui/CImGui</a></li>
-<li><a href="#user-content-"></a></li>
 </ul>
 </li>
 </ul>
@@ -117,6 +116,9 @@ make</pre></div>
 <hr>
 <ol>
 <li>
+<p><a href="https://git-scm.com/" rel="nofollow">Git</a> installed.</p>
+</li>
+<li>
 <p>Windows10 or later<br>
 Clang/LLVM refer to <a href="https://github.com/PMunch/futhark#installation">Futhark installation</a>.</p>
 <div class="highlight highlight-source-shell"><pre>nimble install futhark </pre></div>
@@ -131,26 +133,23 @@ nimble install --passL:<span class="pl-s"><span class="pl-pds">"</span>-L/usr/li
 <div class="highlight highlight-source-shell"><pre>nimble dump futhark</pre></div>
 <h3><a id="user-content-update-imguicimgui" class="anchor" aria-hidden="true" href="#update-imguicimgui"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update ImGui/CImGui</h3>
 <hr>
-<ol>
+<ul>
 <li>
-<p>First update Dear ImGui and CImGui</p>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c1">pwd</span>
-imguin
-<span class="pl-c1">cd</span> src/private/cimgui
-git submodule update --init --recursive</pre></div>
-</li>
-<li>
-<p>Update definition file<a href="src/cimguiDefs.nim">(cimguiDefs.nim)</a> uisng <a href="https://github.com/PMunch/futhark">Futhark</a>,</p>
+<p>Update to latest definition file<a href="src/cimguiDefs.nim">(cimguiDefs.nim)</a> uisng <a href="https://github.com/PMunch/futhark">Futhark</a>,</p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">pwd</span>
 imguin
 <span class="pl-c1">cd</span> src/updater
 make</pre></div>
-</li>
-<li>
 <p>ImGui/CImGui version is <strong>v1.89.3</strong> at this time. (2023/03)</p>
 </li>
-</ol>
-<h3></h3>
+<li>
+<p>Update to the version that specified tag,</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">pwd</span>
+imguin
+<span class="pl-c1">cd</span> src/updater
+make CIMGUI_TAG=1.86</pre></div>
+</li>
+</ul>
 
         </article>
       </div>

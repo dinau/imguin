@@ -9,7 +9,6 @@
   - [Update latest Dear ImGui and CImGui](#update-latest-dear-imgui-and-cimgui)
     - [Prerequisite](#prerequisite-1)
     - [Update ImGui/CImGui](#update-imguicimgui)
-    - [](#)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -85,6 +84,7 @@ These are screen shots on Windows10.
 
 ---
 
+1. [Git](https://git-scm.com/) installed.
 1. Windows10 or later  
 Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
 
@@ -109,16 +109,7 @@ nimble dump futhark
 
 ---
 
-1. First update Dear ImGui and CImGui
-
-   ```sh
-   pwd
-   imguin
-   cd src/private/cimgui
-   git submodule update --init --recursive
-   ```
-
-1. Update definition file[(cimguiDefs.nim)](src/cimguiDefs.nim) uisng [Futhark](https://github.com/PMunch/futhark),
+- Update to latest definition file[(cimguiDefs.nim)](src/cimguiDefs.nim) uisng [Futhark](https://github.com/PMunch/futhark),
 
    ```sh
    pwd
@@ -126,8 +117,13 @@ nimble dump futhark
    cd src/updater
    make
    ```
+   
+   ImGui/CImGui version is **v1.89.3** at this time. (2023/03)
+- Update to the version that specified tag,  
 
-1. ImGui/CImGui version is **v1.89.3** at this time. (2023/03)
-
-### 
-
+   ```sh
+   pwd
+   imguin
+   cd src/updater
+   make CIMGUI_TAG=1.86
+   ```
