@@ -9,14 +9,15 @@
   - [Update latest Dear ImGui and CImGui](#update-latest-dear-imgui-and-cimgui)
     - [Prerequisite](#prerequisite-1)
     - [Update ImGui/CImGui](#update-imguicimgui)
+    - [TODO](#todo)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # ImGuin 
 
-[Dear Imgui wrapper](https://github.com/ocornut/imgui) using [CImGui](https://github.com/cimgui/cimgui) with Nim language
+[Dear Imgui](https://github.com/ocornut/imgui) wrapper using [CImGui](https://github.com/cimgui/cimgui) with Nim language
 
-**Highly under construction at this moment**
+**Under construction at this moment**
 
 ## Usage: Sample program and run
 
@@ -127,3 +128,13 @@ nimble dump futhark
    cd src/updater
    make CIMGUI_TAG=1.86
    ```
+
+### TODO
+
+---
+
+- First step is done.
+1. Add SDL2 example.
+1. Whether can it do `nimble install imguin` ?
+
+
