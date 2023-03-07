@@ -3,8 +3,8 @@
 # Select static link or shared/dll link
 #---------------------------------------
 when defined(windows):
-  const STATIC_LINK_GLFW = false
-  const STATIC_LINK_CC= false      #libstd++ or libc
+  const STATIC_LINK_GLFW = true
+  const STATIC_LINK_CC= true      # libstd++-6
   switch "passL","-lgdi32 -limm32"
 else: # for Linux
   const STATIC_LINK_GLFW = false

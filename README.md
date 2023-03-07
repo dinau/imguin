@@ -120,7 +120,7 @@ nimble dump futhark
    ```
    
    ImGui/CImGui version is **v1.89.3** at this time. (2023/03)
-- Update to the version that specified tag,  
+- Update/Downgrade to the version that specified tag of CImGui,  
 
    ```sh
    pwd
@@ -136,5 +136,5 @@ nimble dump futhark
 - First step is done.
 1. Add SDL2 example.
 1. Whether can it do `nimble install imguin` ?
-
+1. Make CMakeLists.txt for Visual Studio 
 
