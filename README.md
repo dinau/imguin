@@ -55,7 +55,7 @@
    git clone --recursive https://github.com/dinau/imguin
    ```
 
-2. Sample program is here, [examples](examples).  
+1. Sample program is here, [examples](examples).  
 For instance, [imguin_glfw_opengl3.nim](examples/glfw_opengl3/imguin_glfw_opengl3.nim):
 
    ```sh
@@ -64,6 +64,8 @@ For instance, [imguin_glfw_opengl3.nim](examples/glfw_opengl3/imguin_glfw_opengl
    ```
 
    After build, run `./imguin_glfw_opengl3(.exe)`.
+
+1. For static link, read this [examples/README.md](examples/README.md). 
 
 ### Screen shot
 
@@ -116,24 +118,14 @@ nimble dump futhark
    git submodule update --init --recursive
    ```
 
-1. Update definition file[(cimguiDefs.nim)](src/cimguiDefs.nim) for ImGui/CImGui uisng [Futhark](https://github.com/PMunch/futhark),
+1. Update definition file[(cimguiDefs.nim)](src/cimguiDefs.nim) uisng [Futhark](https://github.com/PMunch/futhark),
 
    ```sh
    pwd
    imguin
    cd src/updater
+   make
    ```
-
-   - Windows OS
-
-      ```sh
-      update_imguin.bat
-      ```
-   - Other OS
-
-      ```sh
-      make
-      ```
 
 1. ImGui/CImGui version is **v1.89.3** at this time. (2023/03)
 

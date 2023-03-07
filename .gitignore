@@ -1,3 +1,4 @@
+./Makefile
 # Created by https://www.gitignore.io/api/c,nim,osx,c++,linux,macos,windows,visualstudiocode
 .hg
 dll/

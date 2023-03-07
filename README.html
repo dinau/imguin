@@ -101,6 +101,9 @@ For instance, <a href="examples/glfw_opengl3/imguin_glfw_opengl3.nim">imguin_glf
 make</pre></div>
 <p>After build, run <code>./imguin_glfw_opengl3(.exe)</code>.</p>
 </li>
+<li>
+<p>For static link, read this <a href="examples/README.md">examples/README.md</a>.</p>
+</li>
 </ol>
 <h3><a id="user-content-screen-shot" class="anchor" aria-hidden="true" href="#screen-shot"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screen shot</h3>
 <hr>
@@ -137,20 +140,11 @@ imguin
 git submodule update --init --recursive</pre></div>
 </li>
 <li>
-<p>Update definition file<a href="src/cimguiDefs.nim">(cimguiDefs.nim)</a> for ImGui/CImGui uisng <a href="https://github.com/PMunch/futhark">Futhark</a>,</p>
+<p>Update definition file<a href="src/cimguiDefs.nim">(cimguiDefs.nim)</a> uisng <a href="https://github.com/PMunch/futhark">Futhark</a>,</p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">pwd</span>
 imguin
-<span class="pl-c1">cd</span> src/updater</pre></div>
-<ul>
-<li>
-<p>Windows OS</p>
-<div class="highlight highlight-source-shell"><pre>update_imguin.bat</pre></div>
-</li>
-<li>
-<p>Other OS</p>
-<div class="highlight highlight-source-shell"><pre>make</pre></div>
-</li>
-</ul>
+<span class="pl-c1">cd</span> src/updater
+make</pre></div>
 </li>
 <li>
 <p>ImGui/CImGui version is <strong>v1.89.3</strong> at this time. (2023/03)</p>

@@ -6,7 +6,6 @@ endif
 
 .PHONY: clean run dll ver gitup info danger release futhark
 
-OPT += --maxLoopIterationsVM:90000000
 #OPT += --verbosity:2
 
 all:
@@ -17,9 +16,6 @@ danger:
 
 rel:
 	nim c -d:relese $(OPT) $(TARGET).nim
-
-futhark:
-	nim c -d:relese -d:useFuthark -d:futharkRebuild $(OPT) $(TARGET).nim
 
 clean:
 	@-rm -fr .nimcache
