@@ -29,14 +29,15 @@ else:
 #
 {.passC:"-I" & ImguiRootPath.}
 {.compile:joinPath(CImguiRootPath,"cimgui.cpp").}
+when true:
 #
-{.compile:joinPath(ImguiRootPath,"imgui.cpp").}
-{.compile:joinPath(ImguiRootPath,"imgui_demo.cpp").}
-{.compile:joinPath(ImguiRootPath,"imgui_draw.cpp").}
-{.compile:joinPath(ImguiRootPath,"imgui_tables.cpp").}
-{.compile:joinPath(ImguiRootPath,"imgui_widgets.cpp").}
+  {.compile:joinPath(ImguiRootPath,"imgui.cpp").}
+  {.compile:joinPath(ImguiRootPath,"imgui_demo.cpp").}
+  {.compile:joinPath(ImguiRootPath,"imgui_draw.cpp").}
+  {.compile:joinPath(ImguiRootPath,"imgui_tables.cpp").}
+  {.compile:joinPath(ImguiRootPath,"imgui_widgets.cpp").}
 #
-{.compile:joinPath(ImguiRootPath,"backends/imgui_impl_glfw.cpp").}
-{.compile:joinPath(ImguiRootPath,"backends/imgui_impl_opengl3.cpp").}
+  {.compile:joinPath(ImguiRootPath,"backends/imgui_impl_glfw.cpp").}
+  {.compile:joinPath(ImguiRootPath,"backends/imgui_impl_opengl3.cpp").}
 
 
