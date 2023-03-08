@@ -20,7 +20,7 @@ OPT ?=
 
 NIMCACHE = .nimcache
 
-.PHONY:clean
+.PHONY:clean cimgui_update
 
 MV = mv
 RM = rm
@@ -32,14 +32,24 @@ MV = $(CMD) move
 RM = $(CMD) del /q
 endif
 
-all:
+all: glfw_opengl sdl2_opengl
+
+glfw_opengl: cimgui_update
+	nim c -f $(OPT) $(TARGET)_$@.nim
+	@$(MV) $@_$(CIMGUI_DEFS) ../../src/imguin/
+	@$(RM)  $(TARGET)_$@$(EXE)
+
+sdl2_opengl: cimgui_update
+	nim c -f $(OPT) $(TARGET)_$@.nim
+	@$(MV) $@_$(CIMGUI_DEFS) ../../src/imguin/
+	@$(RM)  $(TARGET)_$@$(EXE)
+
+cimgui_update:
 	@($(CD_CIMGUI_DIR); git checkout docking_inter )
 	@($(CD_CIMGUI_DIR); git pull )
 	@$(CHECK_OUT)
 	@($(CD_CIMGUI_DIR); git submodule update --init --recursive)
-	nim c -f $(OPT) $(TARGET).nim
-	@$(MV) $(CIMGUI_DEFS) ../../src/
-	@$(RM)  $(TARGET)$(EXE)
+
 
 ifeq ($(OS),Windows_NT)
 clean:
