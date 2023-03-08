@@ -1,0 +1,131 @@
+import glad/gl
+import sdl2_nim/sdl
+#
+import imguin/sdl2_opengl
+include ../utils/setupFont
+
+proc main() =
+  if sdl.init(sdl.InitVideo) != 0:
+    echo "ERROR: Can't initialize SDL: ", sdl.getError()
+    quit -1
+
+  discard sdl.glSetAttribute(GLattr.GL_CONTEXT_FLAGS, 0)
+  discard sdl.glSetAttribute(GLattr.GL_CONTEXT_PROFILE_MASK, GL_CONTEXT_PROFILE_CORE)
+  discard sdl.glSetAttribute(GLattr.GL_CONTEXT_MAJOR_VERSION, 3)
+  discard sdl.glSetAttribute(GLattr.GL_CONTEXT_MINOR_VERSION, 3)
+
+  discard sdl.setHint(HINT_RENDER_DRIVER, "opengl")
+  discard sdl.glSetAttribute(GLattr.GL_DEPTH_SIZE, 24)
+  discard sdl.glSetAttribute(GLattr.GL_STENCIL_SIZE, 8)
+  discard sdl.glSetAttribute(GLattr.GL_DOUBLEBUFFER, 1)
+  var current: DisplayMode
+  discard sdl.getCurrentDisplayMode(0, addr current)
+  #echo current.repr
+
+  var window = sdl.createWindow(
+        "Hello", 30, 30, 1024, 768,
+        WINDOW_SHOWN or WINDOW_OPENGL or WINDOW_RESIZABLE)
+  if isNil window:
+    echo "Fail to create window: ", sdl.getError()
+    quit -1
+
+  var gl_context = glCreateContext(window)
+  discard glSetSwapInterval(1)
+
+  if not gladLoadGL(glGetProcAddress):
+    sdl.log("opengl version: ", glGetString(GL_VERSION))
+    quit "Error initialising OpenGL"
+
+  # setup imgui
+  discard igCreateContext(nil)
+  defer: igDestroyContext(nil)
+
+  var pio = sdl2_opengl.igGetIO()
+
+  var glsl_version: cstring = "#version 150"
+  doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SdlWindow](window), addr glsl_version)
+  defer: ImGui_ImplSDL2_Shutdown()
+  doAssert ImGui_ImplOpenGL3_Init(glsl_version)
+  defer: ImGui_ImplOpenGL3_Shutdown()
+
+  igStyleColorsDark(nil)
+
+  var showDemoWindow = true
+  var showAnotherWindow = false
+  var clearColor = ImVec4(x: 0.45, y: 0.55, z: 0.60, w: 1.00)
+
+  var fval = 0.5f
+  var counter = 0
+  var col: array[3, cfloat] = [0.45f, 0.55f, 0.60f]
+  var xQuit: bool
+
+  # Add multibyte font
+  var (sActiveFontName, sActiveFontTitle) = setupFonts()
+
+  # Main loop
+  while not xQuit:
+    var event: Event
+    while 0 != sdl.pollevent(addr event):
+      discard ImGui_ImplSDL2_ProcessEvent(cast[ptr SdlEvent](addr event))
+      if event.kind == QUIT:
+        xQuit = true
+      if event.kind == WINDOWEVENT and event.window.event ==
+          WINDOWEVENT_CLOSE and
+        event.window.windowID == sdl.getWindowID(window):
+        xQuit = true
+
+    # start imgui frame
+    ImGui_ImplOpenGL3_NewFrame()
+    ImGui_ImplSdl2_NewFrame()
+    igNewFrame()
+
+    if showDemoWindow:
+      igShowDemoWindow(addr showDemoWindow)
+
+    # show a simple window that we created ourselves.
+    block:
+      discard igBegin("Nim: Dear ImGui test with Futhark", nil, 0)
+      igText("This is some useful text")
+      discard igCheckbox("Demo window", addr showDemoWindow)
+      discard igCheckbox("Another window", addr showAnotherWindow)
+      discard igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)
+      discard igColorEdit3("clear color", col,
+          ImGuiColorEditFlags_None.ImGuiColorEditFlags)
+
+      if igButton("Button", ImVec2(x: 0.0f, y: 0.0f)):
+        inc counter
+      igSameLine(0.0f, -1.0f)
+      #
+      igText("counter = %d", counter)
+      #
+      igText("Application average %.3f ms/frame (%.1f FPS)",
+             1000.0f / pio.Framerate, pio.Framerate)
+      igEnd()
+
+    # show further samll window
+    if showAnotherWindow:
+      discard igBegin("imgui Another Window", addr showAnotherWindow, 0)
+      igText("Hello from imgui")
+      if igButton("Close me", ImVec2(x: 0.0f, y: 0.0f)):
+        showAnotherWindow = false
+      igEnd()
+
+    # render
+    igRender()
+    discard sdl.glMakeCurrent(window, gl_context)
+    glViewport(0, 0, (pio.DisplaySize.x).GLsizei, (pio.DisplaySize.y).GLsizei)
+    glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w)
+    glClear(GL_COLOR_BUFFER_BIT)
+    ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
+    sdl.glSwapWindow(window)
+
+  #---  end proc ---#
+  sdl.glDeleteContext(gl_context)
+  if not window.isNil:
+    sdl.destroyWindow(window)
+    window = nil
+  #--- end
+  sdl.quit()
+
+main()
+
