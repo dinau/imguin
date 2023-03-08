@@ -5,6 +5,6 @@
 #   $ nim cpp -r -d:danger -d:strip --nimcache:.nimcahce src/nimgl_test.nim
 
 import nimgl/[opengl, glfw]
-import imguin
+import imguin/glfw_opengl
 #
-echo "[ This is dummy program to make src/cimguiDefs.nim ]"
+echo "[ This is dummy program to make src/imguin/glfw_opengl_cimguiDefs.nim ]"
