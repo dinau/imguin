@@ -66,7 +66,7 @@
 </ul>
 
 <h1><a id="user-content-imguin" class="anchor" aria-hidden="true" href="#imguin"><span aria-hidden="true" class="octicon octicon-link"></span></a>ImGuin</h1>
-<p><a href="https://github.com/ocornut/imgui">Dear Imgui</a> wrapper using <a href="https://github.com/cimgui/cimgui">CImGui</a> with Nim language</p>
+<p><a href="https://github.com/ocornut/imgui">Dear Imgui</a> wrapper using <a href="https://github.com/cimgui/cimgui">CImGui</a> and <a href="https://github.com/PMunch/futhark">Futhark</a> with Nim language.</p>
 <p><strong>Under construction at this moment</strong></p>
 <h2><a id="user-content-usage-sample-program-and-run" class="anchor" aria-hidden="true" href="#usage-sample-program-and-run"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage: Sample program and run</h2>
 <hr>
@@ -136,7 +136,7 @@ nimble install --passL:<span class="pl-s"><span class="pl-pds">"</span>-L/usr/li
 <hr>
 <ul>
 <li>
-<p>Update to latest definition file<a href="src/cimguiDefs.nim">(cimguiDefs.nim)</a> uisng <a href="https://github.com/PMunch/futhark">Futhark</a>,</p>
+<p>Update to latest definition files uisng <a href="https://github.com/PMunch/futhark">Futhark</a>,</p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">pwd</span>
 imguin
 <span class="pl-c1">cd</span> src/updater
@@ -157,9 +157,10 @@ make CIMGUI_TAG=1.86</pre></div>
 <li>First step is done.</li>
 </ul>
 <ol>
-<li>Add SDL2 example.</li>
+<li>
+<del>Add SDL2 example.</del> Done. <a href="examples/sdl2_opengl3">examples/sdl2_opengl3</a>
+</li>
 <li>Whether can it do <code>nimble install imguin</code> ?</li>
-<li>Make CMakeLists.txt for Visual Studio</li>
 </ol>
 
         </article>
