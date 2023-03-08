@@ -15,7 +15,7 @@
 
 # ImGuin 
 
-[Dear Imgui](https://github.com/ocornut/imgui) wrapper using [CImGui](https://github.com/cimgui/cimgui) with Nim language
+[Dear Imgui](https://github.com/ocornut/imgui) wrapper using [CImGui](https://github.com/cimgui/cimgui) and [Futhark](https://github.com/PMunch/futhark) with Nim language.
 
 **Under construction at this moment**
 
@@ -110,7 +110,7 @@ nimble dump futhark
 
 ---
 
-- Update to latest definition file[(cimguiDefs.nim)](src/cimguiDefs.nim) uisng [Futhark](https://github.com/PMunch/futhark),
+- Update to latest definition files uisng [Futhark](https://github.com/PMunch/futhark),
 
    ```sh
    pwd
@@ -134,7 +134,6 @@ nimble dump futhark
 ---
 
 - First step is done.
-1. Add SDL2 example.
+1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](examples/sdl2_opengl3) 
 1. Whether can it do `nimble install imguin` ?
-1. Make CMakeLists.txt for Visual Studio 
 
