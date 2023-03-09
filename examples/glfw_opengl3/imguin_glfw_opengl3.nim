@@ -3,6 +3,7 @@ import glfw
 import glad/gl
 #
 import imguin/glfw_opengl
+include ../utils/setupFonts
 
 proc main() =
   glfw.initialize()
@@ -48,6 +49,10 @@ proc main() =
   var fval = 0.5f
   var counter = 0
   let col: array[3, cfloat] = [0.45f, 0.55f, 0.60f]
+
+
+  # Add multibyte font
+  var (sActiveFontName, sActiveFontTitle) = setupFonts()
 
   while not glfw.shouldClose(window):
     glfw.pollEvents()

@@ -9,7 +9,8 @@
   - [Update latest Dear ImGui and CImGui](#update-latest-dear-imgui-and-cimgui)
     - [Prerequisite](#prerequisite-1)
     - [Update ImGui/CImGui](#update-imguicimgui)
-    - [TODO](#todo)
+  - [Examples notice](#examples-notice)
+  - [TODO](#todo)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -129,11 +130,21 @@ nimble dump futhark
    make CIMGUI_TAG=1.86
    ```
 
-### TODO
+## Examples notice
+
+---
+- [examples/sdl2_opengl3](examples/sdl2_opengl3)  
+If you are on Windows OS **32bit**, you should get `SDL2.dll` for instance from [release-2.26.4](https://github.com/libsdl-org/SDL/releases/tag/release-2.26.4).  
+   1. Unzip [SDL2-2.26.4-win32-x86.zip](https://github.com/libsdl-org/SDL/releases/download/release-2.26.4/SDL2-2.26.4-win32-x86.zip)
+   2. Copy SDL2.dll to [examples/sdl2_opengl3](examples/sdl2_opengl3) folder.
+
+## TODO
 
 ---
 
-- First step is done.
+- First step is done. (2023/03)
 1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](examples/sdl2_opengl3) 
 1. Whether can it do `nimble install imguin` ?
+1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
+
 

@@ -7,7 +7,7 @@ import nimgl/[opengl, glfw]
 import imguin/glfw_opengl
 #
 import std/[strutils]
-include ../utils/setupFont
+include ../utils/setupFonts
 
 when defined(windows):
   import osDialog
@@ -59,7 +59,6 @@ proc main() =
   defer: ImGui_ImplGlfw_Shutdown()
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
   defer: ImGui_ImplOpenGL3_Shutdown()
-  #let io = igGetIO()
   #io.imeWindowHandle = glfwWin.getWin32Window()
   #
   glfwWin.winMain()
@@ -112,6 +111,7 @@ proc startSimpleWindow() =
   var somefloat {.global.} = 0.0'f32
   var counter {.global.} = 0'i32
   var sFnameSelected {.global.}: string
+  let pio = igGetIO()
   #
   let sTitle = "[ImGui: v$#](起動時フォント:$# - $#)" % [$igGetVersion(),
       sActiveFontTitle, sActiveFontName]
@@ -129,8 +129,8 @@ proc startSimpleWindow() =
     igSameLine(0.0f, -1.0f)
   igText("選択ファイル名 = %s", sFnameSelected.cstring)
   igText("描画フレームレート  %.3f ms/frame (%.1f FPS)"
-    , 1000.0f / igGetIO().Framerate, igGetIO().Framerate)
-  igText("経過時間 = %.1f [s]", counter.float32 / igGetIO().Framerate)
+    , 1000.0f / pio.Framerate, pio.Framerate)
+  igText("経過時間 = %.1f [s]", counter.float32 / pio.Framerate)
   counter.inc
   let delay = 600 * 3
   somefloat = (counter mod delay).float32 / delay.float32

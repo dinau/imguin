@@ -58,9 +58,10 @@
 <ul>
 <li><a href="#user-content-prerequisite-1">Prerequisite</a></li>
 <li><a href="#user-content-update-imguicimgui">Update ImGui/CImGui</a></li>
-<li><a href="#user-content-todo">TODO</a></li>
 </ul>
 </li>
+<li><a href="#user-content-examples-notice">Examples notice</a></li>
+<li><a href="#user-content-todo">TODO</a></li>
 </ul>
 </li>
 </ul>
@@ -151,16 +152,30 @@ imguin
 make CIMGUI_TAG=1.86</pre></div>
 </li>
 </ul>
-<h3><a id="user-content-todo" class="anchor" aria-hidden="true" href="#todo"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h3>
+<h2><a id="user-content-examples-notice" class="anchor" aria-hidden="true" href="#examples-notice"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples notice</h2>
 <hr>
 <ul>
-<li>First step is done.</li>
+<li>
+<a href="examples/sdl2_opengl3">examples/sdl2_opengl3</a><br>
+If you are on Windows OS <strong>32bit</strong>, you should get <code>SDL2.dll</code> for instance from <a href="https://github.com/libsdl-org/SDL/releases/tag/release-2.26.4">release-2.26.4</a>.
+<ol>
+<li>Unzip <a href="https://github.com/libsdl-org/SDL/releases/download/release-2.26.4/SDL2-2.26.4-win32-x86.zip">SDL2-2.26.4-win32-x86.zip</a>
+</li>
+<li>Copy SDL2.dll to <a href="examples/sdl2_opengl3">examples/sdl2_opengl3</a> folder.</li>
+</ol>
+</li>
+</ul>
+<h2><a id="user-content-todo" class="anchor" aria-hidden="true" href="#todo"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h2>
+<hr>
+<ul>
+<li>First step is done. (2023/03)</li>
 </ul>
 <ol>
 <li>
 <del>Add SDL2 example.</del> Done. <a href="examples/sdl2_opengl3">examples/sdl2_opengl3</a>
 </li>
 <li>Whether can it do <code>nimble install imguin</code> ?</li>
+<li>Whether can it use <code>cimgui.dll</code> ? (Now it can only be static link)</li>
 </ol>
 
         </article>

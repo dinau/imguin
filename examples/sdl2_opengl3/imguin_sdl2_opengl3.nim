@@ -2,7 +2,7 @@ import glad/gl
 import sdl2_nim/sdl
 #
 import imguin/sdl2_opengl
-include ../utils/setupFont
+include ../utils/setupFonts
 
 proc main() =
   if sdl.init(sdl.InitVideo) != 0:

@@ -18,7 +18,7 @@ type
                   ,string  # fontTitle
                   ,float)] # point
 when defined(windows):
-  const JpFontInfo = TFontInfo(
+  const fontInfo = TFontInfo(
        osRootDir: os.getEnv("windir") # get OS root
        ,fontDir: "fonts"
        ,fontTable: @[ # 以下全て有効にすると起動が遅くなる
@@ -29,7 +29,7 @@ when defined(windows):
         # ,("myricam.ttc","MyricaM",11.0)
          ])
 else: # For Debian/Ubuntu
-  const JpFontInfo = TFontInfo(
+  const fontInfo = TFontInfo(
         osRootDir: "/"
        ,fontDir: "usr/share/fonts"
        ,fontTable: @[
@@ -39,15 +39,16 @@ else: # For Debian/Ubuntu
 proc setupFonts*(): (string,string) =
   ## return font first file name
 
-  result = ("Default","Roboナントカ")
+  result =  ("Default","ProggyClean.ttf") #
   let io = igGetIO()
   var seqFontNames: seq[(string,string)]
-  for (fontName,fontTitle,point) in JpfontInfo.fontTable:
-    let fontFullPath = os.joinPath(JpFontInfo.osRootDir, JpFontInfo.fontDir, fontName)
+  for (fontName,fontTitle,point) in fontInfo.fontTable:
+    let fontFullPath = os.joinPath(fontInfo.osRootDir, fontInfo.fontDir, fontName)
     if os.fileExists(fontFullPath):
       seqFontNames.add (fontName,fontTitle)
       # フォントを追加
       discard io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, point.point2px,
           nil, io.Fonts.ImFontAtlas_GetGlyphRangesJapanese());
-  result = (seqFontNames[0][0].extractFilename ,seqFontNames[0][1])
+  if seqFontNames.len > 0:
+    result = (seqFontNames[0][0].extractFilename ,seqFontNames[0][1])
 
