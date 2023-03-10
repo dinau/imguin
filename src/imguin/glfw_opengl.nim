@@ -16,8 +16,9 @@ when defined(useFuthark):
     "generator/output/cimgui_impl.h"
     outputPath "glfw_opengl_cimguiDefs.nim"
 else:
+  {.push discardable.}
   include "glfw_opengl_cimguiDefs.nim"
-#
-{.compile:joinPath(ImguiRootPath,"backends","imgui_impl_glfw.cpp").}
-
-include "sourceFiles.nim"
+  {.pop.}
+  #
+  {.compile:joinPath(ImguiRootPath,"backends","imgui_impl_glfw.cpp").}
+  include "sourceFiles.nim"

@@ -1,4 +1,3 @@
-include "header.nim"
 
 from macros import hint
 
@@ -17912,5 +17911,3 @@ else:
   static :
     hint("Declaration of " & "Imguiimplopengl3destroydeviceobjects" &
         " already exists, not redeclaring")
-
-include "footer.nim"

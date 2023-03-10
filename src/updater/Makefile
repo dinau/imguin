@@ -36,7 +36,7 @@ all: glfw_opengl_$(CIMGUI_DEFS) sdl2_opengl_$(CIMGUI_DEFS)
 
 %_$(CIMGUI_DEFS): updater_%.nim  cimgui_update
 	nim c -f -c  $(OPT) --nimcache:.nimcache_$@ $(<)
-	nim postProc.nims $@
+	@#nim postProc.nims $@
 	$(MV) $@ ../../src/imguin/
 
 #ifeq ($(OS),Windows_NT)
