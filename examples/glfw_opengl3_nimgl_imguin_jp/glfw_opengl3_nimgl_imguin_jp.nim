@@ -115,12 +115,12 @@ proc startSimpleWindow() =
   #
   let sTitle = "[ImGui: v$#](起動時フォント:$# - $#)" % [$igGetVersion(),
       sActiveFontTitle, sActiveFontName]
-  discard igBegin(sTitle.cstring, nil, 0)
+  igBegin(sTitle.cstring, nil, 0)
   defer: igEnd()
   #
   igText("これは日本語テキスト")
-  discard igCheckbox("デモ・ウインドウ表示", show_demo.addr)
-  discard igSliderFloat("浮動小数", somefloat.addr, 0.0f, 1.0f, "%3f", 0)
+  igCheckbox("デモ・ウインドウ表示", show_demo.addr)
+  igSliderFloat("浮動小数", somefloat.addr, 0.0f, 1.0f, "%3f", 0)
   when defined(windows):
     if igButton("ファイルを開く", ImVec2(x: 0, y: 0)):
       sFnameSelected = fileDialog(fdOpenFile, path = ".", filename = "*.*",

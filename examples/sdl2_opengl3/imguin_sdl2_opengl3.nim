@@ -18,6 +18,11 @@ proc main() =
   discard sdl.glSetAttribute(GLattr.GL_DEPTH_SIZE, 24)
   discard sdl.glSetAttribute(GLattr.GL_STENCIL_SIZE, 8)
   discard sdl.glSetAttribute(GLattr.GL_DOUBLEBUFFER, 1)
+  #
+  # Basic IME support. App needs to call 'SDL_SetHint(SDL_HINT_IME_SHOW_UI, "1");'
+  # before SDL_CreateWindow()!.
+  discard sdl.setHint("SDL_IME_SHOW_UI", "1") # SDL2: must be v2.0.18 or later
+  #
   var current: DisplayMode
   discard sdl.getCurrentDisplayMode(0, addr current)
   #echo current.repr
@@ -37,13 +42,14 @@ proc main() =
     quit "Error initialising OpenGL"
 
   # setup imgui
-  discard igCreateContext(nil)
+  igCreateContext(nil)
   defer: igDestroyContext(nil)
 
   var pio = sdl2_opengl.igGetIO()
 
   var glsl_version: cstring = "#version 150"
-  doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SdlWindow](window), addr glsl_version)
+  doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SdlWindow](window),
+      addr glsl_version)
   defer: ImGui_ImplSDL2_Shutdown()
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
   defer: ImGui_ImplOpenGL3_Shutdown()
@@ -66,7 +72,7 @@ proc main() =
   while not xQuit:
     var event: Event
     while 0 != sdl.pollevent(addr event):
-      discard ImGui_ImplSDL2_ProcessEvent(cast[ptr SdlEvent](addr event))
+      ImGui_ImplSDL2_ProcessEvent(cast[ptr SdlEvent](addr event))
       if event.kind == QUIT:
         xQuit = true
       if event.kind == WINDOWEVENT and event.window.event ==
@@ -84,12 +90,12 @@ proc main() =
 
     # show a simple window that we created ourselves.
     block:
-      discard igBegin("Nim: Dear ImGui test with Futhark", nil, 0)
+      igBegin("Nim: Dear ImGui test with Futhark", nil, 0)
       igText("This is some useful text")
-      discard igCheckbox("Demo window", addr showDemoWindow)
-      discard igCheckbox("Another window", addr showAnotherWindow)
-      discard igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)
-      discard igColorEdit3("clear color", col,
+      igCheckbox("Demo window", addr showDemoWindow)
+      igCheckbox("Another window", addr showAnotherWindow)
+      igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)
+      igColorEdit3("clear color", col,
           ImGuiColorEditFlags_None.ImGuiColorEditFlags)
 
       if igButton("Button", ImVec2(x: 0.0f, y: 0.0f)):
@@ -104,7 +110,7 @@ proc main() =
 
     # show further samll window
     if showAnotherWindow:
-      discard igBegin("imgui Another Window", addr showAnotherWindow, 0)
+      igBegin("imgui Another Window", addr showAnotherWindow, 0)
       igText("Hello from imgui")
       if igButton("Close me", ImVec2(x: 0.0f, y: 0.0f)):
         showAnotherWindow = false

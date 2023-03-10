@@ -1,11 +1,13 @@
 # For build test
 
+OPTIMIZE = # danger  # or rel
+
 .PHONY: clean
 
 all: clean
-	@make -C glfw_opengl3
-	@make -C glfw_opengl3_nimgl_imguin_jp
-	@make -C sdl2_opengl3
+	@make -C glfw_opengl3 $(OPTIMIZE)
+	@make -C glfw_opengl3_nimgl_imguin_jp $(OPTIMIZE)
+	@make -C sdl2_opengl3 $(OPTIMIZE)
 
 clean:
 	@make -C glfw_opengl3 clean

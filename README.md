@@ -10,7 +10,7 @@
     - [Prerequisite](#prerequisite-1)
     - [Update ImGui/CImGui](#update-imguicimgui)
   - [Examples notice](#examples-notice)
-  - [TODO](#todo)
+- [TODO](#todo)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -121,7 +121,7 @@ nimble dump futhark
    ```
    
    ImGui/CImGui version is **v1.89.3** at this time. (2023/03)
-- Update/Downgrade to the version that specified tag of CImGui,  
+- Update/Downgrade to the version that specified tag of CImGui for example,  
 
    ```sh
    pwd
@@ -134,16 +134,30 @@ nimble dump futhark
 
 ---
 - [examples/sdl2_opengl3](examples/sdl2_opengl3)  
-If you are on Windows OS **32bit**, you should get `SDL2.dll` for instance from [release-2.26.4](https://github.com/libsdl-org/SDL/releases/tag/release-2.26.4).  
-   1. Unzip [SDL2-2.26.4-win32-x86.zip](https://github.com/libsdl-org/SDL/releases/download/release-2.26.4/SDL2-2.26.4-win32-x86.zip)
-   2. Copy SDL2.dll to [examples/sdl2_opengl3](examples/sdl2_opengl3) folder.
+   1. If you are on Windows OS **32bit**, you should get `SDL2.dll` for instance from [release-2.26.4](https://github.com/libsdl-org/SDL/releases/tag/release-2.26.4).  
+      1. Unzip [SDL2-2.26.4-win32-x86.zip](https://github.com/libsdl-org/SDL/releases/download/release-2.26.4/SDL2-2.26.4-win32-x86.zip)
+      1. Copy SDL2.dll to [examples/sdl2_opengl3](examples/sdl2_opengl3) folder.
+   1. On Windows OS, it needs dev tool to compile SDL2 app.  
+      [SDL2-devel-2.26.4-mingw.zip](https://github.com/libsdl-org/SDL/releases/download/release-2.26.4/SDL2-devel-2.26.4-mingw.zip)  
+      for instance "SDL.h","-lSDL2.dll"(libSDL2.dll.a) etc  
+      and anywhere else add below description,
 
-## TODO
+      ```nim
+      {.passC:"-Id:/msys32/mingw32/include/SDL2".}
+      {.passL:"-Ld:/msys32/mingw32/lib -lSDL2.dll".}
+      ```
+
+      you need to properly change the folder name depending on your settings.  
+      See [src/imguin/sdl2_opengl.nim](src/imguin/sdl2_opengl.nim)
+
+
+# TODO
 
 ---
 
 - First step is done. (2023/03)
 1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](examples/sdl2_opengl3) 
+1. Easier compilation for SDL2 app.
 1. Whether can it do `nimble install imguin` ?
 1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
 

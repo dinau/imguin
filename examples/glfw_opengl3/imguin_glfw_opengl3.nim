@@ -35,7 +35,7 @@ proc main() =
   echo "OpenGL Version: $#" % [$cast[cstring](glGetString(GL_VERSION))]
 
   # setup imgui
-  discard igCreateContext(nil)
+  igCreateContext(nil)
   #
   var pio = igGetIO()
 
@@ -67,12 +67,12 @@ proc main() =
 
     # show a simple window that we created ourselves.
     block:
-      discard igBegin("Nim: Dear ImGui test with Futhark", nil, 0)
+      igBegin("Nim: Dear ImGui test with Futhark", nil, 0)
       igText("This is some useful text")
-      discard igCheckbox("Demo window", addr showDemoWindow)
-      discard igCheckbox("Another window", addr showAnotherWindow)
-      discard igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)
-      discard igColorEdit3("clear color", col, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
+      igCheckbox("Demo window", addr showDemoWindow)
+      igCheckbox("Another window", addr showAnotherWindow)
+      igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)
+      igColorEdit3("clear color", col, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
 
       if igButton("Button".cstring, ImVec2(x: 0.0f, y: 0.0f)):
       #if igSmallButton("Button"):
@@ -87,7 +87,7 @@ proc main() =
 
     # show further samll window
     if showAnotherWindow:
-      discard igBegin("imgui Another Window", addr showAnotherWindow, 0)
+      igBegin("imgui Another Window", addr showAnotherWindow, 0)
       igText("Hello from imgui")
       if igButton("Close me".cstring, ImVec2(x: 0.0f, y: 0.0f)):
       #if igSmallButton("Close me".cstring):

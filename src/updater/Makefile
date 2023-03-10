@@ -32,17 +32,18 @@ MV = $(CMD) move
 RM = $(CMD) del /q
 endif
 
-all: glfw_opengl sdl2_opengl
+all: glfw_opengl_$(CIMGUI_DEFS) sdl2_opengl_$(CIMGUI_DEFS)
 
-glfw_opengl: cimgui_update
-	nim c -f $(OPT) $(TARGET)_$@.nim
-	@$(MV) $@_$(CIMGUI_DEFS) ../../src/imguin/
-	@$(RM)  $(TARGET)_$@$(EXE)
+%_$(CIMGUI_DEFS): updater_%.nim  cimgui_update
+	nim c -f -c  $(OPT) --nimcache:.nimcache_$@ $(<)
+	nim postProc.nims $@
+	$(MV) $@ ../../src/imguin/
 
-sdl2_opengl: cimgui_update
-	nim c -f $(OPT) $(TARGET)_$@.nim
-	@$(MV) $@_$(CIMGUI_DEFS) ../../src/imguin/
-	@$(RM)  $(TARGET)_$@$(EXE)
+#ifeq ($(OS),Windows_NT)
+#	@$(CMD) rmdir /q /s $(NIMCACHE)
+#else
+#	@$(RM) -fr $(NIMCACHE)
+#endif
 
 cimgui_update:
 	@($(CD_CIMGUI_DIR); git checkout docking_inter )
@@ -53,8 +54,8 @@ cimgui_update:
 
 ifeq ($(OS),Windows_NT)
 clean:
-	@$(CMD) rmdir /q /s $(NIMCACHE)
+	@$(CMD) rmdir /q /s .nimcache_*
 else
 clean:
-	@$(RM) -fr $(NIMCACHE)
+	@$(RM) -fr .nimcache_*
 endif

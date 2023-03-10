@@ -3,6 +3,7 @@
 .hg
 dll/
 .nimcache
+.nimcache*
 ### C ###
 # Prerequisites
 *.d
