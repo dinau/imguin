@@ -1,6 +1,3 @@
-
-#
-{.passC:"-D IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1".}
 when defined(windows):
   {.passC:"""  -DIMGUI_IMPL_API="extern \"C\" __declspec(dllexport)"  """.}
 else:
@@ -18,6 +15,3 @@ when true:
   {.compile:joinPath(ImguiRootPath,"imgui_tables.cpp").}
   {.compile:joinPath(ImguiRootPath,"imgui_widgets.cpp").}
 #
-#
-
-

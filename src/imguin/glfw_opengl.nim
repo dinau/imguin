@@ -9,6 +9,7 @@ when defined(useFuthark):
   importc:
     syspath ClangIncludePath
     path    CImguiRootPath
+    define IMGUI_DISABLE_OBSOLETE_FUNCTIONS
     define CIMGUI_DEFINE_ENUMS_AND_STRUCTS
     "cimgui.h"
     define CIMGUI_USE_GLFW

@@ -10,7 +10,9 @@
     - [Prerequisite](#prerequisite-1)
     - [Update ImGui/CImGui](#update-imguicimgui)
   - [Examples notice](#examples-notice)
-- [TODO](#todo)
+    - [TODO](#todo)
+    - [My tools version](#my-tools-version)
+    - [Other link](#other-link)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -151,7 +153,7 @@ nimble dump futhark
       See [src/imguin/sdl2_opengl.nim](src/imguin/sdl2_opengl.nim)
 
 
-# TODO
+### TODO
 
 ---
 
@@ -160,5 +162,35 @@ nimble dump futhark
 1. Easier compilation for SDL2 app.
 1. Whether can it do `nimble install imguin` ?
 1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
+1. Can it compile with MSVC (--cc:vcc) ?
 
 
+### My tools version
+
+---
+
+Windows10
+- clang version 15.0.7 (MinGW)
+- gcc (Rev10, Built by MSYS2 project) 12.2.0 (MinGW)
+- git version 2.39.2.windows.1
+- Nim Compiler Version 1.6.12
+- futhark 0.9.1
+- SDL2.dll: SDL-release-2.26.4-0-g07d0f51fa (MinGW)
+
+
+### Other link
+
+---
+
+- File Dialog
+   - [Cross Platform File Dialog for Dear-ImGui ](https://github.com/gallickgunner/ImGui-Addons)
+   - [ImGui File Dialogs - CLI and Client Library](https://github.com/time-killer-games/libfiledialogs)
+   - [A Dear ImGui based File Dialog without any extra dependencies](https://github.com/Julianiolo/ImGuiFD)
+- Other
+   - [Node Editor built using Dear ImGui](https://github.com/thedmd/imgui-node-editor)
+- GUI
+   - [nuklear-nim (Public archived)](https://github.com/zacharycarter/nuklear-nim)
+
+- Graphical
+  - [Immediate Mode Plotting](https://github.com/epezent/implot)  
+     ![alt](https://raw.githubusercontent.com/wiki/epezent/implot/screenshots3/stem.gif)

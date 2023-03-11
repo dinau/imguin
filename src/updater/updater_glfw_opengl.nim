@@ -7,4 +7,4 @@
 import nimgl/[opengl, glfw]
 import imguin/glfw_opengl
 #
-echo "[ This is dummy program to make src/imguin/glfw_opengl_cimguiDefs.nim ]"
+echo "[ This is dummy program to update src/imguin/glfw_opengl_cimguiDefs.nim ]"
