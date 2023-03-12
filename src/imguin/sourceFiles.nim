@@ -1,9 +1,11 @@
+
+{.passC:"-DIMGUI_DISABLE_OBSOLETE_FUNCTIONS=1".}
+
 when defined(windows):
   {.passC:"""  -DIMGUI_IMPL_API="extern \"C\" __declspec(dllexport)"  """.}
 else:
   {.passC:""" -DIMGUI_IMPL_API="extern \"C\""  """.}
 
-#
 {.passC:"-I" & ImguiRootPath.}
 {.compile:joinPath(CImguiRootPath,"cimgui.cpp").}
 {.compile:joinPath(ImguiRootPath,"backends/imgui_impl_opengl3.cpp").}

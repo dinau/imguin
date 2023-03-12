@@ -3,10 +3,10 @@ import std/[os]
 #--------------
 # point2px
 #--------------
-proc point2px(point: float32): float32 =
+proc point2px(point: float32): cfloat =
   ## Convert point to pixel
 
-  (point * 96) / 72
+  ((point * 96) / 72).cfloat
 
 #--------------
 # setupFonts

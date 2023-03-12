@@ -3,19 +3,21 @@ const ClangIncludePath = "d:/msys32/mingw32/lib/clang/15.0.7/include"
 # Set root path of ImGui/CImGui
 const CImguiRootPath   = "../../src/private/cimgui"
 const ImguiRootPath    = joinPath(CImguiRootPath,"imgui")
+#const ImguiBackendsPath= joinPath(CImguiRootPath,"imgui","backends")
 
 when defined(useFuthark):
   import futhark
   importc:
     syspath ClangIncludePath
     path    CImguiRootPath
-    define CIMGUI_DEFINE_ENUMS_AND_STRUCTS
+    define "DIMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
+    define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
+    define "CIMGUI_DEFINE_ENUMS_AND_STRUCTS"
     "cimgui.h"
-    define CIMGUI_USE_SDL2
-    define CIMGUI_USE_OPENGL3
+    define "CIMGUI_USE_SDL2"
+    define "CIMGUI_USE_OPENGL3"
     "generator/output/cimgui_impl.h"
     outputPath "sdl2_opengl_cimguiDefs.nim"
-
 else:
   {.push discardable.}
   include "sdl2_opengl_cimguiDefs.nim"
@@ -31,6 +33,5 @@ else:
     discard # TODO
   #
   {.compile:joinPath(ImguiRootPath,"backends/imgui_impl_sdl2.cpp").}
-
   include "sourceFiles.nim"
 
