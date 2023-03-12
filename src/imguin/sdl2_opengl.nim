@@ -29,8 +29,9 @@ else:
     # https://github.com/libsdl-org/SDL/releases/download/release-2.26.4/SDL2-devel-2.26.4-mingw.zip
     {.passC:"-Id:/msys32/mingw32/include/SDL2".}
     {.passL:"-Ld:/msys32/mingw32/lib -lSDL2.dll".}
-  else: # for linux
-    discard # TODO
+  else: # for linux Debian 11 Bullseye
+    {.passC:"-I/usr/include/SDL2".}
+    {.passL:"-lSDL2".}
   #
   {.compile:joinPath(ImguiRootPath,"backends/imgui_impl_sdl2.cpp").}
   include "sourceFiles.nim"

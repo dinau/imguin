@@ -33,7 +33,7 @@
 1. Add libraries
 
    ```sh
-   nimble install glfw nimgl
+   nimble install glfw nimgl sdl2_nim
    ```
 
 1. For Linux Debian 11 Bullseye
@@ -46,6 +46,11 @@
 
       ```sh
       $ sudo apt install libglfw3 libglfw3-dev
+      ```
+      and for sdl2
+
+      ```sh
+      $ sudo apt install libsdl2-dev
       ```
 
 ### Build  
@@ -142,14 +147,14 @@ nimble dump futhark
    1. On Windows OS, it needs dev tool to compile SDL2 app.  
       [SDL2-devel-2.26.4-mingw.zip](https://github.com/libsdl-org/SDL/releases/download/release-2.26.4/SDL2-devel-2.26.4-mingw.zip)  
       for instance "SDL.h","-lSDL2.dll"(libSDL2.dll.a) etc  
-      and anywhere else add below description,
+      and change `src/imguin/sdl2_opengl.nim`
 
       ```nim
       {.passC:"-Id:/msys32/mingw32/include/SDL2".}
       {.passL:"-Ld:/msys32/mingw32/lib -lSDL2.dll".}
       ```
 
-      you need to properly change the folder name depending on your settings.  
+      you need to properly change the above folder name depending on your settings.  
       See [src/imguin/sdl2_opengl.nim](src/imguin/sdl2_opengl.nim)
 
 
@@ -164,19 +169,22 @@ nimble dump futhark
 1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
 1. Can it compile with MSVC (--cc:vcc) ?
 
-
 ### My tools version
 
 ---
 
-Windows10
+Windows10 (main)
 - clang version 15.0.7 (MinGW)
 - gcc (Rev10, Built by MSYS2 project) 12.2.0 (MinGW)
 - git version 2.39.2.windows.1
 - Nim Compiler Version 1.6.12
-- futhark 0.9.1
 - SDL2.dll: SDL-release-2.26.4-0-g07d0f51fa (MinGW)
 
+Debian 11 Bullseye (sub)
+- Debian clang version 11.0.1-2
+- gcc (Debian 10.2.1-6) 10.2.1 20210110
+- git version 2.30.2
+- Nim Compiler Version 1.6.10
 
 ### Other link
 
