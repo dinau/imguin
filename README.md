@@ -10,9 +10,9 @@
     - [Prerequisite](#prerequisite-1)
     - [Update ImGui/CImGui](#update-imguicimgui)
   - [Examples notice](#examples-notice)
-    - [TODO](#todo)
-    - [My tools version](#my-tools-version)
-    - [Other link](#other-link)
+  - [TODO](#todo)
+  - [My tools version](#my-tools-version)
+  - [Other link](#other-link)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -158,7 +158,7 @@ nimble dump futhark
       See [src/imguin/sdl2_opengl.nim](src/imguin/sdl2_opengl.nim)
 
 
-### TODO
+## TODO
 
 ---
 
@@ -169,7 +169,7 @@ nimble dump futhark
 1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
 1. Can it compile with MSVC (--cc:vcc) ?
 
-### My tools version
+## My tools version
 
 ---
 
@@ -185,8 +185,9 @@ Debian 11 Bullseye (sub)
 - gcc (Debian 10.2.1-6) 10.2.1 20210110
 - git version 2.30.2
 - Nim Compiler Version 1.6.10
+- SDL2 ver.2.0.14
 
-### Other link
+## Other link
 
 ---
 
