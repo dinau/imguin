@@ -18,14 +18,13 @@ proc main() =
   discard sdl.glSetAttribute(GLattr.GL_DEPTH_SIZE, 24)
   discard sdl.glSetAttribute(GLattr.GL_STENCIL_SIZE, 8)
   discard sdl.glSetAttribute(GLattr.GL_DOUBLEBUFFER, 1)
-  #
+
   # Basic IME support. App needs to call 'SDL_SetHint(SDL_HINT_IME_SHOW_UI, "1");'
   # before SDL_CreateWindow()!.
   discard sdl.setHint("SDL_IME_SHOW_UI", "1") # SDL2: must be v2.0.18 or later
-  #
+
   var current: DisplayMode
   discard sdl.getCurrentDisplayMode(0, addr current)
-  #echo current.repr
 
   var window = sdl.createWindow(
         "Hello", 30, 30, 1024, 768,
@@ -33,8 +32,11 @@ proc main() =
   if isNil window:
     echo "Fail to create window: ", sdl.getError()
     quit -1
+  defer:sdl.destroyWindow(window)
 
   var gl_context = glCreateContext(window)
+  defer:sdl.glDeleteContext(gl_context)
+
   discard glSetSwapInterval(1)
 
   if not gladLoadGL(glGetProcAddress):
@@ -48,25 +50,27 @@ proc main() =
   var pio = sdl2_opengl.igGetIO()
 
   var glsl_version: cstring = "#version 150"
-  doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SdlWindow](window),
-      addr glsl_version)
+  doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SdlWindow](window)
+                                      , addr glsl_version)
   defer: ImGui_ImplSDL2_Shutdown()
+
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
   defer: ImGui_ImplOpenGL3_Shutdown()
 
   igStyleColorsDark(nil)
 
-  var showDemoWindow = true
-  var showAnotherWindow = false
-  var clearColor = ImVec4(x: 0.45, y: 0.55, z: 0.60, w: 1.00)
+  var
+    showDemoWindow = true
+    showAnotherWindow = false
+    clearColor = ImVec4(x: 0.45, y: 0.55, z: 0.60, w: 1.00)
 
-  var fval = 0.5f
-  var counter = 0
-  var col: array[3, cfloat] = [0.45f, 0.55f, 0.60f]
-  var xQuit: bool
+    fval = 0.5f
+    counter = 0
+    col: array[3, cfloat] = [0.45f, 0.55f, 0.60f]
+    xQuit: bool
 
   # Add multibyte font
-  var (sActiveFontName, sActiveFontTitle) = setupFonts()
+  var (fExistMultbytesFonts, sActiveFontName, sActiveFontTitle) = setupFonts()
 
   # Main loop
   while not xQuit:
@@ -125,12 +129,6 @@ proc main() =
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
     sdl.glSwapWindow(window)
 
-  #---  end proc ---#
-  sdl.glDeleteContext(gl_context)
-  if not window.isNil:
-    sdl.destroyWindow(window)
-    window = nil
-  #--- end
   sdl.quit()
 
 main()

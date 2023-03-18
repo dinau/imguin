@@ -5,7 +5,7 @@
 
 import nimgl/[opengl, glfw]
 import imguin/glfw_opengl
-#
+
 import std/[strutils]
 include ../utils/setupFonts
 
@@ -21,6 +21,7 @@ var
   show_demo: bool = true # デモ表示 可否
   glfwWin: glfw.GLFWWindow
   sActiveFontName, sActiveFontTitle: string
+  fExistMultbytesFonts = false
 
 # Forward definition
 proc winMain(hWin: glfw.GLFWWindow)
@@ -33,34 +34,32 @@ proc main() =
   # GLFWの初期化 開始
   doAssert glfwInit()
   defer: glfwTerminate()
-  #
+
   glfwWindowHint(GLFWContextVersionMajor, 3)
   glfwWindowHint(GLFWContextVersionMinor, 3)
   glfwWindowHint(GLFWOpenglForwardCompat, GLFW_TRUE)
   glfwWindowHint(GLFWOpenglProfile, GLFW_OPENGL_CORE_PROFILE)
   glfwWindowHint(GLFWResizable, GLFW_FALSE)
-  #
+
   glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight)
   if glfwWin.isNil:
     quit(-1)
   glfwWin.makeContextCurrent()
   defer: glfwWin.destroyWindow()
-  #
+
   glfwSwapInterval(1) # Enable vsync 画面の更新頻度 CPU負荷を低減
-  #
+
   doAssert glInit()
   # ImGuiの初期化 開始
   let context = igCreateContext(nil)
   defer: context.igDestroyContext()
-  #
+
   # バックエンドは  GLFW + OpenGL
   const glsl_version = "#version 130" # GL 3.2 + GLSL 130
   doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr glfw_opengl.GlfwWindow]( glfwwin), true)
   defer: ImGui_ImplGlfw_Shutdown()
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
   defer: ImGui_ImplOpenGL3_Shutdown()
-  #io.imeWindowHandle = glfwWin.getWin32Window()
-  #
   glfwWin.winMain()
 
 #--------------
@@ -76,11 +75,11 @@ proc winMain(hWin: glfw.GLFWWindow) =
   #igStyleColorsCherry(nil)  # ダーク系3
   #
   # 日本語フォントを追加
-  (sActiveFontName, sActiveFontTitle) = setupFonts()
+  (fExistMultbytesFonts,sActiveFontName, sActiveFontTitle) = setupFonts()
   # メインループ
   while not hWin.windowShouldClose:
     glfwPollEvents()
-    #
+
     # start imgui frame
     ImGui_ImplOpenGL3_NewFrame()
     ImGui_ImplGlfw_NewFrame()
@@ -88,17 +87,17 @@ proc winMain(hWin: glfw.GLFWWindow) =
     # 動的にフォント変更するならここ
     #
     igNewFrame()
-    #
+
     if show_demo: # デモ画面の表示
       igShowDemoWindow(show_demo.addr)
-    #
+
     startSimpleWindow() # Simple window start
-    #
+
     igRender()
-    #
+
     glClearColor(0.45f, 0.55f, 0.60f, 1.00f) # 背景の色
     glClear(GL_COLOR_BUFFER_BIT)
-    #
+
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
     hWin.swapBuffers()
 
@@ -108,9 +107,10 @@ proc winMain(hWin: glfw.GLFWWindow) =
 proc startSimpleWindow() =
   ## 画面左の小さいWindowを描画
 
-  var somefloat {.global.} = 0.0'f32
-  var counter {.global.} = 0'i32
-  var sFnameSelected {.global.}: string
+  var
+    somefloat {.global.} = 0.0'f32
+    counter {.global.} = 0'i32
+    sFnameSelected {.global.}: string
   let pio = igGetIO()
   #
   let sTitle = "[ImGui: v$#](起動時フォント:$# - $#)" % [$igGetVersion(),

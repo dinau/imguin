@@ -4,7 +4,7 @@ OPTIMIZE = # danger  # or rel
 
 .PHONY: clean
 
-all: clean
+all:
 	@make -C glfw_opengl3 $(OPTIMIZE)
 	@make -C glfw_opengl3_nimgl_imguin_jp $(OPTIMIZE)
 	@make -C sdl2_opengl3 $(OPTIMIZE)

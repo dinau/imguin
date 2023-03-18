@@ -2,15 +2,24 @@
 
 TARGET = updater
 
-# CIMGUI_TAG is a tag which is shown `git tag` command in `src/private/cimgui` folder.
+# VER is a tag which is shown `git tag` command in `src/private/cimgui` folder.
 # For instance, you can execute by specifying the tag in `src/updater` folder as follows;
-# $ make CIMGUI_TAG=1.89.1
 #
-CIMGUI_TAG ?=
-ifeq ($(CIMGUI_TAG),)
+# $ make VER=1.89.1
+# or
+# $ make CIMGUI=1.89.3
+#
+VER ?=
+CIMGUI ?=
+
+ifneq ($(CIMGUI),)
+VER = $(CIMGUI)
+endif
+
+ifeq ($(VER),)
 CHECK_OUT =
 else
-CHECK_OUT = (cd ../private/cimgui; git checkout $(CIMGUI_TAG))
+CHECK_OUT = (cd ../private/cimgui; git checkout $(VER))
 endif
 CD_CIMGUI_DIR = cd ../private/cimgui
 
@@ -39,23 +48,17 @@ all: glfw_opengl_$(CIMGUI_DEFS) sdl2_opengl_$(CIMGUI_DEFS)
 	@#nim postProc.nims $@
 	$(MV) $@ ../../src/imguin/
 
-#ifeq ($(OS),Windows_NT)
-#	@$(CMD) rmdir /q /s $(NIMCACHE)
-#else
-#	@$(RM) -fr $(NIMCACHE)
-#endif
-
 cimgui_update:
-	@($(CD_CIMGUI_DIR); git checkout docking_inter )
-	@($(CD_CIMGUI_DIR); git pull )
-	@$(CHECK_OUT)
-	@($(CD_CIMGUI_DIR); git submodule update --init --recursive)
-
+	($(CD_CIMGUI_DIR); git checkout docking_inter )
+	($(CD_CIMGUI_DIR); git pull )
+	$(CHECK_OUT)
+	($(CD_CIMGUI_DIR); git submodule update --init --recursive)
 
 ifeq ($(OS),Windows_NT)
 clean:
-	@$(CMD) rmdir /q /s .nimcache_*
+	-$(CMD) rmdir /q /s .nimcache_glfw_opengl_cimguiDefs.nim
+	-$(CMD) rmdir /q /s .nimcache_sdl2_opengl_cimguiDefs.nim
 else
 clean:
-	@$(RM) -fr .nimcache_*
+	-$(RM) -fr .nimcache_*
 endif

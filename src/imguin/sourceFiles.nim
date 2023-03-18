@@ -1,8 +1,15 @@
+import std/[pegs]
 
 {.passC:"-DIMGUI_DISABLE_OBSOLETE_FUNCTIONS=1".}
 
 when defined(windows):
   {.passC:"""  -DIMGUI_IMPL_API="extern \"C\" __declspec(dllexport)"  """.}
+  # IME implement
+  const VAL_ENV = ["LC_ALL","LANG", "LC_CTYPE", "LANGUAGE"]
+  for val in VAL_ENV:
+      if getEnv(val).toLower =~ peg" 'ja' / 'jp' ":
+          {.passC:"-DIMGUI_ENABLE_WIN32_DEFAULT_IME_FUNCTIONS".}
+          break
 else:
   {.passC:""" -DIMGUI_IMPL_API="extern \"C\""  """.}
 
@@ -16,4 +23,4 @@ when true:
   {.compile:joinPath(ImguiRootPath,"imgui_draw.cpp").}
   {.compile:joinPath(ImguiRootPath,"imgui_tables.cpp").}
   {.compile:joinPath(ImguiRootPath,"imgui_widgets.cpp").}
-#
+

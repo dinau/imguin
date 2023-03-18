@@ -1,7 +1,7 @@
 import std/[strutils]
 import glfw
 import glad/gl
-#
+
 import imguin/glfw_opengl
 include ../utils/setupFonts
 
@@ -10,7 +10,7 @@ proc main() =
   defer: glfw.terminate()
 
   const glsl_version = "#version 130" # GL 3.2 + GLSL 130
-                                      #
+
   var cfg = DefaultOpenglWindowConfig
   cfg.size = (w: 1024, h: 768)
   cfg.title = "Simple example"
@@ -36,7 +36,7 @@ proc main() =
 
   # setup imgui
   igCreateContext(nil)
-  #
+
   var pio = igGetIO()
 
   doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr GlfwWindow](window.getHandle), true)
@@ -50,9 +50,8 @@ proc main() =
   var counter = 0
   let col: array[3, cfloat] = [0.45f, 0.55f, 0.60f]
 
-
-  # Add multibyte font
-  var (sActiveFontName, sActiveFontTitle) = setupFonts()
+  # Add multibytes font
+  var (fExistMultbytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
 
   while not glfw.shouldClose(window):
     glfw.pollEvents()
@@ -75,14 +74,10 @@ proc main() =
       igColorEdit3("clear color", col, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
 
       if igButton("Button".cstring, ImVec2(x: 0.0f, y: 0.0f)):
-      #if igSmallButton("Button"):
         inc counter
       igSameLine(0.0f, -1.0f)
-      #
       igText("counter = %d", counter)
-      #
-      igText("Application average %.3f ms/frame (%.1f FPS)",
-             1000.0f / pio.Framerate, pio.Framerate)
+      igText("Application average %.3f ms/frame (%.1f FPS)", (1000.0f / igGetIO().Framerate).cfloat, (igGetIO().Framerate).cfloat)
       igEnd()
 
     # show further samll window

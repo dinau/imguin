@@ -1,4 +1,5 @@
-import std/[os]
+import std/[os,strutils]
+
 const ClangIncludePath = "d:/msys32/mingw32/lib/clang/15.0.7/include"
 # Set root path of ImGui/CImGui
 const CImguiRootPath   = "../../src/private/cimgui"
@@ -10,7 +11,7 @@ when defined(useFuthark):
   importc:
     syspath ClangIncludePath
     path    CImguiRootPath
-    define "DIMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
+    #define "IMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
     define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
     define "CIMGUI_DEFINE_ENUMS_AND_STRUCTS"
     "cimgui.h"
@@ -22,6 +23,7 @@ else:
   {.push discardable.}
   include "glfw_opengl_cimguiDefs.nim"
   {.pop.}
-  #
+  # for glfw3
+  {.passC:"-I" & joinPath(staticExec("nimble path glfw").strip,"glfw","include").}
   {.compile:joinPath(ImguiRootPath,"backends","imgui_impl_glfw.cpp").}
   include "sourceFiles.nim"

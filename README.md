@@ -79,7 +79,7 @@ For instance, [imguin_glfw_opengl3.nim](examples/glfw_opengl3/imguin_glfw_opengl
 
 ---
 
-These are screen shots on Windows10.  
+These screen shots are on Windows10.  
 
 [glfw_opengl3](examples/glfw_opengl3).  
 ![alt](src/img/screenshot1.png)
@@ -127,14 +127,16 @@ nimble dump futhark
    make
    ```
    
-   ImGui/CImGui version is **v1.89.3** at this time. (2023/03)
+   ImGui/CImGui version is **v1.89.4** at this time. (2023/03)
 - Update/Downgrade to the version that specified tag of CImGui for example,  
 
    ```sh
    pwd
    imguin
    cd src/updater
-   make CIMGUI_TAG=1.86
+   make CIMGUI=1.86
+   or
+   make VER=1.86
    ```
 
 ## Examples notice
@@ -144,9 +146,9 @@ nimble dump futhark
    1. If you are on Windows OS **32bit**, you should get `SDL2.dll` for instance from [release-2.26.4](https://github.com/libsdl-org/SDL/releases/tag/release-2.26.4).  
       1. Unzip [SDL2-2.26.4-win32-x86.zip](https://github.com/libsdl-org/SDL/releases/download/release-2.26.4/SDL2-2.26.4-win32-x86.zip)
       1. Copy SDL2.dll to [examples/sdl2_opengl3](examples/sdl2_opengl3) folder.
-   1. On Windows OS, it needs dev tool to compile SDL2 app.  
+   1. On Windows OS, it needs dev tool to compile SDL2 app,  
       [SDL2-devel-2.26.4-mingw.zip](https://github.com/libsdl-org/SDL/releases/download/release-2.26.4/SDL2-devel-2.26.4-mingw.zip)  
-      for instance "SDL.h","-lSDL2.dll"(libSDL2.dll.a) etc  
+      for instance "SDL.h","-lSDL2.dll" etc  
       and change `src/imguin/sdl2_opengl.nim`
 
       ```nim

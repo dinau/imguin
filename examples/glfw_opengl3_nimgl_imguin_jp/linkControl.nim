@@ -22,8 +22,8 @@ else: # shared/dll
     switch "passL","-lglfw"
 
 when STATIC_LINK_CC: # gcc static link
-  switch "passC", "-static"
-  switch "passL", "-static"
+  switch "passC", "-static -static-libgcc"
+  switch "passL", "-static -static-libgcc"
 else:
   #switch "passL","-l:cimgui.lib -L."
   when defined(windows): # shared

@@ -4,7 +4,7 @@
 #---------------------------------------
 when defined(windows):
   const STATIC_LINK_GLFW = true
-  const STATIC_LINK_CC= true      #libstd++ or libc
+  const STATIC_LINK_CC = true      #libstd++ or libc
   switch "passL","-lgdi32 -limm32"
 else: # for Linux
   const STATIC_LINK_GLFW = false
@@ -21,7 +21,7 @@ else: # shared/dll
 
 when STATIC_LINK_CC: # gcc static link
   switch "passC", "-static"
-  switch "passL", "-static"
+  switch "passL", "-static -static-libgcc"
 else:
   #switch "passL","-l:cimgui.lib -L."
   when defined(windows): # shared

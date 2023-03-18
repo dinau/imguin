@@ -1,4 +1,16 @@
-./Makefile
+*.ini
+build-*
+org.html
+GPATH
+GRTAGS
+GTAGS
+test/
+README.html
+archive.bat
+main.c
+setenv.bat
+dllNize.nim
+.gitignore
 # Created by https://www.gitignore.io/api/c,nim,osx,c++,linux,macos,windows,visualstudiocode
 .hg
 dll/

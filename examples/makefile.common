@@ -1,0 +1,44 @@
+ifeq ($(OS),Windows_NT)
+	EXE = .exe
+endif
+TARGET_EXE = $(TARGET)$(EXE)
+
+.PHONY: clean run dll ver gitup info danger release futhark
+
+#OPT += --verbosity:2
+
+all: $(TARGET_EXE)
+
+%$(EXE): %.nim Makefile
+	nim c $(OPT) $(<)
+
+danger:
+	nim c -d:danger $(OPT) $(TARGET).nim
+
+rel:
+	nim c -d:relese $(OPT) $(TARGET).nim
+
+clean:
+	@-rm -fr .nimcache
+	@-rm $(TARGET_EXE)
+
+run: all
+	@#nimble run --verbose
+	./$(TARGET_EXE)
+
+info: dll ver
+
+dll:
+	@echo
+	@echo [dlls depend on]
+	@-strings $(TARGET_EXE) |  rg -i \.dll
+	@echo
+	@#echo [cimgui.dll version]
+	@#-strings cimgui.dll | rg -ie "^\d\.\d\d\.\d"
+ver:
+	@# version check
+	@echo [$(TARGET).nimlbe]
+	-@rg -ie "version\s+=.+" $(TARGET).nimble
+	@echo [version.nims]
+	-@rg -ie "\d\.\d\.\d" version.nims
+

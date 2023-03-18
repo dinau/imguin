@@ -36,10 +36,10 @@ else: # For Debian/Ubuntu
           ("opentype/ipafont-gothic/ipag.ttf","IPAゴシック",12.0)
          ,("opentype/ipafont-gothic/ipam.ttf","IPAゴシック M",12.0)])
 
-proc setupFonts*(): (string,string) =
+proc setupFonts*(): (bool,string,string) =
   ## return font first file name
 
-  result =  ("Default","ProggyClean.ttf") #
+  result =  (false,"Default","ProggyClean.ttf") #
   let io = igGetIO()
   var seqFontNames: seq[(string,string)]
   for (fontName,fontTitle,point) in fontInfo.fontTable:
@@ -47,8 +47,8 @@ proc setupFonts*(): (string,string) =
     if os.fileExists(fontFullPath):
       seqFontNames.add (fontName,fontTitle)
       # フォントを追加
-      discard io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, point.point2px,
+      io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, point.point2px,
           nil, io.Fonts.ImFontAtlas_GetGlyphRangesJapanese());
   if seqFontNames.len > 0:
-    result = (seqFontNames[0][0].extractFilename ,seqFontNames[0][1])
+    result = (true,seqFontNames[0][0].extractFilename ,seqFontNames[0][1])
 
