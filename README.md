@@ -132,8 +132,7 @@ nimble dump futhark
 
    ```sh
    pwd
-   imguin
-   cd src/updater
+   updater
    make CIMGUI=1.86
    or
    make VER=1.86
