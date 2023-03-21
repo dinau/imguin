@@ -1,5 +1,8 @@
 import std/[pegs]
 
+when not declared(strutils):
+  import strutils
+
 {.passC:"-DIMGUI_DISABLE_OBSOLETE_FUNCTIONS=1".}
 
 when defined(windows):
@@ -23,4 +26,12 @@ when true:
   {.compile:joinPath(ImguiRootPath,"imgui_draw.cpp").}
   {.compile:joinPath(ImguiRootPath,"imgui_tables.cpp").}
   {.compile:joinPath(ImguiRootPath,"imgui_widgets.cpp").}
+
+when defined(ImPlotEnable):
+  {.passC:"-I" & CImPlotRootPath.}
+  {.passC:"-I" & CImguiRootPath.}
+  {.compile:joinPath(CImPlotRootPath,"cimplot.cpp").}
+  {.compile:joinPath(CImPlotRootPath,"implot/implot.cpp").}
+  {.compile:joinPath(CImPlotRootPath,"implot/implot_demo.cpp").}
+  {.compile:joinPath(CImPlotRootPath,"implot/implot_items.cpp").}
 

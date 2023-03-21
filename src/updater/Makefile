@@ -41,11 +41,13 @@ MV = $(CMD) move
 RM = $(CMD) del /q
 endif
 
-all: glfw_opengl_$(CIMGUI_DEFS) sdl2_opengl_$(CIMGUI_DEFS)
+all: cimgui_update \
+			glfw_opengl_$(CIMGUI_DEFS) \
+			sdl2_opengl_$(CIMGUI_DEFS) \
+			cimplot_$(CIMGUI_DEFS)
 
-%_$(CIMGUI_DEFS): updater_%.nim  cimgui_update
+%_$(CIMGUI_DEFS): updater_%.nim
 	nim c -f -c  $(OPT) --nimcache:.nimcache_$@ $(<)
-	@#nim postProc.nims $@
 	$(MV) $@ ../../src/imguin/
 
 cimgui_update:

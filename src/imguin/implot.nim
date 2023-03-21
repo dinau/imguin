@@ -1,12 +1,11 @@
-import std/[os,strutils]
+import std/[os]
 
 const ClangIncludePath = "d:/msys32/mingw32/lib/clang/15.0.7/include"
-# Set root path of ImGui/CImGui
+# Set root path of ImGui/CImGui/ImPlot
 const CImguiRootPath   = "../../src/private/cimgui"
 const CImPlotRootPath  = "../../src/private/cimplot"
 const ImguiRootPath    = joinPath(CImguiRootPath,"imgui")
-#const ImguiBackendsPath= joinPath(CImguiRootPath,"imgui","backends")
-#
+
 when defined(useFuthark):
   import futhark
   importc:
@@ -16,17 +15,11 @@ when defined(useFuthark):
     #define "IMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
     define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
     define "CIMGUI_DEFINE_ENUMS_AND_STRUCTS"
-    "cimgui.h"
-    define "CIMGUI_USE_GLFW"
-    define "CIMGUI_USE_OPENGL3"
-    "generator/output/cimgui_impl.h"
     "cimplot.h"
-    outputPath "glfw_opengl_cimguiDefs.nim"
+    outputPath "cimplot_cimguiDefs.nim"
 else:
   {.push discardable.}
-  include "glfw_opengl_cimguiDefs.nim"
+  include "cimplot_cimguiDefs.nim"
   {.pop.}
-  # for glfw3
-  {.passC:"-I" & joinPath(staticExec("nimble path glfw").strip,"glfw","include").}
-  {.compile:joinPath(ImguiRootPath,"backends","imgui_impl_glfw.cpp").}
-  include "sourceFiles.nim"
+  include "cimplot_sourceFiles.nim"
+

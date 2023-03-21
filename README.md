@@ -19,8 +19,9 @@
 # ImGuin 
 
 [Dear Imgui](https://github.com/ocornut/imgui) wrapper using [CImGui](https://github.com/cimgui/cimgui) and [Futhark](https://github.com/PMunch/futhark) with Nim language.
+Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.com/cimgui/cimplot) module.
 
-**Under construction at this moment**
+**This project is under construction at this moment**
 
 ## Usage: Sample program and run
 
@@ -86,6 +87,9 @@ These screen shots are on Windows10.
 
 [glfw_opengl3_nimgl_imguin_jp](examples/glfw_opengl3_nimgl_imguin_jp).  
 ![alt](src/img/screenshot2.png)
+
+[glfw_opengl3_implot](examples/glfw_opengl3_implot).  
+![alt](src/img/implot1.png)
 
 ## Update latest Dear ImGui and CImGui
 
@@ -164,7 +168,7 @@ nimble dump futhark
 ---
 
 - First step is done. (2023/03)
-1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](examples/sdl2_opengl3) 
+1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](examples/sdl2_opengl3) (2023/03)
 1. Easier compilation for SDL2 app.
 1. Whether can it do `nimble install imguin` ?
 1. Whether can it use `cimgui.dll` ? (Now it can only be static link)

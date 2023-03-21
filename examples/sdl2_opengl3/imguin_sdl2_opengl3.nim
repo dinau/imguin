@@ -1,6 +1,6 @@
 import glad/gl
 import sdl2_nim/sdl
-#
+
 import imguin/sdl2_opengl
 include ../utils/setupFonts
 
@@ -27,7 +27,7 @@ proc main() =
   discard sdl.getCurrentDisplayMode(0, addr current)
 
   var window = sdl.createWindow(
-        "Hello", 30, 30, 1024, 768,
+        "Hello", 30, 30, 1024, 800,
         WINDOW_SHOWN or WINDOW_OPENGL or WINDOW_RESIZABLE)
   if isNil window:
     echo "Fail to create window: ", sdl.getError()
@@ -105,9 +105,7 @@ proc main() =
       if igButton("Button", ImVec2(x: 0.0f, y: 0.0f)):
         inc counter
       igSameLine(0.0f, -1.0f)
-      #
       igText("counter = %d", counter)
-      #
       igText("Application average %.3f ms/frame (%.1f FPS)",
              1000.0f / pio.Framerate, pio.Framerate)
       igEnd()

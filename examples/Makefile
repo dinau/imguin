@@ -1,18 +1,30 @@
 # For build test
 
-OPTIMIZE = # danger  # or rel
+OPTIMIZE ?= # danger  # or rel
+# make OPTIMIZE=danger  # example
 
 .PHONY: clean
 
+DIRS := glfw_opengl3 \
+	      glfw_opengl3_implot \
+	      glfw_opengl3_nimgl_imguin_jp \
+	      sdl2_opengl3
+
 all:
-	@make -C glfw_opengl3 $(OPTIMIZE)
-	@make -C glfw_opengl3_nimgl_imguin_jp $(OPTIMIZE)
-	@make -C sdl2_opengl3 $(OPTIMIZE)
+	$(foreach model,$(DIRS), $(call def_make,$(model) ) )
 
 clean:
-	@make -C glfw_opengl3 clean
-	@make -C glfw_opengl3_nimgl_imguin_jp clean
-	@make -C sdl2_opengl3 clean
+	$(foreach model,$(DIRS), $(call def_clean,$(model) ))
 
+# definition loop funciton
+define def_make
+	-@$(MAKE) -C $(1) $(OPTIMIZE)
+
+endef
+
+define def_clean
+	-@$(MAKE) -C $(1) clean
+
+endef
 
 MAKEFLAGS += --no-print-directory

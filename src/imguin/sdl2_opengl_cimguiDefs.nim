@@ -1150,91 +1150,91 @@ else:
     hint("Declaration of " & "structimguidockrequest" &
         " already exists, not redeclaring")
 type
-  Imdrawchannel_80740706 = structimdrawchannel_80740709 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:44:30
-  structimdrawchannel_80740708 {.pure, inheritable, bycopy.} = object
-    internalcmdbuffer*: Imvectorimdrawcmd_80741198 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1142:8
-    internalidxbuffer*: Imvectorimdrawidx_80741202
+  Imdrawchannel_63963489 = structimdrawchannel_63963492 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:44:30
+  structimdrawchannel_63963491 {.pure, inheritable, bycopy.} = object
+    internalcmdbuffer*: Imvectorimdrawcmd_63963981 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1142:8
+    internalidxbuffer*: Imvectorimdrawidx_63963985
 
-  Imdrawcmd_80740710 = structimdrawcmd_80740713 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:45:26
-  structimdrawcmd_80740712 {.pure, inheritable, bycopy.} = object
-    Cliprect*: Imvec4_80741100 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1115:8
-    Textureid*: Imtextureid_80741060
+  Imdrawcmd_63963493 = structimdrawcmd_63963496 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:45:26
+  structimdrawcmd_63963495 {.pure, inheritable, bycopy.} = object
+    Cliprect*: Imvec4_63963883 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1115:8
+    Textureid*: Imtextureid_63963843
     Vtxoffset*: cuint
     Idxoffset*: cuint
     Elemcount*: cuint
-    Usercallback*: Imdrawcallback_80741190
+    Usercallback*: Imdrawcallback_63963973
     Usercallbackdata*: pointer
 
-  Imdrawdata_80740714 = structimdrawdata_80740717 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:46:27
-  structimdrawdata_80740716 {.pure, inheritable, bycopy.} = object
-    Valid*: bool             ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1204:8
+  Imdrawdata_63963497 = structimdrawdata_63963500 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:46:27
+  structimdrawdata_63963499 {.pure, inheritable, bycopy.} = object
+    Valid*: bool             ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1204:8
     Cmdlistscount*: cint
     Totalidxcount*: cint
     Totalvtxcount*: cint
-    Cmdlists*: ptr ptr Imdrawlist_80740719
-    Displaypos*: Imvec2_80741096
-    Displaysize*: Imvec2_80741096
-    Framebufferscale*: Imvec2_80741096
-    Ownerviewport*: ptr Imguiviewport_80740838
+    Cmdlists*: ptr ptr Imdrawlist_63963502
+    Displaypos*: Imvec2_63963879
+    Displaysize*: Imvec2_63963879
+    Framebufferscale*: Imvec2_63963879
+    Ownerviewport*: ptr Imguiviewport_63963621
 
-  Imdrawlist_80740718 = structimdrawlist_80740721 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:47:27
-  structimdrawlist_80740720 {.pure, inheritable, bycopy.} = object
-    Cmdbuffer*: Imvectorimdrawcmd_80741198 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1186:8
-    Idxbuffer*: Imvectorimdrawidx_80741202
-    Vtxbuffer*: Imvectorimdrawvert_80741214
-    Flags*: Imdrawlistflags_80741012
+  Imdrawlist_63963501 = structimdrawlist_63963504 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:47:27
+  structimdrawlist_63963503 {.pure, inheritable, bycopy.} = object
+    Cmdbuffer*: Imvectorimdrawcmd_63963981 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1186:8
+    Idxbuffer*: Imvectorimdrawidx_63963985
+    Vtxbuffer*: Imvectorimdrawvert_63963997
+    Flags*: Imdrawlistflags_63963795
     internalvtxcurrentidx*: cuint
-    internaldata*: ptr Imdrawlistshareddata_80740723
+    internaldata*: ptr Imdrawlistshareddata_63963506
     internalownername*: cstring
-    internalvtxwriteptr*: ptr Imdrawvert_80740731
-    internalidxwriteptr*: ptr Imdrawidx_80741062
-    internalcliprectstack*: Imvectorimvec4_80741218
-    internaltextureidstack*: Imvectorimtextureid_80741222
-    internalpath*: Imvectorimvec2_80741226
-    internalcmdheader*: Imdrawcmdheader_80741192
-    internalsplitter*: Imdrawlistsplitter_80740727
+    internalvtxwriteptr*: ptr Imdrawvert_63963514
+    internalidxwriteptr*: ptr Imdrawidx_63963845
+    internalcliprectstack*: Imvectorimvec4_63964001
+    internaltextureidstack*: Imvectorimtextureid_63964005
+    internalpath*: Imvectorimvec2_63964009
+    internalcmdheader*: Imdrawcmdheader_63963975
+    internalsplitter*: Imdrawlistsplitter_63963510
     internalfringescale*: cfloat
 
-  Imdrawlistshareddata_80740722 = structimdrawlistshareddata_80740725 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:48:37
-  structimdrawlistshareddata_80740724 {.pure, inheritable, bycopy.} = object
-    Texuvwhitepixel*: Imvec2_80741096 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1533:8
-    Font*: ptr Imfont_80740735
+  Imdrawlistshareddata_63963505 = structimdrawlistshareddata_63963508 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:48:37
+  structimdrawlistshareddata_63963507 {.pure, inheritable, bycopy.} = object
+    Texuvwhitepixel*: Imvec2_63963879 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1533:8
+    Font*: ptr Imfont_63963518
     Fontsize*: cfloat
     Curvetessellationtol*: cfloat
     Circlesegmentmaxerror*: cfloat
-    Cliprectfullscreen*: Imvec4_80741100
-    Initialflags*: Imdrawlistflags_80741012
-    Tempbuffer*: Imvectorimvec2_80741226
-    Arcfastvtx*: array[48'i64, Imvec2_80741096]
+    Cliprectfullscreen*: Imvec4_63963883
+    Initialflags*: Imdrawlistflags_63963795
+    Tempbuffer*: Imvectorimvec2_63964009
+    Arcfastvtx*: array[48'i64, Imvec2_63963879]
     Arcfastradiuscutoff*: cfloat
-    Circlesegmentcounts*: array[64'i64, Imu8_80741068]
-    Texuvlines*: ptr Imvec4_80741100
+    Circlesegmentcounts*: array[64'i64, Imu8_63963851]
+    Texuvlines*: ptr Imvec4_63963883
 
-  Imdrawlistsplitter_80740726 = structimdrawlistsplitter_80740729 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:49:35
-  structimdrawlistsplitter_80740728 {.pure, inheritable, bycopy.} = object
-    internalcurrent*: cint   ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1149:8
+  Imdrawlistsplitter_63963509 = structimdrawlistsplitter_63963512 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:49:35
+  structimdrawlistsplitter_63963511 {.pure, inheritable, bycopy.} = object
+    internalcurrent*: cint   ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1149:8
     internalcount*: cint
-    internalchannels*: Imvectorimdrawchannel_80741206
+    internalchannels*: Imvectorimdrawchannel_63963989
 
-  Imdrawvert_80740730 = structimdrawvert_80740733 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:50:27
-  structimdrawvert_80740732 {.pure, inheritable, bycopy.} = object
-    pos*: Imvec2_80741096    ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1125:8
-    uv*: Imvec2_80741096
-    col*: Imu32_80741076
+  Imdrawvert_63963513 = structimdrawvert_63963516 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:50:27
+  structimdrawvert_63963515 {.pure, inheritable, bycopy.} = object
+    pos*: Imvec2_63963879    ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1125:8
+    uv*: Imvec2_63963879
+    col*: Imu32_63963859
 
-  Imfont_80740734 = structimfont_80740737 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:51:23
-  structimfont_80740736 {.pure, inheritable, bycopy.} = object
-    Indexadvancex*: Imvectorfloat_80741252 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1304:8
+  Imfont_63963517 = structimfont_63963520 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:51:23
+  structimfont_63963519 {.pure, inheritable, bycopy.} = object
+    Indexadvancex*: Imvectorfloat_63964035 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1304:8
     Fallbackadvancex*: cfloat
     Fontsize*: cfloat
-    Indexlookup*: Imvectorimwchar_80741168
-    Glyphs*: Imvectorimfontglyph_80741256
-    Fallbackglyph*: ptr Imfontglyph_80740751
-    Containeratlas*: ptr Imfontatlas_80740739
-    Configdata*: ptr Imfontconfig_80740747
+    Indexlookup*: Imvectorimwchar_63963951
+    Glyphs*: Imvectorimfontglyph_63964039
+    Fallbackglyph*: ptr Imfontglyph_63963534
+    Containeratlas*: ptr Imfontatlas_63963522
+    Configdata*: ptr Imfontconfig_63963530
     Configdatacount*: cshort
-    Fallbackchar*: Imwchar_80741086
-    Ellipsischar*: Imwchar_80741086
+    Fallbackchar*: Imwchar_63963869
+    Ellipsischar*: Imwchar_63963869
     Ellipsischarcount*: cshort
     Ellipsiswidth*: cfloat
     Ellipsischarstep*: cfloat
@@ -1243,12 +1243,12 @@ type
     Ascent*: cfloat
     Descent*: cfloat
     Metricstotalsurface*: cint
-    Used4kpagesmap*: array[2'i64, Imu8_80741068]
+    Used4kpagesmap*: array[2'i64, Imu8_63963851]
 
-  Imfontatlas_80740738 = structimfontatlas_80740741 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:52:28
-  structimfontatlas_80740740 {.pure, inheritable, bycopy.} = object
-    Flags*: Imfontatlasflags_80741014 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1275:8
-    Texid*: Imtextureid_80741060
+  Imfontatlas_63963521 = structimfontatlas_63963524 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:52:28
+  structimfontatlas_63963523 {.pure, inheritable, bycopy.} = object
+    Flags*: Imfontatlasflags_63963797 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1275:8
+    Texid*: Imtextureid_63963843
     Texdesiredwidth*: cint
     Texglyphpadding*: cint
     Locked*: bool
@@ -1259,24 +1259,24 @@ type
     Texpixelsrgba32*: ptr cuint
     Texwidth*: cint
     Texheight*: cint
-    Texuvscale*: Imvec2_80741096
-    Texuvwhitepixel*: Imvec2_80741096
-    Fonts*: Imvectorimfontptr_80741240
-    Customrects*: Imvectorimfontatlascustomrect_80741244
-    Configdata*: Imvectorimfontconfig_80741248
-    Texuvlines*: array[64'i64, Imvec4_80741100]
-    Fontbuilderio*: ptr Imfontbuilderio_80740743
+    Texuvscale*: Imvec2_63963879
+    Texuvwhitepixel*: Imvec2_63963879
+    Fonts*: Imvectorimfontptr_63964023
+    Customrects*: Imvectorimfontatlascustomrect_63964027
+    Configdata*: Imvectorimfontconfig_63964031
+    Texuvlines*: array[64'i64, Imvec4_63963883]
+    Fontbuilderio*: ptr Imfontbuilderio_63963526
     Fontbuilderflags*: cuint
     Packidmousecursors*: cint
     Packidlines*: cint
 
-  Imfontbuilderio_80740742 = structimfontbuilderio_80740745 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:53:32
-  structimfontbuilderio_80740744 {.pure, inheritable, bycopy.} = object
-    Fontbuilderbuild*: proc (a0: ptr Imfontatlas_80740739): bool {.cdecl.} ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:3044:8
+  Imfontbuilderio_63963525 = structimfontbuilderio_63963528 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:53:32
+  structimfontbuilderio_63963527 {.pure, inheritable, bycopy.} = object
+    Fontbuilderbuild*: proc (a0: ptr Imfontatlas_63963522): bool {.cdecl.} ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:3044:8
   
-  Imfontconfig_80740746 = structimfontconfig_80740749 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:54:29
-  structimfontconfig_80740748 {.pure, inheritable, bycopy.} = object
-    Fontdata*: pointer       ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1216:8
+  Imfontconfig_63963529 = structimfontconfig_63963532 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:54:29
+  structimfontconfig_63963531 {.pure, inheritable, bycopy.} = object
+    Fontdata*: pointer       ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1216:8
     Fontdatasize*: cint
     Fontdataownedbyatlas*: bool
     Fontno*: cint
@@ -1284,21 +1284,21 @@ type
     Oversampleh*: cint
     Oversamplev*: cint
     Pixelsnaph*: bool
-    Glyphextraspacing*: Imvec2_80741096
-    Glyphoffset*: Imvec2_80741096
-    Glyphranges*: ptr Imwchar_80741086
+    Glyphextraspacing*: Imvec2_63963879
+    Glyphoffset*: Imvec2_63963879
+    Glyphranges*: ptr Imwchar_63963869
     Glyphminadvancex*: cfloat
     Glyphmaxadvancex*: cfloat
     Mergemode*: bool
     Fontbuilderflags*: cuint
     Rasterizermultiply*: cfloat
-    Ellipsischar*: Imwchar_80741086
+    Ellipsischar*: Imwchar_63963869
     Name*: array[40'i64, cschar]
-    Dstfont*: ptr Imfont_80740735
+    Dstfont*: ptr Imfont_63963518
 
-  Imfontglyph_80740750 = structimfontglyph_80740753 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:55:28
-  structimfontglyph_80740752 {.pure, inheritable, bycopy.} = object
-    Colored*: cuint          ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1238:8
+  Imfontglyph_63963533 = structimfontglyph_63963536 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:55:28
+  structimfontglyph_63963535 {.pure, inheritable, bycopy.} = object
+    Colored*: cuint          ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1238:8
     Visible*: cuint
     Codepoint*: cuint
     Advancex*: cfloat
@@ -1311,29 +1311,29 @@ type
     U1*: cfloat
     V1*: cfloat
 
-  Imfontglyphrangesbuilder_80740754 = structimfontglyphrangesbuilder_80740757 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:56:41
-  structimfontglyphrangesbuilder_80740756 {.pure, inheritable, bycopy.} = object
-    Usedchars*: Imvectorimu32_80741230 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1249:8
+  Imfontglyphrangesbuilder_63963537 = structimfontglyphrangesbuilder_63963540 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:56:41
+  structimfontglyphrangesbuilder_63963539 {.pure, inheritable, bycopy.} = object
+    Usedchars*: Imvectorimu32_63964013 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1249:8
   
-  Imcolor_80740758 = structimcolor_80740761 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:57:24
-  structimcolor_80740760 {.pure, inheritable, bycopy.} = object
-    Value*: Imvec4_80741100  ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1110:8
+  Imcolor_63963541 = structimcolor_63963544 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:57:24
+  structimcolor_63963543 {.pure, inheritable, bycopy.} = object
+    Value*: Imvec4_63963883  ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1110:8
   
-  Imguicontext_80740762 = structimguicontext_80740765 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:58:29
-  structimguicontext_80740764 {.pure, inheritable, bycopy.} = object
-    Initialized*: bool       ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2358:8
+  Imguicontext_63963545 = structimguicontext_63963548 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:58:29
+  structimguicontext_63963547 {.pure, inheritable, bycopy.} = object
+    Initialized*: bool       ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2358:8
     Fontatlasownedbycontext*: bool
-    Io*: Imguiio_80740767
-    Platformio*: Imguiplatformio_80740798
-    Inputeventsqueue*: Imvectorimguiinputevent_80741544
-    Inputeventstrail*: Imvectorimguiinputevent_80741544
-    Style*: Imguistyle_80740818
-    Configflagscurrframe*: Imguiconfigflags_80741022
-    Configflagslastframe*: Imguiconfigflags_80741022
-    Font*: ptr Imfont_80740735
+    Io*: Imguiio_63963550
+    Platformio*: Imguiplatformio_63963581
+    Inputeventsqueue*: Imvectorimguiinputevent_63964327
+    Inputeventstrail*: Imvectorimguiinputevent_63964327
+    Style*: Imguistyle_63963601
+    Configflagscurrframe*: Imguiconfigflags_63963805
+    Configflagslastframe*: Imguiconfigflags_63963805
+    Font*: ptr Imfont_63963518
     Fontsize*: cfloat
     Fontbasesize*: cfloat
-    Drawlistshareddata*: Imdrawlistshareddata_80740723
+    Drawlistshareddata*: Imdrawlistshareddata_63963506
     Time*: cdouble
     Framecount*: cint
     Framecountended*: cint
@@ -1345,32 +1345,32 @@ type
     Gccompactall*: bool
     Testenginehookitems*: bool
     Testengine*: pointer
-    Windows*: Imvectorimguiwindowptr_80741502
-    Windowsfocusorder*: Imvectorimguiwindowptr_80741502
-    Windowstempsortbuffer*: Imvectorimguiwindowptr_80741502
-    Currentwindowstack*: Imvectorimguiwindowstackdata_80741548
-    Windowsbyid*: Imguistorage_80740814
+    Windows*: Imvectorimguiwindowptr_63964285
+    Windowsfocusorder*: Imvectorimguiwindowptr_63964285
+    Windowstempsortbuffer*: Imvectorimguiwindowptr_63964285
+    Currentwindowstack*: Imvectorimguiwindowstackdata_63964331
+    Windowsbyid*: Imguistorage_63963597
     Windowsactivecount*: cint
-    Windowshoverpadding*: Imvec2_80741096
-    Currentwindow*: ptr Imguiwindow_80740976
-    Hoveredwindow*: ptr Imguiwindow_80740976
-    Hoveredwindowundermovingwindow*: ptr Imguiwindow_80740976
-    Movingwindow*: ptr Imguiwindow_80740976
-    Wheelingwindow*: ptr Imguiwindow_80740976
-    Wheelingwindowrefmousepos*: Imvec2_80741096
+    Windowshoverpadding*: Imvec2_63963879
+    Currentwindow*: ptr Imguiwindow_63963759
+    Hoveredwindow*: ptr Imguiwindow_63963759
+    Hoveredwindowundermovingwindow*: ptr Imguiwindow_63963759
+    Movingwindow*: ptr Imguiwindow_63963759
+    Wheelingwindow*: ptr Imguiwindow_63963759
+    Wheelingwindowrefmousepos*: Imvec2_63963879
     Wheelingwindowstartframe*: cint
     Wheelingwindowreleasetimer*: cfloat
-    Wheelingwindowwheelremainder*: Imvec2_80741096
-    Wheelingaxisavg*: Imvec2_80741096
-    Debughookidinfo*: Imguiid_80741064
-    Hoveredid*: Imguiid_80741064
-    Hoveredidpreviousframe*: Imguiid_80741064
+    Wheelingwindowwheelremainder*: Imvec2_63963879
+    Wheelingaxisavg*: Imvec2_63963879
+    Debughookidinfo*: Imguiid_63963847
+    Hoveredid*: Imguiid_63963847
+    Hoveredidpreviousframe*: Imguiid_63963847
     Hoveredidallowoverlap*: bool
     Hoverediddisabled*: bool
     Hoveredidtimer*: cfloat
     Hoveredidnotactivetimer*: cfloat
-    Activeid*: Imguiid_80741064
-    Activeidisalive*: Imguiid_80741064
+    Activeid*: Imguiid_63963847
+    Activeidisalive*: Imguiid_63963847
     Activeidtimer*: cfloat
     Activeidisjustactivated*: bool
     Activeidallowoverlap*: bool
@@ -1378,58 +1378,58 @@ type
     Activeidhasbeenpressedbefore*: bool
     Activeidhasbeeneditedbefore*: bool
     Activeidhasbeeneditedthisframe*: bool
-    Activeidclickoffset*: Imvec2_80741096
-    Activeidwindow*: ptr Imguiwindow_80740976
-    Activeidsource*: Imguiinputsource_80741412
+    Activeidclickoffset*: Imvec2_63963879
+    Activeidwindow*: ptr Imguiwindow_63963759
+    Activeidsource*: Imguiinputsource_63964195
     Activeidmousebutton*: cint
-    Activeidpreviousframe*: Imguiid_80741064
+    Activeidpreviousframe*: Imguiid_63963847
     Activeidpreviousframeisalive*: bool
     Activeidpreviousframehasbeeneditedbefore*: bool
-    Activeidpreviousframewindow*: ptr Imguiwindow_80740976
-    Lastactiveid*: Imguiid_80741064
+    Activeidpreviousframewindow*: ptr Imguiwindow_63963759
+    Lastactiveid*: Imguiid_63963847
     Lastactiveidtimer*: cfloat
-    Keysownerdata*: array[140'i64, Imguikeyownerdata_80741460]
-    Keysroutingtable*: Imguikeyroutingtable_80741452
-    Activeidusingnavdirmask*: Imu32_80741076
+    Keysownerdata*: array[140'i64, Imguikeyownerdata_63964243]
+    Keysroutingtable*: Imguikeyroutingtable_63964235
+    Activeidusingnavdirmask*: Imu32_63963859
     Activeidusingallkeyboardkeys*: bool
-    Activeidusingnavinputmask*: Imu32_80741076
-    Currentfocusscopeid*: Imguiid_80741064
-    Currentitemflags*: Imguiitemflags_80741278
-    Debuglocateid*: Imguiid_80741064
-    Nextitemdata*: Imguinextitemdata_80740918
-    Lastitemdata*: Imguilastitemdata_80740894
-    Nextwindowdata*: Imguinextwindowdata_80740914
-    Colorstack*: Imvectorimguicolormod_80741552
-    Stylevarstack*: Imvectorimguistylemod_80741556
-    Fontstack*: Imvectorimfontptr_80741240
-    Focusscopestack*: Imvectorimguiid_80741560
-    Itemflagsstack*: Imvectorimguiitemflags_80741564
-    Groupstack*: Imvectorimguigroupdata_80741568
-    Openpopupstack*: Imvectorimguipopupdata_80741572
-    Beginpopupstack*: Imvectorimguipopupdata_80741572
+    Activeidusingnavinputmask*: Imu32_63963859
+    Currentfocusscopeid*: Imguiid_63963847
+    Currentitemflags*: Imguiitemflags_63964061
+    Debuglocateid*: Imguiid_63963847
+    Nextitemdata*: Imguinextitemdata_63963701
+    Lastitemdata*: Imguilastitemdata_63963677
+    Nextwindowdata*: Imguinextwindowdata_63963697
+    Colorstack*: Imvectorimguicolormod_63964335
+    Stylevarstack*: Imvectorimguistylemod_63964339
+    Fontstack*: Imvectorimfontptr_63964023
+    Focusscopestack*: Imvectorimguiid_63964343
+    Itemflagsstack*: Imvectorimguiitemflags_63964347
+    Groupstack*: Imvectorimguigroupdata_63964351
+    Openpopupstack*: Imvectorimguipopupdata_63964355
+    Beginpopupstack*: Imvectorimguipopupdata_63964355
     Beginmenucount*: cint
-    Viewports*: Imvectorimguiviewportpptr_80741576
+    Viewports*: Imvectorimguiviewportpptr_63964359
     Currentdpiscale*: cfloat
-    Currentviewport*: ptr Imguiviewportp_80741518
-    Mouseviewport*: ptr Imguiviewportp_80741518
-    Mouselasthoveredviewport*: ptr Imguiviewportp_80741518
-    Platformlastfocusedviewportid*: Imguiid_80741064
-    Fallbackmonitor*: Imguiplatformmonitor_80740802
+    Currentviewport*: ptr Imguiviewportp_63964301
+    Mouseviewport*: ptr Imguiviewportp_63964301
+    Mouselasthoveredviewport*: ptr Imguiviewportp_63964301
+    Platformlastfocusedviewportid*: Imguiid_63963847
+    Fallbackmonitor*: Imguiplatformmonitor_63963585
     Viewportfrontmoststampcount*: cint
-    Navwindow*: ptr Imguiwindow_80740976
-    Navid*: Imguiid_80741064
-    Navfocusscopeid*: Imguiid_80741064
-    Navactivateid*: Imguiid_80741064
-    Navactivatedownid*: Imguiid_80741064
-    Navactivatepressedid*: Imguiid_80741064
-    Navactivateflags*: Imguiactivateflags_80741272
-    Navjustmovedtoid*: Imguiid_80741064
-    Navjustmovedtofocusscopeid*: Imguiid_80741064
-    Navjustmovedtokeymods*: Imguikeychord_80741036
-    Navnextactivateid*: Imguiid_80741064
-    Navnextactivateflags*: Imguiactivateflags_80741272
-    Navinputsource*: Imguiinputsource_80741412
-    Navlayer*: Imguinavlayer_80741486
+    Navwindow*: ptr Imguiwindow_63963759
+    Navid*: Imguiid_63963847
+    Navfocusscopeid*: Imguiid_63963847
+    Navactivateid*: Imguiid_63963847
+    Navactivatedownid*: Imguiid_63963847
+    Navactivatepressedid*: Imguiid_63963847
+    Navactivateflags*: Imguiactivateflags_63964055
+    Navjustmovedtoid*: Imguiid_63963847
+    Navjustmovedtofocusscopeid*: Imguiid_63963847
+    Navjustmovedtokeymods*: Imguikeychord_63963819
+    Navnextactivateid*: Imguiid_63963847
+    Navnextactivateflags*: Imguiactivateflags_63964055
+    Navinputsource*: Imguiinputsource_63964195
+    Navlayer*: Imguinavlayer_63964269
     Navidisalive*: bool
     Navmouseposdirty*: bool
     Navdisablehighlight*: bool
@@ -1437,83 +1437,83 @@ type
     Navanyrequest*: bool
     Navinitrequest*: bool
     Navinitrequestfrommove*: bool
-    Navinitresultid*: Imguiid_80741064
-    Navinitresultrectrel*: Imrect_80740850
+    Navinitresultid*: Imguiid_63963847
+    Navinitresultrectrel*: Imrect_63963633
     Navmovesubmitted*: bool
     Navmovescoringitems*: bool
     Navmoveforwardtonextframe*: bool
-    Navmoveflags*: Imguinavmoveflags_80741286
-    Navmovescrollflags*: Imguiscrollflags_80741292
-    Navmovekeymods*: Imguikeychord_80741036
-    Navmovedir*: Imguidir_80740998
-    Navmovedirfordebug*: Imguidir_80740998
-    Navmoveclipdir*: Imguidir_80740998
-    Navscoringrect*: Imrect_80740850
-    Navscoringnocliprect*: Imrect_80740850
+    Navmoveflags*: Imguinavmoveflags_63964069
+    Navmovescrollflags*: Imguiscrollflags_63964075
+    Navmovekeymods*: Imguikeychord_63963819
+    Navmovedir*: Imguidir_63963781
+    Navmovedirfordebug*: Imguidir_63963781
+    Navmoveclipdir*: Imguidir_63963781
+    Navscoringrect*: Imrect_63963633
+    Navscoringnocliprect*: Imrect_63963633
     Navscoringdebugcount*: cint
     Navtabbingdir*: cint
     Navtabbingcounter*: cint
-    Navmoveresultlocal*: Imguinavitemdata_80740906
-    Navmoveresultlocalvisible*: Imguinavitemdata_80740906
-    Navmoveresultother*: Imguinavitemdata_80740906
-    Navtabbingresultfirst*: Imguinavitemdata_80740906
-    Confignavwindowingkeynext*: Imguikeychord_80741036
-    Confignavwindowingkeyprev*: Imguikeychord_80741036
-    Navwindowingtarget*: ptr Imguiwindow_80740976
-    Navwindowingtargetanim*: ptr Imguiwindow_80740976
-    Navwindowinglistwindow*: ptr Imguiwindow_80740976
+    Navmoveresultlocal*: Imguinavitemdata_63963689
+    Navmoveresultlocalvisible*: Imguinavitemdata_63963689
+    Navmoveresultother*: Imguinavitemdata_63963689
+    Navtabbingresultfirst*: Imguinavitemdata_63963689
+    Confignavwindowingkeynext*: Imguikeychord_63963819
+    Confignavwindowingkeyprev*: Imguikeychord_63963819
+    Navwindowingtarget*: ptr Imguiwindow_63963759
+    Navwindowingtargetanim*: ptr Imguiwindow_63963759
+    Navwindowinglistwindow*: ptr Imguiwindow_63963759
     Navwindowingtimer*: cfloat
     Navwindowinghighlightalpha*: cfloat
     Navwindowingtogglelayer*: bool
-    Navwindowingaccumdeltapos*: Imvec2_80741096
-    Navwindowingaccumdeltasize*: Imvec2_80741096
+    Navwindowingaccumdeltapos*: Imvec2_63963879
+    Navwindowingaccumdeltasize*: Imvec2_63963879
     Dimbgratio*: cfloat
-    Mousecursor*: Imguimousecursor_80741002
+    Mousecursor*: Imguimousecursor_63963785
     Dragdropactive*: bool
     Dragdropwithinsource*: bool
     Dragdropwithintarget*: bool
-    Dragdropsourceflags*: Imguidragdropflags_80741028
+    Dragdropsourceflags*: Imguidragdropflags_63963811
     Dragdropsourceframecount*: cint
     Dragdropmousebutton*: cint
-    Dragdroppayload*: Imguipayload_80740787
-    Dragdroptargetrect*: Imrect_80740850
-    Dragdroptargetid*: Imguiid_80741064
-    Dragdropacceptflags*: Imguidragdropflags_80741028
+    Dragdroppayload*: Imguipayload_63963570
+    Dragdroptargetrect*: Imrect_63963633
+    Dragdroptargetid*: Imguiid_63963847
+    Dragdropacceptflags*: Imguidragdropflags_63963811
     Dragdropacceptidcurrrectsurface*: cfloat
-    Dragdropacceptidcurr*: Imguiid_80741064
-    Dragdropacceptidprev*: Imguiid_80741064
+    Dragdropacceptidcurr*: Imguiid_63963847
+    Dragdropacceptidprev*: Imguiid_63963847
     Dragdropacceptframecount*: cint
-    Dragdropholdjustpressedid*: Imguiid_80741064
-    Dragdroppayloadbufheap*: Imvectorunsignedchar_80741580
+    Dragdropholdjustpressedid*: Imguiid_63963847
+    Dragdroppayloadbufheap*: Imvectorunsignedchar_63964363
     Dragdroppayloadbuflocal*: array[16'i64, uint8]
     Clippertempdatastacked*: cint
-    Clippertempdata*: Imvectorimguilistclipperdata_80741584
-    Currenttable*: ptr Imguitable_80740954
+    Clippertempdata*: Imvectorimguilistclipperdata_63964367
+    Currenttable*: ptr Imguitable_63963737
     Tablestempdatastacked*: cint
-    Tablestempdata*: Imvectorimguitabletempdata_80741588
-    Tables*: Impoolimguitable_80741596
-    Tableslasttimeactive*: Imvectorfloat_80741252
-    Drawchannelstempmergebuffer*: Imvectorimdrawchannel_80741206
-    Currenttabbar*: ptr Imguitabbar_80740946
-    Tabbars*: Impoolimguitabbar_80741604
-    Currenttabbarstack*: Imvectorimguiptrorindex_80741608
-    Shrinkwidthbuffer*: Imvectorimguishrinkwidthitem_80741612
-    Hoverdelayid*: Imguiid_80741064
-    Hoverdelayidpreviousframe*: Imguiid_80741064
+    Tablestempdata*: Imvectorimguitabletempdata_63964371
+    Tables*: Impoolimguitable_63964379
+    Tableslasttimeactive*: Imvectorfloat_63964035
+    Drawchannelstempmergebuffer*: Imvectorimdrawchannel_63963989
+    Currenttabbar*: ptr Imguitabbar_63963729
+    Tabbars*: Impoolimguitabbar_63964387
+    Currenttabbarstack*: Imvectorimguiptrorindex_63964391
+    Shrinkwidthbuffer*: Imvectorimguishrinkwidthitem_63964395
+    Hoverdelayid*: Imguiid_63963847
+    Hoverdelayidpreviousframe*: Imguiid_63963847
     Hoverdelaytimer*: cfloat
     Hoverdelaycleartimer*: cfloat
-    Mouselastvalidpos*: Imvec2_80741096
-    Inputtextstate*: Imguiinputtextstate_80740890
-    Inputtextpasswordfont*: Imfont_80740735
-    Tempinputid*: Imguiid_80741064
-    Coloreditoptions*: Imguicoloreditflags_80741020
-    Coloreditcurrentid*: Imguiid_80741064
-    Coloreditsavedid*: Imguiid_80741064
+    Mouselastvalidpos*: Imvec2_63963879
+    Inputtextstate*: Imguiinputtextstate_63963673
+    Inputtextpasswordfont*: Imfont_63963518
+    Tempinputid*: Imguiid_63963847
+    Coloreditoptions*: Imguicoloreditflags_63963803
+    Coloreditcurrentid*: Imguiid_63963847
+    Coloreditsavedid*: Imguiid_63963847
     Coloreditsavedhue*: cfloat
     Coloreditsavedsat*: cfloat
-    Coloreditsavedcolor*: Imu32_80741076
-    Colorpickerref*: Imvec4_80741100
-    Combopreviewdata*: Imguicombopreviewdata_80741384
+    Coloreditsavedcolor*: Imu32_63963859
+    Colorpickerref*: Imvec4_63963883
+    Combopreviewdata*: Imguicombopreviewdata_63964167
     Slidergrabclickoffset*: cfloat
     Slidercurrentaccum*: cfloat
     Slidercurrentaccumdirty*: bool
@@ -1524,30 +1524,30 @@ type
     Disabledalphabackup*: cfloat
     Disabledstacksize*: cshort
     Tooltipoverridecount*: cshort
-    Clipboardhandlerdata*: Imvectorchar_80741180
-    Menusidsubmittedthisframe*: Imvectorimguiid_80741560
-    Platformimedata*: Imguiplatformimedata_80740806
-    Platformimedataprev*: Imguiplatformimedata_80740806
-    Platformimeviewport*: Imguiid_80741064
+    Clipboardhandlerdata*: Imvectorchar_63963963
+    Menusidsubmittedthisframe*: Imvectorimguiid_63964343
+    Platformimedata*: Imguiplatformimedata_63963589
+    Platformimedataprev*: Imguiplatformimedata_63963589
+    Platformimeviewport*: Imguiid_63963847
     Platformlocaledecimalpoint*: cschar
-    Dockcontext*: Imguidockcontext_80740874
-    Docknodewindowmenuhandler*: proc (a0: ptr Imguicontext_80740763;
-                                      a1: ptr Imguidocknode_80740880;
-                                      a2: ptr Imguitabbar_80740946): void {.
+    Dockcontext*: Imguidockcontext_63963657
+    Docknodewindowmenuhandler*: proc (a0: ptr Imguicontext_63963546;
+                                      a1: ptr Imguidocknode_63963663;
+                                      a2: ptr Imguitabbar_63963729): void {.
         cdecl.}
     Settingsloaded*: bool
     Settingsdirtytimer*: cfloat
-    Settingsinidata*: Imguitextbuffer_80740830
-    Settingshandlers*: Imvectorimguisettingshandler_80741616
-    Settingswindows*: Imchunkstreamimguiwindowsettings_80741620
-    Settingstables*: Imchunkstreamimguitablesettings_80741624
-    Hooks*: Imvectorimguicontexthook_80741628
-    Hookidnext*: Imguiid_80741064
+    Settingsinidata*: Imguitextbuffer_63963613
+    Settingshandlers*: Imvectorimguisettingshandler_63964399
+    Settingswindows*: Imchunkstreamimguiwindowsettings_63964403
+    Settingstables*: Imchunkstreamimguitablesettings_63964407
+    Hooks*: Imvectorimguicontexthook_63964411
+    Hookidnext*: Imguiid_63963847
     Localizationtable*: array[8'i64, cstring]
     Logenabled*: bool
-    Logtype*: Imguilogtype_80741370
-    Logfile*: Imfilehandle_80741318
-    Logbuffer*: Imguitextbuffer_80740830
+    Logtype*: Imguilogtype_63964153
+    Logfile*: Imfilehandle_63964101
+    Logbuffer*: Imguitextbuffer_63963613
     Lognextprefix*: cstring
     Lognextsuffix*: cstring
     Loglineposy*: cfloat
@@ -1555,18 +1555,18 @@ type
     Logdepthref*: cint
     Logdepthtoexpand*: cint
     Logdepthtoexpanddefault*: cint
-    Debuglogflags*: Imguidebuglogflags_80741274
-    Debuglogbuf*: Imguitextbuffer_80740830
-    Debuglogindex*: Imguitextindex_80741334
-    Debuglogclipperautodisableframes*: Imu8_80741068
-    Debuglocateframes*: Imu8_80741068
-    Debugbeginreturnvalueculldepth*: Ims8_80741066
+    Debuglogflags*: Imguidebuglogflags_63964057
+    Debuglogbuf*: Imguitextbuffer_63963613
+    Debuglogindex*: Imguitextindex_63964117
+    Debuglogclipperautodisableframes*: Imu8_63963851
+    Debuglocateframes*: Imu8_63963851
+    Debugbeginreturnvalueculldepth*: Ims8_63963849
     Debugitempickeractive*: bool
-    Debugitempickermousebutton*: Imu8_80741068
-    Debugitempickerbreakid*: Imguiid_80741064
-    Debugmetricsconfig*: Imguimetricsconfig_80740910
-    Debugstacktool*: Imguistacktool_80741530
-    Debughovereddocknode*: ptr Imguidocknode_80740880
+    Debugitempickermousebutton*: Imu8_63963851
+    Debugitempickerbreakid*: Imguiid_63963847
+    Debugmetricsconfig*: Imguimetricsconfig_63963693
+    Debugstacktool*: Imguistacktool_63964313
+    Debughovereddocknode*: ptr Imguidocknode_63963663
     Frameratesecperframe*: array[60'i64, cfloat]
     Frameratesecperframeidx*: cint
     Frameratesecperframecount*: cint
@@ -1574,13 +1574,13 @@ type
     Wantcapturemousenextframe*: cint
     Wantcapturekeyboardnextframe*: cint
     Wanttextinputnextframe*: cint
-    Tempbuffer*: Imvectorchar_80741180
+    Tempbuffer*: Imvectorchar_63963963
 
-  Imguiio_80740766 = structimguiio_80740769 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:59:24
-  structimguiio_80740768 {.pure, inheritable, bycopy.} = object
-    Configflags*: Imguiconfigflags_80741022 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:899:8
-    Backendflags*: Imguibackendflags_80741016
-    Displaysize*: Imvec2_80741096
+  Imguiio_63963549 = structimguiio_63963552 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:59:24
+  structimguiio_63963551 {.pure, inheritable, bycopy.} = object
+    Configflags*: Imguiconfigflags_63963805 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:899:8
+    Backendflags*: Imguibackendflags_63963799
+    Displaysize*: Imvec2_63963879
     Deltatime*: cfloat
     Inisavingrate*: cfloat
     Inifilename*: cstring
@@ -1593,11 +1593,11 @@ type
     Hoverdelaynormal*: cfloat
     Hoverdelayshort*: cfloat
     Userdata*: pointer
-    Fonts*: ptr Imfontatlas_80740739
+    Fonts*: ptr Imfontatlas_63963522
     Fontglobalscale*: cfloat
     Fontallowuserscaling*: bool
-    Fontdefault*: ptr Imfont_80740735
-    Displayframebufferscale*: Imvec2_80741096
+    Fontdefault*: ptr Imfont_63963518
+    Displayframebufferscale*: Imvec2_63963879
     Configdockingnosplit*: bool
     Configdockingwithshift*: bool
     Configdockingalwaystabbar*: bool
@@ -1625,8 +1625,8 @@ type
     Getclipboardtextfn*: proc (a0: pointer): cstring {.cdecl.}
     Setclipboardtextfn*: proc (a0: pointer; a1: cstring): void {.cdecl.}
     Clipboarduserdata*: pointer
-    Setplatformimedatafn*: proc (a0: ptr Imguiviewport_80740838;
-                                 a1: ptr Imguiplatformimedata_80740806): void {.
+    Setplatformimedatafn*: proc (a0: ptr Imguiviewport_63963621;
+                                 a1: ptr Imguiplatformimedata_63963589): void {.
         cdecl.}
     internalunusedpadding*: pointer
     Wantcapturemouse*: bool
@@ -1642,53 +1642,53 @@ type
     Metricsrenderwindows*: cint
     Metricsactivewindows*: cint
     Metricsactiveallocations*: cint
-    Mousedelta*: Imvec2_80741096
+    Mousedelta*: Imvec2_63963879
     Keymap*: array[652'i64, cint]
     Keysdown*: array[652'i64, bool]
     Navinputs*: array[16'i64, cfloat]
-    Ctx*: ptr Imguicontext_80740763
-    Mousepos*: Imvec2_80741096
+    Ctx*: ptr Imguicontext_63963546
+    Mousepos*: Imvec2_63963879
     Mousedown*: array[5'i64, bool]
     Mousewheel*: cfloat
     Mousewheelh*: cfloat
-    Mousehoveredviewport*: Imguiid_80741064
+    Mousehoveredviewport*: Imguiid_63963847
     Keyctrl*: bool
     Keyshift*: bool
     Keyalt*: bool
     Keysuper*: bool
-    Keymods*: Imguikeychord_80741036
-    Keysdata*: array[652'i64, Imguikeydata_80740775]
+    Keymods*: Imguikeychord_63963819
+    Keysdata*: array[652'i64, Imguikeydata_63963558]
     Wantcapturemouseunlesspopupclose*: bool
-    Mouseposprev*: Imvec2_80741096
-    Mouseclickedpos*: array[5'i64, Imvec2_80741096]
+    Mouseposprev*: Imvec2_63963879
+    Mouseclickedpos*: array[5'i64, Imvec2_63963879]
     Mouseclickedtime*: array[5'i64, cdouble]
     Mouseclicked*: array[5'i64, bool]
     Mousedoubleclicked*: array[5'i64, bool]
-    Mouseclickedcount*: array[5'i64, Imu16_80741072]
-    Mouseclickedlastcount*: array[5'i64, Imu16_80741072]
+    Mouseclickedcount*: array[5'i64, Imu16_63963855]
+    Mouseclickedlastcount*: array[5'i64, Imu16_63963855]
     Mousereleased*: array[5'i64, bool]
     Mousedownowned*: array[5'i64, bool]
     Mousedownownedunlesspopupclose*: array[5'i64, bool]
     Mousedownduration*: array[5'i64, cfloat]
     Mousedowndurationprev*: array[5'i64, cfloat]
-    Mousedragmaxdistanceabs*: array[5'i64, Imvec2_80741096]
+    Mousedragmaxdistanceabs*: array[5'i64, Imvec2_63963879]
     Mousedragmaxdistancesqr*: array[5'i64, cfloat]
     Penpressure*: cfloat
     Appfocuslost*: bool
     Appacceptingevents*: bool
-    Backendusinglegacykeyarrays*: Ims8_80741066
+    Backendusinglegacykeyarrays*: Ims8_63963849
     Backendusinglegacynavinputarray*: bool
-    Inputqueuesurrogate*: Imwchar16_80741082
-    Inputqueuecharacters*: Imvectorimwchar_80741168
+    Inputqueuesurrogate*: Imwchar16_63963865
+    Inputqueuecharacters*: Imvectorimwchar_63963951
 
-  Imguiinputtextcallbackdata_80740770 = structimguiinputtextcallbackdata_80740773 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:60:43
-  structimguiinputtextcallbackdata_80740772 {.pure, inheritable, bycopy.} = object
-    Ctx*: ptr Imguicontext_80740763 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1002:8
-    Eventflag*: Imguiinputtextflags_80741034
-    Flags*: Imguiinputtextflags_80741034
+  Imguiinputtextcallbackdata_63963553 = structimguiinputtextcallbackdata_63963556 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:60:43
+  structimguiinputtextcallbackdata_63963555 {.pure, inheritable, bycopy.} = object
+    Ctx*: ptr Imguicontext_63963546 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1002:8
+    Eventflag*: Imguiinputtextflags_63963817
+    Flags*: Imguiinputtextflags_63963817
     Userdata*: pointer
-    Eventchar*: Imwchar_80741086
-    Eventkey*: Imguikey_80741142
+    Eventchar*: Imwchar_63963869
+    Eventkey*: Imguikey_63963925
     Buf*: cstring
     Buftextlen*: cint
     Bufsize*: cint
@@ -1697,16 +1697,16 @@ type
     Selectionstart*: cint
     Selectionend*: cint
 
-  Imguikeydata_80740774 = structimguikeydata_80740777 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:61:29
-  structimguikeydata_80740776 {.pure, inheritable, bycopy.} = object
-    Down*: bool              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:890:8
+  Imguikeydata_63963557 = structimguikeydata_63963560 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:61:29
+  structimguikeydata_63963559 {.pure, inheritable, bycopy.} = object
+    Down*: bool              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:890:8
     Downduration*: cfloat
     Downdurationprev*: cfloat
     Analogvalue*: cfloat
 
-  Imguilistclipper_80740778 = structimguilistclipper_80740781 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:62:33
-  structimguilistclipper_80740780 {.pure, inheritable, bycopy.} = object
-    Ctx*: ptr Imguicontext_80740763 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1100:8
+  Imguilistclipper_63963561 = structimguilistclipper_63963564 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:62:33
+  structimguilistclipper_63963563 {.pure, inheritable, bycopy.} = object
+    Ctx*: ptr Imguicontext_63963546 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1100:8
     Displaystart*: cint
     Displayend*: cint
     Itemscount*: cint
@@ -1714,111 +1714,111 @@ type
     Startposy*: cfloat
     Tempdata*: pointer
 
-  Imguionceuponaframe_80740782 = structimguionceuponaframe_80740785 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:63:36
-  structimguionceuponaframe_80740784 {.pure, inheritable, bycopy.} = object
-    Refframe*: cint          ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1060:8
+  Imguionceuponaframe_63963565 = structimguionceuponaframe_63963568 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:63:36
+  structimguionceuponaframe_63963567 {.pure, inheritable, bycopy.} = object
+    Refframe*: cint          ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1060:8
   
-  Imguipayload_80740786 = structimguipayload_80740789 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:64:29
-  structimguipayload_80740788 {.pure, inheritable, bycopy.} = object
-    Data*: pointer           ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1036:8
+  Imguipayload_63963569 = structimguipayload_63963572 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:64:29
+  structimguipayload_63963571 {.pure, inheritable, bycopy.} = object
+    Data*: pointer           ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1036:8
     Datasize*: cint
-    Sourceid*: Imguiid_80741064
-    Sourceparentid*: Imguiid_80741064
+    Sourceid*: Imguiid_63963847
+    Sourceparentid*: Imguiid_63963847
     Dataframecount*: cint
     Datatype*: array[33'i64, cschar]
     Preview*: bool
     Delivery*: bool
 
-  Imguiplatformio_80740797 = structimguiplatformio_80740800 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:65:32
-  structimguiplatformio_80740799 {.pure, inheritable, bycopy.} = object
-    Platformcreatewindow*: proc (a0: ptr Imguiviewport_80740838): void {.cdecl.} ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1366:8
-    Platformdestroywindow*: proc (a0: ptr Imguiviewport_80740838): void {.cdecl.}
-    Platformshowwindow*: proc (a0: ptr Imguiviewport_80740838): void {.cdecl.}
-    Platformsetwindowpos*: proc (a0: ptr Imguiviewport_80740838; a1: Imvec2_80741096): void {.
+  Imguiplatformio_63963580 = structimguiplatformio_63963583 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:65:32
+  structimguiplatformio_63963582 {.pure, inheritable, bycopy.} = object
+    Platformcreatewindow*: proc (a0: ptr Imguiviewport_63963621): void {.cdecl.} ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1366:8
+    Platformdestroywindow*: proc (a0: ptr Imguiviewport_63963621): void {.cdecl.}
+    Platformshowwindow*: proc (a0: ptr Imguiviewport_63963621): void {.cdecl.}
+    Platformsetwindowpos*: proc (a0: ptr Imguiviewport_63963621; a1: Imvec2_63963879): void {.
         cdecl.}
-    Platformgetwindowpos*: proc (a0: ptr Imguiviewport_80740838): Imvec2_80741096 {.
+    Platformgetwindowpos*: proc (a0: ptr Imguiviewport_63963621): Imvec2_63963879 {.
         cdecl.}
-    Platformsetwindowsize*: proc (a0: ptr Imguiviewport_80740838; a1: Imvec2_80741096): void {.
+    Platformsetwindowsize*: proc (a0: ptr Imguiviewport_63963621; a1: Imvec2_63963879): void {.
         cdecl.}
-    Platformgetwindowsize*: proc (a0: ptr Imguiviewport_80740838): Imvec2_80741096 {.
+    Platformgetwindowsize*: proc (a0: ptr Imguiviewport_63963621): Imvec2_63963879 {.
         cdecl.}
-    Platformsetwindowfocus*: proc (a0: ptr Imguiviewport_80740838): void {.cdecl.}
-    Platformgetwindowfocus*: proc (a0: ptr Imguiviewport_80740838): bool {.cdecl.}
-    Platformgetwindowminimized*: proc (a0: ptr Imguiviewport_80740838): bool {.
+    Platformsetwindowfocus*: proc (a0: ptr Imguiviewport_63963621): void {.cdecl.}
+    Platformgetwindowfocus*: proc (a0: ptr Imguiviewport_63963621): bool {.cdecl.}
+    Platformgetwindowminimized*: proc (a0: ptr Imguiviewport_63963621): bool {.
         cdecl.}
-    Platformsetwindowtitle*: proc (a0: ptr Imguiviewport_80740838; a1: cstring): void {.
+    Platformsetwindowtitle*: proc (a0: ptr Imguiviewport_63963621; a1: cstring): void {.
         cdecl.}
-    Platformsetwindowalpha*: proc (a0: ptr Imguiviewport_80740838; a1: cfloat): void {.
+    Platformsetwindowalpha*: proc (a0: ptr Imguiviewport_63963621; a1: cfloat): void {.
         cdecl.}
-    Platformupdatewindow*: proc (a0: ptr Imguiviewport_80740838): void {.cdecl.}
-    Platformrenderwindow*: proc (a0: ptr Imguiviewport_80740838; a1: pointer): void {.
+    Platformupdatewindow*: proc (a0: ptr Imguiviewport_63963621): void {.cdecl.}
+    Platformrenderwindow*: proc (a0: ptr Imguiviewport_63963621; a1: pointer): void {.
         cdecl.}
-    Platformswapbuffers*: proc (a0: ptr Imguiviewport_80740838; a1: pointer): void {.
+    Platformswapbuffers*: proc (a0: ptr Imguiviewport_63963621; a1: pointer): void {.
         cdecl.}
-    Platformgetwindowdpiscale*: proc (a0: ptr Imguiviewport_80740838): cfloat {.
+    Platformgetwindowdpiscale*: proc (a0: ptr Imguiviewport_63963621): cfloat {.
         cdecl.}
-    Platformonchangedviewport*: proc (a0: ptr Imguiviewport_80740838): void {.
+    Platformonchangedviewport*: proc (a0: ptr Imguiviewport_63963621): void {.
         cdecl.}
-    Platformcreatevksurface*: proc (a0: ptr Imguiviewport_80740838; a1: Imu64_80741080;
-                                    a2: pointer; a3: ptr Imu64_80741080): cint {.
+    Platformcreatevksurface*: proc (a0: ptr Imguiviewport_63963621; a1: Imu64_63963863;
+                                    a2: pointer; a3: ptr Imu64_63963863): cint {.
         cdecl.}
-    Renderercreatewindow*: proc (a0: ptr Imguiviewport_80740838): void {.cdecl.}
-    Rendererdestroywindow*: proc (a0: ptr Imguiviewport_80740838): void {.cdecl.}
-    Renderersetwindowsize*: proc (a0: ptr Imguiviewport_80740838; a1: Imvec2_80741096): void {.
+    Renderercreatewindow*: proc (a0: ptr Imguiviewport_63963621): void {.cdecl.}
+    Rendererdestroywindow*: proc (a0: ptr Imguiviewport_63963621): void {.cdecl.}
+    Renderersetwindowsize*: proc (a0: ptr Imguiviewport_63963621; a1: Imvec2_63963879): void {.
         cdecl.}
-    Rendererrenderwindow*: proc (a0: ptr Imguiviewport_80740838; a1: pointer): void {.
+    Rendererrenderwindow*: proc (a0: ptr Imguiviewport_63963621; a1: pointer): void {.
         cdecl.}
-    Rendererswapbuffers*: proc (a0: ptr Imguiviewport_80740838; a1: pointer): void {.
+    Rendererswapbuffers*: proc (a0: ptr Imguiviewport_63963621; a1: pointer): void {.
         cdecl.}
-    Monitors*: Imvectorimguiplatformmonitor_80741262
-    Viewports*: Imvectorimguiviewportptr_80741266
+    Monitors*: Imvectorimguiplatformmonitor_63964045
+    Viewports*: Imvectorimguiviewportptr_63964049
 
-  Imguiplatformmonitor_80740801 = structimguiplatformmonitor_80740804 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:66:37
-  structimguiplatformmonitor_80740803 {.pure, inheritable, bycopy.} = object
-    Mainpos*: Imvec2_80741096 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1394:8
-    Mainsize*: Imvec2_80741096
-    Workpos*: Imvec2_80741096
-    Worksize*: Imvec2_80741096
+  Imguiplatformmonitor_63963584 = structimguiplatformmonitor_63963587 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:66:37
+  structimguiplatformmonitor_63963586 {.pure, inheritable, bycopy.} = object
+    Mainpos*: Imvec2_63963879 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1394:8
+    Mainsize*: Imvec2_63963879
+    Workpos*: Imvec2_63963879
+    Worksize*: Imvec2_63963879
     Dpiscale*: cfloat
 
-  Imguiplatformimedata_80740805 = structimguiplatformimedata_80740808 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:67:37
-  structimguiplatformimedata_80740807 {.pure, inheritable, bycopy.} = object
-    Wantvisible*: bool       ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1400:8
-    Inputpos*: Imvec2_80741096
+  Imguiplatformimedata_63963588 = structimguiplatformimedata_63963591 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:67:37
+  structimguiplatformimedata_63963590 {.pure, inheritable, bycopy.} = object
+    Wantvisible*: bool       ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1400:8
+    Inputpos*: Imvec2_63963879
     Inputlineheight*: cfloat
 
-  Imguisizecallbackdata_80740809 = structimguisizecallbackdata_80740812 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:68:38
-  structimguisizecallbackdata_80740811 {.pure, inheritable, bycopy.} = object
-    Userdata*: pointer       ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1018:8
-    Pos*: Imvec2_80741096
-    Currentsize*: Imvec2_80741096
-    Desiredsize*: Imvec2_80741096
+  Imguisizecallbackdata_63963592 = structimguisizecallbackdata_63963595 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:68:38
+  structimguisizecallbackdata_63963594 {.pure, inheritable, bycopy.} = object
+    Userdata*: pointer       ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1018:8
+    Pos*: Imvec2_63963879
+    Currentsize*: Imvec2_63963879
+    Desiredsize*: Imvec2_63963879
 
-  Imguistorage_80740813 = structimguistorage_80740816 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:69:29
-  structimguistorage_80740815 {.pure, inheritable, bycopy.} = object
-    Data*: Imvectorimguistoragepair_80741188 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1095:8
+  Imguistorage_63963596 = structimguistorage_63963599 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:69:29
+  structimguistorage_63963598 {.pure, inheritable, bycopy.} = object
+    Data*: Imvectorimguistoragepair_63963971 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1095:8
   
-  Imguistyle_80740817 = structimguistyle_80740820 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:70:27
-  structimguistyle_80740819 {.pure, inheritable, bycopy.} = object
-    Alpha*: cfloat           ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:843:8
+  Imguistyle_63963600 = structimguistyle_63963603 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:70:27
+  structimguistyle_63963602 {.pure, inheritable, bycopy.} = object
+    Alpha*: cfloat           ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:843:8
     Disabledalpha*: cfloat
-    Windowpadding*: Imvec2_80741096
+    Windowpadding*: Imvec2_63963879
     Windowrounding*: cfloat
     Windowbordersize*: cfloat
-    Windowminsize*: Imvec2_80741096
-    Windowtitlealign*: Imvec2_80741096
-    Windowmenubuttonposition*: Imguidir_80740998
+    Windowminsize*: Imvec2_63963879
+    Windowtitlealign*: Imvec2_63963879
+    Windowmenubuttonposition*: Imguidir_63963781
     Childrounding*: cfloat
     Childbordersize*: cfloat
     Popuprounding*: cfloat
     Popupbordersize*: cfloat
-    Framepadding*: Imvec2_80741096
+    Framepadding*: Imvec2_63963879
     Framerounding*: cfloat
     Framebordersize*: cfloat
-    Itemspacing*: Imvec2_80741096
-    Iteminnerspacing*: Imvec2_80741096
-    Cellpadding*: Imvec2_80741096
-    Touchextrapadding*: Imvec2_80741096
+    Itemspacing*: Imvec2_63963879
+    Iteminnerspacing*: Imvec2_63963879
+    Cellpadding*: Imvec2_63963879
+    Touchextrapadding*: Imvec2_63963879
     Indentspacing*: cfloat
     Columnsminspacing*: cfloat
     Scrollbarsize*: cfloat
@@ -1829,56 +1829,56 @@ type
     Tabrounding*: cfloat
     Tabbordersize*: cfloat
     Tabminwidthforclosebutton*: cfloat
-    Colorbuttonposition*: Imguidir_80740998
-    Buttontextalign*: Imvec2_80741096
-    Selectabletextalign*: Imvec2_80741096
+    Colorbuttonposition*: Imguidir_63963781
+    Buttontextalign*: Imvec2_63963879
+    Selectabletextalign*: Imvec2_63963879
     Separatortextbordersize*: cfloat
-    Separatortextalign*: Imvec2_80741096
-    Separatortextpadding*: Imvec2_80741096
-    Displaywindowpadding*: Imvec2_80741096
-    Displaysafeareapadding*: Imvec2_80741096
+    Separatortextalign*: Imvec2_63963879
+    Separatortextpadding*: Imvec2_63963879
+    Displaywindowpadding*: Imvec2_63963879
+    Displaysafeareapadding*: Imvec2_63963879
     Mousecursorscale*: cfloat
     Antialiasedlines*: bool
     Antialiasedlinesusetex*: bool
     Antialiasedfill*: bool
     Curvetessellationtol*: cfloat
     Circletessellationmaxerror*: cfloat
-    Colors*: array[55'i64, Imvec4_80741100]
+    Colors*: array[55'i64, Imvec4_63963883]
 
-  Imguitablesortspecs_80740821 = structimguitablesortspecs_80740824 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:71:36
-  structimguitablesortspecs_80740823 {.pure, inheritable, bycopy.} = object
-    Specs*: ptr Imguitablecolumnsortspecs_80740826 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1054:8
+  Imguitablesortspecs_63963604 = structimguitablesortspecs_63963607 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:71:36
+  structimguitablesortspecs_63963606 {.pure, inheritable, bycopy.} = object
+    Specs*: ptr Imguitablecolumnsortspecs_63963609 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1054:8
     Specscount*: cint
     Specsdirty*: bool
 
-  Imguitablecolumnsortspecs_80740825 = structimguitablecolumnsortspecs_80740828 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:72:42
-  structimguitablecolumnsortspecs_80740827 {.pure, inheritable, bycopy.} = object
-    Columnuserid*: Imguiid_80741064 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1047:8
-    Columnindex*: Ims16_80741070
-    Sortorder*: Ims16_80741070
-    Sortdirection*: Imguisortdirection_80741004
+  Imguitablecolumnsortspecs_63963608 = structimguitablecolumnsortspecs_63963611 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:72:42
+  structimguitablecolumnsortspecs_63963610 {.pure, inheritable, bycopy.} = object
+    Columnuserid*: Imguiid_63963847 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1047:8
+    Columnindex*: Ims16_63963853
+    Sortorder*: Ims16_63963853
+    Sortdirection*: Imguisortdirection_63963787
 
-  Imguitextbuffer_80740829 = structimguitextbuffer_80740832 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:73:32
-  structimguitextbuffer_80740831 {.pure, inheritable, bycopy.} = object
-    Buf*: Imvectorchar_80741180 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1082:8
+  Imguitextbuffer_63963612 = structimguitextbuffer_63963615 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:73:32
+  structimguitextbuffer_63963614 {.pure, inheritable, bycopy.} = object
+    Buf*: Imvectorchar_63963963 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1082:8
   
-  Imguitextfilter_80740833 = structimguitextfilter_80740836 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:74:32
-  structimguitextfilter_80740835 {.pure, inheritable, bycopy.} = object
-    Inputbuf*: array[256'i64, cschar] ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1073:8
-    Filters*: Imvectorimguitextrange_80741176
+  Imguitextfilter_63963616 = structimguitextfilter_63963619 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:74:32
+  structimguitextfilter_63963618 {.pure, inheritable, bycopy.} = object
+    Inputbuf*: array[256'i64, cschar] ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1073:8
+    Filters*: Imvectorimguitextrange_63963959
     Countgrep*: cint
 
-  Imguiviewport_80740837 = structimguiviewport_80740840 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:75:30
-  structimguiviewport_80740839 {.pure, inheritable, bycopy.} = object
-    Id*: Imguiid_80741064    ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1342:8
-    Flags*: Imguiviewportflags_80741056
-    Pos*: Imvec2_80741096
-    Size*: Imvec2_80741096
-    Workpos*: Imvec2_80741096
-    Worksize*: Imvec2_80741096
+  Imguiviewport_63963620 = structimguiviewport_63963623 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:75:30
+  structimguiviewport_63963622 {.pure, inheritable, bycopy.} = object
+    Id*: Imguiid_63963847    ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1342:8
+    Flags*: Imguiviewportflags_63963839
+    Pos*: Imvec2_63963879
+    Size*: Imvec2_63963879
+    Workpos*: Imvec2_63963879
+    Worksize*: Imvec2_63963879
     Dpiscale*: cfloat
-    Parentviewportid*: Imguiid_80741064
-    Drawdata*: ptr Imdrawdata_80740715
+    Parentviewportid*: Imguiid_63963847
+    Drawdata*: ptr Imdrawdata_63963498
     Rendereruserdata*: pointer
     Platformuserdata*: pointer
     Platformhandle*: pointer
@@ -1888,96 +1888,96 @@ type
     Platformrequestresize*: bool
     Platformrequestclose*: bool
 
-  Imguiwindowclass_80740841 = structimguiwindowclass_80740844 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:76:33
-  structimguiwindowclass_80740843 {.pure, inheritable, bycopy.} = object
-    Classid*: Imguiid_80741064 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1025:8
-    Parentviewportid*: Imguiid_80741064
-    Viewportflagsoverrideset*: Imguiviewportflags_80741056
-    Viewportflagsoverrideclear*: Imguiviewportflags_80741056
-    Tabitemflagsoverrideset*: Imguitabitemflags_80741046
-    Docknodeflagsoverrideset*: Imguidocknodeflags_80741026
+  Imguiwindowclass_63963624 = structimguiwindowclass_63963627 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:76:33
+  structimguiwindowclass_63963626 {.pure, inheritable, bycopy.} = object
+    Classid*: Imguiid_63963847 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1025:8
+    Parentviewportid*: Imguiid_63963847
+    Viewportflagsoverrideset*: Imguiviewportflags_63963839
+    Viewportflagsoverrideclear*: Imguiviewportflags_63963839
+    Tabitemflagsoverrideset*: Imguitabitemflags_63963829
+    Docknodeflagsoverrideset*: Imguidocknodeflags_63963809
     Dockingalwaystabbar*: bool
     Dockingallowunclassed*: bool
 
-  Imbitvector_80740845 = structimbitvector_80740848 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:77:28
-  structimbitvector_80740847 {.pure, inheritable, bycopy.} = object
-    Storage*: Imvectorimu32_80741230 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1520:8
+  Imbitvector_63963628 = structimbitvector_63963631 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:77:28
+  structimbitvector_63963630 {.pure, inheritable, bycopy.} = object
+    Storage*: Imvectorimu32_63964013 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1520:8
   
-  Imrect_80740849 = structimrect_80740852 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:78:23
-  structimrect_80740851 {.pure, inheritable, bycopy.} = object
-    Min*: Imvec2_80741096    ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1514:8
-    Max*: Imvec2_80741096
+  Imrect_63963632 = structimrect_63963635 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:78:23
+  structimrect_63963634 {.pure, inheritable, bycopy.} = object
+    Min*: Imvec2_63963879    ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1514:8
+    Max*: Imvec2_63963879
 
-  Imdrawdatabuilder_80740853 = structimdrawdatabuilder_80740856 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:79:34
-  structimdrawdatabuilder_80740855 {.pure, inheritable, bycopy.} = object
-    Layers*: array[2'i64, Imvectorimdrawlistptr_80741344] ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1550:8
+  Imdrawdatabuilder_63963636 = structimdrawdatabuilder_63963639 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:79:34
+  structimdrawdatabuilder_63963638 {.pure, inheritable, bycopy.} = object
+    Layers*: array[2'i64, Imvectorimdrawlistptr_63964127] ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1550:8
   
-  Imguicolormod_80740857 = structimguicolormod_80740860 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:80:30
-  structimguicolormod_80740859 {.pure, inheritable, bycopy.} = object
-    Col*: Imguicol_80740992  ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1688:8
-    Backupvalue*: Imvec4_80741100
+  Imguicolormod_63963640 = structimguicolormod_63963643 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:80:30
+  structimguicolormod_63963642 {.pure, inheritable, bycopy.} = object
+    Col*: Imguicol_63963775  ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1688:8
+    Backupvalue*: Imvec4_63963883
 
-  Imguicontexthook_80740861 = structimguicontexthook_80740864 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:81:33
-  structimguicontexthook_80740863 {.pure, inheritable, bycopy.} = object
-    Hookid*: Imguiid_80741064 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2306:8
-    Type*: Imguicontexthooktype_80741540
-    Owner*: Imguiid_80741064
-    Callback*: Imguicontexthookcallback_80741538
+  Imguicontexthook_63963644 = structimguicontexthook_63963647 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:81:33
+  structimguicontexthook_63963646 {.pure, inheritable, bycopy.} = object
+    Hookid*: Imguiid_63963847 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2306:8
+    Type*: Imguicontexthooktype_63964323
+    Owner*: Imguiid_63963847
+    Callback*: Imguicontexthookcallback_63964321
     Userdata*: pointer
 
-  Imguidatavarinfo_80740865 = structimguidatavarinfo_80740868 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:82:33
-  structimguidatavarinfo_80740867 {.pure, inheritable, bycopy.} = object
-    Type*: Imguidatatype_80740996 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1665:8
-    Count*: Imu32_80741076
-    Offset*: Imu32_80741076
+  Imguidatavarinfo_63963648 = structimguidatavarinfo_63963651 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:82:33
+  structimguidatavarinfo_63963650 {.pure, inheritable, bycopy.} = object
+    Type*: Imguidatatype_63963779 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1665:8
+    Count*: Imu32_63963859
+    Offset*: Imu32_63963859
 
-  Imguidatatypeinfo_80740869 = structimguidatatypeinfo_80740872 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:83:34
-  structimguidatatypeinfo_80740871 {.pure, inheritable, bycopy.} = object
-    Size*: csize_t           ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1676:8
+  Imguidatatypeinfo_63963652 = structimguidatatypeinfo_63963655 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:83:34
+  structimguidatatypeinfo_63963654 {.pure, inheritable, bycopy.} = object
+    Size*: csize_t           ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1676:8
     Name*: cstring
     Printfmt*: cstring
     Scanfmt*: cstring
 
-  Imguidockcontext_80740873 = structimguidockcontext_80740876 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:84:33
-  structimguidockcontext_80740875 {.pure, inheritable, bycopy.} = object
-    Nodes*: Imguistorage_80740814 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2182:8
-    Requests*: Imvectorimguidockrequest_80741512
-    Nodessettings*: Imvectorimguidocknodesettings_80741516
+  Imguidockcontext_63963656 = structimguidockcontext_63963659 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:84:33
+  structimguidockcontext_63963658 {.pure, inheritable, bycopy.} = object
+    Nodes*: Imguistorage_63963597 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2182:8
+    Requests*: Imvectorimguidockrequest_63964295
+    Nodessettings*: Imvectorimguidocknodesettings_63964299
     Wantfullrebuild*: bool
 
-  Imguidockrequest_80740877 = structimguidockrequest ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:85:33
-  Imguidocknode_80740879 = structimguidocknode_80740882 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:86:30
-  structimguidocknode_80740881 {.pure, inheritable, bycopy.} = object
-    Id*: Imguiid_80741064    ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2120:8
-    Sharedflags*: Imguidocknodeflags_80741026
-    Localflags*: Imguidocknodeflags_80741026
-    Localflagsinwindows*: Imguidocknodeflags_80741026
-    Mergedflags*: Imguidocknodeflags_80741026
-    State*: Imguidocknodestate_80741498
-    Parentnode*: ptr Imguidocknode_80740880
-    Childnodes*: array[2'i64, ptr Imguidocknode_80740880]
-    Windows*: Imvectorimguiwindowptr_80741502
-    Tabbar*: ptr Imguitabbar_80740946
-    Pos*: Imvec2_80741096
-    Size*: Imvec2_80741096
-    Sizeref*: Imvec2_80741096
-    Splitaxis*: Imguiaxis_80741372
-    Windowclass*: Imguiwindowclass_80740842
-    Lastbgcolor*: Imu32_80741076
-    Hostwindow*: ptr Imguiwindow_80740976
-    Visiblewindow*: ptr Imguiwindow_80740976
-    Centralnode*: ptr Imguidocknode_80740880
-    Onlynodewithwindows*: ptr Imguidocknode_80740880
+  Imguidockrequest_63963660 = structimguidockrequest ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:85:33
+  Imguidocknode_63963662 = structimguidocknode_63963665 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:86:30
+  structimguidocknode_63963664 {.pure, inheritable, bycopy.} = object
+    Id*: Imguiid_63963847    ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2120:8
+    Sharedflags*: Imguidocknodeflags_63963809
+    Localflags*: Imguidocknodeflags_63963809
+    Localflagsinwindows*: Imguidocknodeflags_63963809
+    Mergedflags*: Imguidocknodeflags_63963809
+    State*: Imguidocknodestate_63964281
+    Parentnode*: ptr Imguidocknode_63963663
+    Childnodes*: array[2'i64, ptr Imguidocknode_63963663]
+    Windows*: Imvectorimguiwindowptr_63964285
+    Tabbar*: ptr Imguitabbar_63963729
+    Pos*: Imvec2_63963879
+    Size*: Imvec2_63963879
+    Sizeref*: Imvec2_63963879
+    Splitaxis*: Imguiaxis_63964155
+    Windowclass*: Imguiwindowclass_63963625
+    Lastbgcolor*: Imu32_63963859
+    Hostwindow*: ptr Imguiwindow_63963759
+    Visiblewindow*: ptr Imguiwindow_63963759
+    Centralnode*: ptr Imguidocknode_63963663
+    Onlynodewithwindows*: ptr Imguidocknode_63963663
     Countnodewithwindows*: cint
     Lastframealive*: cint
     Lastframeactive*: cint
     Lastframefocused*: cint
-    Lastfocusednodeid*: Imguiid_80741064
-    Selectedtabid*: Imguiid_80741064
-    Wantclosetabid*: Imguiid_80741064
-    Authorityforpos*: Imguidataauthority_80741268
-    Authorityforsize*: Imguidataauthority_80741268
-    Authorityforviewport*: Imguidataauthority_80741268
+    Lastfocusednodeid*: Imguiid_63963847
+    Selectedtabid*: Imguiid_63963847
+    Wantclosetabid*: Imguiid_63963847
+    Authorityforpos*: Imguidataauthority_63964051
+    Authorityforsize*: Imguidataauthority_63964051
+    Authorityforviewport*: Imguidataauthority_63964051
     Isvisible*: bool
     Isfocused*: bool
     Isbgdrawnthisframe*: bool
@@ -1990,79 +1990,79 @@ type
     Wanthiddentabbarupdate*: bool
     Wanthiddentabbartoggle*: bool
 
-  Imguidocknodesettings_80740883 = structimguidocknodesettings ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:87:38
-  Imguigroupdata_80740885 = structimguigroupdata_80740888 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:88:31
-  structimguigroupdata_80740887 {.pure, inheritable, bycopy.} = object
-    Windowid*: Imguiid_80741064 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1708:8
-    Backupcursorpos*: Imvec2_80741096
-    Backupcursormaxpos*: Imvec2_80741096
-    Backupindent*: Imvec1_80741322
-    Backupgroupoffset*: Imvec1_80741322
-    Backupcurrlinesize*: Imvec2_80741096
+  Imguidocknodesettings_63963666 = structimguidocknodesettings ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:87:38
+  Imguigroupdata_63963668 = structimguigroupdata_63963671 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:88:31
+  structimguigroupdata_63963670 {.pure, inheritable, bycopy.} = object
+    Windowid*: Imguiid_63963847 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1708:8
+    Backupcursorpos*: Imvec2_63963879
+    Backupcursormaxpos*: Imvec2_63963879
+    Backupindent*: Imvec1_63964105
+    Backupgroupoffset*: Imvec1_63964105
+    Backupcurrlinesize*: Imvec2_63963879
     Backupcurrlinetextbaseoffset*: cfloat
-    Backupactiveidisalive*: Imguiid_80741064
+    Backupactiveidisalive*: Imguiid_63963847
     Backupactiveidpreviousframeisalive*: bool
     Backuphoveredidisalive*: bool
     Emititem*: bool
 
-  Imguiinputtextstate_80740889 = structimguiinputtextstate_80740892 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:89:36
-  structimguiinputtextstate_80740891 {.pure, inheritable, bycopy.} = object
-    Ctx*: ptr Imguicontext_80740763 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1733:8
-    Id*: Imguiid_80741064
+  Imguiinputtextstate_63963672 = structimguiinputtextstate_63963675 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:89:36
+  structimguiinputtextstate_63963674 {.pure, inheritable, bycopy.} = object
+    Ctx*: ptr Imguicontext_63963546 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1733:8
+    Id*: Imguiid_63963847
     Curlenw*: cint
     Curlena*: cint
-    Textw*: Imvectorimwchar_80741168
-    Texta*: Imvectorchar_80741180
-    Initialtexta*: Imvectorchar_80741180
+    Textw*: Imvectorimwchar_63963951
+    Texta*: Imvectorchar_63963963
+    Initialtexta*: Imvectorchar_63963963
     Textaisvalid*: bool
     Bufcapacitya*: cint
     Scrollx*: cfloat
-    Stb*: Stbtexteditstate_80741310
+    Stb*: Stbtexteditstate_63964093
     Cursoranim*: cfloat
     Cursorfollow*: bool
     Selectedallmouselock*: bool
     Edited*: bool
-    Flags*: Imguiinputtextflags_80741034
+    Flags*: Imguiinputtextflags_63963817
 
-  Imguilastitemdata_80740893 = structimguilastitemdata_80740896 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:90:34
-  structimguilastitemdata_80740895 {.pure, inheritable, bycopy.} = object
-    Id*: Imguiid_80741064    ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1812:8
-    Inflags*: Imguiitemflags_80741278
-    Statusflags*: Imguiitemstatusflags_80741280
-    Rect*: Imrect_80740850
-    Navrect*: Imrect_80740850
-    Displayrect*: Imrect_80740850
+  Imguilastitemdata_63963676 = structimguilastitemdata_63963679 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:90:34
+  structimguilastitemdata_63963678 {.pure, inheritable, bycopy.} = object
+    Id*: Imguiid_63963847    ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1812:8
+    Inflags*: Imguiitemflags_63964061
+    Statusflags*: Imguiitemstatusflags_63964063
+    Rect*: Imrect_63963633
+    Navrect*: Imrect_63963633
+    Displayrect*: Imrect_63963633
 
-  Imguilocentry_80740897 = structimguilocentry_80740900 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:91:30
-  structimguilocentry_80740899 {.pure, inheritable, bycopy.} = object
-    Key*: Imguilockey_80741522 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2251:8
+  Imguilocentry_63963680 = structimguilocentry_63963683 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:91:30
+  structimguilocentry_63963682 {.pure, inheritable, bycopy.} = object
+    Key*: Imguilockey_63964305 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2251:8
     Text*: cstring
 
-  Imguimenucolumns_80740901 = structimguimenucolumns_80740904 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:92:33
-  structimguimenucolumns_80740903 {.pure, inheritable, bycopy.} = object
-    Totalwidth*: Imu32_80741076 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1722:8
-    Nexttotalwidth*: Imu32_80741076
-    Spacing*: Imu16_80741072
-    Offseticon*: Imu16_80741072
-    Offsetlabel*: Imu16_80741072
-    Offsetshortcut*: Imu16_80741072
-    Offsetmark*: Imu16_80741072
-    Widths*: array[4'i64, Imu16_80741072]
+  Imguimenucolumns_63963684 = structimguimenucolumns_63963687 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:92:33
+  structimguimenucolumns_63963686 {.pure, inheritable, bycopy.} = object
+    Totalwidth*: Imu32_63963859 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1722:8
+    Nexttotalwidth*: Imu32_63963859
+    Spacing*: Imu16_63963855
+    Offseticon*: Imu16_63963855
+    Offsetlabel*: Imu16_63963855
+    Offsetshortcut*: Imu16_63963855
+    Offsetmark*: Imu16_63963855
+    Widths*: array[4'i64, Imu16_63963855]
 
-  Imguinavitemdata_80740905 = structimguinavitemdata_80740908 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:93:33
-  structimguinavitemdata_80740907 {.pure, inheritable, bycopy.} = object
-    Window*: ptr Imguiwindow_80740976 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2040:8
-    Id*: Imguiid_80741064
-    Focusscopeid*: Imguiid_80741064
-    Rectrel*: Imrect_80740850
-    Inflags*: Imguiitemflags_80741278
+  Imguinavitemdata_63963688 = structimguinavitemdata_63963691 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:93:33
+  structimguinavitemdata_63963690 {.pure, inheritable, bycopy.} = object
+    Window*: ptr Imguiwindow_63963759 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2040:8
+    Id*: Imguiid_63963847
+    Focusscopeid*: Imguiid_63963847
+    Rectrel*: Imrect_63963633
+    Inflags*: Imguiitemflags_63964061
     Distbox*: cfloat
     Distcenter*: cfloat
     Distaxial*: cfloat
 
-  Imguimetricsconfig_80740909 = structimguimetricsconfig_80740912 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:94:35
-  structimguimetricsconfig_80740911 {.pure, inheritable, bycopy.} = object
-    Showdebuglog*: bool      ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2269:8
+  Imguimetricsconfig_63963692 = structimguimetricsconfig_63963695 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:94:35
+  structimguimetricsconfig_63963694 {.pure, inheritable, bycopy.} = object
+    Showdebuglog*: bool      ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2269:8
     Showstacktool*: bool
     Showwindowsrects*: bool
     Showwindowsbeginorder*: bool
@@ -2074,48 +2074,48 @@ type
     Showwindowsrectstype*: cint
     Showtablesrectstype*: cint
 
-  Imguinextwindowdata_80740913 = structimguinextwindowdata_80740916 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:95:36
-  structimguinextwindowdata_80740915 {.pure, inheritable, bycopy.} = object
-    Flags*: Imguinextwindowdataflags_80741290 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1776:8
-    Poscond*: Imguicond_80740994
-    Sizecond*: Imguicond_80740994
-    Collapsedcond*: Imguicond_80740994
-    Dockcond*: Imguicond_80740994
-    Posval*: Imvec2_80741096
-    Pospivotval*: Imvec2_80741096
-    Sizeval*: Imvec2_80741096
-    Contentsizeval*: Imvec2_80741096
-    Scrollval*: Imvec2_80741096
+  Imguinextwindowdata_63963696 = structimguinextwindowdata_63963699 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:95:36
+  structimguinextwindowdata_63963698 {.pure, inheritable, bycopy.} = object
+    Flags*: Imguinextwindowdataflags_63964073 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1776:8
+    Poscond*: Imguicond_63963777
+    Sizecond*: Imguicond_63963777
+    Collapsedcond*: Imguicond_63963777
+    Dockcond*: Imguicond_63963777
+    Posval*: Imvec2_63963879
+    Pospivotval*: Imvec2_63963879
+    Sizeval*: Imvec2_63963879
+    Contentsizeval*: Imvec2_63963879
+    Scrollval*: Imvec2_63963879
     Posundock*: bool
     Collapsedval*: bool
-    Sizeconstraintrect*: Imrect_80740850
-    Sizecallback*: Imguisizecallback_80741090
+    Sizeconstraintrect*: Imrect_63963633
+    Sizecallback*: Imguisizecallback_63963873
     Sizecallbackuserdata*: pointer
     Bgalphaval*: cfloat
-    Viewportid*: Imguiid_80741064
-    Dockid*: Imguiid_80741064
-    Windowclass*: Imguiwindowclass_80740842
-    Menubaroffsetminval*: Imvec2_80741096
+    Viewportid*: Imguiid_63963847
+    Dockid*: Imguiid_63963847
+    Windowclass*: Imguiwindowclass_63963625
+    Menubaroffsetminval*: Imvec2_63963879
 
-  Imguinextitemdata_80740917 = structimguinextitemdata_80740920 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:96:34
-  structimguinextitemdata_80740919 {.pure, inheritable, bycopy.} = object
-    Flags*: Imguinextitemdataflags_80741288 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1804:8
+  Imguinextitemdata_63963700 = structimguinextitemdata_63963703 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:96:34
+  structimguinextitemdata_63963702 {.pure, inheritable, bycopy.} = object
+    Flags*: Imguinextitemdataflags_63964071 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1804:8
     Width*: cfloat
-    Focusscopeid*: Imguiid_80741064
-    Opencond*: Imguicond_80740994
+    Focusscopeid*: Imguiid_63963847
+    Opencond*: Imguicond_63963777
     Openval*: bool
 
-  Imguioldcolumndata_80740921 = structimguioldcolumndata_80740924 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:97:35
-  structimguioldcolumndata_80740923 {.pure, inheritable, bycopy.} = object
-    Offsetnorm*: cfloat      ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2059:8
+  Imguioldcolumndata_63963704 = structimguioldcolumndata_63963707 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:97:35
+  structimguioldcolumndata_63963706 {.pure, inheritable, bycopy.} = object
+    Offsetnorm*: cfloat      ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2059:8
     Offsetnormbeforeresize*: cfloat
-    Flags*: Imguioldcolumnflags_80741282
-    Cliprect*: Imrect_80740850
+    Flags*: Imguioldcolumnflags_63964065
+    Cliprect*: Imrect_63963633
 
-  Imguioldcolumns_80740925 = structimguioldcolumns_80740928 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:98:32
-  structimguioldcolumns_80740927 {.pure, inheritable, bycopy.} = object
-    Id*: Imguiid_80741064    ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2068:8
-    Flags*: Imguioldcolumnflags_80741282
+  Imguioldcolumns_63963708 = structimguioldcolumns_63963711 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:98:32
+  structimguioldcolumns_63963710 {.pure, inheritable, bycopy.} = object
+    Id*: Imguiid_63963847    ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2068:8
+    Flags*: Imguioldcolumnflags_63964065
     Isfirstframe*: bool
     Isbeingresized*: bool
     Current*: cint
@@ -2126,47 +2126,47 @@ type
     Linemaxy*: cfloat
     Hostcursorposy*: cfloat
     Hostcursormaxposx*: cfloat
-    Hostinitialcliprect*: Imrect_80740850
-    Hostbackupcliprect*: Imrect_80740850
-    Hostbackupparentworkrect*: Imrect_80740850
-    Columns*: Imvectorimguioldcolumndata_80741492
-    Splitter*: Imdrawlistsplitter_80740727
+    Hostinitialcliprect*: Imrect_63963633
+    Hostbackupcliprect*: Imrect_63963633
+    Hostbackupparentworkrect*: Imrect_63963633
+    Columns*: Imvectorimguioldcolumndata_63964275
+    Splitter*: Imdrawlistsplitter_63963510
 
-  Imguipopupdata_80740929 = structimguipopupdata_80740932 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:99:31
-  structimguipopupdata_80740931 {.pure, inheritable, bycopy.} = object
-    Popupid*: Imguiid_80741064 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1751:8
-    Window*: ptr Imguiwindow_80740976
-    Backupnavwindow*: ptr Imguiwindow_80740976
+  Imguipopupdata_63963712 = structimguipopupdata_63963715 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:99:31
+  structimguipopupdata_63963714 {.pure, inheritable, bycopy.} = object
+    Popupid*: Imguiid_63963847 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1751:8
+    Window*: ptr Imguiwindow_63963759
+    Backupnavwindow*: ptr Imguiwindow_63963759
     Parentnavlayer*: cint
     Openframecount*: cint
-    Openparentid*: Imguiid_80741064
-    Openpopuppos*: Imvec2_80741096
-    Openmousepos*: Imvec2_80741096
+    Openparentid*: Imguiid_63963847
+    Openpopuppos*: Imvec2_63963879
+    Openmousepos*: Imvec2_63963879
 
-  Imguisettingshandler_80740933 = structimguisettingshandler_80740936 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:100:37
-  structimguisettingshandler_80740935 {.pure, inheritable, bycopy.} = object
-    Typename*: cstring       ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2228:8
-    Typehash*: Imguiid_80741064
-    Clearallfn*: proc (a0: ptr Imguicontext_80740763;
-                       a1: ptr Imguisettingshandler_80740934): void {.cdecl.}
-    Readinitfn*: proc (a0: ptr Imguicontext_80740763;
-                       a1: ptr Imguisettingshandler_80740934): void {.cdecl.}
-    Readopenfn*: proc (a0: ptr Imguicontext_80740763;
-                       a1: ptr Imguisettingshandler_80740934; a2: cstring): pointer {.
+  Imguisettingshandler_63963716 = structimguisettingshandler_63963719 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:100:37
+  structimguisettingshandler_63963718 {.pure, inheritable, bycopy.} = object
+    Typename*: cstring       ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2228:8
+    Typehash*: Imguiid_63963847
+    Clearallfn*: proc (a0: ptr Imguicontext_63963546;
+                       a1: ptr Imguisettingshandler_63963717): void {.cdecl.}
+    Readinitfn*: proc (a0: ptr Imguicontext_63963546;
+                       a1: ptr Imguisettingshandler_63963717): void {.cdecl.}
+    Readopenfn*: proc (a0: ptr Imguicontext_63963546;
+                       a1: ptr Imguisettingshandler_63963717; a2: cstring): pointer {.
         cdecl.}
-    Readlinefn*: proc (a0: ptr Imguicontext_80740763;
-                       a1: ptr Imguisettingshandler_80740934; a2: pointer;
+    Readlinefn*: proc (a0: ptr Imguicontext_63963546;
+                       a1: ptr Imguisettingshandler_63963717; a2: pointer;
                        a3: cstring): void {.cdecl.}
-    Applyallfn*: proc (a0: ptr Imguicontext_80740763;
-                       a1: ptr Imguisettingshandler_80740934): void {.cdecl.}
-    Writeallfn*: proc (a0: ptr Imguicontext_80740763;
-                       a1: ptr Imguisettingshandler_80740934;
-                       a2: ptr Imguitextbuffer_80740830): void {.cdecl.}
+    Applyallfn*: proc (a0: ptr Imguicontext_63963546;
+                       a1: ptr Imguisettingshandler_63963717): void {.cdecl.}
+    Writeallfn*: proc (a0: ptr Imguicontext_63963546;
+                       a1: ptr Imguisettingshandler_63963717;
+                       a2: ptr Imguitextbuffer_63963613): void {.cdecl.}
     Userdata*: pointer
 
-  Imguistacksizes_80740937 = structimguistacksizes_80740940 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:101:32
-  structimguistacksizes_80740939 {.pure, inheritable, bycopy.} = object
-    Sizeofidstack*: cshort   ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1821:8
+  Imguistacksizes_63963720 = structimguistacksizes_63963723 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:101:32
+  structimguistacksizes_63963722 {.pure, inheritable, bycopy.} = object
+    Sizeofidstack*: cshort   ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1821:8
     Sizeofcolorstack*: cshort
     Sizeofstylevarstack*: cshort
     Sizeoffontstack*: cshort
@@ -2176,26 +2176,26 @@ type
     Sizeofbeginpopupstack*: cshort
     Sizeofdisabledstack*: cshort
 
-  Imguistylemod_80740941 = structimguistylemod_80740944 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:102:30
+  Imguistylemod_63963724 = structimguistylemod_63963727 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:102:30
   structimguistylemod_anon0_t {.union, bycopy.} = object
     Backupint*: array[2'i64, cint]
     Backupfloat*: array[2'i64, cfloat]
 
-  structimguistylemod_80740943 {.pure, inheritable, bycopy.} = object
-    Varidx*: Imguistylevar_80741006 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1693:8
+  structimguistylemod_63963726 {.pure, inheritable, bycopy.} = object
+    Varidx*: Imguistylevar_63963789 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1693:8
     anon0*: structimguistylemod_anon0_t
 
-  Imguitabbar_80740945 = structimguitabbar_80740948 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:103:28
-  structimguitabbar_80740947 {.pure, inheritable, bycopy.} = object
-    Tabs*: Imvectorimguitabitem_80741640 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2797:8
-    Flags*: Imguitabbarflags_80741044
-    Id*: Imguiid_80741064
-    Selectedtabid*: Imguiid_80741064
-    Nextselectedtabid*: Imguiid_80741064
-    Visibletabid*: Imguiid_80741064
+  Imguitabbar_63963728 = structimguitabbar_63963731 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:103:28
+  structimguitabbar_63963730 {.pure, inheritable, bycopy.} = object
+    Tabs*: Imvectorimguitabitem_63964423 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2797:8
+    Flags*: Imguitabbarflags_63963827
+    Id*: Imguiid_63963847
+    Selectedtabid*: Imguiid_63963847
+    Nextselectedtabid*: Imguiid_63963847
+    Visibletabid*: Imguiid_63963847
     Currframevisible*: cint
     Prevframevisible*: cint
-    Barrect*: Imrect_80740850
+    Barrect*: Imrect_63963633
     Currtabscontentsheight*: cfloat
     Prevtabscontentsheight*: cfloat
     Widthalltabs*: cfloat
@@ -2206,66 +2206,66 @@ type
     Scrollingspeed*: cfloat
     Scrollingrectminx*: cfloat
     Scrollingrectmaxx*: cfloat
-    Reorderrequesttabid*: Imguiid_80741064
-    Reorderrequestoffset*: Ims16_80741070
-    Begincount*: Ims8_80741066
+    Reorderrequesttabid*: Imguiid_63963847
+    Reorderrequestoffset*: Ims16_63963853
+    Begincount*: Ims8_63963849
     Wantlayout*: bool
     Visibletabwassubmitted*: bool
     Tabsaddednew*: bool
-    Tabsactivecount*: Ims16_80741070
-    Lasttabitemidx*: Ims16_80741070
+    Tabsactivecount*: Ims16_63963853
+    Lasttabitemidx*: Ims16_63963853
     Itemspacingy*: cfloat
-    Framepadding*: Imvec2_80741096
-    Backupcursorpos*: Imvec2_80741096
-    Tabsnames*: Imguitextbuffer_80740830
+    Framepadding*: Imvec2_63963879
+    Backupcursorpos*: Imvec2_63963879
+    Tabsnames*: Imguitextbuffer_63963613
 
-  Imguitabitem_80740949 = structimguitabitem_80740952 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:104:29
-  structimguitabitem_80740951 {.pure, inheritable, bycopy.} = object
-    Id*: Imguiid_80741064    ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2779:8
-    Flags*: Imguitabitemflags_80741046
-    Window*: ptr Imguiwindow_80740976
+  Imguitabitem_63963732 = structimguitabitem_63963735 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:104:29
+  structimguitabitem_63963734 {.pure, inheritable, bycopy.} = object
+    Id*: Imguiid_63963847    ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2779:8
+    Flags*: Imguitabitemflags_63963829
+    Window*: ptr Imguiwindow_63963759
     Lastframevisible*: cint
     Lastframeselected*: cint
     Offset*: cfloat
     Width*: cfloat
     Contentwidth*: cfloat
     Requestedwidth*: cfloat
-    Nameoffset*: Ims32_80741074
-    Beginorder*: Ims16_80741070
-    Indexduringlayout*: Ims16_80741070
+    Nameoffset*: Ims32_63963857
+    Beginorder*: Ims16_63963853
+    Indexduringlayout*: Ims16_63963853
     Wantclose*: bool
 
-  Imguitable_80740953 = structimguitable_80740956 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:105:27
-  structimguitable_80740955 {.pure, inheritable, bycopy.} = object
-    Id*: Imguiid_80741064    ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2900:8
-    Flags*: Imguitableflags_80741048
+  Imguitable_63963736 = structimguitable_63963739 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:105:27
+  structimguitable_63963738 {.pure, inheritable, bycopy.} = object
+    Id*: Imguiid_63963847    ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2900:8
+    Flags*: Imguitableflags_63963831
     Rawdata*: pointer
-    Tempdata*: ptr Imguitabletempdata_80740966
-    Columns*: Imspanimguitablecolumn_80741652
-    Displayordertoindex*: Imspanimguitablecolumnidx_80741656
-    Rowcelldata*: Imspanimguitablecelldata_80741660
-    Enabledmaskbydisplayorder*: Imbitarrayptr_80741330
-    Enabledmaskbyindex*: Imbitarrayptr_80741330
-    Visiblemaskbyindex*: Imbitarrayptr_80741330
-    Settingsloadedflags*: Imguitableflags_80741048
+    Tempdata*: ptr Imguitabletempdata_63963749
+    Columns*: Imspanimguitablecolumn_63964435
+    Displayordertoindex*: Imspanimguitablecolumnidx_63964439
+    Rowcelldata*: Imspanimguitablecelldata_63964443
+    Enabledmaskbydisplayorder*: Imbitarrayptr_63964113
+    Enabledmaskbyindex*: Imbitarrayptr_63964113
+    Visiblemaskbyindex*: Imbitarrayptr_63964113
+    Settingsloadedflags*: Imguitableflags_63963831
     Settingsoffset*: cint
     Lastframeactive*: cint
     Columnscount*: cint
     Currentrow*: cint
     Currentcolumn*: cint
-    Instancecurrent*: Ims16_80741070
-    Instanceinteracted*: Ims16_80741070
+    Instancecurrent*: Ims16_63963853
+    Instanceinteracted*: Ims16_63963853
     Rowposy1*: cfloat
     Rowposy2*: cfloat
     Rowminheight*: cfloat
     Rowtextbaseline*: cfloat
     Rowindentoffsetx*: cfloat
-    Rowflags*: Imguitablerowflags_80741052
-    Lastrowflags*: Imguitablerowflags_80741052
+    Rowflags*: Imguitablerowflags_63963835
+    Lastrowflags*: Imguitablerowflags_63963835
     Rowbgcolorcounter*: cint
-    Rowbgcolor*: array[2'i64, Imu32_80741076]
-    Bordercolorstrong*: Imu32_80741076
-    Bordercolorlight*: Imu32_80741076
+    Rowbgcolor*: array[2'i64, Imu32_63963859]
+    Bordercolorstrong*: Imu32_63963859
+    Bordercolorlight*: Imu32_63963859
     Borderx1*: cfloat
     Borderx2*: cfloat
     Hostindentx*: cfloat
@@ -2282,49 +2282,49 @@ type
     Resizedcolumnnextwidth*: cfloat
     Resizelockmincontentsx2*: cfloat
     Refscale*: cfloat
-    Outerrect*: Imrect_80740850
-    Innerrect*: Imrect_80740850
-    Workrect*: Imrect_80740850
-    Innercliprect*: Imrect_80740850
-    Bgcliprect*: Imrect_80740850
-    Bg0cliprectfordrawcmd*: Imrect_80740850
-    Bg2cliprectfordrawcmd*: Imrect_80740850
-    Hostcliprect*: Imrect_80740850
-    Hostbackupinnercliprect*: Imrect_80740850
-    Outerwindow*: ptr Imguiwindow_80740976
-    Innerwindow*: ptr Imguiwindow_80740976
-    Columnsnames*: Imguitextbuffer_80740830
-    Drawsplitter*: ptr Imdrawlistsplitter_80740727
-    Instancedatafirst*: Imguitableinstancedata_80740962
-    Instancedataextra*: Imvectorimguitableinstancedata_80741664
-    Sortspecssingle*: Imguitablecolumnsortspecs_80740826
-    Sortspecsmulti*: Imvectorimguitablecolumnsortspecs_80741668
-    Sortspecs*: Imguitablesortspecs_80740822
-    Sortspecscount*: Imguitablecolumnidx_80741642
-    Columnsenabledcount*: Imguitablecolumnidx_80741642
-    Columnsenabledfixedcount*: Imguitablecolumnidx_80741642
-    Declcolumnscount*: Imguitablecolumnidx_80741642
-    Hoveredcolumnbody*: Imguitablecolumnidx_80741642
-    Hoveredcolumnborder*: Imguitablecolumnidx_80741642
-    Autofitsinglecolumn*: Imguitablecolumnidx_80741642
-    Resizedcolumn*: Imguitablecolumnidx_80741642
-    Lastresizedcolumn*: Imguitablecolumnidx_80741642
-    Heldheadercolumn*: Imguitablecolumnidx_80741642
-    Reordercolumn*: Imguitablecolumnidx_80741642
-    Reordercolumndir*: Imguitablecolumnidx_80741642
-    Leftmostenabledcolumn*: Imguitablecolumnidx_80741642
-    Rightmostenabledcolumn*: Imguitablecolumnidx_80741642
-    Leftmoststretchedcolumn*: Imguitablecolumnidx_80741642
-    Rightmoststretchedcolumn*: Imguitablecolumnidx_80741642
-    Contextpopupcolumn*: Imguitablecolumnidx_80741642
-    Freezerowsrequest*: Imguitablecolumnidx_80741642
-    Freezerowscount*: Imguitablecolumnidx_80741642
-    Freezecolumnsrequest*: Imguitablecolumnidx_80741642
-    Freezecolumnscount*: Imguitablecolumnidx_80741642
-    Rowcelldatacurrent*: Imguitablecolumnidx_80741642
-    Dummydrawchannel*: Imguitabledrawchannelidx_80741644
-    Bg2drawchannelcurrent*: Imguitabledrawchannelidx_80741644
-    Bg2drawchannelunfrozen*: Imguitabledrawchannelidx_80741644
+    Outerrect*: Imrect_63963633
+    Innerrect*: Imrect_63963633
+    Workrect*: Imrect_63963633
+    Innercliprect*: Imrect_63963633
+    Bgcliprect*: Imrect_63963633
+    Bg0cliprectfordrawcmd*: Imrect_63963633
+    Bg2cliprectfordrawcmd*: Imrect_63963633
+    Hostcliprect*: Imrect_63963633
+    Hostbackupinnercliprect*: Imrect_63963633
+    Outerwindow*: ptr Imguiwindow_63963759
+    Innerwindow*: ptr Imguiwindow_63963759
+    Columnsnames*: Imguitextbuffer_63963613
+    Drawsplitter*: ptr Imdrawlistsplitter_63963510
+    Instancedatafirst*: Imguitableinstancedata_63963745
+    Instancedataextra*: Imvectorimguitableinstancedata_63964447
+    Sortspecssingle*: Imguitablecolumnsortspecs_63963609
+    Sortspecsmulti*: Imvectorimguitablecolumnsortspecs_63964451
+    Sortspecs*: Imguitablesortspecs_63963605
+    Sortspecscount*: Imguitablecolumnidx_63964425
+    Columnsenabledcount*: Imguitablecolumnidx_63964425
+    Columnsenabledfixedcount*: Imguitablecolumnidx_63964425
+    Declcolumnscount*: Imguitablecolumnidx_63964425
+    Hoveredcolumnbody*: Imguitablecolumnidx_63964425
+    Hoveredcolumnborder*: Imguitablecolumnidx_63964425
+    Autofitsinglecolumn*: Imguitablecolumnidx_63964425
+    Resizedcolumn*: Imguitablecolumnidx_63964425
+    Lastresizedcolumn*: Imguitablecolumnidx_63964425
+    Heldheadercolumn*: Imguitablecolumnidx_63964425
+    Reordercolumn*: Imguitablecolumnidx_63964425
+    Reordercolumndir*: Imguitablecolumnidx_63964425
+    Leftmostenabledcolumn*: Imguitablecolumnidx_63964425
+    Rightmostenabledcolumn*: Imguitablecolumnidx_63964425
+    Leftmoststretchedcolumn*: Imguitablecolumnidx_63964425
+    Rightmoststretchedcolumn*: Imguitablecolumnidx_63964425
+    Contextpopupcolumn*: Imguitablecolumnidx_63964425
+    Freezerowsrequest*: Imguitablecolumnidx_63964425
+    Freezerowscount*: Imguitablecolumnidx_63964425
+    Freezecolumnsrequest*: Imguitablecolumnidx_63964425
+    Freezecolumnscount*: Imguitablecolumnidx_63964425
+    Rowcelldatacurrent*: Imguitablecolumnidx_63964425
+    Dummydrawchannel*: Imguitabledrawchannelidx_63964427
+    Bg2drawchannelcurrent*: Imguitabledrawchannelidx_63964427
+    Bg2drawchannelunfrozen*: Imguitabledrawchannelidx_63964427
     Islayoutlocked*: bool
     Isinsiderow*: bool
     Isinitializing*: bool
@@ -2343,9 +2343,9 @@ type
     Memorycompacted*: bool
     Hostskipitems*: bool
 
-  Imguitablecolumn_80740957 = structimguitablecolumn_80740960 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:106:33
-  structimguitablecolumn_80740959 {.pure, inheritable, bycopy.} = object
-    Flags*: Imguitablecolumnflags_80741050 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2833:8
+  Imguitablecolumn_63963740 = structimguitablecolumn_63963743 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:106:33
+  structimguitablecolumn_63963742 {.pure, inheritable, bycopy.} = object
+    Flags*: Imguitablecolumnflags_63963833 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2833:8
     Widthgiven*: cfloat
     Minx*: cfloat
     Maxx*: cfloat
@@ -2353,8 +2353,8 @@ type
     Widthauto*: cfloat
     Stretchweight*: cfloat
     Initstretchweightorwidth*: cfloat
-    Cliprect*: Imrect_80740850
-    Userid*: Imguiid_80741064
+    Cliprect*: Imrect_63963633
+    Userid*: Imguiid_63963847
     Workminx*: cfloat
     Workmaxx*: cfloat
     Itemwidth*: cfloat
@@ -2362,15 +2362,15 @@ type
     Contentmaxxunfrozen*: cfloat
     Contentmaxxheadersused*: cfloat
     Contentmaxxheadersideal*: cfloat
-    Nameoffset*: Ims16_80741070
-    Displayorder*: Imguitablecolumnidx_80741642
-    Indexwithinenabledset*: Imguitablecolumnidx_80741642
-    Prevenabledcolumn*: Imguitablecolumnidx_80741642
-    Nextenabledcolumn*: Imguitablecolumnidx_80741642
-    Sortorder*: Imguitablecolumnidx_80741642
-    Drawchannelcurrent*: Imguitabledrawchannelidx_80741644
-    Drawchannelfrozen*: Imguitabledrawchannelidx_80741644
-    Drawchannelunfrozen*: Imguitabledrawchannelidx_80741644
+    Nameoffset*: Ims16_63963853
+    Displayorder*: Imguitablecolumnidx_63964425
+    Indexwithinenabledset*: Imguitablecolumnidx_63964425
+    Prevenabledcolumn*: Imguitablecolumnidx_63964425
+    Nextenabledcolumn*: Imguitablecolumnidx_63964425
+    Sortorder*: Imguitablecolumnidx_63964425
+    Drawchannelcurrent*: Imguitabledrawchannelidx_63964427
+    Drawchannelfrozen*: Imguitabledrawchannelidx_63964427
+    Drawchannelunfrozen*: Imguitabledrawchannelidx_63964427
     Isenabled*: bool
     Isuserenabled*: bool
     Isuserenablednextframe*: bool
@@ -2379,65 +2379,65 @@ type
     Isrequestoutput*: bool
     Isskipitems*: bool
     Ispreservewidthauto*: bool
-    Navlayercurrent*: Ims8_80741066
-    Autofitqueue*: Imu8_80741068
-    Cannotskipitemsqueue*: Imu8_80741068
-    Sortdirection*: Imu8_80741068
-    Sortdirectionsavailcount*: Imu8_80741068
-    Sortdirectionsavailmask*: Imu8_80741068
-    Sortdirectionsavaillist*: Imu8_80741068
+    Navlayercurrent*: Ims8_63963849
+    Autofitqueue*: Imu8_63963851
+    Cannotskipitemsqueue*: Imu8_63963851
+    Sortdirection*: Imu8_63963851
+    Sortdirectionsavailcount*: Imu8_63963851
+    Sortdirectionsavailmask*: Imu8_63963851
+    Sortdirectionsavaillist*: Imu8_63963851
 
-  Imguitableinstancedata_80740961 = structimguitableinstancedata_80740964 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:107:39
-  structimguitableinstancedata_80740963 {.pure, inheritable, bycopy.} = object
-    Tableinstanceid*: Imguiid_80741064 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2883:8
+  Imguitableinstancedata_63963744 = structimguitableinstancedata_63963747 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:107:39
+  structimguitableinstancedata_63963746 {.pure, inheritable, bycopy.} = object
+    Tableinstanceid*: Imguiid_63963847 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2883:8
     Lastouterheight*: cfloat
     Lastfirstrowheight*: cfloat
     Lastfrozenheight*: cfloat
 
-  Imguitabletempdata_80740965 = structimguitabletempdata_80740968 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:108:35
-  structimguitabletempdata_80740967 {.pure, inheritable, bycopy.} = object
-    Tableindex*: cint        ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:3008:8
+  Imguitabletempdata_63963748 = structimguitabletempdata_63963751 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:108:35
+  structimguitabletempdata_63963750 {.pure, inheritable, bycopy.} = object
+    Tableindex*: cint        ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:3008:8
     Lasttimeactive*: cfloat
-    Useroutersize*: Imvec2_80741096
-    Drawsplitter*: Imdrawlistsplitter_80740727
-    Hostbackupworkrect*: Imrect_80740850
-    Hostbackupparentworkrect*: Imrect_80740850
-    Hostbackupprevlinesize*: Imvec2_80741096
-    Hostbackupcurrlinesize*: Imvec2_80741096
-    Hostbackupcursormaxpos*: Imvec2_80741096
-    Hostbackupcolumnsoffset*: Imvec1_80741322
+    Useroutersize*: Imvec2_63963879
+    Drawsplitter*: Imdrawlistsplitter_63963510
+    Hostbackupworkrect*: Imrect_63963633
+    Hostbackupparentworkrect*: Imrect_63963633
+    Hostbackupprevlinesize*: Imvec2_63963879
+    Hostbackupcurrlinesize*: Imvec2_63963879
+    Hostbackupcursormaxpos*: Imvec2_63963879
+    Hostbackupcolumnsoffset*: Imvec1_63964105
     Hostbackupitemwidth*: cfloat
     Hostbackupitemwidthstacksize*: cint
 
-  Imguitablesettings_80740969 = structimguitablesettings_80740972 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:109:35
-  structimguitablesettings_80740971 {.pure, inheritable, bycopy.} = object
-    Id*: Imguiid_80741064    ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:3035:8
-    Saveflags*: Imguitableflags_80741048
+  Imguitablesettings_63963752 = structimguitablesettings_63963755 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:109:35
+  structimguitablesettings_63963754 {.pure, inheritable, bycopy.} = object
+    Id*: Imguiid_63963847    ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:3035:8
+    Saveflags*: Imguitableflags_63963831
     Refscale*: cfloat
-    Columnscount*: Imguitablecolumnidx_80741642
-    Columnscountmax*: Imguitablecolumnidx_80741642
+    Columnscount*: Imguitablecolumnidx_63964425
+    Columnscountmax*: Imguitablecolumnidx_63964425
     Wantapply*: bool
 
-  Imguitablecolumnssettings_80740973 = structimguitablecolumnssettings ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:110:42
-  Imguiwindow_80740975 = structimguiwindow_80740978 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:111:28
-  structimguiwindow_80740977 {.pure, inheritable, bycopy.} = object
-    Ctx*: ptr Imguicontext_80740763 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2652:8
+  Imguitablecolumnssettings_63963756 = structimguitablecolumnssettings ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:110:42
+  Imguiwindow_63963758 = structimguiwindow_63963761 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:111:28
+  structimguiwindow_63963760 {.pure, inheritable, bycopy.} = object
+    Ctx*: ptr Imguicontext_63963546 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2652:8
     Name*: cstring
-    Id*: Imguiid_80741064
-    Flags*: Imguiwindowflags_80741058
-    Flagspreviousframe*: Imguiwindowflags_80741058
-    Windowclass*: Imguiwindowclass_80740842
-    Viewport*: ptr Imguiviewportp_80741518
-    Viewportid*: Imguiid_80741064
-    Viewportpos*: Imvec2_80741096
+    Id*: Imguiid_63963847
+    Flags*: Imguiwindowflags_63963841
+    Flagspreviousframe*: Imguiwindowflags_63963841
+    Windowclass*: Imguiwindowclass_63963625
+    Viewport*: ptr Imguiviewportp_63964301
+    Viewportid*: Imguiid_63963847
+    Viewportpos*: Imvec2_63963879
     Viewportallowplatformmonitorextend*: cint
-    Pos*: Imvec2_80741096
-    Size*: Imvec2_80741096
-    Sizefull*: Imvec2_80741096
-    Contentsize*: Imvec2_80741096
-    Contentsizeideal*: Imvec2_80741096
-    Contentsizeexplicit*: Imvec2_80741096
-    Windowpadding*: Imvec2_80741096
+    Pos*: Imvec2_63963879
+    Size*: Imvec2_63963879
+    Sizefull*: Imvec2_63963879
+    Contentsize*: Imvec2_63963879
+    Contentsizeideal*: Imvec2_63963879
+    Contentsizeexplicit*: Imvec2_63963879
+    Windowpadding*: Imvec2_63963879
     Windowrounding*: cfloat
     Windowbordersize*: cfloat
     Decooutersizex1*: cfloat
@@ -2447,15 +2447,15 @@ type
     Decoinnersizex1*: cfloat
     Decoinnersizey1*: cfloat
     Namebuflen*: cint
-    Moveid*: Imguiid_80741064
-    Tabid*: Imguiid_80741064
-    Childid*: Imguiid_80741064
-    Scroll*: Imvec2_80741096
-    Scrollmax*: Imvec2_80741096
-    Scrolltarget*: Imvec2_80741096
-    Scrolltargetcenterratio*: Imvec2_80741096
-    Scrolltargetedgesnapdist*: Imvec2_80741096
-    Scrollbarsizes*: Imvec2_80741096
+    Moveid*: Imguiid_63963847
+    Tabid*: Imguiid_63963847
+    Childid*: Imguiid_63963847
+    Scroll*: Imvec2_63963879
+    Scrollmax*: Imvec2_63963879
+    Scrolltarget*: Imvec2_63963879
+    Scrolltargetcenterratio*: Imvec2_63963879
+    Scrolltargetedgesnapdist*: Imvec2_63963879
+    Scrollbarsizes*: Imvec2_63963879
     Scrollbarx*: bool
     Scrollbary*: bool
     Viewportowned*: bool
@@ -2476,55 +2476,55 @@ type
     Beginorderwithinparent*: cshort
     Beginorderwithincontext*: cshort
     Focusorder*: cshort
-    Popupid*: Imguiid_80741064
-    Autofitframesx*: Ims8_80741066
-    Autofitframesy*: Ims8_80741066
-    Autofitchildaxises*: Ims8_80741066
+    Popupid*: Imguiid_63963847
+    Autofitframesx*: Ims8_63963849
+    Autofitframesy*: Ims8_63963849
+    Autofitchildaxises*: Ims8_63963849
     Autofitonlygrows*: bool
-    Autoposlastdirection*: Imguidir_80740998
-    Hiddenframescanskipitems*: Ims8_80741066
-    Hiddenframescannotskipitems*: Ims8_80741066
-    Hiddenframesforrenderonly*: Ims8_80741066
-    Disableinputsframes*: Ims8_80741066
-    Setwindowposallowflags*: Imguicond_80740994
-    Setwindowsizeallowflags*: Imguicond_80740994
-    Setwindowcollapsedallowflags*: Imguicond_80740994
-    Setwindowdockallowflags*: Imguicond_80740994
-    Setwindowposval*: Imvec2_80741096
-    Setwindowpospivot*: Imvec2_80741096
-    Idstack*: Imvectorimguiid_80741560
-    Dc*: Imguiwindowtempdata_80740980
-    Outerrectclipped*: Imrect_80740850
-    Innerrect*: Imrect_80740850
-    Innercliprect*: Imrect_80740850
-    Workrect*: Imrect_80740850
-    Parentworkrect*: Imrect_80740850
-    Cliprect*: Imrect_80740850
-    Contentregionrect*: Imrect_80740850
-    Hittestholesize*: Imvec2ih_80741326
-    Hittestholeoffset*: Imvec2ih_80741326
+    Autoposlastdirection*: Imguidir_63963781
+    Hiddenframescanskipitems*: Ims8_63963849
+    Hiddenframescannotskipitems*: Ims8_63963849
+    Hiddenframesforrenderonly*: Ims8_63963849
+    Disableinputsframes*: Ims8_63963849
+    Setwindowposallowflags*: Imguicond_63963777
+    Setwindowsizeallowflags*: Imguicond_63963777
+    Setwindowcollapsedallowflags*: Imguicond_63963777
+    Setwindowdockallowflags*: Imguicond_63963777
+    Setwindowposval*: Imvec2_63963879
+    Setwindowpospivot*: Imvec2_63963879
+    Idstack*: Imvectorimguiid_63964343
+    Dc*: Imguiwindowtempdata_63963763
+    Outerrectclipped*: Imrect_63963633
+    Innerrect*: Imrect_63963633
+    Innercliprect*: Imrect_63963633
+    Workrect*: Imrect_63963633
+    Parentworkrect*: Imrect_63963633
+    Cliprect*: Imrect_63963633
+    Contentregionrect*: Imrect_63963633
+    Hittestholesize*: Imvec2ih_63964109
+    Hittestholeoffset*: Imvec2ih_63964109
     Lastframeactive*: cint
     Lastframejustfocused*: cint
     Lasttimeactive*: cfloat
     Itemwidthdefault*: cfloat
-    Statestorage*: Imguistorage_80740814
-    Columnsstorage*: Imvectorimguioldcolumns_80741632
+    Statestorage*: Imguistorage_63963597
+    Columnsstorage*: Imvectorimguioldcolumns_63964415
     Fontwindowscale*: cfloat
     Fontdpiscale*: cfloat
     Settingsoffset*: cint
-    Drawlist*: ptr Imdrawlist_80740719
-    Drawlistinst*: Imdrawlist_80740719
-    Parentwindow*: ptr Imguiwindow_80740976
-    Parentwindowinbeginstack*: ptr Imguiwindow_80740976
-    Rootwindow*: ptr Imguiwindow_80740976
-    Rootwindowpopuptree*: ptr Imguiwindow_80740976
-    Rootwindowdocktree*: ptr Imguiwindow_80740976
-    Rootwindowfortitlebarhighlight*: ptr Imguiwindow_80740976
-    Rootwindowfornav*: ptr Imguiwindow_80740976
-    Navlastchildnavwindow*: ptr Imguiwindow_80740976
-    Navlastids*: array[2'i64, Imguiid_80741064]
-    Navrectrel*: array[2'i64, Imrect_80740850]
-    Navrootfocusscopeid*: Imguiid_80741064
+    Drawlist*: ptr Imdrawlist_63963502
+    Drawlistinst*: Imdrawlist_63963502
+    Parentwindow*: ptr Imguiwindow_63963759
+    Parentwindowinbeginstack*: ptr Imguiwindow_63963759
+    Rootwindow*: ptr Imguiwindow_63963759
+    Rootwindowpopuptree*: ptr Imguiwindow_63963759
+    Rootwindowdocktree*: ptr Imguiwindow_63963759
+    Rootwindowfortitlebarhighlight*: ptr Imguiwindow_63963759
+    Rootwindowfornav*: ptr Imguiwindow_63963759
+    Navlastchildnavwindow*: ptr Imguiwindow_63963759
+    Navlastids*: array[2'i64, Imguiid_63963847]
+    Navrectrel*: array[2'i64, Imrect_63963633]
+    Navrootfocusscopeid*: Imguiid_63963847
     Memorydrawlistidxcapacity*: cint
     Memorydrawlistvtxcapacity*: cint
     Memorycompacted*: bool
@@ -2533,322 +2533,322 @@ type
     Docktabisvisible*: bool
     Docktabwantclose*: bool
     Dockorder*: cshort
-    Dockstyle*: Imguiwindowdockstyle_80741506
-    Docknode*: ptr Imguidocknode_80740880
-    Docknodeashost*: ptr Imguidocknode_80740880
-    Dockid*: Imguiid_80741064
-    Docktabitemstatusflags*: Imguiitemstatusflags_80741280
-    Docktabitemrect*: Imrect_80740850
+    Dockstyle*: Imguiwindowdockstyle_63964289
+    Docknode*: ptr Imguidocknode_63963663
+    Docknodeashost*: ptr Imguidocknode_63963663
+    Dockid*: Imguiid_63963847
+    Docktabitemstatusflags*: Imguiitemstatusflags_63964063
+    Docktabitemrect*: Imrect_63963633
 
-  Imguiwindowtempdata_80740979 = structimguiwindowtempdata_80740982 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:112:36
-  structimguiwindowtempdata_80740981 {.pure, inheritable, bycopy.} = object
-    Cursorpos*: Imvec2_80741096 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2612:8
-    Cursorposprevline*: Imvec2_80741096
-    Cursorstartpos*: Imvec2_80741096
-    Cursormaxpos*: Imvec2_80741096
-    Idealmaxpos*: Imvec2_80741096
-    Currlinesize*: Imvec2_80741096
-    Prevlinesize*: Imvec2_80741096
+  Imguiwindowtempdata_63963762 = structimguiwindowtempdata_63963765 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:112:36
+  structimguiwindowtempdata_63963764 {.pure, inheritable, bycopy.} = object
+    Cursorpos*: Imvec2_63963879 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2612:8
+    Cursorposprevline*: Imvec2_63963879
+    Cursorstartpos*: Imvec2_63963879
+    Cursormaxpos*: Imvec2_63963879
+    Idealmaxpos*: Imvec2_63963879
+    Currlinesize*: Imvec2_63963879
+    Prevlinesize*: Imvec2_63963879
     Currlinetextbaseoffset*: cfloat
     Prevlinetextbaseoffset*: cfloat
     Issameline*: bool
     Issetpos*: bool
-    Indent*: Imvec1_80741322
-    Columnsoffset*: Imvec1_80741322
-    Groupoffset*: Imvec1_80741322
-    Cursorstartposlossyness*: Imvec2_80741096
-    Navlayercurrent*: Imguinavlayer_80741486
+    Indent*: Imvec1_63964105
+    Columnsoffset*: Imvec1_63964105
+    Groupoffset*: Imvec1_63964105
+    Cursorstartposlossyness*: Imvec2_63963879
+    Navlayercurrent*: Imguinavlayer_63964269
     Navlayersactivemask*: cshort
     Navlayersactivemasknext*: cshort
     Navhidehighlightoneframe*: bool
     Navhasscroll*: bool
     Menubarappending*: bool
-    Menubaroffset*: Imvec2_80741096
-    Menucolumns*: Imguimenucolumns_80740902
+    Menubaroffset*: Imvec2_63963879
+    Menucolumns*: Imguimenucolumns_63963685
     Treedepth*: cint
-    Treejumptoparentonpopmask*: Imu32_80741076
-    Childwindows*: Imvectorimguiwindowptr_80741502
-    Statestorage*: ptr Imguistorage_80740814
-    Currentcolumns*: ptr Imguioldcolumns_80740926
+    Treejumptoparentonpopmask*: Imu32_63963859
+    Childwindows*: Imvectorimguiwindowptr_63964285
+    Statestorage*: ptr Imguistorage_63963597
+    Currentcolumns*: ptr Imguioldcolumns_63963709
     Currenttableidx*: cint
-    Layouttype*: Imguilayouttype_80741270
-    Parentlayouttype*: Imguilayouttype_80741270
+    Layouttype*: Imguilayouttype_63964053
+    Parentlayouttype*: Imguilayouttype_63964053
     Itemwidth*: cfloat
     Textwrappos*: cfloat
-    Itemwidthstack*: Imvectorfloat_80741252
-    Textwrapposstack*: Imvectorfloat_80741252
+    Itemwidthstack*: Imvectorfloat_63964035
+    Textwrapposstack*: Imvectorfloat_63964035
 
-  Imguiwindowsettings_80740983 = structimguiwindowsettings_80740986 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:113:36
-  structimguiwindowsettings_80740985 {.pure, inheritable, bycopy.} = object
-    Id*: Imguiid_80741064    ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2214:8
-    Pos*: Imvec2ih_80741326
-    Size*: Imvec2ih_80741326
-    Viewportpos*: Imvec2ih_80741326
-    Viewportid*: Imguiid_80741064
-    Dockid*: Imguiid_80741064
-    Classid*: Imguiid_80741064
+  Imguiwindowsettings_63963766 = structimguiwindowsettings_63963769 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:113:36
+  structimguiwindowsettings_63963768 {.pure, inheritable, bycopy.} = object
+    Id*: Imguiid_63963847    ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2214:8
+    Pos*: Imvec2ih_63964109
+    Size*: Imvec2ih_63964109
+    Viewportpos*: Imvec2ih_63964109
+    Viewportid*: Imguiid_63963847
+    Dockid*: Imguiid_63963847
+    Classid*: Imguiid_63963847
     Dockorder*: cshort
     Collapsed*: bool
     Wantapply*: bool
     Wantdelete*: bool
 
-  structimvectorconstcharptr_80740987 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:114:16
+  structimvectorconstcharptr_63963770 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:114:16
     Capacity*: cint
     Data*: ptr ptr cschar
 
-  Imvectorconstcharptr_80740989 = structimvectorconstcharptr_80740988 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:114:82
-  Imguicol_80740991 = cint   ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:149:13
-  Imguicond_80740993 = cint  ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:150:13
-  Imguidatatype_80740995 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:151:13
-  Imguidir_80740997 = cint   ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:152:13
-  Imguimousebutton_80740999 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:153:13
-  Imguimousecursor_80741001 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:154:13
-  Imguisortdirection_80741003 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:155:13
-  Imguistylevar_80741005 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:156:13
-  Imguitablebgtarget_80741007 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:157:13
-  Imdrawflags_80741009 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:158:13
-  Imdrawlistflags_80741011 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:159:13
-  Imfontatlasflags_80741013 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:160:13
-  Imguibackendflags_80741015 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:161:13
-  Imguibuttonflags_80741017 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:162:13
-  Imguicoloreditflags_80741019 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:163:13
-  Imguiconfigflags_80741021 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:164:13
-  Imguicomboflags_80741023 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:165:13
-  Imguidocknodeflags_80741025 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:166:13
-  Imguidragdropflags_80741027 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:167:13
-  Imguifocusedflags_80741029 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:168:13
-  Imguihoveredflags_80741031 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:169:13
-  Imguiinputtextflags_80741033 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:170:13
-  Imguikeychord_80741035 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:171:13
-  Imguipopupflags_80741037 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:172:13
-  Imguiselectableflags_80741039 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:173:13
-  Imguisliderflags_80741041 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:174:13
-  Imguitabbarflags_80741043 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:175:13
-  Imguitabitemflags_80741045 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:176:13
-  Imguitableflags_80741047 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:177:13
-  Imguitablecolumnflags_80741049 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:178:13
-  Imguitablerowflags_80741051 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:179:13
-  Imguitreenodeflags_80741053 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:180:13
-  Imguiviewportflags_80741055 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:181:13
-  Imguiwindowflags_80741057 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:182:13
-  Imtextureid_80741059 = pointer ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:183:15
-  Imdrawidx_80741061 = cushort ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:184:24
-  Imguiid_80741063 = cuint   ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:185:22
-  Ims8_80741065 = cschar     ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:186:21
-  Imu8_80741067 = uint8      ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:187:23
-  Ims16_80741069 = cshort    ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:188:22
-  Imu16_80741071 = cushort   ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:189:24
-  Ims32_80741073 = cint      ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:190:20
-  Imu32_80741075 = cuint     ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:191:22
-  Ims64_80741077 = clonglong ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:192:26
-  Imu64_80741079 = culonglong ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:193:28
-  Imwchar16_80741081 = cushort ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:194:24
-  Imwchar32_80741083 = cuint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:195:22
-  Imwchar_80741085 = Imwchar16_80741082 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:196:19
-  Imguiinputtextcallback_80741087 = proc (a0: ptr Imguiinputtextcallbackdata_80740771): cint {.
-      cdecl.}                ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:197:15
-  Imguisizecallback_80741089 = proc (a0: ptr Imguisizecallbackdata_80740810): void {.
-      cdecl.}                ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:198:16
-  Imguimemallocfunc_80741091 = proc (a0: csize_t; a1: pointer): pointer {.cdecl.} ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:199:17
-  Imguimemfreefunc_80741093 = proc (a0: pointer; a1: pointer): void {.cdecl.} ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:200:16
-  Imvec2_80741095 = structimvec2_80741098 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:201:23
-  structimvec2_80741097 {.pure, inheritable, bycopy.} = object
-    x*: cfloat               ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:202:8
+  Imvectorconstcharptr_63963772 = structimvectorconstcharptr_63963771 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:114:82
+  Imguicol_63963774 = cint   ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:149:13
+  Imguicond_63963776 = cint  ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:150:13
+  Imguidatatype_63963778 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:151:13
+  Imguidir_63963780 = cint   ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:152:13
+  Imguimousebutton_63963782 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:153:13
+  Imguimousecursor_63963784 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:154:13
+  Imguisortdirection_63963786 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:155:13
+  Imguistylevar_63963788 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:156:13
+  Imguitablebgtarget_63963790 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:157:13
+  Imdrawflags_63963792 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:158:13
+  Imdrawlistflags_63963794 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:159:13
+  Imfontatlasflags_63963796 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:160:13
+  Imguibackendflags_63963798 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:161:13
+  Imguibuttonflags_63963800 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:162:13
+  Imguicoloreditflags_63963802 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:163:13
+  Imguiconfigflags_63963804 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:164:13
+  Imguicomboflags_63963806 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:165:13
+  Imguidocknodeflags_63963808 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:166:13
+  Imguidragdropflags_63963810 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:167:13
+  Imguifocusedflags_63963812 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:168:13
+  Imguihoveredflags_63963814 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:169:13
+  Imguiinputtextflags_63963816 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:170:13
+  Imguikeychord_63963818 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:171:13
+  Imguipopupflags_63963820 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:172:13
+  Imguiselectableflags_63963822 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:173:13
+  Imguisliderflags_63963824 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:174:13
+  Imguitabbarflags_63963826 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:175:13
+  Imguitabitemflags_63963828 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:176:13
+  Imguitableflags_63963830 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:177:13
+  Imguitablecolumnflags_63963832 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:178:13
+  Imguitablerowflags_63963834 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:179:13
+  Imguitreenodeflags_63963836 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:180:13
+  Imguiviewportflags_63963838 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:181:13
+  Imguiwindowflags_63963840 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:182:13
+  Imtextureid_63963842 = pointer ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:183:15
+  Imdrawidx_63963844 = cushort ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:184:24
+  Imguiid_63963846 = cuint   ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:185:22
+  Ims8_63963848 = cschar     ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:186:21
+  Imu8_63963850 = uint8      ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:187:23
+  Ims16_63963852 = cshort    ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:188:22
+  Imu16_63963854 = cushort   ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:189:24
+  Ims32_63963856 = cint      ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:190:20
+  Imu32_63963858 = cuint     ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:191:22
+  Ims64_63963860 = clonglong ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:192:26
+  Imu64_63963862 = culonglong ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:193:28
+  Imwchar16_63963864 = cushort ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:194:24
+  Imwchar32_63963866 = cuint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:195:22
+  Imwchar_63963868 = Imwchar16_63963865 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:196:19
+  Imguiinputtextcallback_63963870 = proc (a0: ptr Imguiinputtextcallbackdata_63963554): cint {.
+      cdecl.}                ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:197:15
+  Imguisizecallback_63963872 = proc (a0: ptr Imguisizecallbackdata_63963593): void {.
+      cdecl.}                ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:198:16
+  Imguimemallocfunc_63963874 = proc (a0: csize_t; a1: pointer): pointer {.cdecl.} ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:199:17
+  Imguimemfreefunc_63963876 = proc (a0: pointer; a1: pointer): void {.cdecl.} ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:200:16
+  Imvec2_63963878 = structimvec2_63963881 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:201:23
+  structimvec2_63963880 {.pure, inheritable, bycopy.} = object
+    x*: cfloat               ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:202:8
     y*: cfloat
 
-  Imvec4_80741099 = structimvec4_80741102 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:206:23
-  structimvec4_80741101 {.pure, inheritable, bycopy.} = object
-    x*: cfloat               ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:207:8
+  Imvec4_63963882 = structimvec4_63963885 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:206:23
+  structimvec4_63963884 {.pure, inheritable, bycopy.} = object
+    x*: cfloat               ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:207:8
     y*: cfloat
     z*: cfloat
     w*: cfloat
 
-  structimvectorimwchar_80741165 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:897:16
+  structimvectorimwchar_63963948 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:897:16
     Capacity*: cint
-    Data*: ptr Imwchar_80741086
+    Data*: ptr Imwchar_63963869
 
-  Imvectorimwchar_80741167 = structimvectorimwchar_80741166 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:897:72
-  structimguitextrange_80741169 {.pure, inheritable, bycopy.} = object
-    b*: cstring              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1064:8
+  Imvectorimwchar_63963950 = structimvectorimwchar_63963949 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:897:72
+  structimguitextrange_63963952 {.pure, inheritable, bycopy.} = object
+    b*: cstring              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1064:8
     e*: cstring
 
-  Imguitextrange_80741171 = structimguitextrange_80741170 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1079:31
-  structimvectorimguitextrange_80741173 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1071:16
+  Imguitextrange_63963954 = structimguitextrange_63963953 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1079:31
+  structimvectorimguitextrange_63963956 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1071:16
     Capacity*: cint
-    Data*: ptr Imguitextrange_80741172
+    Data*: ptr Imguitextrange_63963955
 
-  Imvectorimguitextrange_80741175 = structimvectorimguitextrange_80741174 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1071:86
-  structimvectorchar_80741177 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1080:16
+  Imvectorimguitextrange_63963958 = structimvectorimguitextrange_63963957 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1071:86
+  structimvectorchar_63963960 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1080:16
     Capacity*: cint
     Data*: cstring
 
-  Imvectorchar_80741179 = structimvectorchar_80741178 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1080:66
+  Imvectorchar_63963962 = structimvectorchar_63963961 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1080:66
   structimguistoragepair_anon0_t {.union, bycopy.} = object
     vali*: cint
     valf*: cfloat
     valp*: pointer
 
-  structimguistoragepair_80741181 {.pure, inheritable, bycopy.} = object
-    key*: Imguiid_80741064   ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1086:8
+  structimguistoragepair_63963964 {.pure, inheritable, bycopy.} = object
+    key*: Imguiid_63963847   ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1086:8
     anon0*: structimguistoragepair_anon0_t
 
-  Imguistoragepair_80741183 = structimguistoragepair_80741182 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1099:33
-  structimvectorimguistoragepair_80741185 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1093:16
+  Imguistoragepair_63963966 = structimguistoragepair_63963965 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1099:33
+  structimvectorimguistoragepair_63963968 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1093:16
     Capacity*: cint
-    Data*: ptr Imguistoragepair_80741184
+    Data*: ptr Imguistoragepair_63963967
 
-  Imvectorimguistoragepair_80741187 = structimvectorimguistoragepair_80741186 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1093:90
-  Imdrawcallback_80741189 = proc (a0: ptr Imdrawlist_80740719; a1: ptr Imdrawcmd_80740711): void {.
-      cdecl.}                ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1114:16
-  Imdrawcmdheader_80741191 = structimdrawcmdheader_80741194 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1131:32
-  structimdrawcmdheader_80741193 {.pure, inheritable, bycopy.} = object
-    Cliprect*: Imvec4_80741100 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1132:8
-    Textureid*: Imtextureid_80741060
+  Imvectorimguistoragepair_63963970 = structimvectorimguistoragepair_63963969 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1093:90
+  Imdrawcallback_63963972 = proc (a0: ptr Imdrawlist_63963502; a1: ptr Imdrawcmd_63963494): void {.
+      cdecl.}                ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1114:16
+  Imdrawcmdheader_63963974 = structimdrawcmdheader_63963977 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1131:32
+  structimdrawcmdheader_63963976 {.pure, inheritable, bycopy.} = object
+    Cliprect*: Imvec4_63963883 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1132:8
+    Textureid*: Imtextureid_63963843
     Vtxoffset*: cuint
 
-  structimvectorimdrawcmd_80741195 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1138:16
+  structimvectorimdrawcmd_63963978 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1138:16
     Capacity*: cint
-    Data*: ptr Imdrawcmd_80740711
+    Data*: ptr Imdrawcmd_63963494
 
-  Imvectorimdrawcmd_80741197 = structimvectorimdrawcmd_80741196 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1138:76
-  structimvectorimdrawidx_80741199 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1140:16
+  Imvectorimdrawcmd_63963980 = structimvectorimdrawcmd_63963979 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1138:76
+  structimvectorimdrawidx_63963982 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1140:16
     Capacity*: cint
-    Data*: ptr Imdrawidx_80741062
+    Data*: ptr Imdrawidx_63963845
 
-  Imvectorimdrawidx_80741201 = structimvectorimdrawidx_80741200 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1140:76
-  structimvectorimdrawchannel_80741203 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1147:16
+  Imvectorimdrawidx_63963984 = structimvectorimdrawidx_63963983 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1140:76
+  structimvectorimdrawchannel_63963986 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1147:16
     Capacity*: cint
-    Data*: ptr Imdrawchannel_80740707
+    Data*: ptr Imdrawchannel_63963490
 
-  Imvectorimdrawchannel_80741205 = structimvectorimdrawchannel_80741204 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1147:84
-  structimvectorimdrawvert_80741211 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1178:16
+  Imvectorimdrawchannel_63963988 = structimvectorimdrawchannel_63963987 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1147:84
+  structimvectorimdrawvert_63963994 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1178:16
     Capacity*: cint
-    Data*: ptr Imdrawvert_80740731
+    Data*: ptr Imdrawvert_63963514
 
-  Imvectorimdrawvert_80741213 = structimvectorimdrawvert_80741212 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1178:78
-  structimvectorimvec4_80741215 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1180:16
+  Imvectorimdrawvert_63963996 = structimvectorimdrawvert_63963995 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1178:78
+  structimvectorimvec4_63963998 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1180:16
     Capacity*: cint
-    Data*: ptr Imvec4_80741100
+    Data*: ptr Imvec4_63963883
 
-  Imvectorimvec4_80741217 = structimvectorimvec4_80741216 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1180:70
-  structimvectorimtextureid_80741219 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1182:16
+  Imvectorimvec4_63964000 = structimvectorimvec4_63963999 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1180:70
+  structimvectorimtextureid_63964002 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1182:16
     Capacity*: cint
-    Data*: ptr Imtextureid_80741060
+    Data*: ptr Imtextureid_63963843
 
-  Imvectorimtextureid_80741221 = structimvectorimtextureid_80741220 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1182:80
-  structimvectorimvec2_80741223 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1184:16
+  Imvectorimtextureid_63964004 = structimvectorimtextureid_63964003 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1182:80
+  structimvectorimvec2_63964006 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1184:16
     Capacity*: cint
-    Data*: ptr Imvec2_80741096
+    Data*: ptr Imvec2_63963879
 
-  Imvectorimvec2_80741225 = structimvectorimvec2_80741224 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1184:70
-  structimvectorimu32_80741227 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1247:16
+  Imvectorimvec2_63964008 = structimvectorimvec2_63964007 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1184:70
+  structimvectorimu32_63964010 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1247:16
     Capacity*: cint
-    Data*: ptr Imu32_80741076
+    Data*: ptr Imu32_63963859
 
-  Imvectorimu32_80741229 = structimvectorimu32_80741228 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1247:68
-  Imfontatlascustomrect_80741231 = structimfontatlascustomrect_80741234 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1253:38
-  structimfontatlascustomrect_80741233 {.pure, inheritable, bycopy.} = object
-    Width*: cushort          ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1254:8
+  Imvectorimu32_63964012 = structimvectorimu32_63964011 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1247:68
+  Imfontatlascustomrect_63964014 = structimfontatlascustomrect_63964017 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1253:38
+  structimfontatlascustomrect_63964016 {.pure, inheritable, bycopy.} = object
+    Width*: cushort          ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1254:8
     Height*: cushort
     X*: cushort
     Y*: cushort
     Glyphid*: cuint
     Glyphadvancex*: cfloat
-    Glyphoffset*: Imvec2_80741096
-    Font*: ptr Imfont_80740735
+    Glyphoffset*: Imvec2_63963879
+    Font*: ptr Imfont_63963518
 
-  structimvectorimfontptr_80741237 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1269:16
+  structimvectorimfontptr_63964020 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1269:16
     Capacity*: cint
-    Data*: ptr ptr Imfont_80740735
+    Data*: ptr ptr Imfont_63963518
 
-  Imvectorimfontptr_80741239 = structimvectorimfontptr_80741238 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1269:74
-  structimvectorimfontatlascustomrect_80741241 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1271:16
+  Imvectorimfontptr_63964022 = structimvectorimfontptr_63964021 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1269:74
+  structimvectorimfontatlascustomrect_63964024 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1271:16
     Capacity*: cint
-    Data*: ptr Imfontatlascustomrect_80741232
+    Data*: ptr Imfontatlascustomrect_63964015
 
-  Imvectorimfontatlascustomrect_80741243 = structimvectorimfontatlascustomrect_80741242 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1271:100
-  structimvectorimfontconfig_80741245 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1273:16
+  Imvectorimfontatlascustomrect_63964026 = structimvectorimfontatlascustomrect_63964025 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1271:100
+  structimvectorimfontconfig_63964028 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1273:16
     Capacity*: cint
-    Data*: ptr Imfontconfig_80740747
+    Data*: ptr Imfontconfig_63963530
 
-  Imvectorimfontconfig_80741247 = structimvectorimfontconfig_80741246 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1273:82
-  structimvectorfloat_80741249 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1300:16
+  Imvectorimfontconfig_63964030 = structimvectorimfontconfig_63964029 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1273:82
+  structimvectorfloat_63964032 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1300:16
     Capacity*: cint
     Data*: ptr cfloat
 
-  Imvectorfloat_80741251 = structimvectorfloat_80741250 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1300:68
-  structimvectorimfontglyph_80741253 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1302:16
+  Imvectorfloat_63964034 = structimvectorfloat_63964033 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1300:68
+  structimvectorimfontglyph_63964036 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1302:16
     Capacity*: cint
-    Data*: ptr Imfontglyph_80740751
+    Data*: ptr Imfontglyph_63963534
 
-  Imvectorimfontglyph_80741255 = structimvectorimfontglyph_80741254 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1302:80
-  structimvectorimguiplatformmonitor_80741259 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1362:16
+  Imvectorimfontglyph_63964038 = structimvectorimfontglyph_63964037 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1302:80
+  structimvectorimguiplatformmonitor_63964042 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1362:16
     Capacity*: cint
-    Data*: ptr Imguiplatformmonitor_80740802
+    Data*: ptr Imguiplatformmonitor_63963585
 
-  Imvectorimguiplatformmonitor_80741261 = structimvectorimguiplatformmonitor_80741260 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1362:98
-  structimvectorimguiviewportptr_80741263 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1364:16
+  Imvectorimguiplatformmonitor_63964044 = structimvectorimguiplatformmonitor_63964043 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1362:98
+  structimvectorimguiviewportptr_63964046 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1364:16
     Capacity*: cint
-    Data*: ptr ptr Imguiviewport_80740838
+    Data*: ptr ptr Imguiviewport_63963621
 
-  Imvectorimguiviewportptr_80741265 = structimvectorimguiviewportptr_80741264 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1364:88
-  Imguidataauthority_80741267 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1445:13
-  Imguilayouttype_80741269 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1446:13
-  Imguiactivateflags_80741271 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1447:13
-  Imguidebuglogflags_80741273 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1448:13
-  Imguiinputflags_80741275 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1449:13
-  Imguiitemflags_80741277 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1450:13
-  Imguiitemstatusflags_80741279 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1451:13
-  Imguioldcolumnflags_80741281 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1452:13
-  Imguinavhighlightflags_80741283 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1453:13
-  Imguinavmoveflags_80741285 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1454:13
-  Imguinextitemdataflags_80741287 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1455:13
-  Imguinextwindowdataflags_80741289 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1456:13
-  Imguiscrollflags_80741291 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1457:13
-  Imguiseparatorflags_80741293 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1458:13
-  Imguitextflags_80741295 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1459:13
-  Imguitooltipflags_80741297 = cint ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1460:13
-  Imguierrorlogcallback_80741299 = proc (a0: pointer; a1: cstring): void {.
-      cdecl, varargs.}       ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1461:16
-  Stbundorecord_80741301 = structstbundorecord_80741304 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1463:30
-  structstbundorecord_80741303 {.pure, inheritable, bycopy.} = object
-    where*: cint             ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1464:8
+  Imvectorimguiviewportptr_63964048 = structimvectorimguiviewportptr_63964047 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1364:88
+  Imguidataauthority_63964050 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1445:13
+  Imguilayouttype_63964052 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1446:13
+  Imguiactivateflags_63964054 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1447:13
+  Imguidebuglogflags_63964056 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1448:13
+  Imguiinputflags_63964058 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1449:13
+  Imguiitemflags_63964060 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1450:13
+  Imguiitemstatusflags_63964062 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1451:13
+  Imguioldcolumnflags_63964064 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1452:13
+  Imguinavhighlightflags_63964066 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1453:13
+  Imguinavmoveflags_63964068 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1454:13
+  Imguinextitemdataflags_63964070 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1455:13
+  Imguinextwindowdataflags_63964072 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1456:13
+  Imguiscrollflags_63964074 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1457:13
+  Imguiseparatorflags_63964076 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1458:13
+  Imguitextflags_63964078 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1459:13
+  Imguitooltipflags_63964080 = cint ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1460:13
+  Imguierrorlogcallback_63964082 = proc (a0: pointer; a1: cstring): void {.
+      cdecl, varargs.}       ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1461:16
+  Stbundorecord_63964084 = structstbundorecord_63964087 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1463:30
+  structstbundorecord_63964086 {.pure, inheritable, bycopy.} = object
+    where*: cint             ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1464:8
     insertlength*: cint
     deletelength*: cint
     charstorage*: cint
 
-  Stbundostate_80741305 = structstbundostate_80741308 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1471:29
-  structstbundostate_80741307 {.pure, inheritable, bycopy.} = object
-    undorec*: array[99'i64, Stbundorecord_80741302] ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1472:8
-    undochar*: array[999'i64, Imwchar_80741086]
+  Stbundostate_63964088 = structstbundostate_63964091 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1471:29
+  structstbundostate_63964090 {.pure, inheritable, bycopy.} = object
+    undorec*: array[99'i64, Stbundorecord_63964085] ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1472:8
+    undochar*: array[999'i64, Imwchar_63963869]
     undopoint*: cshort
     redopoint*: cshort
     undocharpoint*: cint
     redocharpoint*: cint
 
-  Stbtexteditstate_80741309 = structstbtexteditstate_80741312 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1479:34
-  structstbtexteditstate_80741311 {.pure, inheritable, bycopy.} = object
-    cursor*: cint            ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1480:8
+  Stbtexteditstate_63964092 = structstbtexteditstate_63964095 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1479:34
+  structstbtexteditstate_63964094 {.pure, inheritable, bycopy.} = object
+    cursor*: cint            ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1480:8
     selectstart*: cint
     selectend*: cint
     insertmode*: uint8
@@ -2861,450 +2861,450 @@ type
     padding2*: uint8
     padding3*: uint8
     preferredx*: cfloat
-    undostate*: Stbundostate_80741306
+    undostate*: Stbundostate_63964089
 
-  Stbtexteditrow_80741313 = structstbtexteditrow_80741316 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1495:31
-  structstbtexteditrow_80741315 {.pure, inheritable, bycopy.} = object
-    x0*: cfloat              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1496:8
+  Stbtexteditrow_63964096 = structstbtexteditrow_63964099 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1495:31
+  structstbtexteditrow_63964098 {.pure, inheritable, bycopy.} = object
+    x0*: cfloat              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1496:8
     x1*: cfloat
     baselineydelta*: cfloat
     ymin*: cfloat
     ymax*: cfloat
     numchars*: cint
 
-  Imfilehandle_80741317 = ptr File_80741320 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1503:15
-  File_80741319 = structiobuf_80741680 ## Generated based on D:/msys32/mingw32/include/stdio.h:47:25
-  Imvec1_80741321 = structimvec1_80741324 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1504:23
-  structimvec1_80741323 {.pure, inheritable, bycopy.} = object
-    x*: cfloat               ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1505:8
+  Imfilehandle_63964100 = ptr File_63964103 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1503:15
+  File_63964102 = structiobuf_63964463 ## Generated based on D:/msys32/mingw32/include/stdio.h:47:25
+  Imvec1_63964104 = structimvec1_63964107 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1504:23
+  structimvec1_63964106 {.pure, inheritable, bycopy.} = object
+    x*: cfloat               ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1505:8
   
-  Imvec2ih_80741325 = structimvec2ih_80741328 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1509:25
-  structimvec2ih_80741327 {.pure, inheritable, bycopy.} = object
-    x*: cshort               ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1510:8
+  Imvec2ih_63964108 = structimvec2ih_63964111 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1509:25
+  structimvec2ih_63964110 {.pure, inheritable, bycopy.} = object
+    x*: cshort               ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1510:8
     y*: cshort
 
-  Imbitarrayptr_80741329 = ptr Imu32_80741076 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1519:16
-  Impoolidx_80741331 = cint  ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1524:13
-  Imguitextindex_80741333 = structimguitextindex_80741336 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1525:31
-  structimguitextindex_80741335 {.pure, inheritable, bycopy.} = object
-    Lineoffsets*: Imvectorint_80741340 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1528:8
+  Imbitarrayptr_63964112 = ptr Imu32_63963859 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1519:16
+  Impoolidx_63964114 = cint  ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1524:13
+  Imguitextindex_63964116 = structimguitextindex_63964119 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1525:31
+  structimguitextindex_63964118 {.pure, inheritable, bycopy.} = object
+    Lineoffsets*: Imvectorint_63964123 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1528:8
     Endoffset*: cint
 
-  structimvectorint_80741337 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1526:16
+  structimvectorint_63964120 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1526:16
     Capacity*: cint
     Data*: ptr cint
 
-  Imvectorint_80741339 = structimvectorint_80741338 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1526:64
-  structimvectorimdrawlistptr_80741341 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1548:16
+  Imvectorint_63964122 = structimvectorint_63964121 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1526:64
+  structimvectorimdrawlistptr_63964124 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1548:16
     Capacity*: cint
-    Data*: ptr ptr Imdrawlist_80740719
+    Data*: ptr ptr Imdrawlist_63963502
 
-  Imvectorimdrawlistptr_80741343 = structimvectorimdrawlistptr_80741342 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1548:82
-  Imguidatatypetempstorage_80741377 = structimguidatatypetempstorage_80741380 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1671:41
-  structimguidatatypetempstorage_80741379 {.pure, inheritable, bycopy.} = object
-    Data*: array[8'i64, Imu8_80741068] ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1672:8
+  Imvectorimdrawlistptr_63964126 = structimvectorimdrawlistptr_63964125 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1548:82
+  Imguidatatypetempstorage_63964160 = structimguidatatypetempstorage_63964163 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1671:41
+  structimguidatatypetempstorage_63964162 {.pure, inheritable, bycopy.} = object
+    Data*: array[8'i64, Imu8_63963851] ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1672:8
   
-  Imguicombopreviewdata_80741383 = structimguicombopreviewdata_80741386 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1698:38
-  structimguicombopreviewdata_80741385 {.pure, inheritable, bycopy.} = object
-    Previewrect*: Imrect_80740850 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1699:8
-    Backupcursorpos*: Imvec2_80741096
-    Backupcursormaxpos*: Imvec2_80741096
-    Backupcursorposprevline*: Imvec2_80741096
+  Imguicombopreviewdata_63964166 = structimguicombopreviewdata_63964169 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1698:38
+  structimguicombopreviewdata_63964168 {.pure, inheritable, bycopy.} = object
+    Previewrect*: Imrect_63963633 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1699:8
+    Backupcursorpos*: Imvec2_63963879
+    Backupcursormaxpos*: Imvec2_63963879
+    Backupcursorposprevline*: Imvec2_63963879
     Backupprevlinetextbaseoffset*: cfloat
-    Backuplayout*: Imguilayouttype_80741270
+    Backuplayout*: Imguilayouttype_63964053
 
-  Imguiwindowstackdata_80741391 = structimguiwindowstackdata_80741394 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1833:37
-  structimguiwindowstackdata_80741393 {.pure, inheritable, bycopy.} = object
-    Window*: ptr Imguiwindow_80740976 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1834:8
-    Parentlastitemdatabackup*: Imguilastitemdata_80740894
-    Stacksizesonbegin*: Imguistacksizes_80740938
+  Imguiwindowstackdata_63964174 = structimguiwindowstackdata_63964177 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1833:37
+  structimguiwindowstackdata_63964176 {.pure, inheritable, bycopy.} = object
+    Window*: ptr Imguiwindow_63963759 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1834:8
+    Parentlastitemdatabackup*: Imguilastitemdata_63963677
+    Stacksizesonbegin*: Imguistacksizes_63963721
 
-  Imguishrinkwidthitem_80741395 = structimguishrinkwidthitem_80741398 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1840:37
-  structimguishrinkwidthitem_80741397 {.pure, inheritable, bycopy.} = object
-    Index*: cint             ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1841:8
+  Imguishrinkwidthitem_63964178 = structimguishrinkwidthitem_63964181 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1840:37
+  structimguishrinkwidthitem_63964180 {.pure, inheritable, bycopy.} = object
+    Index*: cint             ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1841:8
     Width*: cfloat
     Initialwidth*: cfloat
 
-  Imguiptrorindex_80741399 = structimguiptrorindex_80741402 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1847:32
-  structimguiptrorindex_80741401 {.pure, inheritable, bycopy.} = object
-    Ptr*: pointer            ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1848:8
+  Imguiptrorindex_63964182 = structimguiptrorindex_63964185 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1847:32
+  structimguiptrorindex_63964184 {.pure, inheritable, bycopy.} = object
+    Ptr*: pointer            ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1848:8
     Index*: cint
 
-  structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_80741403 {.
+  structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_63964186 {.
       pure, inheritable, bycopy.} = object
-    Storage*: array[5'i64, Imu32_80741076] ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1853:16
+    Storage*: array[5'i64, Imu32_63963859] ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1853:16
   
-  Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_80741405 = structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_80741404 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1853:130
-  Imbitarrayfornamedkeys_80741407 = Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_80741406 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1855:73
-  Imguiinputeventmousepos_80741413 = structimguiinputeventmousepos_80741416 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1876:40
-  structimguiinputeventmousepos_80741415 {.pure, inheritable, bycopy.} = object
-    Posx*: cfloat            ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1877:8
+  Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_63964188 = structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_63964187 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1853:130
+  Imbitarrayfornamedkeys_63964190 = Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_63964189 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1855:73
+  Imguiinputeventmousepos_63964196 = structimguiinputeventmousepos_63964199 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1876:40
+  structimguiinputeventmousepos_63964198 {.pure, inheritable, bycopy.} = object
+    Posx*: cfloat            ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1877:8
     Posy*: cfloat
 
-  Imguiinputeventmousewheel_80741417 = structimguiinputeventmousewheel_80741420 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1880:42
-  structimguiinputeventmousewheel_80741419 {.pure, inheritable, bycopy.} = object
-    Wheelx*: cfloat          ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1881:8
+  Imguiinputeventmousewheel_63964200 = structimguiinputeventmousewheel_63964203 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1880:42
+  structimguiinputeventmousewheel_63964202 {.pure, inheritable, bycopy.} = object
+    Wheelx*: cfloat          ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1881:8
     Wheely*: cfloat
 
-  Imguiinputeventmousebutton_80741421 = structimguiinputeventmousebutton_80741424 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1884:43
-  structimguiinputeventmousebutton_80741423 {.pure, inheritable, bycopy.} = object
-    Button*: cint            ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1885:8
+  Imguiinputeventmousebutton_63964204 = structimguiinputeventmousebutton_63964207 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1884:43
+  structimguiinputeventmousebutton_63964206 {.pure, inheritable, bycopy.} = object
+    Button*: cint            ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1885:8
     Down*: bool
 
-  Imguiinputeventmouseviewport_80741425 = structimguiinputeventmouseviewport_80741428 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1888:45
-  structimguiinputeventmouseviewport_80741427 {.pure, inheritable, bycopy.} = object
-    Hoveredviewportid*: Imguiid_80741064 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1889:8
+  Imguiinputeventmouseviewport_63964208 = structimguiinputeventmouseviewport_63964211 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1888:45
+  structimguiinputeventmouseviewport_63964210 {.pure, inheritable, bycopy.} = object
+    Hoveredviewportid*: Imguiid_63963847 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1889:8
   
-  Imguiinputeventkey_80741429 = structimguiinputeventkey_80741432 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1892:35
-  structimguiinputeventkey_80741431 {.pure, inheritable, bycopy.} = object
-    Key*: Imguikey_80741142  ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1893:8
+  Imguiinputeventkey_63964212 = structimguiinputeventkey_63964215 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1892:35
+  structimguiinputeventkey_63964214 {.pure, inheritable, bycopy.} = object
+    Key*: Imguikey_63963925  ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1893:8
     Down*: bool
     Analogvalue*: cfloat
 
-  Imguiinputeventtext_80741433 = structimguiinputeventtext_80741436 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1896:36
-  structimguiinputeventtext_80741435 {.pure, inheritable, bycopy.} = object
-    Char*: cuint             ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1897:8
+  Imguiinputeventtext_63964216 = structimguiinputeventtext_63964219 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1896:36
+  structimguiinputeventtext_63964218 {.pure, inheritable, bycopy.} = object
+    Char*: cuint             ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1897:8
   
-  Imguiinputeventappfocused_80741437 = structimguiinputeventappfocused_80741440 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1900:42
-  structimguiinputeventappfocused_80741439 {.pure, inheritable, bycopy.} = object
-    Focused*: bool           ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1901:8
+  Imguiinputeventappfocused_63964220 = structimguiinputeventappfocused_63964223 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1900:42
+  structimguiinputeventappfocused_63964222 {.pure, inheritable, bycopy.} = object
+    Focused*: bool           ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1901:8
   
-  Imguiinputevent_80741441 = structimguiinputevent_80741444 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1904:32
+  Imguiinputevent_63964224 = structimguiinputevent_63964227 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1904:32
   structimguiinputevent_anon0_t {.union, bycopy.} = object
-    Mousepos*: Imguiinputeventmousepos_80741414
-    Mousewheel*: Imguiinputeventmousewheel_80741418
-    Mousebutton*: Imguiinputeventmousebutton_80741422
-    Mouseviewport*: Imguiinputeventmouseviewport_80741426
-    Key*: Imguiinputeventkey_80741430
-    Text*: Imguiinputeventtext_80741434
-    Appfocused*: Imguiinputeventappfocused_80741438
+    Mousepos*: Imguiinputeventmousepos_63964197
+    Mousewheel*: Imguiinputeventmousewheel_63964201
+    Mousebutton*: Imguiinputeventmousebutton_63964205
+    Mouseviewport*: Imguiinputeventmouseviewport_63964209
+    Key*: Imguiinputeventkey_63964213
+    Text*: Imguiinputeventtext_63964217
+    Appfocused*: Imguiinputeventappfocused_63964221
 
-  structimguiinputevent_80741443 {.pure, inheritable, bycopy.} = object
-    Type*: Imguiinputeventtype_80741410 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1905:8
-    Source*: Imguiinputsource_80741412
+  structimguiinputevent_63964226 {.pure, inheritable, bycopy.} = object
+    Type*: Imguiinputeventtype_63964193 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1905:8
+    Source*: Imguiinputsource_63964195
     anon0*: structimguiinputevent_anon0_t
     Addedbytestengine*: bool
 
-  Imguikeyroutingindex_80741445 = Ims16_80741070 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1921:15
-  Imguikeyroutingdata_80741447 = structimguikeyroutingdata_80741450 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1922:36
-  structimguikeyroutingdata_80741449 {.pure, inheritable, bycopy.} = object
-    Nextentryindex*: Imguikeyroutingindex_80741446 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1923:8
-    Mods*: Imu16_80741072
-    Routingnextscore*: Imu8_80741068
-    Routingcurr*: Imguiid_80741064
-    Routingnext*: Imguiid_80741064
+  Imguikeyroutingindex_63964228 = Ims16_63963853 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1921:15
+  Imguikeyroutingdata_63964230 = structimguikeyroutingdata_63964233 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1922:36
+  structimguikeyroutingdata_63964232 {.pure, inheritable, bycopy.} = object
+    Nextentryindex*: Imguikeyroutingindex_63964229 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1923:8
+    Mods*: Imu16_63963855
+    Routingnextscore*: Imu8_63963851
+    Routingcurr*: Imguiid_63963847
+    Routingnext*: Imguiid_63963847
 
-  Imguikeyroutingtable_80741451 = structimguikeyroutingtable_80741454 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1931:37
-  structimguikeyroutingtable_80741453 {.pure, inheritable, bycopy.} = object
-    Index*: array[140'i64, Imguikeyroutingindex_80741446] ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1934:8
-    Entries*: Imvectorimguikeyroutingdata_80741458
-    Entriesnext*: Imvectorimguikeyroutingdata_80741458
+  Imguikeyroutingtable_63964234 = structimguikeyroutingtable_63964237 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1931:37
+  structimguikeyroutingtable_63964236 {.pure, inheritable, bycopy.} = object
+    Index*: array[140'i64, Imguikeyroutingindex_63964229] ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1934:8
+    Entries*: Imvectorimguikeyroutingdata_63964241
+    Entriesnext*: Imvectorimguikeyroutingdata_63964241
 
-  structimvectorimguikeyroutingdata_80741455 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1932:16
+  structimvectorimguikeyroutingdata_63964238 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1932:16
     Capacity*: cint
-    Data*: ptr Imguikeyroutingdata_80741448
+    Data*: ptr Imguikeyroutingdata_63964231
 
-  Imvectorimguikeyroutingdata_80741457 = structimvectorimguikeyroutingdata_80741456 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1932:96
-  Imguikeyownerdata_80741459 = structimguikeyownerdata_80741462 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1940:34
-  structimguikeyownerdata_80741461 {.pure, inheritable, bycopy.} = object
-    Ownercurr*: Imguiid_80741064 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1941:8
-    Ownernext*: Imguiid_80741064
+  Imvectorimguikeyroutingdata_63964240 = structimvectorimguikeyroutingdata_63964239 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1932:96
+  Imguikeyownerdata_63964242 = structimguikeyownerdata_63964245 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1940:34
+  structimguikeyownerdata_63964244 {.pure, inheritable, bycopy.} = object
+    Ownercurr*: Imguiid_63963847 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1941:8
+    Ownernext*: Imguiid_63963847
     Lockthisframe*: bool
     Lockuntilrelease*: bool
 
-  Imguilistclipperrange_80741465 = structimguilistclipperrange_80741468 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1974:38
-  structimguilistclipperrange_80741467 {.pure, inheritable, bycopy.} = object
-    Min*: cint               ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1975:8
+  Imguilistclipperrange_63964248 = structimguilistclipperrange_63964251 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1974:38
+  structimguilistclipperrange_63964250 {.pure, inheritable, bycopy.} = object
+    Min*: cint               ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1975:8
     Max*: cint
     Postoindexconvert*: bool
-    Postoindexoffsetmin*: Ims8_80741066
-    Postoindexoffsetmax*: Ims8_80741066
+    Postoindexoffsetmin*: Ims8_63963849
+    Postoindexoffsetmax*: Ims8_63963849
 
-  Imguilistclipperdata_80741469 = structimguilistclipperdata_80741472 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1983:37
-  structimguilistclipperdata_80741471 {.pure, inheritable, bycopy.} = object
-    Listclipper*: ptr Imguilistclipper_80740779 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1986:8
+  Imguilistclipperdata_63964252 = structimguilistclipperdata_63964255 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1983:37
+  structimguilistclipperdata_63964254 {.pure, inheritable, bycopy.} = object
+    Listclipper*: ptr Imguilistclipper_63963562 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1986:8
     Lossynessoffset*: cfloat
     Stepno*: cint
     Itemsfrozen*: cint
-    Ranges*: Imvectorimguilistclipperrange_80741476
+    Ranges*: Imvectorimguilistclipperrange_63964259
 
-  structimvectorimguilistclipperrange_80741473 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1984:16
+  structimvectorimguilistclipperrange_63964256 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1984:16
     Capacity*: cint
-    Data*: ptr Imguilistclipperrange_80741466
+    Data*: ptr Imguilistclipperrange_63964249
 
-  Imvectorimguilistclipperrange_80741475 = structimvectorimguilistclipperrange_80741474 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:1984:100
-  structimvectorimguioldcolumndata_80741489 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2066:16
+  Imvectorimguilistclipperrange_63964258 = structimvectorimguilistclipperrange_63964257 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1984:100
+  structimvectorimguioldcolumndata_63964272 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2066:16
     Capacity*: cint
-    Data*: ptr Imguioldcolumndata_80740922
+    Data*: ptr Imguioldcolumndata_63963705
 
-  Imvectorimguioldcolumndata_80741491 = structimvectorimguioldcolumndata_80741490 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2066:94
-  structimvectorimguiwindowptr_80741499 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2118:16
+  Imvectorimguioldcolumndata_63964274 = structimvectorimguioldcolumndata_63964273 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2066:94
+  structimvectorimguiwindowptr_63964282 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2118:16
     Capacity*: cint
-    Data*: ptr ptr Imguiwindow_80740976
+    Data*: ptr ptr Imguiwindow_63963759
 
-  Imvectorimguiwindowptr_80741501 = structimvectorimguiwindowptr_80741500 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2118:84
-  Imguiwindowdockstyle_80741505 = structimguiwindowdockstyle_80741508 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2173:37
-  structimguiwindowdockstyle_80741507 {.pure, inheritable, bycopy.} = object
-    Colors*: array[6'i64, Imu32_80741076] ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2174:8
+  Imvectorimguiwindowptr_63964284 = structimvectorimguiwindowptr_63964283 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2118:84
+  Imguiwindowdockstyle_63964288 = structimguiwindowdockstyle_63964291 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2173:37
+  structimguiwindowdockstyle_63964290 {.pure, inheritable, bycopy.} = object
+    Colors*: array[6'i64, Imu32_63963859] ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2174:8
   
-  structimvectorimguidockrequest_80741509 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2178:16
+  structimvectorimguidockrequest_63964292 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2178:16
     Capacity*: cint
-    Data*: ptr Imguidockrequest_80740878
+    Data*: ptr Imguidockrequest_63963661
 
-  Imvectorimguidockrequest_80741511 = structimvectorimguidockrequest_80741510 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2178:90
-  structimvectorimguidocknodesettings_80741513 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2180:16
+  Imvectorimguidockrequest_63964294 = structimvectorimguidockrequest_63964293 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2178:90
+  structimvectorimguidocknodesettings_63964296 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2180:16
     Capacity*: cint
-    Data*: ptr Imguidocknodesettings_80740884
+    Data*: ptr Imguidocknodesettings_63963667
 
-  Imvectorimguidocknodesettings_80741515 = structimvectorimguidocknodesettings_80741514 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2180:100
-  Imguiviewportp_80741517 = structimguiviewportp_80741520 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2189:31
-  structimguiviewportp_80741519 {.pure, inheritable, bycopy.} = object
-    internalimguiviewport*: Imguiviewport_80740838 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2190:8
+  Imvectorimguidocknodesettings_63964298 = structimvectorimguidocknodesettings_63964297 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2180:100
+  Imguiviewportp_63964300 = structimguiviewportp_63964303 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2189:31
+  structimguiviewportp_63964302 {.pure, inheritable, bycopy.} = object
+    internalimguiviewport*: Imguiviewport_63963621 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2190:8
     Idx*: cint
     Lastframeactive*: cint
     Lastfrontmoststampcount*: cint
-    Lastnamehash*: Imguiid_80741064
-    Lastpos*: Imvec2_80741096
+    Lastnamehash*: Imguiid_63963847
+    Lastpos*: Imvec2_63963879
     Alpha*: cfloat
     Lastalpha*: cfloat
     Platformmonitor*: cshort
-    Window*: ptr Imguiwindow_80740976
+    Window*: ptr Imguiwindow_63963759
     Drawlistslastframe*: array[2'i64, cint]
-    Drawlists*: array[2'i64, ptr Imdrawlist_80740719]
-    Drawdatap*: Imdrawdata_80740715
-    Drawdatabuilder*: Imdrawdatabuilder_80740854
-    Lastplatformpos*: Imvec2_80741096
-    Lastplatformsize*: Imvec2_80741096
-    Lastrenderersize*: Imvec2_80741096
-    Workoffsetmin*: Imvec2_80741096
-    Workoffsetmax*: Imvec2_80741096
-    Buildworkoffsetmin*: Imvec2_80741096
-    Buildworkoffsetmax*: Imvec2_80741096
+    Drawlists*: array[2'i64, ptr Imdrawlist_63963502]
+    Drawdatap*: Imdrawdata_63963498
+    Drawdatabuilder*: Imdrawdatabuilder_63963637
+    Lastplatformpos*: Imvec2_63963879
+    Lastplatformsize*: Imvec2_63963879
+    Lastrenderersize*: Imvec2_63963879
+    Workoffsetmin*: Imvec2_63963879
+    Workoffsetmax*: Imvec2_63963879
+    Buildworkoffsetmin*: Imvec2_63963879
+    Buildworkoffsetmax*: Imvec2_63963879
 
-  Imguistacklevelinfo_80741525 = structimguistacklevelinfo_80741528 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2283:36
-  structimguistacklevelinfo_80741527 {.pure, inheritable, bycopy.} = object
-    Id*: Imguiid_80741064    ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2284:8
-    Queryframecount*: Ims8_80741066
+  Imguistacklevelinfo_63964308 = structimguistacklevelinfo_63964311 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2283:36
+  structimguistacklevelinfo_63964310 {.pure, inheritable, bycopy.} = object
+    Id*: Imguiid_63963847    ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2284:8
+    Queryframecount*: Ims8_63963849
     Querysuccess*: bool
-    Datatype*: Imguidatatype_80740996
+    Datatype*: Imguidatatype_63963779
     Desc*: array[57'i64, cschar]
 
-  Imguistacktool_80741529 = structimguistacktool_80741532 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2292:31
-  structimguistacktool_80741531 {.pure, inheritable, bycopy.} = object
-    Lastactiveframe*: cint   ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2295:8
+  Imguistacktool_63964312 = structimguistacktool_63964315 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2292:31
+  structimguistacktool_63964314 {.pure, inheritable, bycopy.} = object
+    Lastactiveframe*: cint   ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2295:8
     Stacklevel*: cint
-    Queryid*: Imguiid_80741064
-    Results*: Imvectorimguistacklevelinfo_80741536
+    Queryid*: Imguiid_63963847
+    Results*: Imvectorimguistacklevelinfo_63964319
     Copytoclipboardonctrlc*: bool
     Copytoclipboardlasttime*: cfloat
 
-  structimvectorimguistacklevelinfo_80741533 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2293:16
+  structimvectorimguistacklevelinfo_63964316 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2293:16
     Capacity*: cint
-    Data*: ptr Imguistacklevelinfo_80741526
+    Data*: ptr Imguistacklevelinfo_63964309
 
-  Imvectorimguistacklevelinfo_80741535 = structimvectorimguistacklevelinfo_80741534 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2293:96
-  Imguicontexthookcallback_80741537 = proc (a0: ptr Imguicontext_80740763;
-      a1: ptr Imguicontexthook_80740862): void {.cdecl.} ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2304:16
-  structimvectorimguiinputevent_80741541 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2314:16
+  Imvectorimguistacklevelinfo_63964318 = structimvectorimguistacklevelinfo_63964317 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2293:96
+  Imguicontexthookcallback_63964320 = proc (a0: ptr Imguicontext_63963546;
+      a1: ptr Imguicontexthook_63963645): void {.cdecl.} ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2304:16
+  structimvectorimguiinputevent_63964324 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2314:16
     Capacity*: cint
-    Data*: ptr Imguiinputevent_80741442
+    Data*: ptr Imguiinputevent_63964225
 
-  Imvectorimguiinputevent_80741543 = structimvectorimguiinputevent_80741542 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2314:88
-  structimvectorimguiwindowstackdata_80741545 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2316:16
+  Imvectorimguiinputevent_63964326 = structimvectorimguiinputevent_63964325 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2314:88
+  structimvectorimguiwindowstackdata_63964328 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2316:16
     Capacity*: cint
-    Data*: ptr Imguiwindowstackdata_80741392
+    Data*: ptr Imguiwindowstackdata_63964175
 
-  Imvectorimguiwindowstackdata_80741547 = structimvectorimguiwindowstackdata_80741546 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2316:98
-  structimvectorimguicolormod_80741549 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2318:16
+  Imvectorimguiwindowstackdata_63964330 = structimvectorimguiwindowstackdata_63964329 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2316:98
+  structimvectorimguicolormod_63964332 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2318:16
     Capacity*: cint
-    Data*: ptr Imguicolormod_80740858
+    Data*: ptr Imguicolormod_63963641
 
-  Imvectorimguicolormod_80741551 = structimvectorimguicolormod_80741550 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2318:84
-  structimvectorimguistylemod_80741553 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2320:16
+  Imvectorimguicolormod_63964334 = structimvectorimguicolormod_63964333 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2318:84
+  structimvectorimguistylemod_63964336 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2320:16
     Capacity*: cint
-    Data*: ptr Imguistylemod_80740942
+    Data*: ptr Imguistylemod_63963725
 
-  Imvectorimguistylemod_80741555 = structimvectorimguistylemod_80741554 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2320:84
-  structimvectorimguiid_80741557 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2322:16
+  Imvectorimguistylemod_63964338 = structimvectorimguistylemod_63964337 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2320:84
+  structimvectorimguiid_63964340 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2322:16
     Capacity*: cint
-    Data*: ptr Imguiid_80741064
+    Data*: ptr Imguiid_63963847
 
-  Imvectorimguiid_80741559 = structimvectorimguiid_80741558 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2322:72
-  structimvectorimguiitemflags_80741561 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2324:16
+  Imvectorimguiid_63964342 = structimvectorimguiid_63964341 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2322:72
+  structimvectorimguiitemflags_63964344 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2324:16
     Capacity*: cint
-    Data*: ptr Imguiitemflags_80741278
+    Data*: ptr Imguiitemflags_63964061
 
-  Imvectorimguiitemflags_80741563 = structimvectorimguiitemflags_80741562 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2324:86
-  structimvectorimguigroupdata_80741565 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2326:16
+  Imvectorimguiitemflags_63964346 = structimvectorimguiitemflags_63964345 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2324:86
+  structimvectorimguigroupdata_63964348 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2326:16
     Capacity*: cint
-    Data*: ptr Imguigroupdata_80740886
+    Data*: ptr Imguigroupdata_63963669
 
-  Imvectorimguigroupdata_80741567 = structimvectorimguigroupdata_80741566 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2326:86
-  structimvectorimguipopupdata_80741569 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2328:16
+  Imvectorimguigroupdata_63964350 = structimvectorimguigroupdata_63964349 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2326:86
+  structimvectorimguipopupdata_63964352 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2328:16
     Capacity*: cint
-    Data*: ptr Imguipopupdata_80740930
+    Data*: ptr Imguipopupdata_63963713
 
-  Imvectorimguipopupdata_80741571 = structimvectorimguipopupdata_80741570 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2328:86
-  structimvectorimguiviewportpptr_80741573 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2330:16
+  Imvectorimguipopupdata_63964354 = structimvectorimguipopupdata_63964353 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2328:86
+  structimvectorimguiviewportpptr_63964356 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2330:16
     Capacity*: cint
-    Data*: ptr ptr Imguiviewportp_80741518
+    Data*: ptr ptr Imguiviewportp_63964301
 
-  Imvectorimguiviewportpptr_80741575 = structimvectorimguiviewportpptr_80741574 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2330:90
-  structimvectorunsignedchar_80741577 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2332:16
+  Imvectorimguiviewportpptr_63964358 = structimvectorimguiviewportpptr_63964357 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2330:90
+  structimvectorunsignedchar_63964360 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2332:16
     Capacity*: cint
     Data*: ptr uint8
 
-  Imvectorunsignedchar_80741579 = structimvectorunsignedchar_80741578 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2332:84
-  structimvectorimguilistclipperdata_80741581 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2334:16
+  Imvectorunsignedchar_63964362 = structimvectorunsignedchar_63964361 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2332:84
+  structimvectorimguilistclipperdata_63964364 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2334:16
     Capacity*: cint
-    Data*: ptr Imguilistclipperdata_80741470
+    Data*: ptr Imguilistclipperdata_63964253
 
-  Imvectorimguilistclipperdata_80741583 = structimvectorimguilistclipperdata_80741582 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2334:98
-  structimvectorimguitabletempdata_80741585 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2336:16
+  Imvectorimguilistclipperdata_63964366 = structimvectorimguilistclipperdata_63964365 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2334:98
+  structimvectorimguitabletempdata_63964368 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2336:16
     Capacity*: cint
-    Data*: ptr Imguitabletempdata_80740966
+    Data*: ptr Imguitabletempdata_63963749
 
-  Imvectorimguitabletempdata_80741587 = structimvectorimguitabletempdata_80741586 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2336:94
-  structimvectorimguitable_80741589 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2338:16
+  Imvectorimguitabletempdata_63964370 = structimvectorimguitabletempdata_63964369 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2336:94
+  structimvectorimguitable_63964372 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2338:16
     Capacity*: cint
-    Data*: ptr Imguitable_80740954
+    Data*: ptr Imguitable_63963737
 
-  Imvectorimguitable_80741591 = structimvectorimguitable_80741590 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2338:78
-  structimpoolimguitable_80741593 {.pure, inheritable, bycopy.} = object
-    Buf*: Imvectorimguitable_80741592 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2340:16
-    Map*: Imguistorage_80740814
-    Freeidx*: Impoolidx_80741332
-    Alivecount*: Impoolidx_80741332
+  Imvectorimguitable_63964374 = structimvectorimguitable_63964373 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2338:78
+  structimpoolimguitable_63964376 {.pure, inheritable, bycopy.} = object
+    Buf*: Imvectorimguitable_63964375 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2340:16
+    Map*: Imguistorage_63963597
+    Freeidx*: Impoolidx_63964115
+    Alivecount*: Impoolidx_63964115
 
-  Impoolimguitable_80741595 = structimpoolimguitable_80741594 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2340:117
-  structimvectorimguitabbar_80741597 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2342:16
+  Impoolimguitable_63964378 = structimpoolimguitable_63964377 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2340:117
+  structimvectorimguitabbar_63964380 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2342:16
     Capacity*: cint
-    Data*: ptr Imguitabbar_80740946
+    Data*: ptr Imguitabbar_63963729
 
-  Imvectorimguitabbar_80741599 = structimvectorimguitabbar_80741598 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2342:80
-  structimpoolimguitabbar_80741601 {.pure, inheritable, bycopy.} = object
-    Buf*: Imvectorimguitabbar_80741600 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2344:16
-    Map*: Imguistorage_80740814
-    Freeidx*: Impoolidx_80741332
-    Alivecount*: Impoolidx_80741332
+  Imvectorimguitabbar_63964382 = structimvectorimguitabbar_63964381 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2342:80
+  structimpoolimguitabbar_63964384 {.pure, inheritable, bycopy.} = object
+    Buf*: Imvectorimguitabbar_63964383 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2344:16
+    Map*: Imguistorage_63963597
+    Freeidx*: Impoolidx_63964115
+    Alivecount*: Impoolidx_63964115
 
-  Impoolimguitabbar_80741603 = structimpoolimguitabbar_80741602 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2344:119
-  structimvectorimguiptrorindex_80741605 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2346:16
+  Impoolimguitabbar_63964386 = structimpoolimguitabbar_63964385 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2344:119
+  structimvectorimguiptrorindex_63964388 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2346:16
     Capacity*: cint
-    Data*: ptr Imguiptrorindex_80741400
+    Data*: ptr Imguiptrorindex_63964183
 
-  Imvectorimguiptrorindex_80741607 = structimvectorimguiptrorindex_80741606 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2346:88
-  structimvectorimguishrinkwidthitem_80741609 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2348:16
+  Imvectorimguiptrorindex_63964390 = structimvectorimguiptrorindex_63964389 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2346:88
+  structimvectorimguishrinkwidthitem_63964392 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2348:16
     Capacity*: cint
-    Data*: ptr Imguishrinkwidthitem_80741396
+    Data*: ptr Imguishrinkwidthitem_63964179
 
-  Imvectorimguishrinkwidthitem_80741611 = structimvectorimguishrinkwidthitem_80741610 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2348:98
-  structimvectorimguisettingshandler_80741613 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2350:16
+  Imvectorimguishrinkwidthitem_63964394 = structimvectorimguishrinkwidthitem_63964393 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2348:98
+  structimvectorimguisettingshandler_63964396 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2350:16
     Capacity*: cint
-    Data*: ptr Imguisettingshandler_80740934
+    Data*: ptr Imguisettingshandler_63963717
 
-  Imvectorimguisettingshandler_80741615 = structimvectorimguisettingshandler_80741614 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2350:98
-  structimchunkstreamimguiwindowsettings_80741617 {.pure, inheritable, bycopy.} = object
-    Buf*: Imvectorchar_80741180 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2352:16
+  Imvectorimguisettingshandler_63964398 = structimvectorimguisettingshandler_63964397 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2350:98
+  structimchunkstreamimguiwindowsettings_63964400 {.pure, inheritable, bycopy.} = object
+    Buf*: Imvectorchar_63963963 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2352:16
   
-  Imchunkstreamimguiwindowsettings_80741619 = structimchunkstreamimguiwindowsettings_80741618 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2352:71
-  structimchunkstreamimguitablesettings_80741621 {.pure, inheritable, bycopy.} = object
-    Buf*: Imvectorchar_80741180 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2354:16
+  Imchunkstreamimguiwindowsettings_63964402 = structimchunkstreamimguiwindowsettings_63964401 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2352:71
+  structimchunkstreamimguitablesettings_63964404 {.pure, inheritable, bycopy.} = object
+    Buf*: Imvectorchar_63963963 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2354:16
   
-  Imchunkstreamimguitablesettings_80741623 = structimchunkstreamimguitablesettings_80741622 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2354:70
-  structimvectorimguicontexthook_80741625 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2356:16
+  Imchunkstreamimguitablesettings_63964406 = structimchunkstreamimguitablesettings_63964405 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2354:70
+  structimvectorimguicontexthook_63964408 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2356:16
     Capacity*: cint
-    Data*: ptr Imguicontexthook_80740862
+    Data*: ptr Imguicontexthook_63963645
 
-  Imvectorimguicontexthook_80741627 = structimvectorimguicontexthook_80741626 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2356:90
-  structimvectorimguioldcolumns_80741629 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2650:16
+  Imvectorimguicontexthook_63964410 = structimvectorimguicontexthook_63964409 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2356:90
+  structimvectorimguioldcolumns_63964412 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2650:16
     Capacity*: cint
-    Data*: ptr Imguioldcolumns_80740926
+    Data*: ptr Imguioldcolumns_63963709
 
-  Imvectorimguioldcolumns_80741631 = structimvectorimguioldcolumns_80741630 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2650:88
-  structimvectorimguitabitem_80741637 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2795:16
+  Imvectorimguioldcolumns_63964414 = structimvectorimguioldcolumns_63964413 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2650:88
+  structimvectorimguitabitem_63964420 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2795:16
     Capacity*: cint
-    Data*: ptr Imguitabitem_80740950
+    Data*: ptr Imguitabitem_63963733
 
-  Imvectorimguitabitem_80741639 = structimvectorimguitabitem_80741638 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2795:82
-  Imguitablecolumnidx_80741641 = Ims16_80741070 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2831:15
-  Imguitabledrawchannelidx_80741643 = Imu16_80741072 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2832:15
-  Imguitablecelldata_80741645 = structimguitablecelldata_80741648 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2877:35
-  structimguitablecelldata_80741647 {.pure, inheritable, bycopy.} = object
-    Bgcolor*: Imu32_80741076 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2878:8
-    Column*: Imguitablecolumnidx_80741642
+  Imvectorimguitabitem_63964422 = structimvectorimguitabitem_63964421 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2795:82
+  Imguitablecolumnidx_63964424 = Ims16_63963853 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2831:15
+  Imguitabledrawchannelidx_63964426 = Imu16_63963855 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2832:15
+  Imguitablecelldata_63964428 = structimguitablecelldata_63964431 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2877:35
+  structimguitablecelldata_63964430 {.pure, inheritable, bycopy.} = object
+    Bgcolor*: Imu32_63963859 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2878:8
+    Column*: Imguitablecolumnidx_63964425
 
-  structimspanimguitablecolumn_80741649 {.pure, inheritable, bycopy.} = object
-    Data*: ptr Imguitablecolumn_80740958 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2890:16
-    Dataend*: ptr Imguitablecolumn_80740958
+  structimspanimguitablecolumn_63964432 {.pure, inheritable, bycopy.} = object
+    Data*: ptr Imguitablecolumn_63963741 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2890:16
+    Dataend*: ptr Imguitablecolumn_63963741
 
-  Imspanimguitablecolumn_80741651 = structimspanimguitablecolumn_80741650 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2890:92
-  structimspanimguitablecolumnidx_80741653 {.pure, inheritable, bycopy.} = object
-    Data*: ptr Imguitablecolumnidx_80741642 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2892:16
-    Dataend*: ptr Imguitablecolumnidx_80741642
+  Imspanimguitablecolumn_63964434 = structimspanimguitablecolumn_63964433 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2890:92
+  structimspanimguitablecolumnidx_63964436 {.pure, inheritable, bycopy.} = object
+    Data*: ptr Imguitablecolumnidx_63964425 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2892:16
+    Dataend*: ptr Imguitablecolumnidx_63964425
 
-  Imspanimguitablecolumnidx_80741655 = structimspanimguitablecolumnidx_80741654 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2892:101
-  structimspanimguitablecelldata_80741657 {.pure, inheritable, bycopy.} = object
-    Data*: ptr Imguitablecelldata_80741646 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2894:16
-    Dataend*: ptr Imguitablecelldata_80741646
+  Imspanimguitablecolumnidx_63964438 = structimspanimguitablecolumnidx_63964437 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2892:101
+  structimspanimguitablecelldata_63964440 {.pure, inheritable, bycopy.} = object
+    Data*: ptr Imguitablecelldata_63964429 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2894:16
+    Dataend*: ptr Imguitablecelldata_63964429
 
-  Imspanimguitablecelldata_80741659 = structimspanimguitablecelldata_80741658 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2894:98
-  structimvectorimguitableinstancedata_80741661 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2896:16
+  Imspanimguitablecelldata_63964442 = structimspanimguitablecelldata_63964441 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2894:98
+  structimvectorimguitableinstancedata_63964444 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2896:16
     Capacity*: cint
-    Data*: ptr Imguitableinstancedata_80740962
+    Data*: ptr Imguitableinstancedata_63963745
 
-  Imvectorimguitableinstancedata_80741663 = structimvectorimguitableinstancedata_80741662 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2896:102
-  structimvectorimguitablecolumnsortspecs_80741665 {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2898:16
+  Imvectorimguitableinstancedata_63964446 = structimvectorimguitableinstancedata_63964445 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2896:102
+  structimvectorimguitablecolumnsortspecs_63964448 {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2898:16
     Capacity*: cint
-    Data*: ptr Imguitablecolumnsortspecs_80740826
+    Data*: ptr Imguitablecolumnsortspecs_63963609
 
-  Imvectorimguitablecolumnsortspecs_80741667 = structimvectorimguitablecolumnsortspecs_80741666 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:2898:108
-  Imguitablecolumnsettings_80741669 = structimguitablecolumnsettings_80741672 ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:3023:41
-  structimguitablecolumnsettings_80741671 {.pure, inheritable, bycopy.} = object
-    Widthorweight*: cfloat   ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:3024:8
-    Userid*: Imguiid_80741064
-    Index*: Imguitablecolumnidx_80741642
-    Displayorder*: Imguitablecolumnidx_80741642
-    Sortorder*: Imguitablecolumnidx_80741642
-    Sortdirection*: Imu8_80741068
-    Isenabled*: Imu8_80741068
-    Isstretch*: Imu8_80741068
+  Imvectorimguitablecolumnsortspecs_63964450 = structimvectorimguitablecolumnsortspecs_63964449 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2898:108
+  Imguitablecolumnsettings_63964452 = structimguitablecolumnsettings_63964455 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:3023:41
+  structimguitablecolumnsettings_63964454 {.pure, inheritable, bycopy.} = object
+    Widthorweight*: cfloat   ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:3024:8
+    Userid*: Imguiid_63963847
+    Index*: Imguitablecolumnidx_63964425
+    Displayorder*: Imguitablecolumnidx_63964425
+    Sortorder*: Imguitablecolumnidx_63964425
+    Sortdirection*: Imu8_63963851
+    Isenabled*: Imu8_63963851
+    Isstretch*: Imu8_63963851
 
-  Sdlwindow_80741673 = structsdlwindow ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/generator/output/cimgui_impl.h:48:27
-  Sdlrenderer_80741675 = structsdlrenderer ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/generator/output/cimgui_impl.h:49:29
-  Sdlevent_80741677 = unionsdlevent ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/generator/output/cimgui_impl.h:52:25
-  structiobuf_80741679 {.pure, inheritable, bycopy.} = object
+  Sdlwindow_63964456 = structsdlwindow ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/generator/output/cimgui_impl.h:48:27
+  Sdlrenderer_63964458 = structsdlrenderer ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/generator/output/cimgui_impl.h:49:29
+  Sdlevent_63964460 = unionsdlevent ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/generator/output/cimgui_impl.h:52:25
+  structiobuf_63964462 {.pure, inheritable, bycopy.} = object
     internalptr*: cstring    ## Generated based on D:/msys32/mingw32/include/stdio.h:33:10
     internalcnt*: cint
     internalbase*: cstring
@@ -3314,3009 +3314,3009 @@ type
     internalbufsiz*: cint
     internaltmpfname*: cstring
 
-  structimguiio_80740769 = (when declared(structimguiio):
+  structimguiio_63963552 = (when declared(structimguiio):
     structimguiio
    else:
-    structimguiio_80740768)
-  Imwchar32_80741084 = (when declared(Imwchar32):
+    structimguiio_63963551)
+  Imwchar32_63963867 = (when declared(Imwchar32):
     Imwchar32
    else:
-    Imwchar32_80741083)
-  structimguitextrange_80741170 = (when declared(structimguitextrange):
+    Imwchar32_63963866)
+  structimguitextrange_63963953 = (when declared(structimguitextrange):
     structimguitextrange
    else:
-    structimguitextrange_80741169)
-  Imchunkstreamimguiwindowsettings_80741620 = (when declared(
+    structimguitextrange_63963952)
+  Imchunkstreamimguiwindowsettings_63964403 = (when declared(
       Imchunkstreamimguiwindowsettings):
     Imchunkstreamimguiwindowsettings
    else:
-    Imchunkstreamimguiwindowsettings_80741619)
-  Imguipopuppositionpolicy_80741376 = (when declared(Imguipopuppositionpolicy):
+    Imchunkstreamimguiwindowsettings_63964402)
+  Imguipopuppositionpolicy_63964159 = (when declared(Imguipopuppositionpolicy):
     Imguipopuppositionpolicy
    else:
-    Imguipopuppositionpolicy_80741375)
-  Imvectorimdrawidx_80741202 = (when declared(Imvectorimdrawidx):
+    Imguipopuppositionpolicy_63964158)
+  Imvectorimdrawidx_63963985 = (when declared(Imvectorimdrawidx):
     Imvectorimdrawidx
    else:
-    Imvectorimdrawidx_80741201)
-  Imvectorimdrawchannel_80741206 = (when declared(Imvectorimdrawchannel):
+    Imvectorimdrawidx_63963984)
+  Imvectorimdrawchannel_63963989 = (when declared(Imvectorimdrawchannel):
     Imvectorimdrawchannel
    else:
-    Imvectorimdrawchannel_80741205)
-  Imguifocusedflags_80741030 = (when declared(Imguifocusedflags):
+    Imvectorimdrawchannel_63963988)
+  Imguifocusedflags_63963813 = (when declared(Imguifocusedflags):
     Imguifocusedflags
    else:
-    Imguifocusedflags_80741029)
-  Imguiplatformimedata_80740806 = (when declared(Imguiplatformimedata):
+    Imguifocusedflags_63963812)
+  Imguiplatformimedata_63963589 = (when declared(Imguiplatformimedata):
     Imguiplatformimedata
    else:
-    Imguiplatformimedata_80740805)
-  Imguiinputtextflagsenum_80741106 = (when declared(Imguiinputtextflagsenum):
+    Imguiplatformimedata_63963588)
+  Imguiinputtextflagsenum_63963889 = (when declared(Imguiinputtextflagsenum):
     Imguiinputtextflagsenum
    else:
-    Imguiinputtextflagsenum_80741105)
-  Imguitablecelldata_80741646 = (when declared(Imguitablecelldata):
+    Imguiinputtextflagsenum_63963888)
+  Imguitablecelldata_63964429 = (when declared(Imguitablecelldata):
     Imguitablecelldata
    else:
-    Imguitablecelldata_80741645)
-  Imvectorimfontptr_80741240 = (when declared(Imvectorimfontptr):
+    Imguitablecelldata_63964428)
+  Imvectorimfontptr_63964023 = (when declared(Imvectorimfontptr):
     Imvectorimfontptr
    else:
-    Imvectorimfontptr_80741239)
-  Imvectorimdrawcmd_80741198 = (when declared(Imvectorimdrawcmd):
+    Imvectorimfontptr_63964022)
+  Imvectorimdrawcmd_63963981 = (when declared(Imvectorimdrawcmd):
     Imvectorimdrawcmd
    else:
-    Imvectorimdrawcmd_80741197)
-  structimspanimguitablecolumnidx_80741654 = (when declared(
+    Imvectorimdrawcmd_63963980)
+  structimspanimguitablecolumnidx_63964437 = (when declared(
       structimspanimguitablecolumnidx):
     structimspanimguitablecolumnidx
    else:
-    structimspanimguitablecolumnidx_80741653)
-  Imguioldcolumnflags_80741282 = (when declared(Imguioldcolumnflags):
+    structimspanimguitablecolumnidx_63964436)
+  Imguioldcolumnflags_63964065 = (when declared(Imguioldcolumnflags):
     Imguioldcolumnflags
    else:
-    Imguioldcolumnflags_80741281)
-  Imfontglyph_80740751 = (when declared(Imfontglyph):
+    Imguioldcolumnflags_63964064)
+  Imfontglyph_63963534 = (when declared(Imfontglyph):
     Imfontglyph
    else:
-    Imfontglyph_80740750)
-  Imvectorimfontglyph_80741256 = (when declared(Imvectorimfontglyph):
+    Imfontglyph_63963533)
+  Imvectorimfontglyph_63964039 = (when declared(Imvectorimfontglyph):
     Imvectorimfontglyph
    else:
-    Imvectorimfontglyph_80741255)
-  Imguiselectableflagsprivate_80741358 = (when declared(
+    Imvectorimfontglyph_63964038)
+  Imguiselectableflagsprivate_63964141 = (when declared(
       Imguiselectableflagsprivate):
     Imguiselectableflagsprivate
    else:
-    Imguiselectableflagsprivate_80741357)
-  structimguipayload_80740789 = (when declared(structimguipayload):
+    Imguiselectableflagsprivate_63964140)
+  structimguipayload_63963572 = (when declared(structimguipayload):
     structimguipayload
    else:
-    structimguipayload_80740788)
-  Imguiinputtextcallbackdata_80740771 = (when declared(
+    structimguipayload_63963571)
+  Imguiinputtextcallbackdata_63963554 = (when declared(
       Imguiinputtextcallbackdata):
     Imguiinputtextcallbackdata
    else:
-    Imguiinputtextcallbackdata_80740770)
-  Imbitvector_80740846 = (when declared(Imbitvector):
+    Imguiinputtextcallbackdata_63963553)
+  Imbitvector_63963629 = (when declared(Imbitvector):
     Imbitvector
    else:
-    Imbitvector_80740845)
-  structimvectorimdrawidx_80741200 = (when declared(structimvectorimdrawidx):
+    Imbitvector_63963628)
+  structimvectorimdrawidx_63963983 = (when declared(structimvectorimdrawidx):
     structimvectorimdrawidx
    else:
-    structimvectorimdrawidx_80741199)
-  structimguistacklevelinfo_80741528 = (when declared(structimguistacklevelinfo):
+    structimvectorimdrawidx_63963982)
+  structimguistacklevelinfo_63964311 = (when declared(structimguistacklevelinfo):
     structimguistacklevelinfo
    else:
-    structimguistacklevelinfo_80741527)
-  Imdrawflags_80741010 = (when declared(Imdrawflags):
+    structimguistacklevelinfo_63964310)
+  Imdrawflags_63963793 = (when declared(Imdrawflags):
     Imdrawflags
    else:
-    Imdrawflags_80741009)
-  Imguitableflags_80741048 = (when declared(Imguitableflags):
+    Imdrawflags_63963792)
+  Imguitableflags_63963831 = (when declared(Imguitableflags):
     Imguitableflags
    else:
-    Imguitableflags_80741047)
-  Imguiinputeventmousewheel_80741418 = (when declared(Imguiinputeventmousewheel):
+    Imguitableflags_63963830)
+  Imguiinputeventmousewheel_63964201 = (when declared(Imguiinputeventmousewheel):
     Imguiinputeventmousewheel
    else:
-    Imguiinputeventmousewheel_80741417)
-  structimguipopupdata_80740932 = (when declared(structimguipopupdata):
+    Imguiinputeventmousewheel_63964200)
+  structimguipopupdata_63963715 = (when declared(structimguipopupdata):
     structimguipopupdata
    else:
-    structimguipopupdata_80740931)
-  Imguimemfreefunc_80741094 = (when declared(Imguimemfreefunc):
+    structimguipopupdata_63963714)
+  Imguimemfreefunc_63963877 = (when declared(Imguimemfreefunc):
     Imguimemfreefunc
    else:
-    Imguimemfreefunc_80741093)
-  Imguiselectableflags_80741040 = (when declared(Imguiselectableflags):
+    Imguimemfreefunc_63963876)
+  Imguiselectableflags_63963823 = (when declared(Imguiselectableflags):
     Imguiselectableflags
    else:
-    Imguiselectableflags_80741039)
-  Imguitablerowflags_80741052 = (when declared(Imguitablerowflags):
+    Imguiselectableflags_63963822)
+  Imguitablerowflags_63963835 = (when declared(Imguitablerowflags):
     Imguitablerowflags
    else:
-    Imguitablerowflags_80741051)
-  structimpoolimguitable_80741594 = (when declared(structimpoolimguitable):
+    Imguitablerowflags_63963834)
+  structimpoolimguitable_63964377 = (when declared(structimpoolimguitable):
     structimpoolimguitable
    else:
-    structimpoolimguitable_80741593)
-  structimguinextitemdata_80740920 = (when declared(structimguinextitemdata):
+    structimpoolimguitable_63964376)
+  structimguinextitemdata_63963703 = (when declared(structimguinextitemdata):
     structimguinextitemdata
    else:
-    structimguinextitemdata_80740919)
-  Imguikeychord_80741036 = (when declared(Imguikeychord):
+    structimguinextitemdata_63963702)
+  Imguikeychord_63963819 = (when declared(Imguikeychord):
     Imguikeychord
    else:
-    Imguikeychord_80741035)
-  Imguidatatypeinfo_80740870 = (when declared(Imguidatatypeinfo):
+    Imguikeychord_63963818)
+  Imguidatatypeinfo_63963653 = (when declared(Imguidatatypeinfo):
     Imguidatatypeinfo
    else:
-    Imguidatatypeinfo_80740869)
-  structimvectorimguikeyroutingdata_80741456 = (when declared(
+    Imguidatatypeinfo_63963652)
+  structimvectorimguikeyroutingdata_63964239 = (when declared(
       structimvectorimguikeyroutingdata):
     structimvectorimguikeyroutingdata
    else:
-    structimvectorimguikeyroutingdata_80741455)
-  Imguibackendflags_80741016 = (when declared(Imguibackendflags):
+    structimvectorimguikeyroutingdata_63964238)
+  Imguibackendflags_63963799 = (when declared(Imguibackendflags):
     Imguibackendflags
    else:
-    Imguibackendflags_80741015)
-  Imguiitemflags_80741278 = (when declared(Imguiitemflags):
+    Imguibackendflags_63963798)
+  Imguiitemflags_63964061 = (when declared(Imguiitemflags):
     Imguiitemflags
    else:
-    Imguiitemflags_80741277)
-  Imguitabledrawchannelidx_80741644 = (when declared(Imguitabledrawchannelidx):
+    Imguiitemflags_63964060)
+  Imguitabledrawchannelidx_63964427 = (when declared(Imguitabledrawchannelidx):
     Imguitabledrawchannelidx
    else:
-    Imguitabledrawchannelidx_80741643)
-  Imguinextwindowdata_80740914 = (when declared(Imguinextwindowdata):
+    Imguitabledrawchannelidx_63964426)
+  Imguinextwindowdata_63963697 = (when declared(Imguinextwindowdata):
     Imguinextwindowdata
    else:
-    Imguinextwindowdata_80740913)
-  Imguicomboflagsprivate_80741354 = (when declared(Imguicomboflagsprivate):
+    Imguinextwindowdata_63963696)
+  Imguicomboflagsprivate_63964137 = (when declared(Imguicomboflagsprivate):
     Imguicomboflagsprivate
    else:
-    Imguicomboflagsprivate_80741353)
-  Ims32_80741074 = (when declared(Ims32):
+    Imguicomboflagsprivate_63964136)
+  Ims32_63963857 = (when declared(Ims32):
     Ims32
    else:
-    Ims32_80741073)
-  Imguiconfigflagsenum_80741146 = (when declared(Imguiconfigflagsenum):
+    Ims32_63963856)
+  Imguiconfigflagsenum_63963929 = (when declared(Imguiconfigflagsenum):
     Imguiconfigflagsenum
    else:
-    Imguiconfigflagsenum_80741145)
-  Stbundostate_80741306 = (when declared(Stbundostate):
+    Imguiconfigflagsenum_63963928)
+  Stbundostate_63964089 = (when declared(Stbundostate):
     Stbundostate
    else:
-    Stbundostate_80741305)
-  Imguicontexthookcallback_80741538 = (when declared(Imguicontexthookcallback):
+    Stbundostate_63964088)
+  Imguicontexthookcallback_63964321 = (when declared(Imguicontexthookcallback):
     Imguicontexthookcallback
    else:
-    Imguicontexthookcallback_80741537)
-  Imguisortdirectionenum_80741140 = (when declared(Imguisortdirectionenum):
+    Imguicontexthookcallback_63964320)
+  Imguisortdirectionenum_63963923 = (when declared(Imguisortdirectionenum):
     Imguisortdirectionenum
    else:
-    Imguisortdirectionenum_80741139)
-  Imguinextitemdataflags_80741288 = (when declared(Imguinextitemdataflags):
+    Imguisortdirectionenum_63963922)
+  Imguinextitemdataflags_63964071 = (when declared(Imguinextitemdataflags):
     Imguinextitemdataflags
    else:
-    Imguinextitemdataflags_80741287)
-  Imguibuttonflagsprivate_80741352 = (when declared(Imguibuttonflagsprivate):
+    Imguinextitemdataflags_63964070)
+  Imguibuttonflagsprivate_63964135 = (when declared(Imguibuttonflagsprivate):
     Imguibuttonflagsprivate
    else:
-    Imguibuttonflagsprivate_80741351)
-  structimvectorimguioldcolumndata_80741490 = (when declared(
+    Imguibuttonflagsprivate_63964134)
+  structimvectorimguioldcolumndata_63964273 = (when declared(
       structimvectorimguioldcolumndata):
     structimvectorimguioldcolumndata
    else:
-    structimvectorimguioldcolumndata_80741489)
-  Imguiwindow_80740976 = (when declared(Imguiwindow):
+    structimvectorimguioldcolumndata_63964272)
+  Imguiwindow_63963759 = (when declared(Imguiwindow):
     Imguiwindow
    else:
-    Imguiwindow_80740975)
-  Imfilehandle_80741318 = (when declared(Imfilehandle):
+    Imguiwindow_63963758)
+  Imfilehandle_63964101 = (when declared(Imfilehandle):
     Imfilehandle
    else:
-    Imfilehandle_80741317)
-  Imspanimguitablecolumn_80741652 = (when declared(Imspanimguitablecolumn):
+    Imfilehandle_63964100)
+  Imspanimguitablecolumn_63964435 = (when declared(Imspanimguitablecolumn):
     Imspanimguitablecolumn
    else:
-    Imspanimguitablecolumn_80741651)
-  structimguilistclipperrange_80741468 = (when declared(
+    Imspanimguitablecolumn_63964434)
+  structimguilistclipperrange_63964251 = (when declared(
       structimguilistclipperrange):
     structimguilistclipperrange
    else:
-    structimguilistclipperrange_80741467)
-  Imguipayload_80740787 = (when declared(Imguipayload):
+    structimguilistclipperrange_63964250)
+  Imguipayload_63963570 = (when declared(Imguipayload):
     Imguipayload
    else:
-    Imguipayload_80740786)
-  structimguimenucolumns_80740904 = (when declared(structimguimenucolumns):
+    Imguipayload_63963569)
+  structimguimenucolumns_63963687 = (when declared(structimguimenucolumns):
     structimguimenucolumns
    else:
-    structimguimenucolumns_80740903)
-  Imguidirenum_80741138 = (when declared(Imguidirenum):
+    structimguimenucolumns_63963686)
+  Imguidirenum_63963921 = (when declared(Imguidirenum):
     Imguidirenum
    else:
-    Imguidirenum_80741137)
-  Stbundorecord_80741302 = (when declared(Stbundorecord):
+    Imguidirenum_63963920)
+  Stbundorecord_63964085 = (when declared(Stbundorecord):
     Stbundorecord
    else:
-    Stbundorecord_80741301)
-  Imguilistclipperrange_80741466 = (when declared(Imguilistclipperrange):
+    Stbundorecord_63964084)
+  Imguilistclipperrange_63964249 = (when declared(Imguilistclipperrange):
     Imguilistclipperrange
    else:
-    Imguilistclipperrange_80741465)
-  Imguiseparatorflags_80741294 = (when declared(Imguiseparatorflags):
+    Imguilistclipperrange_63964248)
+  Imguiseparatorflags_63964077 = (when declared(Imguiseparatorflags):
     Imguiseparatorflags
    else:
-    Imguiseparatorflags_80741293)
-  Imbitarrayptr_80741330 = (when declared(Imbitarrayptr):
+    Imguiseparatorflags_63964076)
+  Imbitarrayptr_63964113 = (when declared(Imbitarrayptr):
     Imbitarrayptr
    else:
-    Imbitarrayptr_80741329)
-  structimvectorimguiptrorindex_80741606 = (when declared(
+    Imbitarrayptr_63964112)
+  structimvectorimguiptrorindex_63964389 = (when declared(
       structimvectorimguiptrorindex):
     structimvectorimguiptrorindex
    else:
-    structimvectorimguiptrorindex_80741605)
-  structimguiinputeventkey_80741432 = (when declared(structimguiinputeventkey):
+    structimvectorimguiptrorindex_63964388)
+  structimguiinputeventkey_63964215 = (when declared(structimguiinputeventkey):
     structimguiinputeventkey
    else:
-    structimguiinputeventkey_80741431)
-  Imvectorimvec2_80741226 = (when declared(Imvectorimvec2):
+    structimguiinputeventkey_63964214)
+  Imvectorimvec2_63964009 = (when declared(Imvectorimvec2):
     Imvectorimvec2
    else:
-    Imvectorimvec2_80741225)
-  Imdrawlistflags_80741012 = (when declared(Imdrawlistflags):
+    Imvectorimvec2_63964008)
+  Imdrawlistflags_63963795 = (when declared(Imdrawlistflags):
     Imdrawlistflags
    else:
-    Imdrawlistflags_80741011)
-  structimguimetricsconfig_80740912 = (when declared(structimguimetricsconfig):
+    Imdrawlistflags_63963794)
+  structimguimetricsconfig_63963695 = (when declared(structimguimetricsconfig):
     structimguimetricsconfig
    else:
-    structimguimetricsconfig_80740911)
-  Imvectorimguitabletempdata_80741588 = (when declared(
+    structimguimetricsconfig_63963694)
+  Imvectorimguitabletempdata_63964371 = (when declared(
       Imvectorimguitabletempdata):
     Imvectorimguitabletempdata
    else:
-    Imvectorimguitabletempdata_80741587)
-  Imvectorconstcharptr_80740990 = (when declared(Imvectorconstcharptr):
+    Imvectorimguitabletempdata_63964370)
+  Imvectorconstcharptr_63963773 = (when declared(Imvectorconstcharptr):
     Imvectorconstcharptr
    else:
-    Imvectorconstcharptr_80740989)
-  Imguikey_80741142 = (when declared(Imguikey):
+    Imvectorconstcharptr_63963772)
+  Imguikey_63963925 = (when declared(Imguikey):
     Imguikey
    else:
-    Imguikey_80741141)
-  structimvec1_80741324 = (when declared(structimvec1):
+    Imguikey_63963924)
+  structimvec1_63964107 = (when declared(structimvec1):
     structimvec1
    else:
-    structimvec1_80741323)
-  Imfont_80740735 = (when declared(Imfont):
+    structimvec1_63964106)
+  Imfont_63963518 = (when declared(Imfont):
     Imfont
    else:
-    Imfont_80740734)
-  Imguikeyroutingtable_80741452 = (when declared(Imguikeyroutingtable):
+    Imfont_63963517)
+  Imguikeyroutingtable_63964235 = (when declared(Imguikeyroutingtable):
     Imguikeyroutingtable
    else:
-    Imguikeyroutingtable_80741451)
-  Imguilayouttypeenum_80741368 = (when declared(Imguilayouttypeenum):
+    Imguikeyroutingtable_63964234)
+  Imguilayouttypeenum_63964151 = (when declared(Imguilayouttypeenum):
     Imguilayouttypeenum
    else:
-    Imguilayouttypeenum_80741367)
-  Imdrawlistshareddata_80740723 = (when declared(Imdrawlistshareddata):
+    Imguilayouttypeenum_63964150)
+  Imdrawlistshareddata_63963506 = (when declared(Imdrawlistshareddata):
     Imdrawlistshareddata
    else:
-    Imdrawlistshareddata_80740722)
-  Imguitextflags_80741296 = (when declared(Imguitextflags):
+    Imdrawlistshareddata_63963505)
+  Imguitextflags_63964079 = (when declared(Imguitextflags):
     Imguitextflags
    else:
-    Imguitextflags_80741295)
-  Imfontglyphrangesbuilder_80740755 = (when declared(Imfontglyphrangesbuilder):
+    Imguitextflags_63964078)
+  Imfontglyphrangesbuilder_63963538 = (when declared(Imfontglyphrangesbuilder):
     Imfontglyphrangesbuilder
    else:
-    Imfontglyphrangesbuilder_80740754)
-  Imdrawidx_80741062 = (when declared(Imdrawidx):
+    Imfontglyphrangesbuilder_63963537)
+  Imdrawidx_63963845 = (when declared(Imdrawidx):
     Imdrawidx
    else:
-    Imdrawidx_80741061)
-  Imguimemallocfunc_80741092 = (when declared(Imguimemallocfunc):
+    Imdrawidx_63963844)
+  Imguimemallocfunc_63963875 = (when declared(Imguimemallocfunc):
     Imguimemallocfunc
    else:
-    Imguimemallocfunc_80741091)
-  structimguionceuponaframe_80740785 = (when declared(structimguionceuponaframe):
+    Imguimemallocfunc_63963874)
+  structimguionceuponaframe_63963568 = (when declared(structimguionceuponaframe):
     structimguionceuponaframe
    else:
-    structimguionceuponaframe_80740784)
-  structimfontbuilderio_80740745 = (when declared(structimfontbuilderio):
+    structimguionceuponaframe_63963567)
+  structimfontbuilderio_63963528 = (when declared(structimfontbuilderio):
     structimfontbuilderio
    else:
-    structimfontbuilderio_80740744)
-  structimguitabletempdata_80740968 = (when declared(structimguitabletempdata):
+    structimfontbuilderio_63963527)
+  structimguitabletempdata_63963751 = (when declared(structimguitabletempdata):
     structimguitabletempdata
    else:
-    structimguitabletempdata_80740967)
-  Imguibackendflagsenum_80741148 = (when declared(Imguibackendflagsenum):
+    structimguitabletempdata_63963750)
+  Imguibackendflagsenum_63963931 = (when declared(Imguibackendflagsenum):
     Imguibackendflagsenum
    else:
-    Imguibackendflagsenum_80741147)
-  Imguitooltipflagsenum_80741366 = (when declared(Imguitooltipflagsenum):
+    Imguibackendflagsenum_63963930)
+  Imguitooltipflagsenum_63964149 = (when declared(Imguitooltipflagsenum):
     Imguitooltipflagsenum
    else:
-    Imguitooltipflagsenum_80741365)
-  Imguisliderflags_80741042 = (when declared(Imguisliderflags):
+    Imguitooltipflagsenum_63964148)
+  Imguisliderflags_63963825 = (when declared(Imguisliderflags):
     Imguisliderflags
    else:
-    Imguisliderflags_80741041)
-  structimguiinputeventmousewheel_80741420 = (when declared(
+    Imguisliderflags_63963824)
+  structimguiinputeventmousewheel_63964203 = (when declared(
       structimguiinputeventmousewheel):
     structimguiinputeventmousewheel
    else:
-    structimguiinputeventmousewheel_80741419)
-  Imtextureid_80741060 = (when declared(Imtextureid):
+    structimguiinputeventmousewheel_63964202)
+  Imtextureid_63963843 = (when declared(Imtextureid):
     Imtextureid
    else:
-    Imtextureid_80741059)
-  Imguistacktool_80741530 = (when declared(Imguistacktool):
+    Imtextureid_63963842)
+  Imguistacktool_63964313 = (when declared(Imguistacktool):
     Imguistacktool
    else:
-    Imguistacktool_80741529)
-  Imvectorfloat_80741252 = (when declared(Imvectorfloat):
+    Imguistacktool_63964312)
+  Imvectorfloat_63964035 = (when declared(Imvectorfloat):
     Imvectorfloat
    else:
-    Imvectorfloat_80741251)
-  Imguidataauthority_80741268 = (when declared(Imguidataauthority):
+    Imvectorfloat_63964034)
+  Imguidataauthority_63964051 = (when declared(Imguidataauthority):
     Imguidataauthority
    else:
-    Imguidataauthority_80741267)
-  Imguitextrange_80741172 = (when declared(Imguitextrange):
+    Imguidataauthority_63964050)
+  Imguitextrange_63963955 = (when declared(Imguitextrange):
     Imguitextrange
    else:
-    Imguitextrange_80741171)
-  Imguitextbuffer_80740830 = (when declared(Imguitextbuffer):
+    Imguitextrange_63963954)
+  Imguitextbuffer_63963613 = (when declared(Imguitextbuffer):
     Imguitextbuffer
    else:
-    Imguitextbuffer_80740829)
-  Imdrawflagsenum_80741208 = (when declared(Imdrawflagsenum):
+    Imguitextbuffer_63963612)
+  Imdrawflagsenum_63963991 = (when declared(Imdrawflagsenum):
     Imdrawflagsenum
    else:
-    Imdrawflagsenum_80741207)
-  structimguisettingshandler_80740936 = (when declared(
+    Imdrawflagsenum_63963990)
+  structimguisettingshandler_63963719 = (when declared(
       structimguisettingshandler):
     structimguisettingshandler
    else:
-    structimguisettingshandler_80740935)
-  structimvectorimguiwindowstackdata_80741546 = (when declared(
+    structimguisettingshandler_63963718)
+  structimvectorimguiwindowstackdata_63964329 = (when declared(
       structimvectorimguiwindowstackdata):
     structimvectorimguiwindowstackdata
    else:
-    structimvectorimguiwindowstackdata_80741545)
-  Imguipopupflagsenum_80741110 = (when declared(Imguipopupflagsenum):
+    structimvectorimguiwindowstackdata_63964328)
+  Imguipopupflagsenum_63963893 = (when declared(Imguipopupflagsenum):
     Imguipopupflagsenum
    else:
-    Imguipopupflagsenum_80741109)
-  structimfontglyphrangesbuilder_80740757 = (when declared(
+    Imguipopupflagsenum_63963892)
+  structimfontglyphrangesbuilder_63963540 = (when declared(
       structimfontglyphrangesbuilder):
     structimfontglyphrangesbuilder
    else:
-    structimfontglyphrangesbuilder_80740756)
-  Imguisizecallbackdata_80740810 = (when declared(Imguisizecallbackdata):
+    structimfontglyphrangesbuilder_63963539)
+  Imguisizecallbackdata_63963593 = (when declared(Imguisizecallbackdata):
     Imguisizecallbackdata
    else:
-    Imguisizecallbackdata_80740809)
-  Imguitablebgtargetenum_80741126 = (when declared(Imguitablebgtargetenum):
+    Imguisizecallbackdata_63963592)
+  Imguitablebgtargetenum_63963909 = (when declared(Imguitablebgtargetenum):
     Imguitablebgtargetenum
    else:
-    Imguitablebgtargetenum_80741125)
-  structimvectorimdrawcmd_80741196 = (when declared(structimvectorimdrawcmd):
+    Imguitablebgtargetenum_63963908)
+  structimvectorimdrawcmd_63963979 = (when declared(structimvectorimdrawcmd):
     structimvectorimdrawcmd
    else:
-    structimvectorimdrawcmd_80741195)
-  Imvectorimguicontexthook_80741628 = (when declared(Imvectorimguicontexthook):
+    structimvectorimdrawcmd_63963978)
+  Imvectorimguicontexthook_63964411 = (when declared(Imvectorimguicontexthook):
     Imvectorimguicontexthook
    else:
-    Imvectorimguicontexthook_80741627)
-  structimguiwindowsettings_80740986 = (when declared(structimguiwindowsettings):
+    Imvectorimguicontexthook_63964410)
+  structimguiwindowsettings_63963769 = (when declared(structimguiwindowsettings):
     structimguiwindowsettings
    else:
-    structimguiwindowsettings_80740985)
-  Imguicombopreviewdata_80741384 = (when declared(Imguicombopreviewdata):
+    structimguiwindowsettings_63963768)
+  Imguicombopreviewdata_63964167 = (when declared(Imguicombopreviewdata):
     Imguicombopreviewdata
    else:
-    Imguicombopreviewdata_80741383)
-  Imguidataauthorityenum_80741496 = (when declared(Imguidataauthorityenum):
+    Imguicombopreviewdata_63964166)
+  Imguidataauthorityenum_63964279 = (when declared(Imguidataauthorityenum):
     Imguidataauthorityenum
    else:
-    Imguidataauthorityenum_80741495)
-  Sdlwindow_80741674 = (when declared(Sdlwindow):
+    Imguidataauthorityenum_63964278)
+  Sdlwindow_63964457 = (when declared(Sdlwindow):
     Sdlwindow
    else:
-    Sdlwindow_80741673)
-  Imguicomboflags_80741024 = (when declared(Imguicomboflags):
+    Sdlwindow_63964456)
+  Imguicomboflags_63963807 = (when declared(Imguicomboflags):
     Imguicomboflags
    else:
-    Imguicomboflags_80741023)
-  Imguiwindowsettings_80740984 = (when declared(Imguiwindowsettings):
+    Imguicomboflags_63963806)
+  Imguiwindowsettings_63963767 = (when declared(Imguiwindowsettings):
     Imguiwindowsettings
    else:
-    Imguiwindowsettings_80740983)
-  structimguitabitem_80740952 = (when declared(structimguitabitem):
+    Imguiwindowsettings_63963766)
+  structimguitabitem_63963735 = (when declared(structimguitabitem):
     structimguitabitem
    else:
-    structimguitabitem_80740951)
-  Impoolimguitabbar_80741604 = (when declared(Impoolimguitabbar):
+    structimguitabitem_63963734)
+  Impoolimguitabbar_63964387 = (when declared(Impoolimguitabbar):
     Impoolimguitabbar
    else:
-    Impoolimguitabbar_80741603)
-  Imdrawlistflagsenum_80741210 = (when declared(Imdrawlistflagsenum):
+    Impoolimguitabbar_63964386)
+  Imdrawlistflagsenum_63963993 = (when declared(Imdrawlistflagsenum):
     Imdrawlistflagsenum
    else:
-    Imdrawlistflagsenum_80741209)
-  structimdrawchannel_80740709 = (when declared(structimdrawchannel):
+    Imdrawlistflagsenum_63963992)
+  structimdrawchannel_63963492 = (when declared(structimdrawchannel):
     structimdrawchannel
    else:
-    structimdrawchannel_80740708)
-  Imguitablecolumnflags_80741050 = (when declared(Imguitablecolumnflags):
+    structimdrawchannel_63963491)
+  Imguitablecolumnflags_63963833 = (when declared(Imguitablecolumnflags):
     Imguitablecolumnflags
    else:
-    Imguitablecolumnflags_80741049)
-  Imwchar_80741086 = (when declared(Imwchar):
+    Imguitablecolumnflags_63963832)
+  Imwchar_63963869 = (when declared(Imwchar):
     Imwchar
    else:
-    Imwchar_80741085)
-  Imguimetricsconfig_80740910 = (when declared(Imguimetricsconfig):
+    Imwchar_63963868)
+  Imguimetricsconfig_63963693 = (when declared(Imguimetricsconfig):
     Imguimetricsconfig
    else:
-    Imguimetricsconfig_80740909)
-  Imguitabbarflagsenum_80741116 = (when declared(Imguitabbarflagsenum):
+    Imguimetricsconfig_63963692)
+  Imguitabbarflagsenum_63963899 = (when declared(Imguitabbarflagsenum):
     Imguitabbarflagsenum
    else:
-    Imguitabbarflagsenum_80741115)
-  structimguioldcolumns_80740928 = (when declared(structimguioldcolumns):
+    Imguitabbarflagsenum_63963898)
+  structimguioldcolumns_63963711 = (when declared(structimguioldcolumns):
     structimguioldcolumns
    else:
-    structimguioldcolumns_80740927)
-  Imguiwindowflags_80741058 = (when declared(Imguiwindowflags):
+    structimguioldcolumns_63963710)
+  Imguiwindowflags_63963841 = (when declared(Imguiwindowflags):
     Imguiwindowflags
    else:
-    Imguiwindowflags_80741057)
-  Imguitabitemflagsenum_80741118 = (when declared(Imguitabitemflagsenum):
+    Imguiwindowflags_63963840)
+  Imguitabitemflagsenum_63963901 = (when declared(Imguitabitemflagsenum):
     Imguitabitemflagsenum
    else:
-    Imguitabitemflagsenum_80741117)
-  Imguidocknodesettings_80740884 = (when declared(Imguidocknodesettings):
+    Imguitabitemflagsenum_63963900)
+  Imguidocknodesettings_63963667 = (when declared(Imguidocknodesettings):
     Imguidocknodesettings
    else:
-    Imguidocknodesettings_80740883)
-  Imguipopupdata_80740930 = (when declared(Imguipopupdata):
+    Imguidocknodesettings_63963666)
+  Imguipopupdata_63963713 = (when declared(Imguipopupdata):
     Imguipopupdata
    else:
-    Imguipopupdata_80740929)
-  structimguitextindex_80741336 = (when declared(structimguitextindex):
+    Imguipopupdata_63963712)
+  structimguitextindex_63964119 = (when declared(structimguitextindex):
     structimguitextindex
    else:
-    structimguitextindex_80741335)
-  structimvectorimfontglyph_80741254 = (when declared(structimvectorimfontglyph):
+    structimguitextindex_63964118)
+  structimvectorimfontglyph_63964037 = (when declared(structimvectorimfontglyph):
     structimvectorimfontglyph
    else:
-    structimvectorimfontglyph_80741253)
-  Imguicolormod_80740858 = (when declared(Imguicolormod):
+    structimvectorimfontglyph_63964036)
+  Imguicolormod_63963641 = (when declared(Imguicolormod):
     Imguicolormod
    else:
-    Imguicolormod_80740857)
-  Imguistoragepair_80741184 = (when declared(Imguistoragepair):
+    Imguicolormod_63963640)
+  Imguistoragepair_63963967 = (when declared(Imguistoragepair):
     Imguistoragepair
    else:
-    Imguistoragepair_80741183)
-  Imvec2_80741096 = (when declared(Imvec2):
+    Imguistoragepair_63963966)
+  Imvec2_63963879 = (when declared(Imvec2):
     Imvec2
    else:
-    Imvec2_80741095)
-  Imguidocknodestate_80741498 = (when declared(Imguidocknodestate):
+    Imvec2_63963878)
+  Imguidocknodestate_63964281 = (when declared(Imguidocknodestate):
     Imguidocknodestate
    else:
-    Imguidocknodestate_80741497)
-  Imwchar16_80741082 = (when declared(Imwchar16):
+    Imguidocknodestate_63964280)
+  Imwchar16_63963865 = (when declared(Imwchar16):
     Imwchar16
    else:
-    Imwchar16_80741081)
-  Imguinextitemdata_80740918 = (when declared(Imguinextitemdata):
+    Imwchar16_63963864)
+  Imguinextitemdata_63963701 = (when declared(Imguinextitemdata):
     Imguinextitemdata
    else:
-    Imguinextitemdata_80740917)
-  Imvectorimguiptrorindex_80741608 = (when declared(Imvectorimguiptrorindex):
+    Imguinextitemdata_63963700)
+  Imvectorimguiptrorindex_63964391 = (when declared(Imvectorimguiptrorindex):
     Imvectorimguiptrorindex
    else:
-    Imvectorimguiptrorindex_80741607)
-  Imguiinputtextflags_80741034 = (when declared(Imguiinputtextflags):
+    Imvectorimguiptrorindex_63964390)
+  Imguiinputtextflags_63963817 = (when declared(Imguiinputtextflags):
     Imguiinputtextflags
    else:
-    Imguiinputtextflags_80741033)
-  structimguicontexthook_80740864 = (when declared(structimguicontexthook):
+    Imguiinputtextflags_63963816)
+  structimguicontexthook_63963647 = (when declared(structimguicontexthook):
     structimguicontexthook
    else:
-    structimguicontexthook_80740863)
-  structimguistoragepair_80741182 = (when declared(structimguistoragepair):
+    structimguicontexthook_63963646)
+  structimguistoragepair_63963965 = (when declared(structimguistoragepair):
     structimguistoragepair
    else:
-    structimguistoragepair_80741181)
-  structstbundostate_80741308 = (when declared(structstbundostate):
+    structimguistoragepair_63963964)
+  structstbundostate_63964091 = (when declared(structstbundostate):
     structstbundostate
    else:
-    structstbundostate_80741307)
-  Imguitablesettings_80740970 = (when declared(Imguitablesettings):
+    structstbundostate_63964090)
+  Imguitablesettings_63963753 = (when declared(Imguitablesettings):
     Imguitablesettings
    else:
-    Imguitablesettings_80740969)
-  structimguistacktool_80741532 = (when declared(structimguistacktool):
+    Imguitablesettings_63963752)
+  structimguistacktool_63964315 = (when declared(structimguistacktool):
     structimguistacktool
    else:
-    structimguistacktool_80741531)
-  Imguiinputtextflagsprivate_80741350 = (when declared(
+    structimguistacktool_63964314)
+  Imguiinputtextflagsprivate_63964133 = (when declared(
       Imguiinputtextflagsprivate):
     Imguiinputtextflagsprivate
    else:
-    Imguiinputtextflagsprivate_80741349)
-  Imguidebuglogflagsenum_80741524 = (when declared(Imguidebuglogflagsenum):
+    Imguiinputtextflagsprivate_63964132)
+  Imguidebuglogflagsenum_63964307 = (when declared(Imguidebuglogflagsenum):
     Imguidebuglogflagsenum
    else:
-    Imguidebuglogflagsenum_80741523)
-  Imguicontexthooktype_80741540 = (when declared(Imguicontexthooktype):
+    Imguidebuglogflagsenum_63964306)
+  Imguicontexthooktype_63964323 = (when declared(Imguicontexthooktype):
     Imguicontexthooktype
    else:
-    Imguicontexthooktype_80741539)
-  structimguitablesettings_80740972 = (when declared(structimguitablesettings):
+    Imguicontexthooktype_63964322)
+  structimguitablesettings_63963755 = (when declared(structimguitablesettings):
     structimguitablesettings
    else:
-    structimguitablesettings_80740971)
-  Imguiplottype_80741374 = (when declared(Imguiplottype):
+    structimguitablesettings_63963754)
+  Imguiplottype_63964157 = (when declared(Imguiplottype):
     Imguiplottype
    else:
-    Imguiplottype_80741373)
-  Imfontatlasflags_80741014 = (when declared(Imfontatlasflags):
+    Imguiplottype_63964156)
+  Imfontatlasflags_63963797 = (when declared(Imfontatlasflags):
     Imfontatlasflags
    else:
-    Imfontatlasflags_80741013)
-  Imguiinputeventappfocused_80741438 = (when declared(Imguiinputeventappfocused):
+    Imfontatlasflags_63963796)
+  Imguiinputeventappfocused_63964221 = (when declared(Imguiinputeventappfocused):
     Imguiinputeventappfocused
    else:
-    Imguiinputeventappfocused_80741437)
-  Imguiactivateflagsenum_80741478 = (when declared(Imguiactivateflagsenum):
+    Imguiinputeventappfocused_63964220)
+  Imguiactivateflagsenum_63964261 = (when declared(Imguiactivateflagsenum):
     Imguiactivateflagsenum
    else:
-    Imguiactivateflagsenum_80741477)
-  structimvectorimguicolormod_80741550 = (when declared(
+    Imguiactivateflagsenum_63964260)
+  structimvectorimguicolormod_63964333 = (when declared(
       structimvectorimguicolormod):
     structimvectorimguicolormod
    else:
-    structimvectorimguicolormod_80741549)
-  Imguiplatformmonitor_80740802 = (when declared(Imguiplatformmonitor):
+    structimvectorimguicolormod_63964332)
+  Imguiplatformmonitor_63963585 = (when declared(Imguiplatformmonitor):
     Imguiplatformmonitor
    else:
-    Imguiplatformmonitor_80740801)
-  structimguiinputeventmousebutton_80741424 = (when declared(
+    Imguiplatformmonitor_63963584)
+  structimguiinputeventmousebutton_63964207 = (when declared(
       structimguiinputeventmousebutton):
     structimguiinputeventmousebutton
    else:
-    structimguiinputeventmousebutton_80741423)
-  Imguicoloreditflags_80741020 = (when declared(Imguicoloreditflags):
+    structimguiinputeventmousebutton_63964206)
+  Imguicoloreditflags_63963803 = (when declared(Imguicoloreditflags):
     Imguicoloreditflags
    else:
-    Imguicoloreditflags_80741019)
-  Imguikeydata_80740775 = (when declared(Imguikeydata):
+    Imguicoloreditflags_63963802)
+  Imguikeydata_63963558 = (when declared(Imguikeydata):
     Imguikeydata
    else:
-    Imguikeydata_80740774)
-  Imguinextwindowdataflagsenum_80741388 = (when declared(
+    Imguikeydata_63963557)
+  Imguinextwindowdataflagsenum_63964171 = (when declared(
       Imguinextwindowdataflagsenum):
     Imguinextwindowdataflagsenum
    else:
-    Imguinextwindowdataflagsenum_80741387)
-  structimvectorimguitableinstancedata_80741662 = (when declared(
+    Imguinextwindowdataflagsenum_63964170)
+  structimvectorimguitableinstancedata_63964445 = (when declared(
       structimvectorimguitableinstancedata):
     structimvectorimguitableinstancedata
    else:
-    structimvectorimguitableinstancedata_80741661)
-  Imguinavlayer_80741486 = (when declared(Imguinavlayer):
+    structimvectorimguitableinstancedata_63964444)
+  Imguinavlayer_63964269 = (when declared(Imguinavlayer):
     Imguinavlayer
    else:
-    Imguinavlayer_80741485)
-  Imvectorimguiitemflags_80741564 = (when declared(Imvectorimguiitemflags):
+    Imguinavlayer_63964268)
+  Imvectorimguiitemflags_63964347 = (when declared(Imvectorimguiitemflags):
     Imvectorimguiitemflags
    else:
-    Imvectorimguiitemflags_80741563)
-  structimguikeydata_80740777 = (when declared(structimguikeydata):
+    Imvectorimguiitemflags_63964346)
+  structimguikeydata_63963560 = (when declared(structimguikeydata):
     structimguikeydata
    else:
-    structimguikeydata_80740776)
-  Imguiio_80740767 = (when declared(Imguiio):
+    structimguikeydata_63963559)
+  Imguiio_63963550 = (when declared(Imguiio):
     Imguiio
    else:
-    Imguiio_80740766)
-  structimrect_80740852 = (when declared(structimrect):
+    Imguiio_63963549)
+  structimrect_63963635 = (when declared(structimrect):
     structimrect
    else:
-    structimrect_80740851)
-  Imguitooltipflags_80741298 = (when declared(Imguitooltipflags):
+    structimrect_63963634)
+  Imguitooltipflags_63964081 = (when declared(Imguitooltipflags):
     Imguitooltipflags
    else:
-    Imguitooltipflags_80741297)
-  Imguilistclipperdata_80741470 = (when declared(Imguilistclipperdata):
+    Imguitooltipflags_63964080)
+  Imguilistclipperdata_63964253 = (when declared(Imguilistclipperdata):
     Imguilistclipperdata
    else:
-    Imguilistclipperdata_80741469)
-  Imguicoloreditflagsenum_80741156 = (when declared(Imguicoloreditflagsenum):
+    Imguilistclipperdata_63964252)
+  Imguicoloreditflagsenum_63963939 = (when declared(Imguicoloreditflagsenum):
     Imguicoloreditflagsenum
    else:
-    Imguicoloreditflagsenum_80741155)
-  Imguinextitemdataflagsenum_80741390 = (when declared(
+    Imguicoloreditflagsenum_63963938)
+  Imguinextitemdataflagsenum_63964173 = (when declared(
       Imguinextitemdataflagsenum):
     Imguinextitemdataflagsenum
    else:
-    Imguinextitemdataflagsenum_80741389)
-  structimdrawlistsplitter_80740729 = (when declared(structimdrawlistsplitter):
+    Imguinextitemdataflagsenum_63964172)
+  structimdrawlistsplitter_63963512 = (when declared(structimdrawlistsplitter):
     structimdrawlistsplitter
    else:
-    structimdrawlistsplitter_80740728)
-  structimguiwindow_80740978 = (when declared(structimguiwindow):
+    structimdrawlistsplitter_63963511)
+  structimguiwindow_63963761 = (when declared(structimguiwindow):
     structimguiwindow
    else:
-    structimguiwindow_80740977)
-  Imguitextindex_80741334 = (when declared(Imguitextindex):
+    structimguiwindow_63963760)
+  Imguitextindex_63964117 = (when declared(Imguitextindex):
     Imguitextindex
    else:
-    Imguitextindex_80741333)
-  Imguiaxis_80741372 = (when declared(Imguiaxis):
+    Imguitextindex_63964116)
+  Imguiaxis_63964155 = (when declared(Imguiaxis):
     Imguiaxis
    else:
-    Imguiaxis_80741371)
-  Imguitableinstancedata_80740962 = (when declared(Imguitableinstancedata):
+    Imguiaxis_63964154)
+  Imguitableinstancedata_63963745 = (when declared(Imguitableinstancedata):
     Imguitableinstancedata
    else:
-    Imguitableinstancedata_80740961)
-  structimvectorimguidockrequest_80741510 = (when declared(
+    Imguitableinstancedata_63963744)
+  structimvectorimguidockrequest_63964293 = (when declared(
       structimvectorimguidockrequest):
     structimvectorimguidockrequest
    else:
-    structimvectorimguidockrequest_80741509)
-  Imguistylemod_80740942 = (when declared(Imguistylemod):
+    structimvectorimguidockrequest_63964292)
+  Imguistylemod_63963725 = (when declared(Imguistylemod):
     Imguistylemod
    else:
-    Imguistylemod_80740941)
-  Imvectorimguidocknodesettings_80741516 = (when declared(
+    Imguistylemod_63963724)
+  Imvectorimguidocknodesettings_63964299 = (when declared(
       Imvectorimguidocknodesettings):
     Imvectorimguidocknodesettings
    else:
-    Imvectorimguidocknodesettings_80741515)
-  Imguifocusedflagsenum_80741128 = (when declared(Imguifocusedflagsenum):
+    Imvectorimguidocknodesettings_63964298)
+  Imguifocusedflagsenum_63963911 = (when declared(Imguifocusedflagsenum):
     Imguifocusedflagsenum
    else:
-    Imguifocusedflagsenum_80741127)
-  structimchunkstreamimguitablesettings_80741622 = (when declared(
+    Imguifocusedflagsenum_63963910)
+  structimchunkstreamimguitablesettings_63964405 = (when declared(
       structimchunkstreamimguitablesettings):
     structimchunkstreamimguitablesettings
    else:
-    structimchunkstreamimguitablesettings_80741621)
-  Imguibuttonflagsenum_80741154 = (when declared(Imguibuttonflagsenum):
+    structimchunkstreamimguitablesettings_63964404)
+  Imguibuttonflagsenum_63963937 = (when declared(Imguibuttonflagsenum):
     Imguibuttonflagsenum
    else:
-    Imguibuttonflagsenum_80741153)
-  Imguigroupdata_80740886 = (when declared(Imguigroupdata):
+    Imguibuttonflagsenum_63963936)
+  Imguigroupdata_63963669 = (when declared(Imguigroupdata):
     Imguigroupdata
    else:
-    Imguigroupdata_80740885)
-  Imguimousecursor_80741002 = (when declared(Imguimousecursor):
+    Imguigroupdata_63963668)
+  Imguimousecursor_63963785 = (when declared(Imguimousecursor):
     Imguimousecursor
    else:
-    Imguimousecursor_80741001)
-  structimdrawdatabuilder_80740856 = (when declared(structimdrawdatabuilder):
+    Imguimousecursor_63963784)
+  structimdrawdatabuilder_63963639 = (when declared(structimdrawdatabuilder):
     structimdrawdatabuilder
    else:
-    structimdrawdatabuilder_80740855)
-  structimdrawlist_80740721 = (when declared(structimdrawlist):
+    structimdrawdatabuilder_63963638)
+  structimdrawlist_63963504 = (when declared(structimdrawlist):
     structimdrawlist
    else:
-    structimdrawlist_80740720)
-  structimguisizecallbackdata_80740812 = (when declared(
+    structimdrawlist_63963503)
+  structimguisizecallbackdata_63963595 = (when declared(
       structimguisizecallbackdata):
     structimguisizecallbackdata
    else:
-    structimguisizecallbackdata_80740811)
-  structimguiinputeventappfocused_80741440 = (when declared(
+    structimguisizecallbackdata_63963594)
+  structimguiinputeventappfocused_63964223 = (when declared(
       structimguiinputeventappfocused):
     structimguiinputeventappfocused
    else:
-    structimguiinputeventappfocused_80741439)
-  Imguiwindowdockstylecol_80741504 = (when declared(Imguiwindowdockstylecol):
+    structimguiinputeventappfocused_63964222)
+  Imguiwindowdockstylecol_63964287 = (when declared(Imguiwindowdockstylecol):
     Imguiwindowdockstylecol
    else:
-    Imguiwindowdockstylecol_80741503)
-  Imguidocknode_80740880 = (when declared(Imguidocknode):
+    Imguiwindowdockstylecol_63964286)
+  Imguidocknode_63963663 = (when declared(Imguidocknode):
     Imguidocknode
    else:
-    Imguidocknode_80740879)
-  Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_80741406 = (when declared(
+    Imguidocknode_63963662)
+  Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_63964189 = (when declared(
       Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin):
     Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin
    else:
-    Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_80741405)
-  Imguiinputflags_80741276 = (when declared(Imguiinputflags):
+    Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_63964188)
+  Imguiinputflags_63964059 = (when declared(Imguiinputflags):
     Imguiinputflags
    else:
-    Imguiinputflags_80741275)
-  Imguiscrollflagsenum_80741480 = (when declared(Imguiscrollflagsenum):
+    Imguiinputflags_63964058)
+  Imguiscrollflagsenum_63964263 = (when declared(Imguiscrollflagsenum):
     Imguiscrollflagsenum
    else:
-    Imguiscrollflagsenum_80741479)
-  Imguiviewportflagsenum_80741258 = (when declared(Imguiviewportflagsenum):
+    Imguiscrollflagsenum_63964262)
+  Imguiviewportflagsenum_63964041 = (when declared(Imguiviewportflagsenum):
     Imguiviewportflagsenum
    else:
-    Imguiviewportflagsenum_80741257)
-  structimguiinputeventmouseviewport_80741428 = (when declared(
+    Imguiviewportflagsenum_63964040)
+  structimguiinputeventmouseviewport_63964211 = (when declared(
       structimguiinputeventmouseviewport):
     structimguiinputeventmouseviewport
    else:
-    structimguiinputeventmouseviewport_80741427)
-  Imdrawchannel_80740707 = (when declared(Imdrawchannel):
+    structimguiinputeventmouseviewport_63964210)
+  Imdrawchannel_63963490 = (when declared(Imdrawchannel):
     Imdrawchannel
    else:
-    Imdrawchannel_80740706)
-  Imguikeyownerdata_80741460 = (when declared(Imguikeyownerdata):
+    Imdrawchannel_63963489)
+  Imguikeyownerdata_63964243 = (when declared(Imguikeyownerdata):
     Imguikeyownerdata
    else:
-    Imguikeyownerdata_80741459)
-  Imfontatlas_80740739 = (when declared(Imfontatlas):
+    Imguikeyownerdata_63964242)
+  Imfontatlas_63963522 = (when declared(Imfontatlas):
     Imfontatlas
    else:
-    Imfontatlas_80740738)
-  structimvectorimguitable_80741590 = (when declared(structimvectorimguitable):
+    Imfontatlas_63963521)
+  structimvectorimguitable_63964373 = (when declared(structimvectorimguitable):
     structimvectorimguitable
    else:
-    structimvectorimguitable_80741589)
-  Imbitarrayfornamedkeys_80741408 = (when declared(Imbitarrayfornamedkeys):
+    structimvectorimguitable_63964372)
+  Imbitarrayfornamedkeys_63964191 = (when declared(Imbitarrayfornamedkeys):
     Imbitarrayfornamedkeys
    else:
-    Imbitarrayfornamedkeys_80741407)
-  Imvectorimguistoragepair_80741188 = (when declared(Imvectorimguistoragepair):
+    Imbitarrayfornamedkeys_63964190)
+  Imvectorimguistoragepair_63963971 = (when declared(Imvectorimguistoragepair):
     Imvectorimguistoragepair
    else:
-    Imvectorimguistoragepair_80741187)
-  structimguitablecolumnsortspecs_80740828 = (when declared(
+    Imvectorimguistoragepair_63963970)
+  structimguitablecolumnsortspecs_63963611 = (when declared(
       structimguitablecolumnsortspecs):
     structimguitablecolumnsortspecs
    else:
-    structimguitablecolumnsortspecs_80740827)
-  Ims8_80741066 = (when declared(Ims8):
+    structimguitablecolumnsortspecs_63963610)
+  Ims8_63963849 = (when declared(Ims8):
     Ims8
    else:
-    Ims8_80741065)
-  Imvectorchar_80741180 = (when declared(Imvectorchar):
+    Ims8_63963848)
+  Imvectorchar_63963963 = (when declared(Imvectorchar):
     Imvectorchar
    else:
-    Imvectorchar_80741179)
-  Imguicol_80740992 = (when declared(Imguicol):
+    Imvectorchar_63963962)
+  Imguicol_63963775 = (when declared(Imguicol):
     Imguicol
    else:
-    Imguicol_80740991)
-  structimguiinputeventmousepos_80741416 = (when declared(
+    Imguicol_63963774)
+  structimguiinputeventmousepos_63964199 = (when declared(
       structimguiinputeventmousepos):
     structimguiinputeventmousepos
    else:
-    structimguiinputeventmousepos_80741415)
-  Imvectorunsignedchar_80741580 = (when declared(Imvectorunsignedchar):
+    structimguiinputeventmousepos_63964198)
+  Imvectorunsignedchar_63964363 = (when declared(Imvectorunsignedchar):
     Imvectorunsignedchar
    else:
-    Imvectorunsignedchar_80741579)
-  structimguikeyroutingtable_80741454 = (when declared(
+    Imvectorunsignedchar_63964362)
+  structimguikeyroutingtable_63964237 = (when declared(
       structimguikeyroutingtable):
     structimguikeyroutingtable
    else:
-    structimguikeyroutingtable_80741453)
-  Imguiinputeventtype_80741410 = (when declared(Imguiinputeventtype):
+    structimguikeyroutingtable_63964236)
+  Imguiinputeventtype_63964193 = (when declared(Imguiinputeventtype):
     Imguiinputeventtype
    else:
-    Imguiinputeventtype_80741409)
-  structimvectorimguitabletempdata_80741586 = (when declared(
+    Imguiinputeventtype_63964192)
+  structimvectorimguitabletempdata_63964369 = (when declared(
       structimvectorimguitabletempdata):
     structimvectorimguitabletempdata
    else:
-    structimvectorimguitabletempdata_80741585)
-  structimdrawdata_80740717 = (when declared(structimdrawdata):
+    structimvectorimguitabletempdata_63964368)
+  structimdrawdata_63963500 = (when declared(structimdrawdata):
     structimdrawdata
    else:
-    structimdrawdata_80740716)
-  Imguisortdirection_80741004 = (when declared(Imguisortdirection):
+    structimdrawdata_63963499)
+  Imguisortdirection_63963787 = (when declared(Imguisortdirection):
     Imguisortdirection
    else:
-    Imguisortdirection_80741003)
-  structimguiviewport_80740840 = (when declared(structimguiviewport):
+    Imguisortdirection_63963786)
+  structimguiviewport_63963623 = (when declared(structimguiviewport):
     structimguiviewport
    else:
-    structimguiviewport_80740839)
-  Imguiconfigflags_80741022 = (when declared(Imguiconfigflags):
+    structimguiviewport_63963622)
+  Imguiconfigflags_63963805 = (when declared(Imguiconfigflags):
     Imguiconfigflags
    else:
-    Imguiconfigflags_80741021)
-  Imguiactivateflags_80741272 = (when declared(Imguiactivateflags):
+    Imguiconfigflags_63963804)
+  Imguiactivateflags_63964055 = (when declared(Imguiactivateflags):
     Imguiactivateflags
    else:
-    Imguiactivateflags_80741271)
-  Imguilogtype_80741370 = (when declared(Imguilogtype):
+    Imguiactivateflags_63964054)
+  Imguilogtype_63964153 = (when declared(Imguilogtype):
     Imguilogtype
    else:
-    Imguilogtype_80741369)
-  Imvectorimtextureid_80741222 = (when declared(Imvectorimtextureid):
+    Imguilogtype_63964152)
+  Imvectorimtextureid_63964005 = (when declared(Imvectorimtextureid):
     Imvectorimtextureid
    else:
-    Imvectorimtextureid_80741221)
-  Imguidatatypeprivate_80741382 = (when declared(Imguidatatypeprivate):
+    Imvectorimtextureid_63964004)
+  Imguidatatypeprivate_63964165 = (when declared(Imguidatatypeprivate):
     Imguidatatypeprivate
    else:
-    Imguidatatypeprivate_80741381)
-  structimvectorimguistoragepair_80741186 = (when declared(
+    Imguidatatypeprivate_63964164)
+  structimvectorimguistoragepair_63963969 = (when declared(
       structimvectorimguistoragepair):
     structimvectorimguistoragepair
    else:
-    structimvectorimguistoragepair_80741185)
-  structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_80741404 = (when declared(
+    structimvectorimguistoragepair_63963968)
+  structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_63964187 = (when declared(
       structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin):
     structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin
    else:
-    structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_80741403)
-  structimvectorconstcharptr_80740988 = (when declared(
+    structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_63964186)
+  structimvectorconstcharptr_63963771 = (when declared(
       structimvectorconstcharptr):
     structimvectorconstcharptr
    else:
-    structimvectorconstcharptr_80740987)
-  Imu8_80741068 = (when declared(Imu8):
+    structimvectorconstcharptr_63963770)
+  Imu8_63963851 = (when declared(Imu8):
     Imu8
    else:
-    Imu8_80741067)
-  Imguicomboflagsenum_80741114 = (when declared(Imguicomboflagsenum):
+    Imu8_63963850)
+  Imguicomboflagsenum_63963897 = (when declared(Imguicomboflagsenum):
     Imguicomboflagsenum
    else:
-    Imguicomboflagsenum_80741113)
-  Imguimousebutton_80741000 = (when declared(Imguimousebutton):
+    Imguicomboflagsenum_63963896)
+  Imguimousebutton_63963783 = (when declared(Imguimousebutton):
     Imguimousebutton
    else:
-    Imguimousebutton_80740999)
-  Imguicontexthook_80740862 = (when declared(Imguicontexthook):
+    Imguimousebutton_63963782)
+  Imguicontexthook_63963645 = (when declared(Imguicontexthook):
     Imguicontexthook
    else:
-    Imguicontexthook_80740861)
-  Imu32_80741076 = (when declared(Imu32):
+    Imguicontexthook_63963644)
+  Imu32_63963859 = (when declared(Imu32):
     Imu32
    else:
-    Imu32_80741075)
-  Impoolimguitable_80741596 = (when declared(Impoolimguitable):
+    Imu32_63963858)
+  Impoolimguitable_63964379 = (when declared(Impoolimguitable):
     Impoolimguitable
    else:
-    Impoolimguitable_80741595)
-  structimguiwindowclass_80740844 = (when declared(structimguiwindowclass):
+    Impoolimguitable_63964378)
+  structimguiwindowclass_63963627 = (when declared(structimguiwindowclass):
     structimguiwindowclass
    else:
-    structimguiwindowclass_80740843)
-  Imguitreenodeflagsenum_80741108 = (when declared(Imguitreenodeflagsenum):
+    structimguiwindowclass_63963626)
+  Imguitreenodeflagsenum_63963891 = (when declared(Imguitreenodeflagsenum):
     Imguitreenodeflagsenum
    else:
-    Imguitreenodeflagsenum_80741107)
-  structimvectorimfontconfig_80741246 = (when declared(
+    Imguitreenodeflagsenum_63963890)
+  structimvectorimfontconfig_63964029 = (when declared(
       structimvectorimfontconfig):
     structimvectorimfontconfig
    else:
-    structimvectorimfontconfig_80741245)
-  structimvectorimguioldcolumns_80741630 = (when declared(
+    structimvectorimfontconfig_63964028)
+  structimvectorimguioldcolumns_63964413 = (when declared(
       structimvectorimguioldcolumns):
     structimvectorimguioldcolumns
    else:
-    structimvectorimguioldcolumns_80741629)
-  Imguidatatypetempstorage_80741378 = (when declared(Imguidatatypetempstorage):
+    structimvectorimguioldcolumns_63964412)
+  Imguidatatypetempstorage_63964161 = (when declared(Imguidatatypetempstorage):
     Imguidatatypetempstorage
    else:
-    Imguidatatypetempstorage_80741377)
-  Imguitabbar_80740946 = (when declared(Imguitabbar):
+    Imguidatatypetempstorage_63964160)
+  Imguitabbar_63963729 = (when declared(Imguitabbar):
     Imguitabbar
    else:
-    Imguitabbar_80740945)
-  structimvectorimwchar_80741166 = (when declared(structimvectorimwchar):
+    Imguitabbar_63963728)
+  structimvectorimwchar_63963949 = (when declared(structimvectorimwchar):
     structimvectorimwchar
    else:
-    structimvectorimwchar_80741165)
-  Imvectorimguitextrange_80741176 = (when declared(Imvectorimguitextrange):
+    structimvectorimwchar_63963948)
+  Imvectorimguitextrange_63963959 = (when declared(Imvectorimguitextrange):
     Imvectorimguitextrange
    else:
-    Imvectorimguitextrange_80741175)
-  Imguitablesortspecs_80740822 = (when declared(Imguitablesortspecs):
+    Imvectorimguitextrange_63963958)
+  Imguitablesortspecs_63963605 = (when declared(Imguitablesortspecs):
     Imguitablesortspecs
    else:
-    Imguitablesortspecs_80740821)
-  structimguiwindowtempdata_80740982 = (when declared(structimguiwindowtempdata):
+    Imguitablesortspecs_63963604)
+  structimguiwindowtempdata_63963765 = (when declared(structimguiwindowtempdata):
     structimguiwindowtempdata
    else:
-    structimguiwindowtempdata_80740981)
-  Imguipopupflags_80741038 = (when declared(Imguipopupflags):
+    structimguiwindowtempdata_63963764)
+  Imguipopupflags_63963821 = (when declared(Imguipopupflags):
     Imguipopupflags
    else:
-    Imguipopupflags_80741037)
-  Sdlevent_80741678 = (when declared(Sdlevent):
+    Imguipopupflags_63963820)
+  Sdlevent_63964461 = (when declared(Sdlevent):
     Sdlevent
    else:
-    Sdlevent_80741677)
-  Imguiwindowstackdata_80741392 = (when declared(Imguiwindowstackdata):
+    Sdlevent_63964460)
+  Imguiwindowstackdata_63964175 = (when declared(Imguiwindowstackdata):
     Imguiwindowstackdata
    else:
-    Imguiwindowstackdata_80741391)
-  Imvectorimvec4_80741218 = (when declared(Imvectorimvec4):
+    Imguiwindowstackdata_63964174)
+  Imvectorimvec4_63964001 = (when declared(Imvectorimvec4):
     Imvectorimvec4
    else:
-    Imvectorimvec4_80741217)
-  Imvectorimguisettingshandler_80741616 = (when declared(
+    Imvectorimvec4_63964000)
+  Imvectorimguisettingshandler_63964399 = (when declared(
       Imvectorimguisettingshandler):
     Imvectorimguisettingshandler
    else:
-    Imvectorimguisettingshandler_80741615)
-  structimvectorimguistacklevelinfo_80741534 = (when declared(
+    Imvectorimguisettingshandler_63964398)
+  structimvectorimguistacklevelinfo_63964317 = (when declared(
       structimvectorimguistacklevelinfo):
     structimvectorimguistacklevelinfo
    else:
-    structimvectorimguistacklevelinfo_80741533)
-  Imguionceuponaframe_80740783 = (when declared(Imguionceuponaframe):
+    structimvectorimguistacklevelinfo_63964316)
+  Imguionceuponaframe_63963566 = (when declared(Imguionceuponaframe):
     Imguionceuponaframe
    else:
-    Imguionceuponaframe_80740782)
-  Imguioldcolumndata_80740922 = (when declared(Imguioldcolumndata):
+    Imguionceuponaframe_63963565)
+  Imguioldcolumndata_63963705 = (when declared(Imguioldcolumndata):
     Imguioldcolumndata
    else:
-    Imguioldcolumndata_80740921)
-  Imguiinputtextcallback_80741088 = (when declared(Imguiinputtextcallback):
+    Imguioldcolumndata_63963704)
+  Imguiinputtextcallback_63963871 = (when declared(Imguiinputtextcallback):
     Imguiinputtextcallback
    else:
-    Imguiinputtextcallback_80741087)
-  structimvectorimdrawvert_80741212 = (when declared(structimvectorimdrawvert):
+    Imguiinputtextcallback_63963870)
+  structimvectorimdrawvert_63963995 = (when declared(structimvectorimdrawvert):
     structimvectorimdrawvert
    else:
-    structimvectorimdrawvert_80741211)
-  Imguidatavarinfo_80740866 = (when declared(Imguidatavarinfo):
+    structimvectorimdrawvert_63963994)
+  Imguidatavarinfo_63963649 = (when declared(Imguidatavarinfo):
     Imguidatavarinfo
    else:
-    Imguidatavarinfo_80740865)
-  Imguiviewportp_80741518 = (when declared(Imguiviewportp):
+    Imguidatavarinfo_63963648)
+  Imguiviewportp_63964301 = (when declared(Imguiviewportp):
     Imguiviewportp
    else:
-    Imguiviewportp_80741517)
-  structimguiinputtextcallbackdata_80740773 = (when declared(
+    Imguiviewportp_63964300)
+  structimguiinputtextcallbackdata_63963556 = (when declared(
       structimguiinputtextcallbackdata):
     structimguiinputtextcallbackdata
    else:
-    structimguiinputtextcallbackdata_80740772)
-  Imguitableflagsenum_80741120 = (when declared(Imguitableflagsenum):
+    structimguiinputtextcallbackdata_63963555)
+  Imguitableflagsenum_63963903 = (when declared(Imguitableflagsenum):
     Imguitableflagsenum
    else:
-    Imguitableflagsenum_80741119)
-  structstbundorecord_80741304 = (when declared(structstbundorecord):
+    Imguitableflagsenum_63963902)
+  structstbundorecord_63964087 = (when declared(structstbundorecord):
     structstbundorecord
    else:
-    structstbundorecord_80741303)
-  Imguiwindowclass_80740842 = (when declared(Imguiwindowclass):
+    structstbundorecord_63964086)
+  Imguiwindowclass_63963625 = (when declared(Imguiwindowclass):
     Imguiwindowclass
    else:
-    Imguiwindowclass_80740841)
-  Imvectorimu32_80741230 = (when declared(Imvectorimu32):
+    Imguiwindowclass_63963624)
+  Imvectorimu32_63964013 = (when declared(Imvectorimu32):
     Imvectorimu32
    else:
-    Imvectorimu32_80741229)
-  Imguiseparatorflagsenum_80741362 = (when declared(Imguiseparatorflagsenum):
+    Imvectorimu32_63964012)
+  Imguiseparatorflagsenum_63964145 = (when declared(Imguiseparatorflagsenum):
     Imguiseparatorflagsenum
    else:
-    Imguiseparatorflagsenum_80741361)
-  structimvectorimguidocknodesettings_80741514 = (when declared(
+    Imguiseparatorflagsenum_63964144)
+  structimvectorimguidocknodesettings_63964297 = (when declared(
       structimvectorimguidocknodesettings):
     structimvectorimguidocknodesettings
    else:
-    structimvectorimguidocknodesettings_80741513)
-  structimvectorimguiviewportptr_80741264 = (when declared(
+    structimvectorimguidocknodesettings_63964296)
+  structimvectorimguiviewportptr_63964047 = (when declared(
       structimvectorimguiviewportptr):
     structimvectorimguiviewportptr
    else:
-    structimvectorimguiviewportptr_80741263)
-  structimpoolimguitabbar_80741602 = (when declared(structimpoolimguitabbar):
+    structimvectorimguiviewportptr_63964046)
+  structimpoolimguitabbar_63964385 = (when declared(structimpoolimguitabbar):
     structimpoolimguitabbar
    else:
-    structimpoolimguitabbar_80741601)
-  Imvectorimguikeyroutingdata_80741458 = (when declared(
+    structimpoolimguitabbar_63964384)
+  Imvectorimguikeyroutingdata_63964241 = (when declared(
       Imvectorimguikeyroutingdata):
     Imvectorimguikeyroutingdata
    else:
-    Imvectorimguikeyroutingdata_80741457)
-  structimvectorint_80741338 = (when declared(structimvectorint):
+    Imvectorimguikeyroutingdata_63964240)
+  structimvectorint_63964121 = (when declared(structimvectorint):
     structimvectorint
    else:
-    structimvectorint_80741337)
-  structimguinextwindowdata_80740916 = (when declared(structimguinextwindowdata):
+    structimvectorint_63964120)
+  structimguinextwindowdata_63963699 = (when declared(structimguinextwindowdata):
     structimguinextwindowdata
    else:
-    structimguinextwindowdata_80740915)
-  Imguiinputeventmousebutton_80741422 = (when declared(
+    structimguinextwindowdata_63963698)
+  Imguiinputeventmousebutton_63964205 = (when declared(
       Imguiinputeventmousebutton):
     Imguiinputeventmousebutton
    else:
-    Imguiinputeventmousebutton_80741421)
-  structimvec4_80741102 = (when declared(structimvec4):
+    Imguiinputeventmousebutton_63964204)
+  structimvec4_63963885 = (when declared(structimvec4):
     structimvec4
    else:
-    structimvec4_80741101)
-  Imdrawvert_80740731 = (when declared(Imdrawvert):
+    structimvec4_63963884)
+  Imdrawvert_63963514 = (when declared(Imdrawvert):
     Imdrawvert
    else:
-    Imdrawvert_80740730)
-  structimvectorimvec2_80741224 = (when declared(structimvectorimvec2):
+    Imdrawvert_63963513)
+  structimvectorimvec2_63964007 = (when declared(structimvectorimvec2):
     structimvectorimvec2
    else:
-    structimvectorimvec2_80741223)
-  Imguiinputeventkey_80741430 = (when declared(Imguiinputeventkey):
+    structimvectorimvec2_63964006)
+  Imguiinputeventkey_63964213 = (when declared(Imguiinputeventkey):
     Imguiinputeventkey
    else:
-    Imguiinputeventkey_80741429)
-  structimchunkstreamimguiwindowsettings_80741618 = (when declared(
+    Imguiinputeventkey_63964212)
+  structimchunkstreamimguiwindowsettings_63964401 = (when declared(
       structimchunkstreamimguiwindowsettings):
     structimchunkstreamimguiwindowsettings
    else:
-    structimchunkstreamimguiwindowsettings_80741617)
-  Imvectorimguitablecolumnsortspecs_80741668 = (when declared(
+    structimchunkstreamimguiwindowsettings_63964400)
+  Imvectorimguitablecolumnsortspecs_63964451 = (when declared(
       Imvectorimguitablecolumnsortspecs):
     Imvectorimguitablecolumnsortspecs
    else:
-    Imvectorimguitablecolumnsortspecs_80741667)
-  Imvectorimguipopupdata_80741572 = (when declared(Imvectorimguipopupdata):
+    Imvectorimguitablecolumnsortspecs_63964450)
+  Imvectorimguipopupdata_63964355 = (when declared(Imvectorimguipopupdata):
     Imvectorimguipopupdata
    else:
-    Imvectorimguipopupdata_80741571)
-  Imguiviewport_80740838 = (when declared(Imguiviewport):
+    Imvectorimguipopupdata_63964354)
+  Imguiviewport_63963621 = (when declared(Imguiviewport):
     Imguiviewport
    else:
-    Imguiviewport_80740837)
-  Imguinavhighlightflags_80741284 = (when declared(Imguinavhighlightflags):
+    Imguiviewport_63963620)
+  Imguinavhighlightflags_63964067 = (when declared(Imguinavhighlightflags):
     Imguinavhighlightflags
    else:
-    Imguinavhighlightflags_80741283)
-  structimguidocknode_80740882 = (when declared(structimguidocknode):
+    Imguinavhighlightflags_63964066)
+  structimguidocknode_63963665 = (when declared(structimguidocknode):
     structimguidocknode
    else:
-    structimguidocknode_80740881)
-  Imguitablecolumnssettings_80740974 = (when declared(Imguitablecolumnssettings):
+    structimguidocknode_63963664)
+  Imguitablecolumnssettings_63963757 = (when declared(Imguitablecolumnssettings):
     Imguitablecolumnssettings
    else:
-    Imguitablecolumnssettings_80740973)
-  Imguidocknodeflags_80741026 = (when declared(Imguidocknodeflags):
+    Imguitablecolumnssettings_63963756)
+  Imguidocknodeflags_63963809 = (when declared(Imguidocknodeflags):
     Imguidocknodeflags
    else:
-    Imguidocknodeflags_80741025)
-  Imguitablerowflagsenum_80741124 = (when declared(Imguitablerowflagsenum):
+    Imguidocknodeflags_63963808)
+  Imguitablerowflagsenum_63963907 = (when declared(Imguitablerowflagsenum):
     Imguitablerowflagsenum
    else:
-    Imguitablerowflagsenum_80741123)
-  structimdrawlistshareddata_80740725 = (when declared(
+    Imguitablerowflagsenum_63963906)
+  structimdrawlistshareddata_63963508 = (when declared(
       structimdrawlistshareddata):
     structimdrawlistshareddata
    else:
-    structimdrawlistshareddata_80740724)
-  Imguiitemstatusflags_80741280 = (when declared(Imguiitemstatusflags):
+    structimdrawlistshareddata_63963507)
+  Imguiitemstatusflags_63964063 = (when declared(Imguiitemstatusflags):
     Imguiitemstatusflags
    else:
-    Imguiitemstatusflags_80741279)
-  structimguicontext_80740765 = (when declared(structimguicontext):
+    Imguiitemstatusflags_63964062)
+  structimguicontext_63963548 = (when declared(structimguicontext):
     structimguicontext
    else:
-    structimguicontext_80740764)
-  structimguistyle_80740820 = (when declared(structimguistyle):
+    structimguicontext_63963547)
+  structimguistyle_63963603 = (when declared(structimguistyle):
     structimguistyle
    else:
-    structimguistyle_80740819)
-  Imguitabbarflags_80741044 = (when declared(Imguitabbarflags):
+    structimguistyle_63963602)
+  Imguitabbarflags_63963827 = (when declared(Imguitabbarflags):
     Imguitabbarflags
    else:
-    Imguitabbarflags_80741043)
-  structimguiinputeventtext_80741436 = (when declared(structimguiinputeventtext):
+    Imguitabbarflags_63963826)
+  structimguiinputeventtext_63964219 = (when declared(structimguiinputeventtext):
     structimguiinputeventtext
    else:
-    structimguiinputeventtext_80741435)
-  Imguinavmoveflags_80741286 = (when declared(Imguinavmoveflags):
+    structimguiinputeventtext_63964218)
+  Imguinavmoveflags_63964069 = (when declared(Imguinavmoveflags):
     Imguinavmoveflags
    else:
-    Imguinavmoveflags_80741285)
-  Imdrawcmdheader_80741192 = (when declared(Imdrawcmdheader):
+    Imguinavmoveflags_63964068)
+  Imdrawcmdheader_63963975 = (when declared(Imdrawcmdheader):
     Imdrawcmdheader
    else:
-    Imdrawcmdheader_80741191)
-  Imguiitemflagsenum_80741346 = (when declared(Imguiitemflagsenum):
+    Imdrawcmdheader_63963974)
+  Imguiitemflagsenum_63964129 = (when declared(Imguiitemflagsenum):
     Imguiitemflagsenum
    else:
-    Imguiitemflagsenum_80741345)
-  Imvectorimguiinputevent_80741544 = (when declared(Imvectorimguiinputevent):
+    Imguiitemflagsenum_63964128)
+  Imvectorimguiinputevent_63964327 = (when declared(Imvectorimguiinputevent):
     Imvectorimguiinputevent
    else:
-    Imvectorimguiinputevent_80741543)
-  structimguiplatformio_80740800 = (when declared(structimguiplatformio):
+    Imvectorimguiinputevent_63964326)
+  structimguiplatformio_63963583 = (when declared(structimguiplatformio):
     structimguiplatformio
    else:
-    structimguiplatformio_80740799)
-  Imguistylevarenum_80741152 = (when declared(Imguistylevarenum):
+    structimguiplatformio_63963582)
+  Imguistylevarenum_63963935 = (when declared(Imguistylevarenum):
     Imguistylevarenum
    else:
-    Imguistylevarenum_80741151)
-  structimvectorimdrawchannel_80741204 = (when declared(
+    Imguistylevarenum_63963934)
+  structimvectorimdrawchannel_63963987 = (when declared(
       structimvectorimdrawchannel):
     structimvectorimdrawchannel
    else:
-    structimvectorimdrawchannel_80741203)
-  Imguiinputeventtext_80741434 = (when declared(Imguiinputeventtext):
+    structimvectorimdrawchannel_63963986)
+  Imguiinputeventtext_63964217 = (when declared(Imguiinputeventtext):
     Imguiinputeventtext
    else:
-    Imguiinputeventtext_80741433)
-  Imguihoveredflagsenum_80741130 = (when declared(Imguihoveredflagsenum):
+    Imguiinputeventtext_63964216)
+  Imguihoveredflagsenum_63963913 = (when declared(Imguihoveredflagsenum):
     Imguihoveredflagsenum
    else:
-    Imguihoveredflagsenum_80741129)
-  structimguilistclipperdata_80741472 = (when declared(
+    Imguihoveredflagsenum_63963912)
+  structimguilistclipperdata_63964255 = (when declared(
       structimguilistclipperdata):
     structimguilistclipperdata
    else:
-    structimguilistclipperdata_80741471)
-  structiobuf_80741680 = (when declared(structiobuf):
+    structimguilistclipperdata_63964254)
+  structiobuf_63964463 = (when declared(structiobuf):
     structiobuf
    else:
-    structiobuf_80741679)
-  structimguigroupdata_80740888 = (when declared(structimguigroupdata):
+    structiobuf_63964462)
+  structimguigroupdata_63963671 = (when declared(structimguigroupdata):
     structimguigroupdata
    else:
-    structimguigroupdata_80740887)
-  Imguiinputtextstate_80740890 = (when declared(Imguiinputtextstate):
+    structimguigroupdata_63963670)
+  Imguiinputtextstate_63963673 = (when declared(Imguiinputtextstate):
     Imguiinputtextstate
    else:
-    Imguiinputtextstate_80740889)
-  Imguishrinkwidthitem_80741396 = (when declared(Imguishrinkwidthitem):
+    Imguiinputtextstate_63963672)
+  Imguishrinkwidthitem_63964179 = (when declared(Imguishrinkwidthitem):
     Imguishrinkwidthitem
    else:
-    Imguishrinkwidthitem_80741395)
-  Ims64_80741078 = (when declared(Ims64):
+    Imguishrinkwidthitem_63964178)
+  Ims64_63963861 = (when declared(Ims64):
     Ims64
    else:
-    Ims64_80741077)
-  Imguiwindowtempdata_80740980 = (when declared(Imguiwindowtempdata):
+    Ims64_63963860)
+  Imguiwindowtempdata_63963763 = (when declared(Imguiwindowtempdata):
     Imguiwindowtempdata
    else:
-    Imguiwindowtempdata_80740979)
-  structimvectorunsignedchar_80741578 = (when declared(
+    Imguiwindowtempdata_63963762)
+  structimvectorunsignedchar_63964361 = (when declared(
       structimvectorunsignedchar):
     structimvectorunsignedchar
    else:
-    structimvectorunsignedchar_80741577)
-  structimguiinputtextstate_80740892 = (when declared(structimguiinputtextstate):
+    structimvectorunsignedchar_63964360)
+  structimguiinputtextstate_63963675 = (when declared(structimguiinputtextstate):
     structimguiinputtextstate
    else:
-    structimguiinputtextstate_80740891)
-  structimvectorimguilistclipperrange_80741474 = (when declared(
+    structimguiinputtextstate_63963674)
+  structimvectorimguilistclipperrange_63964257 = (when declared(
       structimvectorimguilistclipperrange):
     structimvectorimguilistclipperrange
    else:
-    structimvectorimguilistclipperrange_80741473)
-  Imguistorage_80740814 = (when declared(Imguistorage):
+    structimvectorimguilistclipperrange_63964256)
+  Imguistorage_63963597 = (when declared(Imguistorage):
     Imguistorage
    else:
-    Imguistorage_80740813)
-  Imvectorimguicolormod_80741552 = (when declared(Imvectorimguicolormod):
+    Imguistorage_63963596)
+  Imvectorimguicolormod_63964335 = (when declared(Imvectorimguicolormod):
     Imvectorimguicolormod
    else:
-    Imvectorimguicolormod_80741551)
-  Imvectorimguiviewportpptr_80741576 = (when declared(Imvectorimguiviewportpptr):
+    Imvectorimguicolormod_63964334)
+  Imvectorimguiviewportpptr_63964359 = (when declared(Imvectorimguiviewportpptr):
     Imvectorimguiviewportpptr
    else:
-    Imvectorimguiviewportpptr_80741575)
-  structimguitextbuffer_80740832 = (when declared(structimguitextbuffer):
+    Imvectorimguiviewportpptr_63964358)
+  structimguitextbuffer_63963615 = (when declared(structimguitextbuffer):
     structimguitextbuffer
    else:
-    structimguitextbuffer_80740831)
-  structimguitextfilter_80740836 = (when declared(structimguitextfilter):
+    structimguitextbuffer_63963614)
+  structimguitextfilter_63963619 = (when declared(structimguitextfilter):
     structimguitextfilter
    else:
-    structimguitextfilter_80740835)
-  Imguidocknodeflagsprivate_80741494 = (when declared(Imguidocknodeflagsprivate):
+    structimguitextfilter_63963618)
+  Imguidocknodeflagsprivate_63964277 = (when declared(Imguidocknodeflagsprivate):
     Imguidocknodeflagsprivate
    else:
-    Imguidocknodeflagsprivate_80741493)
-  structimguitablecelldata_80741648 = (when declared(structimguitablecelldata):
+    Imguidocknodeflagsprivate_63964276)
+  structimguitablecelldata_63964431 = (when declared(structimguitablecelldata):
     structimguitablecelldata
    else:
-    structimguitablecelldata_80741647)
-  structimguiplatformimedata_80740808 = (when declared(
+    structimguitablecelldata_63964430)
+  structimguiplatformimedata_63963591 = (when declared(
       structimguiplatformimedata):
     structimguiplatformimedata
    else:
-    structimguiplatformimedata_80740807)
-  Imvectorimdrawlistptr_80741344 = (when declared(Imvectorimdrawlistptr):
+    structimguiplatformimedata_63963590)
+  Imvectorimdrawlistptr_63964127 = (when declared(Imvectorimdrawlistptr):
     Imvectorimdrawlistptr
    else:
-    Imvectorimdrawlistptr_80741343)
-  structimvectorimfontatlascustomrect_80741242 = (when declared(
+    Imvectorimdrawlistptr_63964126)
+  structimvectorimfontatlascustomrect_63964025 = (when declared(
       structimvectorimfontatlascustomrect):
     structimvectorimfontatlascustomrect
    else:
-    structimvectorimfontatlascustomrect_80741241)
-  Imguitablecolumnsettings_80741670 = (when declared(Imguitablecolumnsettings):
+    structimvectorimfontatlascustomrect_63964024)
+  Imguitablecolumnsettings_63964453 = (when declared(Imguitablecolumnsettings):
     Imguitablecolumnsettings
    else:
-    Imguitablecolumnsettings_80741669)
-  Imguidebuglogflags_80741274 = (when declared(Imguidebuglogflags):
+    Imguitablecolumnsettings_63964452)
+  Imguidebuglogflags_63964057 = (when declared(Imguidebuglogflags):
     Imguidebuglogflags
    else:
-    Imguidebuglogflags_80741273)
-  structimvectorimguiplatformmonitor_80741260 = (when declared(
+    Imguidebuglogflags_63964056)
+  structimvectorimguiplatformmonitor_63964043 = (when declared(
       structimvectorimguiplatformmonitor):
     structimvectorimguiplatformmonitor
    else:
-    structimvectorimguiplatformmonitor_80741259)
-  Imguidir_80740998 = (when declared(Imguidir):
+    structimvectorimguiplatformmonitor_63964042)
+  Imguidir_63963781 = (when declared(Imguidir):
     Imguidir
    else:
-    Imguidir_80740997)
-  Imvectorimguitabitem_80741640 = (when declared(Imvectorimguitabitem):
+    Imguidir_63963780)
+  Imvectorimguitabitem_63964423 = (when declared(Imvectorimguitabitem):
     Imvectorimguitabitem
    else:
-    Imvectorimguitabitem_80741639)
-  Imvec1_80741322 = (when declared(Imvec1):
+    Imvectorimguitabitem_63964422)
+  Imvec1_63964105 = (when declared(Imvec1):
     Imvec1
    else:
-    Imvec1_80741321)
-  Imguistacklevelinfo_80741526 = (when declared(Imguistacklevelinfo):
+    Imvec1_63964104)
+  Imguistacklevelinfo_63964309 = (when declared(Imguistacklevelinfo):
     Imguistacklevelinfo
    else:
-    Imguistacklevelinfo_80741525)
-  Imguidragdropflagsenum_80741134 = (when declared(Imguidragdropflagsenum):
+    Imguistacklevelinfo_63964308)
+  Imguidragdropflagsenum_63963917 = (when declared(Imguidragdropflagsenum):
     Imguidragdropflagsenum
    else:
-    Imguidragdropflagsenum_80741133)
-  Imvectorimguitabbar_80741600 = (when declared(Imvectorimguitabbar):
+    Imguidragdropflagsenum_63963916)
+  Imvectorimguitabbar_63964383 = (when declared(Imvectorimguitabbar):
     Imvectorimguitabbar
    else:
-    Imvectorimguitabbar_80741599)
-  Imvectorimguioldcolumns_80741632 = (when declared(Imvectorimguioldcolumns):
+    Imvectorimguitabbar_63964382)
+  Imvectorimguioldcolumns_63964415 = (when declared(Imvectorimguioldcolumns):
     Imvectorimguioldcolumns
    else:
-    Imvectorimguioldcolumns_80741631)
-  Imguisettingshandler_80740934 = (when declared(Imguisettingshandler):
+    Imvectorimguioldcolumns_63964414)
+  Imguisettingshandler_63963717 = (when declared(Imguisettingshandler):
     Imguisettingshandler
    else:
-    Imguisettingshandler_80740933)
-  Imu16_80741072 = (when declared(Imu16):
+    Imguisettingshandler_63963716)
+  Imu16_63963855 = (when declared(Imu16):
     Imu16
    else:
-    Imu16_80741071)
-  structstbtexteditrow_80741316 = (when declared(structstbtexteditrow):
+    Imu16_63963854)
+  structstbtexteditrow_63964099 = (when declared(structstbtexteditrow):
     structstbtexteditrow
    else:
-    structstbtexteditrow_80741315)
-  Imvectorimguitable_80741592 = (when declared(Imvectorimguitable):
+    structstbtexteditrow_63964098)
+  Imvectorimguitable_63964375 = (when declared(Imvectorimguitable):
     Imvectorimguitable
    else:
-    Imvectorimguitable_80741591)
-  Imdrawdata_80740715 = (when declared(Imdrawdata):
+    Imvectorimguitable_63964374)
+  Imdrawdata_63963498 = (when declared(Imdrawdata):
     Imdrawdata
    else:
-    Imdrawdata_80740714)
-  Imvectorimfontatlascustomrect_80741244 = (when declared(
+    Imdrawdata_63963497)
+  Imvectorimfontatlascustomrect_63964027 = (when declared(
       Imvectorimfontatlascustomrect):
     Imvectorimfontatlascustomrect
    else:
-    Imvectorimfontatlascustomrect_80741243)
-  structimguicombopreviewdata_80741386 = (when declared(
+    Imvectorimfontatlascustomrect_63964026)
+  structimguicombopreviewdata_63964169 = (when declared(
       structimguicombopreviewdata):
     structimguicombopreviewdata
    else:
-    structimguicombopreviewdata_80741385)
-  structimguilocentry_80740900 = (when declared(structimguilocentry):
+    structimguicombopreviewdata_63964168)
+  structimguilocentry_63963683 = (when declared(structimguilocentry):
     structimguilocentry
    else:
-    structimguilocentry_80740899)
-  Imdrawdatabuilder_80740854 = (when declared(Imdrawdatabuilder):
+    structimguilocentry_63963682)
+  Imdrawdatabuilder_63963637 = (when declared(Imdrawdatabuilder):
     Imdrawdatabuilder
    else:
-    Imdrawdatabuilder_80740853)
-  structimvectorimguiinputevent_80741542 = (when declared(
+    Imdrawdatabuilder_63963636)
+  structimvectorimguiinputevent_63964325 = (when declared(
       structimvectorimguiinputevent):
     structimvectorimguiinputevent
    else:
-    structimvectorimguiinputevent_80741541)
-  Imu64_80741080 = (when declared(Imu64):
+    structimvectorimguiinputevent_63964324)
+  Imu64_63963863 = (when declared(Imu64):
     Imu64
    else:
-    Imu64_80741079)
-  structimspanimguitablecelldata_80741658 = (when declared(
+    Imu64_63963862)
+  structimspanimguitablecelldata_63964441 = (when declared(
       structimspanimguitablecelldata):
     structimspanimguitablecelldata
    else:
-    structimspanimguitablecelldata_80741657)
-  Imguinavitemdata_80740906 = (when declared(Imguinavitemdata):
+    structimspanimguitablecelldata_63964440)
+  Imguinavitemdata_63963689 = (when declared(Imguinavitemdata):
     Imguinavitemdata
    else:
-    Imguinavitemdata_80740905)
-  Imvectorimguiid_80741560 = (when declared(Imvectorimguiid):
+    Imguinavitemdata_63963688)
+  Imvectorimguiid_63964343 = (when declared(Imvectorimguiid):
     Imvectorimguiid
    else:
-    Imvectorimguiid_80741559)
-  Imguitextfilter_80740834 = (when declared(Imguitextfilter):
+    Imvectorimguiid_63964342)
+  Imguitextfilter_63963617 = (when declared(Imguitextfilter):
     Imguitextfilter
    else:
-    Imguitextfilter_80740833)
-  structimfontatlascustomrect_80741234 = (when declared(
+    Imguitextfilter_63963616)
+  structimfontatlascustomrect_63964017 = (when declared(
       structimfontatlascustomrect):
     structimfontatlascustomrect
    else:
-    structimfontatlascustomrect_80741233)
-  Imfontatlasflagsenum_80741236 = (when declared(Imfontatlasflagsenum):
+    structimfontatlascustomrect_63964016)
+  Imfontatlasflagsenum_63964019 = (when declared(Imfontatlasflagsenum):
     Imfontatlasflagsenum
    else:
-    Imfontatlasflagsenum_80741235)
-  structimvectorimguitablecolumnsortspecs_80741666 = (when declared(
+    Imfontatlasflagsenum_63964018)
+  structimvectorimguitablecolumnsortspecs_63964449 = (when declared(
       structimvectorimguitablecolumnsortspecs):
     structimvectorimguitablecolumnsortspecs
    else:
-    structimvectorimguitablecolumnsortspecs_80741665)
-  Imguikeyroutingdata_80741448 = (when declared(Imguikeyroutingdata):
+    structimvectorimguitablecolumnsortspecs_63964448)
+  Imguikeyroutingdata_63964231 = (when declared(Imguikeyroutingdata):
     Imguikeyroutingdata
    else:
-    Imguikeyroutingdata_80741447)
-  Imguitabletempdata_80740966 = (when declared(Imguitabletempdata):
+    Imguikeyroutingdata_63964230)
+  Imguitabletempdata_63963749 = (when declared(Imguitabletempdata):
     Imguitabletempdata
    else:
-    Imguitabletempdata_80740965)
-  Imguitablebgtarget_80741008 = (when declared(Imguitablebgtarget):
+    Imguitabletempdata_63963748)
+  Imguitablebgtarget_63963791 = (when declared(Imguitablebgtarget):
     Imguitablebgtarget
    else:
-    Imguitablebgtarget_80741007)
-  Imguimousebuttonenum_80741160 = (when declared(Imguimousebuttonenum):
+    Imguitablebgtarget_63963790)
+  Imguimousebuttonenum_63963943 = (when declared(Imguimousebuttonenum):
     Imguimousebuttonenum
    else:
-    Imguimousebuttonenum_80741159)
-  structimguitablecolumnsettings_80741672 = (when declared(
+    Imguimousebuttonenum_63963942)
+  structimguitablecolumnsettings_63964455 = (when declared(
       structimguitablecolumnsettings):
     structimguitablecolumnsettings
    else:
-    structimguitablecolumnsettings_80741671)
-  Imguidockcontext_80740874 = (when declared(Imguidockcontext):
+    structimguitablecolumnsettings_63964454)
+  Imguidockcontext_63963657 = (when declared(Imguidockcontext):
     Imguidockcontext
    else:
-    Imguidockcontext_80740873)
-  structimvectorfloat_80741250 = (when declared(structimvectorfloat):
+    Imguidockcontext_63963656)
+  structimvectorfloat_63964033 = (when declared(structimvectorfloat):
     structimvectorfloat
    else:
-    structimvectorfloat_80741249)
-  Imvectorimguitableinstancedata_80741664 = (when declared(
+    structimvectorfloat_63964032)
+  Imvectorimguitableinstancedata_63964447 = (when declared(
       Imvectorimguitableinstancedata):
     Imvectorimguitableinstancedata
    else:
-    Imvectorimguitableinstancedata_80741663)
-  structimguilastitemdata_80740896 = (when declared(structimguilastitemdata):
+    Imvectorimguitableinstancedata_63964446)
+  structimguilastitemdata_63963679 = (when declared(structimguilastitemdata):
     structimguilastitemdata
    else:
-    structimguilastitemdata_80740895)
-  Imguitabitemflagsprivate_80741636 = (when declared(Imguitabitemflagsprivate):
+    structimguilastitemdata_63963678)
+  Imguitabitemflagsprivate_63964419 = (when declared(Imguitabitemflagsprivate):
     Imguitabitemflagsprivate
    else:
-    Imguitabitemflagsprivate_80741635)
-  Imvectorimguigroupdata_80741568 = (when declared(Imvectorimguigroupdata):
+    Imguitabitemflagsprivate_63964418)
+  Imvectorimguigroupdata_63964351 = (when declared(Imvectorimguigroupdata):
     Imvectorimguigroupdata
    else:
-    Imvectorimguigroupdata_80741567)
-  structimguikeyroutingdata_80741450 = (when declared(structimguikeyroutingdata):
+    Imvectorimguigroupdata_63964350)
+  structimguikeyroutingdata_63964233 = (when declared(structimguikeyroutingdata):
     structimguikeyroutingdata
    else:
-    structimguikeyroutingdata_80741449)
-  Imguinavinput_80741144 = (when declared(Imguinavinput):
+    structimguikeyroutingdata_63964232)
+  Imguinavinput_63963927 = (when declared(Imguinavinput):
     Imguinavinput
    else:
-    Imguinavinput_80741143)
-  structimvectorimguigroupdata_80741566 = (when declared(
+    Imguinavinput_63963926)
+  structimvectorimguigroupdata_63964349 = (when declared(
       structimvectorimguigroupdata):
     structimvectorimguigroupdata
    else:
-    structimvectorimguigroupdata_80741565)
-  structimvectorimguitabbar_80741598 = (when declared(structimvectorimguitabbar):
+    structimvectorimguigroupdata_63964348)
+  structimvectorimguitabbar_63964381 = (when declared(structimvectorimguitabbar):
     structimvectorimguitabbar
    else:
-    structimvectorimguitabbar_80741597)
-  Imfontbuilderio_80740743 = (when declared(Imfontbuilderio):
+    structimvectorimguitabbar_63964380)
+  Imfontbuilderio_63963526 = (when declared(Imfontbuilderio):
     Imfontbuilderio
    else:
-    Imfontbuilderio_80740742)
-  Imdrawcallback_80741190 = (when declared(Imdrawcallback):
+    Imfontbuilderio_63963525)
+  Imdrawcallback_63963973 = (when declared(Imdrawcallback):
     Imdrawcallback
    else:
-    Imdrawcallback_80741189)
-  Imfontconfig_80740747 = (when declared(Imfontconfig):
+    Imdrawcallback_63963972)
+  Imfontconfig_63963530 = (when declared(Imfontconfig):
     Imfontconfig
    else:
-    Imfontconfig_80740746)
-  structimbitvector_80740848 = (when declared(structimbitvector):
+    Imfontconfig_63963529)
+  structimbitvector_63963631 = (when declared(structimbitvector):
     structimbitvector
    else:
-    structimbitvector_80740847)
-  structimguitabbar_80740948 = (when declared(structimguitabbar):
+    structimbitvector_63963630)
+  structimguitabbar_63963731 = (when declared(structimguitabbar):
     structimguitabbar
    else:
-    structimguitabbar_80740947)
-  Imguidragdropflags_80741028 = (when declared(Imguidragdropflags):
+    structimguitabbar_63963730)
+  Imguidragdropflags_63963811 = (when declared(Imguidragdropflags):
     Imguidragdropflags
    else:
-    Imguidragdropflags_80741027)
-  Imguinavmoveflagsenum_80741484 = (when declared(Imguinavmoveflagsenum):
+    Imguidragdropflags_63963810)
+  Imguinavmoveflagsenum_63964267 = (when declared(Imguinavmoveflagsenum):
     Imguinavmoveflagsenum
    else:
-    Imguinavmoveflagsenum_80741483)
-  structimguiwindowstackdata_80741394 = (when declared(
+    Imguinavmoveflagsenum_63964266)
+  structimguiwindowstackdata_63964177 = (when declared(
       structimguiwindowstackdata):
     structimguiwindowstackdata
    else:
-    structimguiwindowstackdata_80741393)
-  Impoolidx_80741332 = (when declared(Impoolidx):
+    structimguiwindowstackdata_63964176)
+  Impoolidx_63964115 = (when declared(Impoolidx):
     Impoolidx
    else:
-    Impoolidx_80741331)
-  Imguicolenum_80741150 = (when declared(Imguicolenum):
+    Impoolidx_63964114)
+  Imguicolenum_63963933 = (when declared(Imguicolenum):
     Imguicolenum
    else:
-    Imguicolenum_80741149)
-  structimguistylemod_80740944 = (when declared(structimguistylemod):
+    Imguicolenum_63963932)
+  structimguistylemod_63963727 = (when declared(structimguistylemod):
     structimguistylemod
    else:
-    structimguistylemod_80740943)
-  Imchunkstreamimguitablesettings_80741624 = (when declared(
+    structimguistylemod_63963726)
+  Imchunkstreamimguitablesettings_63964407 = (when declared(
       Imchunkstreamimguitablesettings):
     Imchunkstreamimguitablesettings
    else:
-    Imchunkstreamimguitablesettings_80741623)
-  structimfontglyph_80740753 = (when declared(structimfontglyph):
+    Imchunkstreamimguitablesettings_63964406)
+  structimfontglyph_63963536 = (when declared(structimfontglyph):
     structimfontglyph
    else:
-    structimfontglyph_80740752)
-  Imguitextflagsenum_80741364 = (when declared(Imguitextflagsenum):
+    structimfontglyph_63963535)
+  Imguitextflagsenum_63964147 = (when declared(Imguitextflagsenum):
     Imguitextflagsenum
    else:
-    Imguitextflagsenum_80741363)
-  Imdrawlistsplitter_80740727 = (when declared(Imdrawlistsplitter):
+    Imguitextflagsenum_63964146)
+  Imdrawlistsplitter_63963510 = (when declared(Imdrawlistsplitter):
     Imdrawlistsplitter
    else:
-    Imdrawlistsplitter_80740726)
-  Imspanimguitablecolumnidx_80741656 = (when declared(Imspanimguitablecolumnidx):
+    Imdrawlistsplitter_63963509)
+  Imspanimguitablecolumnidx_63964439 = (when declared(Imspanimguitablecolumnidx):
     Imspanimguitablecolumnidx
    else:
-    Imspanimguitablecolumnidx_80741655)
-  structimguilistclipper_80740781 = (when declared(structimguilistclipper):
+    Imspanimguitablecolumnidx_63964438)
+  structimguilistclipper_63963564 = (when declared(structimguilistclipper):
     structimguilistclipper
    else:
-    structimguilistclipper_80740780)
-  Imvectorimguiplatformmonitor_80741262 = (when declared(
+    structimguilistclipper_63963563)
+  Imvectorimguiplatformmonitor_63964045 = (when declared(
       Imvectorimguiplatformmonitor):
     Imvectorimguiplatformmonitor
    else:
-    Imvectorimguiplatformmonitor_80741261)
-  structimvectorchar_80741178 = (when declared(structimvectorchar):
+    Imvectorimguiplatformmonitor_63964044)
+  structimvectorchar_63963961 = (when declared(structimvectorchar):
     structimvectorchar
    else:
-    structimvectorchar_80741177)
-  Imguiinputsource_80741412 = (when declared(Imguiinputsource):
+    structimvectorchar_63963960)
+  Imguiinputsource_63964195 = (when declared(Imguiinputsource):
     Imguiinputsource
    else:
-    Imguiinputsource_80741411)
-  Imvectorimguilistclipperrange_80741476 = (when declared(
+    Imguiinputsource_63964194)
+  Imvectorimguilistclipperrange_63964259 = (when declared(
       Imvectorimguilistclipperrange):
     Imvectorimguilistclipperrange
    else:
-    Imvectorimguilistclipperrange_80741475)
-  structimcolor_80740761 = (when declared(structimcolor):
+    Imvectorimguilistclipperrange_63964258)
+  structimcolor_63963544 = (when declared(structimcolor):
     structimcolor
    else:
-    structimcolor_80740760)
-  structimvectorimguiitemflags_80741562 = (when declared(
+    structimcolor_63963543)
+  structimvectorimguiitemflags_63964345 = (when declared(
       structimvectorimguiitemflags):
     structimvectorimguiitemflags
    else:
-    structimvectorimguiitemflags_80741561)
-  structimguicolormod_80740860 = (when declared(structimguicolormod):
+    structimvectorimguiitemflags_63964344)
+  structimguicolormod_63963643 = (when declared(structimguicolormod):
     structimguicolormod
    else:
-    structimguicolormod_80740859)
-  Imguitreenodeflags_80741054 = (when declared(Imguitreenodeflags):
+    structimguicolormod_63963642)
+  Imguitreenodeflags_63963837 = (when declared(Imguitreenodeflags):
     Imguitreenodeflags
    else:
-    Imguitreenodeflags_80741053)
-  Imvectorimguistacklevelinfo_80741536 = (when declared(
+    Imguitreenodeflags_63963836)
+  Imvectorimguistacklevelinfo_63964319 = (when declared(
       Imvectorimguistacklevelinfo):
     Imvectorimguistacklevelinfo
    else:
-    Imvectorimguistacklevelinfo_80741535)
-  structimdrawcmd_80740713 = (when declared(structimdrawcmd):
+    Imvectorimguistacklevelinfo_63964318)
+  structimdrawcmd_63963496 = (when declared(structimdrawcmd):
     structimdrawcmd
    else:
-    structimdrawcmd_80740712)
-  Imguiwindowdockstyle_80741506 = (when declared(Imguiwindowdockstyle):
+    structimdrawcmd_63963495)
+  Imguiwindowdockstyle_63964289 = (when declared(Imguiwindowdockstyle):
     Imguiwindowdockstyle
    else:
-    Imguiwindowdockstyle_80741505)
-  structimvectorimtextureid_80741220 = (when declared(structimvectorimtextureid):
+    Imguiwindowdockstyle_63964288)
+  structimvectorimtextureid_63964003 = (when declared(structimvectorimtextureid):
     structimvectorimtextureid
    else:
-    structimvectorimtextureid_80741219)
-  structimguitable_80740956 = (when declared(structimguitable):
+    structimvectorimtextureid_63964002)
+  structimguitable_63963739 = (when declared(structimguitable):
     structimguitable
    else:
-    structimguitable_80740955)
-  Imspanimguitablecelldata_80741660 = (when declared(Imspanimguitablecelldata):
+    structimguitable_63963738)
+  Imspanimguitablecelldata_63964443 = (when declared(Imspanimguitablecelldata):
     Imspanimguitablecelldata
    else:
-    Imspanimguitablecelldata_80741659)
-  Imguibuttonflags_80741018 = (when declared(Imguibuttonflags):
+    Imspanimguitablecelldata_63964442)
+  Imguibuttonflags_63963801 = (when declared(Imguibuttonflags):
     Imguibuttonflags
    else:
-    Imguibuttonflags_80741017)
-  Imguinextwindowdataflags_80741290 = (when declared(Imguinextwindowdataflags):
+    Imguibuttonflags_63963800)
+  Imguinextwindowdataflags_63964073 = (when declared(Imguinextwindowdataflags):
     Imguinextwindowdataflags
    else:
-    Imguinextwindowdataflags_80741289)
-  structimguishrinkwidthitem_80741398 = (when declared(
+    Imguinextwindowdataflags_63964072)
+  structimguishrinkwidthitem_63964181 = (when declared(
       structimguishrinkwidthitem):
     structimguishrinkwidthitem
    else:
-    structimguishrinkwidthitem_80741397)
-  structimguistacksizes_80740940 = (when declared(structimguistacksizes):
+    structimguishrinkwidthitem_63964180)
+  structimguistacksizes_63963723 = (when declared(structimguistacksizes):
     structimguistacksizes
    else:
-    structimguistacksizes_80740939)
-  structimguidatavarinfo_80740868 = (when declared(structimguidatavarinfo):
+    structimguistacksizes_63963722)
+  structimguidatavarinfo_63963651 = (when declared(structimguidatavarinfo):
     structimguidatavarinfo
    else:
-    structimguidatavarinfo_80740867)
-  structimguiinputevent_80741444 = (when declared(structimguiinputevent):
+    structimguidatavarinfo_63963650)
+  structimguiinputevent_63964227 = (when declared(structimguiinputevent):
     structimguiinputevent
    else:
-    structimguiinputevent_80741443)
-  structimguiptrorindex_80741402 = (when declared(structimguiptrorindex):
+    structimguiinputevent_63964226)
+  structimguiptrorindex_63964185 = (when declared(structimguiptrorindex):
     structimguiptrorindex
    else:
-    structimguiptrorindex_80741401)
-  Imguitabitem_80740950 = (when declared(Imguitabitem):
+    structimguiptrorindex_63964184)
+  Imguitabitem_63963733 = (when declared(Imguitabitem):
     Imguitabitem
    else:
-    Imguitabitem_80740949)
-  Imguisliderflagsprivate_80741356 = (when declared(Imguisliderflagsprivate):
+    Imguitabitem_63963732)
+  Imguisliderflagsprivate_63964139 = (when declared(Imguisliderflagsprivate):
     Imguisliderflagsprivate
    else:
-    Imguisliderflagsprivate_80741355)
-  structimvectorimguiviewportpptr_80741574 = (when declared(
+    Imguisliderflagsprivate_63964138)
+  structimvectorimguiviewportpptr_63964357 = (when declared(
       structimvectorimguiviewportpptr):
     structimvectorimguiviewportpptr
    else:
-    structimvectorimguiviewportpptr_80741573)
-  structimvectorimguilistclipperdata_80741582 = (when declared(
+    structimvectorimguiviewportpptr_63964356)
+  structimvectorimguilistclipperdata_63964365 = (when declared(
       structimvectorimguilistclipperdata):
     structimvectorimguilistclipperdata
    else:
-    structimvectorimguilistclipperdata_80741581)
-  Imguidockrequest_80740878 = (when declared(Imguidockrequest):
+    structimvectorimguilistclipperdata_63964364)
+  Imguidockrequest_63963661 = (when declared(Imguidockrequest):
     Imguidockrequest
    else:
-    Imguidockrequest_80740877)
-  Imguierrorlogcallback_80741300 = (when declared(Imguierrorlogcallback):
+    Imguidockrequest_63963660)
+  Imguierrorlogcallback_63964083 = (when declared(Imguierrorlogcallback):
     Imguierrorlogcallback
    else:
-    Imguierrorlogcallback_80741299)
-  structimvectorimguisettingshandler_80741614 = (when declared(
+    Imguierrorlogcallback_63964082)
+  structimvectorimguisettingshandler_63964397 = (when declared(
       structimvectorimguisettingshandler):
     structimvectorimguisettingshandler
    else:
-    structimvectorimguisettingshandler_80741613)
-  Imguiplatformio_80740798 = (when declared(Imguiplatformio):
+    structimvectorimguisettingshandler_63964396)
+  Imguiplatformio_63963581 = (when declared(Imguiplatformio):
     Imguiplatformio
    else:
-    Imguiplatformio_80740797)
-  Imguiptrorindex_80741400 = (when declared(Imguiptrorindex):
+    Imguiplatformio_63963580)
+  Imguiptrorindex_63964183 = (when declared(Imguiptrorindex):
     Imguiptrorindex
    else:
-    Imguiptrorindex_80741399)
-  Imguidatatype_80740996 = (when declared(Imguidatatype):
+    Imguiptrorindex_63964182)
+  Imguidatatype_63963779 = (when declared(Imguidatatype):
     Imguidatatype
    else:
-    Imguidatatype_80740995)
-  structimguiviewportp_80741520 = (when declared(structimguiviewportp):
+    Imguidatatype_63963778)
+  structimguiviewportp_63964303 = (when declared(structimguiviewportp):
     structimguiviewportp
    else:
-    structimguiviewportp_80741519)
-  Imguidatatypeenum_80741136 = (when declared(Imguidatatypeenum):
+    structimguiviewportp_63964302)
+  Imguidatatypeenum_63963919 = (when declared(Imguidatatypeenum):
     Imguidatatypeenum
    else:
-    Imguidatatypeenum_80741135)
-  structimvectorimdrawlistptr_80741342 = (when declared(
+    Imguidatatypeenum_63963918)
+  structimvectorimdrawlistptr_63964125 = (when declared(
       structimvectorimdrawlistptr):
     structimvectorimdrawlistptr
    else:
-    structimvectorimdrawlistptr_80741341)
-  Imguiitemstatusflagsenum_80741348 = (when declared(Imguiitemstatusflagsenum):
+    structimvectorimdrawlistptr_63964124)
+  Imguiitemstatusflagsenum_63964131 = (when declared(Imguiitemstatusflagsenum):
     Imguiitemstatusflagsenum
    else:
-    Imguiitemstatusflagsenum_80741347)
-  Imguistylevar_80741006 = (when declared(Imguistylevar):
+    Imguiitemstatusflagsenum_63964130)
+  Imguistylevar_63963789 = (when declared(Imguistylevar):
     Imguistylevar
    else:
-    Imguistylevar_80741005)
-  Imguiinputeventmousepos_80741414 = (when declared(Imguiinputeventmousepos):
+    Imguistylevar_63963788)
+  Imguiinputeventmousepos_63964197 = (when declared(Imguiinputeventmousepos):
     Imguiinputeventmousepos
    else:
-    Imguiinputeventmousepos_80741413)
-  Imguitreenodeflagsprivate_80741360 = (when declared(Imguitreenodeflagsprivate):
+    Imguiinputeventmousepos_63964196)
+  Imguitreenodeflagsprivate_63964143 = (when declared(Imguitreenodeflagsprivate):
     Imguitreenodeflagsprivate
    else:
-    Imguitreenodeflagsprivate_80741359)
-  structimdrawvert_80740733 = (when declared(structimdrawvert):
+    Imguitreenodeflagsprivate_63964142)
+  structimdrawvert_63963516 = (when declared(structimdrawvert):
     structimdrawvert
    else:
-    structimdrawvert_80740732)
-  Imguilocentry_80740898 = (when declared(Imguilocentry):
+    structimdrawvert_63963515)
+  Imguilocentry_63963681 = (when declared(Imguilocentry):
     Imguilocentry
    else:
-    Imguilocentry_80740897)
-  Imguitablecolumnflagsenum_80741122 = (when declared(Imguitablecolumnflagsenum):
+    Imguilocentry_63963680)
+  Imguitablecolumnflagsenum_63963905 = (when declared(Imguitablecolumnflagsenum):
     Imguitablecolumnflagsenum
    else:
-    Imguitablecolumnflagsenum_80741121)
-  Imguitablecolumn_80740958 = (when declared(Imguitablecolumn):
+    Imguitablecolumnflagsenum_63963904)
+  Imguitablecolumn_63963741 = (when declared(Imguitablecolumn):
     Imguitablecolumn
    else:
-    Imguitablecolumn_80740957)
-  structimvectorimu32_80741228 = (when declared(structimvectorimu32):
+    Imguitablecolumn_63963740)
+  structimvectorimu32_63964011 = (when declared(structimvectorimu32):
     structimvectorimu32
    else:
-    structimvectorimu32_80741227)
-  Imguilayouttype_80741270 = (when declared(Imguilayouttype):
+    structimvectorimu32_63964010)
+  Imguilayouttype_63964053 = (when declared(Imguilayouttype):
     Imguilayouttype
    else:
-    Imguilayouttype_80741269)
-  Imguitabitemflags_80741046 = (when declared(Imguitabitemflags):
+    Imguilayouttype_63964052)
+  Imguitabitemflags_63963829 = (when declared(Imguitabitemflags):
     Imguitabitemflags
    else:
-    Imguitabitemflags_80741045)
-  structstbtexteditstate_80741312 = (when declared(structstbtexteditstate):
+    Imguitabitemflags_63963828)
+  structstbtexteditstate_63964095 = (when declared(structstbtexteditstate):
     structstbtexteditstate
    else:
-    structstbtexteditstate_80741311)
-  structimvectorimguistylemod_80741554 = (when declared(
+    structstbtexteditstate_63964094)
+  structimvectorimguistylemod_63964337 = (when declared(
       structimvectorimguistylemod):
     structimvectorimguistylemod
    else:
-    structimvectorimguistylemod_80741553)
-  Imvectorimwchar_80741168 = (when declared(Imvectorimwchar):
+    structimvectorimguistylemod_63964336)
+  Imvectorimwchar_63963951 = (when declared(Imvectorimwchar):
     Imvectorimwchar
    else:
-    Imvectorimwchar_80741167)
-  Stbtexteditstate_80741310 = (when declared(Stbtexteditstate):
+    Imvectorimwchar_63963950)
+  Stbtexteditstate_63964093 = (when declared(Stbtexteditstate):
     Stbtexteditstate
    else:
-    Stbtexteditstate_80741309)
-  structimfontconfig_80740749 = (when declared(structimfontconfig):
+    Stbtexteditstate_63964092)
+  structimfontconfig_63963532 = (when declared(structimfontconfig):
     structimfontconfig
    else:
-    structimfontconfig_80740748)
-  Imguistacksizes_80740938 = (when declared(Imguistacksizes):
+    structimfontconfig_63963531)
+  Imguistacksizes_63963721 = (when declared(Imguistacksizes):
     Imguistacksizes
    else:
-    Imguistacksizes_80740937)
-  Imguisizecallback_80741090 = (when declared(Imguisizecallback):
+    Imguistacksizes_63963720)
+  Imguisizecallback_63963873 = (when declared(Imguisizecallback):
     Imguisizecallback
    else:
-    Imguisizecallback_80741089)
-  structimguikeyownerdata_80741462 = (when declared(structimguikeyownerdata):
+    Imguisizecallback_63963872)
+  structimguikeyownerdata_63964245 = (when declared(structimguikeyownerdata):
     structimguikeyownerdata
    else:
-    structimguikeyownerdata_80741461)
-  Imguitablecolumnsortspecs_80740826 = (when declared(Imguitablecolumnsortspecs):
+    structimguikeyownerdata_63964244)
+  Imguitablecolumnsortspecs_63963609 = (when declared(Imguitablecolumnsortspecs):
     Imguitablecolumnsortspecs
    else:
-    Imguitablecolumnsortspecs_80740825)
-  Imguihoveredflags_80741032 = (when declared(Imguihoveredflags):
+    Imguitablecolumnsortspecs_63963608)
+  Imguihoveredflags_63963815 = (when declared(Imguihoveredflags):
     Imguihoveredflags
    else:
-    Imguihoveredflags_80741031)
-  Imdrawcmd_80740711 = (when declared(Imdrawcmd):
+    Imguihoveredflags_63963814)
+  Imdrawcmd_63963494 = (when declared(Imdrawcmd):
     Imdrawcmd
    else:
-    Imdrawcmd_80740710)
-  Imvectorimguilistclipperdata_80741584 = (when declared(
+    Imdrawcmd_63963493)
+  Imvectorimguilistclipperdata_63964367 = (when declared(
       Imvectorimguilistclipperdata):
     Imvectorimguilistclipperdata
    else:
-    Imvectorimguilistclipperdata_80741583)
-  structimdrawcmdheader_80741194 = (when declared(structimdrawcmdheader):
+    Imvectorimguilistclipperdata_63964366)
+  structimdrawcmdheader_63963977 = (when declared(structimdrawcmdheader):
     structimdrawcmdheader
    else:
-    structimdrawcmdheader_80741193)
-  Imguistyle_80740818 = (when declared(Imguistyle):
+    structimdrawcmdheader_63963976)
+  Imguistyle_63963601 = (when declared(Imguistyle):
     Imguistyle
    else:
-    Imguistyle_80740817)
-  Imguicondenum_80741164 = (when declared(Imguicondenum):
+    Imguistyle_63963600)
+  Imguicondenum_63963947 = (when declared(Imguicondenum):
     Imguicondenum
    else:
-    Imguicondenum_80741163)
-  Imguioldcolumns_80740926 = (when declared(Imguioldcolumns):
+    Imguicondenum_63963946)
+  Imguioldcolumns_63963709 = (when declared(Imguioldcolumns):
     Imguioldcolumns
    else:
-    Imguioldcolumns_80740925)
-  Imguiviewportflags_80741056 = (when declared(Imguiviewportflags):
+    Imguioldcolumns_63963708)
+  Imguiviewportflags_63963839 = (when declared(Imguiviewportflags):
     Imguiviewportflags
    else:
-    Imguiviewportflags_80741055)
-  Imvectorimguistylemod_80741556 = (when declared(Imvectorimguistylemod):
+    Imguiviewportflags_63963838)
+  Imvectorimguistylemod_63964339 = (when declared(Imvectorimguistylemod):
     Imvectorimguistylemod
    else:
-    Imvectorimguistylemod_80741555)
-  Imrect_80740850 = (when declared(Imrect):
+    Imvectorimguistylemod_63964338)
+  Imrect_63963633 = (when declared(Imrect):
     Imrect
    else:
-    Imrect_80740849)
-  Imguimenucolumns_80740902 = (when declared(Imguimenucolumns):
+    Imrect_63963632)
+  Imguimenucolumns_63963685 = (when declared(Imguimenucolumns):
     Imguimenucolumns
    else:
-    Imguimenucolumns_80740901)
-  structimguiplatformmonitor_80740804 = (when declared(
+    Imguimenucolumns_63963684)
+  structimguiplatformmonitor_63963587 = (when declared(
       structimguiplatformmonitor):
     structimguiplatformmonitor
    else:
-    structimguiplatformmonitor_80740803)
-  structimguitablecolumn_80740960 = (when declared(structimguitablecolumn):
+    structimguiplatformmonitor_63963586)
+  structimguitablecolumn_63963743 = (when declared(structimguitablecolumn):
     structimguitablecolumn
    else:
-    structimguitablecolumn_80740959)
-  structimfont_80740737 = (when declared(structimfont):
+    structimguitablecolumn_63963742)
+  structimfont_63963520 = (when declared(structimfont):
     structimfont
    else:
-    structimfont_80740736)
-  structimguistorage_80740816 = (when declared(structimguistorage):
+    structimfont_63963519)
+  structimguistorage_63963599 = (when declared(structimguistorage):
     structimguistorage
    else:
-    structimguistorage_80740815)
-  Imvectorimguishrinkwidthitem_80741612 = (when declared(
+    structimguistorage_63963598)
+  Imvectorimguishrinkwidthitem_63964395 = (when declared(
       Imvectorimguishrinkwidthitem):
     Imvectorimguishrinkwidthitem
    else:
-    Imvectorimguishrinkwidthitem_80741611)
-  Sdlrenderer_80741676 = (when declared(Sdlrenderer):
+    Imvectorimguishrinkwidthitem_63964394)
+  Sdlrenderer_63964459 = (when declared(Sdlrenderer):
     Sdlrenderer
    else:
-    Sdlrenderer_80741675)
-  structimspanimguitablecolumn_80741650 = (when declared(
+    Sdlrenderer_63964458)
+  structimspanimguitablecolumn_63964433 = (when declared(
       structimspanimguitablecolumn):
     structimspanimguitablecolumn
    else:
-    structimspanimguitablecolumn_80741649)
-  structimvectorimvec4_80741216 = (when declared(structimvectorimvec4):
+    structimspanimguitablecolumn_63964432)
+  structimvectorimvec4_63963999 = (when declared(structimvectorimvec4):
     structimvectorimvec4
    else:
-    structimvectorimvec4_80741215)
-  structimfontatlas_80740741 = (when declared(structimfontatlas):
+    structimvectorimvec4_63963998)
+  structimfontatlas_63963524 = (when declared(structimfontatlas):
     structimfontatlas
    else:
-    structimfontatlas_80740740)
-  Imvectorimguiwindowptr_80741502 = (when declared(Imvectorimguiwindowptr):
+    structimfontatlas_63963523)
+  Imvectorimguiwindowptr_63964285 = (when declared(Imvectorimguiwindowptr):
     Imvectorimguiwindowptr
    else:
-    Imvectorimguiwindowptr_80741501)
-  Imvectorimdrawvert_80741214 = (when declared(Imvectorimdrawvert):
+    Imvectorimguiwindowptr_63964284)
+  Imvectorimdrawvert_63963997 = (when declared(Imvectorimdrawvert):
     Imvectorimdrawvert
    else:
-    Imvectorimdrawvert_80741213)
-  Imdrawlist_80740719 = (when declared(Imdrawlist):
+    Imvectorimdrawvert_63963996)
+  Imdrawlist_63963502 = (when declared(Imdrawlist):
     Imdrawlist
    else:
-    Imdrawlist_80740718)
-  Imvectorimfontconfig_80741248 = (when declared(Imvectorimfontconfig):
+    Imdrawlist_63963501)
+  Imvectorimfontconfig_63964031 = (when declared(Imvectorimfontconfig):
     Imvectorimfontconfig
    else:
-    Imvectorimfontconfig_80741247)
-  Imguicontext_80740763 = (when declared(Imguicontext):
+    Imvectorimfontconfig_63964030)
+  Imguicontext_63963546 = (when declared(Imguicontext):
     Imguicontext
    else:
-    Imguicontext_80740762)
-  structimvec2ih_80741328 = (when declared(structimvec2ih):
+    Imguicontext_63963545)
+  structimvec2ih_63964111 = (when declared(structimvec2ih):
     structimvec2ih
    else:
-    structimvec2ih_80741327)
-  structimguidatatypeinfo_80740872 = (when declared(structimguidatatypeinfo):
+    structimvec2ih_63964110)
+  structimguidatatypeinfo_63963655 = (when declared(structimguidatatypeinfo):
     structimguidatatypeinfo
    else:
-    structimguidatatypeinfo_80740871)
-  Stbtexteditrow_80741314 = (when declared(Stbtexteditrow):
+    structimguidatatypeinfo_63963654)
+  Stbtexteditrow_63964097 = (when declared(Stbtexteditrow):
     Stbtexteditrow
    else:
-    Stbtexteditrow_80741313)
-  structimguinavitemdata_80740908 = (when declared(structimguinavitemdata):
+    Stbtexteditrow_63964096)
+  structimguinavitemdata_63963691 = (when declared(structimguinavitemdata):
     structimguinavitemdata
    else:
-    structimguinavitemdata_80740907)
-  Imguitable_80740954 = (when declared(Imguitable):
+    structimguinavitemdata_63963690)
+  Imguitable_63963737 = (when declared(Imguitable):
     Imguitable
    else:
-    Imguitable_80740953)
-  structimvec2_80741098 = (when declared(structimvec2):
+    Imguitable_63963736)
+  structimvec2_63963881 = (when declared(structimvec2):
     structimvec2
    else:
-    structimvec2_80741097)
-  structimvectorimguitextrange_80741174 = (when declared(
+    structimvec2_63963880)
+  structimvectorimguitextrange_63963957 = (when declared(
       structimvectorimguitextrange):
     structimvectorimguitextrange
    else:
-    structimvectorimguitextrange_80741173)
-  structimvectorimguishrinkwidthitem_80741610 = (when declared(
+    structimvectorimguitextrange_63963956)
+  structimvectorimguishrinkwidthitem_63964393 = (when declared(
       structimvectorimguishrinkwidthitem):
     structimvectorimguishrinkwidthitem
    else:
-    structimvectorimguishrinkwidthitem_80741609)
-  Imguitabbarflagsprivate_80741634 = (when declared(Imguitabbarflagsprivate):
+    structimvectorimguishrinkwidthitem_63964392)
+  Imguitabbarflagsprivate_63964417 = (when declared(Imguitabbarflagsprivate):
     Imguitabbarflagsprivate
    else:
-    Imguitabbarflagsprivate_80741633)
-  Imguiwindowflagsenum_80741104 = (when declared(Imguiwindowflagsenum):
+    Imguitabbarflagsprivate_63964416)
+  Imguiwindowflagsenum_63963887 = (when declared(Imguiwindowflagsenum):
     Imguiwindowflagsenum
    else:
-    Imguiwindowflagsenum_80741103)
-  Imguiscrollflags_80741292 = (when declared(Imguiscrollflags):
+    Imguiwindowflagsenum_63963886)
+  Imguiscrollflags_63964075 = (when declared(Imguiscrollflags):
     Imguiscrollflags
    else:
-    Imguiscrollflags_80741291)
-  Imvec2ih_80741326 = (when declared(Imvec2ih):
+    Imguiscrollflags_63964074)
+  Imvec2ih_63964109 = (when declared(Imvec2ih):
     Imvec2ih
    else:
-    Imvec2ih_80741325)
-  Imguidocknodeflagsenum_80741132 = (when declared(Imguidocknodeflagsenum):
+    Imvec2ih_63964108)
+  Imguidocknodeflagsenum_63963915 = (when declared(Imguidocknodeflagsenum):
     Imguidocknodeflagsenum
    else:
-    Imguidocknodeflagsenum_80741131)
-  Imguilistclipper_80740779 = (when declared(Imguilistclipper):
+    Imguidocknodeflagsenum_63963914)
+  Imguilistclipper_63963562 = (when declared(Imguilistclipper):
     Imguilistclipper
    else:
-    Imguilistclipper_80740778)
-  Imguisliderflagsenum_80741158 = (when declared(Imguisliderflagsenum):
+    Imguilistclipper_63963561)
+  Imguisliderflagsenum_63963941 = (when declared(Imguisliderflagsenum):
     Imguisliderflagsenum
    else:
-    Imguisliderflagsenum_80741157)
-  structimvectorimguicontexthook_80741626 = (when declared(
+    Imguisliderflagsenum_63963940)
+  structimvectorimguicontexthook_63964409 = (when declared(
       structimvectorimguicontexthook):
     structimvectorimguicontexthook
    else:
-    structimvectorimguicontexthook_80741625)
-  Imguiinputeventmouseviewport_80741426 = (when declared(
+    structimvectorimguicontexthook_63964408)
+  Imguiinputeventmouseviewport_63964209 = (when declared(
       Imguiinputeventmouseviewport):
     Imguiinputeventmouseviewport
    else:
-    Imguiinputeventmouseviewport_80741425)
-  structimguitablesortspecs_80740824 = (when declared(structimguitablesortspecs):
+    Imguiinputeventmouseviewport_63964208)
+  structimguitablesortspecs_63963607 = (when declared(structimguitablesortspecs):
     structimguitablesortspecs
    else:
-    structimguitablesortspecs_80740823)
-  Imvectorimguiwindowstackdata_80741548 = (when declared(
+    structimguitablesortspecs_63963606)
+  Imvectorimguiwindowstackdata_63964331 = (when declared(
       Imvectorimguiwindowstackdata):
     Imvectorimguiwindowstackdata
    else:
-    Imvectorimguiwindowstackdata_80741547)
-  Imguimousecursorenum_80741162 = (when declared(Imguimousecursorenum):
+    Imvectorimguiwindowstackdata_63964330)
+  Imguimousecursorenum_63963945 = (when declared(Imguimousecursorenum):
     Imguimousecursorenum
    else:
-    Imguimousecursorenum_80741161)
-  Ims16_80741070 = (when declared(Ims16):
+    Imguimousecursorenum_63963944)
+  Ims16_63963853 = (when declared(Ims16):
     Ims16
    else:
-    Ims16_80741069)
-  structimguioldcolumndata_80740924 = (when declared(structimguioldcolumndata):
+    Ims16_63963852)
+  structimguioldcolumndata_63963707 = (when declared(structimguioldcolumndata):
     structimguioldcolumndata
    else:
-    structimguioldcolumndata_80740923)
-  Imguiinputflagsenum_80741464 = (when declared(Imguiinputflagsenum):
+    structimguioldcolumndata_63963706)
+  Imguiinputflagsenum_63964247 = (when declared(Imguiinputflagsenum):
     Imguiinputflagsenum
    else:
-    Imguiinputflagsenum_80741463)
-  Imguitablecolumnidx_80741642 = (when declared(Imguitablecolumnidx):
+    Imguiinputflagsenum_63964246)
+  Imguitablecolumnidx_63964425 = (when declared(Imguitablecolumnidx):
     Imguitablecolumnidx
    else:
-    Imguitablecolumnidx_80741641)
-  Imvectorint_80741340 = (when declared(Imvectorint):
+    Imguitablecolumnidx_63964424)
+  Imvectorint_63964123 = (when declared(Imvectorint):
     Imvectorint
    else:
-    Imvectorint_80741339)
-  structimvectorimguiwindowptr_80741500 = (when declared(
+    Imvectorint_63964122)
+  structimvectorimguiwindowptr_63964283 = (when declared(
       structimvectorimguiwindowptr):
     structimvectorimguiwindowptr
    else:
-    structimvectorimguiwindowptr_80741499)
-  Imvectorimguidockrequest_80741512 = (when declared(Imvectorimguidockrequest):
+    structimvectorimguiwindowptr_63964282)
+  Imvectorimguidockrequest_63964295 = (when declared(Imvectorimguidockrequest):
     Imvectorimguidockrequest
    else:
-    Imvectorimguidockrequest_80741511)
-  structimguidatatypetempstorage_80741380 = (when declared(
+    Imvectorimguidockrequest_63964294)
+  structimguidatatypetempstorage_63964163 = (when declared(
       structimguidatatypetempstorage):
     structimguidatatypetempstorage
    else:
-    structimguidatatypetempstorage_80741379)
-  Imvectorimguioldcolumndata_80741492 = (when declared(
+    structimguidatatypetempstorage_63964162)
+  Imvectorimguioldcolumndata_63964275 = (when declared(
       Imvectorimguioldcolumndata):
     Imvectorimguioldcolumndata
    else:
-    Imvectorimguioldcolumndata_80741491)
-  Imguiselectableflagsenum_80741112 = (when declared(Imguiselectableflagsenum):
+    Imvectorimguioldcolumndata_63964274)
+  Imguiselectableflagsenum_63963895 = (when declared(Imguiselectableflagsenum):
     Imguiselectableflagsenum
    else:
-    Imguiselectableflagsenum_80741111)
-  File_80741320 = (when declared(File):
+    Imguiselectableflagsenum_63963894)
+  File_63964103 = (when declared(File):
     File
    else:
-    File_80741319)
-  Imvec4_80741100 = (when declared(Imvec4):
+    File_63964102)
+  Imvec4_63963883 = (when declared(Imvec4):
     Imvec4
    else:
-    Imvec4_80741099)
-  Imguikeyroutingindex_80741446 = (when declared(Imguikeyroutingindex):
+    Imvec4_63963882)
+  Imguikeyroutingindex_63964229 = (when declared(Imguikeyroutingindex):
     Imguikeyroutingindex
    else:
-    Imguikeyroutingindex_80741445)
-  Imcolor_80740759 = (when declared(Imcolor):
+    Imguikeyroutingindex_63964228)
+  Imcolor_63963542 = (when declared(Imcolor):
     Imcolor
    else:
-    Imcolor_80740758)
-  structimvectorimguiid_80741558 = (when declared(structimvectorimguiid):
+    Imcolor_63963541)
+  structimvectorimguiid_63964341 = (when declared(structimvectorimguiid):
     structimvectorimguiid
    else:
-    structimvectorimguiid_80741557)
-  Imfontatlascustomrect_80741232 = (when declared(Imfontatlascustomrect):
+    structimvectorimguiid_63964340)
+  Imfontatlascustomrect_63964015 = (when declared(Imfontatlascustomrect):
     Imfontatlascustomrect
    else:
-    Imfontatlascustomrect_80741231)
-  structimguiwindowdockstyle_80741508 = (when declared(
+    Imfontatlascustomrect_63964014)
+  structimguiwindowdockstyle_63964291 = (when declared(
       structimguiwindowdockstyle):
     structimguiwindowdockstyle
    else:
-    structimguiwindowdockstyle_80741507)
-  structimguidockcontext_80740876 = (when declared(structimguidockcontext):
+    structimguiwindowdockstyle_63964290)
+  structimguidockcontext_63963659 = (when declared(structimguidockcontext):
     structimguidockcontext
    else:
-    structimguidockcontext_80740875)
-  structimguitableinstancedata_80740964 = (when declared(
+    structimguidockcontext_63963658)
+  structimguitableinstancedata_63963747 = (when declared(
       structimguitableinstancedata):
     structimguitableinstancedata
    else:
-    structimguitableinstancedata_80740963)
-  Imguilastitemdata_80740894 = (when declared(Imguilastitemdata):
+    structimguitableinstancedata_63963746)
+  Imguilastitemdata_63963677 = (when declared(Imguilastitemdata):
     Imguilastitemdata
    else:
-    Imguilastitemdata_80740893)
-  structimvectorimguipopupdata_80741570 = (when declared(
+    Imguilastitemdata_63963676)
+  structimvectorimguipopupdata_63964353 = (when declared(
       structimvectorimguipopupdata):
     structimvectorimguipopupdata
    else:
-    structimvectorimguipopupdata_80741569)
-  Imvectorimguiviewportptr_80741266 = (when declared(Imvectorimguiviewportptr):
+    structimvectorimguipopupdata_63964352)
+  Imvectorimguiviewportptr_63964049 = (when declared(Imvectorimguiviewportptr):
     Imvectorimguiviewportptr
    else:
-    Imvectorimguiviewportptr_80741265)
-  Imguinavhighlightflagsenum_80741482 = (when declared(
+    Imvectorimguiviewportptr_63964048)
+  Imguinavhighlightflagsenum_63964265 = (when declared(
       Imguinavhighlightflagsenum):
     Imguinavhighlightflagsenum
    else:
-    Imguinavhighlightflagsenum_80741481)
-  Imguioldcolumnflagsenum_80741488 = (when declared(Imguioldcolumnflagsenum):
+    Imguinavhighlightflagsenum_63964264)
+  Imguioldcolumnflagsenum_63964271 = (when declared(Imguioldcolumnflagsenum):
     Imguioldcolumnflagsenum
    else:
-    Imguioldcolumnflagsenum_80741487)
-  Imguiid_80741064 = (when declared(Imguiid):
+    Imguioldcolumnflagsenum_63964270)
+  Imguiid_63963847 = (when declared(Imguiid):
     Imguiid
    else:
-    Imguiid_80741063)
-  Imguicond_80740994 = (when declared(Imguicond):
+    Imguiid_63963846)
+  Imguicond_63963777 = (when declared(Imguicond):
     Imguicond
    else:
-    Imguicond_80740993)
-  structimvectorimfontptr_80741238 = (when declared(structimvectorimfontptr):
+    Imguicond_63963776)
+  structimvectorimfontptr_63964021 = (when declared(structimvectorimfontptr):
     structimvectorimfontptr
    else:
-    structimvectorimfontptr_80741237)
-  Imguilockey_80741522 = (when declared(Imguilockey):
+    structimvectorimfontptr_63964020)
+  Imguilockey_63964305 = (when declared(Imguilockey):
     Imguilockey
    else:
-    Imguilockey_80741521)
-  Imguiinputevent_80741442 = (when declared(Imguiinputevent):
+    Imguilockey_63964304)
+  Imguiinputevent_63964225 = (when declared(Imguiinputevent):
     Imguiinputevent
    else:
-    Imguiinputevent_80741441)
-  structimvectorimguitabitem_80741638 = (when declared(
+    Imguiinputevent_63964224)
+  structimvectorimguitabitem_63964421 = (when declared(
       structimvectorimguitabitem):
     structimvectorimguitabitem
    else:
-    structimvectorimguitabitem_80741637)
+    structimvectorimguitabitem_63964420)
 when not declared(structimguiio):
   type
-    structimguiio* = structimguiio_80740768
+    structimguiio* = structimguiio_63963551
 else:
   static :
     hint("Declaration of " & "structimguiio" &
         " already exists, not redeclaring")
 when not declared(Imwchar32):
   type
-    Imwchar32* = Imwchar32_80741083
+    Imwchar32* = Imwchar32_63963866
 else:
   static :
     hint("Declaration of " & "Imwchar32" & " already exists, not redeclaring")
 when not declared(structimguitextrange):
   type
-    structimguitextrange* = structimguitextrange_80741169
+    structimguitextrange* = structimguitextrange_63963952
 else:
   static :
     hint("Declaration of " & "structimguitextrange" &
         " already exists, not redeclaring")
 when not declared(Imchunkstreamimguiwindowsettings):
   type
-    Imchunkstreamimguiwindowsettings* = Imchunkstreamimguiwindowsettings_80741619
+    Imchunkstreamimguiwindowsettings* = Imchunkstreamimguiwindowsettings_63964402
 else:
   static :
     hint("Declaration of " & "Imchunkstreamimguiwindowsettings" &
         " already exists, not redeclaring")
 when not declared(Imvectorimdrawidx):
   type
-    Imvectorimdrawidx* = Imvectorimdrawidx_80741201
+    Imvectorimdrawidx* = Imvectorimdrawidx_63963984
 else:
   static :
     hint("Declaration of " & "Imvectorimdrawidx" &
         " already exists, not redeclaring")
 when not declared(Imvectorimdrawchannel):
   type
-    Imvectorimdrawchannel* = Imvectorimdrawchannel_80741205
+    Imvectorimdrawchannel* = Imvectorimdrawchannel_63963988
 else:
   static :
     hint("Declaration of " & "Imvectorimdrawchannel" &
         " already exists, not redeclaring")
 when not declared(Imguifocusedflags):
   type
-    Imguifocusedflags* = Imguifocusedflags_80741029
+    Imguifocusedflags* = Imguifocusedflags_63963812
 else:
   static :
     hint("Declaration of " & "Imguifocusedflags" &
         " already exists, not redeclaring")
 when not declared(Imguiplatformimedata):
   type
-    Imguiplatformimedata* = Imguiplatformimedata_80740805
+    Imguiplatformimedata* = Imguiplatformimedata_63963588
 else:
   static :
     hint("Declaration of " & "Imguiplatformimedata" &
         " already exists, not redeclaring")
 when not declared(Imguitablecelldata):
   type
-    Imguitablecelldata* = Imguitablecelldata_80741645
+    Imguitablecelldata* = Imguitablecelldata_63964428
 else:
   static :
     hint("Declaration of " & "Imguitablecelldata" &
         " already exists, not redeclaring")
 when not declared(Imvectorimfontptr):
   type
-    Imvectorimfontptr* = Imvectorimfontptr_80741239
+    Imvectorimfontptr* = Imvectorimfontptr_63964022
 else:
   static :
     hint("Declaration of " & "Imvectorimfontptr" &
         " already exists, not redeclaring")
 when not declared(Imvectorimdrawcmd):
   type
-    Imvectorimdrawcmd* = Imvectorimdrawcmd_80741197
+    Imvectorimdrawcmd* = Imvectorimdrawcmd_63963980
 else:
   static :
     hint("Declaration of " & "Imvectorimdrawcmd" &
         " already exists, not redeclaring")
 when not declared(structimspanimguitablecolumnidx):
   type
-    structimspanimguitablecolumnidx* = structimspanimguitablecolumnidx_80741653
+    structimspanimguitablecolumnidx* = structimspanimguitablecolumnidx_63964436
 else:
   static :
     hint("Declaration of " & "structimspanimguitablecolumnidx" &
         " already exists, not redeclaring")
 when not declared(Imguioldcolumnflags):
   type
-    Imguioldcolumnflags* = Imguioldcolumnflags_80741281
+    Imguioldcolumnflags* = Imguioldcolumnflags_63964064
 else:
   static :
     hint("Declaration of " & "Imguioldcolumnflags" &
         " already exists, not redeclaring")
 when not declared(Imfontglyph):
   type
-    Imfontglyph* = Imfontglyph_80740750
+    Imfontglyph* = Imfontglyph_63963533
 else:
   static :
     hint("Declaration of " & "Imfontglyph" & " already exists, not redeclaring")
 when not declared(Imvectorimfontglyph):
   type
-    Imvectorimfontglyph* = Imvectorimfontglyph_80741255
+    Imvectorimfontglyph* = Imvectorimfontglyph_63964038
 else:
   static :
     hint("Declaration of " & "Imvectorimfontglyph" &
         " already exists, not redeclaring")
 when not declared(structimguipayload):
   type
-    structimguipayload* = structimguipayload_80740788
+    structimguipayload* = structimguipayload_63963571
 else:
   static :
     hint("Declaration of " & "structimguipayload" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextcallbackdata):
   type
-    Imguiinputtextcallbackdata* = Imguiinputtextcallbackdata_80740770
+    Imguiinputtextcallbackdata* = Imguiinputtextcallbackdata_63963553
 else:
   static :
     hint("Declaration of " & "Imguiinputtextcallbackdata" &
         " already exists, not redeclaring")
 when not declared(Imbitvector):
   type
-    Imbitvector* = Imbitvector_80740845
+    Imbitvector* = Imbitvector_63963628
 else:
   static :
     hint("Declaration of " & "Imbitvector" & " already exists, not redeclaring")
 when not declared(structimvectorimdrawidx):
   type
-    structimvectorimdrawidx* = structimvectorimdrawidx_80741199
+    structimvectorimdrawidx* = structimvectorimdrawidx_63963982
 else:
   static :
     hint("Declaration of " & "structimvectorimdrawidx" &
         " already exists, not redeclaring")
 when not declared(structimguistacklevelinfo):
   type
-    structimguistacklevelinfo* = structimguistacklevelinfo_80741527
+    structimguistacklevelinfo* = structimguistacklevelinfo_63964310
 else:
   static :
     hint("Declaration of " & "structimguistacklevelinfo" &
         " already exists, not redeclaring")
 when not declared(Imdrawflags):
   type
-    Imdrawflags* = Imdrawflags_80741009
+    Imdrawflags* = Imdrawflags_63963792
 else:
   static :
     hint("Declaration of " & "Imdrawflags" & " already exists, not redeclaring")
 when not declared(Imguitableflags):
   type
-    Imguitableflags* = Imguitableflags_80741047
+    Imguitableflags* = Imguitableflags_63963830
 else:
   static :
     hint("Declaration of " & "Imguitableflags" &
         " already exists, not redeclaring")
 when not declared(Imguiinputeventmousewheel):
   type
-    Imguiinputeventmousewheel* = Imguiinputeventmousewheel_80741417
+    Imguiinputeventmousewheel* = Imguiinputeventmousewheel_63964200
 else:
   static :
     hint("Declaration of " & "Imguiinputeventmousewheel" &
         " already exists, not redeclaring")
 when not declared(structimguipopupdata):
   type
-    structimguipopupdata* = structimguipopupdata_80740931
+    structimguipopupdata* = structimguipopupdata_63963714
 else:
   static :
     hint("Declaration of " & "structimguipopupdata" &
         " already exists, not redeclaring")
 when not declared(Imguimemfreefunc):
   type
-    Imguimemfreefunc* = Imguimemfreefunc_80741093
+    Imguimemfreefunc* = Imguimemfreefunc_63963876
 else:
   static :
     hint("Declaration of " & "Imguimemfreefunc" &
         " already exists, not redeclaring")
 when not declared(Imguiselectableflags):
   type
-    Imguiselectableflags* = Imguiselectableflags_80741039
+    Imguiselectableflags* = Imguiselectableflags_63963822
 else:
   static :
     hint("Declaration of " & "Imguiselectableflags" &
         " already exists, not redeclaring")
 when not declared(Imguitablerowflags):
   type
-    Imguitablerowflags* = Imguitablerowflags_80741051
+    Imguitablerowflags* = Imguitablerowflags_63963834
 else:
   static :
     hint("Declaration of " & "Imguitablerowflags" &
         " already exists, not redeclaring")
 when not declared(structimpoolimguitable):
   type
-    structimpoolimguitable* = structimpoolimguitable_80741593
+    structimpoolimguitable* = structimpoolimguitable_63964376
 else:
   static :
     hint("Declaration of " & "structimpoolimguitable" &
         " already exists, not redeclaring")
 when not declared(structimguinextitemdata):
   type
-    structimguinextitemdata* = structimguinextitemdata_80740919
+    structimguinextitemdata* = structimguinextitemdata_63963702
 else:
   static :
     hint("Declaration of " & "structimguinextitemdata" &
         " already exists, not redeclaring")
 when not declared(Imguikeychord):
   type
-    Imguikeychord* = Imguikeychord_80741035
+    Imguikeychord* = Imguikeychord_63963818
 else:
   static :
     hint("Declaration of " & "Imguikeychord" &
         " already exists, not redeclaring")
 when not declared(Imguidatatypeinfo):
   type
-    Imguidatatypeinfo* = Imguidatatypeinfo_80740869
+    Imguidatatypeinfo* = Imguidatatypeinfo_63963652
 else:
   static :
     hint("Declaration of " & "Imguidatatypeinfo" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguikeyroutingdata):
   type
-    structimvectorimguikeyroutingdata* = structimvectorimguikeyroutingdata_80741455
+    structimvectorimguikeyroutingdata* = structimvectorimguikeyroutingdata_63964238
 else:
   static :
     hint("Declaration of " & "structimvectorimguikeyroutingdata" &
         " already exists, not redeclaring")
 when not declared(Imguibackendflags):
   type
-    Imguibackendflags* = Imguibackendflags_80741015
+    Imguibackendflags* = Imguibackendflags_63963798
 else:
   static :
     hint("Declaration of " & "Imguibackendflags" &
         " already exists, not redeclaring")
 when not declared(Imguiitemflags):
   type
-    Imguiitemflags* = Imguiitemflags_80741277
+    Imguiitemflags* = Imguiitemflags_63964060
 else:
   static :
     hint("Declaration of " & "Imguiitemflags" &
         " already exists, not redeclaring")
 when not declared(Imguitabledrawchannelidx):
   type
-    Imguitabledrawchannelidx* = Imguitabledrawchannelidx_80741643
+    Imguitabledrawchannelidx* = Imguitabledrawchannelidx_63964426
 else:
   static :
     hint("Declaration of " & "Imguitabledrawchannelidx" &
         " already exists, not redeclaring")
 when not declared(Imguinextwindowdata):
   type
-    Imguinextwindowdata* = Imguinextwindowdata_80740913
+    Imguinextwindowdata* = Imguinextwindowdata_63963696
 else:
   static :
     hint("Declaration of " & "Imguinextwindowdata" &
         " already exists, not redeclaring")
 when not declared(Ims32):
   type
-    Ims32* = Ims32_80741073
+    Ims32* = Ims32_63963856
 else:
   static :
     hint("Declaration of " & "Ims32" & " already exists, not redeclaring")
 when not declared(Stbundostate):
   type
-    Stbundostate* = Stbundostate_80741305
+    Stbundostate* = Stbundostate_63964088
 else:
   static :
     hint("Declaration of " & "Stbundostate" & " already exists, not redeclaring")
 when not declared(Imguicontexthookcallback):
   type
-    Imguicontexthookcallback* = Imguicontexthookcallback_80741537
+    Imguicontexthookcallback* = Imguicontexthookcallback_63964320
 else:
   static :
     hint("Declaration of " & "Imguicontexthookcallback" &
         " already exists, not redeclaring")
 when not declared(Imguinextitemdataflags):
   type
-    Imguinextitemdataflags* = Imguinextitemdataflags_80741287
+    Imguinextitemdataflags* = Imguinextitemdataflags_63964070
 else:
   static :
     hint("Declaration of " & "Imguinextitemdataflags" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguioldcolumndata):
   type
-    structimvectorimguioldcolumndata* = structimvectorimguioldcolumndata_80741489
+    structimvectorimguioldcolumndata* = structimvectorimguioldcolumndata_63964272
 else:
   static :
     hint("Declaration of " & "structimvectorimguioldcolumndata" &
         " already exists, not redeclaring")
 when not declared(Imguiwindow):
   type
-    Imguiwindow* = Imguiwindow_80740975
+    Imguiwindow* = Imguiwindow_63963758
 else:
   static :
     hint("Declaration of " & "Imguiwindow" & " already exists, not redeclaring")
 when not declared(Imfilehandle):
   type
-    Imfilehandle* = Imfilehandle_80741317
+    Imfilehandle* = Imfilehandle_63964100
 else:
   static :
     hint("Declaration of " & "Imfilehandle" & " already exists, not redeclaring")
 when not declared(Imspanimguitablecolumn):
   type
-    Imspanimguitablecolumn* = Imspanimguitablecolumn_80741651
+    Imspanimguitablecolumn* = Imspanimguitablecolumn_63964434
 else:
   static :
     hint("Declaration of " & "Imspanimguitablecolumn" &
         " already exists, not redeclaring")
 when not declared(structimguilistclipperrange):
   type
-    structimguilistclipperrange* = structimguilistclipperrange_80741467
+    structimguilistclipperrange* = structimguilistclipperrange_63964250
 else:
   static :
     hint("Declaration of " & "structimguilistclipperrange" &
         " already exists, not redeclaring")
 when not declared(Imguipayload):
   type
-    Imguipayload* = Imguipayload_80740786
+    Imguipayload* = Imguipayload_63963569
 else:
   static :
     hint("Declaration of " & "Imguipayload" & " already exists, not redeclaring")
 when not declared(structimguimenucolumns):
   type
-    structimguimenucolumns* = structimguimenucolumns_80740903
+    structimguimenucolumns* = structimguimenucolumns_63963686
 else:
   static :
     hint("Declaration of " & "structimguimenucolumns" &
         " already exists, not redeclaring")
 when not declared(Stbundorecord):
   type
-    Stbundorecord* = Stbundorecord_80741301
+    Stbundorecord* = Stbundorecord_63964084
 else:
   static :
     hint("Declaration of " & "Stbundorecord" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperrange):
   type
-    Imguilistclipperrange* = Imguilistclipperrange_80741465
+    Imguilistclipperrange* = Imguilistclipperrange_63964248
 else:
   static :
     hint("Declaration of " & "Imguilistclipperrange" &
         " already exists, not redeclaring")
 when not declared(Imguiseparatorflags):
   type
-    Imguiseparatorflags* = Imguiseparatorflags_80741293
+    Imguiseparatorflags* = Imguiseparatorflags_63964076
 else:
   static :
     hint("Declaration of " & "Imguiseparatorflags" &
         " already exists, not redeclaring")
 when not declared(Imbitarrayptr):
   type
-    Imbitarrayptr* = Imbitarrayptr_80741329
+    Imbitarrayptr* = Imbitarrayptr_63964112
 else:
   static :
     hint("Declaration of " & "Imbitarrayptr" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguiptrorindex):
   type
-    structimvectorimguiptrorindex* = structimvectorimguiptrorindex_80741605
+    structimvectorimguiptrorindex* = structimvectorimguiptrorindex_63964388
 else:
   static :
     hint("Declaration of " & "structimvectorimguiptrorindex" &
         " already exists, not redeclaring")
 when not declared(structimguiinputeventkey):
   type
-    structimguiinputeventkey* = structimguiinputeventkey_80741431
+    structimguiinputeventkey* = structimguiinputeventkey_63964214
 else:
   static :
     hint("Declaration of " & "structimguiinputeventkey" &
         " already exists, not redeclaring")
 when not declared(Imvectorimvec2):
   type
-    Imvectorimvec2* = Imvectorimvec2_80741225
+    Imvectorimvec2* = Imvectorimvec2_63964008
 else:
   static :
     hint("Declaration of " & "Imvectorimvec2" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistflags):
   type
-    Imdrawlistflags* = Imdrawlistflags_80741011
+    Imdrawlistflags* = Imdrawlistflags_63963794
 else:
   static :
     hint("Declaration of " & "Imdrawlistflags" &
         " already exists, not redeclaring")
 when not declared(structimguimetricsconfig):
   type
-    structimguimetricsconfig* = structimguimetricsconfig_80740911
+    structimguimetricsconfig* = structimguimetricsconfig_63963694
 else:
   static :
     hint("Declaration of " & "structimguimetricsconfig" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguitabletempdata):
   type
-    Imvectorimguitabletempdata* = Imvectorimguitabletempdata_80741587
+    Imvectorimguitabletempdata* = Imvectorimguitabletempdata_63964370
 else:
   static :
     hint("Declaration of " & "Imvectorimguitabletempdata" &
         " already exists, not redeclaring")
 when not declared(Imvectorconstcharptr):
   type
-    Imvectorconstcharptr* = Imvectorconstcharptr_80740989
+    Imvectorconstcharptr* = Imvectorconstcharptr_63963772
 else:
   static :
     hint("Declaration of " & "Imvectorconstcharptr" &
         " already exists, not redeclaring")
 when not declared(structimvec1):
   type
-    structimvec1* = structimvec1_80741323
+    structimvec1* = structimvec1_63964106
 else:
   static :
     hint("Declaration of " & "structimvec1" & " already exists, not redeclaring")
 when not declared(Imfont):
   type
-    Imfont* = Imfont_80740734
+    Imfont* = Imfont_63963517
 else:
   static :
     hint("Declaration of " & "Imfont" & " already exists, not redeclaring")
 when not declared(Imguikeyroutingtable):
   type
-    Imguikeyroutingtable* = Imguikeyroutingtable_80741451
+    Imguikeyroutingtable* = Imguikeyroutingtable_63964234
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingtable" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistshareddata):
   type
-    Imdrawlistshareddata* = Imdrawlistshareddata_80740722
+    Imdrawlistshareddata* = Imdrawlistshareddata_63963505
 else:
   static :
     hint("Declaration of " & "Imdrawlistshareddata" &
         " already exists, not redeclaring")
 when not declared(Imguitextflags):
   type
-    Imguitextflags* = Imguitextflags_80741295
+    Imguitextflags* = Imguitextflags_63964078
 else:
   static :
     hint("Declaration of " & "Imguitextflags" &
         " already exists, not redeclaring")
 when not declared(Imfontglyphrangesbuilder):
   type
-    Imfontglyphrangesbuilder* = Imfontglyphrangesbuilder_80740754
+    Imfontglyphrangesbuilder* = Imfontglyphrangesbuilder_63963537
 else:
   static :
     hint("Declaration of " & "Imfontglyphrangesbuilder" &
         " already exists, not redeclaring")
 when not declared(Imdrawidx):
   type
-    Imdrawidx* = Imdrawidx_80741061
+    Imdrawidx* = Imdrawidx_63963844
 else:
   static :
     hint("Declaration of " & "Imdrawidx" & " already exists, not redeclaring")
 when not declared(Imguimemallocfunc):
   type
-    Imguimemallocfunc* = Imguimemallocfunc_80741091
+    Imguimemallocfunc* = Imguimemallocfunc_63963874
 else:
   static :
     hint("Declaration of " & "Imguimemallocfunc" &
         " already exists, not redeclaring")
 when not declared(structimguionceuponaframe):
   type
-    structimguionceuponaframe* = structimguionceuponaframe_80740784
+    structimguionceuponaframe* = structimguionceuponaframe_63963567
 else:
   static :
     hint("Declaration of " & "structimguionceuponaframe" &
         " already exists, not redeclaring")
 when not declared(structimfontbuilderio):
   type
-    structimfontbuilderio* = structimfontbuilderio_80740744
+    structimfontbuilderio* = structimfontbuilderio_63963527
 else:
   static :
     hint("Declaration of " & "structimfontbuilderio" &
         " already exists, not redeclaring")
 when not declared(structimguitabletempdata):
   type
-    structimguitabletempdata* = structimguitabletempdata_80740967
+    structimguitabletempdata* = structimguitabletempdata_63963750
 else:
   static :
     hint("Declaration of " & "structimguitabletempdata" &
         " already exists, not redeclaring")
 when not declared(Imguisliderflags):
   type
-    Imguisliderflags* = Imguisliderflags_80741041
+    Imguisliderflags* = Imguisliderflags_63963824
 else:
   static :
     hint("Declaration of " & "Imguisliderflags" &
         " already exists, not redeclaring")
 when not declared(structimguiinputeventmousewheel):
   type
-    structimguiinputeventmousewheel* = structimguiinputeventmousewheel_80741419
+    structimguiinputeventmousewheel* = structimguiinputeventmousewheel_63964202
 else:
   static :
     hint("Declaration of " & "structimguiinputeventmousewheel" &
         " already exists, not redeclaring")
 when not declared(Imtextureid):
   type
-    Imtextureid* = Imtextureid_80741059
+    Imtextureid* = Imtextureid_63963842
 else:
   static :
     hint("Declaration of " & "Imtextureid" & " already exists, not redeclaring")
 when not declared(Imguistacktool):
   type
-    Imguistacktool* = Imguistacktool_80741529
+    Imguistacktool* = Imguistacktool_63964312
 else:
   static :
     hint("Declaration of " & "Imguistacktool" &
         " already exists, not redeclaring")
 when not declared(Imvectorfloat):
   type
-    Imvectorfloat* = Imvectorfloat_80741251
+    Imvectorfloat* = Imvectorfloat_63964034
 else:
   static :
     hint("Declaration of " & "Imvectorfloat" &
         " already exists, not redeclaring")
 when not declared(Imguidataauthority):
   type
-    Imguidataauthority* = Imguidataauthority_80741267
+    Imguidataauthority* = Imguidataauthority_63964050
 else:
   static :
     hint("Declaration of " & "Imguidataauthority" &
         " already exists, not redeclaring")
 when not declared(Imguitextrange):
   type
-    Imguitextrange* = Imguitextrange_80741171
+    Imguitextrange* = Imguitextrange_63963954
 else:
   static :
     hint("Declaration of " & "Imguitextrange" &
         " already exists, not redeclaring")
 when not declared(Imguitextbuffer):
   type
-    Imguitextbuffer* = Imguitextbuffer_80740829
+    Imguitextbuffer* = Imguitextbuffer_63963612
 else:
   static :
     hint("Declaration of " & "Imguitextbuffer" &
         " already exists, not redeclaring")
 when not declared(structimguisettingshandler):
   type
-    structimguisettingshandler* = structimguisettingshandler_80740935
+    structimguisettingshandler* = structimguisettingshandler_63963718
 else:
   static :
     hint("Declaration of " & "structimguisettingshandler" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguiwindowstackdata):
   type
-    structimvectorimguiwindowstackdata* = structimvectorimguiwindowstackdata_80741545
+    structimvectorimguiwindowstackdata* = structimvectorimguiwindowstackdata_63964328
 else:
   static :
     hint("Declaration of " & "structimvectorimguiwindowstackdata" &
         " already exists, not redeclaring")
 when not declared(structimfontglyphrangesbuilder):
   type
-    structimfontglyphrangesbuilder* = structimfontglyphrangesbuilder_80740756
+    structimfontglyphrangesbuilder* = structimfontglyphrangesbuilder_63963539
 else:
   static :
     hint("Declaration of " & "structimfontglyphrangesbuilder" &
         " already exists, not redeclaring")
 when not declared(Imguisizecallbackdata):
   type
-    Imguisizecallbackdata* = Imguisizecallbackdata_80740809
+    Imguisizecallbackdata* = Imguisizecallbackdata_63963592
 else:
   static :
     hint("Declaration of " & "Imguisizecallbackdata" &
         " already exists, not redeclaring")
 when not declared(structimvectorimdrawcmd):
   type
-    structimvectorimdrawcmd* = structimvectorimdrawcmd_80741195
+    structimvectorimdrawcmd* = structimvectorimdrawcmd_63963978
 else:
   static :
     hint("Declaration of " & "structimvectorimdrawcmd" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguicontexthook):
   type
-    Imvectorimguicontexthook* = Imvectorimguicontexthook_80741627
+    Imvectorimguicontexthook* = Imvectorimguicontexthook_63964410
 else:
   static :
     hint("Declaration of " & "Imvectorimguicontexthook" &
         " already exists, not redeclaring")
 when not declared(structimguiwindowsettings):
   type
-    structimguiwindowsettings* = structimguiwindowsettings_80740985
+    structimguiwindowsettings* = structimguiwindowsettings_63963768
 else:
   static :
     hint("Declaration of " & "structimguiwindowsettings" &
         " already exists, not redeclaring")
 when not declared(Imguicombopreviewdata):
   type
-    Imguicombopreviewdata* = Imguicombopreviewdata_80741383
+    Imguicombopreviewdata* = Imguicombopreviewdata_63964166
 else:
   static :
     hint("Declaration of " & "Imguicombopreviewdata" &
         " already exists, not redeclaring")
 when not declared(Sdlwindow):
   type
-    Sdlwindow* = Sdlwindow_80741673
+    Sdlwindow* = Sdlwindow_63964456
 else:
   static :
     hint("Declaration of " & "Sdlwindow" & " already exists, not redeclaring")
 when not declared(Imguicomboflags):
   type
-    Imguicomboflags* = Imguicomboflags_80741023
+    Imguicomboflags* = Imguicomboflags_63963806
 else:
   static :
     hint("Declaration of " & "Imguicomboflags" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowsettings):
   type
-    Imguiwindowsettings* = Imguiwindowsettings_80740983
+    Imguiwindowsettings* = Imguiwindowsettings_63963766
 else:
   static :
     hint("Declaration of " & "Imguiwindowsettings" &
         " already exists, not redeclaring")
 when not declared(structimguitabitem):
   type
-    structimguitabitem* = structimguitabitem_80740951
+    structimguitabitem* = structimguitabitem_63963734
 else:
   static :
     hint("Declaration of " & "structimguitabitem" &
         " already exists, not redeclaring")
 when not declared(Impoolimguitabbar):
   type
-    Impoolimguitabbar* = Impoolimguitabbar_80741603
+    Impoolimguitabbar* = Impoolimguitabbar_63964386
 else:
   static :
     hint("Declaration of " & "Impoolimguitabbar" &
         " already exists, not redeclaring")
 when not declared(structimdrawchannel):
   type
-    structimdrawchannel* = structimdrawchannel_80740708
+    structimdrawchannel* = structimdrawchannel_63963491
 else:
   static :
     hint("Declaration of " & "structimdrawchannel" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumnflags):
   type
-    Imguitablecolumnflags* = Imguitablecolumnflags_80741049
+    Imguitablecolumnflags* = Imguitablecolumnflags_63963832
 else:
   static :
     hint("Declaration of " & "Imguitablecolumnflags" &
         " already exists, not redeclaring")
 when not declared(Imwchar):
   type
-    Imwchar* = Imwchar_80741085
+    Imwchar* = Imwchar_63963868
 else:
   static :
     hint("Declaration of " & "Imwchar" & " already exists, not redeclaring")
 when not declared(Imguimetricsconfig):
   type
-    Imguimetricsconfig* = Imguimetricsconfig_80740909
+    Imguimetricsconfig* = Imguimetricsconfig_63963692
 else:
   static :
     hint("Declaration of " & "Imguimetricsconfig" &
         " already exists, not redeclaring")
 when not declared(structimguioldcolumns):
   type
-    structimguioldcolumns* = structimguioldcolumns_80740927
+    structimguioldcolumns* = structimguioldcolumns_63963710
 else:
   static :
     hint("Declaration of " & "structimguioldcolumns" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowflags):
   type
-    Imguiwindowflags* = Imguiwindowflags_80741057
+    Imguiwindowflags* = Imguiwindowflags_63963840
 else:
   static :
     hint("Declaration of " & "Imguiwindowflags" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodesettings):
   type
-    Imguidocknodesettings* = Imguidocknodesettings_80740883
+    Imguidocknodesettings* = Imguidocknodesettings_63963666
 else:
   static :
     hint("Declaration of " & "Imguidocknodesettings" &
         " already exists, not redeclaring")
 when not declared(Imguipopupdata):
   type
-    Imguipopupdata* = Imguipopupdata_80740929
+    Imguipopupdata* = Imguipopupdata_63963712
 else:
   static :
     hint("Declaration of " & "Imguipopupdata" &
         " already exists, not redeclaring")
 when not declared(structimguitextindex):
   type
-    structimguitextindex* = structimguitextindex_80741335
+    structimguitextindex* = structimguitextindex_63964118
 else:
   static :
     hint("Declaration of " & "structimguitextindex" &
         " already exists, not redeclaring")
 when not declared(structimvectorimfontglyph):
   type
-    structimvectorimfontglyph* = structimvectorimfontglyph_80741253
+    structimvectorimfontglyph* = structimvectorimfontglyph_63964036
 else:
   static :
     hint("Declaration of " & "structimvectorimfontglyph" &
         " already exists, not redeclaring")
 when not declared(Imguicolormod):
   type
-    Imguicolormod* = Imguicolormod_80740857
+    Imguicolormod* = Imguicolormod_63963640
 else:
   static :
     hint("Declaration of " & "Imguicolormod" &
         " already exists, not redeclaring")
 when not declared(Imguistoragepair):
   type
-    Imguistoragepair* = Imguistoragepair_80741183
+    Imguistoragepair* = Imguistoragepair_63963966
 else:
   static :
     hint("Declaration of " & "Imguistoragepair" &
         " already exists, not redeclaring")
 when not declared(Imvec2):
   type
-    Imvec2* = Imvec2_80741095
+    Imvec2* = Imvec2_63963878
 else:
   static :
     hint("Declaration of " & "Imvec2" & " already exists, not redeclaring")
 when not declared(Imwchar16):
   type
-    Imwchar16* = Imwchar16_80741081
+    Imwchar16* = Imwchar16_63963864
 else:
   static :
     hint("Declaration of " & "Imwchar16" & " already exists, not redeclaring")
 when not declared(Imguinextitemdata):
   type
-    Imguinextitemdata* = Imguinextitemdata_80740917
+    Imguinextitemdata* = Imguinextitemdata_63963700
 else:
   static :
     hint("Declaration of " & "Imguinextitemdata" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguiptrorindex):
   type
-    Imvectorimguiptrorindex* = Imvectorimguiptrorindex_80741607
+    Imvectorimguiptrorindex* = Imvectorimguiptrorindex_63964390
 else:
   static :
     hint("Declaration of " & "Imvectorimguiptrorindex" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextflags):
   type
-    Imguiinputtextflags* = Imguiinputtextflags_80741033
+    Imguiinputtextflags* = Imguiinputtextflags_63963816
 else:
   static :
     hint("Declaration of " & "Imguiinputtextflags" &
         " already exists, not redeclaring")
 when not declared(structimguicontexthook):
   type
-    structimguicontexthook* = structimguicontexthook_80740863
+    structimguicontexthook* = structimguicontexthook_63963646
 else:
   static :
     hint("Declaration of " & "structimguicontexthook" &
         " already exists, not redeclaring")
 when not declared(structimguistoragepair):
   type
-    structimguistoragepair* = structimguistoragepair_80741181
+    structimguistoragepair* = structimguistoragepair_63963964
 else:
   static :
     hint("Declaration of " & "structimguistoragepair" &
         " already exists, not redeclaring")
 when not declared(structstbundostate):
   type
-    structstbundostate* = structstbundostate_80741307
+    structstbundostate* = structstbundostate_63964090
 else:
   static :
     hint("Declaration of " & "structstbundostate" &
         " already exists, not redeclaring")
 when not declared(Imguitablesettings):
   type
-    Imguitablesettings* = Imguitablesettings_80740969
+    Imguitablesettings* = Imguitablesettings_63963752
 else:
   static :
     hint("Declaration of " & "Imguitablesettings" &
         " already exists, not redeclaring")
 when not declared(structimguistacktool):
   type
-    structimguistacktool* = structimguistacktool_80741531
+    structimguistacktool* = structimguistacktool_63964314
 else:
   static :
     hint("Declaration of " & "structimguistacktool" &
         " already exists, not redeclaring")
 when not declared(structimguitablesettings):
   type
-    structimguitablesettings* = structimguitablesettings_80740971
+    structimguitablesettings* = structimguitablesettings_63963754
 else:
   static :
     hint("Declaration of " & "structimguitablesettings" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasflags):
   type
-    Imfontatlasflags* = Imfontatlasflags_80741013
+    Imfontatlasflags* = Imfontatlasflags_63963796
 else:
   static :
     hint("Declaration of " & "Imfontatlasflags" &
         " already exists, not redeclaring")
 when not declared(Imguiinputeventappfocused):
   type
-    Imguiinputeventappfocused* = Imguiinputeventappfocused_80741437
+    Imguiinputeventappfocused* = Imguiinputeventappfocused_63964220
 else:
   static :
     hint("Declaration of " & "Imguiinputeventappfocused" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguicolormod):
   type
-    structimvectorimguicolormod* = structimvectorimguicolormod_80741549
+    structimvectorimguicolormod* = structimvectorimguicolormod_63964332
 else:
   static :
     hint("Declaration of " & "structimvectorimguicolormod" &
         " already exists, not redeclaring")
 when not declared(Imguiplatformmonitor):
   type
-    Imguiplatformmonitor* = Imguiplatformmonitor_80740801
+    Imguiplatformmonitor* = Imguiplatformmonitor_63963584
 else:
   static :
     hint("Declaration of " & "Imguiplatformmonitor" &
         " already exists, not redeclaring")
 when not declared(structimguiinputeventmousebutton):
   type
-    structimguiinputeventmousebutton* = structimguiinputeventmousebutton_80741423
+    structimguiinputeventmousebutton* = structimguiinputeventmousebutton_63964206
 else:
   static :
     hint("Declaration of " & "structimguiinputeventmousebutton" &
         " already exists, not redeclaring")
 when not declared(Imguicoloreditflags):
   type
-    Imguicoloreditflags* = Imguicoloreditflags_80741019
+    Imguicoloreditflags* = Imguicoloreditflags_63963802
 else:
   static :
     hint("Declaration of " & "Imguicoloreditflags" &
         " already exists, not redeclaring")
 when not declared(Imguikeydata):
   type
-    Imguikeydata* = Imguikeydata_80740774
+    Imguikeydata* = Imguikeydata_63963557
 else:
   static :
     hint("Declaration of " & "Imguikeydata" & " already exists, not redeclaring")
 when not declared(structimvectorimguitableinstancedata):
   type
-    structimvectorimguitableinstancedata* = structimvectorimguitableinstancedata_80741661
+    structimvectorimguitableinstancedata* = structimvectorimguitableinstancedata_63964444
 else:
   static :
     hint("Declaration of " & "structimvectorimguitableinstancedata" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguiitemflags):
   type
-    Imvectorimguiitemflags* = Imvectorimguiitemflags_80741563
+    Imvectorimguiitemflags* = Imvectorimguiitemflags_63964346
 else:
   static :
     hint("Declaration of " & "Imvectorimguiitemflags" &
         " already exists, not redeclaring")
 when not declared(structimguikeydata):
   type
-    structimguikeydata* = structimguikeydata_80740776
+    structimguikeydata* = structimguikeydata_63963559
 else:
   static :
     hint("Declaration of " & "structimguikeydata" &
         " already exists, not redeclaring")
 when not declared(Imguiio):
   type
-    Imguiio* = Imguiio_80740766
+    Imguiio* = Imguiio_63963549
 else:
   static :
     hint("Declaration of " & "Imguiio" & " already exists, not redeclaring")
 when not declared(structimrect):
   type
-    structimrect* = structimrect_80740851
+    structimrect* = structimrect_63963634
 else:
   static :
     hint("Declaration of " & "structimrect" & " already exists, not redeclaring")
 when not declared(Imguitooltipflags):
   type
-    Imguitooltipflags* = Imguitooltipflags_80741297
+    Imguitooltipflags* = Imguitooltipflags_63964080
 else:
   static :
     hint("Declaration of " & "Imguitooltipflags" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperdata):
   type
-    Imguilistclipperdata* = Imguilistclipperdata_80741469
+    Imguilistclipperdata* = Imguilistclipperdata_63964252
 else:
   static :
     hint("Declaration of " & "Imguilistclipperdata" &
         " already exists, not redeclaring")
 when not declared(structimdrawlistsplitter):
   type
-    structimdrawlistsplitter* = structimdrawlistsplitter_80740728
+    structimdrawlistsplitter* = structimdrawlistsplitter_63963511
 else:
   static :
     hint("Declaration of " & "structimdrawlistsplitter" &
         " already exists, not redeclaring")
 when not declared(structimguiwindow):
   type
-    structimguiwindow* = structimguiwindow_80740977
+    structimguiwindow* = structimguiwindow_63963760
 else:
   static :
     hint("Declaration of " & "structimguiwindow" &
         " already exists, not redeclaring")
 when not declared(Imguitextindex):
   type
-    Imguitextindex* = Imguitextindex_80741333
+    Imguitextindex* = Imguitextindex_63964116
 else:
   static :
     hint("Declaration of " & "Imguitextindex" &
         " already exists, not redeclaring")
 when not declared(Imguitableinstancedata):
   type
-    Imguitableinstancedata* = Imguitableinstancedata_80740961
+    Imguitableinstancedata* = Imguitableinstancedata_63963744
 else:
   static :
     hint("Declaration of " & "Imguitableinstancedata" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguidockrequest):
   type
-    structimvectorimguidockrequest* = structimvectorimguidockrequest_80741509
+    structimvectorimguidockrequest* = structimvectorimguidockrequest_63964292
 else:
   static :
     hint("Declaration of " & "structimvectorimguidockrequest" &
         " already exists, not redeclaring")
 when not declared(Imguistylemod):
   type
-    Imguistylemod* = Imguistylemod_80740941
+    Imguistylemod* = Imguistylemod_63963724
 else:
   static :
     hint("Declaration of " & "Imguistylemod" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguidocknodesettings):
   type
-    Imvectorimguidocknodesettings* = Imvectorimguidocknodesettings_80741515
+    Imvectorimguidocknodesettings* = Imvectorimguidocknodesettings_63964298
 else:
   static :
     hint("Declaration of " & "Imvectorimguidocknodesettings" &
         " already exists, not redeclaring")
 when not declared(structimchunkstreamimguitablesettings):
   type
-    structimchunkstreamimguitablesettings* = structimchunkstreamimguitablesettings_80741621
+    structimchunkstreamimguitablesettings* = structimchunkstreamimguitablesettings_63964404
 else:
   static :
     hint("Declaration of " & "structimchunkstreamimguitablesettings" &
         " already exists, not redeclaring")
 when not declared(Imguigroupdata):
   type
-    Imguigroupdata* = Imguigroupdata_80740885
+    Imguigroupdata* = Imguigroupdata_63963668
 else:
   static :
     hint("Declaration of " & "Imguigroupdata" &
         " already exists, not redeclaring")
 when not declared(Imguimousecursor):
   type
-    Imguimousecursor* = Imguimousecursor_80741001
+    Imguimousecursor* = Imguimousecursor_63963784
 else:
   static :
     hint("Declaration of " & "Imguimousecursor" &
         " already exists, not redeclaring")
 when not declared(structimdrawdatabuilder):
   type
-    structimdrawdatabuilder* = structimdrawdatabuilder_80740855
+    structimdrawdatabuilder* = structimdrawdatabuilder_63963638
 else:
   static :
     hint("Declaration of " & "structimdrawdatabuilder" &
         " already exists, not redeclaring")
 when not declared(structimdrawlist):
   type
-    structimdrawlist* = structimdrawlist_80740720
+    structimdrawlist* = structimdrawlist_63963503
 else:
   static :
     hint("Declaration of " & "structimdrawlist" &
         " already exists, not redeclaring")
 when not declared(structimguisizecallbackdata):
   type
-    structimguisizecallbackdata* = structimguisizecallbackdata_80740811
+    structimguisizecallbackdata* = structimguisizecallbackdata_63963594
 else:
   static :
     hint("Declaration of " & "structimguisizecallbackdata" &
         " already exists, not redeclaring")
 when not declared(structimguiinputeventappfocused):
   type
-    structimguiinputeventappfocused* = structimguiinputeventappfocused_80741439
+    structimguiinputeventappfocused* = structimguiinputeventappfocused_63964222
 else:
   static :
     hint("Declaration of " & "structimguiinputeventappfocused" &
         " already exists, not redeclaring")
 when not declared(Imguidocknode):
   type
-    Imguidocknode* = Imguidocknode_80740879
+    Imguidocknode* = Imguidocknode_63963662
 else:
   static :
     hint("Declaration of " & "Imguidocknode" &
         " already exists, not redeclaring")
 when not declared(Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin):
   type
-    Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin* = Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_80741405
+    Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin* = Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_63964188
 else:
   static :
     hint("Declaration of " &
@@ -6324,164 +6324,164 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiinputflags):
   type
-    Imguiinputflags* = Imguiinputflags_80741275
+    Imguiinputflags* = Imguiinputflags_63964058
 else:
   static :
     hint("Declaration of " & "Imguiinputflags" &
         " already exists, not redeclaring")
 when not declared(structimguiinputeventmouseviewport):
   type
-    structimguiinputeventmouseviewport* = structimguiinputeventmouseviewport_80741427
+    structimguiinputeventmouseviewport* = structimguiinputeventmouseviewport_63964210
 else:
   static :
     hint("Declaration of " & "structimguiinputeventmouseviewport" &
         " already exists, not redeclaring")
 when not declared(Imdrawchannel):
   type
-    Imdrawchannel* = Imdrawchannel_80740706
+    Imdrawchannel* = Imdrawchannel_63963489
 else:
   static :
     hint("Declaration of " & "Imdrawchannel" &
         " already exists, not redeclaring")
 when not declared(Imguikeyownerdata):
   type
-    Imguikeyownerdata* = Imguikeyownerdata_80741459
+    Imguikeyownerdata* = Imguikeyownerdata_63964242
 else:
   static :
     hint("Declaration of " & "Imguikeyownerdata" &
         " already exists, not redeclaring")
 when not declared(Imfontatlas):
   type
-    Imfontatlas* = Imfontatlas_80740738
+    Imfontatlas* = Imfontatlas_63963521
 else:
   static :
     hint("Declaration of " & "Imfontatlas" & " already exists, not redeclaring")
 when not declared(structimvectorimguitable):
   type
-    structimvectorimguitable* = structimvectorimguitable_80741589
+    structimvectorimguitable* = structimvectorimguitable_63964372
 else:
   static :
     hint("Declaration of " & "structimvectorimguitable" &
         " already exists, not redeclaring")
 when not declared(Imbitarrayfornamedkeys):
   type
-    Imbitarrayfornamedkeys* = Imbitarrayfornamedkeys_80741407
+    Imbitarrayfornamedkeys* = Imbitarrayfornamedkeys_63964190
 else:
   static :
     hint("Declaration of " & "Imbitarrayfornamedkeys" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguistoragepair):
   type
-    Imvectorimguistoragepair* = Imvectorimguistoragepair_80741187
+    Imvectorimguistoragepair* = Imvectorimguistoragepair_63963970
 else:
   static :
     hint("Declaration of " & "Imvectorimguistoragepair" &
         " already exists, not redeclaring")
 when not declared(structimguitablecolumnsortspecs):
   type
-    structimguitablecolumnsortspecs* = structimguitablecolumnsortspecs_80740827
+    structimguitablecolumnsortspecs* = structimguitablecolumnsortspecs_63963610
 else:
   static :
     hint("Declaration of " & "structimguitablecolumnsortspecs" &
         " already exists, not redeclaring")
 when not declared(Ims8):
   type
-    Ims8* = Ims8_80741065
+    Ims8* = Ims8_63963848
 else:
   static :
     hint("Declaration of " & "Ims8" & " already exists, not redeclaring")
 when not declared(Imvectorchar):
   type
-    Imvectorchar* = Imvectorchar_80741179
+    Imvectorchar* = Imvectorchar_63963962
 else:
   static :
     hint("Declaration of " & "Imvectorchar" & " already exists, not redeclaring")
 when not declared(Imguicol):
   type
-    Imguicol* = Imguicol_80740991
+    Imguicol* = Imguicol_63963774
 else:
   static :
     hint("Declaration of " & "Imguicol" & " already exists, not redeclaring")
 when not declared(structimguiinputeventmousepos):
   type
-    structimguiinputeventmousepos* = structimguiinputeventmousepos_80741415
+    structimguiinputeventmousepos* = structimguiinputeventmousepos_63964198
 else:
   static :
     hint("Declaration of " & "structimguiinputeventmousepos" &
         " already exists, not redeclaring")
 when not declared(Imvectorunsignedchar):
   type
-    Imvectorunsignedchar* = Imvectorunsignedchar_80741579
+    Imvectorunsignedchar* = Imvectorunsignedchar_63964362
 else:
   static :
     hint("Declaration of " & "Imvectorunsignedchar" &
         " already exists, not redeclaring")
 when not declared(structimguikeyroutingtable):
   type
-    structimguikeyroutingtable* = structimguikeyroutingtable_80741453
+    structimguikeyroutingtable* = structimguikeyroutingtable_63964236
 else:
   static :
     hint("Declaration of " & "structimguikeyroutingtable" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguitabletempdata):
   type
-    structimvectorimguitabletempdata* = structimvectorimguitabletempdata_80741585
+    structimvectorimguitabletempdata* = structimvectorimguitabletempdata_63964368
 else:
   static :
     hint("Declaration of " & "structimvectorimguitabletempdata" &
         " already exists, not redeclaring")
 when not declared(structimdrawdata):
   type
-    structimdrawdata* = structimdrawdata_80740716
+    structimdrawdata* = structimdrawdata_63963499
 else:
   static :
     hint("Declaration of " & "structimdrawdata" &
         " already exists, not redeclaring")
 when not declared(Imguisortdirection):
   type
-    Imguisortdirection* = Imguisortdirection_80741003
+    Imguisortdirection* = Imguisortdirection_63963786
 else:
   static :
     hint("Declaration of " & "Imguisortdirection" &
         " already exists, not redeclaring")
 when not declared(structimguiviewport):
   type
-    structimguiviewport* = structimguiviewport_80740839
+    structimguiviewport* = structimguiviewport_63963622
 else:
   static :
     hint("Declaration of " & "structimguiviewport" &
         " already exists, not redeclaring")
 when not declared(Imguiconfigflags):
   type
-    Imguiconfigflags* = Imguiconfigflags_80741021
+    Imguiconfigflags* = Imguiconfigflags_63963804
 else:
   static :
     hint("Declaration of " & "Imguiconfigflags" &
         " already exists, not redeclaring")
 when not declared(Imguiactivateflags):
   type
-    Imguiactivateflags* = Imguiactivateflags_80741271
+    Imguiactivateflags* = Imguiactivateflags_63964054
 else:
   static :
     hint("Declaration of " & "Imguiactivateflags" &
         " already exists, not redeclaring")
 when not declared(Imvectorimtextureid):
   type
-    Imvectorimtextureid* = Imvectorimtextureid_80741221
+    Imvectorimtextureid* = Imvectorimtextureid_63964004
 else:
   static :
     hint("Declaration of " & "Imvectorimtextureid" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguistoragepair):
   type
-    structimvectorimguistoragepair* = structimvectorimguistoragepair_80741185
+    structimvectorimguistoragepair* = structimvectorimguistoragepair_63963968
 else:
   static :
     hint("Declaration of " & "structimvectorimguistoragepair" &
         " already exists, not redeclaring")
 when not declared(structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin):
   type
-    structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin* = structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_80741403
+    structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin* = structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_63964186
 else:
   static :
     hint("Declaration of " &
@@ -6489,1681 +6489,1681 @@ else:
         " already exists, not redeclaring")
 when not declared(structimvectorconstcharptr):
   type
-    structimvectorconstcharptr* = structimvectorconstcharptr_80740987
+    structimvectorconstcharptr* = structimvectorconstcharptr_63963770
 else:
   static :
     hint("Declaration of " & "structimvectorconstcharptr" &
         " already exists, not redeclaring")
 when not declared(Imu8):
   type
-    Imu8* = Imu8_80741067
+    Imu8* = Imu8_63963850
 else:
   static :
     hint("Declaration of " & "Imu8" & " already exists, not redeclaring")
 when not declared(Imguimousebutton):
   type
-    Imguimousebutton* = Imguimousebutton_80740999
+    Imguimousebutton* = Imguimousebutton_63963782
 else:
   static :
     hint("Declaration of " & "Imguimousebutton" &
         " already exists, not redeclaring")
 when not declared(Imguicontexthook):
   type
-    Imguicontexthook* = Imguicontexthook_80740861
+    Imguicontexthook* = Imguicontexthook_63963644
 else:
   static :
     hint("Declaration of " & "Imguicontexthook" &
         " already exists, not redeclaring")
 when not declared(Imu32):
   type
-    Imu32* = Imu32_80741075
+    Imu32* = Imu32_63963858
 else:
   static :
     hint("Declaration of " & "Imu32" & " already exists, not redeclaring")
 when not declared(Impoolimguitable):
   type
-    Impoolimguitable* = Impoolimguitable_80741595
+    Impoolimguitable* = Impoolimguitable_63964378
 else:
   static :
     hint("Declaration of " & "Impoolimguitable" &
         " already exists, not redeclaring")
 when not declared(structimguiwindowclass):
   type
-    structimguiwindowclass* = structimguiwindowclass_80740843
+    structimguiwindowclass* = structimguiwindowclass_63963626
 else:
   static :
     hint("Declaration of " & "structimguiwindowclass" &
         " already exists, not redeclaring")
 when not declared(structimvectorimfontconfig):
   type
-    structimvectorimfontconfig* = structimvectorimfontconfig_80741245
+    structimvectorimfontconfig* = structimvectorimfontconfig_63964028
 else:
   static :
     hint("Declaration of " & "structimvectorimfontconfig" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguioldcolumns):
   type
-    structimvectorimguioldcolumns* = structimvectorimguioldcolumns_80741629
+    structimvectorimguioldcolumns* = structimvectorimguioldcolumns_63964412
 else:
   static :
     hint("Declaration of " & "structimvectorimguioldcolumns" &
         " already exists, not redeclaring")
 when not declared(Imguidatatypetempstorage):
   type
-    Imguidatatypetempstorage* = Imguidatatypetempstorage_80741377
+    Imguidatatypetempstorage* = Imguidatatypetempstorage_63964160
 else:
   static :
     hint("Declaration of " & "Imguidatatypetempstorage" &
         " already exists, not redeclaring")
 when not declared(Imguitabbar):
   type
-    Imguitabbar* = Imguitabbar_80740945
+    Imguitabbar* = Imguitabbar_63963728
 else:
   static :
     hint("Declaration of " & "Imguitabbar" & " already exists, not redeclaring")
 when not declared(structimvectorimwchar):
   type
-    structimvectorimwchar* = structimvectorimwchar_80741165
+    structimvectorimwchar* = structimvectorimwchar_63963948
 else:
   static :
     hint("Declaration of " & "structimvectorimwchar" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguitextrange):
   type
-    Imvectorimguitextrange* = Imvectorimguitextrange_80741175
+    Imvectorimguitextrange* = Imvectorimguitextrange_63963958
 else:
   static :
     hint("Declaration of " & "Imvectorimguitextrange" &
         " already exists, not redeclaring")
 when not declared(Imguitablesortspecs):
   type
-    Imguitablesortspecs* = Imguitablesortspecs_80740821
+    Imguitablesortspecs* = Imguitablesortspecs_63963604
 else:
   static :
     hint("Declaration of " & "Imguitablesortspecs" &
         " already exists, not redeclaring")
 when not declared(structimguiwindowtempdata):
   type
-    structimguiwindowtempdata* = structimguiwindowtempdata_80740981
+    structimguiwindowtempdata* = structimguiwindowtempdata_63963764
 else:
   static :
     hint("Declaration of " & "structimguiwindowtempdata" &
         " already exists, not redeclaring")
 when not declared(Imguipopupflags):
   type
-    Imguipopupflags* = Imguipopupflags_80741037
+    Imguipopupflags* = Imguipopupflags_63963820
 else:
   static :
     hint("Declaration of " & "Imguipopupflags" &
         " already exists, not redeclaring")
 when not declared(Sdlevent):
   type
-    Sdlevent* = Sdlevent_80741677
+    Sdlevent* = Sdlevent_63964460
 else:
   static :
     hint("Declaration of " & "Sdlevent" & " already exists, not redeclaring")
 when not declared(Imguiwindowstackdata):
   type
-    Imguiwindowstackdata* = Imguiwindowstackdata_80741391
+    Imguiwindowstackdata* = Imguiwindowstackdata_63964174
 else:
   static :
     hint("Declaration of " & "Imguiwindowstackdata" &
         " already exists, not redeclaring")
 when not declared(Imvectorimvec4):
   type
-    Imvectorimvec4* = Imvectorimvec4_80741217
+    Imvectorimvec4* = Imvectorimvec4_63964000
 else:
   static :
     hint("Declaration of " & "Imvectorimvec4" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguisettingshandler):
   type
-    Imvectorimguisettingshandler* = Imvectorimguisettingshandler_80741615
+    Imvectorimguisettingshandler* = Imvectorimguisettingshandler_63964398
 else:
   static :
     hint("Declaration of " & "Imvectorimguisettingshandler" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguistacklevelinfo):
   type
-    structimvectorimguistacklevelinfo* = structimvectorimguistacklevelinfo_80741533
+    structimvectorimguistacklevelinfo* = structimvectorimguistacklevelinfo_63964316
 else:
   static :
     hint("Declaration of " & "structimvectorimguistacklevelinfo" &
         " already exists, not redeclaring")
 when not declared(Imguionceuponaframe):
   type
-    Imguionceuponaframe* = Imguionceuponaframe_80740782
+    Imguionceuponaframe* = Imguionceuponaframe_63963565
 else:
   static :
     hint("Declaration of " & "Imguionceuponaframe" &
         " already exists, not redeclaring")
 when not declared(Imguioldcolumndata):
   type
-    Imguioldcolumndata* = Imguioldcolumndata_80740921
+    Imguioldcolumndata* = Imguioldcolumndata_63963704
 else:
   static :
     hint("Declaration of " & "Imguioldcolumndata" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextcallback):
   type
-    Imguiinputtextcallback* = Imguiinputtextcallback_80741087
+    Imguiinputtextcallback* = Imguiinputtextcallback_63963870
 else:
   static :
     hint("Declaration of " & "Imguiinputtextcallback" &
         " already exists, not redeclaring")
 when not declared(structimvectorimdrawvert):
   type
-    structimvectorimdrawvert* = structimvectorimdrawvert_80741211
+    structimvectorimdrawvert* = structimvectorimdrawvert_63963994
 else:
   static :
     hint("Declaration of " & "structimvectorimdrawvert" &
         " already exists, not redeclaring")
 when not declared(Imguidatavarinfo):
   type
-    Imguidatavarinfo* = Imguidatavarinfo_80740865
+    Imguidatavarinfo* = Imguidatavarinfo_63963648
 else:
   static :
     hint("Declaration of " & "Imguidatavarinfo" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportp):
   type
-    Imguiviewportp* = Imguiviewportp_80741517
+    Imguiviewportp* = Imguiviewportp_63964300
 else:
   static :
     hint("Declaration of " & "Imguiviewportp" &
         " already exists, not redeclaring")
 when not declared(structimguiinputtextcallbackdata):
   type
-    structimguiinputtextcallbackdata* = structimguiinputtextcallbackdata_80740772
+    structimguiinputtextcallbackdata* = structimguiinputtextcallbackdata_63963555
 else:
   static :
     hint("Declaration of " & "structimguiinputtextcallbackdata" &
         " already exists, not redeclaring")
 when not declared(structstbundorecord):
   type
-    structstbundorecord* = structstbundorecord_80741303
+    structstbundorecord* = structstbundorecord_63964086
 else:
   static :
     hint("Declaration of " & "structstbundorecord" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowclass):
   type
-    Imguiwindowclass* = Imguiwindowclass_80740841
+    Imguiwindowclass* = Imguiwindowclass_63963624
 else:
   static :
     hint("Declaration of " & "Imguiwindowclass" &
         " already exists, not redeclaring")
 when not declared(Imvectorimu32):
   type
-    Imvectorimu32* = Imvectorimu32_80741229
+    Imvectorimu32* = Imvectorimu32_63964012
 else:
   static :
     hint("Declaration of " & "Imvectorimu32" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguidocknodesettings):
   type
-    structimvectorimguidocknodesettings* = structimvectorimguidocknodesettings_80741513
+    structimvectorimguidocknodesettings* = structimvectorimguidocknodesettings_63964296
 else:
   static :
     hint("Declaration of " & "structimvectorimguidocknodesettings" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguiviewportptr):
   type
-    structimvectorimguiviewportptr* = structimvectorimguiviewportptr_80741263
+    structimvectorimguiviewportptr* = structimvectorimguiviewportptr_63964046
 else:
   static :
     hint("Declaration of " & "structimvectorimguiviewportptr" &
         " already exists, not redeclaring")
 when not declared(structimpoolimguitabbar):
   type
-    structimpoolimguitabbar* = structimpoolimguitabbar_80741601
+    structimpoolimguitabbar* = structimpoolimguitabbar_63964384
 else:
   static :
     hint("Declaration of " & "structimpoolimguitabbar" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguikeyroutingdata):
   type
-    Imvectorimguikeyroutingdata* = Imvectorimguikeyroutingdata_80741457
+    Imvectorimguikeyroutingdata* = Imvectorimguikeyroutingdata_63964240
 else:
   static :
     hint("Declaration of " & "Imvectorimguikeyroutingdata" &
         " already exists, not redeclaring")
 when not declared(structimvectorint):
   type
-    structimvectorint* = structimvectorint_80741337
+    structimvectorint* = structimvectorint_63964120
 else:
   static :
     hint("Declaration of " & "structimvectorint" &
         " already exists, not redeclaring")
 when not declared(structimguinextwindowdata):
   type
-    structimguinextwindowdata* = structimguinextwindowdata_80740915
+    structimguinextwindowdata* = structimguinextwindowdata_63963698
 else:
   static :
     hint("Declaration of " & "structimguinextwindowdata" &
         " already exists, not redeclaring")
 when not declared(Imguiinputeventmousebutton):
   type
-    Imguiinputeventmousebutton* = Imguiinputeventmousebutton_80741421
+    Imguiinputeventmousebutton* = Imguiinputeventmousebutton_63964204
 else:
   static :
     hint("Declaration of " & "Imguiinputeventmousebutton" &
         " already exists, not redeclaring")
 when not declared(structimvec4):
   type
-    structimvec4* = structimvec4_80741101
+    structimvec4* = structimvec4_63963884
 else:
   static :
     hint("Declaration of " & "structimvec4" & " already exists, not redeclaring")
 when not declared(Imdrawvert):
   type
-    Imdrawvert* = Imdrawvert_80740730
+    Imdrawvert* = Imdrawvert_63963513
 else:
   static :
     hint("Declaration of " & "Imdrawvert" & " already exists, not redeclaring")
 when not declared(structimvectorimvec2):
   type
-    structimvectorimvec2* = structimvectorimvec2_80741223
+    structimvectorimvec2* = structimvectorimvec2_63964006
 else:
   static :
     hint("Declaration of " & "structimvectorimvec2" &
         " already exists, not redeclaring")
 when not declared(Imguiinputeventkey):
   type
-    Imguiinputeventkey* = Imguiinputeventkey_80741429
+    Imguiinputeventkey* = Imguiinputeventkey_63964212
 else:
   static :
     hint("Declaration of " & "Imguiinputeventkey" &
         " already exists, not redeclaring")
 when not declared(structimchunkstreamimguiwindowsettings):
   type
-    structimchunkstreamimguiwindowsettings* = structimchunkstreamimguiwindowsettings_80741617
+    structimchunkstreamimguiwindowsettings* = structimchunkstreamimguiwindowsettings_63964400
 else:
   static :
     hint("Declaration of " & "structimchunkstreamimguiwindowsettings" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguitablecolumnsortspecs):
   type
-    Imvectorimguitablecolumnsortspecs* = Imvectorimguitablecolumnsortspecs_80741667
+    Imvectorimguitablecolumnsortspecs* = Imvectorimguitablecolumnsortspecs_63964450
 else:
   static :
     hint("Declaration of " & "Imvectorimguitablecolumnsortspecs" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguipopupdata):
   type
-    Imvectorimguipopupdata* = Imvectorimguipopupdata_80741571
+    Imvectorimguipopupdata* = Imvectorimguipopupdata_63964354
 else:
   static :
     hint("Declaration of " & "Imvectorimguipopupdata" &
         " already exists, not redeclaring")
 when not declared(Imguiviewport):
   type
-    Imguiviewport* = Imguiviewport_80740837
+    Imguiviewport* = Imguiviewport_63963620
 else:
   static :
     hint("Declaration of " & "Imguiviewport" &
         " already exists, not redeclaring")
 when not declared(Imguinavhighlightflags):
   type
-    Imguinavhighlightflags* = Imguinavhighlightflags_80741283
+    Imguinavhighlightflags* = Imguinavhighlightflags_63964066
 else:
   static :
     hint("Declaration of " & "Imguinavhighlightflags" &
         " already exists, not redeclaring")
 when not declared(structimguidocknode):
   type
-    structimguidocknode* = structimguidocknode_80740881
+    structimguidocknode* = structimguidocknode_63963664
 else:
   static :
     hint("Declaration of " & "structimguidocknode" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumnssettings):
   type
-    Imguitablecolumnssettings* = Imguitablecolumnssettings_80740973
+    Imguitablecolumnssettings* = Imguitablecolumnssettings_63963756
 else:
   static :
     hint("Declaration of " & "Imguitablecolumnssettings" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodeflags):
   type
-    Imguidocknodeflags* = Imguidocknodeflags_80741025
+    Imguidocknodeflags* = Imguidocknodeflags_63963808
 else:
   static :
     hint("Declaration of " & "Imguidocknodeflags" &
         " already exists, not redeclaring")
 when not declared(structimdrawlistshareddata):
   type
-    structimdrawlistshareddata* = structimdrawlistshareddata_80740724
+    structimdrawlistshareddata* = structimdrawlistshareddata_63963507
 else:
   static :
     hint("Declaration of " & "structimdrawlistshareddata" &
         " already exists, not redeclaring")
 when not declared(Imguiitemstatusflags):
   type
-    Imguiitemstatusflags* = Imguiitemstatusflags_80741279
+    Imguiitemstatusflags* = Imguiitemstatusflags_63964062
 else:
   static :
     hint("Declaration of " & "Imguiitemstatusflags" &
         " already exists, not redeclaring")
 when not declared(structimguicontext):
   type
-    structimguicontext* = structimguicontext_80740764
+    structimguicontext* = structimguicontext_63963547
 else:
   static :
     hint("Declaration of " & "structimguicontext" &
         " already exists, not redeclaring")
 when not declared(structimguistyle):
   type
-    structimguistyle* = structimguistyle_80740819
+    structimguistyle* = structimguistyle_63963602
 else:
   static :
     hint("Declaration of " & "structimguistyle" &
         " already exists, not redeclaring")
 when not declared(Imguitabbarflags):
   type
-    Imguitabbarflags* = Imguitabbarflags_80741043
+    Imguitabbarflags* = Imguitabbarflags_63963826
 else:
   static :
     hint("Declaration of " & "Imguitabbarflags" &
         " already exists, not redeclaring")
 when not declared(structimguiinputeventtext):
   type
-    structimguiinputeventtext* = structimguiinputeventtext_80741435
+    structimguiinputeventtext* = structimguiinputeventtext_63964218
 else:
   static :
     hint("Declaration of " & "structimguiinputeventtext" &
         " already exists, not redeclaring")
 when not declared(Imguinavmoveflags):
   type
-    Imguinavmoveflags* = Imguinavmoveflags_80741285
+    Imguinavmoveflags* = Imguinavmoveflags_63964068
 else:
   static :
     hint("Declaration of " & "Imguinavmoveflags" &
         " already exists, not redeclaring")
 when not declared(Imdrawcmdheader):
   type
-    Imdrawcmdheader* = Imdrawcmdheader_80741191
+    Imdrawcmdheader* = Imdrawcmdheader_63963974
 else:
   static :
     hint("Declaration of " & "Imdrawcmdheader" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguiinputevent):
   type
-    Imvectorimguiinputevent* = Imvectorimguiinputevent_80741543
+    Imvectorimguiinputevent* = Imvectorimguiinputevent_63964326
 else:
   static :
     hint("Declaration of " & "Imvectorimguiinputevent" &
         " already exists, not redeclaring")
 when not declared(structimguiplatformio):
   type
-    structimguiplatformio* = structimguiplatformio_80740799
+    structimguiplatformio* = structimguiplatformio_63963582
 else:
   static :
     hint("Declaration of " & "structimguiplatformio" &
         " already exists, not redeclaring")
 when not declared(structimvectorimdrawchannel):
   type
-    structimvectorimdrawchannel* = structimvectorimdrawchannel_80741203
+    structimvectorimdrawchannel* = structimvectorimdrawchannel_63963986
 else:
   static :
     hint("Declaration of " & "structimvectorimdrawchannel" &
         " already exists, not redeclaring")
 when not declared(Imguiinputeventtext):
   type
-    Imguiinputeventtext* = Imguiinputeventtext_80741433
+    Imguiinputeventtext* = Imguiinputeventtext_63964216
 else:
   static :
     hint("Declaration of " & "Imguiinputeventtext" &
         " already exists, not redeclaring")
 when not declared(structimguilistclipperdata):
   type
-    structimguilistclipperdata* = structimguilistclipperdata_80741471
+    structimguilistclipperdata* = structimguilistclipperdata_63964254
 else:
   static :
     hint("Declaration of " & "structimguilistclipperdata" &
         " already exists, not redeclaring")
 when not declared(structiobuf):
   type
-    structiobuf* = structiobuf_80741679
+    structiobuf* = structiobuf_63964462
 else:
   static :
     hint("Declaration of " & "structiobuf" & " already exists, not redeclaring")
 when not declared(structimguigroupdata):
   type
-    structimguigroupdata* = structimguigroupdata_80740887
+    structimguigroupdata* = structimguigroupdata_63963670
 else:
   static :
     hint("Declaration of " & "structimguigroupdata" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstate):
   type
-    Imguiinputtextstate* = Imguiinputtextstate_80740889
+    Imguiinputtextstate* = Imguiinputtextstate_63963672
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstate" &
         " already exists, not redeclaring")
 when not declared(Imguishrinkwidthitem):
   type
-    Imguishrinkwidthitem* = Imguishrinkwidthitem_80741395
+    Imguishrinkwidthitem* = Imguishrinkwidthitem_63964178
 else:
   static :
     hint("Declaration of " & "Imguishrinkwidthitem" &
         " already exists, not redeclaring")
 when not declared(Ims64):
   type
-    Ims64* = Ims64_80741077
+    Ims64* = Ims64_63963860
 else:
   static :
     hint("Declaration of " & "Ims64" & " already exists, not redeclaring")
 when not declared(Imguiwindowtempdata):
   type
-    Imguiwindowtempdata* = Imguiwindowtempdata_80740979
+    Imguiwindowtempdata* = Imguiwindowtempdata_63963762
 else:
   static :
     hint("Declaration of " & "Imguiwindowtempdata" &
         " already exists, not redeclaring")
 when not declared(structimvectorunsignedchar):
   type
-    structimvectorunsignedchar* = structimvectorunsignedchar_80741577
+    structimvectorunsignedchar* = structimvectorunsignedchar_63964360
 else:
   static :
     hint("Declaration of " & "structimvectorunsignedchar" &
         " already exists, not redeclaring")
 when not declared(structimguiinputtextstate):
   type
-    structimguiinputtextstate* = structimguiinputtextstate_80740891
+    structimguiinputtextstate* = structimguiinputtextstate_63963674
 else:
   static :
     hint("Declaration of " & "structimguiinputtextstate" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguilistclipperrange):
   type
-    structimvectorimguilistclipperrange* = structimvectorimguilistclipperrange_80741473
+    structimvectorimguilistclipperrange* = structimvectorimguilistclipperrange_63964256
 else:
   static :
     hint("Declaration of " & "structimvectorimguilistclipperrange" &
         " already exists, not redeclaring")
 when not declared(Imguistorage):
   type
-    Imguistorage* = Imguistorage_80740813
+    Imguistorage* = Imguistorage_63963596
 else:
   static :
     hint("Declaration of " & "Imguistorage" & " already exists, not redeclaring")
 when not declared(Imvectorimguicolormod):
   type
-    Imvectorimguicolormod* = Imvectorimguicolormod_80741551
+    Imvectorimguicolormod* = Imvectorimguicolormod_63964334
 else:
   static :
     hint("Declaration of " & "Imvectorimguicolormod" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguiviewportpptr):
   type
-    Imvectorimguiviewportpptr* = Imvectorimguiviewportpptr_80741575
+    Imvectorimguiviewportpptr* = Imvectorimguiviewportpptr_63964358
 else:
   static :
     hint("Declaration of " & "Imvectorimguiviewportpptr" &
         " already exists, not redeclaring")
 when not declared(structimguitextbuffer):
   type
-    structimguitextbuffer* = structimguitextbuffer_80740831
+    structimguitextbuffer* = structimguitextbuffer_63963614
 else:
   static :
     hint("Declaration of " & "structimguitextbuffer" &
         " already exists, not redeclaring")
 when not declared(structimguitextfilter):
   type
-    structimguitextfilter* = structimguitextfilter_80740835
+    structimguitextfilter* = structimguitextfilter_63963618
 else:
   static :
     hint("Declaration of " & "structimguitextfilter" &
         " already exists, not redeclaring")
 when not declared(structimguitablecelldata):
   type
-    structimguitablecelldata* = structimguitablecelldata_80741647
+    structimguitablecelldata* = structimguitablecelldata_63964430
 else:
   static :
     hint("Declaration of " & "structimguitablecelldata" &
         " already exists, not redeclaring")
 when not declared(structimguiplatformimedata):
   type
-    structimguiplatformimedata* = structimguiplatformimedata_80740807
+    structimguiplatformimedata* = structimguiplatformimedata_63963590
 else:
   static :
     hint("Declaration of " & "structimguiplatformimedata" &
         " already exists, not redeclaring")
 when not declared(Imvectorimdrawlistptr):
   type
-    Imvectorimdrawlistptr* = Imvectorimdrawlistptr_80741343
+    Imvectorimdrawlistptr* = Imvectorimdrawlistptr_63964126
 else:
   static :
     hint("Declaration of " & "Imvectorimdrawlistptr" &
         " already exists, not redeclaring")
 when not declared(structimvectorimfontatlascustomrect):
   type
-    structimvectorimfontatlascustomrect* = structimvectorimfontatlascustomrect_80741241
+    structimvectorimfontatlascustomrect* = structimvectorimfontatlascustomrect_63964024
 else:
   static :
     hint("Declaration of " & "structimvectorimfontatlascustomrect" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumnsettings):
   type
-    Imguitablecolumnsettings* = Imguitablecolumnsettings_80741669
+    Imguitablecolumnsettings* = Imguitablecolumnsettings_63964452
 else:
   static :
     hint("Declaration of " & "Imguitablecolumnsettings" &
         " already exists, not redeclaring")
 when not declared(Imguidebuglogflags):
   type
-    Imguidebuglogflags* = Imguidebuglogflags_80741273
+    Imguidebuglogflags* = Imguidebuglogflags_63964056
 else:
   static :
     hint("Declaration of " & "Imguidebuglogflags" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguiplatformmonitor):
   type
-    structimvectorimguiplatformmonitor* = structimvectorimguiplatformmonitor_80741259
+    structimvectorimguiplatformmonitor* = structimvectorimguiplatformmonitor_63964042
 else:
   static :
     hint("Declaration of " & "structimvectorimguiplatformmonitor" &
         " already exists, not redeclaring")
 when not declared(Imguidir):
   type
-    Imguidir* = Imguidir_80740997
+    Imguidir* = Imguidir_63963780
 else:
   static :
     hint("Declaration of " & "Imguidir" & " already exists, not redeclaring")
 when not declared(Imvectorimguitabitem):
   type
-    Imvectorimguitabitem* = Imvectorimguitabitem_80741639
+    Imvectorimguitabitem* = Imvectorimguitabitem_63964422
 else:
   static :
     hint("Declaration of " & "Imvectorimguitabitem" &
         " already exists, not redeclaring")
 when not declared(Imvec1):
   type
-    Imvec1* = Imvec1_80741321
+    Imvec1* = Imvec1_63964104
 else:
   static :
     hint("Declaration of " & "Imvec1" & " already exists, not redeclaring")
 when not declared(Imguistacklevelinfo):
   type
-    Imguistacklevelinfo* = Imguistacklevelinfo_80741525
+    Imguistacklevelinfo* = Imguistacklevelinfo_63964308
 else:
   static :
     hint("Declaration of " & "Imguistacklevelinfo" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguitabbar):
   type
-    Imvectorimguitabbar* = Imvectorimguitabbar_80741599
+    Imvectorimguitabbar* = Imvectorimguitabbar_63964382
 else:
   static :
     hint("Declaration of " & "Imvectorimguitabbar" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguioldcolumns):
   type
-    Imvectorimguioldcolumns* = Imvectorimguioldcolumns_80741631
+    Imvectorimguioldcolumns* = Imvectorimguioldcolumns_63964414
 else:
   static :
     hint("Declaration of " & "Imvectorimguioldcolumns" &
         " already exists, not redeclaring")
 when not declared(Imguisettingshandler):
   type
-    Imguisettingshandler* = Imguisettingshandler_80740933
+    Imguisettingshandler* = Imguisettingshandler_63963716
 else:
   static :
     hint("Declaration of " & "Imguisettingshandler" &
         " already exists, not redeclaring")
 when not declared(Imu16):
   type
-    Imu16* = Imu16_80741071
+    Imu16* = Imu16_63963854
 else:
   static :
     hint("Declaration of " & "Imu16" & " already exists, not redeclaring")
 when not declared(structstbtexteditrow):
   type
-    structstbtexteditrow* = structstbtexteditrow_80741315
+    structstbtexteditrow* = structstbtexteditrow_63964098
 else:
   static :
     hint("Declaration of " & "structstbtexteditrow" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguitable):
   type
-    Imvectorimguitable* = Imvectorimguitable_80741591
+    Imvectorimguitable* = Imvectorimguitable_63964374
 else:
   static :
     hint("Declaration of " & "Imvectorimguitable" &
         " already exists, not redeclaring")
 when not declared(Imdrawdata):
   type
-    Imdrawdata* = Imdrawdata_80740714
+    Imdrawdata* = Imdrawdata_63963497
 else:
   static :
     hint("Declaration of " & "Imdrawdata" & " already exists, not redeclaring")
 when not declared(Imvectorimfontatlascustomrect):
   type
-    Imvectorimfontatlascustomrect* = Imvectorimfontatlascustomrect_80741243
+    Imvectorimfontatlascustomrect* = Imvectorimfontatlascustomrect_63964026
 else:
   static :
     hint("Declaration of " & "Imvectorimfontatlascustomrect" &
         " already exists, not redeclaring")
 when not declared(structimguicombopreviewdata):
   type
-    structimguicombopreviewdata* = structimguicombopreviewdata_80741385
+    structimguicombopreviewdata* = structimguicombopreviewdata_63964168
 else:
   static :
     hint("Declaration of " & "structimguicombopreviewdata" &
         " already exists, not redeclaring")
 when not declared(structimguilocentry):
   type
-    structimguilocentry* = structimguilocentry_80740899
+    structimguilocentry* = structimguilocentry_63963682
 else:
   static :
     hint("Declaration of " & "structimguilocentry" &
         " already exists, not redeclaring")
 when not declared(Imdrawdatabuilder):
   type
-    Imdrawdatabuilder* = Imdrawdatabuilder_80740853
+    Imdrawdatabuilder* = Imdrawdatabuilder_63963636
 else:
   static :
     hint("Declaration of " & "Imdrawdatabuilder" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguiinputevent):
   type
-    structimvectorimguiinputevent* = structimvectorimguiinputevent_80741541
+    structimvectorimguiinputevent* = structimvectorimguiinputevent_63964324
 else:
   static :
     hint("Declaration of " & "structimvectorimguiinputevent" &
         " already exists, not redeclaring")
 when not declared(Imu64):
   type
-    Imu64* = Imu64_80741079
+    Imu64* = Imu64_63963862
 else:
   static :
     hint("Declaration of " & "Imu64" & " already exists, not redeclaring")
 when not declared(structimspanimguitablecelldata):
   type
-    structimspanimguitablecelldata* = structimspanimguitablecelldata_80741657
+    structimspanimguitablecelldata* = structimspanimguitablecelldata_63964440
 else:
   static :
     hint("Declaration of " & "structimspanimguitablecelldata" &
         " already exists, not redeclaring")
 when not declared(Imguinavitemdata):
   type
-    Imguinavitemdata* = Imguinavitemdata_80740905
+    Imguinavitemdata* = Imguinavitemdata_63963688
 else:
   static :
     hint("Declaration of " & "Imguinavitemdata" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguiid):
   type
-    Imvectorimguiid* = Imvectorimguiid_80741559
+    Imvectorimguiid* = Imvectorimguiid_63964342
 else:
   static :
     hint("Declaration of " & "Imvectorimguiid" &
         " already exists, not redeclaring")
 when not declared(Imguitextfilter):
   type
-    Imguitextfilter* = Imguitextfilter_80740833
+    Imguitextfilter* = Imguitextfilter_63963616
 else:
   static :
     hint("Declaration of " & "Imguitextfilter" &
         " already exists, not redeclaring")
 when not declared(structimfontatlascustomrect):
   type
-    structimfontatlascustomrect* = structimfontatlascustomrect_80741233
+    structimfontatlascustomrect* = structimfontatlascustomrect_63964016
 else:
   static :
     hint("Declaration of " & "structimfontatlascustomrect" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguitablecolumnsortspecs):
   type
-    structimvectorimguitablecolumnsortspecs* = structimvectorimguitablecolumnsortspecs_80741665
+    structimvectorimguitablecolumnsortspecs* = structimvectorimguitablecolumnsortspecs_63964448
 else:
   static :
     hint("Declaration of " & "structimvectorimguitablecolumnsortspecs" &
         " already exists, not redeclaring")
 when not declared(Imguikeyroutingdata):
   type
-    Imguikeyroutingdata* = Imguikeyroutingdata_80741447
+    Imguikeyroutingdata* = Imguikeyroutingdata_63964230
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingdata" &
         " already exists, not redeclaring")
 when not declared(Imguitabletempdata):
   type
-    Imguitabletempdata* = Imguitabletempdata_80740965
+    Imguitabletempdata* = Imguitabletempdata_63963748
 else:
   static :
     hint("Declaration of " & "Imguitabletempdata" &
         " already exists, not redeclaring")
 when not declared(Imguitablebgtarget):
   type
-    Imguitablebgtarget* = Imguitablebgtarget_80741007
+    Imguitablebgtarget* = Imguitablebgtarget_63963790
 else:
   static :
     hint("Declaration of " & "Imguitablebgtarget" &
         " already exists, not redeclaring")
 when not declared(structimguitablecolumnsettings):
   type
-    structimguitablecolumnsettings* = structimguitablecolumnsettings_80741671
+    structimguitablecolumnsettings* = structimguitablecolumnsettings_63964454
 else:
   static :
     hint("Declaration of " & "structimguitablecolumnsettings" &
         " already exists, not redeclaring")
 when not declared(Imguidockcontext):
   type
-    Imguidockcontext* = Imguidockcontext_80740873
+    Imguidockcontext* = Imguidockcontext_63963656
 else:
   static :
     hint("Declaration of " & "Imguidockcontext" &
         " already exists, not redeclaring")
 when not declared(structimvectorfloat):
   type
-    structimvectorfloat* = structimvectorfloat_80741249
+    structimvectorfloat* = structimvectorfloat_63964032
 else:
   static :
     hint("Declaration of " & "structimvectorfloat" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguitableinstancedata):
   type
-    Imvectorimguitableinstancedata* = Imvectorimguitableinstancedata_80741663
+    Imvectorimguitableinstancedata* = Imvectorimguitableinstancedata_63964446
 else:
   static :
     hint("Declaration of " & "Imvectorimguitableinstancedata" &
         " already exists, not redeclaring")
 when not declared(structimguilastitemdata):
   type
-    structimguilastitemdata* = structimguilastitemdata_80740895
+    structimguilastitemdata* = structimguilastitemdata_63963678
 else:
   static :
     hint("Declaration of " & "structimguilastitemdata" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguigroupdata):
   type
-    Imvectorimguigroupdata* = Imvectorimguigroupdata_80741567
+    Imvectorimguigroupdata* = Imvectorimguigroupdata_63964350
 else:
   static :
     hint("Declaration of " & "Imvectorimguigroupdata" &
         " already exists, not redeclaring")
 when not declared(structimguikeyroutingdata):
   type
-    structimguikeyroutingdata* = structimguikeyroutingdata_80741449
+    structimguikeyroutingdata* = structimguikeyroutingdata_63964232
 else:
   static :
     hint("Declaration of " & "structimguikeyroutingdata" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguigroupdata):
   type
-    structimvectorimguigroupdata* = structimvectorimguigroupdata_80741565
+    structimvectorimguigroupdata* = structimvectorimguigroupdata_63964348
 else:
   static :
     hint("Declaration of " & "structimvectorimguigroupdata" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguitabbar):
   type
-    structimvectorimguitabbar* = structimvectorimguitabbar_80741597
+    structimvectorimguitabbar* = structimvectorimguitabbar_63964380
 else:
   static :
     hint("Declaration of " & "structimvectorimguitabbar" &
         " already exists, not redeclaring")
 when not declared(Imfontbuilderio):
   type
-    Imfontbuilderio* = Imfontbuilderio_80740742
+    Imfontbuilderio* = Imfontbuilderio_63963525
 else:
   static :
     hint("Declaration of " & "Imfontbuilderio" &
         " already exists, not redeclaring")
 when not declared(Imdrawcallback):
   type
-    Imdrawcallback* = Imdrawcallback_80741189
+    Imdrawcallback* = Imdrawcallback_63963972
 else:
   static :
     hint("Declaration of " & "Imdrawcallback" &
         " already exists, not redeclaring")
 when not declared(Imfontconfig):
   type
-    Imfontconfig* = Imfontconfig_80740746
+    Imfontconfig* = Imfontconfig_63963529
 else:
   static :
     hint("Declaration of " & "Imfontconfig" & " already exists, not redeclaring")
 when not declared(structimbitvector):
   type
-    structimbitvector* = structimbitvector_80740847
+    structimbitvector* = structimbitvector_63963630
 else:
   static :
     hint("Declaration of " & "structimbitvector" &
         " already exists, not redeclaring")
 when not declared(structimguitabbar):
   type
-    structimguitabbar* = structimguitabbar_80740947
+    structimguitabbar* = structimguitabbar_63963730
 else:
   static :
     hint("Declaration of " & "structimguitabbar" &
         " already exists, not redeclaring")
 when not declared(Imguidragdropflags):
   type
-    Imguidragdropflags* = Imguidragdropflags_80741027
+    Imguidragdropflags* = Imguidragdropflags_63963810
 else:
   static :
     hint("Declaration of " & "Imguidragdropflags" &
         " already exists, not redeclaring")
 when not declared(structimguiwindowstackdata):
   type
-    structimguiwindowstackdata* = structimguiwindowstackdata_80741393
+    structimguiwindowstackdata* = structimguiwindowstackdata_63964176
 else:
   static :
     hint("Declaration of " & "structimguiwindowstackdata" &
         " already exists, not redeclaring")
 when not declared(Impoolidx):
   type
-    Impoolidx* = Impoolidx_80741331
+    Impoolidx* = Impoolidx_63964114
 else:
   static :
     hint("Declaration of " & "Impoolidx" & " already exists, not redeclaring")
 when not declared(structimguistylemod):
   type
-    structimguistylemod* = structimguistylemod_80740943
+    structimguistylemod* = structimguistylemod_63963726
 else:
   static :
     hint("Declaration of " & "structimguistylemod" &
         " already exists, not redeclaring")
 when not declared(Imchunkstreamimguitablesettings):
   type
-    Imchunkstreamimguitablesettings* = Imchunkstreamimguitablesettings_80741623
+    Imchunkstreamimguitablesettings* = Imchunkstreamimguitablesettings_63964406
 else:
   static :
     hint("Declaration of " & "Imchunkstreamimguitablesettings" &
         " already exists, not redeclaring")
 when not declared(structimfontglyph):
   type
-    structimfontglyph* = structimfontglyph_80740752
+    structimfontglyph* = structimfontglyph_63963535
 else:
   static :
     hint("Declaration of " & "structimfontglyph" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistsplitter):
   type
-    Imdrawlistsplitter* = Imdrawlistsplitter_80740726
+    Imdrawlistsplitter* = Imdrawlistsplitter_63963509
 else:
   static :
     hint("Declaration of " & "Imdrawlistsplitter" &
         " already exists, not redeclaring")
 when not declared(Imspanimguitablecolumnidx):
   type
-    Imspanimguitablecolumnidx* = Imspanimguitablecolumnidx_80741655
+    Imspanimguitablecolumnidx* = Imspanimguitablecolumnidx_63964438
 else:
   static :
     hint("Declaration of " & "Imspanimguitablecolumnidx" &
         " already exists, not redeclaring")
 when not declared(structimguilistclipper):
   type
-    structimguilistclipper* = structimguilistclipper_80740780
+    structimguilistclipper* = structimguilistclipper_63963563
 else:
   static :
     hint("Declaration of " & "structimguilistclipper" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguiplatformmonitor):
   type
-    Imvectorimguiplatformmonitor* = Imvectorimguiplatformmonitor_80741261
+    Imvectorimguiplatformmonitor* = Imvectorimguiplatformmonitor_63964044
 else:
   static :
     hint("Declaration of " & "Imvectorimguiplatformmonitor" &
         " already exists, not redeclaring")
 when not declared(structimvectorchar):
   type
-    structimvectorchar* = structimvectorchar_80741177
+    structimvectorchar* = structimvectorchar_63963960
 else:
   static :
     hint("Declaration of " & "structimvectorchar" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguilistclipperrange):
   type
-    Imvectorimguilistclipperrange* = Imvectorimguilistclipperrange_80741475
+    Imvectorimguilistclipperrange* = Imvectorimguilistclipperrange_63964258
 else:
   static :
     hint("Declaration of " & "Imvectorimguilistclipperrange" &
         " already exists, not redeclaring")
 when not declared(structimcolor):
   type
-    structimcolor* = structimcolor_80740760
+    structimcolor* = structimcolor_63963543
 else:
   static :
     hint("Declaration of " & "structimcolor" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguiitemflags):
   type
-    structimvectorimguiitemflags* = structimvectorimguiitemflags_80741561
+    structimvectorimguiitemflags* = structimvectorimguiitemflags_63964344
 else:
   static :
     hint("Declaration of " & "structimvectorimguiitemflags" &
         " already exists, not redeclaring")
 when not declared(structimguicolormod):
   type
-    structimguicolormod* = structimguicolormod_80740859
+    structimguicolormod* = structimguicolormod_63963642
 else:
   static :
     hint("Declaration of " & "structimguicolormod" &
         " already exists, not redeclaring")
 when not declared(Imguitreenodeflags):
   type
-    Imguitreenodeflags* = Imguitreenodeflags_80741053
+    Imguitreenodeflags* = Imguitreenodeflags_63963836
 else:
   static :
     hint("Declaration of " & "Imguitreenodeflags" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguistacklevelinfo):
   type
-    Imvectorimguistacklevelinfo* = Imvectorimguistacklevelinfo_80741535
+    Imvectorimguistacklevelinfo* = Imvectorimguistacklevelinfo_63964318
 else:
   static :
     hint("Declaration of " & "Imvectorimguistacklevelinfo" &
         " already exists, not redeclaring")
 when not declared(structimdrawcmd):
   type
-    structimdrawcmd* = structimdrawcmd_80740712
+    structimdrawcmd* = structimdrawcmd_63963495
 else:
   static :
     hint("Declaration of " & "structimdrawcmd" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowdockstyle):
   type
-    Imguiwindowdockstyle* = Imguiwindowdockstyle_80741505
+    Imguiwindowdockstyle* = Imguiwindowdockstyle_63964288
 else:
   static :
     hint("Declaration of " & "Imguiwindowdockstyle" &
         " already exists, not redeclaring")
 when not declared(structimvectorimtextureid):
   type
-    structimvectorimtextureid* = structimvectorimtextureid_80741219
+    structimvectorimtextureid* = structimvectorimtextureid_63964002
 else:
   static :
     hint("Declaration of " & "structimvectorimtextureid" &
         " already exists, not redeclaring")
 when not declared(structimguitable):
   type
-    structimguitable* = structimguitable_80740955
+    structimguitable* = structimguitable_63963738
 else:
   static :
     hint("Declaration of " & "structimguitable" &
         " already exists, not redeclaring")
 when not declared(Imspanimguitablecelldata):
   type
-    Imspanimguitablecelldata* = Imspanimguitablecelldata_80741659
+    Imspanimguitablecelldata* = Imspanimguitablecelldata_63964442
 else:
   static :
     hint("Declaration of " & "Imspanimguitablecelldata" &
         " already exists, not redeclaring")
 when not declared(Imguibuttonflags):
   type
-    Imguibuttonflags* = Imguibuttonflags_80741017
+    Imguibuttonflags* = Imguibuttonflags_63963800
 else:
   static :
     hint("Declaration of " & "Imguibuttonflags" &
         " already exists, not redeclaring")
 when not declared(Imguinextwindowdataflags):
   type
-    Imguinextwindowdataflags* = Imguinextwindowdataflags_80741289
+    Imguinextwindowdataflags* = Imguinextwindowdataflags_63964072
 else:
   static :
     hint("Declaration of " & "Imguinextwindowdataflags" &
         " already exists, not redeclaring")
 when not declared(structimguishrinkwidthitem):
   type
-    structimguishrinkwidthitem* = structimguishrinkwidthitem_80741397
+    structimguishrinkwidthitem* = structimguishrinkwidthitem_63964180
 else:
   static :
     hint("Declaration of " & "structimguishrinkwidthitem" &
         " already exists, not redeclaring")
 when not declared(structimguistacksizes):
   type
-    structimguistacksizes* = structimguistacksizes_80740939
+    structimguistacksizes* = structimguistacksizes_63963722
 else:
   static :
     hint("Declaration of " & "structimguistacksizes" &
         " already exists, not redeclaring")
 when not declared(structimguidatavarinfo):
   type
-    structimguidatavarinfo* = structimguidatavarinfo_80740867
+    structimguidatavarinfo* = structimguidatavarinfo_63963650
 else:
   static :
     hint("Declaration of " & "structimguidatavarinfo" &
         " already exists, not redeclaring")
 when not declared(structimguiinputevent):
   type
-    structimguiinputevent* = structimguiinputevent_80741443
+    structimguiinputevent* = structimguiinputevent_63964226
 else:
   static :
     hint("Declaration of " & "structimguiinputevent" &
         " already exists, not redeclaring")
 when not declared(structimguiptrorindex):
   type
-    structimguiptrorindex* = structimguiptrorindex_80741401
+    structimguiptrorindex* = structimguiptrorindex_63964184
 else:
   static :
     hint("Declaration of " & "structimguiptrorindex" &
         " already exists, not redeclaring")
 when not declared(Imguitabitem):
   type
-    Imguitabitem* = Imguitabitem_80740949
+    Imguitabitem* = Imguitabitem_63963732
 else:
   static :
     hint("Declaration of " & "Imguitabitem" & " already exists, not redeclaring")
 when not declared(structimvectorimguiviewportpptr):
   type
-    structimvectorimguiviewportpptr* = structimvectorimguiviewportpptr_80741573
+    structimvectorimguiviewportpptr* = structimvectorimguiviewportpptr_63964356
 else:
   static :
     hint("Declaration of " & "structimvectorimguiviewportpptr" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguilistclipperdata):
   type
-    structimvectorimguilistclipperdata* = structimvectorimguilistclipperdata_80741581
+    structimvectorimguilistclipperdata* = structimvectorimguilistclipperdata_63964364
 else:
   static :
     hint("Declaration of " & "structimvectorimguilistclipperdata" &
         " already exists, not redeclaring")
 when not declared(Imguidockrequest):
   type
-    Imguidockrequest* = Imguidockrequest_80740877
+    Imguidockrequest* = Imguidockrequest_63963660
 else:
   static :
     hint("Declaration of " & "Imguidockrequest" &
         " already exists, not redeclaring")
 when not declared(Imguierrorlogcallback):
   type
-    Imguierrorlogcallback* = Imguierrorlogcallback_80741299
+    Imguierrorlogcallback* = Imguierrorlogcallback_63964082
 else:
   static :
     hint("Declaration of " & "Imguierrorlogcallback" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguisettingshandler):
   type
-    structimvectorimguisettingshandler* = structimvectorimguisettingshandler_80741613
+    structimvectorimguisettingshandler* = structimvectorimguisettingshandler_63964396
 else:
   static :
     hint("Declaration of " & "structimvectorimguisettingshandler" &
         " already exists, not redeclaring")
 when not declared(Imguiplatformio):
   type
-    Imguiplatformio* = Imguiplatformio_80740797
+    Imguiplatformio* = Imguiplatformio_63963580
 else:
   static :
     hint("Declaration of " & "Imguiplatformio" &
         " already exists, not redeclaring")
 when not declared(Imguiptrorindex):
   type
-    Imguiptrorindex* = Imguiptrorindex_80741399
+    Imguiptrorindex* = Imguiptrorindex_63964182
 else:
   static :
     hint("Declaration of " & "Imguiptrorindex" &
         " already exists, not redeclaring")
 when not declared(Imguidatatype):
   type
-    Imguidatatype* = Imguidatatype_80740995
+    Imguidatatype* = Imguidatatype_63963778
 else:
   static :
     hint("Declaration of " & "Imguidatatype" &
         " already exists, not redeclaring")
 when not declared(structimguiviewportp):
   type
-    structimguiviewportp* = structimguiviewportp_80741519
+    structimguiviewportp* = structimguiviewportp_63964302
 else:
   static :
     hint("Declaration of " & "structimguiviewportp" &
         " already exists, not redeclaring")
 when not declared(structimvectorimdrawlistptr):
   type
-    structimvectorimdrawlistptr* = structimvectorimdrawlistptr_80741341
+    structimvectorimdrawlistptr* = structimvectorimdrawlistptr_63964124
 else:
   static :
     hint("Declaration of " & "structimvectorimdrawlistptr" &
         " already exists, not redeclaring")
 when not declared(Imguistylevar):
   type
-    Imguistylevar* = Imguistylevar_80741005
+    Imguistylevar* = Imguistylevar_63963788
 else:
   static :
     hint("Declaration of " & "Imguistylevar" &
         " already exists, not redeclaring")
 when not declared(Imguiinputeventmousepos):
   type
-    Imguiinputeventmousepos* = Imguiinputeventmousepos_80741413
+    Imguiinputeventmousepos* = Imguiinputeventmousepos_63964196
 else:
   static :
     hint("Declaration of " & "Imguiinputeventmousepos" &
         " already exists, not redeclaring")
 when not declared(structimdrawvert):
   type
-    structimdrawvert* = structimdrawvert_80740732
+    structimdrawvert* = structimdrawvert_63963515
 else:
   static :
     hint("Declaration of " & "structimdrawvert" &
         " already exists, not redeclaring")
 when not declared(Imguilocentry):
   type
-    Imguilocentry* = Imguilocentry_80740897
+    Imguilocentry* = Imguilocentry_63963680
 else:
   static :
     hint("Declaration of " & "Imguilocentry" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumn):
   type
-    Imguitablecolumn* = Imguitablecolumn_80740957
+    Imguitablecolumn* = Imguitablecolumn_63963740
 else:
   static :
     hint("Declaration of " & "Imguitablecolumn" &
         " already exists, not redeclaring")
 when not declared(structimvectorimu32):
   type
-    structimvectorimu32* = structimvectorimu32_80741227
+    structimvectorimu32* = structimvectorimu32_63964010
 else:
   static :
     hint("Declaration of " & "structimvectorimu32" &
         " already exists, not redeclaring")
 when not declared(Imguilayouttype):
   type
-    Imguilayouttype* = Imguilayouttype_80741269
+    Imguilayouttype* = Imguilayouttype_63964052
 else:
   static :
     hint("Declaration of " & "Imguilayouttype" &
         " already exists, not redeclaring")
 when not declared(Imguitabitemflags):
   type
-    Imguitabitemflags* = Imguitabitemflags_80741045
+    Imguitabitemflags* = Imguitabitemflags_63963828
 else:
   static :
     hint("Declaration of " & "Imguitabitemflags" &
         " already exists, not redeclaring")
 when not declared(structstbtexteditstate):
   type
-    structstbtexteditstate* = structstbtexteditstate_80741311
+    structstbtexteditstate* = structstbtexteditstate_63964094
 else:
   static :
     hint("Declaration of " & "structstbtexteditstate" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguistylemod):
   type
-    structimvectorimguistylemod* = structimvectorimguistylemod_80741553
+    structimvectorimguistylemod* = structimvectorimguistylemod_63964336
 else:
   static :
     hint("Declaration of " & "structimvectorimguistylemod" &
         " already exists, not redeclaring")
 when not declared(Imvectorimwchar):
   type
-    Imvectorimwchar* = Imvectorimwchar_80741167
+    Imvectorimwchar* = Imvectorimwchar_63963950
 else:
   static :
     hint("Declaration of " & "Imvectorimwchar" &
         " already exists, not redeclaring")
 when not declared(Stbtexteditstate):
   type
-    Stbtexteditstate* = Stbtexteditstate_80741309
+    Stbtexteditstate* = Stbtexteditstate_63964092
 else:
   static :
     hint("Declaration of " & "Stbtexteditstate" &
         " already exists, not redeclaring")
 when not declared(structimfontconfig):
   type
-    structimfontconfig* = structimfontconfig_80740748
+    structimfontconfig* = structimfontconfig_63963531
 else:
   static :
     hint("Declaration of " & "structimfontconfig" &
         " already exists, not redeclaring")
 when not declared(Imguistacksizes):
   type
-    Imguistacksizes* = Imguistacksizes_80740937
+    Imguistacksizes* = Imguistacksizes_63963720
 else:
   static :
     hint("Declaration of " & "Imguistacksizes" &
         " already exists, not redeclaring")
 when not declared(Imguisizecallback):
   type
-    Imguisizecallback* = Imguisizecallback_80741089
+    Imguisizecallback* = Imguisizecallback_63963872
 else:
   static :
     hint("Declaration of " & "Imguisizecallback" &
         " already exists, not redeclaring")
 when not declared(structimguikeyownerdata):
   type
-    structimguikeyownerdata* = structimguikeyownerdata_80741461
+    structimguikeyownerdata* = structimguikeyownerdata_63964244
 else:
   static :
     hint("Declaration of " & "structimguikeyownerdata" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumnsortspecs):
   type
-    Imguitablecolumnsortspecs* = Imguitablecolumnsortspecs_80740825
+    Imguitablecolumnsortspecs* = Imguitablecolumnsortspecs_63963608
 else:
   static :
     hint("Declaration of " & "Imguitablecolumnsortspecs" &
         " already exists, not redeclaring")
 when not declared(Imguihoveredflags):
   type
-    Imguihoveredflags* = Imguihoveredflags_80741031
+    Imguihoveredflags* = Imguihoveredflags_63963814
 else:
   static :
     hint("Declaration of " & "Imguihoveredflags" &
         " already exists, not redeclaring")
 when not declared(Imdrawcmd):
   type
-    Imdrawcmd* = Imdrawcmd_80740710
+    Imdrawcmd* = Imdrawcmd_63963493
 else:
   static :
     hint("Declaration of " & "Imdrawcmd" & " already exists, not redeclaring")
 when not declared(Imvectorimguilistclipperdata):
   type
-    Imvectorimguilistclipperdata* = Imvectorimguilistclipperdata_80741583
+    Imvectorimguilistclipperdata* = Imvectorimguilistclipperdata_63964366
 else:
   static :
     hint("Declaration of " & "Imvectorimguilistclipperdata" &
         " already exists, not redeclaring")
 when not declared(structimdrawcmdheader):
   type
-    structimdrawcmdheader* = structimdrawcmdheader_80741193
+    structimdrawcmdheader* = structimdrawcmdheader_63963976
 else:
   static :
     hint("Declaration of " & "structimdrawcmdheader" &
         " already exists, not redeclaring")
 when not declared(Imguistyle):
   type
-    Imguistyle* = Imguistyle_80740817
+    Imguistyle* = Imguistyle_63963600
 else:
   static :
     hint("Declaration of " & "Imguistyle" & " already exists, not redeclaring")
 when not declared(Imguioldcolumns):
   type
-    Imguioldcolumns* = Imguioldcolumns_80740925
+    Imguioldcolumns* = Imguioldcolumns_63963708
 else:
   static :
     hint("Declaration of " & "Imguioldcolumns" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportflags):
   type
-    Imguiviewportflags* = Imguiviewportflags_80741055
+    Imguiviewportflags* = Imguiviewportflags_63963838
 else:
   static :
     hint("Declaration of " & "Imguiviewportflags" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguistylemod):
   type
-    Imvectorimguistylemod* = Imvectorimguistylemod_80741555
+    Imvectorimguistylemod* = Imvectorimguistylemod_63964338
 else:
   static :
     hint("Declaration of " & "Imvectorimguistylemod" &
         " already exists, not redeclaring")
 when not declared(Imrect):
   type
-    Imrect* = Imrect_80740849
+    Imrect* = Imrect_63963632
 else:
   static :
     hint("Declaration of " & "Imrect" & " already exists, not redeclaring")
 when not declared(Imguimenucolumns):
   type
-    Imguimenucolumns* = Imguimenucolumns_80740901
+    Imguimenucolumns* = Imguimenucolumns_63963684
 else:
   static :
     hint("Declaration of " & "Imguimenucolumns" &
         " already exists, not redeclaring")
 when not declared(structimguiplatformmonitor):
   type
-    structimguiplatformmonitor* = structimguiplatformmonitor_80740803
+    structimguiplatformmonitor* = structimguiplatformmonitor_63963586
 else:
   static :
     hint("Declaration of " & "structimguiplatformmonitor" &
         " already exists, not redeclaring")
 when not declared(structimguitablecolumn):
   type
-    structimguitablecolumn* = structimguitablecolumn_80740959
+    structimguitablecolumn* = structimguitablecolumn_63963742
 else:
   static :
     hint("Declaration of " & "structimguitablecolumn" &
         " already exists, not redeclaring")
 when not declared(structimfont):
   type
-    structimfont* = structimfont_80740736
+    structimfont* = structimfont_63963519
 else:
   static :
     hint("Declaration of " & "structimfont" & " already exists, not redeclaring")
 when not declared(structimguistorage):
   type
-    structimguistorage* = structimguistorage_80740815
+    structimguistorage* = structimguistorage_63963598
 else:
   static :
     hint("Declaration of " & "structimguistorage" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguishrinkwidthitem):
   type
-    Imvectorimguishrinkwidthitem* = Imvectorimguishrinkwidthitem_80741611
+    Imvectorimguishrinkwidthitem* = Imvectorimguishrinkwidthitem_63964394
 else:
   static :
     hint("Declaration of " & "Imvectorimguishrinkwidthitem" &
         " already exists, not redeclaring")
 when not declared(Sdlrenderer):
   type
-    Sdlrenderer* = Sdlrenderer_80741675
+    Sdlrenderer* = Sdlrenderer_63964458
 else:
   static :
     hint("Declaration of " & "Sdlrenderer" & " already exists, not redeclaring")
 when not declared(structimspanimguitablecolumn):
   type
-    structimspanimguitablecolumn* = structimspanimguitablecolumn_80741649
+    structimspanimguitablecolumn* = structimspanimguitablecolumn_63964432
 else:
   static :
     hint("Declaration of " & "structimspanimguitablecolumn" &
         " already exists, not redeclaring")
 when not declared(structimvectorimvec4):
   type
-    structimvectorimvec4* = structimvectorimvec4_80741215
+    structimvectorimvec4* = structimvectorimvec4_63963998
 else:
   static :
     hint("Declaration of " & "structimvectorimvec4" &
         " already exists, not redeclaring")
 when not declared(structimfontatlas):
   type
-    structimfontatlas* = structimfontatlas_80740740
+    structimfontatlas* = structimfontatlas_63963523
 else:
   static :
     hint("Declaration of " & "structimfontatlas" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguiwindowptr):
   type
-    Imvectorimguiwindowptr* = Imvectorimguiwindowptr_80741501
+    Imvectorimguiwindowptr* = Imvectorimguiwindowptr_63964284
 else:
   static :
     hint("Declaration of " & "Imvectorimguiwindowptr" &
         " already exists, not redeclaring")
 when not declared(Imvectorimdrawvert):
   type
-    Imvectorimdrawvert* = Imvectorimdrawvert_80741213
+    Imvectorimdrawvert* = Imvectorimdrawvert_63963996
 else:
   static :
     hint("Declaration of " & "Imvectorimdrawvert" &
         " already exists, not redeclaring")
 when not declared(Imdrawlist):
   type
-    Imdrawlist* = Imdrawlist_80740718
+    Imdrawlist* = Imdrawlist_63963501
 else:
   static :
     hint("Declaration of " & "Imdrawlist" & " already exists, not redeclaring")
 when not declared(Imvectorimfontconfig):
   type
-    Imvectorimfontconfig* = Imvectorimfontconfig_80741247
+    Imvectorimfontconfig* = Imvectorimfontconfig_63964030
 else:
   static :
     hint("Declaration of " & "Imvectorimfontconfig" &
         " already exists, not redeclaring")
 when not declared(Imguicontext):
   type
-    Imguicontext* = Imguicontext_80740762
+    Imguicontext* = Imguicontext_63963545
 else:
   static :
     hint("Declaration of " & "Imguicontext" & " already exists, not redeclaring")
 when not declared(structimvec2ih):
   type
-    structimvec2ih* = structimvec2ih_80741327
+    structimvec2ih* = structimvec2ih_63964110
 else:
   static :
     hint("Declaration of " & "structimvec2ih" &
         " already exists, not redeclaring")
 when not declared(structimguidatatypeinfo):
   type
-    structimguidatatypeinfo* = structimguidatatypeinfo_80740871
+    structimguidatatypeinfo* = structimguidatatypeinfo_63963654
 else:
   static :
     hint("Declaration of " & "structimguidatatypeinfo" &
         " already exists, not redeclaring")
 when not declared(Stbtexteditrow):
   type
-    Stbtexteditrow* = Stbtexteditrow_80741313
+    Stbtexteditrow* = Stbtexteditrow_63964096
 else:
   static :
     hint("Declaration of " & "Stbtexteditrow" &
         " already exists, not redeclaring")
 when not declared(structimguinavitemdata):
   type
-    structimguinavitemdata* = structimguinavitemdata_80740907
+    structimguinavitemdata* = structimguinavitemdata_63963690
 else:
   static :
     hint("Declaration of " & "structimguinavitemdata" &
         " already exists, not redeclaring")
 when not declared(Imguitable):
   type
-    Imguitable* = Imguitable_80740953
+    Imguitable* = Imguitable_63963736
 else:
   static :
     hint("Declaration of " & "Imguitable" & " already exists, not redeclaring")
 when not declared(structimvec2):
   type
-    structimvec2* = structimvec2_80741097
+    structimvec2* = structimvec2_63963880
 else:
   static :
     hint("Declaration of " & "structimvec2" & " already exists, not redeclaring")
 when not declared(structimvectorimguitextrange):
   type
-    structimvectorimguitextrange* = structimvectorimguitextrange_80741173
+    structimvectorimguitextrange* = structimvectorimguitextrange_63963956
 else:
   static :
     hint("Declaration of " & "structimvectorimguitextrange" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguishrinkwidthitem):
   type
-    structimvectorimguishrinkwidthitem* = structimvectorimguishrinkwidthitem_80741609
+    structimvectorimguishrinkwidthitem* = structimvectorimguishrinkwidthitem_63964392
 else:
   static :
     hint("Declaration of " & "structimvectorimguishrinkwidthitem" &
         " already exists, not redeclaring")
 when not declared(Imguiscrollflags):
   type
-    Imguiscrollflags* = Imguiscrollflags_80741291
+    Imguiscrollflags* = Imguiscrollflags_63964074
 else:
   static :
     hint("Declaration of " & "Imguiscrollflags" &
         " already exists, not redeclaring")
 when not declared(Imvec2ih):
   type
-    Imvec2ih* = Imvec2ih_80741325
+    Imvec2ih* = Imvec2ih_63964108
 else:
   static :
     hint("Declaration of " & "Imvec2ih" & " already exists, not redeclaring")
 when not declared(Imguilistclipper):
   type
-    Imguilistclipper* = Imguilistclipper_80740778
+    Imguilistclipper* = Imguilistclipper_63963561
 else:
   static :
     hint("Declaration of " & "Imguilistclipper" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguicontexthook):
   type
-    structimvectorimguicontexthook* = structimvectorimguicontexthook_80741625
+    structimvectorimguicontexthook* = structimvectorimguicontexthook_63964408
 else:
   static :
     hint("Declaration of " & "structimvectorimguicontexthook" &
         " already exists, not redeclaring")
 when not declared(Imguiinputeventmouseviewport):
   type
-    Imguiinputeventmouseviewport* = Imguiinputeventmouseviewport_80741425
+    Imguiinputeventmouseviewport* = Imguiinputeventmouseviewport_63964208
 else:
   static :
     hint("Declaration of " & "Imguiinputeventmouseviewport" &
         " already exists, not redeclaring")
 when not declared(structimguitablesortspecs):
   type
-    structimguitablesortspecs* = structimguitablesortspecs_80740823
+    structimguitablesortspecs* = structimguitablesortspecs_63963606
 else:
   static :
     hint("Declaration of " & "structimguitablesortspecs" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguiwindowstackdata):
   type
-    Imvectorimguiwindowstackdata* = Imvectorimguiwindowstackdata_80741547
+    Imvectorimguiwindowstackdata* = Imvectorimguiwindowstackdata_63964330
 else:
   static :
     hint("Declaration of " & "Imvectorimguiwindowstackdata" &
         " already exists, not redeclaring")
 when not declared(Ims16):
   type
-    Ims16* = Ims16_80741069
+    Ims16* = Ims16_63963852
 else:
   static :
     hint("Declaration of " & "Ims16" & " already exists, not redeclaring")
 when not declared(structimguioldcolumndata):
   type
-    structimguioldcolumndata* = structimguioldcolumndata_80740923
+    structimguioldcolumndata* = structimguioldcolumndata_63963706
 else:
   static :
     hint("Declaration of " & "structimguioldcolumndata" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumnidx):
   type
-    Imguitablecolumnidx* = Imguitablecolumnidx_80741641
+    Imguitablecolumnidx* = Imguitablecolumnidx_63964424
 else:
   static :
     hint("Declaration of " & "Imguitablecolumnidx" &
         " already exists, not redeclaring")
 when not declared(Imvectorint):
   type
-    Imvectorint* = Imvectorint_80741339
+    Imvectorint* = Imvectorint_63964122
 else:
   static :
     hint("Declaration of " & "Imvectorint" & " already exists, not redeclaring")
 when not declared(structimvectorimguiwindowptr):
   type
-    structimvectorimguiwindowptr* = structimvectorimguiwindowptr_80741499
+    structimvectorimguiwindowptr* = structimvectorimguiwindowptr_63964282
 else:
   static :
     hint("Declaration of " & "structimvectorimguiwindowptr" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguidockrequest):
   type
-    Imvectorimguidockrequest* = Imvectorimguidockrequest_80741511
+    Imvectorimguidockrequest* = Imvectorimguidockrequest_63964294
 else:
   static :
     hint("Declaration of " & "Imvectorimguidockrequest" &
         " already exists, not redeclaring")
 when not declared(structimguidatatypetempstorage):
   type
-    structimguidatatypetempstorage* = structimguidatatypetempstorage_80741379
+    structimguidatatypetempstorage* = structimguidatatypetempstorage_63964162
 else:
   static :
     hint("Declaration of " & "structimguidatatypetempstorage" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguioldcolumndata):
   type
-    Imvectorimguioldcolumndata* = Imvectorimguioldcolumndata_80741491
+    Imvectorimguioldcolumndata* = Imvectorimguioldcolumndata_63964274
 else:
   static :
     hint("Declaration of " & "Imvectorimguioldcolumndata" &
         " already exists, not redeclaring")
 when not declared(File):
   type
-    File* = File_80741319
+    File* = File_63964102
 else:
   static :
     hint("Declaration of " & "File" & " already exists, not redeclaring")
 when not declared(Imvec4):
   type
-    Imvec4* = Imvec4_80741099
+    Imvec4* = Imvec4_63963882
 else:
   static :
     hint("Declaration of " & "Imvec4" & " already exists, not redeclaring")
 when not declared(Imguikeyroutingindex):
   type
-    Imguikeyroutingindex* = Imguikeyroutingindex_80741445
+    Imguikeyroutingindex* = Imguikeyroutingindex_63964228
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingindex" &
         " already exists, not redeclaring")
 when not declared(Imcolor):
   type
-    Imcolor* = Imcolor_80740758
+    Imcolor* = Imcolor_63963541
 else:
   static :
     hint("Declaration of " & "Imcolor" & " already exists, not redeclaring")
 when not declared(structimvectorimguiid):
   type
-    structimvectorimguiid* = structimvectorimguiid_80741557
+    structimvectorimguiid* = structimvectorimguiid_63964340
 else:
   static :
     hint("Declaration of " & "structimvectorimguiid" &
         " already exists, not redeclaring")
 when not declared(Imfontatlascustomrect):
   type
-    Imfontatlascustomrect* = Imfontatlascustomrect_80741231
+    Imfontatlascustomrect* = Imfontatlascustomrect_63964014
 else:
   static :
     hint("Declaration of " & "Imfontatlascustomrect" &
         " already exists, not redeclaring")
 when not declared(structimguiwindowdockstyle):
   type
-    structimguiwindowdockstyle* = structimguiwindowdockstyle_80741507
+    structimguiwindowdockstyle* = structimguiwindowdockstyle_63964290
 else:
   static :
     hint("Declaration of " & "structimguiwindowdockstyle" &
         " already exists, not redeclaring")
 when not declared(structimguidockcontext):
   type
-    structimguidockcontext* = structimguidockcontext_80740875
+    structimguidockcontext* = structimguidockcontext_63963658
 else:
   static :
     hint("Declaration of " & "structimguidockcontext" &
         " already exists, not redeclaring")
 when not declared(structimguitableinstancedata):
   type
-    structimguitableinstancedata* = structimguitableinstancedata_80740963
+    structimguitableinstancedata* = structimguitableinstancedata_63963746
 else:
   static :
     hint("Declaration of " & "structimguitableinstancedata" &
         " already exists, not redeclaring")
 when not declared(Imguilastitemdata):
   type
-    Imguilastitemdata* = Imguilastitemdata_80740893
+    Imguilastitemdata* = Imguilastitemdata_63963676
 else:
   static :
     hint("Declaration of " & "Imguilastitemdata" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguipopupdata):
   type
-    structimvectorimguipopupdata* = structimvectorimguipopupdata_80741569
+    structimvectorimguipopupdata* = structimvectorimguipopupdata_63964352
 else:
   static :
     hint("Declaration of " & "structimvectorimguipopupdata" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguiviewportptr):
   type
-    Imvectorimguiviewportptr* = Imvectorimguiviewportptr_80741265
+    Imvectorimguiviewportptr* = Imvectorimguiviewportptr_63964048
 else:
   static :
     hint("Declaration of " & "Imvectorimguiviewportptr" &
         " already exists, not redeclaring")
 when not declared(Imguiid):
   type
-    Imguiid* = Imguiid_80741063
+    Imguiid* = Imguiid_63963846
 else:
   static :
     hint("Declaration of " & "Imguiid" & " already exists, not redeclaring")
 when not declared(Imguicond):
   type
-    Imguicond* = Imguicond_80740993
+    Imguicond* = Imguicond_63963776
 else:
   static :
     hint("Declaration of " & "Imguicond" & " already exists, not redeclaring")
 when not declared(structimvectorimfontptr):
   type
-    structimvectorimfontptr* = structimvectorimfontptr_80741237
+    structimvectorimfontptr* = structimvectorimfontptr_63964020
 else:
   static :
     hint("Declaration of " & "structimvectorimfontptr" &
         " already exists, not redeclaring")
 when not declared(Imguiinputevent):
   type
-    Imguiinputevent* = Imguiinputevent_80741441
+    Imguiinputevent* = Imguiinputevent_63964224
 else:
   static :
     hint("Declaration of " & "Imguiinputevent" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguitabitem):
   type
-    structimvectorimguitabitem* = structimvectorimguitabitem_80741637
+    structimvectorimguitabitem* = structimvectorimguitabitem_63964420
 else:
   static :
     hint("Declaration of " & "structimvectorimguitabitem" &
@@ -8171,60 +8171,60 @@ else:
 when not declared(Extern):
   when extern is typedesc:
     type
-      Extern* = extern       ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:28:13
+      Extern* = extern       ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:28:13
   else:
     when extern is static:
       const
-        Extern* = extern     ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:28:13
+        Extern* = extern     ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:28:13
     else:
-      let Extern* = extern   ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:28:13
+      let Extern* = extern   ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:28:13
 else:
   static :
     hint("Declaration of " & "Extern" & " already exists, not redeclaring")
 when not declared(Imguihasdock):
   when 1 is static:
     const
-      Imguihasdock* = 1      ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:3048:9
+      Imguihasdock* = 1      ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:3048:9
   else:
-    let Imguihasdock* = 1    ## Generated based on C:\00nim-d\0000imguin\src\private\cimgui/cimgui.h:3048:9
+    let Imguihasdock* = 1    ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:3048:9
 else:
   static :
     hint("Declaration of " & "Imguihasdock" & " already exists, not redeclaring")
 when not declared(Gimgui):
-  var Gimgui* {.importc: "GImGui".}: ptr Imguicontext_80740763
+  var Gimgui* {.importc: "GImGui".}: ptr Imguicontext_63963546
 else:
   static :
     hint("Declaration of " & "Gimgui" & " already exists, not redeclaring")
 when not declared(Imvec2imvec2nil):
-  proc Imvec2imvec2nil*(): ptr Imvec2_80741096 {.cdecl,
+  proc Imvec2imvec2nil*(): ptr Imvec2_63963879 {.cdecl,
       importc: "ImVec2_ImVec2_Nil".}
 else:
   static :
     hint("Declaration of " & "Imvec2imvec2nil" &
         " already exists, not redeclaring")
 when not declared(Imvec2destroy):
-  proc Imvec2destroy*(self: ptr Imvec2_80741096): void {.cdecl,
+  proc Imvec2destroy*(self: ptr Imvec2_63963879): void {.cdecl,
       importc: "ImVec2_destroy".}
 else:
   static :
     hint("Declaration of " & "Imvec2destroy" &
         " already exists, not redeclaring")
 when not declared(Imvec2imvec2float):
-  proc Imvec2imvec2float*(internalx: cfloat; internaly: cfloat): ptr Imvec2_80741096 {.
+  proc Imvec2imvec2float*(internalx: cfloat; internaly: cfloat): ptr Imvec2_63963879 {.
       cdecl, importc: "ImVec2_ImVec2_Float".}
 else:
   static :
     hint("Declaration of " & "Imvec2imvec2float" &
         " already exists, not redeclaring")
 when not declared(Imvec4imvec4nil):
-  proc Imvec4imvec4nil*(): ptr Imvec4_80741100 {.cdecl,
+  proc Imvec4imvec4nil*(): ptr Imvec4_63963883 {.cdecl,
       importc: "ImVec4_ImVec4_Nil".}
 else:
   static :
     hint("Declaration of " & "Imvec4imvec4nil" &
         " already exists, not redeclaring")
 when not declared(Imvec4destroy):
-  proc Imvec4destroy*(self: ptr Imvec4_80741100): void {.cdecl,
+  proc Imvec4destroy*(self: ptr Imvec4_63963883): void {.cdecl,
       importc: "ImVec4_destroy".}
 else:
   static :
@@ -8232,47 +8232,47 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvec4imvec4float):
   proc Imvec4imvec4float*(internalx: cfloat; internaly: cfloat;
-                          internalz: cfloat; internalw: cfloat): ptr Imvec4_80741100 {.
+                          internalz: cfloat; internalw: cfloat): ptr Imvec4_63963883 {.
       cdecl, importc: "ImVec4_ImVec4_Float".}
 else:
   static :
     hint("Declaration of " & "Imvec4imvec4float" &
         " already exists, not redeclaring")
 when not declared(igcreatecontext):
-  proc igcreatecontext*(sharedfontatlas: ptr Imfontatlas_80740739): ptr Imguicontext_80740763 {.
+  proc igcreatecontext*(sharedfontatlas: ptr Imfontatlas_63963522): ptr Imguicontext_63963546 {.
       cdecl, importc: "igCreateContext".}
 else:
   static :
     hint("Declaration of " & "igcreatecontext" &
         " already exists, not redeclaring")
 when not declared(igdestroycontext):
-  proc igdestroycontext*(ctx: ptr Imguicontext_80740763): void {.cdecl,
+  proc igdestroycontext*(ctx: ptr Imguicontext_63963546): void {.cdecl,
       importc: "igDestroyContext".}
 else:
   static :
     hint("Declaration of " & "igdestroycontext" &
         " already exists, not redeclaring")
 when not declared(iggetcurrentcontext):
-  proc iggetcurrentcontext*(): ptr Imguicontext_80740763 {.cdecl,
+  proc iggetcurrentcontext*(): ptr Imguicontext_63963546 {.cdecl,
       importc: "igGetCurrentContext".}
 else:
   static :
     hint("Declaration of " & "iggetcurrentcontext" &
         " already exists, not redeclaring")
 when not declared(igsetcurrentcontext):
-  proc igsetcurrentcontext*(ctx: ptr Imguicontext_80740763): void {.cdecl,
+  proc igsetcurrentcontext*(ctx: ptr Imguicontext_63963546): void {.cdecl,
       importc: "igSetCurrentContext".}
 else:
   static :
     hint("Declaration of " & "igsetcurrentcontext" &
         " already exists, not redeclaring")
 when not declared(iggetio):
-  proc iggetio*(): ptr Imguiio_80740767 {.cdecl, importc: "igGetIO".}
+  proc iggetio*(): ptr Imguiio_63963550 {.cdecl, importc: "igGetIO".}
 else:
   static :
     hint("Declaration of " & "iggetio" & " already exists, not redeclaring")
 when not declared(iggetstyle):
-  proc iggetstyle*(): ptr Imguistyle_80740818 {.cdecl, importc: "igGetStyle".}
+  proc iggetstyle*(): ptr Imguistyle_63963601 {.cdecl, importc: "igGetStyle".}
 else:
   static :
     hint("Declaration of " & "iggetstyle" & " already exists, not redeclaring")
@@ -8292,7 +8292,7 @@ else:
   static :
     hint("Declaration of " & "igrender" & " already exists, not redeclaring")
 when not declared(iggetdrawdata):
-  proc iggetdrawdata*(): ptr Imdrawdata_80740715 {.cdecl,
+  proc iggetdrawdata*(): ptr Imdrawdata_63963498 {.cdecl,
       importc: "igGetDrawData".}
 else:
   static :
@@ -8334,7 +8334,7 @@ else:
     hint("Declaration of " & "igshowaboutwindow" &
         " already exists, not redeclaring")
 when not declared(igshowstyleeditor):
-  proc igshowstyleeditor*(refarg: ptr Imguistyle_80740818): void {.cdecl,
+  proc igshowstyleeditor*(refarg: ptr Imguistyle_63963601): void {.cdecl,
       importc: "igShowStyleEditor".}
 else:
   static :
@@ -8366,28 +8366,28 @@ else:
   static :
     hint("Declaration of " & "iggetversion" & " already exists, not redeclaring")
 when not declared(igstylecolorsdark):
-  proc igstylecolorsdark*(dst: ptr Imguistyle_80740818): void {.cdecl,
+  proc igstylecolorsdark*(dst: ptr Imguistyle_63963601): void {.cdecl,
       importc: "igStyleColorsDark".}
 else:
   static :
     hint("Declaration of " & "igstylecolorsdark" &
         " already exists, not redeclaring")
 when not declared(igstylecolorslight):
-  proc igstylecolorslight*(dst: ptr Imguistyle_80740818): void {.cdecl,
+  proc igstylecolorslight*(dst: ptr Imguistyle_63963601): void {.cdecl,
       importc: "igStyleColorsLight".}
 else:
   static :
     hint("Declaration of " & "igstylecolorslight" &
         " already exists, not redeclaring")
 when not declared(igstylecolorsclassic):
-  proc igstylecolorsclassic*(dst: ptr Imguistyle_80740818): void {.cdecl,
+  proc igstylecolorsclassic*(dst: ptr Imguistyle_63963601): void {.cdecl,
       importc: "igStyleColorsClassic".}
 else:
   static :
     hint("Declaration of " & "igstylecolorsclassic" &
         " already exists, not redeclaring")
 when not declared(igbegin):
-  proc igbegin*(name: cstring; popen: ptr bool; flags: Imguiwindowflags_80741058): bool {.
+  proc igbegin*(name: cstring; popen: ptr bool; flags: Imguiwindowflags_63963841): bool {.
       cdecl, importc: "igBegin".}
 else:
   static :
@@ -8398,16 +8398,16 @@ else:
   static :
     hint("Declaration of " & "igend" & " already exists, not redeclaring")
 when not declared(igbeginchildstr):
-  proc igbeginchildstr*(strid: cstring; size: Imvec2_80741096; border: bool;
-                        flags: Imguiwindowflags_80741058): bool {.cdecl,
+  proc igbeginchildstr*(strid: cstring; size: Imvec2_63963879; border: bool;
+                        flags: Imguiwindowflags_63963841): bool {.cdecl,
       importc: "igBeginChild_Str".}
 else:
   static :
     hint("Declaration of " & "igbeginchildstr" &
         " already exists, not redeclaring")
 when not declared(igbeginchildid):
-  proc igbeginchildid*(id: Imguiid_80741064; size: Imvec2_80741096;
-                       border: bool; flags: Imguiwindowflags_80741058): bool {.
+  proc igbeginchildid*(id: Imguiid_63963847; size: Imvec2_63963879;
+                       border: bool; flags: Imguiwindowflags_63963841): bool {.
       cdecl, importc: "igBeginChild_ID".}
 else:
   static :
@@ -8431,21 +8431,21 @@ else:
     hint("Declaration of " & "igiswindowcollapsed" &
         " already exists, not redeclaring")
 when not declared(igiswindowfocused):
-  proc igiswindowfocused*(flags: Imguifocusedflags_80741030): bool {.cdecl,
+  proc igiswindowfocused*(flags: Imguifocusedflags_63963813): bool {.cdecl,
       importc: "igIsWindowFocused".}
 else:
   static :
     hint("Declaration of " & "igiswindowfocused" &
         " already exists, not redeclaring")
 when not declared(igiswindowhovered):
-  proc igiswindowhovered*(flags: Imguihoveredflags_80741032): bool {.cdecl,
+  proc igiswindowhovered*(flags: Imguihoveredflags_63963815): bool {.cdecl,
       importc: "igIsWindowHovered".}
 else:
   static :
     hint("Declaration of " & "igiswindowhovered" &
         " already exists, not redeclaring")
 when not declared(iggetwindowdrawlist):
-  proc iggetwindowdrawlist*(): ptr Imdrawlist_80740719 {.cdecl,
+  proc iggetwindowdrawlist*(): ptr Imdrawlist_63963502 {.cdecl,
       importc: "igGetWindowDrawList".}
 else:
   static :
@@ -8458,14 +8458,14 @@ else:
     hint("Declaration of " & "iggetwindowdpiscale" &
         " already exists, not redeclaring")
 when not declared(iggetwindowpos):
-  proc iggetwindowpos*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetwindowpos*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetWindowPos".}
 else:
   static :
     hint("Declaration of " & "iggetwindowpos" &
         " already exists, not redeclaring")
 when not declared(iggetwindowsize):
-  proc iggetwindowsize*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetwindowsize*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetWindowSize".}
 else:
   static :
@@ -8484,31 +8484,31 @@ else:
     hint("Declaration of " & "iggetwindowheight" &
         " already exists, not redeclaring")
 when not declared(iggetwindowviewport):
-  proc iggetwindowviewport*(): ptr Imguiviewport_80740838 {.cdecl,
+  proc iggetwindowviewport*(): ptr Imguiviewport_63963621 {.cdecl,
       importc: "igGetWindowViewport".}
 else:
   static :
     hint("Declaration of " & "iggetwindowviewport" &
         " already exists, not redeclaring")
 when not declared(igsetnextwindowpos):
-  proc igsetnextwindowpos*(pos: Imvec2_80741096; cond: Imguicond_80740994;
-                           pivot: Imvec2_80741096): void {.cdecl,
+  proc igsetnextwindowpos*(pos: Imvec2_63963879; cond: Imguicond_63963777;
+                           pivot: Imvec2_63963879): void {.cdecl,
       importc: "igSetNextWindowPos".}
 else:
   static :
     hint("Declaration of " & "igsetnextwindowpos" &
         " already exists, not redeclaring")
 when not declared(igsetnextwindowsize):
-  proc igsetnextwindowsize*(size: Imvec2_80741096; cond: Imguicond_80740994): void {.
+  proc igsetnextwindowsize*(size: Imvec2_63963879; cond: Imguicond_63963777): void {.
       cdecl, importc: "igSetNextWindowSize".}
 else:
   static :
     hint("Declaration of " & "igsetnextwindowsize" &
         " already exists, not redeclaring")
 when not declared(igsetnextwindowsizeconstraints):
-  proc igsetnextwindowsizeconstraints*(sizemin: Imvec2_80741096;
-                                       sizemax: Imvec2_80741096;
-                                       customcallback: Imguisizecallback_80741090;
+  proc igsetnextwindowsizeconstraints*(sizemin: Imvec2_63963879;
+                                       sizemax: Imvec2_63963879;
+                                       customcallback: Imguisizecallback_63963873;
                                        customcallbackdata: pointer): void {.
       cdecl, importc: "igSetNextWindowSizeConstraints".}
 else:
@@ -8516,14 +8516,14 @@ else:
     hint("Declaration of " & "igsetnextwindowsizeconstraints" &
         " already exists, not redeclaring")
 when not declared(igsetnextwindowcontentsize):
-  proc igsetnextwindowcontentsize*(size: Imvec2_80741096): void {.cdecl,
+  proc igsetnextwindowcontentsize*(size: Imvec2_63963879): void {.cdecl,
       importc: "igSetNextWindowContentSize".}
 else:
   static :
     hint("Declaration of " & "igsetnextwindowcontentsize" &
         " already exists, not redeclaring")
 when not declared(igsetnextwindowcollapsed):
-  proc igsetnextwindowcollapsed*(collapsed: bool; cond: Imguicond_80740994): void {.
+  proc igsetnextwindowcollapsed*(collapsed: bool; cond: Imguicond_63963777): void {.
       cdecl, importc: "igSetNextWindowCollapsed".}
 else:
   static :
@@ -8536,7 +8536,7 @@ else:
     hint("Declaration of " & "igsetnextwindowfocus" &
         " already exists, not redeclaring")
 when not declared(igsetnextwindowscroll):
-  proc igsetnextwindowscroll*(scroll: Imvec2_80741096): void {.cdecl,
+  proc igsetnextwindowscroll*(scroll: Imvec2_63963879): void {.cdecl,
       importc: "igSetNextWindowScroll".}
 else:
   static :
@@ -8550,28 +8550,28 @@ else:
     hint("Declaration of " & "igsetnextwindowbgalpha" &
         " already exists, not redeclaring")
 when not declared(igsetnextwindowviewport):
-  proc igsetnextwindowviewport*(viewportid: Imguiid_80741064): void {.cdecl,
+  proc igsetnextwindowviewport*(viewportid: Imguiid_63963847): void {.cdecl,
       importc: "igSetNextWindowViewport".}
 else:
   static :
     hint("Declaration of " & "igsetnextwindowviewport" &
         " already exists, not redeclaring")
 when not declared(igsetwindowposvec2):
-  proc igsetwindowposvec2*(pos: Imvec2_80741096; cond: Imguicond_80740994): void {.
+  proc igsetwindowposvec2*(pos: Imvec2_63963879; cond: Imguicond_63963777): void {.
       cdecl, importc: "igSetWindowPos_Vec2".}
 else:
   static :
     hint("Declaration of " & "igsetwindowposvec2" &
         " already exists, not redeclaring")
 when not declared(igsetwindowsizevec2):
-  proc igsetwindowsizevec2*(size: Imvec2_80741096; cond: Imguicond_80740994): void {.
+  proc igsetwindowsizevec2*(size: Imvec2_63963879; cond: Imguicond_63963777): void {.
       cdecl, importc: "igSetWindowSize_Vec2".}
 else:
   static :
     hint("Declaration of " & "igsetwindowsizevec2" &
         " already exists, not redeclaring")
 when not declared(igsetwindowcollapsedbool):
-  proc igsetwindowcollapsedbool*(collapsed: bool; cond: Imguicond_80740994): void {.
+  proc igsetwindowcollapsedbool*(collapsed: bool; cond: Imguicond_63963777): void {.
       cdecl, importc: "igSetWindowCollapsed_Bool".}
 else:
   static :
@@ -8591,21 +8591,21 @@ else:
     hint("Declaration of " & "igsetwindowfontscale" &
         " already exists, not redeclaring")
 when not declared(igsetwindowposstr):
-  proc igsetwindowposstr*(name: cstring; pos: Imvec2_80741096; cond: Imguicond_80740994): void {.
+  proc igsetwindowposstr*(name: cstring; pos: Imvec2_63963879; cond: Imguicond_63963777): void {.
       cdecl, importc: "igSetWindowPos_Str".}
 else:
   static :
     hint("Declaration of " & "igsetwindowposstr" &
         " already exists, not redeclaring")
 when not declared(igsetwindowsizestr):
-  proc igsetwindowsizestr*(name: cstring; size: Imvec2_80741096; cond: Imguicond_80740994): void {.
+  proc igsetwindowsizestr*(name: cstring; size: Imvec2_63963879; cond: Imguicond_63963777): void {.
       cdecl, importc: "igSetWindowSize_Str".}
 else:
   static :
     hint("Declaration of " & "igsetwindowsizestr" &
         " already exists, not redeclaring")
 when not declared(igsetwindowcollapsedstr):
-  proc igsetwindowcollapsedstr*(name: cstring; collapsed: bool; cond: Imguicond_80740994): void {.
+  proc igsetwindowcollapsedstr*(name: cstring; collapsed: bool; cond: Imguicond_63963777): void {.
       cdecl, importc: "igSetWindowCollapsed_Str".}
 else:
   static :
@@ -8619,28 +8619,28 @@ else:
     hint("Declaration of " & "igsetwindowfocusstr" &
         " already exists, not redeclaring")
 when not declared(iggetcontentregionavail):
-  proc iggetcontentregionavail*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetcontentregionavail*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetContentRegionAvail".}
 else:
   static :
     hint("Declaration of " & "iggetcontentregionavail" &
         " already exists, not redeclaring")
 when not declared(iggetcontentregionmax):
-  proc iggetcontentregionmax*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetcontentregionmax*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetContentRegionMax".}
 else:
   static :
     hint("Declaration of " & "iggetcontentregionmax" &
         " already exists, not redeclaring")
 when not declared(iggetwindowcontentregionmin):
-  proc iggetwindowcontentregionmin*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetwindowcontentregionmin*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetWindowContentRegionMin".}
 else:
   static :
     hint("Declaration of " & "iggetwindowcontentregionmin" &
         " already exists, not redeclaring")
 when not declared(iggetwindowcontentregionmax):
-  proc iggetwindowcontentregionmax*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetwindowcontentregionmax*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetWindowContentRegionMax".}
 else:
   static :
@@ -8711,7 +8711,7 @@ else:
     hint("Declaration of " & "igsetscrollfromposyfloat" &
         " already exists, not redeclaring")
 when not declared(igpushfont):
-  proc igpushfont*(font: ptr Imfont_80740735): void {.cdecl,
+  proc igpushfont*(font: ptr Imfont_63963518): void {.cdecl,
       importc: "igPushFont".}
 else:
   static :
@@ -8722,14 +8722,14 @@ else:
   static :
     hint("Declaration of " & "igpopfont" & " already exists, not redeclaring")
 when not declared(igpushstylecoloru32):
-  proc igpushstylecoloru32*(idx: Imguicol_80740992; col: Imu32_80741076): void {.
+  proc igpushstylecoloru32*(idx: Imguicol_63963775; col: Imu32_63963859): void {.
       cdecl, importc: "igPushStyleColor_U32".}
 else:
   static :
     hint("Declaration of " & "igpushstylecoloru32" &
         " already exists, not redeclaring")
 when not declared(igpushstylecolorvec4):
-  proc igpushstylecolorvec4*(idx: Imguicol_80740992; col: Imvec4_80741100): void {.
+  proc igpushstylecolorvec4*(idx: Imguicol_63963775; col: Imvec4_63963883): void {.
       cdecl, importc: "igPushStyleColor_Vec4".}
 else:
   static :
@@ -8742,14 +8742,14 @@ else:
     hint("Declaration of " & "igpopstylecolor" &
         " already exists, not redeclaring")
 when not declared(igpushstylevarfloat):
-  proc igpushstylevarfloat*(idx: Imguistylevar_80741006; val: cfloat): void {.
+  proc igpushstylevarfloat*(idx: Imguistylevar_63963789; val: cfloat): void {.
       cdecl, importc: "igPushStyleVar_Float".}
 else:
   static :
     hint("Declaration of " & "igpushstylevarfloat" &
         " already exists, not redeclaring")
 when not declared(igpushstylevarvec2):
-  proc igpushstylevarvec2*(idx: Imguistylevar_80741006; val: Imvec2_80741096): void {.
+  proc igpushstylevarvec2*(idx: Imguistylevar_63963789; val: Imvec2_63963879): void {.
       cdecl, importc: "igPushStyleVar_Vec2".}
 else:
   static :
@@ -8825,7 +8825,7 @@ else:
     hint("Declaration of " & "igpoptextwrappos" &
         " already exists, not redeclaring")
 when not declared(iggetfont):
-  proc iggetfont*(): ptr Imfont_80740735 {.cdecl, importc: "igGetFont".}
+  proc iggetfont*(): ptr Imfont_63963518 {.cdecl, importc: "igGetFont".}
 else:
   static :
     hint("Declaration of " & "iggetfont" & " already exists, not redeclaring")
@@ -8836,35 +8836,35 @@ else:
     hint("Declaration of " & "iggetfontsize" &
         " already exists, not redeclaring")
 when not declared(iggetfonttexuvwhitepixel):
-  proc iggetfonttexuvwhitepixel*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetfonttexuvwhitepixel*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetFontTexUvWhitePixel".}
 else:
   static :
     hint("Declaration of " & "iggetfonttexuvwhitepixel" &
         " already exists, not redeclaring")
 when not declared(iggetcoloru32col):
-  proc iggetcoloru32col*(idx: Imguicol_80740992; alphamul: cfloat): Imu32_80741076 {.
+  proc iggetcoloru32col*(idx: Imguicol_63963775; alphamul: cfloat): Imu32_63963859 {.
       cdecl, importc: "igGetColorU32_Col".}
 else:
   static :
     hint("Declaration of " & "iggetcoloru32col" &
         " already exists, not redeclaring")
 when not declared(iggetcoloru32vec4):
-  proc iggetcoloru32vec4*(col: Imvec4_80741100): Imu32_80741076 {.cdecl,
+  proc iggetcoloru32vec4*(col: Imvec4_63963883): Imu32_63963859 {.cdecl,
       importc: "igGetColorU32_Vec4".}
 else:
   static :
     hint("Declaration of " & "iggetcoloru32vec4" &
         " already exists, not redeclaring")
 when not declared(iggetcoloru32u32):
-  proc iggetcoloru32u32*(col: Imu32_80741076): Imu32_80741076 {.cdecl,
+  proc iggetcoloru32u32*(col: Imu32_63963859): Imu32_63963859 {.cdecl,
       importc: "igGetColorU32_U32".}
 else:
   static :
     hint("Declaration of " & "iggetcoloru32u32" &
         " already exists, not redeclaring")
 when not declared(iggetstylecolorvec4):
-  proc iggetstylecolorvec4*(idx: Imguicol_80740992): ptr Imvec4_80741100 {.
+  proc iggetstylecolorvec4*(idx: Imguicol_63963775): ptr Imvec4_63963883 {.
       cdecl, importc: "igGetStyleColorVec4".}
 else:
   static :
@@ -8892,7 +8892,7 @@ else:
   static :
     hint("Declaration of " & "igspacing" & " already exists, not redeclaring")
 when not declared(igdummy):
-  proc igdummy*(size: Imvec2_80741096): void {.cdecl, importc: "igDummy".}
+  proc igdummy*(size: Imvec2_63963879): void {.cdecl, importc: "igDummy".}
 else:
   static :
     hint("Declaration of " & "igdummy" & " already exists, not redeclaring")
@@ -8917,7 +8917,7 @@ else:
   static :
     hint("Declaration of " & "igendgroup" & " already exists, not redeclaring")
 when not declared(iggetcursorpos):
-  proc iggetcursorpos*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetcursorpos*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetCursorPos".}
 else:
   static :
@@ -8936,7 +8936,7 @@ else:
     hint("Declaration of " & "iggetcursorposy" &
         " already exists, not redeclaring")
 when not declared(igsetcursorpos):
-  proc igsetcursorpos*(localpos: Imvec2_80741096): void {.cdecl,
+  proc igsetcursorpos*(localpos: Imvec2_63963879): void {.cdecl,
       importc: "igSetCursorPos".}
 else:
   static :
@@ -8957,21 +8957,21 @@ else:
     hint("Declaration of " & "igsetcursorposy" &
         " already exists, not redeclaring")
 when not declared(iggetcursorstartpos):
-  proc iggetcursorstartpos*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetcursorstartpos*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetCursorStartPos".}
 else:
   static :
     hint("Declaration of " & "iggetcursorstartpos" &
         " already exists, not redeclaring")
 when not declared(iggetcursorscreenpos):
-  proc iggetcursorscreenpos*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetcursorscreenpos*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetCursorScreenPos".}
 else:
   static :
     hint("Declaration of " & "iggetcursorscreenpos" &
         " already exists, not redeclaring")
 when not declared(igsetcursorscreenpos):
-  proc igsetcursorscreenpos*(pos: Imvec2_80741096): void {.cdecl,
+  proc igsetcursorscreenpos*(pos: Imvec2_63963879): void {.cdecl,
       importc: "igSetCursorScreenPos".}
 else:
   static :
@@ -9038,20 +9038,20 @@ else:
   static :
     hint("Declaration of " & "igpopid" & " already exists, not redeclaring")
 when not declared(iggetidstr):
-  proc iggetidstr*(strid: cstring): Imguiid_80741064 {.cdecl,
+  proc iggetidstr*(strid: cstring): Imguiid_63963847 {.cdecl,
       importc: "igGetID_Str".}
 else:
   static :
     hint("Declaration of " & "iggetidstr" & " already exists, not redeclaring")
 when not declared(iggetidstrstr):
-  proc iggetidstrstr*(stridbegin: cstring; stridend: cstring): Imguiid_80741064 {.
+  proc iggetidstrstr*(stridbegin: cstring; stridend: cstring): Imguiid_63963847 {.
       cdecl, importc: "igGetID_StrStr".}
 else:
   static :
     hint("Declaration of " & "iggetidstrstr" &
         " already exists, not redeclaring")
 when not declared(iggetidptr):
-  proc iggetidptr*(ptrid: pointer): Imguiid_80741064 {.cdecl,
+  proc iggetidptr*(ptrid: pointer): Imguiid_63963847 {.cdecl,
       importc: "igGetID_Ptr".}
 else:
   static :
@@ -9074,14 +9074,14 @@ else:
   static :
     hint("Declaration of " & "igtextv" & " already exists, not redeclaring")
 when not declared(igtextcolored):
-  proc igtextcolored*(col: Imvec4_80741100; fmt: cstring): void {.cdecl,
+  proc igtextcolored*(col: Imvec4_63963883; fmt: cstring): void {.cdecl,
       varargs, importc: "igTextColored".}
 else:
   static :
     hint("Declaration of " & "igtextcolored" &
         " already exists, not redeclaring")
 when not declared(igtextcoloredv):
-  proc igtextcoloredv*(col: Imvec4_80741100; fmt: cstring): void {.cdecl,
+  proc igtextcoloredv*(col: Imvec4_63963883; fmt: cstring): void {.cdecl,
       varargs, importc: "igTextColoredV".}
 else:
   static :
@@ -9148,7 +9148,7 @@ else:
     hint("Declaration of " & "igseparatortext" &
         " already exists, not redeclaring")
 when not declared(igbutton):
-  proc igbutton*(label: cstring; size: Imvec2_80741096): bool {.cdecl,
+  proc igbutton*(label: cstring; size: Imvec2_63963879): bool {.cdecl,
       importc: "igButton".}
 else:
   static :
@@ -9160,15 +9160,15 @@ else:
     hint("Declaration of " & "igsmallbutton" &
         " already exists, not redeclaring")
 when not declared(iginvisiblebutton):
-  proc iginvisiblebutton*(strid: cstring; size: Imvec2_80741096;
-                          flags: Imguibuttonflags_80741018): bool {.cdecl,
+  proc iginvisiblebutton*(strid: cstring; size: Imvec2_63963879;
+                          flags: Imguibuttonflags_63963801): bool {.cdecl,
       importc: "igInvisibleButton".}
 else:
   static :
     hint("Declaration of " & "iginvisiblebutton" &
         " already exists, not redeclaring")
 when not declared(igarrowbutton):
-  proc igarrowbutton*(strid: cstring; dir: Imguidir_80740998): bool {.cdecl,
+  proc igarrowbutton*(strid: cstring; dir: Imguidir_63963781): bool {.cdecl,
       importc: "igArrowButton".}
 else:
   static :
@@ -9210,7 +9210,7 @@ else:
     hint("Declaration of " & "igradiobuttonintptr" &
         " already exists, not redeclaring")
 when not declared(igprogressbar):
-  proc igprogressbar*(fraction: cfloat; sizearg: Imvec2_80741096;
+  proc igprogressbar*(fraction: cfloat; sizearg: Imvec2_63963879;
                       overlay: cstring): void {.cdecl, importc: "igProgressBar".}
 else:
   static :
@@ -9222,16 +9222,16 @@ else:
   static :
     hint("Declaration of " & "igbullet" & " already exists, not redeclaring")
 when not declared(igimage):
-  proc igimage*(usertextureid: Imtextureid_80741060; size: Imvec2_80741096;
-                uv0: Imvec2_80741096; uv1: Imvec2_80741096; tintcol: Imvec4_80741100;
-                bordercol: Imvec4_80741100): void {.cdecl, importc: "igImage".}
+  proc igimage*(usertextureid: Imtextureid_63963843; size: Imvec2_63963879;
+                uv0: Imvec2_63963879; uv1: Imvec2_63963879; tintcol: Imvec4_63963883;
+                bordercol: Imvec4_63963883): void {.cdecl, importc: "igImage".}
 else:
   static :
     hint("Declaration of " & "igimage" & " already exists, not redeclaring")
 when not declared(igimagebutton):
-  proc igimagebutton*(strid: cstring; usertextureid: Imtextureid_80741060;
-                      size: Imvec2_80741096; uv0: Imvec2_80741096; uv1: Imvec2_80741096;
-                      bgcol: Imvec4_80741100; tintcol: Imvec4_80741100): bool {.
+  proc igimagebutton*(strid: cstring; usertextureid: Imtextureid_63963843;
+                      size: Imvec2_63963879; uv0: Imvec2_63963879; uv1: Imvec2_63963879;
+                      bgcol: Imvec4_63963883; tintcol: Imvec4_63963883): bool {.
       cdecl, importc: "igImageButton".}
 else:
   static :
@@ -9239,7 +9239,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igbegincombo):
   proc igbegincombo*(label: cstring; previewvalue: cstring;
-                     flags: Imguicomboflags_80741024): bool {.cdecl,
+                     flags: Imguicomboflags_63963807): bool {.cdecl,
       importc: "igBeginCombo".}
 else:
   static :
@@ -9276,7 +9276,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igdragfloat):
   proc igdragfloat*(label: cstring; v: ptr cfloat; vspeed: cfloat; vmin: cfloat;
-                    vmax: cfloat; format: cstring; flags: Imguisliderflags_80741042): bool {.
+                    vmax: cfloat; format: cstring; flags: Imguisliderflags_63963825): bool {.
       cdecl, importc: "igDragFloat".}
 else:
   static :
@@ -9284,7 +9284,7 @@ else:
 when not declared(igdragfloat2):
   proc igdragfloat2*(label: cstring; v: array[2'i64, cfloat]; vspeed: cfloat;
                      vmin: cfloat; vmax: cfloat; format: cstring;
-                     flags: Imguisliderflags_80741042): bool {.cdecl,
+                     flags: Imguisliderflags_63963825): bool {.cdecl,
       importc: "igDragFloat2".}
 else:
   static :
@@ -9292,7 +9292,7 @@ else:
 when not declared(igdragfloat3):
   proc igdragfloat3*(label: cstring; v: array[3'i64, cfloat]; vspeed: cfloat;
                      vmin: cfloat; vmax: cfloat; format: cstring;
-                     flags: Imguisliderflags_80741042): bool {.cdecl,
+                     flags: Imguisliderflags_63963825): bool {.cdecl,
       importc: "igDragFloat3".}
 else:
   static :
@@ -9300,7 +9300,7 @@ else:
 when not declared(igdragfloat4):
   proc igdragfloat4*(label: cstring; v: array[4'i64, cfloat]; vspeed: cfloat;
                      vmin: cfloat; vmax: cfloat; format: cstring;
-                     flags: Imguisliderflags_80741042): bool {.cdecl,
+                     flags: Imguisliderflags_63963825): bool {.cdecl,
       importc: "igDragFloat4".}
 else:
   static :
@@ -9309,7 +9309,7 @@ when not declared(igdragfloatrange2):
   proc igdragfloatrange2*(label: cstring; vcurrentmin: ptr cfloat;
                           vcurrentmax: ptr cfloat; vspeed: cfloat; vmin: cfloat;
                           vmax: cfloat; format: cstring; formatmax: cstring;
-                          flags: Imguisliderflags_80741042): bool {.cdecl,
+                          flags: Imguisliderflags_63963825): bool {.cdecl,
       importc: "igDragFloatRange2".}
 else:
   static :
@@ -9317,7 +9317,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igdragint):
   proc igdragint*(label: cstring; v: ptr cint; vspeed: cfloat; vmin: cint;
-                  vmax: cint; format: cstring; flags: Imguisliderflags_80741042): bool {.
+                  vmax: cint; format: cstring; flags: Imguisliderflags_63963825): bool {.
       cdecl, importc: "igDragInt".}
 else:
   static :
@@ -9325,7 +9325,7 @@ else:
 when not declared(igdragint2):
   proc igdragint2*(label: cstring; v: array[2'i64, cint]; vspeed: cfloat;
                    vmin: cint; vmax: cint; format: cstring;
-                   flags: Imguisliderflags_80741042): bool {.cdecl,
+                   flags: Imguisliderflags_63963825): bool {.cdecl,
       importc: "igDragInt2".}
 else:
   static :
@@ -9333,7 +9333,7 @@ else:
 when not declared(igdragint3):
   proc igdragint3*(label: cstring; v: array[3'i64, cint]; vspeed: cfloat;
                    vmin: cint; vmax: cint; format: cstring;
-                   flags: Imguisliderflags_80741042): bool {.cdecl,
+                   flags: Imguisliderflags_63963825): bool {.cdecl,
       importc: "igDragInt3".}
 else:
   static :
@@ -9341,7 +9341,7 @@ else:
 when not declared(igdragint4):
   proc igdragint4*(label: cstring; v: array[4'i64, cint]; vspeed: cfloat;
                    vmin: cint; vmax: cint; format: cstring;
-                   flags: Imguisliderflags_80741042): bool {.cdecl,
+                   flags: Imguisliderflags_63963825): bool {.cdecl,
       importc: "igDragInt4".}
 else:
   static :
@@ -9350,25 +9350,25 @@ when not declared(igdragintrange2):
   proc igdragintrange2*(label: cstring; vcurrentmin: ptr cint;
                         vcurrentmax: ptr cint; vspeed: cfloat; vmin: cint;
                         vmax: cint; format: cstring; formatmax: cstring;
-                        flags: Imguisliderflags_80741042): bool {.cdecl,
+                        flags: Imguisliderflags_63963825): bool {.cdecl,
       importc: "igDragIntRange2".}
 else:
   static :
     hint("Declaration of " & "igdragintrange2" &
         " already exists, not redeclaring")
 when not declared(igdragscalar):
-  proc igdragscalar*(label: cstring; datatype: Imguidatatype_80740996;
+  proc igdragscalar*(label: cstring; datatype: Imguidatatype_63963779;
                      pdata: pointer; vspeed: cfloat; pmin: pointer;
-                     pmax: pointer; format: cstring; flags: Imguisliderflags_80741042): bool {.
+                     pmax: pointer; format: cstring; flags: Imguisliderflags_63963825): bool {.
       cdecl, importc: "igDragScalar".}
 else:
   static :
     hint("Declaration of " & "igdragscalar" & " already exists, not redeclaring")
 when not declared(igdragscalarn):
-  proc igdragscalarn*(label: cstring; datatype: Imguidatatype_80740996;
+  proc igdragscalarn*(label: cstring; datatype: Imguidatatype_63963779;
                       pdata: pointer; components: cint; vspeed: cfloat;
                       pmin: pointer; pmax: pointer; format: cstring;
-                      flags: Imguisliderflags_80741042): bool {.cdecl,
+                      flags: Imguisliderflags_63963825): bool {.cdecl,
       importc: "igDragScalarN".}
 else:
   static :
@@ -9376,7 +9376,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igsliderfloat):
   proc igsliderfloat*(label: cstring; v: ptr cfloat; vmin: cfloat; vmax: cfloat;
-                      format: cstring; flags: Imguisliderflags_80741042): bool {.
+                      format: cstring; flags: Imguisliderflags_63963825): bool {.
       cdecl, importc: "igSliderFloat".}
 else:
   static :
@@ -9384,7 +9384,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igsliderfloat2):
   proc igsliderfloat2*(label: cstring; v: array[2'i64, cfloat]; vmin: cfloat;
-                       vmax: cfloat; format: cstring; flags: Imguisliderflags_80741042): bool {.
+                       vmax: cfloat; format: cstring; flags: Imguisliderflags_63963825): bool {.
       cdecl, importc: "igSliderFloat2".}
 else:
   static :
@@ -9392,7 +9392,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igsliderfloat3):
   proc igsliderfloat3*(label: cstring; v: array[3'i64, cfloat]; vmin: cfloat;
-                       vmax: cfloat; format: cstring; flags: Imguisliderflags_80741042): bool {.
+                       vmax: cfloat; format: cstring; flags: Imguisliderflags_63963825): bool {.
       cdecl, importc: "igSliderFloat3".}
 else:
   static :
@@ -9400,7 +9400,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igsliderfloat4):
   proc igsliderfloat4*(label: cstring; v: array[4'i64, cfloat]; vmin: cfloat;
-                       vmax: cfloat; format: cstring; flags: Imguisliderflags_80741042): bool {.
+                       vmax: cfloat; format: cstring; flags: Imguisliderflags_63963825): bool {.
       cdecl, importc: "igSliderFloat4".}
 else:
   static :
@@ -9409,7 +9409,7 @@ else:
 when not declared(igsliderangle):
   proc igsliderangle*(label: cstring; vrad: ptr cfloat; vdegreesmin: cfloat;
                       vdegreesmax: cfloat; format: cstring;
-                      flags: Imguisliderflags_80741042): bool {.cdecl,
+                      flags: Imguisliderflags_63963825): bool {.cdecl,
       importc: "igSliderAngle".}
 else:
   static :
@@ -9417,72 +9417,72 @@ else:
         " already exists, not redeclaring")
 when not declared(igsliderint):
   proc igsliderint*(label: cstring; v: ptr cint; vmin: cint; vmax: cint;
-                    format: cstring; flags: Imguisliderflags_80741042): bool {.
+                    format: cstring; flags: Imguisliderflags_63963825): bool {.
       cdecl, importc: "igSliderInt".}
 else:
   static :
     hint("Declaration of " & "igsliderint" & " already exists, not redeclaring")
 when not declared(igsliderint2):
   proc igsliderint2*(label: cstring; v: array[2'i64, cint]; vmin: cint;
-                     vmax: cint; format: cstring; flags: Imguisliderflags_80741042): bool {.
+                     vmax: cint; format: cstring; flags: Imguisliderflags_63963825): bool {.
       cdecl, importc: "igSliderInt2".}
 else:
   static :
     hint("Declaration of " & "igsliderint2" & " already exists, not redeclaring")
 when not declared(igsliderint3):
   proc igsliderint3*(label: cstring; v: array[3'i64, cint]; vmin: cint;
-                     vmax: cint; format: cstring; flags: Imguisliderflags_80741042): bool {.
+                     vmax: cint; format: cstring; flags: Imguisliderflags_63963825): bool {.
       cdecl, importc: "igSliderInt3".}
 else:
   static :
     hint("Declaration of " & "igsliderint3" & " already exists, not redeclaring")
 when not declared(igsliderint4):
   proc igsliderint4*(label: cstring; v: array[4'i64, cint]; vmin: cint;
-                     vmax: cint; format: cstring; flags: Imguisliderflags_80741042): bool {.
+                     vmax: cint; format: cstring; flags: Imguisliderflags_63963825): bool {.
       cdecl, importc: "igSliderInt4".}
 else:
   static :
     hint("Declaration of " & "igsliderint4" & " already exists, not redeclaring")
 when not declared(igsliderscalar):
-  proc igsliderscalar*(label: cstring; datatype: Imguidatatype_80740996;
+  proc igsliderscalar*(label: cstring; datatype: Imguidatatype_63963779;
                        pdata: pointer; pmin: pointer; pmax: pointer;
-                       format: cstring; flags: Imguisliderflags_80741042): bool {.
+                       format: cstring; flags: Imguisliderflags_63963825): bool {.
       cdecl, importc: "igSliderScalar".}
 else:
   static :
     hint("Declaration of " & "igsliderscalar" &
         " already exists, not redeclaring")
 when not declared(igsliderscalarn):
-  proc igsliderscalarn*(label: cstring; datatype: Imguidatatype_80740996;
+  proc igsliderscalarn*(label: cstring; datatype: Imguidatatype_63963779;
                         pdata: pointer; components: cint; pmin: pointer;
-                        pmax: pointer; format: cstring; flags: Imguisliderflags_80741042): bool {.
+                        pmax: pointer; format: cstring; flags: Imguisliderflags_63963825): bool {.
       cdecl, importc: "igSliderScalarN".}
 else:
   static :
     hint("Declaration of " & "igsliderscalarn" &
         " already exists, not redeclaring")
 when not declared(igvsliderfloat):
-  proc igvsliderfloat*(label: cstring; size: Imvec2_80741096; v: ptr cfloat;
+  proc igvsliderfloat*(label: cstring; size: Imvec2_63963879; v: ptr cfloat;
                        vmin: cfloat; vmax: cfloat; format: cstring;
-                       flags: Imguisliderflags_80741042): bool {.cdecl,
+                       flags: Imguisliderflags_63963825): bool {.cdecl,
       importc: "igVSliderFloat".}
 else:
   static :
     hint("Declaration of " & "igvsliderfloat" &
         " already exists, not redeclaring")
 when not declared(igvsliderint):
-  proc igvsliderint*(label: cstring; size: Imvec2_80741096; v: ptr cint;
+  proc igvsliderint*(label: cstring; size: Imvec2_63963879; v: ptr cint;
                      vmin: cint; vmax: cint; format: cstring;
-                     flags: Imguisliderflags_80741042): bool {.cdecl,
+                     flags: Imguisliderflags_63963825): bool {.cdecl,
       importc: "igVSliderInt".}
 else:
   static :
     hint("Declaration of " & "igvsliderint" & " already exists, not redeclaring")
 when not declared(igvsliderscalar):
-  proc igvsliderscalar*(label: cstring; size: Imvec2_80741096;
-                        datatype: Imguidatatype_80740996; pdata: pointer;
+  proc igvsliderscalar*(label: cstring; size: Imvec2_63963879;
+                        datatype: Imguidatatype_63963779; pdata: pointer;
                         pmin: pointer; pmax: pointer; format: cstring;
-                        flags: Imguisliderflags_80741042): bool {.cdecl,
+                        flags: Imguisliderflags_63963825): bool {.cdecl,
       importc: "igVSliderScalar".}
 else:
   static :
@@ -9490,16 +9490,16 @@ else:
         " already exists, not redeclaring")
 when not declared(iginputtext):
   proc iginputtext*(label: cstring; buf: cstring; bufsize: csize_t;
-                    flags: Imguiinputtextflags_80741034;
-                    callback: Imguiinputtextcallback_80741088; userdata: pointer): bool {.
+                    flags: Imguiinputtextflags_63963817;
+                    callback: Imguiinputtextcallback_63963871; userdata: pointer): bool {.
       cdecl, importc: "igInputText".}
 else:
   static :
     hint("Declaration of " & "iginputtext" & " already exists, not redeclaring")
 when not declared(iginputtextmultiline):
   proc iginputtextmultiline*(label: cstring; buf: cstring; bufsize: csize_t;
-                             size: Imvec2_80741096; flags: Imguiinputtextflags_80741034;
-                             callback: Imguiinputtextcallback_80741088;
+                             size: Imvec2_63963879; flags: Imguiinputtextflags_63963817;
+                             callback: Imguiinputtextcallback_63963871;
                              userdata: pointer): bool {.cdecl,
       importc: "igInputTextMultiline".}
 else:
@@ -9508,8 +9508,8 @@ else:
         " already exists, not redeclaring")
 when not declared(iginputtextwithhint):
   proc iginputtextwithhint*(label: cstring; hint: cstring; buf: cstring;
-                            bufsize: csize_t; flags: Imguiinputtextflags_80741034;
-                            callback: Imguiinputtextcallback_80741088;
+                            bufsize: csize_t; flags: Imguiinputtextflags_63963817;
+                            callback: Imguiinputtextcallback_63963871;
                             userdata: pointer): bool {.cdecl,
       importc: "igInputTextWithHint".}
 else:
@@ -9519,14 +9519,14 @@ else:
 when not declared(iginputfloat):
   proc iginputfloat*(label: cstring; v: ptr cfloat; step: cfloat;
                      stepfast: cfloat; format: cstring;
-                     flags: Imguiinputtextflags_80741034): bool {.cdecl,
+                     flags: Imguiinputtextflags_63963817): bool {.cdecl,
       importc: "igInputFloat".}
 else:
   static :
     hint("Declaration of " & "iginputfloat" & " already exists, not redeclaring")
 when not declared(iginputfloat2):
   proc iginputfloat2*(label: cstring; v: array[2'i64, cfloat]; format: cstring;
-                      flags: Imguiinputtextflags_80741034): bool {.cdecl,
+                      flags: Imguiinputtextflags_63963817): bool {.cdecl,
       importc: "igInputFloat2".}
 else:
   static :
@@ -9534,7 +9534,7 @@ else:
         " already exists, not redeclaring")
 when not declared(iginputfloat3):
   proc iginputfloat3*(label: cstring; v: array[3'i64, cfloat]; format: cstring;
-                      flags: Imguiinputtextflags_80741034): bool {.cdecl,
+                      flags: Imguiinputtextflags_63963817): bool {.cdecl,
       importc: "igInputFloat3".}
 else:
   static :
@@ -9542,7 +9542,7 @@ else:
         " already exists, not redeclaring")
 when not declared(iginputfloat4):
   proc iginputfloat4*(label: cstring; v: array[4'i64, cfloat]; format: cstring;
-                      flags: Imguiinputtextflags_80741034): bool {.cdecl,
+                      flags: Imguiinputtextflags_63963817): bool {.cdecl,
       importc: "igInputFloat4".}
 else:
   static :
@@ -9550,28 +9550,28 @@ else:
         " already exists, not redeclaring")
 when not declared(iginputint):
   proc iginputint*(label: cstring; v: ptr cint; step: cint; stepfast: cint;
-                   flags: Imguiinputtextflags_80741034): bool {.cdecl,
+                   flags: Imguiinputtextflags_63963817): bool {.cdecl,
       importc: "igInputInt".}
 else:
   static :
     hint("Declaration of " & "iginputint" & " already exists, not redeclaring")
 when not declared(iginputint2):
   proc iginputint2*(label: cstring; v: array[2'i64, cint];
-                    flags: Imguiinputtextflags_80741034): bool {.cdecl,
+                    flags: Imguiinputtextflags_63963817): bool {.cdecl,
       importc: "igInputInt2".}
 else:
   static :
     hint("Declaration of " & "iginputint2" & " already exists, not redeclaring")
 when not declared(iginputint3):
   proc iginputint3*(label: cstring; v: array[3'i64, cint];
-                    flags: Imguiinputtextflags_80741034): bool {.cdecl,
+                    flags: Imguiinputtextflags_63963817): bool {.cdecl,
       importc: "igInputInt3".}
 else:
   static :
     hint("Declaration of " & "iginputint3" & " already exists, not redeclaring")
 when not declared(iginputint4):
   proc iginputint4*(label: cstring; v: array[4'i64, cint];
-                    flags: Imguiinputtextflags_80741034): bool {.cdecl,
+                    flags: Imguiinputtextflags_63963817): bool {.cdecl,
       importc: "igInputInt4".}
 else:
   static :
@@ -9579,26 +9579,26 @@ else:
 when not declared(iginputdouble):
   proc iginputdouble*(label: cstring; v: ptr cdouble; step: cdouble;
                       stepfast: cdouble; format: cstring;
-                      flags: Imguiinputtextflags_80741034): bool {.cdecl,
+                      flags: Imguiinputtextflags_63963817): bool {.cdecl,
       importc: "igInputDouble".}
 else:
   static :
     hint("Declaration of " & "iginputdouble" &
         " already exists, not redeclaring")
 when not declared(iginputscalar):
-  proc iginputscalar*(label: cstring; datatype: Imguidatatype_80740996;
+  proc iginputscalar*(label: cstring; datatype: Imguidatatype_63963779;
                       pdata: pointer; pstep: pointer; pstepfast: pointer;
-                      format: cstring; flags: Imguiinputtextflags_80741034): bool {.
+                      format: cstring; flags: Imguiinputtextflags_63963817): bool {.
       cdecl, importc: "igInputScalar".}
 else:
   static :
     hint("Declaration of " & "iginputscalar" &
         " already exists, not redeclaring")
 when not declared(iginputscalarn):
-  proc iginputscalarn*(label: cstring; datatype: Imguidatatype_80740996;
+  proc iginputscalarn*(label: cstring; datatype: Imguidatatype_63963779;
                        pdata: pointer; components: cint; pstep: pointer;
                        pstepfast: pointer; format: cstring;
-                       flags: Imguiinputtextflags_80741034): bool {.cdecl,
+                       flags: Imguiinputtextflags_63963817): bool {.cdecl,
       importc: "igInputScalarN".}
 else:
   static :
@@ -9606,21 +9606,21 @@ else:
         " already exists, not redeclaring")
 when not declared(igcoloredit3):
   proc igcoloredit3*(label: cstring; col: array[3'i64, cfloat];
-                     flags: Imguicoloreditflags_80741020): bool {.cdecl,
+                     flags: Imguicoloreditflags_63963803): bool {.cdecl,
       importc: "igColorEdit3".}
 else:
   static :
     hint("Declaration of " & "igcoloredit3" & " already exists, not redeclaring")
 when not declared(igcoloredit4):
   proc igcoloredit4*(label: cstring; col: array[4'i64, cfloat];
-                     flags: Imguicoloreditflags_80741020): bool {.cdecl,
+                     flags: Imguicoloreditflags_63963803): bool {.cdecl,
       importc: "igColorEdit4".}
 else:
   static :
     hint("Declaration of " & "igcoloredit4" & " already exists, not redeclaring")
 when not declared(igcolorpicker3):
   proc igcolorpicker3*(label: cstring; col: array[3'i64, cfloat];
-                       flags: Imguicoloreditflags_80741020): bool {.cdecl,
+                       flags: Imguicoloreditflags_63963803): bool {.cdecl,
       importc: "igColorPicker3".}
 else:
   static :
@@ -9628,22 +9628,22 @@ else:
         " already exists, not redeclaring")
 when not declared(igcolorpicker4):
   proc igcolorpicker4*(label: cstring; col: array[4'i64, cfloat];
-                       flags: Imguicoloreditflags_80741020; refcol: ptr cfloat): bool {.
+                       flags: Imguicoloreditflags_63963803; refcol: ptr cfloat): bool {.
       cdecl, importc: "igColorPicker4".}
 else:
   static :
     hint("Declaration of " & "igcolorpicker4" &
         " already exists, not redeclaring")
 when not declared(igcolorbutton):
-  proc igcolorbutton*(descid: cstring; col: Imvec4_80741100;
-                      flags: Imguicoloreditflags_80741020; size: Imvec2_80741096): bool {.
+  proc igcolorbutton*(descid: cstring; col: Imvec4_63963883;
+                      flags: Imguicoloreditflags_63963803; size: Imvec2_63963879): bool {.
       cdecl, importc: "igColorButton".}
 else:
   static :
     hint("Declaration of " & "igcolorbutton" &
         " already exists, not redeclaring")
 when not declared(igsetcoloreditoptions):
-  proc igsetcoloreditoptions*(flags: Imguicoloreditflags_80741020): void {.
+  proc igsetcoloreditoptions*(flags: Imguicoloreditflags_63963803): void {.
       cdecl, importc: "igSetColorEditOptions".}
 else:
   static :
@@ -9684,14 +9684,14 @@ else:
     hint("Declaration of " & "igtreenodevptr" &
         " already exists, not redeclaring")
 when not declared(igtreenodeexstr):
-  proc igtreenodeexstr*(label: cstring; flags: Imguitreenodeflags_80741054): bool {.
+  proc igtreenodeexstr*(label: cstring; flags: Imguitreenodeflags_63963837): bool {.
       cdecl, importc: "igTreeNodeEx_Str".}
 else:
   static :
     hint("Declaration of " & "igtreenodeexstr" &
         " already exists, not redeclaring")
 when not declared(igtreenodeexstrstr):
-  proc igtreenodeexstrstr*(strid: cstring; flags: Imguitreenodeflags_80741054;
+  proc igtreenodeexstrstr*(strid: cstring; flags: Imguitreenodeflags_63963837;
                            fmt: cstring): bool {.cdecl, varargs,
       importc: "igTreeNodeEx_StrStr".}
 else:
@@ -9699,7 +9699,7 @@ else:
     hint("Declaration of " & "igtreenodeexstrstr" &
         " already exists, not redeclaring")
 when not declared(igtreenodeexptr):
-  proc igtreenodeexptr*(ptrid: pointer; flags: Imguitreenodeflags_80741054;
+  proc igtreenodeexptr*(ptrid: pointer; flags: Imguitreenodeflags_63963837;
                         fmt: cstring): bool {.cdecl, varargs,
       importc: "igTreeNodeEx_Ptr".}
 else:
@@ -9707,7 +9707,7 @@ else:
     hint("Declaration of " & "igtreenodeexptr" &
         " already exists, not redeclaring")
 when not declared(igtreenodeexvstr):
-  proc igtreenodeexvstr*(strid: cstring; flags: Imguitreenodeflags_80741054;
+  proc igtreenodeexvstr*(strid: cstring; flags: Imguitreenodeflags_63963837;
                          fmt: cstring): bool {.cdecl, varargs,
       importc: "igTreeNodeExV_Str".}
 else:
@@ -9715,7 +9715,7 @@ else:
     hint("Declaration of " & "igtreenodeexvstr" &
         " already exists, not redeclaring")
 when not declared(igtreenodeexvptr):
-  proc igtreenodeexvptr*(ptrid: pointer; flags: Imguitreenodeflags_80741054;
+  proc igtreenodeexvptr*(ptrid: pointer; flags: Imguitreenodeflags_63963837;
                          fmt: cstring): bool {.cdecl, varargs,
       importc: "igTreeNodeExV_Ptr".}
 else:
@@ -9748,7 +9748,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igcollapsingheadertreenodeflags):
   proc igcollapsingheadertreenodeflags*(label: cstring;
-                                        flags: Imguitreenodeflags_80741054): bool {.
+                                        flags: Imguitreenodeflags_63963837): bool {.
       cdecl, importc: "igCollapsingHeader_TreeNodeFlags".}
 else:
   static :
@@ -9756,14 +9756,14 @@ else:
         " already exists, not redeclaring")
 when not declared(igcollapsingheaderboolptr):
   proc igcollapsingheaderboolptr*(label: cstring; pvisible: ptr bool;
-                                  flags: Imguitreenodeflags_80741054): bool {.
+                                  flags: Imguitreenodeflags_63963837): bool {.
       cdecl, importc: "igCollapsingHeader_BoolPtr".}
 else:
   static :
     hint("Declaration of " & "igcollapsingheaderboolptr" &
         " already exists, not redeclaring")
 when not declared(igsetnextitemopen):
-  proc igsetnextitemopen*(isopen: bool; cond: Imguicond_80740994): void {.cdecl,
+  proc igsetnextitemopen*(isopen: bool; cond: Imguicond_63963777): void {.cdecl,
       importc: "igSetNextItemOpen".}
 else:
   static :
@@ -9771,7 +9771,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igselectablebool):
   proc igselectablebool*(label: cstring; selected: bool;
-                         flags: Imguiselectableflags_80741040; size: Imvec2_80741096): bool {.
+                         flags: Imguiselectableflags_63963823; size: Imvec2_63963879): bool {.
       cdecl, importc: "igSelectable_Bool".}
 else:
   static :
@@ -9779,14 +9779,14 @@ else:
         " already exists, not redeclaring")
 when not declared(igselectableboolptr):
   proc igselectableboolptr*(label: cstring; pselected: ptr bool;
-                            flags: Imguiselectableflags_80741040; size: Imvec2_80741096): bool {.
+                            flags: Imguiselectableflags_63963823; size: Imvec2_63963879): bool {.
       cdecl, importc: "igSelectable_BoolPtr".}
 else:
   static :
     hint("Declaration of " & "igselectableboolptr" &
         " already exists, not redeclaring")
 when not declared(igbeginlistbox):
-  proc igbeginlistbox*(label: cstring; size: Imvec2_80741096): bool {.cdecl,
+  proc igbeginlistbox*(label: cstring; size: Imvec2_63963879): bool {.cdecl,
       importc: "igBeginListBox".}
 else:
   static :
@@ -9819,7 +9819,7 @@ when not declared(igplotlinesfloatptr):
   proc igplotlinesfloatptr*(label: cstring; values: ptr cfloat;
                             valuescount: cint; valuesoffset: cint;
                             overlaytext: cstring; scalemin: cfloat;
-                            scalemax: cfloat; graphsize: Imvec2_80741096;
+                            scalemax: cfloat; graphsize: Imvec2_63963879;
                             stride: cint): void {.cdecl,
       importc: "igPlotLines_FloatPtr".}
 else:
@@ -9831,7 +9831,7 @@ when not declared(igplotlinesfnfloatptr):
       a1: cint): cfloat {.cdecl.}; data: pointer; valuescount: cint;
                               valuesoffset: cint; overlaytext: cstring;
                               scalemin: cfloat; scalemax: cfloat;
-                              graphsize: Imvec2_80741096): void {.cdecl,
+                              graphsize: Imvec2_63963879): void {.cdecl,
       importc: "igPlotLines_FnFloatPtr".}
 else:
   static :
@@ -9841,7 +9841,7 @@ when not declared(igplothistogramfloatptr):
   proc igplothistogramfloatptr*(label: cstring; values: ptr cfloat;
                                 valuescount: cint; valuesoffset: cint;
                                 overlaytext: cstring; scalemin: cfloat;
-                                scalemax: cfloat; graphsize: Imvec2_80741096;
+                                scalemax: cfloat; graphsize: Imvec2_63963879;
                                 stride: cint): void {.cdecl,
       importc: "igPlotHistogram_FloatPtr".}
 else:
@@ -9853,7 +9853,7 @@ when not declared(igplothistogramfnfloatptr):
       a0: pointer; a1: cint): cfloat {.cdecl.}; data: pointer;
                                   valuescount: cint; valuesoffset: cint;
                                   overlaytext: cstring; scalemin: cfloat;
-                                  scalemax: cfloat; graphsize: Imvec2_80741096): void {.
+                                  scalemax: cfloat; graphsize: Imvec2_63963879): void {.
       cdecl, importc: "igPlotHistogram_FnFloatPtr".}
 else:
   static :
@@ -9957,14 +9957,14 @@ else:
     hint("Declaration of " & "igsettooltipv" &
         " already exists, not redeclaring")
 when not declared(igbeginpopup):
-  proc igbeginpopup*(strid: cstring; flags: Imguiwindowflags_80741058): bool {.
+  proc igbeginpopup*(strid: cstring; flags: Imguiwindowflags_63963841): bool {.
       cdecl, importc: "igBeginPopup".}
 else:
   static :
     hint("Declaration of " & "igbeginpopup" & " already exists, not redeclaring")
 when not declared(igbeginpopupmodal):
   proc igbeginpopupmodal*(name: cstring; popen: ptr bool;
-                          flags: Imguiwindowflags_80741058): bool {.cdecl,
+                          flags: Imguiwindowflags_63963841): bool {.cdecl,
       importc: "igBeginPopupModal".}
 else:
   static :
@@ -9976,21 +9976,21 @@ else:
   static :
     hint("Declaration of " & "igendpopup" & " already exists, not redeclaring")
 when not declared(igopenpopupstr):
-  proc igopenpopupstr*(strid: cstring; popupflags: Imguipopupflags_80741038): void {.
+  proc igopenpopupstr*(strid: cstring; popupflags: Imguipopupflags_63963821): void {.
       cdecl, importc: "igOpenPopup_Str".}
 else:
   static :
     hint("Declaration of " & "igopenpopupstr" &
         " already exists, not redeclaring")
 when not declared(igopenpopupid):
-  proc igopenpopupid*(id: Imguiid_80741064; popupflags: Imguipopupflags_80741038): void {.
+  proc igopenpopupid*(id: Imguiid_63963847; popupflags: Imguipopupflags_63963821): void {.
       cdecl, importc: "igOpenPopup_ID".}
 else:
   static :
     hint("Declaration of " & "igopenpopupid" &
         " already exists, not redeclaring")
 when not declared(igopenpopuponitemclick):
-  proc igopenpopuponitemclick*(strid: cstring; popupflags: Imguipopupflags_80741038): void {.
+  proc igopenpopuponitemclick*(strid: cstring; popupflags: Imguipopupflags_63963821): void {.
       cdecl, importc: "igOpenPopupOnItemClick".}
 else:
   static :
@@ -10003,36 +10003,36 @@ else:
     hint("Declaration of " & "igclosecurrentpopup" &
         " already exists, not redeclaring")
 when not declared(igbeginpopupcontextitem):
-  proc igbeginpopupcontextitem*(strid: cstring; popupflags: Imguipopupflags_80741038): bool {.
+  proc igbeginpopupcontextitem*(strid: cstring; popupflags: Imguipopupflags_63963821): bool {.
       cdecl, importc: "igBeginPopupContextItem".}
 else:
   static :
     hint("Declaration of " & "igbeginpopupcontextitem" &
         " already exists, not redeclaring")
 when not declared(igbeginpopupcontextwindow):
-  proc igbeginpopupcontextwindow*(strid: cstring; popupflags: Imguipopupflags_80741038): bool {.
+  proc igbeginpopupcontextwindow*(strid: cstring; popupflags: Imguipopupflags_63963821): bool {.
       cdecl, importc: "igBeginPopupContextWindow".}
 else:
   static :
     hint("Declaration of " & "igbeginpopupcontextwindow" &
         " already exists, not redeclaring")
 when not declared(igbeginpopupcontextvoid):
-  proc igbeginpopupcontextvoid*(strid: cstring; popupflags: Imguipopupflags_80741038): bool {.
+  proc igbeginpopupcontextvoid*(strid: cstring; popupflags: Imguipopupflags_63963821): bool {.
       cdecl, importc: "igBeginPopupContextVoid".}
 else:
   static :
     hint("Declaration of " & "igbeginpopupcontextvoid" &
         " already exists, not redeclaring")
 when not declared(igispopupopenstr):
-  proc igispopupopenstr*(strid: cstring; flags: Imguipopupflags_80741038): bool {.
+  proc igispopupopenstr*(strid: cstring; flags: Imguipopupflags_63963821): bool {.
       cdecl, importc: "igIsPopupOpen_Str".}
 else:
   static :
     hint("Declaration of " & "igispopupopenstr" &
         " already exists, not redeclaring")
 when not declared(igbegintable):
-  proc igbegintable*(strid: cstring; column: cint; flags: Imguitableflags_80741048;
-                     outersize: Imvec2_80741096; innerwidth: cfloat): bool {.
+  proc igbegintable*(strid: cstring; column: cint; flags: Imguitableflags_63963831;
+                     outersize: Imvec2_63963879; innerwidth: cfloat): bool {.
       cdecl, importc: "igBeginTable".}
 else:
   static :
@@ -10043,7 +10043,7 @@ else:
   static :
     hint("Declaration of " & "igendtable" & " already exists, not redeclaring")
 when not declared(igtablenextrow):
-  proc igtablenextrow*(rowflags: Imguitablerowflags_80741052;
+  proc igtablenextrow*(rowflags: Imguitablerowflags_63963835;
                        minrowheight: cfloat): void {.cdecl,
       importc: "igTableNextRow".}
 else:
@@ -10064,8 +10064,8 @@ else:
     hint("Declaration of " & "igtablesetcolumnindex" &
         " already exists, not redeclaring")
 when not declared(igtablesetupcolumn):
-  proc igtablesetupcolumn*(label: cstring; flags: Imguitablecolumnflags_80741050;
-                           initwidthorweight: cfloat; userid: Imguiid_80741064): void {.
+  proc igtablesetupcolumn*(label: cstring; flags: Imguitablecolumnflags_63963833;
+                           initwidthorweight: cfloat; userid: Imguiid_63963847): void {.
       cdecl, importc: "igTableSetupColumn".}
 else:
   static :
@@ -10091,7 +10091,7 @@ else:
     hint("Declaration of " & "igtableheader" &
         " already exists, not redeclaring")
 when not declared(igtablegetsortspecs):
-  proc igtablegetsortspecs*(): ptr Imguitablesortspecs_80740822 {.cdecl,
+  proc igtablegetsortspecs*(): ptr Imguitablesortspecs_63963605 {.cdecl,
       importc: "igTableGetSortSpecs".}
 else:
   static :
@@ -10123,7 +10123,7 @@ else:
     hint("Declaration of " & "igtablegetcolumnnameint" &
         " already exists, not redeclaring")
 when not declared(igtablegetcolumnflags):
-  proc igtablegetcolumnflags*(columnn: cint): Imguitablecolumnflags_80741050 {.
+  proc igtablegetcolumnflags*(columnn: cint): Imguitablecolumnflags_63963833 {.
       cdecl, importc: "igTableGetColumnFlags".}
 else:
   static :
@@ -10137,7 +10137,7 @@ else:
     hint("Declaration of " & "igtablesetcolumnenabled" &
         " already exists, not redeclaring")
 when not declared(igtablesetbgcolor):
-  proc igtablesetbgcolor*(target: Imguitablebgtarget_80741008; color: Imu32_80741076;
+  proc igtablesetbgcolor*(target: Imguitablebgtarget_63963791; color: Imu32_63963859;
                           columnn: cint): void {.cdecl,
       importc: "igTableSetBgColor".}
 else:
@@ -10196,7 +10196,7 @@ else:
     hint("Declaration of " & "iggetcolumnscount" &
         " already exists, not redeclaring")
 when not declared(igbegintabbar):
-  proc igbegintabbar*(strid: cstring; flags: Imguitabbarflags_80741044): bool {.
+  proc igbegintabbar*(strid: cstring; flags: Imguitabbarflags_63963827): bool {.
       cdecl, importc: "igBeginTabBar".}
 else:
   static :
@@ -10208,7 +10208,7 @@ else:
   static :
     hint("Declaration of " & "igendtabbar" & " already exists, not redeclaring")
 when not declared(igbegintabitem):
-  proc igbegintabitem*(label: cstring; popen: ptr bool; flags: Imguitabitemflags_80741046): bool {.
+  proc igbegintabitem*(label: cstring; popen: ptr bool; flags: Imguitabitemflags_63963829): bool {.
       cdecl, importc: "igBeginTabItem".}
 else:
   static :
@@ -10220,7 +10220,7 @@ else:
   static :
     hint("Declaration of " & "igendtabitem" & " already exists, not redeclaring")
 when not declared(igtabitembutton):
-  proc igtabitembutton*(label: cstring; flags: Imguitabitemflags_80741046): bool {.
+  proc igtabitembutton*(label: cstring; flags: Imguitabitemflags_63963829): bool {.
       cdecl, importc: "igTabItemButton".}
 else:
   static :
@@ -10234,38 +10234,38 @@ else:
     hint("Declaration of " & "igsettabitemclosed" &
         " already exists, not redeclaring")
 when not declared(igdockspace):
-  proc igdockspace*(id: Imguiid_80741064; size: Imvec2_80741096;
-                    flags: Imguidocknodeflags_80741026;
-                    windowclass: ptr Imguiwindowclass_80740842): Imguiid_80741064 {.
+  proc igdockspace*(id: Imguiid_63963847; size: Imvec2_63963879;
+                    flags: Imguidocknodeflags_63963809;
+                    windowclass: ptr Imguiwindowclass_63963625): Imguiid_63963847 {.
       cdecl, importc: "igDockSpace".}
 else:
   static :
     hint("Declaration of " & "igdockspace" & " already exists, not redeclaring")
 when not declared(igdockspaceoverviewport):
-  proc igdockspaceoverviewport*(viewport: ptr Imguiviewport_80740838;
-                                flags: Imguidocknodeflags_80741026;
-                                windowclass: ptr Imguiwindowclass_80740842): Imguiid_80741064 {.
+  proc igdockspaceoverviewport*(viewport: ptr Imguiviewport_63963621;
+                                flags: Imguidocknodeflags_63963809;
+                                windowclass: ptr Imguiwindowclass_63963625): Imguiid_63963847 {.
       cdecl, importc: "igDockSpaceOverViewport".}
 else:
   static :
     hint("Declaration of " & "igdockspaceoverviewport" &
         " already exists, not redeclaring")
 when not declared(igsetnextwindowdockid):
-  proc igsetnextwindowdockid*(dockid: Imguiid_80741064; cond: Imguicond_80740994): void {.
+  proc igsetnextwindowdockid*(dockid: Imguiid_63963847; cond: Imguicond_63963777): void {.
       cdecl, importc: "igSetNextWindowDockID".}
 else:
   static :
     hint("Declaration of " & "igsetnextwindowdockid" &
         " already exists, not redeclaring")
 when not declared(igsetnextwindowclass):
-  proc igsetnextwindowclass*(windowclass: ptr Imguiwindowclass_80740842): void {.
+  proc igsetnextwindowclass*(windowclass: ptr Imguiwindowclass_63963625): void {.
       cdecl, importc: "igSetNextWindowClass".}
 else:
   static :
     hint("Declaration of " & "igsetnextwindowclass" &
         " already exists, not redeclaring")
 when not declared(iggetwindowdockid):
-  proc iggetwindowdockid*(): Imguiid_80741064 {.cdecl,
+  proc iggetwindowdockid*(): Imguiid_63963847 {.cdecl,
       importc: "igGetWindowDockID".}
 else:
   static :
@@ -10311,7 +10311,7 @@ else:
   static :
     hint("Declaration of " & "iglogtextv" & " already exists, not redeclaring")
 when not declared(igbegindragdropsource):
-  proc igbegindragdropsource*(flags: Imguidragdropflags_80741028): bool {.cdecl,
+  proc igbegindragdropsource*(flags: Imguidragdropflags_63963811): bool {.cdecl,
       importc: "igBeginDragDropSource".}
 else:
   static :
@@ -10319,7 +10319,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igsetdragdroppayload):
   proc igsetdragdroppayload*(typearg: cstring; data: pointer; sz: csize_t;
-                             cond: Imguicond_80740994): bool {.cdecl,
+                             cond: Imguicond_63963777): bool {.cdecl,
       importc: "igSetDragDropPayload".}
 else:
   static :
@@ -10338,7 +10338,7 @@ else:
     hint("Declaration of " & "igbegindragdroptarget" &
         " already exists, not redeclaring")
 when not declared(igacceptdragdroppayload):
-  proc igacceptdragdroppayload*(typearg: cstring; flags: Imguidragdropflags_80741028): ptr Imguipayload_80740787 {.
+  proc igacceptdragdroppayload*(typearg: cstring; flags: Imguidragdropflags_63963811): ptr Imguipayload_63963570 {.
       cdecl, importc: "igAcceptDragDropPayload".}
 else:
   static :
@@ -10351,7 +10351,7 @@ else:
     hint("Declaration of " & "igenddragdroptarget" &
         " already exists, not redeclaring")
 when not declared(iggetdragdroppayload):
-  proc iggetdragdroppayload*(): ptr Imguipayload_80740787 {.cdecl,
+  proc iggetdragdroppayload*(): ptr Imguipayload_63963570 {.cdecl,
       importc: "igGetDragDropPayload".}
 else:
   static :
@@ -10371,7 +10371,7 @@ else:
     hint("Declaration of " & "igenddisabled" &
         " already exists, not redeclaring")
 when not declared(igpushcliprect):
-  proc igpushcliprect*(cliprectmin: Imvec2_80741096; cliprectmax: Imvec2_80741096;
+  proc igpushcliprect*(cliprectmin: Imvec2_63963879; cliprectmax: Imvec2_63963879;
                        intersectwithcurrentcliprect: bool): void {.cdecl,
       importc: "igPushClipRect".}
 else:
@@ -10398,7 +10398,7 @@ else:
     hint("Declaration of " & "igsetkeyboardfocushere" &
         " already exists, not redeclaring")
 when not declared(igisitemhovered):
-  proc igisitemhovered*(flags: Imguihoveredflags_80741032): bool {.cdecl,
+  proc igisitemhovered*(flags: Imguihoveredflags_63963815): bool {.cdecl,
       importc: "igIsItemHovered".}
 else:
   static :
@@ -10417,7 +10417,7 @@ else:
     hint("Declaration of " & "igisitemfocused" &
         " already exists, not redeclaring")
 when not declared(igisitemclicked):
-  proc igisitemclicked*(mousebutton: Imguimousebutton_80741000): bool {.cdecl,
+  proc igisitemclicked*(mousebutton: Imguimousebutton_63963783): bool {.cdecl,
       importc: "igIsItemClicked".}
 else:
   static :
@@ -10479,26 +10479,26 @@ else:
     hint("Declaration of " & "igisanyitemfocused" &
         " already exists, not redeclaring")
 when not declared(iggetitemid):
-  proc iggetitemid*(): Imguiid_80741064 {.cdecl, importc: "igGetItemID".}
+  proc iggetitemid*(): Imguiid_63963847 {.cdecl, importc: "igGetItemID".}
 else:
   static :
     hint("Declaration of " & "iggetitemid" & " already exists, not redeclaring")
 when not declared(iggetitemrectmin):
-  proc iggetitemrectmin*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetitemrectmin*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetItemRectMin".}
 else:
   static :
     hint("Declaration of " & "iggetitemrectmin" &
         " already exists, not redeclaring")
 when not declared(iggetitemrectmax):
-  proc iggetitemrectmax*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetitemrectmax*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetItemRectMax".}
 else:
   static :
     hint("Declaration of " & "iggetitemrectmax" &
         " already exists, not redeclaring")
 when not declared(iggetitemrectsize):
-  proc iggetitemrectsize*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetitemrectsize*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetItemRectSize".}
 else:
   static :
@@ -10511,49 +10511,49 @@ else:
     hint("Declaration of " & "igsetitemallowoverlap" &
         " already exists, not redeclaring")
 when not declared(iggetmainviewport):
-  proc iggetmainviewport*(): ptr Imguiviewport_80740838 {.cdecl,
+  proc iggetmainviewport*(): ptr Imguiviewport_63963621 {.cdecl,
       importc: "igGetMainViewport".}
 else:
   static :
     hint("Declaration of " & "iggetmainviewport" &
         " already exists, not redeclaring")
 when not declared(iggetbackgrounddrawlistnil):
-  proc iggetbackgrounddrawlistnil*(): ptr Imdrawlist_80740719 {.cdecl,
+  proc iggetbackgrounddrawlistnil*(): ptr Imdrawlist_63963502 {.cdecl,
       importc: "igGetBackgroundDrawList_Nil".}
 else:
   static :
     hint("Declaration of " & "iggetbackgrounddrawlistnil" &
         " already exists, not redeclaring")
 when not declared(iggetforegrounddrawlistnil):
-  proc iggetforegrounddrawlistnil*(): ptr Imdrawlist_80740719 {.cdecl,
+  proc iggetforegrounddrawlistnil*(): ptr Imdrawlist_63963502 {.cdecl,
       importc: "igGetForegroundDrawList_Nil".}
 else:
   static :
     hint("Declaration of " & "iggetforegrounddrawlistnil" &
         " already exists, not redeclaring")
 when not declared(iggetbackgrounddrawlistviewportptr):
-  proc iggetbackgrounddrawlistviewportptr*(viewport: ptr Imguiviewport_80740838): ptr Imdrawlist_80740719 {.
+  proc iggetbackgrounddrawlistviewportptr*(viewport: ptr Imguiviewport_63963621): ptr Imdrawlist_63963502 {.
       cdecl, importc: "igGetBackgroundDrawList_ViewportPtr".}
 else:
   static :
     hint("Declaration of " & "iggetbackgrounddrawlistviewportptr" &
         " already exists, not redeclaring")
 when not declared(iggetforegrounddrawlistviewportptr):
-  proc iggetforegrounddrawlistviewportptr*(viewport: ptr Imguiviewport_80740838): ptr Imdrawlist_80740719 {.
+  proc iggetforegrounddrawlistviewportptr*(viewport: ptr Imguiviewport_63963621): ptr Imdrawlist_63963502 {.
       cdecl, importc: "igGetForegroundDrawList_ViewportPtr".}
 else:
   static :
     hint("Declaration of " & "iggetforegrounddrawlistviewportptr" &
         " already exists, not redeclaring")
 when not declared(igisrectvisiblenil):
-  proc igisrectvisiblenil*(size: Imvec2_80741096): bool {.cdecl,
+  proc igisrectvisiblenil*(size: Imvec2_63963879): bool {.cdecl,
       importc: "igIsRectVisible_Nil".}
 else:
   static :
     hint("Declaration of " & "igisrectvisiblenil" &
         " already exists, not redeclaring")
 when not declared(igisrectvisiblevec2):
-  proc igisrectvisiblevec2*(rectmin: Imvec2_80741096; rectmax: Imvec2_80741096): bool {.
+  proc igisrectvisiblevec2*(rectmin: Imvec2_63963879; rectmax: Imvec2_63963879): bool {.
       cdecl, importc: "igIsRectVisible_Vec2".}
 else:
   static :
@@ -10571,36 +10571,36 @@ else:
     hint("Declaration of " & "iggetframecount" &
         " already exists, not redeclaring")
 when not declared(iggetdrawlistshareddata):
-  proc iggetdrawlistshareddata*(): ptr Imdrawlistshareddata_80740723 {.cdecl,
+  proc iggetdrawlistshareddata*(): ptr Imdrawlistshareddata_63963506 {.cdecl,
       importc: "igGetDrawListSharedData".}
 else:
   static :
     hint("Declaration of " & "iggetdrawlistshareddata" &
         " already exists, not redeclaring")
 when not declared(iggetstylecolorname):
-  proc iggetstylecolorname*(idx: Imguicol_80740992): cstring {.cdecl,
+  proc iggetstylecolorname*(idx: Imguicol_63963775): cstring {.cdecl,
       importc: "igGetStyleColorName".}
 else:
   static :
     hint("Declaration of " & "iggetstylecolorname" &
         " already exists, not redeclaring")
 when not declared(igsetstatestorage):
-  proc igsetstatestorage*(storage: ptr Imguistorage_80740814): void {.cdecl,
+  proc igsetstatestorage*(storage: ptr Imguistorage_63963597): void {.cdecl,
       importc: "igSetStateStorage".}
 else:
   static :
     hint("Declaration of " & "igsetstatestorage" &
         " already exists, not redeclaring")
 when not declared(iggetstatestorage):
-  proc iggetstatestorage*(): ptr Imguistorage_80740814 {.cdecl,
+  proc iggetstatestorage*(): ptr Imguistorage_63963597 {.cdecl,
       importc: "igGetStateStorage".}
 else:
   static :
     hint("Declaration of " & "iggetstatestorage" &
         " already exists, not redeclaring")
 when not declared(igbeginchildframe):
-  proc igbeginchildframe*(id: Imguiid_80741064; size: Imvec2_80741096;
-                          flags: Imguiwindowflags_80741058): bool {.cdecl,
+  proc igbeginchildframe*(id: Imguiid_63963847; size: Imvec2_63963879;
+                          flags: Imguiwindowflags_63963841): bool {.cdecl,
       importc: "igBeginChildFrame".}
 else:
   static :
@@ -10613,7 +10613,7 @@ else:
     hint("Declaration of " & "igendchildframe" &
         " already exists, not redeclaring")
 when not declared(igcalctextsize):
-  proc igcalctextsize*(pout: ptr Imvec2_80741096; text: cstring;
+  proc igcalctextsize*(pout: ptr Imvec2_63963879; text: cstring;
                        textend: cstring; hidetextafterdoublehash: bool;
                        wrapwidth: cfloat): void {.cdecl,
       importc: "igCalcTextSize".}
@@ -10622,14 +10622,14 @@ else:
     hint("Declaration of " & "igcalctextsize" &
         " already exists, not redeclaring")
 when not declared(igcolorconvertu32tofloat4):
-  proc igcolorconvertu32tofloat4*(pout: ptr Imvec4_80741100; inarg: Imu32_80741076): void {.
+  proc igcolorconvertu32tofloat4*(pout: ptr Imvec4_63963883; inarg: Imu32_63963859): void {.
       cdecl, importc: "igColorConvertU32ToFloat4".}
 else:
   static :
     hint("Declaration of " & "igcolorconvertu32tofloat4" &
         " already exists, not redeclaring")
 when not declared(igcolorconvertfloat4tou32):
-  proc igcolorconvertfloat4tou32*(inarg: Imvec4_80741100): Imu32_80741076 {.
+  proc igcolorconvertfloat4tou32*(inarg: Imvec4_63963883): Imu32_63963859 {.
       cdecl, importc: "igColorConvertFloat4ToU32".}
 else:
   static :
@@ -10654,28 +10654,28 @@ else:
     hint("Declaration of " & "igcolorconverthsvtorgb" &
         " already exists, not redeclaring")
 when not declared(igiskeydownnil):
-  proc igiskeydownnil*(key: Imguikey_80741142): bool {.cdecl,
+  proc igiskeydownnil*(key: Imguikey_63963925): bool {.cdecl,
       importc: "igIsKeyDown_Nil".}
 else:
   static :
     hint("Declaration of " & "igiskeydownnil" &
         " already exists, not redeclaring")
 when not declared(igiskeypressedbool):
-  proc igiskeypressedbool*(key: Imguikey_80741142; repeat: bool): bool {.cdecl,
+  proc igiskeypressedbool*(key: Imguikey_63963925; repeat: bool): bool {.cdecl,
       importc: "igIsKeyPressed_Bool".}
 else:
   static :
     hint("Declaration of " & "igiskeypressedbool" &
         " already exists, not redeclaring")
 when not declared(igiskeyreleasednil):
-  proc igiskeyreleasednil*(key: Imguikey_80741142): bool {.cdecl,
+  proc igiskeyreleasednil*(key: Imguikey_63963925): bool {.cdecl,
       importc: "igIsKeyReleased_Nil".}
 else:
   static :
     hint("Declaration of " & "igiskeyreleasednil" &
         " already exists, not redeclaring")
 when not declared(iggetkeypressedamount):
-  proc iggetkeypressedamount*(key: Imguikey_80741142; repeatdelay: cfloat;
+  proc iggetkeypressedamount*(key: Imguikey_63963925; repeatdelay: cfloat;
                               rate: cfloat): cint {.cdecl,
       importc: "igGetKeyPressedAmount".}
 else:
@@ -10683,7 +10683,7 @@ else:
     hint("Declaration of " & "iggetkeypressedamount" &
         " already exists, not redeclaring")
 when not declared(iggetkeyname):
-  proc iggetkeyname*(key: Imguikey_80741142): cstring {.cdecl,
+  proc iggetkeyname*(key: Imguikey_63963925): cstring {.cdecl,
       importc: "igGetKeyName".}
 else:
   static :
@@ -10696,42 +10696,42 @@ else:
     hint("Declaration of " & "igsetnextframewantcapturekeyboard" &
         " already exists, not redeclaring")
 when not declared(igismousedownnil):
-  proc igismousedownnil*(button: Imguimousebutton_80741000): bool {.cdecl,
+  proc igismousedownnil*(button: Imguimousebutton_63963783): bool {.cdecl,
       importc: "igIsMouseDown_Nil".}
 else:
   static :
     hint("Declaration of " & "igismousedownnil" &
         " already exists, not redeclaring")
 when not declared(igismouseclickedbool):
-  proc igismouseclickedbool*(button: Imguimousebutton_80741000; repeat: bool): bool {.
+  proc igismouseclickedbool*(button: Imguimousebutton_63963783; repeat: bool): bool {.
       cdecl, importc: "igIsMouseClicked_Bool".}
 else:
   static :
     hint("Declaration of " & "igismouseclickedbool" &
         " already exists, not redeclaring")
 when not declared(igismousereleasednil):
-  proc igismousereleasednil*(button: Imguimousebutton_80741000): bool {.cdecl,
+  proc igismousereleasednil*(button: Imguimousebutton_63963783): bool {.cdecl,
       importc: "igIsMouseReleased_Nil".}
 else:
   static :
     hint("Declaration of " & "igismousereleasednil" &
         " already exists, not redeclaring")
 when not declared(igismousedoubleclicked):
-  proc igismousedoubleclicked*(button: Imguimousebutton_80741000): bool {.cdecl,
+  proc igismousedoubleclicked*(button: Imguimousebutton_63963783): bool {.cdecl,
       importc: "igIsMouseDoubleClicked".}
 else:
   static :
     hint("Declaration of " & "igismousedoubleclicked" &
         " already exists, not redeclaring")
 when not declared(iggetmouseclickedcount):
-  proc iggetmouseclickedcount*(button: Imguimousebutton_80741000): cint {.cdecl,
+  proc iggetmouseclickedcount*(button: Imguimousebutton_63963783): cint {.cdecl,
       importc: "igGetMouseClickedCount".}
 else:
   static :
     hint("Declaration of " & "iggetmouseclickedcount" &
         " already exists, not redeclaring")
 when not declared(igismousehoveringrect):
-  proc igismousehoveringrect*(rmin: Imvec2_80741096; rmax: Imvec2_80741096;
+  proc igismousehoveringrect*(rmin: Imvec2_63963879; rmax: Imvec2_63963879;
                               clip: bool): bool {.cdecl,
       importc: "igIsMouseHoveringRect".}
 else:
@@ -10739,7 +10739,7 @@ else:
     hint("Declaration of " & "igismousehoveringrect" &
         " already exists, not redeclaring")
 when not declared(igismouseposvalid):
-  proc igismouseposvalid*(mousepos: ptr Imvec2_80741096): bool {.cdecl,
+  proc igismouseposvalid*(mousepos: ptr Imvec2_63963879): bool {.cdecl,
       importc: "igIsMousePosValid".}
 else:
   static :
@@ -10752,21 +10752,21 @@ else:
     hint("Declaration of " & "igisanymousedown" &
         " already exists, not redeclaring")
 when not declared(iggetmousepos):
-  proc iggetmousepos*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetmousepos*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetMousePos".}
 else:
   static :
     hint("Declaration of " & "iggetmousepos" &
         " already exists, not redeclaring")
 when not declared(iggetmouseposonopeningcurrentpopup):
-  proc iggetmouseposonopeningcurrentpopup*(pout: ptr Imvec2_80741096): void {.
+  proc iggetmouseposonopeningcurrentpopup*(pout: ptr Imvec2_63963879): void {.
       cdecl, importc: "igGetMousePosOnOpeningCurrentPopup".}
 else:
   static :
     hint("Declaration of " & "iggetmouseposonopeningcurrentpopup" &
         " already exists, not redeclaring")
 when not declared(igismousedragging):
-  proc igismousedragging*(button: Imguimousebutton_80741000;
+  proc igismousedragging*(button: Imguimousebutton_63963783;
                           lockthreshold: cfloat): bool {.cdecl,
       importc: "igIsMouseDragging".}
 else:
@@ -10774,7 +10774,7 @@ else:
     hint("Declaration of " & "igismousedragging" &
         " already exists, not redeclaring")
 when not declared(iggetmousedragdelta):
-  proc iggetmousedragdelta*(pout: ptr Imvec2_80741096; button: Imguimousebutton_80741000;
+  proc iggetmousedragdelta*(pout: ptr Imvec2_63963879; button: Imguimousebutton_63963783;
                             lockthreshold: cfloat): void {.cdecl,
       importc: "igGetMouseDragDelta".}
 else:
@@ -10782,21 +10782,21 @@ else:
     hint("Declaration of " & "iggetmousedragdelta" &
         " already exists, not redeclaring")
 when not declared(igresetmousedragdelta):
-  proc igresetmousedragdelta*(button: Imguimousebutton_80741000): void {.cdecl,
+  proc igresetmousedragdelta*(button: Imguimousebutton_63963783): void {.cdecl,
       importc: "igResetMouseDragDelta".}
 else:
   static :
     hint("Declaration of " & "igresetmousedragdelta" &
         " already exists, not redeclaring")
 when not declared(iggetmousecursor):
-  proc iggetmousecursor*(): Imguimousecursor_80741002 {.cdecl,
+  proc iggetmousecursor*(): Imguimousecursor_63963785 {.cdecl,
       importc: "igGetMouseCursor".}
 else:
   static :
     hint("Declaration of " & "iggetmousecursor" &
         " already exists, not redeclaring")
 when not declared(igsetmousecursor):
-  proc igsetmousecursor*(cursortype: Imguimousecursor_80741002): void {.cdecl,
+  proc igsetmousecursor*(cursortype: Imguimousecursor_63963785): void {.cdecl,
       importc: "igSetMouseCursor".}
 else:
   static :
@@ -10867,8 +10867,8 @@ else:
     hint("Declaration of " & "igdebugcheckversionanddatalayout" &
         " already exists, not redeclaring")
 when not declared(igsetallocatorfunctions):
-  proc igsetallocatorfunctions*(allocfunc: Imguimemallocfunc_80741092;
-                                freefunc: Imguimemfreefunc_80741094;
+  proc igsetallocatorfunctions*(allocfunc: Imguimemallocfunc_63963875;
+                                freefunc: Imguimemfreefunc_63963877;
                                 userdata: pointer): void {.cdecl,
       importc: "igSetAllocatorFunctions".}
 else:
@@ -10876,8 +10876,8 @@ else:
     hint("Declaration of " & "igsetallocatorfunctions" &
         " already exists, not redeclaring")
 when not declared(iggetallocatorfunctions):
-  proc iggetallocatorfunctions*(pallocfunc: ptr Imguimemallocfunc_80741092;
-                                pfreefunc: ptr Imguimemfreefunc_80741094;
+  proc iggetallocatorfunctions*(pallocfunc: ptr Imguimemallocfunc_63963875;
+                                pfreefunc: ptr Imguimemfreefunc_63963877;
                                 puserdata: ptr pointer): void {.cdecl,
       importc: "igGetAllocatorFunctions".}
 else:
@@ -10895,7 +10895,7 @@ else:
   static :
     hint("Declaration of " & "igmemfree" & " already exists, not redeclaring")
 when not declared(iggetplatformio):
-  proc iggetplatformio*(): ptr Imguiplatformio_80740798 {.cdecl,
+  proc iggetplatformio*(): ptr Imguiplatformio_63963581 {.cdecl,
       importc: "igGetPlatformIO".}
 else:
   static :
@@ -10924,35 +10924,35 @@ else:
     hint("Declaration of " & "igdestroyplatformwindows" &
         " already exists, not redeclaring")
 when not declared(igfindviewportbyid):
-  proc igfindviewportbyid*(id: Imguiid_80741064): ptr Imguiviewport_80740838 {.
+  proc igfindviewportbyid*(id: Imguiid_63963847): ptr Imguiviewport_63963621 {.
       cdecl, importc: "igFindViewportByID".}
 else:
   static :
     hint("Declaration of " & "igfindviewportbyid" &
         " already exists, not redeclaring")
 when not declared(igfindviewportbyplatformhandle):
-  proc igfindviewportbyplatformhandle*(platformhandle: pointer): ptr Imguiviewport_80740838 {.
+  proc igfindviewportbyplatformhandle*(platformhandle: pointer): ptr Imguiviewport_63963621 {.
       cdecl, importc: "igFindViewportByPlatformHandle".}
 else:
   static :
     hint("Declaration of " & "igfindviewportbyplatformhandle" &
         " already exists, not redeclaring")
 when not declared(Imguistyleimguistyle):
-  proc Imguistyleimguistyle*(): ptr Imguistyle_80740818 {.cdecl,
+  proc Imguistyleimguistyle*(): ptr Imguistyle_63963601 {.cdecl,
       importc: "ImGuiStyle_ImGuiStyle".}
 else:
   static :
     hint("Declaration of " & "Imguistyleimguistyle" &
         " already exists, not redeclaring")
 when not declared(Imguistyledestroy):
-  proc Imguistyledestroy*(self: ptr Imguistyle_80740818): void {.cdecl,
+  proc Imguistyledestroy*(self: ptr Imguistyle_63963601): void {.cdecl,
       importc: "ImGuiStyle_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguistyledestroy" &
         " already exists, not redeclaring")
 when not declared(Imguistylescaleallsizes):
-  proc Imguistylescaleallsizes*(self: ptr Imguistyle_80740818;
+  proc Imguistylescaleallsizes*(self: ptr Imguistyle_63963601;
                                 scalefactor: cfloat): void {.cdecl,
       importc: "ImGuiStyle_ScaleAllSizes".}
 else:
@@ -10960,7 +10960,7 @@ else:
     hint("Declaration of " & "Imguistylescaleallsizes" &
         " already exists, not redeclaring")
 when not declared(Imguiioaddkeyevent):
-  proc Imguiioaddkeyevent*(self: ptr Imguiio_80740767; key: Imguikey_80741142;
+  proc Imguiioaddkeyevent*(self: ptr Imguiio_63963550; key: Imguikey_63963925;
                            down: bool): void {.cdecl,
       importc: "ImGuiIO_AddKeyEvent".}
 else:
@@ -10968,7 +10968,7 @@ else:
     hint("Declaration of " & "Imguiioaddkeyevent" &
         " already exists, not redeclaring")
 when not declared(Imguiioaddkeyanalogevent):
-  proc Imguiioaddkeyanalogevent*(self: ptr Imguiio_80740767; key: Imguikey_80741142;
+  proc Imguiioaddkeyanalogevent*(self: ptr Imguiio_63963550; key: Imguikey_63963925;
                                  down: bool; v: cfloat): void {.cdecl,
       importc: "ImGuiIO_AddKeyAnalogEvent".}
 else:
@@ -10976,14 +10976,14 @@ else:
     hint("Declaration of " & "Imguiioaddkeyanalogevent" &
         " already exists, not redeclaring")
 when not declared(Imguiioaddmouseposevent):
-  proc Imguiioaddmouseposevent*(self: ptr Imguiio_80740767; x: cfloat; y: cfloat): void {.
+  proc Imguiioaddmouseposevent*(self: ptr Imguiio_63963550; x: cfloat; y: cfloat): void {.
       cdecl, importc: "ImGuiIO_AddMousePosEvent".}
 else:
   static :
     hint("Declaration of " & "Imguiioaddmouseposevent" &
         " already exists, not redeclaring")
 when not declared(Imguiioaddmousebuttonevent):
-  proc Imguiioaddmousebuttonevent*(self: ptr Imguiio_80740767; button: cint;
+  proc Imguiioaddmousebuttonevent*(self: ptr Imguiio_63963550; button: cint;
                                    down: bool): void {.cdecl,
       importc: "ImGuiIO_AddMouseButtonEvent".}
 else:
@@ -10991,7 +10991,7 @@ else:
     hint("Declaration of " & "Imguiioaddmousebuttonevent" &
         " already exists, not redeclaring")
 when not declared(Imguiioaddmousewheelevent):
-  proc Imguiioaddmousewheelevent*(self: ptr Imguiio_80740767; wheelx: cfloat;
+  proc Imguiioaddmousewheelevent*(self: ptr Imguiio_63963550; wheelx: cfloat;
                                   wheely: cfloat): void {.cdecl,
       importc: "ImGuiIO_AddMouseWheelEvent".}
 else:
@@ -10999,42 +10999,42 @@ else:
     hint("Declaration of " & "Imguiioaddmousewheelevent" &
         " already exists, not redeclaring")
 when not declared(Imguiioaddmouseviewportevent):
-  proc Imguiioaddmouseviewportevent*(self: ptr Imguiio_80740767; id: Imguiid_80741064): void {.
+  proc Imguiioaddmouseviewportevent*(self: ptr Imguiio_63963550; id: Imguiid_63963847): void {.
       cdecl, importc: "ImGuiIO_AddMouseViewportEvent".}
 else:
   static :
     hint("Declaration of " & "Imguiioaddmouseviewportevent" &
         " already exists, not redeclaring")
 when not declared(Imguiioaddfocusevent):
-  proc Imguiioaddfocusevent*(self: ptr Imguiio_80740767; focused: bool): void {.
+  proc Imguiioaddfocusevent*(self: ptr Imguiio_63963550; focused: bool): void {.
       cdecl, importc: "ImGuiIO_AddFocusEvent".}
 else:
   static :
     hint("Declaration of " & "Imguiioaddfocusevent" &
         " already exists, not redeclaring")
 when not declared(Imguiioaddinputcharacter):
-  proc Imguiioaddinputcharacter*(self: ptr Imguiio_80740767; c: cuint): void {.
+  proc Imguiioaddinputcharacter*(self: ptr Imguiio_63963550; c: cuint): void {.
       cdecl, importc: "ImGuiIO_AddInputCharacter".}
 else:
   static :
     hint("Declaration of " & "Imguiioaddinputcharacter" &
         " already exists, not redeclaring")
 when not declared(Imguiioaddinputcharacterutf16):
-  proc Imguiioaddinputcharacterutf16*(self: ptr Imguiio_80740767; c: Imwchar16_80741082): void {.
+  proc Imguiioaddinputcharacterutf16*(self: ptr Imguiio_63963550; c: Imwchar16_63963865): void {.
       cdecl, importc: "ImGuiIO_AddInputCharacterUTF16".}
 else:
   static :
     hint("Declaration of " & "Imguiioaddinputcharacterutf16" &
         " already exists, not redeclaring")
 when not declared(Imguiioaddinputcharactersutf8):
-  proc Imguiioaddinputcharactersutf8*(self: ptr Imguiio_80740767; str: cstring): void {.
+  proc Imguiioaddinputcharactersutf8*(self: ptr Imguiio_63963550; str: cstring): void {.
       cdecl, importc: "ImGuiIO_AddInputCharactersUTF8".}
 else:
   static :
     hint("Declaration of " & "Imguiioaddinputcharactersutf8" &
         " already exists, not redeclaring")
 when not declared(Imguiiosetkeyeventnativedata):
-  proc Imguiiosetkeyeventnativedata*(self: ptr Imguiio_80740767; key: Imguikey_80741142;
+  proc Imguiiosetkeyeventnativedata*(self: ptr Imguiio_63963550; key: Imguikey_63963925;
                                      nativekeycode: cint; nativescancode: cint;
                                      nativelegacyindex: cint): void {.cdecl,
       importc: "ImGuiIO_SetKeyEventNativeData".}
@@ -11043,7 +11043,7 @@ else:
     hint("Declaration of " & "Imguiiosetkeyeventnativedata" &
         " already exists, not redeclaring")
 when not declared(Imguiiosetappacceptingevents):
-  proc Imguiiosetappacceptingevents*(self: ptr Imguiio_80740767;
+  proc Imguiiosetappacceptingevents*(self: ptr Imguiio_63963550;
                                      acceptingevents: bool): void {.cdecl,
       importc: "ImGuiIO_SetAppAcceptingEvents".}
 else:
@@ -11051,35 +11051,35 @@ else:
     hint("Declaration of " & "Imguiiosetappacceptingevents" &
         " already exists, not redeclaring")
 when not declared(Imguiioclearinputcharacters):
-  proc Imguiioclearinputcharacters*(self: ptr Imguiio_80740767): void {.cdecl,
+  proc Imguiioclearinputcharacters*(self: ptr Imguiio_63963550): void {.cdecl,
       importc: "ImGuiIO_ClearInputCharacters".}
 else:
   static :
     hint("Declaration of " & "Imguiioclearinputcharacters" &
         " already exists, not redeclaring")
 when not declared(Imguiioclearinputkeys):
-  proc Imguiioclearinputkeys*(self: ptr Imguiio_80740767): void {.cdecl,
+  proc Imguiioclearinputkeys*(self: ptr Imguiio_63963550): void {.cdecl,
       importc: "ImGuiIO_ClearInputKeys".}
 else:
   static :
     hint("Declaration of " & "Imguiioclearinputkeys" &
         " already exists, not redeclaring")
 when not declared(Imguiioimguiio):
-  proc Imguiioimguiio*(): ptr Imguiio_80740767 {.cdecl,
+  proc Imguiioimguiio*(): ptr Imguiio_63963550 {.cdecl,
       importc: "ImGuiIO_ImGuiIO".}
 else:
   static :
     hint("Declaration of " & "Imguiioimguiio" &
         " already exists, not redeclaring")
 when not declared(Imguiiodestroy):
-  proc Imguiiodestroy*(self: ptr Imguiio_80740767): void {.cdecl,
+  proc Imguiiodestroy*(self: ptr Imguiio_63963550): void {.cdecl,
       importc: "ImGuiIO_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiiodestroy" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextcallbackdataimguiinputtextcallbackdata):
-  proc Imguiinputtextcallbackdataimguiinputtextcallbackdata*(): ptr Imguiinputtextcallbackdata_80740771 {.
+  proc Imguiinputtextcallbackdataimguiinputtextcallbackdata*(): ptr Imguiinputtextcallbackdata_63963554 {.
       cdecl, importc: "ImGuiInputTextCallbackData_ImGuiInputTextCallbackData".}
 else:
   static :
@@ -11087,7 +11087,7 @@ else:
         "Imguiinputtextcallbackdataimguiinputtextcallbackdata" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextcallbackdatadestroy):
-  proc Imguiinputtextcallbackdatadestroy*(self: ptr Imguiinputtextcallbackdata_80740771): void {.
+  proc Imguiinputtextcallbackdatadestroy*(self: ptr Imguiinputtextcallbackdata_63963554): void {.
       cdecl, importc: "ImGuiInputTextCallbackData_destroy".}
 else:
   static :
@@ -11095,7 +11095,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiinputtextcallbackdatadeletechars):
   proc Imguiinputtextcallbackdatadeletechars*(
-      self: ptr Imguiinputtextcallbackdata_80740771; pos: cint; bytescount: cint): void {.
+      self: ptr Imguiinputtextcallbackdata_63963554; pos: cint; bytescount: cint): void {.
       cdecl, importc: "ImGuiInputTextCallbackData_DeleteChars".}
 else:
   static :
@@ -11103,14 +11103,14 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiinputtextcallbackdatainsertchars):
   proc Imguiinputtextcallbackdatainsertchars*(
-      self: ptr Imguiinputtextcallbackdata_80740771; pos: cint; text: cstring;
+      self: ptr Imguiinputtextcallbackdata_63963554; pos: cint; text: cstring;
       textend: cstring): void {.cdecl, importc: "ImGuiInputTextCallbackData_InsertChars".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextcallbackdatainsertchars" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextcallbackdataselectall):
-  proc Imguiinputtextcallbackdataselectall*(self: ptr Imguiinputtextcallbackdata_80740771): void {.
+  proc Imguiinputtextcallbackdataselectall*(self: ptr Imguiinputtextcallbackdata_63963554): void {.
       cdecl, importc: "ImGuiInputTextCallbackData_SelectAll".}
 else:
   static :
@@ -11118,7 +11118,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiinputtextcallbackdataclearselection):
   proc Imguiinputtextcallbackdataclearselection*(
-      self: ptr Imguiinputtextcallbackdata_80740771): void {.cdecl,
+      self: ptr Imguiinputtextcallbackdata_63963554): void {.cdecl,
       importc: "ImGuiInputTextCallbackData_ClearSelection".}
 else:
   static :
@@ -11126,70 +11126,70 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiinputtextcallbackdatahasselection):
   proc Imguiinputtextcallbackdatahasselection*(
-      self: ptr Imguiinputtextcallbackdata_80740771): bool {.cdecl,
+      self: ptr Imguiinputtextcallbackdata_63963554): bool {.cdecl,
       importc: "ImGuiInputTextCallbackData_HasSelection".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextcallbackdatahasselection" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowclassimguiwindowclass):
-  proc Imguiwindowclassimguiwindowclass*(): ptr Imguiwindowclass_80740842 {.
+  proc Imguiwindowclassimguiwindowclass*(): ptr Imguiwindowclass_63963625 {.
       cdecl, importc: "ImGuiWindowClass_ImGuiWindowClass".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowclassimguiwindowclass" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowclassdestroy):
-  proc Imguiwindowclassdestroy*(self: ptr Imguiwindowclass_80740842): void {.
+  proc Imguiwindowclassdestroy*(self: ptr Imguiwindowclass_63963625): void {.
       cdecl, importc: "ImGuiWindowClass_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowclassdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguipayloadimguipayload):
-  proc Imguipayloadimguipayload*(): ptr Imguipayload_80740787 {.cdecl,
+  proc Imguipayloadimguipayload*(): ptr Imguipayload_63963570 {.cdecl,
       importc: "ImGuiPayload_ImGuiPayload".}
 else:
   static :
     hint("Declaration of " & "Imguipayloadimguipayload" &
         " already exists, not redeclaring")
 when not declared(Imguipayloaddestroy):
-  proc Imguipayloaddestroy*(self: ptr Imguipayload_80740787): void {.cdecl,
+  proc Imguipayloaddestroy*(self: ptr Imguipayload_63963570): void {.cdecl,
       importc: "ImGuiPayload_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguipayloaddestroy" &
         " already exists, not redeclaring")
 when not declared(Imguipayloadclear):
-  proc Imguipayloadclear*(self: ptr Imguipayload_80740787): void {.cdecl,
+  proc Imguipayloadclear*(self: ptr Imguipayload_63963570): void {.cdecl,
       importc: "ImGuiPayload_Clear".}
 else:
   static :
     hint("Declaration of " & "Imguipayloadclear" &
         " already exists, not redeclaring")
 when not declared(Imguipayloadisdatatype):
-  proc Imguipayloadisdatatype*(self: ptr Imguipayload_80740787; typearg: cstring): bool {.
+  proc Imguipayloadisdatatype*(self: ptr Imguipayload_63963570; typearg: cstring): bool {.
       cdecl, importc: "ImGuiPayload_IsDataType".}
 else:
   static :
     hint("Declaration of " & "Imguipayloadisdatatype" &
         " already exists, not redeclaring")
 when not declared(Imguipayloadispreview):
-  proc Imguipayloadispreview*(self: ptr Imguipayload_80740787): bool {.cdecl,
+  proc Imguipayloadispreview*(self: ptr Imguipayload_63963570): bool {.cdecl,
       importc: "ImGuiPayload_IsPreview".}
 else:
   static :
     hint("Declaration of " & "Imguipayloadispreview" &
         " already exists, not redeclaring")
 when not declared(Imguipayloadisdelivery):
-  proc Imguipayloadisdelivery*(self: ptr Imguipayload_80740787): bool {.cdecl,
+  proc Imguipayloadisdelivery*(self: ptr Imguipayload_63963570): bool {.cdecl,
       importc: "ImGuiPayload_IsDelivery".}
 else:
   static :
     hint("Declaration of " & "Imguipayloadisdelivery" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumnsortspecsimguitablecolumnsortspecs):
-  proc Imguitablecolumnsortspecsimguitablecolumnsortspecs*(): ptr Imguitablecolumnsortspecs_80740826 {.
+  proc Imguitablecolumnsortspecsimguitablecolumnsortspecs*(): ptr Imguitablecolumnsortspecs_63963609 {.
       cdecl, importc: "ImGuiTableColumnSortSpecs_ImGuiTableColumnSortSpecs".}
 else:
   static :
@@ -11197,56 +11197,56 @@ else:
         "Imguitablecolumnsortspecsimguitablecolumnsortspecs" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumnsortspecsdestroy):
-  proc Imguitablecolumnsortspecsdestroy*(self: ptr Imguitablecolumnsortspecs_80740826): void {.
+  proc Imguitablecolumnsortspecsdestroy*(self: ptr Imguitablecolumnsortspecs_63963609): void {.
       cdecl, importc: "ImGuiTableColumnSortSpecs_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguitablecolumnsortspecsdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitablesortspecsimguitablesortspecs):
-  proc Imguitablesortspecsimguitablesortspecs*(): ptr Imguitablesortspecs_80740822 {.
+  proc Imguitablesortspecsimguitablesortspecs*(): ptr Imguitablesortspecs_63963605 {.
       cdecl, importc: "ImGuiTableSortSpecs_ImGuiTableSortSpecs".}
 else:
   static :
     hint("Declaration of " & "Imguitablesortspecsimguitablesortspecs" &
         " already exists, not redeclaring")
 when not declared(Imguitablesortspecsdestroy):
-  proc Imguitablesortspecsdestroy*(self: ptr Imguitablesortspecs_80740822): void {.
+  proc Imguitablesortspecsdestroy*(self: ptr Imguitablesortspecs_63963605): void {.
       cdecl, importc: "ImGuiTableSortSpecs_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguitablesortspecsdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguionceuponaframeimguionceuponaframe):
-  proc Imguionceuponaframeimguionceuponaframe*(): ptr Imguionceuponaframe_80740783 {.
+  proc Imguionceuponaframeimguionceuponaframe*(): ptr Imguionceuponaframe_63963566 {.
       cdecl, importc: "ImGuiOnceUponAFrame_ImGuiOnceUponAFrame".}
 else:
   static :
     hint("Declaration of " & "Imguionceuponaframeimguionceuponaframe" &
         " already exists, not redeclaring")
 when not declared(Imguionceuponaframedestroy):
-  proc Imguionceuponaframedestroy*(self: ptr Imguionceuponaframe_80740783): void {.
+  proc Imguionceuponaframedestroy*(self: ptr Imguionceuponaframe_63963566): void {.
       cdecl, importc: "ImGuiOnceUponAFrame_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguionceuponaframedestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitextfilterimguitextfilter):
-  proc Imguitextfilterimguitextfilter*(defaultfilter: cstring): ptr Imguitextfilter_80740834 {.
+  proc Imguitextfilterimguitextfilter*(defaultfilter: cstring): ptr Imguitextfilter_63963617 {.
       cdecl, importc: "ImGuiTextFilter_ImGuiTextFilter".}
 else:
   static :
     hint("Declaration of " & "Imguitextfilterimguitextfilter" &
         " already exists, not redeclaring")
 when not declared(Imguitextfilterdestroy):
-  proc Imguitextfilterdestroy*(self: ptr Imguitextfilter_80740834): void {.
+  proc Imguitextfilterdestroy*(self: ptr Imguitextfilter_63963617): void {.
       cdecl, importc: "ImGuiTextFilter_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguitextfilterdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitextfilterdraw):
-  proc Imguitextfilterdraw*(self: ptr Imguitextfilter_80740834; label: cstring;
+  proc Imguitextfilterdraw*(self: ptr Imguitextfilter_63963617; label: cstring;
                             width: cfloat): bool {.cdecl,
       importc: "ImGuiTextFilter_Draw".}
 else:
@@ -11254,7 +11254,7 @@ else:
     hint("Declaration of " & "Imguitextfilterdraw" &
         " already exists, not redeclaring")
 when not declared(Imguitextfilterpassfilter):
-  proc Imguitextfilterpassfilter*(self: ptr Imguitextfilter_80740834;
+  proc Imguitextfilterpassfilter*(self: ptr Imguitextfilter_63963617;
                                   text: cstring; textend: cstring): bool {.
       cdecl, importc: "ImGuiTextFilter_PassFilter".}
 else:
@@ -11262,114 +11262,114 @@ else:
     hint("Declaration of " & "Imguitextfilterpassfilter" &
         " already exists, not redeclaring")
 when not declared(Imguitextfilterbuild):
-  proc Imguitextfilterbuild*(self: ptr Imguitextfilter_80740834): void {.cdecl,
+  proc Imguitextfilterbuild*(self: ptr Imguitextfilter_63963617): void {.cdecl,
       importc: "ImGuiTextFilter_Build".}
 else:
   static :
     hint("Declaration of " & "Imguitextfilterbuild" &
         " already exists, not redeclaring")
 when not declared(Imguitextfilterclear):
-  proc Imguitextfilterclear*(self: ptr Imguitextfilter_80740834): void {.cdecl,
+  proc Imguitextfilterclear*(self: ptr Imguitextfilter_63963617): void {.cdecl,
       importc: "ImGuiTextFilter_Clear".}
 else:
   static :
     hint("Declaration of " & "Imguitextfilterclear" &
         " already exists, not redeclaring")
 when not declared(Imguitextfilterisactive):
-  proc Imguitextfilterisactive*(self: ptr Imguitextfilter_80740834): bool {.
+  proc Imguitextfilterisactive*(self: ptr Imguitextfilter_63963617): bool {.
       cdecl, importc: "ImGuiTextFilter_IsActive".}
 else:
   static :
     hint("Declaration of " & "Imguitextfilterisactive" &
         " already exists, not redeclaring")
 when not declared(Imguitextrangeimguitextrangenil):
-  proc Imguitextrangeimguitextrangenil*(): ptr Imguitextrange_80741172 {.cdecl,
+  proc Imguitextrangeimguitextrangenil*(): ptr Imguitextrange_63963955 {.cdecl,
       importc: "ImGuiTextRange_ImGuiTextRange_Nil".}
 else:
   static :
     hint("Declaration of " & "Imguitextrangeimguitextrangenil" &
         " already exists, not redeclaring")
 when not declared(Imguitextrangedestroy):
-  proc Imguitextrangedestroy*(self: ptr Imguitextrange_80741172): void {.cdecl,
+  proc Imguitextrangedestroy*(self: ptr Imguitextrange_63963955): void {.cdecl,
       importc: "ImGuiTextRange_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguitextrangedestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitextrangeimguitextrangestr):
-  proc Imguitextrangeimguitextrangestr*(internalb: cstring; internale: cstring): ptr Imguitextrange_80741172 {.
+  proc Imguitextrangeimguitextrangestr*(internalb: cstring; internale: cstring): ptr Imguitextrange_63963955 {.
       cdecl, importc: "ImGuiTextRange_ImGuiTextRange_Str".}
 else:
   static :
     hint("Declaration of " & "Imguitextrangeimguitextrangestr" &
         " already exists, not redeclaring")
 when not declared(Imguitextrangeempty):
-  proc Imguitextrangeempty*(self: ptr Imguitextrange_80741172): bool {.cdecl,
+  proc Imguitextrangeempty*(self: ptr Imguitextrange_63963955): bool {.cdecl,
       importc: "ImGuiTextRange_empty".}
 else:
   static :
     hint("Declaration of " & "Imguitextrangeempty" &
         " already exists, not redeclaring")
 when not declared(Imguitextrangesplit):
-  proc Imguitextrangesplit*(self: ptr Imguitextrange_80741172;
+  proc Imguitextrangesplit*(self: ptr Imguitextrange_63963955;
                             separator: cschar;
-                            outarg: ptr Imvectorimguitextrange_80741176): void {.
+                            outarg: ptr Imvectorimguitextrange_63963959): void {.
       cdecl, importc: "ImGuiTextRange_split".}
 else:
   static :
     hint("Declaration of " & "Imguitextrangesplit" &
         " already exists, not redeclaring")
 when not declared(Imguitextbufferimguitextbuffer):
-  proc Imguitextbufferimguitextbuffer*(): ptr Imguitextbuffer_80740830 {.cdecl,
+  proc Imguitextbufferimguitextbuffer*(): ptr Imguitextbuffer_63963613 {.cdecl,
       importc: "ImGuiTextBuffer_ImGuiTextBuffer".}
 else:
   static :
     hint("Declaration of " & "Imguitextbufferimguitextbuffer" &
         " already exists, not redeclaring")
 when not declared(Imguitextbufferdestroy):
-  proc Imguitextbufferdestroy*(self: ptr Imguitextbuffer_80740830): void {.
+  proc Imguitextbufferdestroy*(self: ptr Imguitextbuffer_63963613): void {.
       cdecl, importc: "ImGuiTextBuffer_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguitextbufferdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitextbufferbegin):
-  proc Imguitextbufferbegin*(self: ptr Imguitextbuffer_80740830): cstring {.
+  proc Imguitextbufferbegin*(self: ptr Imguitextbuffer_63963613): cstring {.
       cdecl, importc: "ImGuiTextBuffer_begin".}
 else:
   static :
     hint("Declaration of " & "Imguitextbufferbegin" &
         " already exists, not redeclaring")
 when not declared(Imguitextbufferend):
-  proc Imguitextbufferend*(self: ptr Imguitextbuffer_80740830): cstring {.cdecl,
+  proc Imguitextbufferend*(self: ptr Imguitextbuffer_63963613): cstring {.cdecl,
       importc: "ImGuiTextBuffer_end".}
 else:
   static :
     hint("Declaration of " & "Imguitextbufferend" &
         " already exists, not redeclaring")
 when not declared(Imguitextbuffersize):
-  proc Imguitextbuffersize*(self: ptr Imguitextbuffer_80740830): cint {.cdecl,
+  proc Imguitextbuffersize*(self: ptr Imguitextbuffer_63963613): cint {.cdecl,
       importc: "ImGuiTextBuffer_size".}
 else:
   static :
     hint("Declaration of " & "Imguitextbuffersize" &
         " already exists, not redeclaring")
 when not declared(Imguitextbufferempty):
-  proc Imguitextbufferempty*(self: ptr Imguitextbuffer_80740830): bool {.cdecl,
+  proc Imguitextbufferempty*(self: ptr Imguitextbuffer_63963613): bool {.cdecl,
       importc: "ImGuiTextBuffer_empty".}
 else:
   static :
     hint("Declaration of " & "Imguitextbufferempty" &
         " already exists, not redeclaring")
 when not declared(Imguitextbufferclear):
-  proc Imguitextbufferclear*(self: ptr Imguitextbuffer_80740830): void {.cdecl,
+  proc Imguitextbufferclear*(self: ptr Imguitextbuffer_63963613): void {.cdecl,
       importc: "ImGuiTextBuffer_clear".}
 else:
   static :
     hint("Declaration of " & "Imguitextbufferclear" &
         " already exists, not redeclaring")
 when not declared(Imguitextbufferreserve):
-  proc Imguitextbufferreserve*(self: ptr Imguitextbuffer_80740830;
+  proc Imguitextbufferreserve*(self: ptr Imguitextbuffer_63963613;
                                capacity: cint): void {.cdecl,
       importc: "ImGuiTextBuffer_reserve".}
 else:
@@ -11377,14 +11377,14 @@ else:
     hint("Declaration of " & "Imguitextbufferreserve" &
         " already exists, not redeclaring")
 when not declared(Imguitextbuffercstr):
-  proc Imguitextbuffercstr*(self: ptr Imguitextbuffer_80740830): cstring {.
+  proc Imguitextbuffercstr*(self: ptr Imguitextbuffer_63963613): cstring {.
       cdecl, importc: "ImGuiTextBuffer_c_str".}
 else:
   static :
     hint("Declaration of " & "Imguitextbuffercstr" &
         " already exists, not redeclaring")
 when not declared(Imguitextbufferappend):
-  proc Imguitextbufferappend*(self: ptr Imguitextbuffer_80740830; str: cstring;
+  proc Imguitextbufferappend*(self: ptr Imguitextbuffer_63963613; str: cstring;
                               strend: cstring): void {.cdecl,
       importc: "ImGuiTextBuffer_append".}
 else:
@@ -11392,52 +11392,52 @@ else:
     hint("Declaration of " & "Imguitextbufferappend" &
         " already exists, not redeclaring")
 when not declared(Imguitextbufferappendfv):
-  proc Imguitextbufferappendfv*(self: ptr Imguitextbuffer_80740830; fmt: cstring): void {.
+  proc Imguitextbufferappendfv*(self: ptr Imguitextbuffer_63963613; fmt: cstring): void {.
       cdecl, varargs, importc: "ImGuiTextBuffer_appendfv".}
 else:
   static :
     hint("Declaration of " & "Imguitextbufferappendfv" &
         " already exists, not redeclaring")
 when not declared(Imguistoragepairimguistoragepairint):
-  proc Imguistoragepairimguistoragepairint*(internalkey: Imguiid_80741064;
-      internalvali: cint): ptr Imguistoragepair_80741184 {.cdecl,
+  proc Imguistoragepairimguistoragepairint*(internalkey: Imguiid_63963847;
+      internalvali: cint): ptr Imguistoragepair_63963967 {.cdecl,
       importc: "ImGuiStoragePair_ImGuiStoragePair_Int".}
 else:
   static :
     hint("Declaration of " & "Imguistoragepairimguistoragepairint" &
         " already exists, not redeclaring")
 when not declared(Imguistoragepairdestroy):
-  proc Imguistoragepairdestroy*(self: ptr Imguistoragepair_80741184): void {.
+  proc Imguistoragepairdestroy*(self: ptr Imguistoragepair_63963967): void {.
       cdecl, importc: "ImGuiStoragePair_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguistoragepairdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguistoragepairimguistoragepairfloat):
-  proc Imguistoragepairimguistoragepairfloat*(internalkey: Imguiid_80741064;
-      internalvalf: cfloat): ptr Imguistoragepair_80741184 {.cdecl,
+  proc Imguistoragepairimguistoragepairfloat*(internalkey: Imguiid_63963847;
+      internalvalf: cfloat): ptr Imguistoragepair_63963967 {.cdecl,
       importc: "ImGuiStoragePair_ImGuiStoragePair_Float".}
 else:
   static :
     hint("Declaration of " & "Imguistoragepairimguistoragepairfloat" &
         " already exists, not redeclaring")
 when not declared(Imguistoragepairimguistoragepairptr):
-  proc Imguistoragepairimguistoragepairptr*(internalkey: Imguiid_80741064;
-      internalvalp: pointer): ptr Imguistoragepair_80741184 {.cdecl,
+  proc Imguistoragepairimguistoragepairptr*(internalkey: Imguiid_63963847;
+      internalvalp: pointer): ptr Imguistoragepair_63963967 {.cdecl,
       importc: "ImGuiStoragePair_ImGuiStoragePair_Ptr".}
 else:
   static :
     hint("Declaration of " & "Imguistoragepairimguistoragepairptr" &
         " already exists, not redeclaring")
 when not declared(Imguistorageclear):
-  proc Imguistorageclear*(self: ptr Imguistorage_80740814): void {.cdecl,
+  proc Imguistorageclear*(self: ptr Imguistorage_63963597): void {.cdecl,
       importc: "ImGuiStorage_Clear".}
 else:
   static :
     hint("Declaration of " & "Imguistorageclear" &
         " already exists, not redeclaring")
 when not declared(Imguistoragegetint):
-  proc Imguistoragegetint*(self: ptr Imguistorage_80740814; key: Imguiid_80741064;
+  proc Imguistoragegetint*(self: ptr Imguistorage_63963597; key: Imguiid_63963847;
                            defaultval: cint): cint {.cdecl,
       importc: "ImGuiStorage_GetInt".}
 else:
@@ -11445,7 +11445,7 @@ else:
     hint("Declaration of " & "Imguistoragegetint" &
         " already exists, not redeclaring")
 when not declared(Imguistoragesetint):
-  proc Imguistoragesetint*(self: ptr Imguistorage_80740814; key: Imguiid_80741064;
+  proc Imguistoragesetint*(self: ptr Imguistorage_63963597; key: Imguiid_63963847;
                            val: cint): void {.cdecl,
       importc: "ImGuiStorage_SetInt".}
 else:
@@ -11453,7 +11453,7 @@ else:
     hint("Declaration of " & "Imguistoragesetint" &
         " already exists, not redeclaring")
 when not declared(Imguistoragegetbool):
-  proc Imguistoragegetbool*(self: ptr Imguistorage_80740814; key: Imguiid_80741064;
+  proc Imguistoragegetbool*(self: ptr Imguistorage_63963597; key: Imguiid_63963847;
                             defaultval: bool): bool {.cdecl,
       importc: "ImGuiStorage_GetBool".}
 else:
@@ -11461,7 +11461,7 @@ else:
     hint("Declaration of " & "Imguistoragegetbool" &
         " already exists, not redeclaring")
 when not declared(Imguistoragesetbool):
-  proc Imguistoragesetbool*(self: ptr Imguistorage_80740814; key: Imguiid_80741064;
+  proc Imguistoragesetbool*(self: ptr Imguistorage_63963597; key: Imguiid_63963847;
                             val: bool): void {.cdecl,
       importc: "ImGuiStorage_SetBool".}
 else:
@@ -11469,7 +11469,7 @@ else:
     hint("Declaration of " & "Imguistoragesetbool" &
         " already exists, not redeclaring")
 when not declared(Imguistoragegetfloat):
-  proc Imguistoragegetfloat*(self: ptr Imguistorage_80740814; key: Imguiid_80741064;
+  proc Imguistoragegetfloat*(self: ptr Imguistorage_63963597; key: Imguiid_63963847;
                              defaultval: cfloat): cfloat {.cdecl,
       importc: "ImGuiStorage_GetFloat".}
 else:
@@ -11477,7 +11477,7 @@ else:
     hint("Declaration of " & "Imguistoragegetfloat" &
         " already exists, not redeclaring")
 when not declared(Imguistoragesetfloat):
-  proc Imguistoragesetfloat*(self: ptr Imguistorage_80740814; key: Imguiid_80741064;
+  proc Imguistoragesetfloat*(self: ptr Imguistorage_63963597; key: Imguiid_63963847;
                              val: cfloat): void {.cdecl,
       importc: "ImGuiStorage_SetFloat".}
 else:
@@ -11485,14 +11485,14 @@ else:
     hint("Declaration of " & "Imguistoragesetfloat" &
         " already exists, not redeclaring")
 when not declared(Imguistoragegetvoidptr):
-  proc Imguistoragegetvoidptr*(self: ptr Imguistorage_80740814; key: Imguiid_80741064): pointer {.
+  proc Imguistoragegetvoidptr*(self: ptr Imguistorage_63963597; key: Imguiid_63963847): pointer {.
       cdecl, importc: "ImGuiStorage_GetVoidPtr".}
 else:
   static :
     hint("Declaration of " & "Imguistoragegetvoidptr" &
         " already exists, not redeclaring")
 when not declared(Imguistoragesetvoidptr):
-  proc Imguistoragesetvoidptr*(self: ptr Imguistorage_80740814; key: Imguiid_80741064;
+  proc Imguistoragesetvoidptr*(self: ptr Imguistorage_63963597; key: Imguiid_63963847;
                                val: pointer): void {.cdecl,
       importc: "ImGuiStorage_SetVoidPtr".}
 else:
@@ -11500,7 +11500,7 @@ else:
     hint("Declaration of " & "Imguistoragesetvoidptr" &
         " already exists, not redeclaring")
 when not declared(Imguistoragegetintref):
-  proc Imguistoragegetintref*(self: ptr Imguistorage_80740814; key: Imguiid_80741064;
+  proc Imguistoragegetintref*(self: ptr Imguistorage_63963597; key: Imguiid_63963847;
                               defaultval: cint): ptr cint {.cdecl,
       importc: "ImGuiStorage_GetIntRef".}
 else:
@@ -11508,7 +11508,7 @@ else:
     hint("Declaration of " & "Imguistoragegetintref" &
         " already exists, not redeclaring")
 when not declared(Imguistoragegetboolref):
-  proc Imguistoragegetboolref*(self: ptr Imguistorage_80740814; key: Imguiid_80741064;
+  proc Imguistoragegetboolref*(self: ptr Imguistorage_63963597; key: Imguiid_63963847;
                                defaultval: bool): ptr bool {.cdecl,
       importc: "ImGuiStorage_GetBoolRef".}
 else:
@@ -11516,7 +11516,7 @@ else:
     hint("Declaration of " & "Imguistoragegetboolref" &
         " already exists, not redeclaring")
 when not declared(Imguistoragegetfloatref):
-  proc Imguistoragegetfloatref*(self: ptr Imguistorage_80740814; key: Imguiid_80741064;
+  proc Imguistoragegetfloatref*(self: ptr Imguistorage_63963597; key: Imguiid_63963847;
                                 defaultval: cfloat): ptr cfloat {.cdecl,
       importc: "ImGuiStorage_GetFloatRef".}
 else:
@@ -11524,7 +11524,7 @@ else:
     hint("Declaration of " & "Imguistoragegetfloatref" &
         " already exists, not redeclaring")
 when not declared(Imguistoragegetvoidptrref):
-  proc Imguistoragegetvoidptrref*(self: ptr Imguistorage_80740814; key: Imguiid_80741064;
+  proc Imguistoragegetvoidptrref*(self: ptr Imguistorage_63963597; key: Imguiid_63963847;
                                   defaultval: pointer): ptr pointer {.cdecl,
       importc: "ImGuiStorage_GetVoidPtrRef".}
 else:
@@ -11532,35 +11532,35 @@ else:
     hint("Declaration of " & "Imguistoragegetvoidptrref" &
         " already exists, not redeclaring")
 when not declared(Imguistoragesetallint):
-  proc Imguistoragesetallint*(self: ptr Imguistorage_80740814; val: cint): void {.
+  proc Imguistoragesetallint*(self: ptr Imguistorage_63963597; val: cint): void {.
       cdecl, importc: "ImGuiStorage_SetAllInt".}
 else:
   static :
     hint("Declaration of " & "Imguistoragesetallint" &
         " already exists, not redeclaring")
 when not declared(Imguistoragebuildsortbykey):
-  proc Imguistoragebuildsortbykey*(self: ptr Imguistorage_80740814): void {.
+  proc Imguistoragebuildsortbykey*(self: ptr Imguistorage_63963597): void {.
       cdecl, importc: "ImGuiStorage_BuildSortByKey".}
 else:
   static :
     hint("Declaration of " & "Imguistoragebuildsortbykey" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperimguilistclipper):
-  proc Imguilistclipperimguilistclipper*(): ptr Imguilistclipper_80740779 {.
+  proc Imguilistclipperimguilistclipper*(): ptr Imguilistclipper_63963562 {.
       cdecl, importc: "ImGuiListClipper_ImGuiListClipper".}
 else:
   static :
     hint("Declaration of " & "Imguilistclipperimguilistclipper" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperdestroy):
-  proc Imguilistclipperdestroy*(self: ptr Imguilistclipper_80740779): void {.
+  proc Imguilistclipperdestroy*(self: ptr Imguilistclipper_63963562): void {.
       cdecl, importc: "ImGuiListClipper_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguilistclipperdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperbegin):
-  proc Imguilistclipperbegin*(self: ptr Imguilistclipper_80740779;
+  proc Imguilistclipperbegin*(self: ptr Imguilistclipper_63963562;
                               itemscount: cint; itemsheight: cfloat): void {.
       cdecl, importc: "ImGuiListClipper_Begin".}
 else:
@@ -11568,21 +11568,21 @@ else:
     hint("Declaration of " & "Imguilistclipperbegin" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperend):
-  proc Imguilistclipperend*(self: ptr Imguilistclipper_80740779): void {.cdecl,
+  proc Imguilistclipperend*(self: ptr Imguilistclipper_63963562): void {.cdecl,
       importc: "ImGuiListClipper_End".}
 else:
   static :
     hint("Declaration of " & "Imguilistclipperend" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperstep):
-  proc Imguilistclipperstep*(self: ptr Imguilistclipper_80740779): bool {.cdecl,
+  proc Imguilistclipperstep*(self: ptr Imguilistclipper_63963562): bool {.cdecl,
       importc: "ImGuiListClipper_Step".}
 else:
   static :
     hint("Declaration of " & "Imguilistclipperstep" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperforcedisplayrangebyindices):
-  proc Imguilistclipperforcedisplayrangebyindices*(self: ptr Imguilistclipper_80740779;
+  proc Imguilistclipperforcedisplayrangebyindices*(self: ptr Imguilistclipper_63963562;
       itemmin: cint; itemmax: cint): void {.cdecl,
       importc: "ImGuiListClipper_ForceDisplayRangeByIndices".}
 else:
@@ -11590,49 +11590,49 @@ else:
     hint("Declaration of " & "Imguilistclipperforcedisplayrangebyindices" &
         " already exists, not redeclaring")
 when not declared(Imcolorimcolornil):
-  proc Imcolorimcolornil*(): ptr Imcolor_80740759 {.cdecl,
+  proc Imcolorimcolornil*(): ptr Imcolor_63963542 {.cdecl,
       importc: "ImColor_ImColor_Nil".}
 else:
   static :
     hint("Declaration of " & "Imcolorimcolornil" &
         " already exists, not redeclaring")
 when not declared(Imcolordestroy):
-  proc Imcolordestroy*(self: ptr Imcolor_80740759): void {.cdecl,
+  proc Imcolordestroy*(self: ptr Imcolor_63963542): void {.cdecl,
       importc: "ImColor_destroy".}
 else:
   static :
     hint("Declaration of " & "Imcolordestroy" &
         " already exists, not redeclaring")
 when not declared(Imcolorimcolorfloat):
-  proc Imcolorimcolorfloat*(r: cfloat; g: cfloat; b: cfloat; a: cfloat): ptr Imcolor_80740759 {.
+  proc Imcolorimcolorfloat*(r: cfloat; g: cfloat; b: cfloat; a: cfloat): ptr Imcolor_63963542 {.
       cdecl, importc: "ImColor_ImColor_Float".}
 else:
   static :
     hint("Declaration of " & "Imcolorimcolorfloat" &
         " already exists, not redeclaring")
 when not declared(Imcolorimcolorvec4):
-  proc Imcolorimcolorvec4*(col: Imvec4_80741100): ptr Imcolor_80740759 {.cdecl,
+  proc Imcolorimcolorvec4*(col: Imvec4_63963883): ptr Imcolor_63963542 {.cdecl,
       importc: "ImColor_ImColor_Vec4".}
 else:
   static :
     hint("Declaration of " & "Imcolorimcolorvec4" &
         " already exists, not redeclaring")
 when not declared(Imcolorimcolorint):
-  proc Imcolorimcolorint*(r: cint; g: cint; b: cint; a: cint): ptr Imcolor_80740759 {.
+  proc Imcolorimcolorint*(r: cint; g: cint; b: cint; a: cint): ptr Imcolor_63963542 {.
       cdecl, importc: "ImColor_ImColor_Int".}
 else:
   static :
     hint("Declaration of " & "Imcolorimcolorint" &
         " already exists, not redeclaring")
 when not declared(Imcolorimcoloru32):
-  proc Imcolorimcoloru32*(rgba: Imu32_80741076): ptr Imcolor_80740759 {.cdecl,
+  proc Imcolorimcoloru32*(rgba: Imu32_63963859): ptr Imcolor_63963542 {.cdecl,
       importc: "ImColor_ImColor_U32".}
 else:
   static :
     hint("Declaration of " & "Imcolorimcoloru32" &
         " already exists, not redeclaring")
 when not declared(Imcolorsethsv):
-  proc Imcolorsethsv*(self: ptr Imcolor_80740759; h: cfloat; s: cfloat;
+  proc Imcolorsethsv*(self: ptr Imcolor_63963542; h: cfloat; s: cfloat;
                       v: cfloat; a: cfloat): void {.cdecl,
       importc: "ImColor_SetHSV".}
 else:
@@ -11640,102 +11640,102 @@ else:
     hint("Declaration of " & "Imcolorsethsv" &
         " already exists, not redeclaring")
 when not declared(Imcolorhsv):
-  proc Imcolorhsv*(pout: ptr Imcolor_80740759; h: cfloat; s: cfloat; v: cfloat;
+  proc Imcolorhsv*(pout: ptr Imcolor_63963542; h: cfloat; s: cfloat; v: cfloat;
                    a: cfloat): void {.cdecl, importc: "ImColor_HSV".}
 else:
   static :
     hint("Declaration of " & "Imcolorhsv" & " already exists, not redeclaring")
 when not declared(Imdrawcmdimdrawcmd):
-  proc Imdrawcmdimdrawcmd*(): ptr Imdrawcmd_80740711 {.cdecl,
+  proc Imdrawcmdimdrawcmd*(): ptr Imdrawcmd_63963494 {.cdecl,
       importc: "ImDrawCmd_ImDrawCmd".}
 else:
   static :
     hint("Declaration of " & "Imdrawcmdimdrawcmd" &
         " already exists, not redeclaring")
 when not declared(Imdrawcmddestroy):
-  proc Imdrawcmddestroy*(self: ptr Imdrawcmd_80740711): void {.cdecl,
+  proc Imdrawcmddestroy*(self: ptr Imdrawcmd_63963494): void {.cdecl,
       importc: "ImDrawCmd_destroy".}
 else:
   static :
     hint("Declaration of " & "Imdrawcmddestroy" &
         " already exists, not redeclaring")
 when not declared(Imdrawcmdgettexid):
-  proc Imdrawcmdgettexid*(self: ptr Imdrawcmd_80740711): Imtextureid_80741060 {.
+  proc Imdrawcmdgettexid*(self: ptr Imdrawcmd_63963494): Imtextureid_63963843 {.
       cdecl, importc: "ImDrawCmd_GetTexID".}
 else:
   static :
     hint("Declaration of " & "Imdrawcmdgettexid" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistsplitterimdrawlistsplitter):
-  proc Imdrawlistsplitterimdrawlistsplitter*(): ptr Imdrawlistsplitter_80740727 {.
+  proc Imdrawlistsplitterimdrawlistsplitter*(): ptr Imdrawlistsplitter_63963510 {.
       cdecl, importc: "ImDrawListSplitter_ImDrawListSplitter".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistsplitterimdrawlistsplitter" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistsplitterdestroy):
-  proc Imdrawlistsplitterdestroy*(self: ptr Imdrawlistsplitter_80740727): void {.
+  proc Imdrawlistsplitterdestroy*(self: ptr Imdrawlistsplitter_63963510): void {.
       cdecl, importc: "ImDrawListSplitter_destroy".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistsplitterdestroy" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistsplitterclear):
-  proc Imdrawlistsplitterclear*(self: ptr Imdrawlistsplitter_80740727): void {.
+  proc Imdrawlistsplitterclear*(self: ptr Imdrawlistsplitter_63963510): void {.
       cdecl, importc: "ImDrawListSplitter_Clear".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistsplitterclear" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistsplitterclearfreememory):
-  proc Imdrawlistsplitterclearfreememory*(self: ptr Imdrawlistsplitter_80740727): void {.
+  proc Imdrawlistsplitterclearfreememory*(self: ptr Imdrawlistsplitter_63963510): void {.
       cdecl, importc: "ImDrawListSplitter_ClearFreeMemory".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistsplitterclearfreememory" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistsplittersplit):
-  proc Imdrawlistsplittersplit*(self: ptr Imdrawlistsplitter_80740727;
-                                drawlist: ptr Imdrawlist_80740719; count: cint): void {.
+  proc Imdrawlistsplittersplit*(self: ptr Imdrawlistsplitter_63963510;
+                                drawlist: ptr Imdrawlist_63963502; count: cint): void {.
       cdecl, importc: "ImDrawListSplitter_Split".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistsplittersplit" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistsplittermerge):
-  proc Imdrawlistsplittermerge*(self: ptr Imdrawlistsplitter_80740727;
-                                drawlist: ptr Imdrawlist_80740719): void {.
+  proc Imdrawlistsplittermerge*(self: ptr Imdrawlistsplitter_63963510;
+                                drawlist: ptr Imdrawlist_63963502): void {.
       cdecl, importc: "ImDrawListSplitter_Merge".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistsplittermerge" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistsplittersetcurrentchannel):
-  proc Imdrawlistsplittersetcurrentchannel*(self: ptr Imdrawlistsplitter_80740727;
-      drawlist: ptr Imdrawlist_80740719; channelidx: cint): void {.cdecl,
+  proc Imdrawlistsplittersetcurrentchannel*(self: ptr Imdrawlistsplitter_63963510;
+      drawlist: ptr Imdrawlist_63963502; channelidx: cint): void {.cdecl,
       importc: "ImDrawListSplitter_SetCurrentChannel".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistsplittersetcurrentchannel" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistimdrawlist):
-  proc Imdrawlistimdrawlist*(shareddata: ptr Imdrawlistshareddata_80740723): ptr Imdrawlist_80740719 {.
+  proc Imdrawlistimdrawlist*(shareddata: ptr Imdrawlistshareddata_63963506): ptr Imdrawlist_63963502 {.
       cdecl, importc: "ImDrawList_ImDrawList".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistimdrawlist" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistdestroy):
-  proc Imdrawlistdestroy*(self: ptr Imdrawlist_80740719): void {.cdecl,
+  proc Imdrawlistdestroy*(self: ptr Imdrawlist_63963502): void {.cdecl,
       importc: "ImDrawList_destroy".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistdestroy" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpushcliprect):
-  proc Imdrawlistpushcliprect*(self: ptr Imdrawlist_80740719;
-                               cliprectmin: Imvec2_80741096;
-                               cliprectmax: Imvec2_80741096;
+  proc Imdrawlistpushcliprect*(self: ptr Imdrawlist_63963502;
+                               cliprectmin: Imvec2_63963879;
+                               cliprectmax: Imvec2_63963879;
                                intersectwithcurrentcliprect: bool): void {.
       cdecl, importc: "ImDrawList_PushClipRect".}
 else:
@@ -11743,51 +11743,51 @@ else:
     hint("Declaration of " & "Imdrawlistpushcliprect" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpushcliprectfullscreen):
-  proc Imdrawlistpushcliprectfullscreen*(self: ptr Imdrawlist_80740719): void {.
+  proc Imdrawlistpushcliprectfullscreen*(self: ptr Imdrawlist_63963502): void {.
       cdecl, importc: "ImDrawList_PushClipRectFullScreen".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistpushcliprectfullscreen" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpopcliprect):
-  proc Imdrawlistpopcliprect*(self: ptr Imdrawlist_80740719): void {.cdecl,
+  proc Imdrawlistpopcliprect*(self: ptr Imdrawlist_63963502): void {.cdecl,
       importc: "ImDrawList_PopClipRect".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistpopcliprect" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpushtextureid):
-  proc Imdrawlistpushtextureid*(self: ptr Imdrawlist_80740719;
-                                textureid: Imtextureid_80741060): void {.cdecl,
+  proc Imdrawlistpushtextureid*(self: ptr Imdrawlist_63963502;
+                                textureid: Imtextureid_63963843): void {.cdecl,
       importc: "ImDrawList_PushTextureID".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistpushtextureid" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpoptextureid):
-  proc Imdrawlistpoptextureid*(self: ptr Imdrawlist_80740719): void {.cdecl,
+  proc Imdrawlistpoptextureid*(self: ptr Imdrawlist_63963502): void {.cdecl,
       importc: "ImDrawList_PopTextureID".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistpoptextureid" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistgetcliprectmin):
-  proc Imdrawlistgetcliprectmin*(pout: ptr Imvec2_80741096; self: ptr Imdrawlist_80740719): void {.
+  proc Imdrawlistgetcliprectmin*(pout: ptr Imvec2_63963879; self: ptr Imdrawlist_63963502): void {.
       cdecl, importc: "ImDrawList_GetClipRectMin".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistgetcliprectmin" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistgetcliprectmax):
-  proc Imdrawlistgetcliprectmax*(pout: ptr Imvec2_80741096; self: ptr Imdrawlist_80740719): void {.
+  proc Imdrawlistgetcliprectmax*(pout: ptr Imvec2_63963879; self: ptr Imdrawlist_63963502): void {.
       cdecl, importc: "ImDrawList_GetClipRectMax".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistgetcliprectmax" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddline):
-  proc Imdrawlistaddline*(self: ptr Imdrawlist_80740719; p1: Imvec2_80741096;
-                          p2: Imvec2_80741096; col: Imu32_80741076;
+  proc Imdrawlistaddline*(self: ptr Imdrawlist_63963502; p1: Imvec2_63963879;
+                          p2: Imvec2_63963879; col: Imu32_63963859;
                           thickness: cfloat): void {.cdecl,
       importc: "ImDrawList_AddLine".}
 else:
@@ -11795,9 +11795,9 @@ else:
     hint("Declaration of " & "Imdrawlistaddline" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddrect):
-  proc Imdrawlistaddrect*(self: ptr Imdrawlist_80740719; pmin: Imvec2_80741096;
-                          pmax: Imvec2_80741096; col: Imu32_80741076;
-                          rounding: cfloat; flags: Imdrawflags_80741010;
+  proc Imdrawlistaddrect*(self: ptr Imdrawlist_63963502; pmin: Imvec2_63963879;
+                          pmax: Imvec2_63963879; col: Imu32_63963859;
+                          rounding: cfloat; flags: Imdrawflags_63963793;
                           thickness: cfloat): void {.cdecl,
       importc: "ImDrawList_AddRect".}
 else:
@@ -11805,63 +11805,63 @@ else:
     hint("Declaration of " & "Imdrawlistaddrect" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddrectfilled):
-  proc Imdrawlistaddrectfilled*(self: ptr Imdrawlist_80740719; pmin: Imvec2_80741096;
-                                pmax: Imvec2_80741096; col: Imu32_80741076;
-                                rounding: cfloat; flags: Imdrawflags_80741010): void {.
+  proc Imdrawlistaddrectfilled*(self: ptr Imdrawlist_63963502; pmin: Imvec2_63963879;
+                                pmax: Imvec2_63963879; col: Imu32_63963859;
+                                rounding: cfloat; flags: Imdrawflags_63963793): void {.
       cdecl, importc: "ImDrawList_AddRectFilled".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistaddrectfilled" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddrectfilledmulticolor):
-  proc Imdrawlistaddrectfilledmulticolor*(self: ptr Imdrawlist_80740719;
-      pmin: Imvec2_80741096; pmax: Imvec2_80741096; coluprleft: Imu32_80741076;
-      coluprright: Imu32_80741076; colbotright: Imu32_80741076;
-      colbotleft: Imu32_80741076): void {.cdecl,
+  proc Imdrawlistaddrectfilledmulticolor*(self: ptr Imdrawlist_63963502;
+      pmin: Imvec2_63963879; pmax: Imvec2_63963879; coluprleft: Imu32_63963859;
+      coluprright: Imu32_63963859; colbotright: Imu32_63963859;
+      colbotleft: Imu32_63963859): void {.cdecl,
       importc: "ImDrawList_AddRectFilledMultiColor".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistaddrectfilledmulticolor" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddquad):
-  proc Imdrawlistaddquad*(self: ptr Imdrawlist_80740719; p1: Imvec2_80741096;
-                          p2: Imvec2_80741096; p3: Imvec2_80741096; p4: Imvec2_80741096;
-                          col: Imu32_80741076; thickness: cfloat): void {.cdecl,
+  proc Imdrawlistaddquad*(self: ptr Imdrawlist_63963502; p1: Imvec2_63963879;
+                          p2: Imvec2_63963879; p3: Imvec2_63963879; p4: Imvec2_63963879;
+                          col: Imu32_63963859; thickness: cfloat): void {.cdecl,
       importc: "ImDrawList_AddQuad".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistaddquad" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddquadfilled):
-  proc Imdrawlistaddquadfilled*(self: ptr Imdrawlist_80740719; p1: Imvec2_80741096;
-                                p2: Imvec2_80741096; p3: Imvec2_80741096;
-                                p4: Imvec2_80741096; col: Imu32_80741076): void {.
+  proc Imdrawlistaddquadfilled*(self: ptr Imdrawlist_63963502; p1: Imvec2_63963879;
+                                p2: Imvec2_63963879; p3: Imvec2_63963879;
+                                p4: Imvec2_63963879; col: Imu32_63963859): void {.
       cdecl, importc: "ImDrawList_AddQuadFilled".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistaddquadfilled" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddtriangle):
-  proc Imdrawlistaddtriangle*(self: ptr Imdrawlist_80740719; p1: Imvec2_80741096;
-                              p2: Imvec2_80741096; p3: Imvec2_80741096;
-                              col: Imu32_80741076; thickness: cfloat): void {.
+  proc Imdrawlistaddtriangle*(self: ptr Imdrawlist_63963502; p1: Imvec2_63963879;
+                              p2: Imvec2_63963879; p3: Imvec2_63963879;
+                              col: Imu32_63963859; thickness: cfloat): void {.
       cdecl, importc: "ImDrawList_AddTriangle".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistaddtriangle" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddtrianglefilled):
-  proc Imdrawlistaddtrianglefilled*(self: ptr Imdrawlist_80740719; p1: Imvec2_80741096;
-                                    p2: Imvec2_80741096; p3: Imvec2_80741096;
-                                    col: Imu32_80741076): void {.cdecl,
+  proc Imdrawlistaddtrianglefilled*(self: ptr Imdrawlist_63963502; p1: Imvec2_63963879;
+                                    p2: Imvec2_63963879; p3: Imvec2_63963879;
+                                    col: Imu32_63963859): void {.cdecl,
       importc: "ImDrawList_AddTriangleFilled".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistaddtrianglefilled" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddcircle):
-  proc Imdrawlistaddcircle*(self: ptr Imdrawlist_80740719; center: Imvec2_80741096;
-                            radius: cfloat; col: Imu32_80741076;
+  proc Imdrawlistaddcircle*(self: ptr Imdrawlist_63963502; center: Imvec2_63963879;
+                            radius: cfloat; col: Imu32_63963859;
                             numsegments: cint; thickness: cfloat): void {.cdecl,
       importc: "ImDrawList_AddCircle".}
 else:
@@ -11869,8 +11869,8 @@ else:
     hint("Declaration of " & "Imdrawlistaddcircle" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddcirclefilled):
-  proc Imdrawlistaddcirclefilled*(self: ptr Imdrawlist_80740719; center: Imvec2_80741096;
-                                  radius: cfloat; col: Imu32_80741076;
+  proc Imdrawlistaddcirclefilled*(self: ptr Imdrawlist_63963502; center: Imvec2_63963879;
+                                  radius: cfloat; col: Imu32_63963859;
                                   numsegments: cint): void {.cdecl,
       importc: "ImDrawList_AddCircleFilled".}
 else:
@@ -11878,8 +11878,8 @@ else:
     hint("Declaration of " & "Imdrawlistaddcirclefilled" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddngon):
-  proc Imdrawlistaddngon*(self: ptr Imdrawlist_80740719; center: Imvec2_80741096;
-                          radius: cfloat; col: Imu32_80741076;
+  proc Imdrawlistaddngon*(self: ptr Imdrawlist_63963502; center: Imvec2_63963879;
+                          radius: cfloat; col: Imu32_63963859;
                           numsegments: cint; thickness: cfloat): void {.cdecl,
       importc: "ImDrawList_AddNgon".}
 else:
@@ -11887,8 +11887,8 @@ else:
     hint("Declaration of " & "Imdrawlistaddngon" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddngonfilled):
-  proc Imdrawlistaddngonfilled*(self: ptr Imdrawlist_80740719; center: Imvec2_80741096;
-                                radius: cfloat; col: Imu32_80741076;
+  proc Imdrawlistaddngonfilled*(self: ptr Imdrawlist_63963502; center: Imvec2_63963879;
+                                radius: cfloat; col: Imu32_63963859;
                                 numsegments: cint): void {.cdecl,
       importc: "ImDrawList_AddNgonFilled".}
 else:
@@ -11896,8 +11896,8 @@ else:
     hint("Declaration of " & "Imdrawlistaddngonfilled" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddtextvec2):
-  proc Imdrawlistaddtextvec2*(self: ptr Imdrawlist_80740719; pos: Imvec2_80741096;
-                              col: Imu32_80741076; textbegin: cstring;
+  proc Imdrawlistaddtextvec2*(self: ptr Imdrawlist_63963502; pos: Imvec2_63963879;
+                              col: Imu32_63963859; textbegin: cstring;
                               textend: cstring): void {.cdecl,
       importc: "ImDrawList_AddText_Vec2".}
 else:
@@ -11905,38 +11905,38 @@ else:
     hint("Declaration of " & "Imdrawlistaddtextvec2" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddtextfontptr):
-  proc Imdrawlistaddtextfontptr*(self: ptr Imdrawlist_80740719;
-                                 font: ptr Imfont_80740735; fontsize: cfloat;
-                                 pos: Imvec2_80741096; col: Imu32_80741076;
+  proc Imdrawlistaddtextfontptr*(self: ptr Imdrawlist_63963502;
+                                 font: ptr Imfont_63963518; fontsize: cfloat;
+                                 pos: Imvec2_63963879; col: Imu32_63963859;
                                  textbegin: cstring; textend: cstring;
-                                 wrapwidth: cfloat; cpufinecliprect: ptr Imvec4_80741100): void {.
+                                 wrapwidth: cfloat; cpufinecliprect: ptr Imvec4_63963883): void {.
       cdecl, importc: "ImDrawList_AddText_FontPtr".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistaddtextfontptr" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddpolyline):
-  proc Imdrawlistaddpolyline*(self: ptr Imdrawlist_80740719; points: ptr Imvec2_80741096;
-                              numpoints: cint; col: Imu32_80741076;
-                              flags: Imdrawflags_80741010; thickness: cfloat): void {.
+  proc Imdrawlistaddpolyline*(self: ptr Imdrawlist_63963502; points: ptr Imvec2_63963879;
+                              numpoints: cint; col: Imu32_63963859;
+                              flags: Imdrawflags_63963793; thickness: cfloat): void {.
       cdecl, importc: "ImDrawList_AddPolyline".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistaddpolyline" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddconvexpolyfilled):
-  proc Imdrawlistaddconvexpolyfilled*(self: ptr Imdrawlist_80740719;
-                                      points: ptr Imvec2_80741096;
-                                      numpoints: cint; col: Imu32_80741076): void {.
+  proc Imdrawlistaddconvexpolyfilled*(self: ptr Imdrawlist_63963502;
+                                      points: ptr Imvec2_63963879;
+                                      numpoints: cint; col: Imu32_63963859): void {.
       cdecl, importc: "ImDrawList_AddConvexPolyFilled".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistaddconvexpolyfilled" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddbeziercubic):
-  proc Imdrawlistaddbeziercubic*(self: ptr Imdrawlist_80740719; p1: Imvec2_80741096;
-                                 p2: Imvec2_80741096; p3: Imvec2_80741096;
-                                 p4: Imvec2_80741096; col: Imu32_80741076;
+  proc Imdrawlistaddbeziercubic*(self: ptr Imdrawlist_63963502; p1: Imvec2_63963879;
+                                 p2: Imvec2_63963879; p3: Imvec2_63963879;
+                                 p4: Imvec2_63963879; col: Imu32_63963859;
                                  thickness: cfloat; numsegments: cint): void {.
       cdecl, importc: "ImDrawList_AddBezierCubic".}
 else:
@@ -11944,9 +11944,9 @@ else:
     hint("Declaration of " & "Imdrawlistaddbeziercubic" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddbezierquadratic):
-  proc Imdrawlistaddbezierquadratic*(self: ptr Imdrawlist_80740719; p1: Imvec2_80741096;
-                                     p2: Imvec2_80741096; p3: Imvec2_80741096;
-                                     col: Imu32_80741076; thickness: cfloat;
+  proc Imdrawlistaddbezierquadratic*(self: ptr Imdrawlist_63963502; p1: Imvec2_63963879;
+                                     p2: Imvec2_63963879; p3: Imvec2_63963879;
+                                     col: Imu32_63963859; thickness: cfloat;
                                      numsegments: cint): void {.cdecl,
       importc: "ImDrawList_AddBezierQuadratic".}
 else:
@@ -11954,77 +11954,77 @@ else:
     hint("Declaration of " & "Imdrawlistaddbezierquadratic" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddimage):
-  proc Imdrawlistaddimage*(self: ptr Imdrawlist_80740719;
-                           usertextureid: Imtextureid_80741060; pmin: Imvec2_80741096;
-                           pmax: Imvec2_80741096; uvmin: Imvec2_80741096;
-                           uvmax: Imvec2_80741096; col: Imu32_80741076): void {.
+  proc Imdrawlistaddimage*(self: ptr Imdrawlist_63963502;
+                           usertextureid: Imtextureid_63963843; pmin: Imvec2_63963879;
+                           pmax: Imvec2_63963879; uvmin: Imvec2_63963879;
+                           uvmax: Imvec2_63963879; col: Imu32_63963859): void {.
       cdecl, importc: "ImDrawList_AddImage".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistaddimage" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddimagequad):
-  proc Imdrawlistaddimagequad*(self: ptr Imdrawlist_80740719;
-                               usertextureid: Imtextureid_80741060; p1: Imvec2_80741096;
-                               p2: Imvec2_80741096; p3: Imvec2_80741096;
-                               p4: Imvec2_80741096; uv1: Imvec2_80741096;
-                               uv2: Imvec2_80741096; uv3: Imvec2_80741096;
-                               uv4: Imvec2_80741096; col: Imu32_80741076): void {.
+  proc Imdrawlistaddimagequad*(self: ptr Imdrawlist_63963502;
+                               usertextureid: Imtextureid_63963843; p1: Imvec2_63963879;
+                               p2: Imvec2_63963879; p3: Imvec2_63963879;
+                               p4: Imvec2_63963879; uv1: Imvec2_63963879;
+                               uv2: Imvec2_63963879; uv3: Imvec2_63963879;
+                               uv4: Imvec2_63963879; col: Imu32_63963859): void {.
       cdecl, importc: "ImDrawList_AddImageQuad".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistaddimagequad" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddimagerounded):
-  proc Imdrawlistaddimagerounded*(self: ptr Imdrawlist_80740719;
-                                  usertextureid: Imtextureid_80741060;
-                                  pmin: Imvec2_80741096; pmax: Imvec2_80741096;
-                                  uvmin: Imvec2_80741096; uvmax: Imvec2_80741096;
-                                  col: Imu32_80741076; rounding: cfloat;
-                                  flags: Imdrawflags_80741010): void {.cdecl,
+  proc Imdrawlistaddimagerounded*(self: ptr Imdrawlist_63963502;
+                                  usertextureid: Imtextureid_63963843;
+                                  pmin: Imvec2_63963879; pmax: Imvec2_63963879;
+                                  uvmin: Imvec2_63963879; uvmax: Imvec2_63963879;
+                                  col: Imu32_63963859; rounding: cfloat;
+                                  flags: Imdrawflags_63963793): void {.cdecl,
       importc: "ImDrawList_AddImageRounded".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistaddimagerounded" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpathclear):
-  proc Imdrawlistpathclear*(self: ptr Imdrawlist_80740719): void {.cdecl,
+  proc Imdrawlistpathclear*(self: ptr Imdrawlist_63963502): void {.cdecl,
       importc: "ImDrawList_PathClear".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistpathclear" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpathlineto):
-  proc Imdrawlistpathlineto*(self: ptr Imdrawlist_80740719; pos: Imvec2_80741096): void {.
+  proc Imdrawlistpathlineto*(self: ptr Imdrawlist_63963502; pos: Imvec2_63963879): void {.
       cdecl, importc: "ImDrawList_PathLineTo".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistpathlineto" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpathlinetomergeduplicate):
-  proc Imdrawlistpathlinetomergeduplicate*(self: ptr Imdrawlist_80740719;
-      pos: Imvec2_80741096): void {.cdecl, importc: "ImDrawList_PathLineToMergeDuplicate".}
+  proc Imdrawlistpathlinetomergeduplicate*(self: ptr Imdrawlist_63963502;
+      pos: Imvec2_63963879): void {.cdecl, importc: "ImDrawList_PathLineToMergeDuplicate".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistpathlinetomergeduplicate" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpathfillconvex):
-  proc Imdrawlistpathfillconvex*(self: ptr Imdrawlist_80740719; col: Imu32_80741076): void {.
+  proc Imdrawlistpathfillconvex*(self: ptr Imdrawlist_63963502; col: Imu32_63963859): void {.
       cdecl, importc: "ImDrawList_PathFillConvex".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistpathfillconvex" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpathstroke):
-  proc Imdrawlistpathstroke*(self: ptr Imdrawlist_80740719; col: Imu32_80741076;
-                             flags: Imdrawflags_80741010; thickness: cfloat): void {.
+  proc Imdrawlistpathstroke*(self: ptr Imdrawlist_63963502; col: Imu32_63963859;
+                             flags: Imdrawflags_63963793; thickness: cfloat): void {.
       cdecl, importc: "ImDrawList_PathStroke".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistpathstroke" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpatharcto):
-  proc Imdrawlistpatharcto*(self: ptr Imdrawlist_80740719; center: Imvec2_80741096;
+  proc Imdrawlistpatharcto*(self: ptr Imdrawlist_63963502; center: Imvec2_63963879;
                             radius: cfloat; amin: cfloat; amax: cfloat;
                             numsegments: cint): void {.cdecl,
       importc: "ImDrawList_PathArcTo".}
@@ -12033,7 +12033,7 @@ else:
     hint("Declaration of " & "Imdrawlistpatharcto" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpatharctofast):
-  proc Imdrawlistpatharctofast*(self: ptr Imdrawlist_80740719; center: Imvec2_80741096;
+  proc Imdrawlistpatharctofast*(self: ptr Imdrawlist_63963502; center: Imvec2_63963879;
                                 radius: cfloat; aminof12: cint; amaxof12: cint): void {.
       cdecl, importc: "ImDrawList_PathArcToFast".}
 else:
@@ -12041,8 +12041,8 @@ else:
     hint("Declaration of " & "Imdrawlistpatharctofast" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpathbeziercubiccurveto):
-  proc Imdrawlistpathbeziercubiccurveto*(self: ptr Imdrawlist_80740719;
-      p2: Imvec2_80741096; p3: Imvec2_80741096; p4: Imvec2_80741096;
+  proc Imdrawlistpathbeziercubiccurveto*(self: ptr Imdrawlist_63963502;
+      p2: Imvec2_63963879; p3: Imvec2_63963879; p4: Imvec2_63963879;
       numsegments: cint): void {.cdecl,
                                  importc: "ImDrawList_PathBezierCubicCurveTo".}
 else:
@@ -12050,25 +12050,25 @@ else:
     hint("Declaration of " & "Imdrawlistpathbeziercubiccurveto" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpathbezierquadraticcurveto):
-  proc Imdrawlistpathbezierquadraticcurveto*(self: ptr Imdrawlist_80740719;
-      p2: Imvec2_80741096; p3: Imvec2_80741096; numsegments: cint): void {.
+  proc Imdrawlistpathbezierquadraticcurveto*(self: ptr Imdrawlist_63963502;
+      p2: Imvec2_63963879; p3: Imvec2_63963879; numsegments: cint): void {.
       cdecl, importc: "ImDrawList_PathBezierQuadraticCurveTo".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistpathbezierquadraticcurveto" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpathrect):
-  proc Imdrawlistpathrect*(self: ptr Imdrawlist_80740719; rectmin: Imvec2_80741096;
-                           rectmax: Imvec2_80741096; rounding: cfloat;
-                           flags: Imdrawflags_80741010): void {.cdecl,
+  proc Imdrawlistpathrect*(self: ptr Imdrawlist_63963502; rectmin: Imvec2_63963879;
+                           rectmax: Imvec2_63963879; rounding: cfloat;
+                           flags: Imdrawflags_63963793): void {.cdecl,
       importc: "ImDrawList_PathRect".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistpathrect" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddcallback):
-  proc Imdrawlistaddcallback*(self: ptr Imdrawlist_80740719;
-                              callback: Imdrawcallback_80741190;
+  proc Imdrawlistaddcallback*(self: ptr Imdrawlist_63963502;
+                              callback: Imdrawcallback_63963973;
                               callbackdata: pointer): void {.cdecl,
       importc: "ImDrawList_AddCallback".}
 else:
@@ -12076,42 +12076,42 @@ else:
     hint("Declaration of " & "Imdrawlistaddcallback" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistadddrawcmd):
-  proc Imdrawlistadddrawcmd*(self: ptr Imdrawlist_80740719): void {.cdecl,
+  proc Imdrawlistadddrawcmd*(self: ptr Imdrawlist_63963502): void {.cdecl,
       importc: "ImDrawList_AddDrawCmd".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistadddrawcmd" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistcloneoutput):
-  proc Imdrawlistcloneoutput*(self: ptr Imdrawlist_80740719): ptr Imdrawlist_80740719 {.
+  proc Imdrawlistcloneoutput*(self: ptr Imdrawlist_63963502): ptr Imdrawlist_63963502 {.
       cdecl, importc: "ImDrawList_CloneOutput".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistcloneoutput" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistchannelssplit):
-  proc Imdrawlistchannelssplit*(self: ptr Imdrawlist_80740719; count: cint): void {.
+  proc Imdrawlistchannelssplit*(self: ptr Imdrawlist_63963502; count: cint): void {.
       cdecl, importc: "ImDrawList_ChannelsSplit".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistchannelssplit" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistchannelsmerge):
-  proc Imdrawlistchannelsmerge*(self: ptr Imdrawlist_80740719): void {.cdecl,
+  proc Imdrawlistchannelsmerge*(self: ptr Imdrawlist_63963502): void {.cdecl,
       importc: "ImDrawList_ChannelsMerge".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistchannelsmerge" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistchannelssetcurrent):
-  proc Imdrawlistchannelssetcurrent*(self: ptr Imdrawlist_80740719; n: cint): void {.
+  proc Imdrawlistchannelssetcurrent*(self: ptr Imdrawlist_63963502; n: cint): void {.
       cdecl, importc: "ImDrawList_ChannelsSetCurrent".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistchannelssetcurrent" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistprimreserve):
-  proc Imdrawlistprimreserve*(self: ptr Imdrawlist_80740719; idxcount: cint;
+  proc Imdrawlistprimreserve*(self: ptr Imdrawlist_63963502; idxcount: cint;
                               vtxcount: cint): void {.cdecl,
       importc: "ImDrawList_PrimReserve".}
 else:
@@ -12119,7 +12119,7 @@ else:
     hint("Declaration of " & "Imdrawlistprimreserve" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistprimunreserve):
-  proc Imdrawlistprimunreserve*(self: ptr Imdrawlist_80740719; idxcount: cint;
+  proc Imdrawlistprimunreserve*(self: ptr Imdrawlist_63963502; idxcount: cint;
                                 vtxcount: cint): void {.cdecl,
       importc: "ImDrawList_PrimUnreserve".}
 else:
@@ -12127,107 +12127,107 @@ else:
     hint("Declaration of " & "Imdrawlistprimunreserve" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistprimrect):
-  proc Imdrawlistprimrect*(self: ptr Imdrawlist_80740719; a: Imvec2_80741096;
-                           b: Imvec2_80741096; col: Imu32_80741076): void {.
+  proc Imdrawlistprimrect*(self: ptr Imdrawlist_63963502; a: Imvec2_63963879;
+                           b: Imvec2_63963879; col: Imu32_63963859): void {.
       cdecl, importc: "ImDrawList_PrimRect".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistprimrect" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistprimrectuv):
-  proc Imdrawlistprimrectuv*(self: ptr Imdrawlist_80740719; a: Imvec2_80741096;
-                             b: Imvec2_80741096; uva: Imvec2_80741096;
-                             uvb: Imvec2_80741096; col: Imu32_80741076): void {.
+  proc Imdrawlistprimrectuv*(self: ptr Imdrawlist_63963502; a: Imvec2_63963879;
+                             b: Imvec2_63963879; uva: Imvec2_63963879;
+                             uvb: Imvec2_63963879; col: Imu32_63963859): void {.
       cdecl, importc: "ImDrawList_PrimRectUV".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistprimrectuv" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistprimquaduv):
-  proc Imdrawlistprimquaduv*(self: ptr Imdrawlist_80740719; a: Imvec2_80741096;
-                             b: Imvec2_80741096; c: Imvec2_80741096; d: Imvec2_80741096;
-                             uva: Imvec2_80741096; uvb: Imvec2_80741096;
-                             uvc: Imvec2_80741096; uvd: Imvec2_80741096;
-                             col: Imu32_80741076): void {.cdecl,
+  proc Imdrawlistprimquaduv*(self: ptr Imdrawlist_63963502; a: Imvec2_63963879;
+                             b: Imvec2_63963879; c: Imvec2_63963879; d: Imvec2_63963879;
+                             uva: Imvec2_63963879; uvb: Imvec2_63963879;
+                             uvc: Imvec2_63963879; uvd: Imvec2_63963879;
+                             col: Imu32_63963859): void {.cdecl,
       importc: "ImDrawList_PrimQuadUV".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistprimquaduv" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistprimwritevtx):
-  proc Imdrawlistprimwritevtx*(self: ptr Imdrawlist_80740719; pos: Imvec2_80741096;
-                               uv: Imvec2_80741096; col: Imu32_80741076): void {.
+  proc Imdrawlistprimwritevtx*(self: ptr Imdrawlist_63963502; pos: Imvec2_63963879;
+                               uv: Imvec2_63963879; col: Imu32_63963859): void {.
       cdecl, importc: "ImDrawList_PrimWriteVtx".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistprimwritevtx" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistprimwriteidx):
-  proc Imdrawlistprimwriteidx*(self: ptr Imdrawlist_80740719; idx: Imdrawidx_80741062): void {.
+  proc Imdrawlistprimwriteidx*(self: ptr Imdrawlist_63963502; idx: Imdrawidx_63963845): void {.
       cdecl, importc: "ImDrawList_PrimWriteIdx".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistprimwriteidx" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistprimvtx):
-  proc Imdrawlistprimvtx*(self: ptr Imdrawlist_80740719; pos: Imvec2_80741096;
-                          uv: Imvec2_80741096; col: Imu32_80741076): void {.
+  proc Imdrawlistprimvtx*(self: ptr Imdrawlist_63963502; pos: Imvec2_63963879;
+                          uv: Imvec2_63963879; col: Imu32_63963859): void {.
       cdecl, importc: "ImDrawList_PrimVtx".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistprimvtx" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistresetfornewframe):
-  proc Imdrawlistresetfornewframe*(self: ptr Imdrawlist_80740719): void {.cdecl,
+  proc Imdrawlistresetfornewframe*(self: ptr Imdrawlist_63963502): void {.cdecl,
       importc: "ImDrawList__ResetForNewFrame".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistresetfornewframe" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistclearfreememory):
-  proc Imdrawlistclearfreememory*(self: ptr Imdrawlist_80740719): void {.cdecl,
+  proc Imdrawlistclearfreememory*(self: ptr Imdrawlist_63963502): void {.cdecl,
       importc: "ImDrawList__ClearFreeMemory".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistclearfreememory" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpopunuseddrawcmd):
-  proc Imdrawlistpopunuseddrawcmd*(self: ptr Imdrawlist_80740719): void {.cdecl,
+  proc Imdrawlistpopunuseddrawcmd*(self: ptr Imdrawlist_63963502): void {.cdecl,
       importc: "ImDrawList__PopUnusedDrawCmd".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistpopunuseddrawcmd" &
         " already exists, not redeclaring")
 when not declared(Imdrawlisttrymergedrawcmds):
-  proc Imdrawlisttrymergedrawcmds*(self: ptr Imdrawlist_80740719): void {.cdecl,
+  proc Imdrawlisttrymergedrawcmds*(self: ptr Imdrawlist_63963502): void {.cdecl,
       importc: "ImDrawList__TryMergeDrawCmds".}
 else:
   static :
     hint("Declaration of " & "Imdrawlisttrymergedrawcmds" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistonchangedcliprect):
-  proc Imdrawlistonchangedcliprect*(self: ptr Imdrawlist_80740719): void {.
+  proc Imdrawlistonchangedcliprect*(self: ptr Imdrawlist_63963502): void {.
       cdecl, importc: "ImDrawList__OnChangedClipRect".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistonchangedcliprect" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistonchangedtextureid):
-  proc Imdrawlistonchangedtextureid*(self: ptr Imdrawlist_80740719): void {.
+  proc Imdrawlistonchangedtextureid*(self: ptr Imdrawlist_63963502): void {.
       cdecl, importc: "ImDrawList__OnChangedTextureID".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistonchangedtextureid" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistonchangedvtxoffset):
-  proc Imdrawlistonchangedvtxoffset*(self: ptr Imdrawlist_80740719): void {.
+  proc Imdrawlistonchangedvtxoffset*(self: ptr Imdrawlist_63963502): void {.
       cdecl, importc: "ImDrawList__OnChangedVtxOffset".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistonchangedvtxoffset" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistcalccircleautosegmentcount):
-  proc Imdrawlistcalccircleautosegmentcount*(self: ptr Imdrawlist_80740719;
+  proc Imdrawlistcalccircleautosegmentcount*(self: ptr Imdrawlist_63963502;
       radius: cfloat): cint {.cdecl,
                               importc: "ImDrawList__CalcCircleAutoSegmentCount".}
 else:
@@ -12235,7 +12235,7 @@ else:
     hint("Declaration of " & "Imdrawlistcalccircleautosegmentcount" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpatharctofastex):
-  proc Imdrawlistpatharctofastex*(self: ptr Imdrawlist_80740719; center: Imvec2_80741096;
+  proc Imdrawlistpatharctofastex*(self: ptr Imdrawlist_63963502; center: Imvec2_63963879;
                                   radius: cfloat; aminsample: cint;
                                   amaxsample: cint; astep: cint): void {.cdecl,
       importc: "ImDrawList__PathArcToFastEx".}
@@ -12244,7 +12244,7 @@ else:
     hint("Declaration of " & "Imdrawlistpatharctofastex" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistpatharcton):
-  proc Imdrawlistpatharcton*(self: ptr Imdrawlist_80740719; center: Imvec2_80741096;
+  proc Imdrawlistpatharcton*(self: ptr Imdrawlist_63963502; center: Imvec2_63963879;
                              radius: cfloat; amin: cfloat; amax: cfloat;
                              numsegments: cint): void {.cdecl,
       importc: "ImDrawList__PathArcToN".}
@@ -12253,77 +12253,77 @@ else:
     hint("Declaration of " & "Imdrawlistpatharcton" &
         " already exists, not redeclaring")
 when not declared(Imdrawdataimdrawdata):
-  proc Imdrawdataimdrawdata*(): ptr Imdrawdata_80740715 {.cdecl,
+  proc Imdrawdataimdrawdata*(): ptr Imdrawdata_63963498 {.cdecl,
       importc: "ImDrawData_ImDrawData".}
 else:
   static :
     hint("Declaration of " & "Imdrawdataimdrawdata" &
         " already exists, not redeclaring")
 when not declared(Imdrawdatadestroy):
-  proc Imdrawdatadestroy*(self: ptr Imdrawdata_80740715): void {.cdecl,
+  proc Imdrawdatadestroy*(self: ptr Imdrawdata_63963498): void {.cdecl,
       importc: "ImDrawData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imdrawdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imdrawdataclear):
-  proc Imdrawdataclear*(self: ptr Imdrawdata_80740715): void {.cdecl,
+  proc Imdrawdataclear*(self: ptr Imdrawdata_63963498): void {.cdecl,
       importc: "ImDrawData_Clear".}
 else:
   static :
     hint("Declaration of " & "Imdrawdataclear" &
         " already exists, not redeclaring")
 when not declared(Imdrawdatadeindexallbuffers):
-  proc Imdrawdatadeindexallbuffers*(self: ptr Imdrawdata_80740715): void {.
+  proc Imdrawdatadeindexallbuffers*(self: ptr Imdrawdata_63963498): void {.
       cdecl, importc: "ImDrawData_DeIndexAllBuffers".}
 else:
   static :
     hint("Declaration of " & "Imdrawdatadeindexallbuffers" &
         " already exists, not redeclaring")
 when not declared(Imdrawdatascalecliprects):
-  proc Imdrawdatascalecliprects*(self: ptr Imdrawdata_80740715; fbscale: Imvec2_80741096): void {.
+  proc Imdrawdatascalecliprects*(self: ptr Imdrawdata_63963498; fbscale: Imvec2_63963879): void {.
       cdecl, importc: "ImDrawData_ScaleClipRects".}
 else:
   static :
     hint("Declaration of " & "Imdrawdatascalecliprects" &
         " already exists, not redeclaring")
 when not declared(Imfontconfigimfontconfig):
-  proc Imfontconfigimfontconfig*(): ptr Imfontconfig_80740747 {.cdecl,
+  proc Imfontconfigimfontconfig*(): ptr Imfontconfig_63963530 {.cdecl,
       importc: "ImFontConfig_ImFontConfig".}
 else:
   static :
     hint("Declaration of " & "Imfontconfigimfontconfig" &
         " already exists, not redeclaring")
 when not declared(Imfontconfigdestroy):
-  proc Imfontconfigdestroy*(self: ptr Imfontconfig_80740747): void {.cdecl,
+  proc Imfontconfigdestroy*(self: ptr Imfontconfig_63963530): void {.cdecl,
       importc: "ImFontConfig_destroy".}
 else:
   static :
     hint("Declaration of " & "Imfontconfigdestroy" &
         " already exists, not redeclaring")
 when not declared(Imfontglyphrangesbuilderimfontglyphrangesbuilder):
-  proc Imfontglyphrangesbuilderimfontglyphrangesbuilder*(): ptr Imfontglyphrangesbuilder_80740755 {.
+  proc Imfontglyphrangesbuilderimfontglyphrangesbuilder*(): ptr Imfontglyphrangesbuilder_63963538 {.
       cdecl, importc: "ImFontGlyphRangesBuilder_ImFontGlyphRangesBuilder".}
 else:
   static :
     hint("Declaration of " & "Imfontglyphrangesbuilderimfontglyphrangesbuilder" &
         " already exists, not redeclaring")
 when not declared(Imfontglyphrangesbuilderdestroy):
-  proc Imfontglyphrangesbuilderdestroy*(self: ptr Imfontglyphrangesbuilder_80740755): void {.
+  proc Imfontglyphrangesbuilderdestroy*(self: ptr Imfontglyphrangesbuilder_63963538): void {.
       cdecl, importc: "ImFontGlyphRangesBuilder_destroy".}
 else:
   static :
     hint("Declaration of " & "Imfontglyphrangesbuilderdestroy" &
         " already exists, not redeclaring")
 when not declared(Imfontglyphrangesbuilderclear):
-  proc Imfontglyphrangesbuilderclear*(self: ptr Imfontglyphrangesbuilder_80740755): void {.
+  proc Imfontglyphrangesbuilderclear*(self: ptr Imfontglyphrangesbuilder_63963538): void {.
       cdecl, importc: "ImFontGlyphRangesBuilder_Clear".}
 else:
   static :
     hint("Declaration of " & "Imfontglyphrangesbuilderclear" &
         " already exists, not redeclaring")
 when not declared(Imfontglyphrangesbuildergetbit):
-  proc Imfontglyphrangesbuildergetbit*(self: ptr Imfontglyphrangesbuilder_80740755;
+  proc Imfontglyphrangesbuildergetbit*(self: ptr Imfontglyphrangesbuilder_63963538;
                                        n: csize_t): bool {.cdecl,
       importc: "ImFontGlyphRangesBuilder_GetBit".}
 else:
@@ -12331,7 +12331,7 @@ else:
     hint("Declaration of " & "Imfontglyphrangesbuildergetbit" &
         " already exists, not redeclaring")
 when not declared(Imfontglyphrangesbuildersetbit):
-  proc Imfontglyphrangesbuildersetbit*(self: ptr Imfontglyphrangesbuilder_80740755;
+  proc Imfontglyphrangesbuildersetbit*(self: ptr Imfontglyphrangesbuilder_63963538;
                                        n: csize_t): void {.cdecl,
       importc: "ImFontGlyphRangesBuilder_SetBit".}
 else:
@@ -12339,15 +12339,15 @@ else:
     hint("Declaration of " & "Imfontglyphrangesbuildersetbit" &
         " already exists, not redeclaring")
 when not declared(Imfontglyphrangesbuilderaddchar):
-  proc Imfontglyphrangesbuilderaddchar*(self: ptr Imfontglyphrangesbuilder_80740755;
-                                        c: Imwchar_80741086): void {.cdecl,
+  proc Imfontglyphrangesbuilderaddchar*(self: ptr Imfontglyphrangesbuilder_63963538;
+                                        c: Imwchar_63963869): void {.cdecl,
       importc: "ImFontGlyphRangesBuilder_AddChar".}
 else:
   static :
     hint("Declaration of " & "Imfontglyphrangesbuilderaddchar" &
         " already exists, not redeclaring")
 when not declared(Imfontglyphrangesbuilderaddtext):
-  proc Imfontglyphrangesbuilderaddtext*(self: ptr Imfontglyphrangesbuilder_80740755;
+  proc Imfontglyphrangesbuilderaddtext*(self: ptr Imfontglyphrangesbuilder_63963538;
                                         text: cstring; textend: cstring): void {.
       cdecl, importc: "ImFontGlyphRangesBuilder_AddText".}
 else:
@@ -12355,148 +12355,148 @@ else:
     hint("Declaration of " & "Imfontglyphrangesbuilderaddtext" &
         " already exists, not redeclaring")
 when not declared(Imfontglyphrangesbuilderaddranges):
-  proc Imfontglyphrangesbuilderaddranges*(self: ptr Imfontglyphrangesbuilder_80740755;
-      ranges: ptr Imwchar_80741086): void {.cdecl,
+  proc Imfontglyphrangesbuilderaddranges*(self: ptr Imfontglyphrangesbuilder_63963538;
+      ranges: ptr Imwchar_63963869): void {.cdecl,
       importc: "ImFontGlyphRangesBuilder_AddRanges".}
 else:
   static :
     hint("Declaration of " & "Imfontglyphrangesbuilderaddranges" &
         " already exists, not redeclaring")
 when not declared(Imfontglyphrangesbuilderbuildranges):
-  proc Imfontglyphrangesbuilderbuildranges*(self: ptr Imfontglyphrangesbuilder_80740755;
-      outranges: ptr Imvectorimwchar_80741168): void {.cdecl,
+  proc Imfontglyphrangesbuilderbuildranges*(self: ptr Imfontglyphrangesbuilder_63963538;
+      outranges: ptr Imvectorimwchar_63963951): void {.cdecl,
       importc: "ImFontGlyphRangesBuilder_BuildRanges".}
 else:
   static :
     hint("Declaration of " & "Imfontglyphrangesbuilderbuildranges" &
         " already exists, not redeclaring")
 when not declared(Imfontatlascustomrectimfontatlascustomrect):
-  proc Imfontatlascustomrectimfontatlascustomrect*(): ptr Imfontatlascustomrect_80741232 {.
+  proc Imfontatlascustomrectimfontatlascustomrect*(): ptr Imfontatlascustomrect_63964015 {.
       cdecl, importc: "ImFontAtlasCustomRect_ImFontAtlasCustomRect".}
 else:
   static :
     hint("Declaration of " & "Imfontatlascustomrectimfontatlascustomrect" &
         " already exists, not redeclaring")
 when not declared(Imfontatlascustomrectdestroy):
-  proc Imfontatlascustomrectdestroy*(self: ptr Imfontatlascustomrect_80741232): void {.
+  proc Imfontatlascustomrectdestroy*(self: ptr Imfontatlascustomrect_63964015): void {.
       cdecl, importc: "ImFontAtlasCustomRect_destroy".}
 else:
   static :
     hint("Declaration of " & "Imfontatlascustomrectdestroy" &
         " already exists, not redeclaring")
 when not declared(Imfontatlascustomrectispacked):
-  proc Imfontatlascustomrectispacked*(self: ptr Imfontatlascustomrect_80741232): bool {.
+  proc Imfontatlascustomrectispacked*(self: ptr Imfontatlascustomrect_63964015): bool {.
       cdecl, importc: "ImFontAtlasCustomRect_IsPacked".}
 else:
   static :
     hint("Declaration of " & "Imfontatlascustomrectispacked" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasimfontatlas):
-  proc Imfontatlasimfontatlas*(): ptr Imfontatlas_80740739 {.cdecl,
+  proc Imfontatlasimfontatlas*(): ptr Imfontatlas_63963522 {.cdecl,
       importc: "ImFontAtlas_ImFontAtlas".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasimfontatlas" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasdestroy):
-  proc Imfontatlasdestroy*(self: ptr Imfontatlas_80740739): void {.cdecl,
+  proc Imfontatlasdestroy*(self: ptr Imfontatlas_63963522): void {.cdecl,
       importc: "ImFontAtlas_destroy".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasdestroy" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasaddfont):
-  proc Imfontatlasaddfont*(self: ptr Imfontatlas_80740739;
-                           fontcfg: ptr Imfontconfig_80740747): ptr Imfont_80740735 {.
+  proc Imfontatlasaddfont*(self: ptr Imfontatlas_63963522;
+                           fontcfg: ptr Imfontconfig_63963530): ptr Imfont_63963518 {.
       cdecl, importc: "ImFontAtlas_AddFont".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasaddfont" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasaddfontdefault):
-  proc Imfontatlasaddfontdefault*(self: ptr Imfontatlas_80740739;
-                                  fontcfg: ptr Imfontconfig_80740747): ptr Imfont_80740735 {.
+  proc Imfontatlasaddfontdefault*(self: ptr Imfontatlas_63963522;
+                                  fontcfg: ptr Imfontconfig_63963530): ptr Imfont_63963518 {.
       cdecl, importc: "ImFontAtlas_AddFontDefault".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasaddfontdefault" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasaddfontfromfilettf):
-  proc Imfontatlasaddfontfromfilettf*(self: ptr Imfontatlas_80740739;
+  proc Imfontatlasaddfontfromfilettf*(self: ptr Imfontatlas_63963522;
                                       filename: cstring; sizepixels: cfloat;
-                                      fontcfg: ptr Imfontconfig_80740747;
-                                      glyphranges: ptr Imwchar_80741086): ptr Imfont_80740735 {.
+                                      fontcfg: ptr Imfontconfig_63963530;
+                                      glyphranges: ptr Imwchar_63963869): ptr Imfont_63963518 {.
       cdecl, importc: "ImFontAtlas_AddFontFromFileTTF".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasaddfontfromfilettf" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasaddfontfrommemoryttf):
-  proc Imfontatlasaddfontfrommemoryttf*(self: ptr Imfontatlas_80740739;
+  proc Imfontatlasaddfontfrommemoryttf*(self: ptr Imfontatlas_63963522;
                                         fontdata: pointer; fontsize: cint;
                                         sizepixels: cfloat;
-                                        fontcfg: ptr Imfontconfig_80740747;
-                                        glyphranges: ptr Imwchar_80741086): ptr Imfont_80740735 {.
+                                        fontcfg: ptr Imfontconfig_63963530;
+                                        glyphranges: ptr Imwchar_63963869): ptr Imfont_63963518 {.
       cdecl, importc: "ImFontAtlas_AddFontFromMemoryTTF".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasaddfontfrommemoryttf" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasaddfontfrommemorycompressedttf):
-  proc Imfontatlasaddfontfrommemorycompressedttf*(self: ptr Imfontatlas_80740739;
+  proc Imfontatlasaddfontfrommemorycompressedttf*(self: ptr Imfontatlas_63963522;
       compressedfontdata: pointer; compressedfontsize: cint; sizepixels: cfloat;
-      fontcfg: ptr Imfontconfig_80740747; glyphranges: ptr Imwchar_80741086): ptr Imfont_80740735 {.
+      fontcfg: ptr Imfontconfig_63963530; glyphranges: ptr Imwchar_63963869): ptr Imfont_63963518 {.
       cdecl, importc: "ImFontAtlas_AddFontFromMemoryCompressedTTF".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasaddfontfrommemorycompressedttf" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasaddfontfrommemorycompressedbase85ttf):
-  proc Imfontatlasaddfontfrommemorycompressedbase85ttf*(self: ptr Imfontatlas_80740739;
+  proc Imfontatlasaddfontfrommemorycompressedbase85ttf*(self: ptr Imfontatlas_63963522;
       compressedfontdatabase85: cstring; sizepixels: cfloat;
-      fontcfg: ptr Imfontconfig_80740747; glyphranges: ptr Imwchar_80741086): ptr Imfont_80740735 {.
+      fontcfg: ptr Imfontconfig_63963530; glyphranges: ptr Imwchar_63963869): ptr Imfont_63963518 {.
       cdecl, importc: "ImFontAtlas_AddFontFromMemoryCompressedBase85TTF".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasaddfontfrommemorycompressedbase85ttf" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasclearinputdata):
-  proc Imfontatlasclearinputdata*(self: ptr Imfontatlas_80740739): void {.cdecl,
+  proc Imfontatlasclearinputdata*(self: ptr Imfontatlas_63963522): void {.cdecl,
       importc: "ImFontAtlas_ClearInputData".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasclearinputdata" &
         " already exists, not redeclaring")
 when not declared(Imfontatlascleartexdata):
-  proc Imfontatlascleartexdata*(self: ptr Imfontatlas_80740739): void {.cdecl,
+  proc Imfontatlascleartexdata*(self: ptr Imfontatlas_63963522): void {.cdecl,
       importc: "ImFontAtlas_ClearTexData".}
 else:
   static :
     hint("Declaration of " & "Imfontatlascleartexdata" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasclearfonts):
-  proc Imfontatlasclearfonts*(self: ptr Imfontatlas_80740739): void {.cdecl,
+  proc Imfontatlasclearfonts*(self: ptr Imfontatlas_63963522): void {.cdecl,
       importc: "ImFontAtlas_ClearFonts".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasclearfonts" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasclear):
-  proc Imfontatlasclear*(self: ptr Imfontatlas_80740739): void {.cdecl,
+  proc Imfontatlasclear*(self: ptr Imfontatlas_63963522): void {.cdecl,
       importc: "ImFontAtlas_Clear".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasclear" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasbuild):
-  proc Imfontatlasbuild*(self: ptr Imfontatlas_80740739): bool {.cdecl,
+  proc Imfontatlasbuild*(self: ptr Imfontatlas_63963522): bool {.cdecl,
       importc: "ImFontAtlas_Build".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasbuild" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasgettexdataasalpha8):
-  proc Imfontatlasgettexdataasalpha8*(self: ptr Imfontatlas_80740739;
+  proc Imfontatlasgettexdataasalpha8*(self: ptr Imfontatlas_63963522;
                                       outpixels: ptr ptr uint8;
                                       outwidth: ptr cint; outheight: ptr cint;
                                       outbytesperpixel: ptr cint): void {.cdecl,
@@ -12506,7 +12506,7 @@ else:
     hint("Declaration of " & "Imfontatlasgettexdataasalpha8" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasgettexdataasrgba32):
-  proc Imfontatlasgettexdataasrgba32*(self: ptr Imfontatlas_80740739;
+  proc Imfontatlasgettexdataasrgba32*(self: ptr Imfontatlas_63963522;
                                       outpixels: ptr ptr uint8;
                                       outwidth: ptr cint; outheight: ptr cint;
                                       outbytesperpixel: ptr cint): void {.cdecl,
@@ -12516,84 +12516,84 @@ else:
     hint("Declaration of " & "Imfontatlasgettexdataasrgba32" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasisbuilt):
-  proc Imfontatlasisbuilt*(self: ptr Imfontatlas_80740739): bool {.cdecl,
+  proc Imfontatlasisbuilt*(self: ptr Imfontatlas_63963522): bool {.cdecl,
       importc: "ImFontAtlas_IsBuilt".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasisbuilt" &
         " already exists, not redeclaring")
 when not declared(Imfontatlassettexid):
-  proc Imfontatlassettexid*(self: ptr Imfontatlas_80740739; id: Imtextureid_80741060): void {.
+  proc Imfontatlassettexid*(self: ptr Imfontatlas_63963522; id: Imtextureid_63963843): void {.
       cdecl, importc: "ImFontAtlas_SetTexID".}
 else:
   static :
     hint("Declaration of " & "Imfontatlassettexid" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasgetglyphrangesdefault):
-  proc Imfontatlasgetglyphrangesdefault*(self: ptr Imfontatlas_80740739): ptr Imwchar_80741086 {.
+  proc Imfontatlasgetglyphrangesdefault*(self: ptr Imfontatlas_63963522): ptr Imwchar_63963869 {.
       cdecl, importc: "ImFontAtlas_GetGlyphRangesDefault".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasgetglyphrangesdefault" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasgetglyphrangesgreek):
-  proc Imfontatlasgetglyphrangesgreek*(self: ptr Imfontatlas_80740739): ptr Imwchar_80741086 {.
+  proc Imfontatlasgetglyphrangesgreek*(self: ptr Imfontatlas_63963522): ptr Imwchar_63963869 {.
       cdecl, importc: "ImFontAtlas_GetGlyphRangesGreek".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasgetglyphrangesgreek" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasgetglyphrangeskorean):
-  proc Imfontatlasgetglyphrangeskorean*(self: ptr Imfontatlas_80740739): ptr Imwchar_80741086 {.
+  proc Imfontatlasgetglyphrangeskorean*(self: ptr Imfontatlas_63963522): ptr Imwchar_63963869 {.
       cdecl, importc: "ImFontAtlas_GetGlyphRangesKorean".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasgetglyphrangeskorean" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasgetglyphrangesjapanese):
-  proc Imfontatlasgetglyphrangesjapanese*(self: ptr Imfontatlas_80740739): ptr Imwchar_80741086 {.
+  proc Imfontatlasgetglyphrangesjapanese*(self: ptr Imfontatlas_63963522): ptr Imwchar_63963869 {.
       cdecl, importc: "ImFontAtlas_GetGlyphRangesJapanese".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasgetglyphrangesjapanese" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasgetglyphrangeschinesefull):
-  proc Imfontatlasgetglyphrangeschinesefull*(self: ptr Imfontatlas_80740739): ptr Imwchar_80741086 {.
+  proc Imfontatlasgetglyphrangeschinesefull*(self: ptr Imfontatlas_63963522): ptr Imwchar_63963869 {.
       cdecl, importc: "ImFontAtlas_GetGlyphRangesChineseFull".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasgetglyphrangeschinesefull" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasgetglyphrangeschinesesimplifiedcommon):
-  proc Imfontatlasgetglyphrangeschinesesimplifiedcommon*(self: ptr Imfontatlas_80740739): ptr Imwchar_80741086 {.
+  proc Imfontatlasgetglyphrangeschinesesimplifiedcommon*(self: ptr Imfontatlas_63963522): ptr Imwchar_63963869 {.
       cdecl, importc: "ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasgetglyphrangeschinesesimplifiedcommon" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasgetglyphrangescyrillic):
-  proc Imfontatlasgetglyphrangescyrillic*(self: ptr Imfontatlas_80740739): ptr Imwchar_80741086 {.
+  proc Imfontatlasgetglyphrangescyrillic*(self: ptr Imfontatlas_63963522): ptr Imwchar_63963869 {.
       cdecl, importc: "ImFontAtlas_GetGlyphRangesCyrillic".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasgetglyphrangescyrillic" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasgetglyphrangesthai):
-  proc Imfontatlasgetglyphrangesthai*(self: ptr Imfontatlas_80740739): ptr Imwchar_80741086 {.
+  proc Imfontatlasgetglyphrangesthai*(self: ptr Imfontatlas_63963522): ptr Imwchar_63963869 {.
       cdecl, importc: "ImFontAtlas_GetGlyphRangesThai".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasgetglyphrangesthai" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasgetglyphrangesvietnamese):
-  proc Imfontatlasgetglyphrangesvietnamese*(self: ptr Imfontatlas_80740739): ptr Imwchar_80741086 {.
+  proc Imfontatlasgetglyphrangesvietnamese*(self: ptr Imfontatlas_63963522): ptr Imwchar_63963869 {.
       cdecl, importc: "ImFontAtlas_GetGlyphRangesVietnamese".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasgetglyphrangesvietnamese" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasaddcustomrectregular):
-  proc Imfontatlasaddcustomrectregular*(self: ptr Imfontatlas_80740739;
+  proc Imfontatlasaddcustomrectregular*(self: ptr Imfontatlas_63963522;
                                         width: cint; height: cint): cint {.
       cdecl, importc: "ImFontAtlas_AddCustomRectRegular".}
 else:
@@ -12601,91 +12601,91 @@ else:
     hint("Declaration of " & "Imfontatlasaddcustomrectregular" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasaddcustomrectfontglyph):
-  proc Imfontatlasaddcustomrectfontglyph*(self: ptr Imfontatlas_80740739;
-      font: ptr Imfont_80740735; id: Imwchar_80741086; width: cint;
-      height: cint; advancex: cfloat; offset: Imvec2_80741096): cint {.cdecl,
+  proc Imfontatlasaddcustomrectfontglyph*(self: ptr Imfontatlas_63963522;
+      font: ptr Imfont_63963518; id: Imwchar_63963869; width: cint;
+      height: cint; advancex: cfloat; offset: Imvec2_63963879): cint {.cdecl,
       importc: "ImFontAtlas_AddCustomRectFontGlyph".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasaddcustomrectfontglyph" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasgetcustomrectbyindex):
-  proc Imfontatlasgetcustomrectbyindex*(self: ptr Imfontatlas_80740739;
-                                        index: cint): ptr Imfontatlascustomrect_80741232 {.
+  proc Imfontatlasgetcustomrectbyindex*(self: ptr Imfontatlas_63963522;
+                                        index: cint): ptr Imfontatlascustomrect_63964015 {.
       cdecl, importc: "ImFontAtlas_GetCustomRectByIndex".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasgetcustomrectbyindex" &
         " already exists, not redeclaring")
 when not declared(Imfontatlascalccustomrectuv):
-  proc Imfontatlascalccustomrectuv*(self: ptr Imfontatlas_80740739;
-                                    rect: ptr Imfontatlascustomrect_80741232;
-                                    outuvmin: ptr Imvec2_80741096;
-                                    outuvmax: ptr Imvec2_80741096): void {.
+  proc Imfontatlascalccustomrectuv*(self: ptr Imfontatlas_63963522;
+                                    rect: ptr Imfontatlascustomrect_63964015;
+                                    outuvmin: ptr Imvec2_63963879;
+                                    outuvmax: ptr Imvec2_63963879): void {.
       cdecl, importc: "ImFontAtlas_CalcCustomRectUV".}
 else:
   static :
     hint("Declaration of " & "Imfontatlascalccustomrectuv" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasgetmousecursortexdata):
-  proc Imfontatlasgetmousecursortexdata*(self: ptr Imfontatlas_80740739;
-      cursor: Imguimousecursor_80741002; outoffset: ptr Imvec2_80741096;
-      outsize: ptr Imvec2_80741096; outuvborder: array[2'i64, Imvec2_80741096];
-      outuvfill: array[2'i64, Imvec2_80741096]): bool {.cdecl,
+  proc Imfontatlasgetmousecursortexdata*(self: ptr Imfontatlas_63963522;
+      cursor: Imguimousecursor_63963785; outoffset: ptr Imvec2_63963879;
+      outsize: ptr Imvec2_63963879; outuvborder: array[2'i64, Imvec2_63963879];
+      outuvfill: array[2'i64, Imvec2_63963879]): bool {.cdecl,
       importc: "ImFontAtlas_GetMouseCursorTexData".}
 else:
   static :
     hint("Declaration of " & "Imfontatlasgetmousecursortexdata" &
         " already exists, not redeclaring")
 when not declared(Imfontimfont):
-  proc Imfontimfont*(): ptr Imfont_80740735 {.cdecl, importc: "ImFont_ImFont".}
+  proc Imfontimfont*(): ptr Imfont_63963518 {.cdecl, importc: "ImFont_ImFont".}
 else:
   static :
     hint("Declaration of " & "Imfontimfont" & " already exists, not redeclaring")
 when not declared(Imfontdestroy):
-  proc Imfontdestroy*(self: ptr Imfont_80740735): void {.cdecl,
+  proc Imfontdestroy*(self: ptr Imfont_63963518): void {.cdecl,
       importc: "ImFont_destroy".}
 else:
   static :
     hint("Declaration of " & "Imfontdestroy" &
         " already exists, not redeclaring")
 when not declared(Imfontfindglyph):
-  proc Imfontfindglyph*(self: ptr Imfont_80740735; c: Imwchar_80741086): ptr Imfontglyph_80740751 {.
+  proc Imfontfindglyph*(self: ptr Imfont_63963518; c: Imwchar_63963869): ptr Imfontglyph_63963534 {.
       cdecl, importc: "ImFont_FindGlyph".}
 else:
   static :
     hint("Declaration of " & "Imfontfindglyph" &
         " already exists, not redeclaring")
 when not declared(Imfontfindglyphnofallback):
-  proc Imfontfindglyphnofallback*(self: ptr Imfont_80740735; c: Imwchar_80741086): ptr Imfontglyph_80740751 {.
+  proc Imfontfindglyphnofallback*(self: ptr Imfont_63963518; c: Imwchar_63963869): ptr Imfontglyph_63963534 {.
       cdecl, importc: "ImFont_FindGlyphNoFallback".}
 else:
   static :
     hint("Declaration of " & "Imfontfindglyphnofallback" &
         " already exists, not redeclaring")
 when not declared(Imfontgetcharadvance):
-  proc Imfontgetcharadvance*(self: ptr Imfont_80740735; c: Imwchar_80741086): cfloat {.
+  proc Imfontgetcharadvance*(self: ptr Imfont_63963518; c: Imwchar_63963869): cfloat {.
       cdecl, importc: "ImFont_GetCharAdvance".}
 else:
   static :
     hint("Declaration of " & "Imfontgetcharadvance" &
         " already exists, not redeclaring")
 when not declared(Imfontisloaded):
-  proc Imfontisloaded*(self: ptr Imfont_80740735): bool {.cdecl,
+  proc Imfontisloaded*(self: ptr Imfont_63963518): bool {.cdecl,
       importc: "ImFont_IsLoaded".}
 else:
   static :
     hint("Declaration of " & "Imfontisloaded" &
         " already exists, not redeclaring")
 when not declared(Imfontgetdebugname):
-  proc Imfontgetdebugname*(self: ptr Imfont_80740735): cstring {.cdecl,
+  proc Imfontgetdebugname*(self: ptr Imfont_63963518): cstring {.cdecl,
       importc: "ImFont_GetDebugName".}
 else:
   static :
     hint("Declaration of " & "Imfontgetdebugname" &
         " already exists, not redeclaring")
 when not declared(Imfontcalctextsizea):
-  proc Imfontcalctextsizea*(pout: ptr Imvec2_80741096; self: ptr Imfont_80740735;
+  proc Imfontcalctextsizea*(pout: ptr Imvec2_63963879; self: ptr Imfont_63963518;
                             size: cfloat; maxwidth: cfloat; wrapwidth: cfloat;
                             textbegin: cstring; textend: cstring;
                             remaining: ptr ptr cschar): void {.cdecl,
@@ -12695,7 +12695,7 @@ else:
     hint("Declaration of " & "Imfontcalctextsizea" &
         " already exists, not redeclaring")
 when not declared(Imfontcalcwordwrappositiona):
-  proc Imfontcalcwordwrappositiona*(self: ptr Imfont_80740735; scale: cfloat;
+  proc Imfontcalcwordwrappositiona*(self: ptr Imfont_63963518; scale: cfloat;
                                     text: cstring; textend: cstring;
                                     wrapwidth: cfloat): cstring {.cdecl,
       importc: "ImFont_CalcWordWrapPositionA".}
@@ -12704,18 +12704,18 @@ else:
     hint("Declaration of " & "Imfontcalcwordwrappositiona" &
         " already exists, not redeclaring")
 when not declared(Imfontrenderchar):
-  proc Imfontrenderchar*(self: ptr Imfont_80740735; drawlist: ptr Imdrawlist_80740719;
-                         size: cfloat; pos: Imvec2_80741096; col: Imu32_80741076;
-                         c: Imwchar_80741086): void {.cdecl,
+  proc Imfontrenderchar*(self: ptr Imfont_63963518; drawlist: ptr Imdrawlist_63963502;
+                         size: cfloat; pos: Imvec2_63963879; col: Imu32_63963859;
+                         c: Imwchar_63963869): void {.cdecl,
       importc: "ImFont_RenderChar".}
 else:
   static :
     hint("Declaration of " & "Imfontrenderchar" &
         " already exists, not redeclaring")
 when not declared(Imfontrendertext):
-  proc Imfontrendertext*(self: ptr Imfont_80740735; drawlist: ptr Imdrawlist_80740719;
-                         size: cfloat; pos: Imvec2_80741096; col: Imu32_80741076;
-                         cliprect: Imvec4_80741100; textbegin: cstring;
+  proc Imfontrendertext*(self: ptr Imfont_63963518; drawlist: ptr Imdrawlist_63963502;
+                         size: cfloat; pos: Imvec2_63963879; col: Imu32_63963859;
+                         cliprect: Imvec4_63963883; textbegin: cstring;
                          textend: cstring; wrapwidth: cfloat; cpufineclip: bool): void {.
       cdecl, importc: "ImFont_RenderText".}
 else:
@@ -12723,29 +12723,29 @@ else:
     hint("Declaration of " & "Imfontrendertext" &
         " already exists, not redeclaring")
 when not declared(Imfontbuildlookuptable):
-  proc Imfontbuildlookuptable*(self: ptr Imfont_80740735): void {.cdecl,
+  proc Imfontbuildlookuptable*(self: ptr Imfont_63963518): void {.cdecl,
       importc: "ImFont_BuildLookupTable".}
 else:
   static :
     hint("Declaration of " & "Imfontbuildlookuptable" &
         " already exists, not redeclaring")
 when not declared(Imfontclearoutputdata):
-  proc Imfontclearoutputdata*(self: ptr Imfont_80740735): void {.cdecl,
+  proc Imfontclearoutputdata*(self: ptr Imfont_63963518): void {.cdecl,
       importc: "ImFont_ClearOutputData".}
 else:
   static :
     hint("Declaration of " & "Imfontclearoutputdata" &
         " already exists, not redeclaring")
 when not declared(Imfontgrowindex):
-  proc Imfontgrowindex*(self: ptr Imfont_80740735; newsize: cint): void {.cdecl,
+  proc Imfontgrowindex*(self: ptr Imfont_63963518; newsize: cint): void {.cdecl,
       importc: "ImFont_GrowIndex".}
 else:
   static :
     hint("Declaration of " & "Imfontgrowindex" &
         " already exists, not redeclaring")
 when not declared(Imfontaddglyph):
-  proc Imfontaddglyph*(self: ptr Imfont_80740735; srccfg: ptr Imfontconfig_80740747;
-                       c: Imwchar_80741086; x0: cfloat; y0: cfloat; x1: cfloat;
+  proc Imfontaddglyph*(self: ptr Imfont_63963518; srccfg: ptr Imfontconfig_63963530;
+                       c: Imwchar_63963869; x0: cfloat; y0: cfloat; x1: cfloat;
                        y1: cfloat; u0: cfloat; v0: cfloat; u1: cfloat;
                        v1: cfloat; advancex: cfloat): void {.cdecl,
       importc: "ImFont_AddGlyph".}
@@ -12754,15 +12754,15 @@ else:
     hint("Declaration of " & "Imfontaddglyph" &
         " already exists, not redeclaring")
 when not declared(Imfontaddremapchar):
-  proc Imfontaddremapchar*(self: ptr Imfont_80740735; dst: Imwchar_80741086;
-                           src: Imwchar_80741086; overwritedst: bool): void {.
+  proc Imfontaddremapchar*(self: ptr Imfont_63963518; dst: Imwchar_63963869;
+                           src: Imwchar_63963869; overwritedst: bool): void {.
       cdecl, importc: "ImFont_AddRemapChar".}
 else:
   static :
     hint("Declaration of " & "Imfontaddremapchar" &
         " already exists, not redeclaring")
 when not declared(Imfontsetglyphvisible):
-  proc Imfontsetglyphvisible*(self: ptr Imfont_80740735; c: Imwchar_80741086;
+  proc Imfontsetglyphvisible*(self: ptr Imfont_63963518; c: Imwchar_63963869;
                               visible: bool): void {.cdecl,
       importc: "ImFont_SetGlyphVisible".}
 else:
@@ -12770,7 +12770,7 @@ else:
     hint("Declaration of " & "Imfontsetglyphvisible" &
         " already exists, not redeclaring")
 when not declared(Imfontisglyphrangeunused):
-  proc Imfontisglyphrangeunused*(self: ptr Imfont_80740735; cbegin: cuint;
+  proc Imfontisglyphrangeunused*(self: ptr Imfont_63963518; cbegin: cuint;
                                  clast: cuint): bool {.cdecl,
       importc: "ImFont_IsGlyphRangeUnused".}
 else:
@@ -12778,92 +12778,92 @@ else:
     hint("Declaration of " & "Imfontisglyphrangeunused" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportimguiviewport):
-  proc Imguiviewportimguiviewport*(): ptr Imguiviewport_80740838 {.cdecl,
+  proc Imguiviewportimguiviewport*(): ptr Imguiviewport_63963621 {.cdecl,
       importc: "ImGuiViewport_ImGuiViewport".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportimguiviewport" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportdestroy):
-  proc Imguiviewportdestroy*(self: ptr Imguiviewport_80740838): void {.cdecl,
+  proc Imguiviewportdestroy*(self: ptr Imguiviewport_63963621): void {.cdecl,
       importc: "ImGuiViewport_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportgetcenter):
-  proc Imguiviewportgetcenter*(pout: ptr Imvec2_80741096;
-                               self: ptr Imguiviewport_80740838): void {.cdecl,
+  proc Imguiviewportgetcenter*(pout: ptr Imvec2_63963879;
+                               self: ptr Imguiviewport_63963621): void {.cdecl,
       importc: "ImGuiViewport_GetCenter".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportgetcenter" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportgetworkcenter):
-  proc Imguiviewportgetworkcenter*(pout: ptr Imvec2_80741096;
-                                   self: ptr Imguiviewport_80740838): void {.
+  proc Imguiviewportgetworkcenter*(pout: ptr Imvec2_63963879;
+                                   self: ptr Imguiviewport_63963621): void {.
       cdecl, importc: "ImGuiViewport_GetWorkCenter".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportgetworkcenter" &
         " already exists, not redeclaring")
 when not declared(Imguiplatformioimguiplatformio):
-  proc Imguiplatformioimguiplatformio*(): ptr Imguiplatformio_80740798 {.cdecl,
+  proc Imguiplatformioimguiplatformio*(): ptr Imguiplatformio_63963581 {.cdecl,
       importc: "ImGuiPlatformIO_ImGuiPlatformIO".}
 else:
   static :
     hint("Declaration of " & "Imguiplatformioimguiplatformio" &
         " already exists, not redeclaring")
 when not declared(Imguiplatformiodestroy):
-  proc Imguiplatformiodestroy*(self: ptr Imguiplatformio_80740798): void {.
+  proc Imguiplatformiodestroy*(self: ptr Imguiplatformio_63963581): void {.
       cdecl, importc: "ImGuiPlatformIO_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiplatformiodestroy" &
         " already exists, not redeclaring")
 when not declared(Imguiplatformmonitorimguiplatformmonitor):
-  proc Imguiplatformmonitorimguiplatformmonitor*(): ptr Imguiplatformmonitor_80740802 {.
+  proc Imguiplatformmonitorimguiplatformmonitor*(): ptr Imguiplatformmonitor_63963585 {.
       cdecl, importc: "ImGuiPlatformMonitor_ImGuiPlatformMonitor".}
 else:
   static :
     hint("Declaration of " & "Imguiplatformmonitorimguiplatformmonitor" &
         " already exists, not redeclaring")
 when not declared(Imguiplatformmonitordestroy):
-  proc Imguiplatformmonitordestroy*(self: ptr Imguiplatformmonitor_80740802): void {.
+  proc Imguiplatformmonitordestroy*(self: ptr Imguiplatformmonitor_63963585): void {.
       cdecl, importc: "ImGuiPlatformMonitor_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiplatformmonitordestroy" &
         " already exists, not redeclaring")
 when not declared(Imguiplatformimedataimguiplatformimedata):
-  proc Imguiplatformimedataimguiplatformimedata*(): ptr Imguiplatformimedata_80740806 {.
+  proc Imguiplatformimedataimguiplatformimedata*(): ptr Imguiplatformimedata_63963589 {.
       cdecl, importc: "ImGuiPlatformImeData_ImGuiPlatformImeData".}
 else:
   static :
     hint("Declaration of " & "Imguiplatformimedataimguiplatformimedata" &
         " already exists, not redeclaring")
 when not declared(Imguiplatformimedatadestroy):
-  proc Imguiplatformimedatadestroy*(self: ptr Imguiplatformimedata_80740806): void {.
+  proc Imguiplatformimedatadestroy*(self: ptr Imguiplatformimedata_63963589): void {.
       cdecl, importc: "ImGuiPlatformImeData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiplatformimedatadestroy" &
         " already exists, not redeclaring")
 when not declared(iggetkeyindex):
-  proc iggetkeyindex*(key: Imguikey_80741142): Imguikey_80741142 {.cdecl,
+  proc iggetkeyindex*(key: Imguikey_63963925): Imguikey_63963925 {.cdecl,
       importc: "igGetKeyIndex".}
 else:
   static :
     hint("Declaration of " & "iggetkeyindex" &
         " already exists, not redeclaring")
 when not declared(igimhashdata):
-  proc igimhashdata*(data: pointer; datasize: csize_t; seed: Imguiid_80741064): Imguiid_80741064 {.
+  proc igimhashdata*(data: pointer; datasize: csize_t; seed: Imguiid_63963847): Imguiid_63963847 {.
       cdecl, importc: "igImHashData".}
 else:
   static :
     hint("Declaration of " & "igimhashdata" & " already exists, not redeclaring")
 when not declared(igimhashstr):
-  proc igimhashstr*(data: cstring; datasize: csize_t; seed: Imguiid_80741064): Imguiid_80741064 {.
+  proc igimhashstr*(data: cstring; datasize: csize_t; seed: Imguiid_63963847): Imguiid_63963847 {.
       cdecl, importc: "igImHashStr".}
 else:
   static :
@@ -12876,7 +12876,7 @@ else:
   static :
     hint("Declaration of " & "igimqsort" & " already exists, not redeclaring")
 when not declared(igimalphablendcolors):
-  proc igimalphablendcolors*(cola: Imu32_80741076; colb: Imu32_80741076): Imu32_80741076 {.
+  proc igimalphablendcolors*(cola: Imu32_63963859; colb: Imu32_63963859): Imu32_63963859 {.
       cdecl, importc: "igImAlphaBlendColors".}
 else:
   static :
@@ -12890,7 +12890,7 @@ else:
     hint("Declaration of " & "igimispoweroftwoint" &
         " already exists, not redeclaring")
 when not declared(igimispoweroftwou64):
-  proc igimispoweroftwou64*(v: Imu64_80741080): bool {.cdecl,
+  proc igimispoweroftwou64*(v: Imu64_63963863): bool {.cdecl,
       importc: "igImIsPowerOfTwo_U64".}
 else:
   static :
@@ -12941,7 +12941,7 @@ else:
     hint("Declaration of " & "igimstrchrrange" &
         " already exists, not redeclaring")
 when not declared(igimstrlenw):
-  proc igimstrlenw*(str: ptr Imwchar_80741086): cint {.cdecl,
+  proc igimstrlenw*(str: ptr Imwchar_63963869): cint {.cdecl,
       importc: "igImStrlenW".}
 else:
   static :
@@ -12954,7 +12954,7 @@ else:
     hint("Declaration of " & "igimstreolrange" &
         " already exists, not redeclaring")
 when not declared(igimstrbolw):
-  proc igimstrbolw*(bufmidline: ptr Imwchar_80741086; bufbegin: ptr Imwchar_80741086): ptr Imwchar_80741086 {.
+  proc igimstrbolw*(bufmidline: ptr Imwchar_63963869; bufbegin: ptr Imwchar_63963869): ptr Imwchar_63963869 {.
       cdecl, importc: "igImStrbolW".}
 else:
   static :
@@ -13078,7 +13078,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igimtextstrtoutf8):
   proc igimtextstrtoutf8*(outbuf: cstring; outbufsize: cint;
-                          intext: ptr Imwchar_80741086; intextend: ptr Imwchar_80741086): cint {.
+                          intext: ptr Imwchar_63963869; intextend: ptr Imwchar_63963869): cint {.
       cdecl, importc: "igImTextStrToUtf8".}
 else:
   static :
@@ -13093,7 +13093,7 @@ else:
     hint("Declaration of " & "igimtextcharfromutf8" &
         " already exists, not redeclaring")
 when not declared(igimtextstrfromutf8):
-  proc igimtextstrfromutf8*(outbuf: ptr Imwchar_80741086; outbufsize: cint;
+  proc igimtextstrfromutf8*(outbuf: ptr Imwchar_63963869; outbufsize: cint;
                             intext: cstring; intextend: cstring;
                             inremaining: ptr ptr cschar): cint {.cdecl,
       importc: "igImTextStrFromUtf8".}
@@ -13116,43 +13116,43 @@ else:
     hint("Declaration of " & "igimtextcountutf8bytesfromchar" &
         " already exists, not redeclaring")
 when not declared(igimtextcountutf8bytesfromstr):
-  proc igimtextcountutf8bytesfromstr*(intext: ptr Imwchar_80741086;
-                                      intextend: ptr Imwchar_80741086): cint {.
+  proc igimtextcountutf8bytesfromstr*(intext: ptr Imwchar_63963869;
+                                      intextend: ptr Imwchar_63963869): cint {.
       cdecl, importc: "igImTextCountUtf8BytesFromStr".}
 else:
   static :
     hint("Declaration of " & "igimtextcountutf8bytesfromstr" &
         " already exists, not redeclaring")
 when not declared(igimfileopen):
-  proc igimfileopen*(filename: cstring; mode: cstring): Imfilehandle_80741318 {.
+  proc igimfileopen*(filename: cstring; mode: cstring): Imfilehandle_63964101 {.
       cdecl, importc: "igImFileOpen".}
 else:
   static :
     hint("Declaration of " & "igimfileopen" & " already exists, not redeclaring")
 when not declared(igimfileclose):
-  proc igimfileclose*(file: Imfilehandle_80741318): bool {.cdecl,
+  proc igimfileclose*(file: Imfilehandle_63964101): bool {.cdecl,
       importc: "igImFileClose".}
 else:
   static :
     hint("Declaration of " & "igimfileclose" &
         " already exists, not redeclaring")
 when not declared(igimfilegetsize):
-  proc igimfilegetsize*(file: Imfilehandle_80741318): Imu64_80741080 {.cdecl,
+  proc igimfilegetsize*(file: Imfilehandle_63964101): Imu64_63963863 {.cdecl,
       importc: "igImFileGetSize".}
 else:
   static :
     hint("Declaration of " & "igimfilegetsize" &
         " already exists, not redeclaring")
 when not declared(igimfileread):
-  proc igimfileread*(data: pointer; size: Imu64_80741080; count: Imu64_80741080;
-                     file: Imfilehandle_80741318): Imu64_80741080 {.cdecl,
+  proc igimfileread*(data: pointer; size: Imu64_63963863; count: Imu64_63963863;
+                     file: Imfilehandle_63964101): Imu64_63963863 {.cdecl,
       importc: "igImFileRead".}
 else:
   static :
     hint("Declaration of " & "igimfileread" & " already exists, not redeclaring")
 when not declared(igimfilewrite):
-  proc igimfilewrite*(data: pointer; size: Imu64_80741080; count: Imu64_80741080;
-                      file: Imfilehandle_80741318): Imu64_80741080 {.cdecl,
+  proc igimfilewrite*(data: pointer; size: Imu64_63963863; count: Imu64_63963863;
+                      file: Imfilehandle_63964101): Imu64_63963863 {.cdecl,
       importc: "igImFileWrite".}
 else:
   static :
@@ -13232,41 +13232,41 @@ else:
     hint("Declaration of " & "igimrsqrtdouble" &
         " already exists, not redeclaring")
 when not declared(igimmin):
-  proc igimmin*(pout: ptr Imvec2_80741096; lhs: Imvec2_80741096; rhs: Imvec2_80741096): void {.
+  proc igimmin*(pout: ptr Imvec2_63963879; lhs: Imvec2_63963879; rhs: Imvec2_63963879): void {.
       cdecl, importc: "igImMin".}
 else:
   static :
     hint("Declaration of " & "igimmin" & " already exists, not redeclaring")
 when not declared(igimmax):
-  proc igimmax*(pout: ptr Imvec2_80741096; lhs: Imvec2_80741096; rhs: Imvec2_80741096): void {.
+  proc igimmax*(pout: ptr Imvec2_63963879; lhs: Imvec2_63963879; rhs: Imvec2_63963879): void {.
       cdecl, importc: "igImMax".}
 else:
   static :
     hint("Declaration of " & "igimmax" & " already exists, not redeclaring")
 when not declared(igimclamp):
-  proc igimclamp*(pout: ptr Imvec2_80741096; v: Imvec2_80741096; mn: Imvec2_80741096;
-                  mx: Imvec2_80741096): void {.cdecl, importc: "igImClamp".}
+  proc igimclamp*(pout: ptr Imvec2_63963879; v: Imvec2_63963879; mn: Imvec2_63963879;
+                  mx: Imvec2_63963879): void {.cdecl, importc: "igImClamp".}
 else:
   static :
     hint("Declaration of " & "igimclamp" & " already exists, not redeclaring")
 when not declared(igimlerpvec2float):
-  proc igimlerpvec2float*(pout: ptr Imvec2_80741096; a: Imvec2_80741096;
-                          b: Imvec2_80741096; t: cfloat): void {.cdecl,
+  proc igimlerpvec2float*(pout: ptr Imvec2_63963879; a: Imvec2_63963879;
+                          b: Imvec2_63963879; t: cfloat): void {.cdecl,
       importc: "igImLerp_Vec2Float".}
 else:
   static :
     hint("Declaration of " & "igimlerpvec2float" &
         " already exists, not redeclaring")
 when not declared(igimlerpvec2vec2):
-  proc igimlerpvec2vec2*(pout: ptr Imvec2_80741096; a: Imvec2_80741096;
-                         b: Imvec2_80741096; t: Imvec2_80741096): void {.cdecl,
+  proc igimlerpvec2vec2*(pout: ptr Imvec2_63963879; a: Imvec2_63963879;
+                         b: Imvec2_63963879; t: Imvec2_63963879): void {.cdecl,
       importc: "igImLerp_Vec2Vec2".}
 else:
   static :
     hint("Declaration of " & "igimlerpvec2vec2" &
         " already exists, not redeclaring")
 when not declared(igimlerpvec4):
-  proc igimlerpvec4*(pout: ptr Imvec4_80741100; a: Imvec4_80741100; b: Imvec4_80741100;
+  proc igimlerpvec4*(pout: ptr Imvec4_63963883; a: Imvec4_63963883; b: Imvec4_63963883;
                      t: cfloat): void {.cdecl, importc: "igImLerp_Vec4".}
 else:
   static :
@@ -13277,21 +13277,21 @@ else:
   static :
     hint("Declaration of " & "igimsaturate" & " already exists, not redeclaring")
 when not declared(igimlengthsqrvec2):
-  proc igimlengthsqrvec2*(lhs: Imvec2_80741096): cfloat {.cdecl,
+  proc igimlengthsqrvec2*(lhs: Imvec2_63963879): cfloat {.cdecl,
       importc: "igImLengthSqr_Vec2".}
 else:
   static :
     hint("Declaration of " & "igimlengthsqrvec2" &
         " already exists, not redeclaring")
 when not declared(igimlengthsqrvec4):
-  proc igimlengthsqrvec4*(lhs: Imvec4_80741100): cfloat {.cdecl,
+  proc igimlengthsqrvec4*(lhs: Imvec4_63963883): cfloat {.cdecl,
       importc: "igImLengthSqr_Vec4".}
 else:
   static :
     hint("Declaration of " & "igimlengthsqrvec4" &
         " already exists, not redeclaring")
 when not declared(igiminvlength):
-  proc igiminvlength*(lhs: Imvec2_80741096; failvalue: cfloat): cfloat {.cdecl,
+  proc igiminvlength*(lhs: Imvec2_63963879; failvalue: cfloat): cfloat {.cdecl,
       importc: "igImInvLength".}
 else:
   static :
@@ -13311,14 +13311,14 @@ else:
     hint("Declaration of " & "igimfloorsignedfloat" &
         " already exists, not redeclaring")
 when not declared(igimfloorvec2):
-  proc igimfloorvec2*(pout: ptr Imvec2_80741096; v: Imvec2_80741096): void {.
+  proc igimfloorvec2*(pout: ptr Imvec2_63963879; v: Imvec2_63963879): void {.
       cdecl, importc: "igImFloor_Vec2".}
 else:
   static :
     hint("Declaration of " & "igimfloorvec2" &
         " already exists, not redeclaring")
 when not declared(igimfloorsignedvec2):
-  proc igimfloorsignedvec2*(pout: ptr Imvec2_80741096; v: Imvec2_80741096): void {.
+  proc igimfloorsignedvec2*(pout: ptr Imvec2_63963879; v: Imvec2_63963879): void {.
       cdecl, importc: "igImFloorSigned_Vec2".}
 else:
   static :
@@ -13332,13 +13332,13 @@ else:
     hint("Declaration of " & "igimmodpositive" &
         " already exists, not redeclaring")
 when not declared(igimdot):
-  proc igimdot*(a: Imvec2_80741096; b: Imvec2_80741096): cfloat {.cdecl,
+  proc igimdot*(a: Imvec2_63963879; b: Imvec2_63963879): cfloat {.cdecl,
       importc: "igImDot".}
 else:
   static :
     hint("Declaration of " & "igimdot" & " already exists, not redeclaring")
 when not declared(igimrotate):
-  proc igimrotate*(pout: ptr Imvec2_80741096; v: Imvec2_80741096; cosa: cfloat;
+  proc igimrotate*(pout: ptr Imvec2_63963879; v: Imvec2_63963879; cosa: cfloat;
                    sina: cfloat): void {.cdecl, importc: "igImRotate".}
 else:
   static :
@@ -13351,7 +13351,7 @@ else:
     hint("Declaration of " & "igimlinearsweep" &
         " already exists, not redeclaring")
 when not declared(igimmul):
-  proc igimmul*(pout: ptr Imvec2_80741096; lhs: Imvec2_80741096; rhs: Imvec2_80741096): void {.
+  proc igimmul*(pout: ptr Imvec2_63963879; lhs: Imvec2_63963879; rhs: Imvec2_63963879): void {.
       cdecl, importc: "igImMul".}
 else:
   static :
@@ -13371,18 +13371,18 @@ else:
     hint("Declaration of " & "igimexponentialmovingaverage" &
         " already exists, not redeclaring")
 when not declared(igimbeziercubiccalc):
-  proc igimbeziercubiccalc*(pout: ptr Imvec2_80741096; p1: Imvec2_80741096;
-                            p2: Imvec2_80741096; p3: Imvec2_80741096;
-                            p4: Imvec2_80741096; t: cfloat): void {.cdecl,
+  proc igimbeziercubiccalc*(pout: ptr Imvec2_63963879; p1: Imvec2_63963879;
+                            p2: Imvec2_63963879; p3: Imvec2_63963879;
+                            p4: Imvec2_63963879; t: cfloat): void {.cdecl,
       importc: "igImBezierCubicCalc".}
 else:
   static :
     hint("Declaration of " & "igimbeziercubiccalc" &
         " already exists, not redeclaring")
 when not declared(igimbeziercubicclosestpoint):
-  proc igimbeziercubicclosestpoint*(pout: ptr Imvec2_80741096; p1: Imvec2_80741096;
-                                    p2: Imvec2_80741096; p3: Imvec2_80741096;
-                                    p4: Imvec2_80741096; p: Imvec2_80741096;
+  proc igimbeziercubicclosestpoint*(pout: ptr Imvec2_63963879; p1: Imvec2_63963879;
+                                    p2: Imvec2_63963879; p3: Imvec2_63963879;
+                                    p4: Imvec2_63963879; p: Imvec2_63963879;
                                     numsegments: cint): void {.cdecl,
       importc: "igImBezierCubicClosestPoint".}
 else:
@@ -13390,17 +13390,17 @@ else:
     hint("Declaration of " & "igimbeziercubicclosestpoint" &
         " already exists, not redeclaring")
 when not declared(igimbeziercubicclosestpointcasteljau):
-  proc igimbeziercubicclosestpointcasteljau*(pout: ptr Imvec2_80741096;
-      p1: Imvec2_80741096; p2: Imvec2_80741096; p3: Imvec2_80741096; p4: Imvec2_80741096;
-      p: Imvec2_80741096; tesstol: cfloat): void {.cdecl,
+  proc igimbeziercubicclosestpointcasteljau*(pout: ptr Imvec2_63963879;
+      p1: Imvec2_63963879; p2: Imvec2_63963879; p3: Imvec2_63963879; p4: Imvec2_63963879;
+      p: Imvec2_63963879; tesstol: cfloat): void {.cdecl,
       importc: "igImBezierCubicClosestPointCasteljau".}
 else:
   static :
     hint("Declaration of " & "igimbeziercubicclosestpointcasteljau" &
         " already exists, not redeclaring")
 when not declared(igimbezierquadraticcalc):
-  proc igimbezierquadraticcalc*(pout: ptr Imvec2_80741096; p1: Imvec2_80741096;
-                                p2: Imvec2_80741096; p3: Imvec2_80741096;
+  proc igimbezierquadraticcalc*(pout: ptr Imvec2_63963879; p1: Imvec2_63963879;
+                                p2: Imvec2_63963879; p3: Imvec2_63963879;
                                 t: cfloat): void {.cdecl,
       importc: "igImBezierQuadraticCalc".}
 else:
@@ -13408,33 +13408,33 @@ else:
     hint("Declaration of " & "igimbezierquadraticcalc" &
         " already exists, not redeclaring")
 when not declared(igimlineclosestpoint):
-  proc igimlineclosestpoint*(pout: ptr Imvec2_80741096; a: Imvec2_80741096;
-                             b: Imvec2_80741096; p: Imvec2_80741096): void {.
+  proc igimlineclosestpoint*(pout: ptr Imvec2_63963879; a: Imvec2_63963879;
+                             b: Imvec2_63963879; p: Imvec2_63963879): void {.
       cdecl, importc: "igImLineClosestPoint".}
 else:
   static :
     hint("Declaration of " & "igimlineclosestpoint" &
         " already exists, not redeclaring")
 when not declared(igimtrianglecontainspoint):
-  proc igimtrianglecontainspoint*(a: Imvec2_80741096; b: Imvec2_80741096;
-                                  c: Imvec2_80741096; p: Imvec2_80741096): bool {.
+  proc igimtrianglecontainspoint*(a: Imvec2_63963879; b: Imvec2_63963879;
+                                  c: Imvec2_63963879; p: Imvec2_63963879): bool {.
       cdecl, importc: "igImTriangleContainsPoint".}
 else:
   static :
     hint("Declaration of " & "igimtrianglecontainspoint" &
         " already exists, not redeclaring")
 when not declared(igimtriangleclosestpoint):
-  proc igimtriangleclosestpoint*(pout: ptr Imvec2_80741096; a: Imvec2_80741096;
-                                 b: Imvec2_80741096; c: Imvec2_80741096;
-                                 p: Imvec2_80741096): void {.cdecl,
+  proc igimtriangleclosestpoint*(pout: ptr Imvec2_63963879; a: Imvec2_63963879;
+                                 b: Imvec2_63963879; c: Imvec2_63963879;
+                                 p: Imvec2_63963879): void {.cdecl,
       importc: "igImTriangleClosestPoint".}
 else:
   static :
     hint("Declaration of " & "igimtriangleclosestpoint" &
         " already exists, not redeclaring")
 when not declared(igimtrianglebarycentriccoords):
-  proc igimtrianglebarycentriccoords*(a: Imvec2_80741096; b: Imvec2_80741096;
-                                      c: Imvec2_80741096; p: Imvec2_80741096;
+  proc igimtrianglebarycentriccoords*(a: Imvec2_63963879; b: Imvec2_63963879;
+                                      c: Imvec2_63963879; p: Imvec2_63963879;
                                       outu: ptr cfloat; outv: ptr cfloat;
                                       outw: ptr cfloat): void {.cdecl,
       importc: "igImTriangleBarycentricCoords".}
@@ -13443,261 +13443,261 @@ else:
     hint("Declaration of " & "igimtrianglebarycentriccoords" &
         " already exists, not redeclaring")
 when not declared(igimtrianglearea):
-  proc igimtrianglearea*(a: Imvec2_80741096; b: Imvec2_80741096; c: Imvec2_80741096): cfloat {.
+  proc igimtrianglearea*(a: Imvec2_63963879; b: Imvec2_63963879; c: Imvec2_63963879): cfloat {.
       cdecl, importc: "igImTriangleArea".}
 else:
   static :
     hint("Declaration of " & "igimtrianglearea" &
         " already exists, not redeclaring")
 when not declared(igimgetdirquadrantfromdelta):
-  proc igimgetdirquadrantfromdelta*(dx: cfloat; dy: cfloat): Imguidir_80740998 {.
+  proc igimgetdirquadrantfromdelta*(dx: cfloat; dy: cfloat): Imguidir_63963781 {.
       cdecl, importc: "igImGetDirQuadrantFromDelta".}
 else:
   static :
     hint("Declaration of " & "igimgetdirquadrantfromdelta" &
         " already exists, not redeclaring")
 when not declared(Imvec1imvec1nil):
-  proc Imvec1imvec1nil*(): ptr Imvec1_80741322 {.cdecl,
+  proc Imvec1imvec1nil*(): ptr Imvec1_63964105 {.cdecl,
       importc: "ImVec1_ImVec1_Nil".}
 else:
   static :
     hint("Declaration of " & "Imvec1imvec1nil" &
         " already exists, not redeclaring")
 when not declared(Imvec1destroy):
-  proc Imvec1destroy*(self: ptr Imvec1_80741322): void {.cdecl,
+  proc Imvec1destroy*(self: ptr Imvec1_63964105): void {.cdecl,
       importc: "ImVec1_destroy".}
 else:
   static :
     hint("Declaration of " & "Imvec1destroy" &
         " already exists, not redeclaring")
 when not declared(Imvec1imvec1float):
-  proc Imvec1imvec1float*(internalx: cfloat): ptr Imvec1_80741322 {.cdecl,
+  proc Imvec1imvec1float*(internalx: cfloat): ptr Imvec1_63964105 {.cdecl,
       importc: "ImVec1_ImVec1_Float".}
 else:
   static :
     hint("Declaration of " & "Imvec1imvec1float" &
         " already exists, not redeclaring")
 when not declared(Imvec2ihimvec2ihnil):
-  proc Imvec2ihimvec2ihnil*(): ptr Imvec2ih_80741326 {.cdecl,
+  proc Imvec2ihimvec2ihnil*(): ptr Imvec2ih_63964109 {.cdecl,
       importc: "ImVec2ih_ImVec2ih_Nil".}
 else:
   static :
     hint("Declaration of " & "Imvec2ihimvec2ihnil" &
         " already exists, not redeclaring")
 when not declared(Imvec2ihdestroy):
-  proc Imvec2ihdestroy*(self: ptr Imvec2ih_80741326): void {.cdecl,
+  proc Imvec2ihdestroy*(self: ptr Imvec2ih_63964109): void {.cdecl,
       importc: "ImVec2ih_destroy".}
 else:
   static :
     hint("Declaration of " & "Imvec2ihdestroy" &
         " already exists, not redeclaring")
 when not declared(Imvec2ihimvec2ihshort):
-  proc Imvec2ihimvec2ihshort*(internalx: cshort; internaly: cshort): ptr Imvec2ih_80741326 {.
+  proc Imvec2ihimvec2ihshort*(internalx: cshort; internaly: cshort): ptr Imvec2ih_63964109 {.
       cdecl, importc: "ImVec2ih_ImVec2ih_short".}
 else:
   static :
     hint("Declaration of " & "Imvec2ihimvec2ihshort" &
         " already exists, not redeclaring")
 when not declared(Imvec2ihimvec2ihvec2):
-  proc Imvec2ihimvec2ihvec2*(rhs: Imvec2_80741096): ptr Imvec2ih_80741326 {.
+  proc Imvec2ihimvec2ihvec2*(rhs: Imvec2_63963879): ptr Imvec2ih_63964109 {.
       cdecl, importc: "ImVec2ih_ImVec2ih_Vec2".}
 else:
   static :
     hint("Declaration of " & "Imvec2ihimvec2ihvec2" &
         " already exists, not redeclaring")
 when not declared(Imrectimrectnil):
-  proc Imrectimrectnil*(): ptr Imrect_80740850 {.cdecl,
+  proc Imrectimrectnil*(): ptr Imrect_63963633 {.cdecl,
       importc: "ImRect_ImRect_Nil".}
 else:
   static :
     hint("Declaration of " & "Imrectimrectnil" &
         " already exists, not redeclaring")
 when not declared(Imrectdestroy):
-  proc Imrectdestroy*(self: ptr Imrect_80740850): void {.cdecl,
+  proc Imrectdestroy*(self: ptr Imrect_63963633): void {.cdecl,
       importc: "ImRect_destroy".}
 else:
   static :
     hint("Declaration of " & "Imrectdestroy" &
         " already exists, not redeclaring")
 when not declared(Imrectimrectvec2):
-  proc Imrectimrectvec2*(min: Imvec2_80741096; max: Imvec2_80741096): ptr Imrect_80740850 {.
+  proc Imrectimrectvec2*(min: Imvec2_63963879; max: Imvec2_63963879): ptr Imrect_63963633 {.
       cdecl, importc: "ImRect_ImRect_Vec2".}
 else:
   static :
     hint("Declaration of " & "Imrectimrectvec2" &
         " already exists, not redeclaring")
 when not declared(Imrectimrectvec4):
-  proc Imrectimrectvec4*(v: Imvec4_80741100): ptr Imrect_80740850 {.cdecl,
+  proc Imrectimrectvec4*(v: Imvec4_63963883): ptr Imrect_63963633 {.cdecl,
       importc: "ImRect_ImRect_Vec4".}
 else:
   static :
     hint("Declaration of " & "Imrectimrectvec4" &
         " already exists, not redeclaring")
 when not declared(Imrectimrectfloat):
-  proc Imrectimrectfloat*(x1: cfloat; y1: cfloat; x2: cfloat; y2: cfloat): ptr Imrect_80740850 {.
+  proc Imrectimrectfloat*(x1: cfloat; y1: cfloat; x2: cfloat; y2: cfloat): ptr Imrect_63963633 {.
       cdecl, importc: "ImRect_ImRect_Float".}
 else:
   static :
     hint("Declaration of " & "Imrectimrectfloat" &
         " already exists, not redeclaring")
 when not declared(Imrectgetcenter):
-  proc Imrectgetcenter*(pout: ptr Imvec2_80741096; self: ptr Imrect_80740850): void {.
+  proc Imrectgetcenter*(pout: ptr Imvec2_63963879; self: ptr Imrect_63963633): void {.
       cdecl, importc: "ImRect_GetCenter".}
 else:
   static :
     hint("Declaration of " & "Imrectgetcenter" &
         " already exists, not redeclaring")
 when not declared(Imrectgetsize):
-  proc Imrectgetsize*(pout: ptr Imvec2_80741096; self: ptr Imrect_80740850): void {.
+  proc Imrectgetsize*(pout: ptr Imvec2_63963879; self: ptr Imrect_63963633): void {.
       cdecl, importc: "ImRect_GetSize".}
 else:
   static :
     hint("Declaration of " & "Imrectgetsize" &
         " already exists, not redeclaring")
 when not declared(Imrectgetwidth):
-  proc Imrectgetwidth*(self: ptr Imrect_80740850): cfloat {.cdecl,
+  proc Imrectgetwidth*(self: ptr Imrect_63963633): cfloat {.cdecl,
       importc: "ImRect_GetWidth".}
 else:
   static :
     hint("Declaration of " & "Imrectgetwidth" &
         " already exists, not redeclaring")
 when not declared(Imrectgetheight):
-  proc Imrectgetheight*(self: ptr Imrect_80740850): cfloat {.cdecl,
+  proc Imrectgetheight*(self: ptr Imrect_63963633): cfloat {.cdecl,
       importc: "ImRect_GetHeight".}
 else:
   static :
     hint("Declaration of " & "Imrectgetheight" &
         " already exists, not redeclaring")
 when not declared(Imrectgetarea):
-  proc Imrectgetarea*(self: ptr Imrect_80740850): cfloat {.cdecl,
+  proc Imrectgetarea*(self: ptr Imrect_63963633): cfloat {.cdecl,
       importc: "ImRect_GetArea".}
 else:
   static :
     hint("Declaration of " & "Imrectgetarea" &
         " already exists, not redeclaring")
 when not declared(Imrectgettl):
-  proc Imrectgettl*(pout: ptr Imvec2_80741096; self: ptr Imrect_80740850): void {.
+  proc Imrectgettl*(pout: ptr Imvec2_63963879; self: ptr Imrect_63963633): void {.
       cdecl, importc: "ImRect_GetTL".}
 else:
   static :
     hint("Declaration of " & "Imrectgettl" & " already exists, not redeclaring")
 when not declared(Imrectgettr):
-  proc Imrectgettr*(pout: ptr Imvec2_80741096; self: ptr Imrect_80740850): void {.
+  proc Imrectgettr*(pout: ptr Imvec2_63963879; self: ptr Imrect_63963633): void {.
       cdecl, importc: "ImRect_GetTR".}
 else:
   static :
     hint("Declaration of " & "Imrectgettr" & " already exists, not redeclaring")
 when not declared(Imrectgetbl):
-  proc Imrectgetbl*(pout: ptr Imvec2_80741096; self: ptr Imrect_80740850): void {.
+  proc Imrectgetbl*(pout: ptr Imvec2_63963879; self: ptr Imrect_63963633): void {.
       cdecl, importc: "ImRect_GetBL".}
 else:
   static :
     hint("Declaration of " & "Imrectgetbl" & " already exists, not redeclaring")
 when not declared(Imrectgetbr):
-  proc Imrectgetbr*(pout: ptr Imvec2_80741096; self: ptr Imrect_80740850): void {.
+  proc Imrectgetbr*(pout: ptr Imvec2_63963879; self: ptr Imrect_63963633): void {.
       cdecl, importc: "ImRect_GetBR".}
 else:
   static :
     hint("Declaration of " & "Imrectgetbr" & " already exists, not redeclaring")
 when not declared(Imrectcontainsvec2):
-  proc Imrectcontainsvec2*(self: ptr Imrect_80740850; p: Imvec2_80741096): bool {.
+  proc Imrectcontainsvec2*(self: ptr Imrect_63963633; p: Imvec2_63963879): bool {.
       cdecl, importc: "ImRect_Contains_Vec2".}
 else:
   static :
     hint("Declaration of " & "Imrectcontainsvec2" &
         " already exists, not redeclaring")
 when not declared(Imrectcontainsrect):
-  proc Imrectcontainsrect*(self: ptr Imrect_80740850; r: Imrect_80740850): bool {.
+  proc Imrectcontainsrect*(self: ptr Imrect_63963633; r: Imrect_63963633): bool {.
       cdecl, importc: "ImRect_Contains_Rect".}
 else:
   static :
     hint("Declaration of " & "Imrectcontainsrect" &
         " already exists, not redeclaring")
 when not declared(Imrectoverlaps):
-  proc Imrectoverlaps*(self: ptr Imrect_80740850; r: Imrect_80740850): bool {.
+  proc Imrectoverlaps*(self: ptr Imrect_63963633; r: Imrect_63963633): bool {.
       cdecl, importc: "ImRect_Overlaps".}
 else:
   static :
     hint("Declaration of " & "Imrectoverlaps" &
         " already exists, not redeclaring")
 when not declared(Imrectaddvec2):
-  proc Imrectaddvec2*(self: ptr Imrect_80740850; p: Imvec2_80741096): void {.
+  proc Imrectaddvec2*(self: ptr Imrect_63963633; p: Imvec2_63963879): void {.
       cdecl, importc: "ImRect_Add_Vec2".}
 else:
   static :
     hint("Declaration of " & "Imrectaddvec2" &
         " already exists, not redeclaring")
 when not declared(Imrectaddrect):
-  proc Imrectaddrect*(self: ptr Imrect_80740850; r: Imrect_80740850): void {.
+  proc Imrectaddrect*(self: ptr Imrect_63963633; r: Imrect_63963633): void {.
       cdecl, importc: "ImRect_Add_Rect".}
 else:
   static :
     hint("Declaration of " & "Imrectaddrect" &
         " already exists, not redeclaring")
 when not declared(Imrectexpandfloat):
-  proc Imrectexpandfloat*(self: ptr Imrect_80740850; amount: cfloat): void {.
+  proc Imrectexpandfloat*(self: ptr Imrect_63963633; amount: cfloat): void {.
       cdecl, importc: "ImRect_Expand_Float".}
 else:
   static :
     hint("Declaration of " & "Imrectexpandfloat" &
         " already exists, not redeclaring")
 when not declared(Imrectexpandvec2):
-  proc Imrectexpandvec2*(self: ptr Imrect_80740850; amount: Imvec2_80741096): void {.
+  proc Imrectexpandvec2*(self: ptr Imrect_63963633; amount: Imvec2_63963879): void {.
       cdecl, importc: "ImRect_Expand_Vec2".}
 else:
   static :
     hint("Declaration of " & "Imrectexpandvec2" &
         " already exists, not redeclaring")
 when not declared(Imrecttranslate):
-  proc Imrecttranslate*(self: ptr Imrect_80740850; d: Imvec2_80741096): void {.
+  proc Imrecttranslate*(self: ptr Imrect_63963633; d: Imvec2_63963879): void {.
       cdecl, importc: "ImRect_Translate".}
 else:
   static :
     hint("Declaration of " & "Imrecttranslate" &
         " already exists, not redeclaring")
 when not declared(Imrecttranslatex):
-  proc Imrecttranslatex*(self: ptr Imrect_80740850; dx: cfloat): void {.cdecl,
+  proc Imrecttranslatex*(self: ptr Imrect_63963633; dx: cfloat): void {.cdecl,
       importc: "ImRect_TranslateX".}
 else:
   static :
     hint("Declaration of " & "Imrecttranslatex" &
         " already exists, not redeclaring")
 when not declared(Imrecttranslatey):
-  proc Imrecttranslatey*(self: ptr Imrect_80740850; dy: cfloat): void {.cdecl,
+  proc Imrecttranslatey*(self: ptr Imrect_63963633; dy: cfloat): void {.cdecl,
       importc: "ImRect_TranslateY".}
 else:
   static :
     hint("Declaration of " & "Imrecttranslatey" &
         " already exists, not redeclaring")
 when not declared(Imrectclipwith):
-  proc Imrectclipwith*(self: ptr Imrect_80740850; r: Imrect_80740850): void {.
+  proc Imrectclipwith*(self: ptr Imrect_63963633; r: Imrect_63963633): void {.
       cdecl, importc: "ImRect_ClipWith".}
 else:
   static :
     hint("Declaration of " & "Imrectclipwith" &
         " already exists, not redeclaring")
 when not declared(Imrectclipwithfull):
-  proc Imrectclipwithfull*(self: ptr Imrect_80740850; r: Imrect_80740850): void {.
+  proc Imrectclipwithfull*(self: ptr Imrect_63963633; r: Imrect_63963633): void {.
       cdecl, importc: "ImRect_ClipWithFull".}
 else:
   static :
     hint("Declaration of " & "Imrectclipwithfull" &
         " already exists, not redeclaring")
 when not declared(Imrectfloor):
-  proc Imrectfloor*(self: ptr Imrect_80740850): void {.cdecl,
+  proc Imrectfloor*(self: ptr Imrect_63963633): void {.cdecl,
       importc: "ImRect_Floor".}
 else:
   static :
     hint("Declaration of " & "Imrectfloor" & " already exists, not redeclaring")
 when not declared(Imrectisinverted):
-  proc Imrectisinverted*(self: ptr Imrect_80740850): bool {.cdecl,
+  proc Imrectisinverted*(self: ptr Imrect_63963633): bool {.cdecl,
       importc: "ImRect_IsInverted".}
 else:
   static :
     hint("Declaration of " & "Imrectisinverted" &
         " already exists, not redeclaring")
 when not declared(Imrecttovec4):
-  proc Imrecttovec4*(pout: ptr Imvec4_80741100; self: ptr Imrect_80740850): void {.
+  proc Imrecttovec4*(pout: ptr Imvec4_63963883; self: ptr Imrect_63963633): void {.
       cdecl, importc: "ImRect_ToVec4".}
 else:
   static :
@@ -13710,91 +13710,91 @@ else:
     hint("Declaration of " & "igimbitarraygetstoragesizeinbytes" &
         " already exists, not redeclaring")
 when not declared(igimbitarrayclearallbits):
-  proc igimbitarrayclearallbits*(arr: ptr Imu32_80741076; bitcount: cint): void {.
+  proc igimbitarrayclearallbits*(arr: ptr Imu32_63963859; bitcount: cint): void {.
       cdecl, importc: "igImBitArrayClearAllBits".}
 else:
   static :
     hint("Declaration of " & "igimbitarrayclearallbits" &
         " already exists, not redeclaring")
 when not declared(igimbitarraytestbit):
-  proc igimbitarraytestbit*(arr: ptr Imu32_80741076; n: cint): bool {.cdecl,
+  proc igimbitarraytestbit*(arr: ptr Imu32_63963859; n: cint): bool {.cdecl,
       importc: "igImBitArrayTestBit".}
 else:
   static :
     hint("Declaration of " & "igimbitarraytestbit" &
         " already exists, not redeclaring")
 when not declared(igimbitarrayclearbit):
-  proc igimbitarrayclearbit*(arr: ptr Imu32_80741076; n: cint): void {.cdecl,
+  proc igimbitarrayclearbit*(arr: ptr Imu32_63963859; n: cint): void {.cdecl,
       importc: "igImBitArrayClearBit".}
 else:
   static :
     hint("Declaration of " & "igimbitarrayclearbit" &
         " already exists, not redeclaring")
 when not declared(igimbitarraysetbit):
-  proc igimbitarraysetbit*(arr: ptr Imu32_80741076; n: cint): void {.cdecl,
+  proc igimbitarraysetbit*(arr: ptr Imu32_63963859; n: cint): void {.cdecl,
       importc: "igImBitArraySetBit".}
 else:
   static :
     hint("Declaration of " & "igimbitarraysetbit" &
         " already exists, not redeclaring")
 when not declared(igimbitarraysetbitrange):
-  proc igimbitarraysetbitrange*(arr: ptr Imu32_80741076; n: cint; n2: cint): void {.
+  proc igimbitarraysetbitrange*(arr: ptr Imu32_63963859; n: cint; n2: cint): void {.
       cdecl, importc: "igImBitArraySetBitRange".}
 else:
   static :
     hint("Declaration of " & "igimbitarraysetbitrange" &
         " already exists, not redeclaring")
 when not declared(Imbitvectorcreate):
-  proc Imbitvectorcreate*(self: ptr Imbitvector_80740846; sz: cint): void {.
+  proc Imbitvectorcreate*(self: ptr Imbitvector_63963629; sz: cint): void {.
       cdecl, importc: "ImBitVector_Create".}
 else:
   static :
     hint("Declaration of " & "Imbitvectorcreate" &
         " already exists, not redeclaring")
 when not declared(Imbitvectorclear):
-  proc Imbitvectorclear*(self: ptr Imbitvector_80740846): void {.cdecl,
+  proc Imbitvectorclear*(self: ptr Imbitvector_63963629): void {.cdecl,
       importc: "ImBitVector_Clear".}
 else:
   static :
     hint("Declaration of " & "Imbitvectorclear" &
         " already exists, not redeclaring")
 when not declared(Imbitvectortestbit):
-  proc Imbitvectortestbit*(self: ptr Imbitvector_80740846; n: cint): bool {.
+  proc Imbitvectortestbit*(self: ptr Imbitvector_63963629; n: cint): bool {.
       cdecl, importc: "ImBitVector_TestBit".}
 else:
   static :
     hint("Declaration of " & "Imbitvectortestbit" &
         " already exists, not redeclaring")
 when not declared(Imbitvectorsetbit):
-  proc Imbitvectorsetbit*(self: ptr Imbitvector_80740846; n: cint): void {.
+  proc Imbitvectorsetbit*(self: ptr Imbitvector_63963629; n: cint): void {.
       cdecl, importc: "ImBitVector_SetBit".}
 else:
   static :
     hint("Declaration of " & "Imbitvectorsetbit" &
         " already exists, not redeclaring")
 when not declared(Imbitvectorclearbit):
-  proc Imbitvectorclearbit*(self: ptr Imbitvector_80740846; n: cint): void {.
+  proc Imbitvectorclearbit*(self: ptr Imbitvector_63963629; n: cint): void {.
       cdecl, importc: "ImBitVector_ClearBit".}
 else:
   static :
     hint("Declaration of " & "Imbitvectorclearbit" &
         " already exists, not redeclaring")
 when not declared(Imguitextindexclear):
-  proc Imguitextindexclear*(self: ptr Imguitextindex_80741334): void {.cdecl,
+  proc Imguitextindexclear*(self: ptr Imguitextindex_63964117): void {.cdecl,
       importc: "ImGuiTextIndex_clear".}
 else:
   static :
     hint("Declaration of " & "Imguitextindexclear" &
         " already exists, not redeclaring")
 when not declared(Imguitextindexsize):
-  proc Imguitextindexsize*(self: ptr Imguitextindex_80741334): cint {.cdecl,
+  proc Imguitextindexsize*(self: ptr Imguitextindex_63964117): cint {.cdecl,
       importc: "ImGuiTextIndex_size".}
 else:
   static :
     hint("Declaration of " & "Imguitextindexsize" &
         " already exists, not redeclaring")
 when not declared(Imguitextindexgetlinebegin):
-  proc Imguitextindexgetlinebegin*(self: ptr Imguitextindex_80741334;
+  proc Imguitextindexgetlinebegin*(self: ptr Imguitextindex_63964117;
                                    base: cstring; n: cint): cstring {.cdecl,
       importc: "ImGuiTextIndex_get_line_begin".}
 else:
@@ -13802,7 +13802,7 @@ else:
     hint("Declaration of " & "Imguitextindexgetlinebegin" &
         " already exists, not redeclaring")
 when not declared(Imguitextindexgetlineend):
-  proc Imguitextindexgetlineend*(self: ptr Imguitextindex_80741334;
+  proc Imguitextindexgetlineend*(self: ptr Imguitextindex_63964117;
                                  base: cstring; n: cint): cstring {.cdecl,
       importc: "ImGuiTextIndex_get_line_end".}
 else:
@@ -13810,7 +13810,7 @@ else:
     hint("Declaration of " & "Imguitextindexgetlineend" &
         " already exists, not redeclaring")
 when not declared(Imguitextindexappend):
-  proc Imguitextindexappend*(self: ptr Imguitextindex_80741334; base: cstring;
+  proc Imguitextindexappend*(self: ptr Imguitextindex_63964117; base: cstring;
                              oldsize: cint; newsize: cint): void {.cdecl,
       importc: "ImGuiTextIndex_append".}
 else:
@@ -13818,14 +13818,14 @@ else:
     hint("Declaration of " & "Imguitextindexappend" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistshareddataimdrawlistshareddata):
-  proc Imdrawlistshareddataimdrawlistshareddata*(): ptr Imdrawlistshareddata_80740723 {.
+  proc Imdrawlistshareddataimdrawlistshareddata*(): ptr Imdrawlistshareddata_63963506 {.
       cdecl, importc: "ImDrawListSharedData_ImDrawListSharedData".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistshareddataimdrawlistshareddata" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistshareddatadestroy):
-  proc Imdrawlistshareddatadestroy*(self: ptr Imdrawlistshareddata_80740723): void {.
+  proc Imdrawlistshareddatadestroy*(self: ptr Imdrawlistshareddata_63963506): void {.
       cdecl, importc: "ImDrawListSharedData_destroy".}
 else:
   static :
@@ -13833,42 +13833,42 @@ else:
         " already exists, not redeclaring")
 when not declared(Imdrawlistshareddatasetcircletessellationmaxerror):
   proc Imdrawlistshareddatasetcircletessellationmaxerror*(
-      self: ptr Imdrawlistshareddata_80740723; maxerror: cfloat): void {.cdecl,
+      self: ptr Imdrawlistshareddata_63963506; maxerror: cfloat): void {.cdecl,
       importc: "ImDrawListSharedData_SetCircleTessellationMaxError".}
 else:
   static :
     hint("Declaration of " & "Imdrawlistshareddatasetcircletessellationmaxerror" &
         " already exists, not redeclaring")
 when not declared(Imdrawdatabuilderclear):
-  proc Imdrawdatabuilderclear*(self: ptr Imdrawdatabuilder_80740854): void {.
+  proc Imdrawdatabuilderclear*(self: ptr Imdrawdatabuilder_63963637): void {.
       cdecl, importc: "ImDrawDataBuilder_Clear".}
 else:
   static :
     hint("Declaration of " & "Imdrawdatabuilderclear" &
         " already exists, not redeclaring")
 when not declared(Imdrawdatabuilderclearfreememory):
-  proc Imdrawdatabuilderclearfreememory*(self: ptr Imdrawdatabuilder_80740854): void {.
+  proc Imdrawdatabuilderclearfreememory*(self: ptr Imdrawdatabuilder_63963637): void {.
       cdecl, importc: "ImDrawDataBuilder_ClearFreeMemory".}
 else:
   static :
     hint("Declaration of " & "Imdrawdatabuilderclearfreememory" &
         " already exists, not redeclaring")
 when not declared(Imdrawdatabuildergetdrawlistcount):
-  proc Imdrawdatabuildergetdrawlistcount*(self: ptr Imdrawdatabuilder_80740854): cint {.
+  proc Imdrawdatabuildergetdrawlistcount*(self: ptr Imdrawdatabuilder_63963637): cint {.
       cdecl, importc: "ImDrawDataBuilder_GetDrawListCount".}
 else:
   static :
     hint("Declaration of " & "Imdrawdatabuildergetdrawlistcount" &
         " already exists, not redeclaring")
 when not declared(Imdrawdatabuilderflattenintosinglelayer):
-  proc Imdrawdatabuilderflattenintosinglelayer*(self: ptr Imdrawdatabuilder_80740854): void {.
+  proc Imdrawdatabuilderflattenintosinglelayer*(self: ptr Imdrawdatabuilder_63963637): void {.
       cdecl, importc: "ImDrawDataBuilder_FlattenIntoSingleLayer".}
 else:
   static :
     hint("Declaration of " & "Imdrawdatabuilderflattenintosinglelayer" &
         " already exists, not redeclaring")
 when not declared(Imguidatavarinfogetvarptr):
-  proc Imguidatavarinfogetvarptr*(self: ptr Imguidatavarinfo_80740866;
+  proc Imguidatavarinfogetvarptr*(self: ptr Imguidatavarinfo_63963649;
                                   parent: pointer): pointer {.cdecl,
       importc: "ImGuiDataVarInfo_GetVarPtr".}
 else:
@@ -13876,63 +13876,63 @@ else:
     hint("Declaration of " & "Imguidatavarinfogetvarptr" &
         " already exists, not redeclaring")
 when not declared(Imguistylemodimguistylemodint):
-  proc Imguistylemodimguistylemodint*(idx: Imguistylevar_80741006; v: cint): ptr Imguistylemod_80740942 {.
+  proc Imguistylemodimguistylemodint*(idx: Imguistylevar_63963789; v: cint): ptr Imguistylemod_63963725 {.
       cdecl, importc: "ImGuiStyleMod_ImGuiStyleMod_Int".}
 else:
   static :
     hint("Declaration of " & "Imguistylemodimguistylemodint" &
         " already exists, not redeclaring")
 when not declared(Imguistylemoddestroy):
-  proc Imguistylemoddestroy*(self: ptr Imguistylemod_80740942): void {.cdecl,
+  proc Imguistylemoddestroy*(self: ptr Imguistylemod_63963725): void {.cdecl,
       importc: "ImGuiStyleMod_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguistylemoddestroy" &
         " already exists, not redeclaring")
 when not declared(Imguistylemodimguistylemodfloat):
-  proc Imguistylemodimguistylemodfloat*(idx: Imguistylevar_80741006; v: cfloat): ptr Imguistylemod_80740942 {.
+  proc Imguistylemodimguistylemodfloat*(idx: Imguistylevar_63963789; v: cfloat): ptr Imguistylemod_63963725 {.
       cdecl, importc: "ImGuiStyleMod_ImGuiStyleMod_Float".}
 else:
   static :
     hint("Declaration of " & "Imguistylemodimguistylemodfloat" &
         " already exists, not redeclaring")
 when not declared(Imguistylemodimguistylemodvec2):
-  proc Imguistylemodimguistylemodvec2*(idx: Imguistylevar_80741006; v: Imvec2_80741096): ptr Imguistylemod_80740942 {.
+  proc Imguistylemodimguistylemodvec2*(idx: Imguistylevar_63963789; v: Imvec2_63963879): ptr Imguistylemod_63963725 {.
       cdecl, importc: "ImGuiStyleMod_ImGuiStyleMod_Vec2".}
 else:
   static :
     hint("Declaration of " & "Imguistylemodimguistylemodvec2" &
         " already exists, not redeclaring")
 when not declared(Imguicombopreviewdataimguicombopreviewdata):
-  proc Imguicombopreviewdataimguicombopreviewdata*(): ptr Imguicombopreviewdata_80741384 {.
+  proc Imguicombopreviewdataimguicombopreviewdata*(): ptr Imguicombopreviewdata_63964167 {.
       cdecl, importc: "ImGuiComboPreviewData_ImGuiComboPreviewData".}
 else:
   static :
     hint("Declaration of " & "Imguicombopreviewdataimguicombopreviewdata" &
         " already exists, not redeclaring")
 when not declared(Imguicombopreviewdatadestroy):
-  proc Imguicombopreviewdatadestroy*(self: ptr Imguicombopreviewdata_80741384): void {.
+  proc Imguicombopreviewdatadestroy*(self: ptr Imguicombopreviewdata_63964167): void {.
       cdecl, importc: "ImGuiComboPreviewData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguicombopreviewdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguimenucolumnsimguimenucolumns):
-  proc Imguimenucolumnsimguimenucolumns*(): ptr Imguimenucolumns_80740902 {.
+  proc Imguimenucolumnsimguimenucolumns*(): ptr Imguimenucolumns_63963685 {.
       cdecl, importc: "ImGuiMenuColumns_ImGuiMenuColumns".}
 else:
   static :
     hint("Declaration of " & "Imguimenucolumnsimguimenucolumns" &
         " already exists, not redeclaring")
 when not declared(Imguimenucolumnsdestroy):
-  proc Imguimenucolumnsdestroy*(self: ptr Imguimenucolumns_80740902): void {.
+  proc Imguimenucolumnsdestroy*(self: ptr Imguimenucolumns_63963685): void {.
       cdecl, importc: "ImGuiMenuColumns_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguimenucolumnsdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguimenucolumnsupdate):
-  proc Imguimenucolumnsupdate*(self: ptr Imguimenucolumns_80740902;
+  proc Imguimenucolumnsupdate*(self: ptr Imguimenucolumns_63963685;
                                spacing: cfloat; windowreappearing: bool): void {.
       cdecl, importc: "ImGuiMenuColumns_Update".}
 else:
@@ -13940,7 +13940,7 @@ else:
     hint("Declaration of " & "Imguimenucolumnsupdate" &
         " already exists, not redeclaring")
 when not declared(Imguimenucolumnsdeclcolumns):
-  proc Imguimenucolumnsdeclcolumns*(self: ptr Imguimenucolumns_80740902;
+  proc Imguimenucolumnsdeclcolumns*(self: ptr Imguimenucolumns_63963685;
                                     wicon: cfloat; wlabel: cfloat;
                                     wshortcut: cfloat; wmark: cfloat): cfloat {.
       cdecl, importc: "ImGuiMenuColumns_DeclColumns".}
@@ -13949,56 +13949,56 @@ else:
     hint("Declaration of " & "Imguimenucolumnsdeclcolumns" &
         " already exists, not redeclaring")
 when not declared(Imguimenucolumnscalcnexttotalwidth):
-  proc Imguimenucolumnscalcnexttotalwidth*(self: ptr Imguimenucolumns_80740902;
+  proc Imguimenucolumnscalcnexttotalwidth*(self: ptr Imguimenucolumns_63963685;
       updateoffsets: bool): void {.cdecl, importc: "ImGuiMenuColumns_CalcNextTotalWidth".}
 else:
   static :
     hint("Declaration of " & "Imguimenucolumnscalcnexttotalwidth" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstateimguiinputtextstate):
-  proc Imguiinputtextstateimguiinputtextstate*(): ptr Imguiinputtextstate_80740890 {.
+  proc Imguiinputtextstateimguiinputtextstate*(): ptr Imguiinputtextstate_63963673 {.
       cdecl, importc: "ImGuiInputTextState_ImGuiInputTextState".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstateimguiinputtextstate" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstatedestroy):
-  proc Imguiinputtextstatedestroy*(self: ptr Imguiinputtextstate_80740890): void {.
+  proc Imguiinputtextstatedestroy*(self: ptr Imguiinputtextstate_63963673): void {.
       cdecl, importc: "ImGuiInputTextState_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstatedestroy" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstatecleartext):
-  proc Imguiinputtextstatecleartext*(self: ptr Imguiinputtextstate_80740890): void {.
+  proc Imguiinputtextstatecleartext*(self: ptr Imguiinputtextstate_63963673): void {.
       cdecl, importc: "ImGuiInputTextState_ClearText".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstatecleartext" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstateclearfreememory):
-  proc Imguiinputtextstateclearfreememory*(self: ptr Imguiinputtextstate_80740890): void {.
+  proc Imguiinputtextstateclearfreememory*(self: ptr Imguiinputtextstate_63963673): void {.
       cdecl, importc: "ImGuiInputTextState_ClearFreeMemory".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstateclearfreememory" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstategetundoavailcount):
-  proc Imguiinputtextstategetundoavailcount*(self: ptr Imguiinputtextstate_80740890): cint {.
+  proc Imguiinputtextstategetundoavailcount*(self: ptr Imguiinputtextstate_63963673): cint {.
       cdecl, importc: "ImGuiInputTextState_GetUndoAvailCount".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstategetundoavailcount" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstategetredoavailcount):
-  proc Imguiinputtextstategetredoavailcount*(self: ptr Imguiinputtextstate_80740890): cint {.
+  proc Imguiinputtextstategetredoavailcount*(self: ptr Imguiinputtextstate_63963673): cint {.
       cdecl, importc: "ImGuiInputTextState_GetRedoAvailCount".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstategetredoavailcount" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstateonkeypressed):
-  proc Imguiinputtextstateonkeypressed*(self: ptr Imguiinputtextstate_80740890;
+  proc Imguiinputtextstateonkeypressed*(self: ptr Imguiinputtextstate_63963673;
                                         key: cint): void {.cdecl,
       importc: "ImGuiInputTextState_OnKeyPressed".}
 else:
@@ -14006,247 +14006,247 @@ else:
     hint("Declaration of " & "Imguiinputtextstateonkeypressed" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstatecursoranimreset):
-  proc Imguiinputtextstatecursoranimreset*(self: ptr Imguiinputtextstate_80740890): void {.
+  proc Imguiinputtextstatecursoranimreset*(self: ptr Imguiinputtextstate_63963673): void {.
       cdecl, importc: "ImGuiInputTextState_CursorAnimReset".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstatecursoranimreset" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstatecursorclamp):
-  proc Imguiinputtextstatecursorclamp*(self: ptr Imguiinputtextstate_80740890): void {.
+  proc Imguiinputtextstatecursorclamp*(self: ptr Imguiinputtextstate_63963673): void {.
       cdecl, importc: "ImGuiInputTextState_CursorClamp".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstatecursorclamp" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstatehasselection):
-  proc Imguiinputtextstatehasselection*(self: ptr Imguiinputtextstate_80740890): bool {.
+  proc Imguiinputtextstatehasselection*(self: ptr Imguiinputtextstate_63963673): bool {.
       cdecl, importc: "ImGuiInputTextState_HasSelection".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstatehasselection" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstateclearselection):
-  proc Imguiinputtextstateclearselection*(self: ptr Imguiinputtextstate_80740890): void {.
+  proc Imguiinputtextstateclearselection*(self: ptr Imguiinputtextstate_63963673): void {.
       cdecl, importc: "ImGuiInputTextState_ClearSelection".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstateclearselection" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstategetcursorpos):
-  proc Imguiinputtextstategetcursorpos*(self: ptr Imguiinputtextstate_80740890): cint {.
+  proc Imguiinputtextstategetcursorpos*(self: ptr Imguiinputtextstate_63963673): cint {.
       cdecl, importc: "ImGuiInputTextState_GetCursorPos".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstategetcursorpos" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstategetselectionstart):
-  proc Imguiinputtextstategetselectionstart*(self: ptr Imguiinputtextstate_80740890): cint {.
+  proc Imguiinputtextstategetselectionstart*(self: ptr Imguiinputtextstate_63963673): cint {.
       cdecl, importc: "ImGuiInputTextState_GetSelectionStart".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstategetselectionstart" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstategetselectionend):
-  proc Imguiinputtextstategetselectionend*(self: ptr Imguiinputtextstate_80740890): cint {.
+  proc Imguiinputtextstategetselectionend*(self: ptr Imguiinputtextstate_63963673): cint {.
       cdecl, importc: "ImGuiInputTextState_GetSelectionEnd".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstategetselectionend" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextstateselectall):
-  proc Imguiinputtextstateselectall*(self: ptr Imguiinputtextstate_80740890): void {.
+  proc Imguiinputtextstateselectall*(self: ptr Imguiinputtextstate_63963673): void {.
       cdecl, importc: "ImGuiInputTextState_SelectAll".}
 else:
   static :
     hint("Declaration of " & "Imguiinputtextstateselectall" &
         " already exists, not redeclaring")
 when not declared(Imguipopupdataimguipopupdata):
-  proc Imguipopupdataimguipopupdata*(): ptr Imguipopupdata_80740930 {.cdecl,
+  proc Imguipopupdataimguipopupdata*(): ptr Imguipopupdata_63963713 {.cdecl,
       importc: "ImGuiPopupData_ImGuiPopupData".}
 else:
   static :
     hint("Declaration of " & "Imguipopupdataimguipopupdata" &
         " already exists, not redeclaring")
 when not declared(Imguipopupdatadestroy):
-  proc Imguipopupdatadestroy*(self: ptr Imguipopupdata_80740930): void {.cdecl,
+  proc Imguipopupdatadestroy*(self: ptr Imguipopupdata_63963713): void {.cdecl,
       importc: "ImGuiPopupData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguipopupdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguinextwindowdataimguinextwindowdata):
-  proc Imguinextwindowdataimguinextwindowdata*(): ptr Imguinextwindowdata_80740914 {.
+  proc Imguinextwindowdataimguinextwindowdata*(): ptr Imguinextwindowdata_63963697 {.
       cdecl, importc: "ImGuiNextWindowData_ImGuiNextWindowData".}
 else:
   static :
     hint("Declaration of " & "Imguinextwindowdataimguinextwindowdata" &
         " already exists, not redeclaring")
 when not declared(Imguinextwindowdatadestroy):
-  proc Imguinextwindowdatadestroy*(self: ptr Imguinextwindowdata_80740914): void {.
+  proc Imguinextwindowdatadestroy*(self: ptr Imguinextwindowdata_63963697): void {.
       cdecl, importc: "ImGuiNextWindowData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguinextwindowdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguinextwindowdataclearflags):
-  proc Imguinextwindowdataclearflags*(self: ptr Imguinextwindowdata_80740914): void {.
+  proc Imguinextwindowdataclearflags*(self: ptr Imguinextwindowdata_63963697): void {.
       cdecl, importc: "ImGuiNextWindowData_ClearFlags".}
 else:
   static :
     hint("Declaration of " & "Imguinextwindowdataclearflags" &
         " already exists, not redeclaring")
 when not declared(Imguinextitemdataimguinextitemdata):
-  proc Imguinextitemdataimguinextitemdata*(): ptr Imguinextitemdata_80740918 {.
+  proc Imguinextitemdataimguinextitemdata*(): ptr Imguinextitemdata_63963701 {.
       cdecl, importc: "ImGuiNextItemData_ImGuiNextItemData".}
 else:
   static :
     hint("Declaration of " & "Imguinextitemdataimguinextitemdata" &
         " already exists, not redeclaring")
 when not declared(Imguinextitemdatadestroy):
-  proc Imguinextitemdatadestroy*(self: ptr Imguinextitemdata_80740918): void {.
+  proc Imguinextitemdatadestroy*(self: ptr Imguinextitemdata_63963701): void {.
       cdecl, importc: "ImGuiNextItemData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguinextitemdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguinextitemdataclearflags):
-  proc Imguinextitemdataclearflags*(self: ptr Imguinextitemdata_80740918): void {.
+  proc Imguinextitemdataclearflags*(self: ptr Imguinextitemdata_63963701): void {.
       cdecl, importc: "ImGuiNextItemData_ClearFlags".}
 else:
   static :
     hint("Declaration of " & "Imguinextitemdataclearflags" &
         " already exists, not redeclaring")
 when not declared(Imguilastitemdataimguilastitemdata):
-  proc Imguilastitemdataimguilastitemdata*(): ptr Imguilastitemdata_80740894 {.
+  proc Imguilastitemdataimguilastitemdata*(): ptr Imguilastitemdata_63963677 {.
       cdecl, importc: "ImGuiLastItemData_ImGuiLastItemData".}
 else:
   static :
     hint("Declaration of " & "Imguilastitemdataimguilastitemdata" &
         " already exists, not redeclaring")
 when not declared(Imguilastitemdatadestroy):
-  proc Imguilastitemdatadestroy*(self: ptr Imguilastitemdata_80740894): void {.
+  proc Imguilastitemdatadestroy*(self: ptr Imguilastitemdata_63963677): void {.
       cdecl, importc: "ImGuiLastItemData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguilastitemdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguistacksizesimguistacksizes):
-  proc Imguistacksizesimguistacksizes*(): ptr Imguistacksizes_80740938 {.cdecl,
+  proc Imguistacksizesimguistacksizes*(): ptr Imguistacksizes_63963721 {.cdecl,
       importc: "ImGuiStackSizes_ImGuiStackSizes".}
 else:
   static :
     hint("Declaration of " & "Imguistacksizesimguistacksizes" &
         " already exists, not redeclaring")
 when not declared(Imguistacksizesdestroy):
-  proc Imguistacksizesdestroy*(self: ptr Imguistacksizes_80740938): void {.
+  proc Imguistacksizesdestroy*(self: ptr Imguistacksizes_63963721): void {.
       cdecl, importc: "ImGuiStackSizes_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguistacksizesdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguistacksizessettocontextstate):
-  proc Imguistacksizessettocontextstate*(self: ptr Imguistacksizes_80740938;
-      ctx: ptr Imguicontext_80740763): void {.cdecl,
+  proc Imguistacksizessettocontextstate*(self: ptr Imguistacksizes_63963721;
+      ctx: ptr Imguicontext_63963546): void {.cdecl,
       importc: "ImGuiStackSizes_SetToContextState".}
 else:
   static :
     hint("Declaration of " & "Imguistacksizessettocontextstate" &
         " already exists, not redeclaring")
 when not declared(Imguistacksizescomparewithcontextstate):
-  proc Imguistacksizescomparewithcontextstate*(self: ptr Imguistacksizes_80740938;
-      ctx: ptr Imguicontext_80740763): void {.cdecl,
+  proc Imguistacksizescomparewithcontextstate*(self: ptr Imguistacksizes_63963721;
+      ctx: ptr Imguicontext_63963546): void {.cdecl,
       importc: "ImGuiStackSizes_CompareWithContextState".}
 else:
   static :
     hint("Declaration of " & "Imguistacksizescomparewithcontextstate" &
         " already exists, not redeclaring")
 when not declared(Imguiptrorindeximguiptrorindexptr):
-  proc Imguiptrorindeximguiptrorindexptr*(ptrarg: pointer): ptr Imguiptrorindex_80741400 {.
+  proc Imguiptrorindeximguiptrorindexptr*(ptrarg: pointer): ptr Imguiptrorindex_63964183 {.
       cdecl, importc: "ImGuiPtrOrIndex_ImGuiPtrOrIndex_Ptr".}
 else:
   static :
     hint("Declaration of " & "Imguiptrorindeximguiptrorindexptr" &
         " already exists, not redeclaring")
 when not declared(Imguiptrorindexdestroy):
-  proc Imguiptrorindexdestroy*(self: ptr Imguiptrorindex_80741400): void {.
+  proc Imguiptrorindexdestroy*(self: ptr Imguiptrorindex_63964183): void {.
       cdecl, importc: "ImGuiPtrOrIndex_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiptrorindexdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguiptrorindeximguiptrorindexint):
-  proc Imguiptrorindeximguiptrorindexint*(index: cint): ptr Imguiptrorindex_80741400 {.
+  proc Imguiptrorindeximguiptrorindexint*(index: cint): ptr Imguiptrorindex_63964183 {.
       cdecl, importc: "ImGuiPtrOrIndex_ImGuiPtrOrIndex_Int".}
 else:
   static :
     hint("Declaration of " & "Imguiptrorindeximguiptrorindexint" &
         " already exists, not redeclaring")
 when not declared(Imguiinputeventimguiinputevent):
-  proc Imguiinputeventimguiinputevent*(): ptr Imguiinputevent_80741442 {.cdecl,
+  proc Imguiinputeventimguiinputevent*(): ptr Imguiinputevent_63964225 {.cdecl,
       importc: "ImGuiInputEvent_ImGuiInputEvent".}
 else:
   static :
     hint("Declaration of " & "Imguiinputeventimguiinputevent" &
         " already exists, not redeclaring")
 when not declared(Imguiinputeventdestroy):
-  proc Imguiinputeventdestroy*(self: ptr Imguiinputevent_80741442): void {.
+  proc Imguiinputeventdestroy*(self: ptr Imguiinputevent_63964225): void {.
       cdecl, importc: "ImGuiInputEvent_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiinputeventdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguikeyroutingdataimguikeyroutingdata):
-  proc Imguikeyroutingdataimguikeyroutingdata*(): ptr Imguikeyroutingdata_80741448 {.
+  proc Imguikeyroutingdataimguikeyroutingdata*(): ptr Imguikeyroutingdata_63964231 {.
       cdecl, importc: "ImGuiKeyRoutingData_ImGuiKeyRoutingData".}
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingdataimguikeyroutingdata" &
         " already exists, not redeclaring")
 when not declared(Imguikeyroutingdatadestroy):
-  proc Imguikeyroutingdatadestroy*(self: ptr Imguikeyroutingdata_80741448): void {.
+  proc Imguikeyroutingdatadestroy*(self: ptr Imguikeyroutingdata_63964231): void {.
       cdecl, importc: "ImGuiKeyRoutingData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguikeyroutingtableimguikeyroutingtable):
-  proc Imguikeyroutingtableimguikeyroutingtable*(): ptr Imguikeyroutingtable_80741452 {.
+  proc Imguikeyroutingtableimguikeyroutingtable*(): ptr Imguikeyroutingtable_63964235 {.
       cdecl, importc: "ImGuiKeyRoutingTable_ImGuiKeyRoutingTable".}
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingtableimguikeyroutingtable" &
         " already exists, not redeclaring")
 when not declared(Imguikeyroutingtabledestroy):
-  proc Imguikeyroutingtabledestroy*(self: ptr Imguikeyroutingtable_80741452): void {.
+  proc Imguikeyroutingtabledestroy*(self: ptr Imguikeyroutingtable_63964235): void {.
       cdecl, importc: "ImGuiKeyRoutingTable_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingtabledestroy" &
         " already exists, not redeclaring")
 when not declared(Imguikeyroutingtableclear):
-  proc Imguikeyroutingtableclear*(self: ptr Imguikeyroutingtable_80741452): void {.
+  proc Imguikeyroutingtableclear*(self: ptr Imguikeyroutingtable_63964235): void {.
       cdecl, importc: "ImGuiKeyRoutingTable_Clear".}
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingtableclear" &
         " already exists, not redeclaring")
 when not declared(Imguikeyownerdataimguikeyownerdata):
-  proc Imguikeyownerdataimguikeyownerdata*(): ptr Imguikeyownerdata_80741460 {.
+  proc Imguikeyownerdataimguikeyownerdata*(): ptr Imguikeyownerdata_63964243 {.
       cdecl, importc: "ImGuiKeyOwnerData_ImGuiKeyOwnerData".}
 else:
   static :
     hint("Declaration of " & "Imguikeyownerdataimguikeyownerdata" &
         " already exists, not redeclaring")
 when not declared(Imguikeyownerdatadestroy):
-  proc Imguikeyownerdatadestroy*(self: ptr Imguikeyownerdata_80741460): void {.
+  proc Imguikeyownerdatadestroy*(self: ptr Imguikeyownerdata_63964243): void {.
       cdecl, importc: "ImGuiKeyOwnerData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguikeyownerdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperrangefromindices):
-  proc Imguilistclipperrangefromindices*(min: cint; max: cint): Imguilistclipperrange_80741466 {.
+  proc Imguilistclipperrangefromindices*(min: cint; max: cint): Imguilistclipperrange_63964249 {.
       cdecl, importc: "ImGuiListClipperRange_FromIndices".}
 else:
   static :
@@ -14254,609 +14254,609 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguilistclipperrangefrompositions):
   proc Imguilistclipperrangefrompositions*(y1: cfloat; y2: cfloat; offmin: cint;
-      offmax: cint): Imguilistclipperrange_80741466 {.cdecl,
+      offmax: cint): Imguilistclipperrange_63964249 {.cdecl,
       importc: "ImGuiListClipperRange_FromPositions".}
 else:
   static :
     hint("Declaration of " & "Imguilistclipperrangefrompositions" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperdataimguilistclipperdata):
-  proc Imguilistclipperdataimguilistclipperdata*(): ptr Imguilistclipperdata_80741470 {.
+  proc Imguilistclipperdataimguilistclipperdata*(): ptr Imguilistclipperdata_63964253 {.
       cdecl, importc: "ImGuiListClipperData_ImGuiListClipperData".}
 else:
   static :
     hint("Declaration of " & "Imguilistclipperdataimguilistclipperdata" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperdatadestroy):
-  proc Imguilistclipperdatadestroy*(self: ptr Imguilistclipperdata_80741470): void {.
+  proc Imguilistclipperdatadestroy*(self: ptr Imguilistclipperdata_63964253): void {.
       cdecl, importc: "ImGuiListClipperData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguilistclipperdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperdatareset):
-  proc Imguilistclipperdatareset*(self: ptr Imguilistclipperdata_80741470;
-                                  clipper: ptr Imguilistclipper_80740779): void {.
+  proc Imguilistclipperdatareset*(self: ptr Imguilistclipperdata_63964253;
+                                  clipper: ptr Imguilistclipper_63963562): void {.
       cdecl, importc: "ImGuiListClipperData_Reset".}
 else:
   static :
     hint("Declaration of " & "Imguilistclipperdatareset" &
         " already exists, not redeclaring")
 when not declared(Imguinavitemdataimguinavitemdata):
-  proc Imguinavitemdataimguinavitemdata*(): ptr Imguinavitemdata_80740906 {.
+  proc Imguinavitemdataimguinavitemdata*(): ptr Imguinavitemdata_63963689 {.
       cdecl, importc: "ImGuiNavItemData_ImGuiNavItemData".}
 else:
   static :
     hint("Declaration of " & "Imguinavitemdataimguinavitemdata" &
         " already exists, not redeclaring")
 when not declared(Imguinavitemdatadestroy):
-  proc Imguinavitemdatadestroy*(self: ptr Imguinavitemdata_80740906): void {.
+  proc Imguinavitemdatadestroy*(self: ptr Imguinavitemdata_63963689): void {.
       cdecl, importc: "ImGuiNavItemData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguinavitemdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguinavitemdataclear):
-  proc Imguinavitemdataclear*(self: ptr Imguinavitemdata_80740906): void {.
+  proc Imguinavitemdataclear*(self: ptr Imguinavitemdata_63963689): void {.
       cdecl, importc: "ImGuiNavItemData_Clear".}
 else:
   static :
     hint("Declaration of " & "Imguinavitemdataclear" &
         " already exists, not redeclaring")
 when not declared(Imguioldcolumndataimguioldcolumndata):
-  proc Imguioldcolumndataimguioldcolumndata*(): ptr Imguioldcolumndata_80740922 {.
+  proc Imguioldcolumndataimguioldcolumndata*(): ptr Imguioldcolumndata_63963705 {.
       cdecl, importc: "ImGuiOldColumnData_ImGuiOldColumnData".}
 else:
   static :
     hint("Declaration of " & "Imguioldcolumndataimguioldcolumndata" &
         " already exists, not redeclaring")
 when not declared(Imguioldcolumndatadestroy):
-  proc Imguioldcolumndatadestroy*(self: ptr Imguioldcolumndata_80740922): void {.
+  proc Imguioldcolumndatadestroy*(self: ptr Imguioldcolumndata_63963705): void {.
       cdecl, importc: "ImGuiOldColumnData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguioldcolumndatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguioldcolumnsimguioldcolumns):
-  proc Imguioldcolumnsimguioldcolumns*(): ptr Imguioldcolumns_80740926 {.cdecl,
+  proc Imguioldcolumnsimguioldcolumns*(): ptr Imguioldcolumns_63963709 {.cdecl,
       importc: "ImGuiOldColumns_ImGuiOldColumns".}
 else:
   static :
     hint("Declaration of " & "Imguioldcolumnsimguioldcolumns" &
         " already exists, not redeclaring")
 when not declared(Imguioldcolumnsdestroy):
-  proc Imguioldcolumnsdestroy*(self: ptr Imguioldcolumns_80740926): void {.
+  proc Imguioldcolumnsdestroy*(self: ptr Imguioldcolumns_63963709): void {.
       cdecl, importc: "ImGuiOldColumns_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguioldcolumnsdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodeimguidocknode):
-  proc Imguidocknodeimguidocknode*(id: Imguiid_80741064): ptr Imguidocknode_80740880 {.
+  proc Imguidocknodeimguidocknode*(id: Imguiid_63963847): ptr Imguidocknode_63963663 {.
       cdecl, importc: "ImGuiDockNode_ImGuiDockNode".}
 else:
   static :
     hint("Declaration of " & "Imguidocknodeimguidocknode" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodedestroy):
-  proc Imguidocknodedestroy*(self: ptr Imguidocknode_80740880): void {.cdecl,
+  proc Imguidocknodedestroy*(self: ptr Imguidocknode_63963663): void {.cdecl,
       importc: "ImGuiDockNode_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguidocknodedestroy" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodeisrootnode):
-  proc Imguidocknodeisrootnode*(self: ptr Imguidocknode_80740880): bool {.cdecl,
+  proc Imguidocknodeisrootnode*(self: ptr Imguidocknode_63963663): bool {.cdecl,
       importc: "ImGuiDockNode_IsRootNode".}
 else:
   static :
     hint("Declaration of " & "Imguidocknodeisrootnode" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodeisdockspace):
-  proc Imguidocknodeisdockspace*(self: ptr Imguidocknode_80740880): bool {.
+  proc Imguidocknodeisdockspace*(self: ptr Imguidocknode_63963663): bool {.
       cdecl, importc: "ImGuiDockNode_IsDockSpace".}
 else:
   static :
     hint("Declaration of " & "Imguidocknodeisdockspace" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodeisfloatingnode):
-  proc Imguidocknodeisfloatingnode*(self: ptr Imguidocknode_80740880): bool {.
+  proc Imguidocknodeisfloatingnode*(self: ptr Imguidocknode_63963663): bool {.
       cdecl, importc: "ImGuiDockNode_IsFloatingNode".}
 else:
   static :
     hint("Declaration of " & "Imguidocknodeisfloatingnode" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodeiscentralnode):
-  proc Imguidocknodeiscentralnode*(self: ptr Imguidocknode_80740880): bool {.
+  proc Imguidocknodeiscentralnode*(self: ptr Imguidocknode_63963663): bool {.
       cdecl, importc: "ImGuiDockNode_IsCentralNode".}
 else:
   static :
     hint("Declaration of " & "Imguidocknodeiscentralnode" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodeishiddentabbar):
-  proc Imguidocknodeishiddentabbar*(self: ptr Imguidocknode_80740880): bool {.
+  proc Imguidocknodeishiddentabbar*(self: ptr Imguidocknode_63963663): bool {.
       cdecl, importc: "ImGuiDockNode_IsHiddenTabBar".}
 else:
   static :
     hint("Declaration of " & "Imguidocknodeishiddentabbar" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodeisnotabbar):
-  proc Imguidocknodeisnotabbar*(self: ptr Imguidocknode_80740880): bool {.cdecl,
+  proc Imguidocknodeisnotabbar*(self: ptr Imguidocknode_63963663): bool {.cdecl,
       importc: "ImGuiDockNode_IsNoTabBar".}
 else:
   static :
     hint("Declaration of " & "Imguidocknodeisnotabbar" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodeissplitnode):
-  proc Imguidocknodeissplitnode*(self: ptr Imguidocknode_80740880): bool {.
+  proc Imguidocknodeissplitnode*(self: ptr Imguidocknode_63963663): bool {.
       cdecl, importc: "ImGuiDockNode_IsSplitNode".}
 else:
   static :
     hint("Declaration of " & "Imguidocknodeissplitnode" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodeisleafnode):
-  proc Imguidocknodeisleafnode*(self: ptr Imguidocknode_80740880): bool {.cdecl,
+  proc Imguidocknodeisleafnode*(self: ptr Imguidocknode_63963663): bool {.cdecl,
       importc: "ImGuiDockNode_IsLeafNode".}
 else:
   static :
     hint("Declaration of " & "Imguidocknodeisleafnode" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodeisempty):
-  proc Imguidocknodeisempty*(self: ptr Imguidocknode_80740880): bool {.cdecl,
+  proc Imguidocknodeisempty*(self: ptr Imguidocknode_63963663): bool {.cdecl,
       importc: "ImGuiDockNode_IsEmpty".}
 else:
   static :
     hint("Declaration of " & "Imguidocknodeisempty" &
         " already exists, not redeclaring")
 when not declared(Imguidocknoderect):
-  proc Imguidocknoderect*(pout: ptr Imrect_80740850; self: ptr Imguidocknode_80740880): void {.
+  proc Imguidocknoderect*(pout: ptr Imrect_63963633; self: ptr Imguidocknode_63963663): void {.
       cdecl, importc: "ImGuiDockNode_Rect".}
 else:
   static :
     hint("Declaration of " & "Imguidocknoderect" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodesetlocalflags):
-  proc Imguidocknodesetlocalflags*(self: ptr Imguidocknode_80740880;
-                                   flags: Imguidocknodeflags_80741026): void {.
+  proc Imguidocknodesetlocalflags*(self: ptr Imguidocknode_63963663;
+                                   flags: Imguidocknodeflags_63963809): void {.
       cdecl, importc: "ImGuiDockNode_SetLocalFlags".}
 else:
   static :
     hint("Declaration of " & "Imguidocknodesetlocalflags" &
         " already exists, not redeclaring")
 when not declared(Imguidocknodeupdatemergedflags):
-  proc Imguidocknodeupdatemergedflags*(self: ptr Imguidocknode_80740880): void {.
+  proc Imguidocknodeupdatemergedflags*(self: ptr Imguidocknode_63963663): void {.
       cdecl, importc: "ImGuiDockNode_UpdateMergedFlags".}
 else:
   static :
     hint("Declaration of " & "Imguidocknodeupdatemergedflags" &
         " already exists, not redeclaring")
 when not declared(Imguidockcontextimguidockcontext):
-  proc Imguidockcontextimguidockcontext*(): ptr Imguidockcontext_80740874 {.
+  proc Imguidockcontextimguidockcontext*(): ptr Imguidockcontext_63963657 {.
       cdecl, importc: "ImGuiDockContext_ImGuiDockContext".}
 else:
   static :
     hint("Declaration of " & "Imguidockcontextimguidockcontext" &
         " already exists, not redeclaring")
 when not declared(Imguidockcontextdestroy):
-  proc Imguidockcontextdestroy*(self: ptr Imguidockcontext_80740874): void {.
+  proc Imguidockcontextdestroy*(self: ptr Imguidockcontext_63963657): void {.
       cdecl, importc: "ImGuiDockContext_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguidockcontextdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportpimguiviewportp):
-  proc Imguiviewportpimguiviewportp*(): ptr Imguiviewportp_80741518 {.cdecl,
+  proc Imguiviewportpimguiviewportp*(): ptr Imguiviewportp_63964301 {.cdecl,
       importc: "ImGuiViewportP_ImGuiViewportP".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportpimguiviewportp" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportpdestroy):
-  proc Imguiviewportpdestroy*(self: ptr Imguiviewportp_80741518): void {.cdecl,
+  proc Imguiviewportpdestroy*(self: ptr Imguiviewportp_63964301): void {.cdecl,
       importc: "ImGuiViewportP_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportpdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportpclearrequestflags):
-  proc Imguiviewportpclearrequestflags*(self: ptr Imguiviewportp_80741518): void {.
+  proc Imguiviewportpclearrequestflags*(self: ptr Imguiviewportp_63964301): void {.
       cdecl, importc: "ImGuiViewportP_ClearRequestFlags".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportpclearrequestflags" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportpcalcworkrectpos):
-  proc Imguiviewportpcalcworkrectpos*(pout: ptr Imvec2_80741096;
-                                      self: ptr Imguiviewportp_80741518;
-                                      offmin: Imvec2_80741096): void {.cdecl,
+  proc Imguiviewportpcalcworkrectpos*(pout: ptr Imvec2_63963879;
+                                      self: ptr Imguiviewportp_63964301;
+                                      offmin: Imvec2_63963879): void {.cdecl,
       importc: "ImGuiViewportP_CalcWorkRectPos".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportpcalcworkrectpos" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportpcalcworkrectsize):
-  proc Imguiviewportpcalcworkrectsize*(pout: ptr Imvec2_80741096;
-                                       self: ptr Imguiviewportp_80741518;
-                                       offmin: Imvec2_80741096; offmax: Imvec2_80741096): void {.
+  proc Imguiviewportpcalcworkrectsize*(pout: ptr Imvec2_63963879;
+                                       self: ptr Imguiviewportp_63964301;
+                                       offmin: Imvec2_63963879; offmax: Imvec2_63963879): void {.
       cdecl, importc: "ImGuiViewportP_CalcWorkRectSize".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportpcalcworkrectsize" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportpupdateworkrect):
-  proc Imguiviewportpupdateworkrect*(self: ptr Imguiviewportp_80741518): void {.
+  proc Imguiviewportpupdateworkrect*(self: ptr Imguiviewportp_63964301): void {.
       cdecl, importc: "ImGuiViewportP_UpdateWorkRect".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportpupdateworkrect" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportpgetmainrect):
-  proc Imguiviewportpgetmainrect*(pout: ptr Imrect_80740850;
-                                  self: ptr Imguiviewportp_80741518): void {.
+  proc Imguiviewportpgetmainrect*(pout: ptr Imrect_63963633;
+                                  self: ptr Imguiviewportp_63964301): void {.
       cdecl, importc: "ImGuiViewportP_GetMainRect".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportpgetmainrect" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportpgetworkrect):
-  proc Imguiviewportpgetworkrect*(pout: ptr Imrect_80740850;
-                                  self: ptr Imguiviewportp_80741518): void {.
+  proc Imguiviewportpgetworkrect*(pout: ptr Imrect_63963633;
+                                  self: ptr Imguiviewportp_63964301): void {.
       cdecl, importc: "ImGuiViewportP_GetWorkRect".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportpgetworkrect" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportpgetbuildworkrect):
-  proc Imguiviewportpgetbuildworkrect*(pout: ptr Imrect_80740850;
-                                       self: ptr Imguiviewportp_80741518): void {.
+  proc Imguiviewportpgetbuildworkrect*(pout: ptr Imrect_63963633;
+                                       self: ptr Imguiviewportp_63964301): void {.
       cdecl, importc: "ImGuiViewportP_GetBuildWorkRect".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportpgetbuildworkrect" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowsettingsimguiwindowsettings):
-  proc Imguiwindowsettingsimguiwindowsettings*(): ptr Imguiwindowsettings_80740984 {.
+  proc Imguiwindowsettingsimguiwindowsettings*(): ptr Imguiwindowsettings_63963767 {.
       cdecl, importc: "ImGuiWindowSettings_ImGuiWindowSettings".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowsettingsimguiwindowsettings" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowsettingsdestroy):
-  proc Imguiwindowsettingsdestroy*(self: ptr Imguiwindowsettings_80740984): void {.
+  proc Imguiwindowsettingsdestroy*(self: ptr Imguiwindowsettings_63963767): void {.
       cdecl, importc: "ImGuiWindowSettings_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowsettingsdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowsettingsgetname):
-  proc Imguiwindowsettingsgetname*(self: ptr Imguiwindowsettings_80740984): cstring {.
+  proc Imguiwindowsettingsgetname*(self: ptr Imguiwindowsettings_63963767): cstring {.
       cdecl, importc: "ImGuiWindowSettings_GetName".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowsettingsgetname" &
         " already exists, not redeclaring")
 when not declared(Imguisettingshandlerimguisettingshandler):
-  proc Imguisettingshandlerimguisettingshandler*(): ptr Imguisettingshandler_80740934 {.
+  proc Imguisettingshandlerimguisettingshandler*(): ptr Imguisettingshandler_63963717 {.
       cdecl, importc: "ImGuiSettingsHandler_ImGuiSettingsHandler".}
 else:
   static :
     hint("Declaration of " & "Imguisettingshandlerimguisettingshandler" &
         " already exists, not redeclaring")
 when not declared(Imguisettingshandlerdestroy):
-  proc Imguisettingshandlerdestroy*(self: ptr Imguisettingshandler_80740934): void {.
+  proc Imguisettingshandlerdestroy*(self: ptr Imguisettingshandler_63963717): void {.
       cdecl, importc: "ImGuiSettingsHandler_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguisettingshandlerdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguistacklevelinfoimguistacklevelinfo):
-  proc Imguistacklevelinfoimguistacklevelinfo*(): ptr Imguistacklevelinfo_80741526 {.
+  proc Imguistacklevelinfoimguistacklevelinfo*(): ptr Imguistacklevelinfo_63964309 {.
       cdecl, importc: "ImGuiStackLevelInfo_ImGuiStackLevelInfo".}
 else:
   static :
     hint("Declaration of " & "Imguistacklevelinfoimguistacklevelinfo" &
         " already exists, not redeclaring")
 when not declared(Imguistacklevelinfodestroy):
-  proc Imguistacklevelinfodestroy*(self: ptr Imguistacklevelinfo_80741526): void {.
+  proc Imguistacklevelinfodestroy*(self: ptr Imguistacklevelinfo_63964309): void {.
       cdecl, importc: "ImGuiStackLevelInfo_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguistacklevelinfodestroy" &
         " already exists, not redeclaring")
 when not declared(Imguistacktoolimguistacktool):
-  proc Imguistacktoolimguistacktool*(): ptr Imguistacktool_80741530 {.cdecl,
+  proc Imguistacktoolimguistacktool*(): ptr Imguistacktool_63964313 {.cdecl,
       importc: "ImGuiStackTool_ImGuiStackTool".}
 else:
   static :
     hint("Declaration of " & "Imguistacktoolimguistacktool" &
         " already exists, not redeclaring")
 when not declared(Imguistacktooldestroy):
-  proc Imguistacktooldestroy*(self: ptr Imguistacktool_80741530): void {.cdecl,
+  proc Imguistacktooldestroy*(self: ptr Imguistacktool_63964313): void {.cdecl,
       importc: "ImGuiStackTool_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguistacktooldestroy" &
         " already exists, not redeclaring")
 when not declared(Imguicontexthookimguicontexthook):
-  proc Imguicontexthookimguicontexthook*(): ptr Imguicontexthook_80740862 {.
+  proc Imguicontexthookimguicontexthook*(): ptr Imguicontexthook_63963645 {.
       cdecl, importc: "ImGuiContextHook_ImGuiContextHook".}
 else:
   static :
     hint("Declaration of " & "Imguicontexthookimguicontexthook" &
         " already exists, not redeclaring")
 when not declared(Imguicontexthookdestroy):
-  proc Imguicontexthookdestroy*(self: ptr Imguicontexthook_80740862): void {.
+  proc Imguicontexthookdestroy*(self: ptr Imguicontexthook_63963645): void {.
       cdecl, importc: "ImGuiContextHook_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguicontexthookdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguicontextimguicontext):
-  proc Imguicontextimguicontext*(sharedfontatlas: ptr Imfontatlas_80740739): ptr Imguicontext_80740763 {.
+  proc Imguicontextimguicontext*(sharedfontatlas: ptr Imfontatlas_63963522): ptr Imguicontext_63963546 {.
       cdecl, importc: "ImGuiContext_ImGuiContext".}
 else:
   static :
     hint("Declaration of " & "Imguicontextimguicontext" &
         " already exists, not redeclaring")
 when not declared(Imguicontextdestroy):
-  proc Imguicontextdestroy*(self: ptr Imguicontext_80740763): void {.cdecl,
+  proc Imguicontextdestroy*(self: ptr Imguicontext_63963546): void {.cdecl,
       importc: "ImGuiContext_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguicontextdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowimguiwindow):
-  proc Imguiwindowimguiwindow*(context: ptr Imguicontext_80740763; name: cstring): ptr Imguiwindow_80740976 {.
+  proc Imguiwindowimguiwindow*(context: ptr Imguicontext_63963546; name: cstring): ptr Imguiwindow_63963759 {.
       cdecl, importc: "ImGuiWindow_ImGuiWindow".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowimguiwindow" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowdestroy):
-  proc Imguiwindowdestroy*(self: ptr Imguiwindow_80740976): void {.cdecl,
+  proc Imguiwindowdestroy*(self: ptr Imguiwindow_63963759): void {.cdecl,
       importc: "ImGuiWindow_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowgetidstr):
-  proc Imguiwindowgetidstr*(self: ptr Imguiwindow_80740976; str: cstring;
-                            strend: cstring): Imguiid_80741064 {.cdecl,
+  proc Imguiwindowgetidstr*(self: ptr Imguiwindow_63963759; str: cstring;
+                            strend: cstring): Imguiid_63963847 {.cdecl,
       importc: "ImGuiWindow_GetID_Str".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowgetidstr" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowgetidptr):
-  proc Imguiwindowgetidptr*(self: ptr Imguiwindow_80740976; ptrarg: pointer): Imguiid_80741064 {.
+  proc Imguiwindowgetidptr*(self: ptr Imguiwindow_63963759; ptrarg: pointer): Imguiid_63963847 {.
       cdecl, importc: "ImGuiWindow_GetID_Ptr".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowgetidptr" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowgetidint):
-  proc Imguiwindowgetidint*(self: ptr Imguiwindow_80740976; n: cint): Imguiid_80741064 {.
+  proc Imguiwindowgetidint*(self: ptr Imguiwindow_63963759; n: cint): Imguiid_63963847 {.
       cdecl, importc: "ImGuiWindow_GetID_Int".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowgetidint" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowgetidfromrectangle):
-  proc Imguiwindowgetidfromrectangle*(self: ptr Imguiwindow_80740976;
-                                      rabs: Imrect_80740850): Imguiid_80741064 {.
+  proc Imguiwindowgetidfromrectangle*(self: ptr Imguiwindow_63963759;
+                                      rabs: Imrect_63963633): Imguiid_63963847 {.
       cdecl, importc: "ImGuiWindow_GetIDFromRectangle".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowgetidfromrectangle" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowrect):
-  proc Imguiwindowrect*(pout: ptr Imrect_80740850; self: ptr Imguiwindow_80740976): void {.
+  proc Imguiwindowrect*(pout: ptr Imrect_63963633; self: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "ImGuiWindow_Rect".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowrect" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowcalcfontsize):
-  proc Imguiwindowcalcfontsize*(self: ptr Imguiwindow_80740976): cfloat {.cdecl,
+  proc Imguiwindowcalcfontsize*(self: ptr Imguiwindow_63963759): cfloat {.cdecl,
       importc: "ImGuiWindow_CalcFontSize".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowcalcfontsize" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowtitlebarheight):
-  proc Imguiwindowtitlebarheight*(self: ptr Imguiwindow_80740976): cfloat {.
+  proc Imguiwindowtitlebarheight*(self: ptr Imguiwindow_63963759): cfloat {.
       cdecl, importc: "ImGuiWindow_TitleBarHeight".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowtitlebarheight" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowtitlebarrect):
-  proc Imguiwindowtitlebarrect*(pout: ptr Imrect_80740850; self: ptr Imguiwindow_80740976): void {.
+  proc Imguiwindowtitlebarrect*(pout: ptr Imrect_63963633; self: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "ImGuiWindow_TitleBarRect".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowtitlebarrect" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowmenubarheight):
-  proc Imguiwindowmenubarheight*(self: ptr Imguiwindow_80740976): cfloat {.
+  proc Imguiwindowmenubarheight*(self: ptr Imguiwindow_63963759): cfloat {.
       cdecl, importc: "ImGuiWindow_MenuBarHeight".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowmenubarheight" &
         " already exists, not redeclaring")
 when not declared(Imguiwindowmenubarrect):
-  proc Imguiwindowmenubarrect*(pout: ptr Imrect_80740850; self: ptr Imguiwindow_80740976): void {.
+  proc Imguiwindowmenubarrect*(pout: ptr Imrect_63963633; self: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "ImGuiWindow_MenuBarRect".}
 else:
   static :
     hint("Declaration of " & "Imguiwindowmenubarrect" &
         " already exists, not redeclaring")
 when not declared(Imguitabitemimguitabitem):
-  proc Imguitabitemimguitabitem*(): ptr Imguitabitem_80740950 {.cdecl,
+  proc Imguitabitemimguitabitem*(): ptr Imguitabitem_63963733 {.cdecl,
       importc: "ImGuiTabItem_ImGuiTabItem".}
 else:
   static :
     hint("Declaration of " & "Imguitabitemimguitabitem" &
         " already exists, not redeclaring")
 when not declared(Imguitabitemdestroy):
-  proc Imguitabitemdestroy*(self: ptr Imguitabitem_80740950): void {.cdecl,
+  proc Imguitabitemdestroy*(self: ptr Imguitabitem_63963733): void {.cdecl,
       importc: "ImGuiTabItem_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguitabitemdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitabbarimguitabbar):
-  proc Imguitabbarimguitabbar*(): ptr Imguitabbar_80740946 {.cdecl,
+  proc Imguitabbarimguitabbar*(): ptr Imguitabbar_63963729 {.cdecl,
       importc: "ImGuiTabBar_ImGuiTabBar".}
 else:
   static :
     hint("Declaration of " & "Imguitabbarimguitabbar" &
         " already exists, not redeclaring")
 when not declared(Imguitabbardestroy):
-  proc Imguitabbardestroy*(self: ptr Imguitabbar_80740946): void {.cdecl,
+  proc Imguitabbardestroy*(self: ptr Imguitabbar_63963729): void {.cdecl,
       importc: "ImGuiTabBar_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguitabbardestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumnimguitablecolumn):
-  proc Imguitablecolumnimguitablecolumn*(): ptr Imguitablecolumn_80740958 {.
+  proc Imguitablecolumnimguitablecolumn*(): ptr Imguitablecolumn_63963741 {.
       cdecl, importc: "ImGuiTableColumn_ImGuiTableColumn".}
 else:
   static :
     hint("Declaration of " & "Imguitablecolumnimguitablecolumn" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumndestroy):
-  proc Imguitablecolumndestroy*(self: ptr Imguitablecolumn_80740958): void {.
+  proc Imguitablecolumndestroy*(self: ptr Imguitablecolumn_63963741): void {.
       cdecl, importc: "ImGuiTableColumn_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguitablecolumndestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitableinstancedataimguitableinstancedata):
-  proc Imguitableinstancedataimguitableinstancedata*(): ptr Imguitableinstancedata_80740962 {.
+  proc Imguitableinstancedataimguitableinstancedata*(): ptr Imguitableinstancedata_63963745 {.
       cdecl, importc: "ImGuiTableInstanceData_ImGuiTableInstanceData".}
 else:
   static :
     hint("Declaration of " & "Imguitableinstancedataimguitableinstancedata" &
         " already exists, not redeclaring")
 when not declared(Imguitableinstancedatadestroy):
-  proc Imguitableinstancedatadestroy*(self: ptr Imguitableinstancedata_80740962): void {.
+  proc Imguitableinstancedatadestroy*(self: ptr Imguitableinstancedata_63963745): void {.
       cdecl, importc: "ImGuiTableInstanceData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguitableinstancedatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitableimguitable):
-  proc Imguitableimguitable*(): ptr Imguitable_80740954 {.cdecl,
+  proc Imguitableimguitable*(): ptr Imguitable_63963737 {.cdecl,
       importc: "ImGuiTable_ImGuiTable".}
 else:
   static :
     hint("Declaration of " & "Imguitableimguitable" &
         " already exists, not redeclaring")
 when not declared(Imguitabledestroy):
-  proc Imguitabledestroy*(self: ptr Imguitable_80740954): void {.cdecl,
+  proc Imguitabledestroy*(self: ptr Imguitable_63963737): void {.cdecl,
       importc: "ImGuiTable_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguitabledestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitabletempdataimguitabletempdata):
-  proc Imguitabletempdataimguitabletempdata*(): ptr Imguitabletempdata_80740966 {.
+  proc Imguitabletempdataimguitabletempdata*(): ptr Imguitabletempdata_63963749 {.
       cdecl, importc: "ImGuiTableTempData_ImGuiTableTempData".}
 else:
   static :
     hint("Declaration of " & "Imguitabletempdataimguitabletempdata" &
         " already exists, not redeclaring")
 when not declared(Imguitabletempdatadestroy):
-  proc Imguitabletempdatadestroy*(self: ptr Imguitabletempdata_80740966): void {.
+  proc Imguitabletempdatadestroy*(self: ptr Imguitabletempdata_63963749): void {.
       cdecl, importc: "ImGuiTableTempData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguitabletempdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumnsettingsimguitablecolumnsettings):
-  proc Imguitablecolumnsettingsimguitablecolumnsettings*(): ptr Imguitablecolumnsettings_80741670 {.
+  proc Imguitablecolumnsettingsimguitablecolumnsettings*(): ptr Imguitablecolumnsettings_63964453 {.
       cdecl, importc: "ImGuiTableColumnSettings_ImGuiTableColumnSettings".}
 else:
   static :
     hint("Declaration of " & "Imguitablecolumnsettingsimguitablecolumnsettings" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumnsettingsdestroy):
-  proc Imguitablecolumnsettingsdestroy*(self: ptr Imguitablecolumnsettings_80741670): void {.
+  proc Imguitablecolumnsettingsdestroy*(self: ptr Imguitablecolumnsettings_63964453): void {.
       cdecl, importc: "ImGuiTableColumnSettings_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguitablecolumnsettingsdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitablesettingsimguitablesettings):
-  proc Imguitablesettingsimguitablesettings*(): ptr Imguitablesettings_80740970 {.
+  proc Imguitablesettingsimguitablesettings*(): ptr Imguitablesettings_63963753 {.
       cdecl, importc: "ImGuiTableSettings_ImGuiTableSettings".}
 else:
   static :
     hint("Declaration of " & "Imguitablesettingsimguitablesettings" &
         " already exists, not redeclaring")
 when not declared(Imguitablesettingsdestroy):
-  proc Imguitablesettingsdestroy*(self: ptr Imguitablesettings_80740970): void {.
+  proc Imguitablesettingsdestroy*(self: ptr Imguitablesettings_63963753): void {.
       cdecl, importc: "ImGuiTableSettings_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguitablesettingsdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitablesettingsgetcolumnsettings):
-  proc Imguitablesettingsgetcolumnsettings*(self: ptr Imguitablesettings_80740970): ptr Imguitablecolumnsettings_80741670 {.
+  proc Imguitablesettingsgetcolumnsettings*(self: ptr Imguitablesettings_63963753): ptr Imguitablecolumnsettings_63964453 {.
       cdecl, importc: "ImGuiTableSettings_GetColumnSettings".}
 else:
   static :
     hint("Declaration of " & "Imguitablesettingsgetcolumnsettings" &
         " already exists, not redeclaring")
 when not declared(iggetcurrentwindowread):
-  proc iggetcurrentwindowread*(): ptr Imguiwindow_80740976 {.cdecl,
+  proc iggetcurrentwindowread*(): ptr Imguiwindow_63963759 {.cdecl,
       importc: "igGetCurrentWindowRead".}
 else:
   static :
     hint("Declaration of " & "iggetcurrentwindowread" &
         " already exists, not redeclaring")
 when not declared(iggetcurrentwindow):
-  proc iggetcurrentwindow*(): ptr Imguiwindow_80740976 {.cdecl,
+  proc iggetcurrentwindow*(): ptr Imguiwindow_63963759 {.cdecl,
       importc: "igGetCurrentWindow".}
 else:
   static :
     hint("Declaration of " & "iggetcurrentwindow" &
         " already exists, not redeclaring")
 when not declared(igfindwindowbyid):
-  proc igfindwindowbyid*(id: Imguiid_80741064): ptr Imguiwindow_80740976 {.
+  proc igfindwindowbyid*(id: Imguiid_63963847): ptr Imguiwindow_63963759 {.
       cdecl, importc: "igFindWindowByID".}
 else:
   static :
     hint("Declaration of " & "igfindwindowbyid" &
         " already exists, not redeclaring")
 when not declared(igfindwindowbyname):
-  proc igfindwindowbyname*(name: cstring): ptr Imguiwindow_80740976 {.cdecl,
+  proc igfindwindowbyname*(name: cstring): ptr Imguiwindow_63963759 {.cdecl,
       importc: "igFindWindowByName".}
 else:
   static :
     hint("Declaration of " & "igfindwindowbyname" &
         " already exists, not redeclaring")
 when not declared(igupdatewindowparentandrootlinks):
-  proc igupdatewindowparentandrootlinks*(window: ptr Imguiwindow_80740976;
-      flags: Imguiwindowflags_80741058; parentwindow: ptr Imguiwindow_80740976): void {.
+  proc igupdatewindowparentandrootlinks*(window: ptr Imguiwindow_63963759;
+      flags: Imguiwindowflags_63963841; parentwindow: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igUpdateWindowParentAndRootLinks".}
 else:
   static :
     hint("Declaration of " & "igupdatewindowparentandrootlinks" &
         " already exists, not redeclaring")
 when not declared(igcalcwindownextautofitsize):
-  proc igcalcwindownextautofitsize*(pout: ptr Imvec2_80741096;
-                                    window: ptr Imguiwindow_80740976): void {.
+  proc igcalcwindownextautofitsize*(pout: ptr Imvec2_63963879;
+                                    window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igCalcWindowNextAutoFitSize".}
 else:
   static :
     hint("Declaration of " & "igcalcwindownextautofitsize" &
         " already exists, not redeclaring")
 when not declared(igiswindowchildof):
-  proc igiswindowchildof*(window: ptr Imguiwindow_80740976;
-                          potentialparent: ptr Imguiwindow_80740976;
+  proc igiswindowchildof*(window: ptr Imguiwindow_63963759;
+                          potentialparent: ptr Imguiwindow_63963759;
                           popuphierarchy: bool; dockhierarchy: bool): bool {.
       cdecl, importc: "igIsWindowChildOf".}
 else:
@@ -14864,157 +14864,157 @@ else:
     hint("Declaration of " & "igiswindowchildof" &
         " already exists, not redeclaring")
 when not declared(igiswindowwithinbeginstackof):
-  proc igiswindowwithinbeginstackof*(window: ptr Imguiwindow_80740976;
-                                     potentialparent: ptr Imguiwindow_80740976): bool {.
+  proc igiswindowwithinbeginstackof*(window: ptr Imguiwindow_63963759;
+                                     potentialparent: ptr Imguiwindow_63963759): bool {.
       cdecl, importc: "igIsWindowWithinBeginStackOf".}
 else:
   static :
     hint("Declaration of " & "igiswindowwithinbeginstackof" &
         " already exists, not redeclaring")
 when not declared(igiswindowabove):
-  proc igiswindowabove*(potentialabove: ptr Imguiwindow_80740976;
-                        potentialbelow: ptr Imguiwindow_80740976): bool {.cdecl,
+  proc igiswindowabove*(potentialabove: ptr Imguiwindow_63963759;
+                        potentialbelow: ptr Imguiwindow_63963759): bool {.cdecl,
       importc: "igIsWindowAbove".}
 else:
   static :
     hint("Declaration of " & "igiswindowabove" &
         " already exists, not redeclaring")
 when not declared(igiswindownavfocusable):
-  proc igiswindownavfocusable*(window: ptr Imguiwindow_80740976): bool {.cdecl,
+  proc igiswindownavfocusable*(window: ptr Imguiwindow_63963759): bool {.cdecl,
       importc: "igIsWindowNavFocusable".}
 else:
   static :
     hint("Declaration of " & "igiswindownavfocusable" &
         " already exists, not redeclaring")
 when not declared(igsetwindowposwindowptr):
-  proc igsetwindowposwindowptr*(window: ptr Imguiwindow_80740976; pos: Imvec2_80741096;
-                                cond: Imguicond_80740994): void {.cdecl,
+  proc igsetwindowposwindowptr*(window: ptr Imguiwindow_63963759; pos: Imvec2_63963879;
+                                cond: Imguicond_63963777): void {.cdecl,
       importc: "igSetWindowPos_WindowPtr".}
 else:
   static :
     hint("Declaration of " & "igsetwindowposwindowptr" &
         " already exists, not redeclaring")
 when not declared(igsetwindowsizewindowptr):
-  proc igsetwindowsizewindowptr*(window: ptr Imguiwindow_80740976; size: Imvec2_80741096;
-                                 cond: Imguicond_80740994): void {.cdecl,
+  proc igsetwindowsizewindowptr*(window: ptr Imguiwindow_63963759; size: Imvec2_63963879;
+                                 cond: Imguicond_63963777): void {.cdecl,
       importc: "igSetWindowSize_WindowPtr".}
 else:
   static :
     hint("Declaration of " & "igsetwindowsizewindowptr" &
         " already exists, not redeclaring")
 when not declared(igsetwindowcollapsedwindowptr):
-  proc igsetwindowcollapsedwindowptr*(window: ptr Imguiwindow_80740976;
-                                      collapsed: bool; cond: Imguicond_80740994): void {.
+  proc igsetwindowcollapsedwindowptr*(window: ptr Imguiwindow_63963759;
+                                      collapsed: bool; cond: Imguicond_63963777): void {.
       cdecl, importc: "igSetWindowCollapsed_WindowPtr".}
 else:
   static :
     hint("Declaration of " & "igsetwindowcollapsedwindowptr" &
         " already exists, not redeclaring")
 when not declared(igsetwindowhittesthole):
-  proc igsetwindowhittesthole*(window: ptr Imguiwindow_80740976; pos: Imvec2_80741096;
-                               size: Imvec2_80741096): void {.cdecl,
+  proc igsetwindowhittesthole*(window: ptr Imguiwindow_63963759; pos: Imvec2_63963879;
+                               size: Imvec2_63963879): void {.cdecl,
       importc: "igSetWindowHitTestHole".}
 else:
   static :
     hint("Declaration of " & "igsetwindowhittesthole" &
         " already exists, not redeclaring")
 when not declared(igsetwindowhiddendandskipitemsforcurrentframe):
-  proc igsetwindowhiddendandskipitemsforcurrentframe*(window: ptr Imguiwindow_80740976): void {.
+  proc igsetwindowhiddendandskipitemsforcurrentframe*(window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igSetWindowHiddendAndSkipItemsForCurrentFrame".}
 else:
   static :
     hint("Declaration of " & "igsetwindowhiddendandskipitemsforcurrentframe" &
         " already exists, not redeclaring")
 when not declared(igwindowrectabstorel):
-  proc igwindowrectabstorel*(pout: ptr Imrect_80740850; window: ptr Imguiwindow_80740976;
-                             r: Imrect_80740850): void {.cdecl,
+  proc igwindowrectabstorel*(pout: ptr Imrect_63963633; window: ptr Imguiwindow_63963759;
+                             r: Imrect_63963633): void {.cdecl,
       importc: "igWindowRectAbsToRel".}
 else:
   static :
     hint("Declaration of " & "igwindowrectabstorel" &
         " already exists, not redeclaring")
 when not declared(igwindowrectreltoabs):
-  proc igwindowrectreltoabs*(pout: ptr Imrect_80740850; window: ptr Imguiwindow_80740976;
-                             r: Imrect_80740850): void {.cdecl,
+  proc igwindowrectreltoabs*(pout: ptr Imrect_63963633; window: ptr Imguiwindow_63963759;
+                             r: Imrect_63963633): void {.cdecl,
       importc: "igWindowRectRelToAbs".}
 else:
   static :
     hint("Declaration of " & "igwindowrectreltoabs" &
         " already exists, not redeclaring")
 when not declared(igfocuswindow):
-  proc igfocuswindow*(window: ptr Imguiwindow_80740976): void {.cdecl,
+  proc igfocuswindow*(window: ptr Imguiwindow_63963759): void {.cdecl,
       importc: "igFocusWindow".}
 else:
   static :
     hint("Declaration of " & "igfocuswindow" &
         " already exists, not redeclaring")
 when not declared(igfocustopmostwindowunderone):
-  proc igfocustopmostwindowunderone*(underthiswindow: ptr Imguiwindow_80740976;
-                                     ignorewindow: ptr Imguiwindow_80740976): void {.
+  proc igfocustopmostwindowunderone*(underthiswindow: ptr Imguiwindow_63963759;
+                                     ignorewindow: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igFocusTopMostWindowUnderOne".}
 else:
   static :
     hint("Declaration of " & "igfocustopmostwindowunderone" &
         " already exists, not redeclaring")
 when not declared(igbringwindowtofocusfront):
-  proc igbringwindowtofocusfront*(window: ptr Imguiwindow_80740976): void {.
+  proc igbringwindowtofocusfront*(window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igBringWindowToFocusFront".}
 else:
   static :
     hint("Declaration of " & "igbringwindowtofocusfront" &
         " already exists, not redeclaring")
 when not declared(igbringwindowtodisplayfront):
-  proc igbringwindowtodisplayfront*(window: ptr Imguiwindow_80740976): void {.
+  proc igbringwindowtodisplayfront*(window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igBringWindowToDisplayFront".}
 else:
   static :
     hint("Declaration of " & "igbringwindowtodisplayfront" &
         " already exists, not redeclaring")
 when not declared(igbringwindowtodisplayback):
-  proc igbringwindowtodisplayback*(window: ptr Imguiwindow_80740976): void {.
+  proc igbringwindowtodisplayback*(window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igBringWindowToDisplayBack".}
 else:
   static :
     hint("Declaration of " & "igbringwindowtodisplayback" &
         " already exists, not redeclaring")
 when not declared(igbringwindowtodisplaybehind):
-  proc igbringwindowtodisplaybehind*(window: ptr Imguiwindow_80740976;
-                                     abovewindow: ptr Imguiwindow_80740976): void {.
+  proc igbringwindowtodisplaybehind*(window: ptr Imguiwindow_63963759;
+                                     abovewindow: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igBringWindowToDisplayBehind".}
 else:
   static :
     hint("Declaration of " & "igbringwindowtodisplaybehind" &
         " already exists, not redeclaring")
 when not declared(igfindwindowdisplayindex):
-  proc igfindwindowdisplayindex*(window: ptr Imguiwindow_80740976): cint {.
+  proc igfindwindowdisplayindex*(window: ptr Imguiwindow_63963759): cint {.
       cdecl, importc: "igFindWindowDisplayIndex".}
 else:
   static :
     hint("Declaration of " & "igfindwindowdisplayindex" &
         " already exists, not redeclaring")
 when not declared(igfindbottommostvisiblewindowwithinbeginstack):
-  proc igfindbottommostvisiblewindowwithinbeginstack*(window: ptr Imguiwindow_80740976): ptr Imguiwindow_80740976 {.
+  proc igfindbottommostvisiblewindowwithinbeginstack*(window: ptr Imguiwindow_63963759): ptr Imguiwindow_63963759 {.
       cdecl, importc: "igFindBottomMostVisibleWindowWithinBeginStack".}
 else:
   static :
     hint("Declaration of " & "igfindbottommostvisiblewindowwithinbeginstack" &
         " already exists, not redeclaring")
 when not declared(igsetcurrentfont):
-  proc igsetcurrentfont*(font: ptr Imfont_80740735): void {.cdecl,
+  proc igsetcurrentfont*(font: ptr Imfont_63963518): void {.cdecl,
       importc: "igSetCurrentFont".}
 else:
   static :
     hint("Declaration of " & "igsetcurrentfont" &
         " already exists, not redeclaring")
 when not declared(iggetdefaultfont):
-  proc iggetdefaultfont*(): ptr Imfont_80740735 {.cdecl,
+  proc iggetdefaultfont*(): ptr Imfont_63963518 {.cdecl,
       importc: "igGetDefaultFont".}
 else:
   static :
     hint("Declaration of " & "iggetdefaultfont" &
         " already exists, not redeclaring")
 when not declared(iggetforegrounddrawlistwindowptr):
-  proc iggetforegrounddrawlistwindowptr*(window: ptr Imguiwindow_80740976): ptr Imdrawlist_80740719 {.
+  proc iggetforegrounddrawlistwindowptr*(window: ptr Imguiwindow_63963759): ptr Imdrawlist_63963502 {.
       cdecl, importc: "igGetForegroundDrawList_WindowPtr".}
 else:
   static :
@@ -15045,15 +15045,15 @@ else:
     hint("Declaration of " & "igupdatehoveredwindowandcaptureflags" &
         " already exists, not redeclaring")
 when not declared(igstartmousemovingwindow):
-  proc igstartmousemovingwindow*(window: ptr Imguiwindow_80740976): void {.
+  proc igstartmousemovingwindow*(window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igStartMouseMovingWindow".}
 else:
   static :
     hint("Declaration of " & "igstartmousemovingwindow" &
         " already exists, not redeclaring")
 when not declared(igstartmousemovingwindowornode):
-  proc igstartmousemovingwindowornode*(window: ptr Imguiwindow_80740976;
-                                       node: ptr Imguidocknode_80740880;
+  proc igstartmousemovingwindowornode*(window: ptr Imguiwindow_63963759;
+                                       node: ptr Imguidocknode_63963663;
                                        undockfloatingnode: bool): void {.cdecl,
       importc: "igStartMouseMovingWindowOrNode".}
 else:
@@ -15075,39 +15075,39 @@ else:
     hint("Declaration of " & "igupdatemousemovingwindowendframe" &
         " already exists, not redeclaring")
 when not declared(igaddcontexthook):
-  proc igaddcontexthook*(context: ptr Imguicontext_80740763;
-                         hook: ptr Imguicontexthook_80740862): Imguiid_80741064 {.
+  proc igaddcontexthook*(context: ptr Imguicontext_63963546;
+                         hook: ptr Imguicontexthook_63963645): Imguiid_63963847 {.
       cdecl, importc: "igAddContextHook".}
 else:
   static :
     hint("Declaration of " & "igaddcontexthook" &
         " already exists, not redeclaring")
 when not declared(igremovecontexthook):
-  proc igremovecontexthook*(context: ptr Imguicontext_80740763;
-                            hooktoremove: Imguiid_80741064): void {.cdecl,
+  proc igremovecontexthook*(context: ptr Imguicontext_63963546;
+                            hooktoremove: Imguiid_63963847): void {.cdecl,
       importc: "igRemoveContextHook".}
 else:
   static :
     hint("Declaration of " & "igremovecontexthook" &
         " already exists, not redeclaring")
 when not declared(igcallcontexthooks):
-  proc igcallcontexthooks*(context: ptr Imguicontext_80740763;
-                           typearg: Imguicontexthooktype_80741540): void {.
+  proc igcallcontexthooks*(context: ptr Imguicontext_63963546;
+                           typearg: Imguicontexthooktype_63964323): void {.
       cdecl, importc: "igCallContextHooks".}
 else:
   static :
     hint("Declaration of " & "igcallcontexthooks" &
         " already exists, not redeclaring")
 when not declared(igtranslatewindowsinviewport):
-  proc igtranslatewindowsinviewport*(viewport: ptr Imguiviewportp_80741518;
-                                     oldpos: Imvec2_80741096; newpos: Imvec2_80741096): void {.
+  proc igtranslatewindowsinviewport*(viewport: ptr Imguiviewportp_63964301;
+                                     oldpos: Imvec2_63963879; newpos: Imvec2_63963879): void {.
       cdecl, importc: "igTranslateWindowsInViewport".}
 else:
   static :
     hint("Declaration of " & "igtranslatewindowsinviewport" &
         " already exists, not redeclaring")
 when not declared(igscalewindowsinviewport):
-  proc igscalewindowsinviewport*(viewport: ptr Imguiviewportp_80741518;
+  proc igscalewindowsinviewport*(viewport: ptr Imguiviewportp_63964301;
                                  scale: cfloat): void {.cdecl,
       importc: "igScaleWindowsInViewport".}
 else:
@@ -15115,37 +15115,37 @@ else:
     hint("Declaration of " & "igscalewindowsinviewport" &
         " already exists, not redeclaring")
 when not declared(igdestroyplatformwindow):
-  proc igdestroyplatformwindow*(viewport: ptr Imguiviewportp_80741518): void {.
+  proc igdestroyplatformwindow*(viewport: ptr Imguiviewportp_63964301): void {.
       cdecl, importc: "igDestroyPlatformWindow".}
 else:
   static :
     hint("Declaration of " & "igdestroyplatformwindow" &
         " already exists, not redeclaring")
 when not declared(igsetwindowviewport):
-  proc igsetwindowviewport*(window: ptr Imguiwindow_80740976;
-                            viewport: ptr Imguiviewportp_80741518): void {.
+  proc igsetwindowviewport*(window: ptr Imguiwindow_63963759;
+                            viewport: ptr Imguiviewportp_63964301): void {.
       cdecl, importc: "igSetWindowViewport".}
 else:
   static :
     hint("Declaration of " & "igsetwindowviewport" &
         " already exists, not redeclaring")
 when not declared(igsetcurrentviewport):
-  proc igsetcurrentviewport*(window: ptr Imguiwindow_80740976;
-                             viewport: ptr Imguiviewportp_80741518): void {.
+  proc igsetcurrentviewport*(window: ptr Imguiwindow_63963759;
+                             viewport: ptr Imguiviewportp_63964301): void {.
       cdecl, importc: "igSetCurrentViewport".}
 else:
   static :
     hint("Declaration of " & "igsetcurrentviewport" &
         " already exists, not redeclaring")
 when not declared(iggetviewportplatformmonitor):
-  proc iggetviewportplatformmonitor*(viewport: ptr Imguiviewport_80740838): ptr Imguiplatformmonitor_80740802 {.
+  proc iggetviewportplatformmonitor*(viewport: ptr Imguiviewport_63963621): ptr Imguiplatformmonitor_63963585 {.
       cdecl, importc: "igGetViewportPlatformMonitor".}
 else:
   static :
     hint("Declaration of " & "iggetviewportplatformmonitor" &
         " already exists, not redeclaring")
 when not declared(igfindhoveredviewportfromplatformwindowstack):
-  proc igfindhoveredviewportfromplatformwindowstack*(mouseplatformpos: Imvec2_80741096): ptr Imguiviewportp_80741518 {.
+  proc igfindhoveredviewportfromplatformwindowstack*(mouseplatformpos: Imvec2_63963879): ptr Imguiviewportp_63964301 {.
       cdecl, importc: "igFindHoveredViewportFromPlatformWindowStack".}
 else:
   static :
@@ -15159,7 +15159,7 @@ else:
     hint("Declaration of " & "igmarkinisettingsdirtynil" &
         " already exists, not redeclaring")
 when not declared(igmarkinisettingsdirtywindowptr):
-  proc igmarkinisettingsdirtywindowptr*(window: ptr Imguiwindow_80740976): void {.
+  proc igmarkinisettingsdirtywindowptr*(window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igMarkIniSettingsDirty_WindowPtr".}
 else:
   static :
@@ -15172,7 +15172,7 @@ else:
     hint("Declaration of " & "igclearinisettings" &
         " already exists, not redeclaring")
 when not declared(igaddsettingshandler):
-  proc igaddsettingshandler*(handler: ptr Imguisettingshandler_80740934): void {.
+  proc igaddsettingshandler*(handler: ptr Imguisettingshandler_63963717): void {.
       cdecl, importc: "igAddSettingsHandler".}
 else:
   static :
@@ -15186,28 +15186,28 @@ else:
     hint("Declaration of " & "igremovesettingshandler" &
         " already exists, not redeclaring")
 when not declared(igfindsettingshandler):
-  proc igfindsettingshandler*(typename: cstring): ptr Imguisettingshandler_80740934 {.
+  proc igfindsettingshandler*(typename: cstring): ptr Imguisettingshandler_63963717 {.
       cdecl, importc: "igFindSettingsHandler".}
 else:
   static :
     hint("Declaration of " & "igfindsettingshandler" &
         " already exists, not redeclaring")
 when not declared(igcreatenewwindowsettings):
-  proc igcreatenewwindowsettings*(name: cstring): ptr Imguiwindowsettings_80740984 {.
+  proc igcreatenewwindowsettings*(name: cstring): ptr Imguiwindowsettings_63963767 {.
       cdecl, importc: "igCreateNewWindowSettings".}
 else:
   static :
     hint("Declaration of " & "igcreatenewwindowsettings" &
         " already exists, not redeclaring")
 when not declared(igfindwindowsettingsbyid):
-  proc igfindwindowsettingsbyid*(id: Imguiid_80741064): ptr Imguiwindowsettings_80740984 {.
+  proc igfindwindowsettingsbyid*(id: Imguiid_63963847): ptr Imguiwindowsettings_63963767 {.
       cdecl, importc: "igFindWindowSettingsByID".}
 else:
   static :
     hint("Declaration of " & "igfindwindowsettingsbyid" &
         " already exists, not redeclaring")
 when not declared(igfindwindowsettingsbywindow):
-  proc igfindwindowsettingsbywindow*(window: ptr Imguiwindow_80740976): ptr Imguiwindowsettings_80740984 {.
+  proc igfindwindowsettingsbywindow*(window: ptr Imguiwindow_63963759): ptr Imguiwindowsettings_63963767 {.
       cdecl, importc: "igFindWindowSettingsByWindow".}
 else:
   static :
@@ -15221,7 +15221,7 @@ else:
     hint("Declaration of " & "igclearwindowsettings" &
         " already exists, not redeclaring")
 when not declared(iglocalizeregisterentries):
-  proc iglocalizeregisterentries*(entries: ptr Imguilocentry_80740898;
+  proc iglocalizeregisterentries*(entries: ptr Imguilocentry_63963681;
                                   count: cint): void {.cdecl,
       importc: "igLocalizeRegisterEntries".}
 else:
@@ -15229,28 +15229,28 @@ else:
     hint("Declaration of " & "iglocalizeregisterentries" &
         " already exists, not redeclaring")
 when not declared(iglocalizegetmsg):
-  proc iglocalizegetmsg*(key: Imguilockey_80741522): cstring {.cdecl,
+  proc iglocalizegetmsg*(key: Imguilockey_63964305): cstring {.cdecl,
       importc: "igLocalizeGetMsg".}
 else:
   static :
     hint("Declaration of " & "iglocalizegetmsg" &
         " already exists, not redeclaring")
 when not declared(igsetscrollxwindowptr):
-  proc igsetscrollxwindowptr*(window: ptr Imguiwindow_80740976; scrollx: cfloat): void {.
+  proc igsetscrollxwindowptr*(window: ptr Imguiwindow_63963759; scrollx: cfloat): void {.
       cdecl, importc: "igSetScrollX_WindowPtr".}
 else:
   static :
     hint("Declaration of " & "igsetscrollxwindowptr" &
         " already exists, not redeclaring")
 when not declared(igsetscrollywindowptr):
-  proc igsetscrollywindowptr*(window: ptr Imguiwindow_80740976; scrolly: cfloat): void {.
+  proc igsetscrollywindowptr*(window: ptr Imguiwindow_63963759; scrolly: cfloat): void {.
       cdecl, importc: "igSetScrollY_WindowPtr".}
 else:
   static :
     hint("Declaration of " & "igsetscrollywindowptr" &
         " already exists, not redeclaring")
 when not declared(igsetscrollfromposxwindowptr):
-  proc igsetscrollfromposxwindowptr*(window: ptr Imguiwindow_80740976;
+  proc igsetscrollfromposxwindowptr*(window: ptr Imguiwindow_63963759;
                                      localx: cfloat; centerxratio: cfloat): void {.
       cdecl, importc: "igSetScrollFromPosX_WindowPtr".}
 else:
@@ -15258,7 +15258,7 @@ else:
     hint("Declaration of " & "igsetscrollfromposxwindowptr" &
         " already exists, not redeclaring")
 when not declared(igsetscrollfromposywindowptr):
-  proc igsetscrollfromposywindowptr*(window: ptr Imguiwindow_80740976;
+  proc igsetscrollfromposywindowptr*(window: ptr Imguiwindow_63963759;
                                      localy: cfloat; centeryratio: cfloat): void {.
       cdecl, importc: "igSetScrollFromPosY_WindowPtr".}
 else:
@@ -15266,70 +15266,70 @@ else:
     hint("Declaration of " & "igsetscrollfromposywindowptr" &
         " already exists, not redeclaring")
 when not declared(igscrolltoitem):
-  proc igscrolltoitem*(flags: Imguiscrollflags_80741292): void {.cdecl,
+  proc igscrolltoitem*(flags: Imguiscrollflags_63964075): void {.cdecl,
       importc: "igScrollToItem".}
 else:
   static :
     hint("Declaration of " & "igscrolltoitem" &
         " already exists, not redeclaring")
 when not declared(igscrolltorect):
-  proc igscrolltorect*(window: ptr Imguiwindow_80740976; rect: Imrect_80740850;
-                       flags: Imguiscrollflags_80741292): void {.cdecl,
+  proc igscrolltorect*(window: ptr Imguiwindow_63963759; rect: Imrect_63963633;
+                       flags: Imguiscrollflags_63964075): void {.cdecl,
       importc: "igScrollToRect".}
 else:
   static :
     hint("Declaration of " & "igscrolltorect" &
         " already exists, not redeclaring")
 when not declared(igscrolltorectex):
-  proc igscrolltorectex*(pout: ptr Imvec2_80741096; window: ptr Imguiwindow_80740976;
-                         rect: Imrect_80740850; flags: Imguiscrollflags_80741292): void {.
+  proc igscrolltorectex*(pout: ptr Imvec2_63963879; window: ptr Imguiwindow_63963759;
+                         rect: Imrect_63963633; flags: Imguiscrollflags_63964075): void {.
       cdecl, importc: "igScrollToRectEx".}
 else:
   static :
     hint("Declaration of " & "igscrolltorectex" &
         " already exists, not redeclaring")
 when not declared(igscrolltobringrectintoview):
-  proc igscrolltobringrectintoview*(window: ptr Imguiwindow_80740976;
-                                    rect: Imrect_80740850): void {.cdecl,
+  proc igscrolltobringrectintoview*(window: ptr Imguiwindow_63963759;
+                                    rect: Imrect_63963633): void {.cdecl,
       importc: "igScrollToBringRectIntoView".}
 else:
   static :
     hint("Declaration of " & "igscrolltobringrectintoview" &
         " already exists, not redeclaring")
 when not declared(iggetitemstatusflags):
-  proc iggetitemstatusflags*(): Imguiitemstatusflags_80741280 {.cdecl,
+  proc iggetitemstatusflags*(): Imguiitemstatusflags_63964063 {.cdecl,
       importc: "igGetItemStatusFlags".}
 else:
   static :
     hint("Declaration of " & "iggetitemstatusflags" &
         " already exists, not redeclaring")
 when not declared(iggetitemflags):
-  proc iggetitemflags*(): Imguiitemflags_80741278 {.cdecl,
+  proc iggetitemflags*(): Imguiitemflags_63964061 {.cdecl,
       importc: "igGetItemFlags".}
 else:
   static :
     hint("Declaration of " & "iggetitemflags" &
         " already exists, not redeclaring")
 when not declared(iggetactiveid):
-  proc iggetactiveid*(): Imguiid_80741064 {.cdecl, importc: "igGetActiveID".}
+  proc iggetactiveid*(): Imguiid_63963847 {.cdecl, importc: "igGetActiveID".}
 else:
   static :
     hint("Declaration of " & "iggetactiveid" &
         " already exists, not redeclaring")
 when not declared(iggetfocusid):
-  proc iggetfocusid*(): Imguiid_80741064 {.cdecl, importc: "igGetFocusID".}
+  proc iggetfocusid*(): Imguiid_63963847 {.cdecl, importc: "igGetFocusID".}
 else:
   static :
     hint("Declaration of " & "iggetfocusid" & " already exists, not redeclaring")
 when not declared(igsetactiveid):
-  proc igsetactiveid*(id: Imguiid_80741064; window: ptr Imguiwindow_80740976): void {.
+  proc igsetactiveid*(id: Imguiid_63963847; window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igSetActiveID".}
 else:
   static :
     hint("Declaration of " & "igsetactiveid" &
         " already exists, not redeclaring")
 when not declared(igsetfocusid):
-  proc igsetfocusid*(id: Imguiid_80741064; window: ptr Imguiwindow_80740976): void {.
+  proc igsetfocusid*(id: Imguiid_63963847; window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igSetFocusID".}
 else:
   static :
@@ -15341,99 +15341,99 @@ else:
     hint("Declaration of " & "igclearactiveid" &
         " already exists, not redeclaring")
 when not declared(iggethoveredid):
-  proc iggethoveredid*(): Imguiid_80741064 {.cdecl, importc: "igGetHoveredID".}
+  proc iggethoveredid*(): Imguiid_63963847 {.cdecl, importc: "igGetHoveredID".}
 else:
   static :
     hint("Declaration of " & "iggethoveredid" &
         " already exists, not redeclaring")
 when not declared(igsethoveredid):
-  proc igsethoveredid*(id: Imguiid_80741064): void {.cdecl,
+  proc igsethoveredid*(id: Imguiid_63963847): void {.cdecl,
       importc: "igSetHoveredID".}
 else:
   static :
     hint("Declaration of " & "igsethoveredid" &
         " already exists, not redeclaring")
 when not declared(igkeepaliveid):
-  proc igkeepaliveid*(id: Imguiid_80741064): void {.cdecl,
+  proc igkeepaliveid*(id: Imguiid_63963847): void {.cdecl,
       importc: "igKeepAliveID".}
 else:
   static :
     hint("Declaration of " & "igkeepaliveid" &
         " already exists, not redeclaring")
 when not declared(igmarkitemedited):
-  proc igmarkitemedited*(id: Imguiid_80741064): void {.cdecl,
+  proc igmarkitemedited*(id: Imguiid_63963847): void {.cdecl,
       importc: "igMarkItemEdited".}
 else:
   static :
     hint("Declaration of " & "igmarkitemedited" &
         " already exists, not redeclaring")
 when not declared(igpushoverrideid):
-  proc igpushoverrideid*(id: Imguiid_80741064): void {.cdecl,
+  proc igpushoverrideid*(id: Imguiid_63963847): void {.cdecl,
       importc: "igPushOverrideID".}
 else:
   static :
     hint("Declaration of " & "igpushoverrideid" &
         " already exists, not redeclaring")
 when not declared(iggetidwithseedstr):
-  proc iggetidwithseedstr*(stridbegin: cstring; stridend: cstring; seed: Imguiid_80741064): Imguiid_80741064 {.
+  proc iggetidwithseedstr*(stridbegin: cstring; stridend: cstring; seed: Imguiid_63963847): Imguiid_63963847 {.
       cdecl, importc: "igGetIDWithSeed_Str".}
 else:
   static :
     hint("Declaration of " & "iggetidwithseedstr" &
         " already exists, not redeclaring")
 when not declared(iggetidwithseedint):
-  proc iggetidwithseedint*(n: cint; seed: Imguiid_80741064): Imguiid_80741064 {.
+  proc iggetidwithseedint*(n: cint; seed: Imguiid_63963847): Imguiid_63963847 {.
       cdecl, importc: "igGetIDWithSeed_Int".}
 else:
   static :
     hint("Declaration of " & "iggetidwithseedint" &
         " already exists, not redeclaring")
 when not declared(igitemsizevec2):
-  proc igitemsizevec2*(size: Imvec2_80741096; textbaseliney: cfloat): void {.
+  proc igitemsizevec2*(size: Imvec2_63963879; textbaseliney: cfloat): void {.
       cdecl, importc: "igItemSize_Vec2".}
 else:
   static :
     hint("Declaration of " & "igitemsizevec2" &
         " already exists, not redeclaring")
 when not declared(igitemsizerect):
-  proc igitemsizerect*(bb: Imrect_80740850; textbaseliney: cfloat): void {.
+  proc igitemsizerect*(bb: Imrect_63963633; textbaseliney: cfloat): void {.
       cdecl, importc: "igItemSize_Rect".}
 else:
   static :
     hint("Declaration of " & "igitemsizerect" &
         " already exists, not redeclaring")
 when not declared(igitemadd):
-  proc igitemadd*(bb: Imrect_80740850; id: Imguiid_80741064; navbb: ptr Imrect_80740850;
-                  extraflags: Imguiitemflags_80741278): bool {.cdecl,
+  proc igitemadd*(bb: Imrect_63963633; id: Imguiid_63963847; navbb: ptr Imrect_63963633;
+                  extraflags: Imguiitemflags_63964061): bool {.cdecl,
       importc: "igItemAdd".}
 else:
   static :
     hint("Declaration of " & "igitemadd" & " already exists, not redeclaring")
 when not declared(igitemhoverable):
-  proc igitemhoverable*(bb: Imrect_80740850; id: Imguiid_80741064): bool {.
+  proc igitemhoverable*(bb: Imrect_63963633; id: Imguiid_63963847): bool {.
       cdecl, importc: "igItemHoverable".}
 else:
   static :
     hint("Declaration of " & "igitemhoverable" &
         " already exists, not redeclaring")
 when not declared(igisclippedex):
-  proc igisclippedex*(bb: Imrect_80740850; id: Imguiid_80741064): bool {.cdecl,
+  proc igisclippedex*(bb: Imrect_63963633; id: Imguiid_63963847): bool {.cdecl,
       importc: "igIsClippedEx".}
 else:
   static :
     hint("Declaration of " & "igisclippedex" &
         " already exists, not redeclaring")
 when not declared(igsetlastitemdata):
-  proc igsetlastitemdata*(itemid: Imguiid_80741064; inflags: Imguiitemflags_80741278;
-                          statusflags: Imguiitemstatusflags_80741280;
-                          itemrect: Imrect_80740850): void {.cdecl,
+  proc igsetlastitemdata*(itemid: Imguiid_63963847; inflags: Imguiitemflags_63964061;
+                          statusflags: Imguiitemstatusflags_63964063;
+                          itemrect: Imrect_63963633): void {.cdecl,
       importc: "igSetLastItemData".}
 else:
   static :
     hint("Declaration of " & "igsetlastitemdata" &
         " already exists, not redeclaring")
 when not declared(igcalcitemsize):
-  proc igcalcitemsize*(pout: ptr Imvec2_80741096; size: Imvec2_80741096;
+  proc igcalcitemsize*(pout: ptr Imvec2_63963879; size: Imvec2_63963879;
                        defaultw: cfloat; defaulth: cfloat): void {.cdecl,
       importc: "igCalcItemSize".}
 else:
@@ -15441,7 +15441,7 @@ else:
     hint("Declaration of " & "igcalcitemsize" &
         " already exists, not redeclaring")
 when not declared(igcalcwrapwidthforpos):
-  proc igcalcwrapwidthforpos*(pos: Imvec2_80741096; wrapposx: cfloat): cfloat {.
+  proc igcalcwrapwidthforpos*(pos: Imvec2_63963879; wrapposx: cfloat): cfloat {.
       cdecl, importc: "igCalcWrapWidthForPos".}
 else:
   static :
@@ -15462,14 +15462,14 @@ else:
     hint("Declaration of " & "igisitemtoggledselection" &
         " already exists, not redeclaring")
 when not declared(iggetcontentregionmaxabs):
-  proc iggetcontentregionmaxabs*(pout: ptr Imvec2_80741096): void {.cdecl,
+  proc iggetcontentregionmaxabs*(pout: ptr Imvec2_63963879): void {.cdecl,
       importc: "igGetContentRegionMaxAbs".}
 else:
   static :
     hint("Declaration of " & "iggetcontentregionmaxabs" &
         " already exists, not redeclaring")
 when not declared(igshrinkwidths):
-  proc igshrinkwidths*(items: ptr Imguishrinkwidthitem_80741396; count: cint;
+  proc igshrinkwidths*(items: ptr Imguishrinkwidthitem_63964179; count: cint;
                        widthexcess: cfloat): void {.cdecl,
       importc: "igShrinkWidths".}
 else:
@@ -15477,7 +15477,7 @@ else:
     hint("Declaration of " & "igshrinkwidths" &
         " already exists, not redeclaring")
 when not declared(igpushitemflag):
-  proc igpushitemflag*(option: Imguiitemflags_80741278; enabled: bool): void {.
+  proc igpushitemflag*(option: Imguiitemflags_63964061; enabled: bool): void {.
       cdecl, importc: "igPushItemFlag".}
 else:
   static :
@@ -15490,14 +15490,14 @@ else:
     hint("Declaration of " & "igpopitemflag" &
         " already exists, not redeclaring")
 when not declared(iggetstylevarinfo):
-  proc iggetstylevarinfo*(idx: Imguistylevar_80741006): ptr Imguidatavarinfo_80740866 {.
+  proc iggetstylevarinfo*(idx: Imguistylevar_63963789): ptr Imguidatavarinfo_63963649 {.
       cdecl, importc: "igGetStyleVarInfo".}
 else:
   static :
     hint("Declaration of " & "iggetstylevarinfo" &
         " already exists, not redeclaring")
 when not declared(iglogbegin):
-  proc iglogbegin*(typearg: Imguilogtype_80741370; autoopendepth: cint): void {.
+  proc iglogbegin*(typearg: Imguilogtype_63964153; autoopendepth: cint): void {.
       cdecl, importc: "igLogBegin".}
 else:
   static :
@@ -15510,7 +15510,7 @@ else:
     hint("Declaration of " & "iglogtobuffer" &
         " already exists, not redeclaring")
 when not declared(iglogrenderedtext):
-  proc iglogrenderedtext*(refpos: ptr Imvec2_80741096; text: cstring;
+  proc iglogrenderedtext*(refpos: ptr Imvec2_63963879; text: cstring;
                           textend: cstring): void {.cdecl,
       importc: "igLogRenderedText".}
 else:
@@ -15525,15 +15525,15 @@ else:
     hint("Declaration of " & "iglogsetnexttextdecoration" &
         " already exists, not redeclaring")
 when not declared(igbeginchildex):
-  proc igbeginchildex*(name: cstring; id: Imguiid_80741064; sizearg: Imvec2_80741096;
-                       border: bool; flags: Imguiwindowflags_80741058): bool {.
+  proc igbeginchildex*(name: cstring; id: Imguiid_63963847; sizearg: Imvec2_63963879;
+                       border: bool; flags: Imguiwindowflags_63963841): bool {.
       cdecl, importc: "igBeginChildEx".}
 else:
   static :
     hint("Declaration of " & "igbeginchildex" &
         " already exists, not redeclaring")
 when not declared(igopenpopupex):
-  proc igopenpopupex*(id: Imguiid_80741064; popupflags: Imguipopupflags_80741038): void {.
+  proc igopenpopupex*(id: Imguiid_63963847; popupflags: Imguipopupflags_63963821): void {.
       cdecl, importc: "igOpenPopupEx".}
 else:
   static :
@@ -15548,7 +15548,7 @@ else:
     hint("Declaration of " & "igclosepopuptolevel" &
         " already exists, not redeclaring")
 when not declared(igclosepopupsoverwindow):
-  proc igclosepopupsoverwindow*(refwindow: ptr Imguiwindow_80740976;
+  proc igclosepopupsoverwindow*(refwindow: ptr Imguiwindow_63963759;
                                 restorefocustowindowunderpopup: bool): void {.
       cdecl, importc: "igClosePopupsOverWindow".}
 else:
@@ -15563,72 +15563,72 @@ else:
     hint("Declaration of " & "igclosepopupsexceptmodals" &
         " already exists, not redeclaring")
 when not declared(igispopupopenid):
-  proc igispopupopenid*(id: Imguiid_80741064; popupflags: Imguipopupflags_80741038): bool {.
+  proc igispopupopenid*(id: Imguiid_63963847; popupflags: Imguipopupflags_63963821): bool {.
       cdecl, importc: "igIsPopupOpen_ID".}
 else:
   static :
     hint("Declaration of " & "igispopupopenid" &
         " already exists, not redeclaring")
 when not declared(igbeginpopupex):
-  proc igbeginpopupex*(id: Imguiid_80741064; extraflags: Imguiwindowflags_80741058): bool {.
+  proc igbeginpopupex*(id: Imguiid_63963847; extraflags: Imguiwindowflags_63963841): bool {.
       cdecl, importc: "igBeginPopupEx".}
 else:
   static :
     hint("Declaration of " & "igbeginpopupex" &
         " already exists, not redeclaring")
 when not declared(igbegintooltipex):
-  proc igbegintooltipex*(tooltipflags: Imguitooltipflags_80741298;
-                         extrawindowflags: Imguiwindowflags_80741058): bool {.
+  proc igbegintooltipex*(tooltipflags: Imguitooltipflags_63964081;
+                         extrawindowflags: Imguiwindowflags_63963841): bool {.
       cdecl, importc: "igBeginTooltipEx".}
 else:
   static :
     hint("Declaration of " & "igbegintooltipex" &
         " already exists, not redeclaring")
 when not declared(iggetpopupallowedextentrect):
-  proc iggetpopupallowedextentrect*(pout: ptr Imrect_80740850;
-                                    window: ptr Imguiwindow_80740976): void {.
+  proc iggetpopupallowedextentrect*(pout: ptr Imrect_63963633;
+                                    window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igGetPopupAllowedExtentRect".}
 else:
   static :
     hint("Declaration of " & "iggetpopupallowedextentrect" &
         " already exists, not redeclaring")
 when not declared(iggettopmostpopupmodal):
-  proc iggettopmostpopupmodal*(): ptr Imguiwindow_80740976 {.cdecl,
+  proc iggettopmostpopupmodal*(): ptr Imguiwindow_63963759 {.cdecl,
       importc: "igGetTopMostPopupModal".}
 else:
   static :
     hint("Declaration of " & "iggettopmostpopupmodal" &
         " already exists, not redeclaring")
 when not declared(iggettopmostandvisiblepopupmodal):
-  proc iggettopmostandvisiblepopupmodal*(): ptr Imguiwindow_80740976 {.cdecl,
+  proc iggettopmostandvisiblepopupmodal*(): ptr Imguiwindow_63963759 {.cdecl,
       importc: "igGetTopMostAndVisiblePopupModal".}
 else:
   static :
     hint("Declaration of " & "iggettopmostandvisiblepopupmodal" &
         " already exists, not redeclaring")
 when not declared(igfindbestwindowposforpopup):
-  proc igfindbestwindowposforpopup*(pout: ptr Imvec2_80741096;
-                                    window: ptr Imguiwindow_80740976): void {.
+  proc igfindbestwindowposforpopup*(pout: ptr Imvec2_63963879;
+                                    window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igFindBestWindowPosForPopup".}
 else:
   static :
     hint("Declaration of " & "igfindbestwindowposforpopup" &
         " already exists, not redeclaring")
 when not declared(igfindbestwindowposforpopupex):
-  proc igfindbestwindowposforpopupex*(pout: ptr Imvec2_80741096; refpos: Imvec2_80741096;
-                                      size: Imvec2_80741096;
-                                      lastdir: ptr Imguidir_80740998;
-                                      router: Imrect_80740850; ravoid: Imrect_80740850;
-                                      policy: Imguipopuppositionpolicy_80741376): void {.
+  proc igfindbestwindowposforpopupex*(pout: ptr Imvec2_63963879; refpos: Imvec2_63963879;
+                                      size: Imvec2_63963879;
+                                      lastdir: ptr Imguidir_63963781;
+                                      router: Imrect_63963633; ravoid: Imrect_63963633;
+                                      policy: Imguipopuppositionpolicy_63964159): void {.
       cdecl, importc: "igFindBestWindowPosForPopupEx".}
 else:
   static :
     hint("Declaration of " & "igfindbestwindowposforpopupex" &
         " already exists, not redeclaring")
 when not declared(igbeginviewportsidebar):
-  proc igbeginviewportsidebar*(name: cstring; viewport: ptr Imguiviewport_80740838;
-                               dir: Imguidir_80740998; size: cfloat;
-                               windowflags: Imguiwindowflags_80741058): bool {.
+  proc igbeginviewportsidebar*(name: cstring; viewport: ptr Imguiviewport_63963621;
+                               dir: Imguidir_63963781; size: cfloat;
+                               windowflags: Imguiwindowflags_63963841): bool {.
       cdecl, importc: "igBeginViewportSideBar".}
 else:
   static :
@@ -15649,8 +15649,8 @@ else:
   static :
     hint("Declaration of " & "igmenuitemex" & " already exists, not redeclaring")
 when not declared(igbegincombopopup):
-  proc igbegincombopopup*(popupid: Imguiid_80741064; bb: Imrect_80740850;
-                          flags: Imguicomboflags_80741024): bool {.cdecl,
+  proc igbegincombopopup*(popupid: Imguiid_63963847; bb: Imrect_63963633;
+                          flags: Imguicomboflags_63963807): bool {.cdecl,
       importc: "igBeginComboPopup".}
 else:
   static :
@@ -15669,7 +15669,7 @@ else:
     hint("Declaration of " & "igendcombopreview" &
         " already exists, not redeclaring")
 when not declared(ignavinitwindow):
-  proc ignavinitwindow*(window: ptr Imguiwindow_80740976; forcereinit: bool): void {.
+  proc ignavinitwindow*(window: ptr Imguiwindow_63963759; forcereinit: bool): void {.
       cdecl, importc: "igNavInitWindow".}
 else:
   static :
@@ -15690,25 +15690,25 @@ else:
     hint("Declaration of " & "ignavmoverequestbutnoresultyet" &
         " already exists, not redeclaring")
 when not declared(ignavmoverequestsubmit):
-  proc ignavmoverequestsubmit*(movedir: Imguidir_80740998; clipdir: Imguidir_80740998;
-                               moveflags: Imguinavmoveflags_80741286;
-                               scrollflags: Imguiscrollflags_80741292): void {.
+  proc ignavmoverequestsubmit*(movedir: Imguidir_63963781; clipdir: Imguidir_63963781;
+                               moveflags: Imguinavmoveflags_63964069;
+                               scrollflags: Imguiscrollflags_63964075): void {.
       cdecl, importc: "igNavMoveRequestSubmit".}
 else:
   static :
     hint("Declaration of " & "ignavmoverequestsubmit" &
         " already exists, not redeclaring")
 when not declared(ignavmoverequestforward):
-  proc ignavmoverequestforward*(movedir: Imguidir_80740998; clipdir: Imguidir_80740998;
-                                moveflags: Imguinavmoveflags_80741286;
-                                scrollflags: Imguiscrollflags_80741292): void {.
+  proc ignavmoverequestforward*(movedir: Imguidir_63963781; clipdir: Imguidir_63963781;
+                                moveflags: Imguinavmoveflags_63964069;
+                                scrollflags: Imguiscrollflags_63964075): void {.
       cdecl, importc: "igNavMoveRequestForward".}
 else:
   static :
     hint("Declaration of " & "ignavmoverequestforward" &
         " already exists, not redeclaring")
 when not declared(ignavmoverequestresolvewithlastitem):
-  proc ignavmoverequestresolvewithlastitem*(result: ptr Imguinavitemdata_80740906): void {.
+  proc ignavmoverequestresolvewithlastitem*(result: ptr Imguinavitemdata_63963689): void {.
       cdecl, importc: "igNavMoveRequestResolveWithLastItem".}
 else:
   static :
@@ -15729,102 +15729,102 @@ else:
     hint("Declaration of " & "ignavmoverequestapplyresult" &
         " already exists, not redeclaring")
 when not declared(ignavmoverequesttrywrapping):
-  proc ignavmoverequesttrywrapping*(window: ptr Imguiwindow_80740976;
-                                    moveflags: Imguinavmoveflags_80741286): void {.
+  proc ignavmoverequesttrywrapping*(window: ptr Imguiwindow_63963759;
+                                    moveflags: Imguinavmoveflags_63964069): void {.
       cdecl, importc: "igNavMoveRequestTryWrapping".}
 else:
   static :
     hint("Declaration of " & "ignavmoverequesttrywrapping" &
         " already exists, not redeclaring")
 when not declared(igactivateitem):
-  proc igactivateitem*(id: Imguiid_80741064): void {.cdecl,
+  proc igactivateitem*(id: Imguiid_63963847): void {.cdecl,
       importc: "igActivateItem".}
 else:
   static :
     hint("Declaration of " & "igactivateitem" &
         " already exists, not redeclaring")
 when not declared(igsetnavwindow):
-  proc igsetnavwindow*(window: ptr Imguiwindow_80740976): void {.cdecl,
+  proc igsetnavwindow*(window: ptr Imguiwindow_63963759): void {.cdecl,
       importc: "igSetNavWindow".}
 else:
   static :
     hint("Declaration of " & "igsetnavwindow" &
         " already exists, not redeclaring")
 when not declared(igsetnavid):
-  proc igsetnavid*(id: Imguiid_80741064; navlayer: Imguinavlayer_80741486;
-                   focusscopeid: Imguiid_80741064; rectrel: Imrect_80740850): void {.
+  proc igsetnavid*(id: Imguiid_63963847; navlayer: Imguinavlayer_63964269;
+                   focusscopeid: Imguiid_63963847; rectrel: Imrect_63963633): void {.
       cdecl, importc: "igSetNavID".}
 else:
   static :
     hint("Declaration of " & "igsetnavid" & " already exists, not redeclaring")
 when not declared(igisnamedkey):
-  proc igisnamedkey*(key: Imguikey_80741142): bool {.cdecl,
+  proc igisnamedkey*(key: Imguikey_63963925): bool {.cdecl,
       importc: "igIsNamedKey".}
 else:
   static :
     hint("Declaration of " & "igisnamedkey" & " already exists, not redeclaring")
 when not declared(igisnamedkeyormodkey):
-  proc igisnamedkeyormodkey*(key: Imguikey_80741142): bool {.cdecl,
+  proc igisnamedkeyormodkey*(key: Imguikey_63963925): bool {.cdecl,
       importc: "igIsNamedKeyOrModKey".}
 else:
   static :
     hint("Declaration of " & "igisnamedkeyormodkey" &
         " already exists, not redeclaring")
 when not declared(igislegacykey):
-  proc igislegacykey*(key: Imguikey_80741142): bool {.cdecl,
+  proc igislegacykey*(key: Imguikey_63963925): bool {.cdecl,
       importc: "igIsLegacyKey".}
 else:
   static :
     hint("Declaration of " & "igislegacykey" &
         " already exists, not redeclaring")
 when not declared(igiskeyboardkey):
-  proc igiskeyboardkey*(key: Imguikey_80741142): bool {.cdecl,
+  proc igiskeyboardkey*(key: Imguikey_63963925): bool {.cdecl,
       importc: "igIsKeyboardKey".}
 else:
   static :
     hint("Declaration of " & "igiskeyboardkey" &
         " already exists, not redeclaring")
 when not declared(igisgamepadkey):
-  proc igisgamepadkey*(key: Imguikey_80741142): bool {.cdecl,
+  proc igisgamepadkey*(key: Imguikey_63963925): bool {.cdecl,
       importc: "igIsGamepadKey".}
 else:
   static :
     hint("Declaration of " & "igisgamepadkey" &
         " already exists, not redeclaring")
 when not declared(igismousekey):
-  proc igismousekey*(key: Imguikey_80741142): bool {.cdecl,
+  proc igismousekey*(key: Imguikey_63963925): bool {.cdecl,
       importc: "igIsMouseKey".}
 else:
   static :
     hint("Declaration of " & "igismousekey" & " already exists, not redeclaring")
 when not declared(igisaliaskey):
-  proc igisaliaskey*(key: Imguikey_80741142): bool {.cdecl,
+  proc igisaliaskey*(key: Imguikey_63963925): bool {.cdecl,
       importc: "igIsAliasKey".}
 else:
   static :
     hint("Declaration of " & "igisaliaskey" & " already exists, not redeclaring")
 when not declared(igconvertshortcutmod):
-  proc igconvertshortcutmod*(keychord: Imguikeychord_80741036): Imguikeychord_80741036 {.
+  proc igconvertshortcutmod*(keychord: Imguikeychord_63963819): Imguikeychord_63963819 {.
       cdecl, importc: "igConvertShortcutMod".}
 else:
   static :
     hint("Declaration of " & "igconvertshortcutmod" &
         " already exists, not redeclaring")
 when not declared(igconvertsinglemodflagtokey):
-  proc igconvertsinglemodflagtokey*(key: Imguikey_80741142): Imguikey_80741142 {.
+  proc igconvertsinglemodflagtokey*(key: Imguikey_63963925): Imguikey_63963925 {.
       cdecl, importc: "igConvertSingleModFlagToKey".}
 else:
   static :
     hint("Declaration of " & "igconvertsinglemodflagtokey" &
         " already exists, not redeclaring")
 when not declared(iggetkeydata):
-  proc iggetkeydata*(key: Imguikey_80741142): ptr Imguikeydata_80740775 {.cdecl,
+  proc iggetkeydata*(key: Imguikey_63963925): ptr Imguikeydata_63963558 {.cdecl,
       importc: "igGetKeyData".}
 else:
   static :
     hint("Declaration of " & "iggetkeydata" & " already exists, not redeclaring")
 when not declared(iggetkeychordname):
-  proc iggetkeychordname*(keychord: Imguikeychord_80741036; outbuf: cstring;
+  proc iggetkeychordname*(keychord: Imguikeychord_63963819; outbuf: cstring;
                           outbufsize: cint): void {.cdecl,
       importc: "igGetKeyChordName".}
 else:
@@ -15832,14 +15832,14 @@ else:
     hint("Declaration of " & "iggetkeychordname" &
         " already exists, not redeclaring")
 when not declared(igmousebuttontokey):
-  proc igmousebuttontokey*(button: Imguimousebutton_80741000): Imguikey_80741142 {.
+  proc igmousebuttontokey*(button: Imguimousebutton_63963783): Imguikey_63963925 {.
       cdecl, importc: "igMouseButtonToKey".}
 else:
   static :
     hint("Declaration of " & "igmousebuttontokey" &
         " already exists, not redeclaring")
 when not declared(igismousedragpastthreshold):
-  proc igismousedragpastthreshold*(button: Imguimousebutton_80741000;
+  proc igismousedragpastthreshold*(button: Imguimousebutton_63963783;
                                    lockthreshold: cfloat): bool {.cdecl,
       importc: "igIsMouseDragPastThreshold".}
 else:
@@ -15847,16 +15847,16 @@ else:
     hint("Declaration of " & "igismousedragpastthreshold" &
         " already exists, not redeclaring")
 when not declared(iggetkeymagnitude2d):
-  proc iggetkeymagnitude2d*(pout: ptr Imvec2_80741096; keyleft: Imguikey_80741142;
-                            keyright: Imguikey_80741142; keyup: Imguikey_80741142;
-                            keydown: Imguikey_80741142): void {.cdecl,
+  proc iggetkeymagnitude2d*(pout: ptr Imvec2_63963879; keyleft: Imguikey_63963925;
+                            keyright: Imguikey_63963925; keyup: Imguikey_63963925;
+                            keydown: Imguikey_63963925): void {.cdecl,
       importc: "igGetKeyMagnitude2d".}
 else:
   static :
     hint("Declaration of " & "iggetkeymagnitude2d" &
         " already exists, not redeclaring")
 when not declared(iggetnavtweakpressedamount):
-  proc iggetnavtweakpressedamount*(axis: Imguiaxis_80741372): cfloat {.cdecl,
+  proc iggetnavtweakpressedamount*(axis: Imguiaxis_63964155): cfloat {.cdecl,
       importc: "igGetNavTweakPressedAmount".}
 else:
   static :
@@ -15871,7 +15871,7 @@ else:
     hint("Declaration of " & "igcalctypematicrepeatamount" &
         " already exists, not redeclaring")
 when not declared(iggettypematicrepeatrate):
-  proc iggettypematicrepeatrate*(flags: Imguiinputflags_80741276;
+  proc iggettypematicrepeatrate*(flags: Imguiinputflags_63964059;
                                  repeatdelay: ptr cfloat; repeatrate: ptr cfloat): void {.
       cdecl, importc: "igGetTypematicRepeatRate".}
 else:
@@ -15886,137 +15886,137 @@ else:
     hint("Declaration of " & "igsetactiveidusingallkeyboardkeys" &
         " already exists, not redeclaring")
 when not declared(igisactiveidusingnavdir):
-  proc igisactiveidusingnavdir*(dir: Imguidir_80740998): bool {.cdecl,
+  proc igisactiveidusingnavdir*(dir: Imguidir_63963781): bool {.cdecl,
       importc: "igIsActiveIdUsingNavDir".}
 else:
   static :
     hint("Declaration of " & "igisactiveidusingnavdir" &
         " already exists, not redeclaring")
 when not declared(iggetkeyowner):
-  proc iggetkeyowner*(key: Imguikey_80741142): Imguiid_80741064 {.cdecl,
+  proc iggetkeyowner*(key: Imguikey_63963925): Imguiid_63963847 {.cdecl,
       importc: "igGetKeyOwner".}
 else:
   static :
     hint("Declaration of " & "iggetkeyowner" &
         " already exists, not redeclaring")
 when not declared(igsetkeyowner):
-  proc igsetkeyowner*(key: Imguikey_80741142; ownerid: Imguiid_80741064;
-                      flags: Imguiinputflags_80741276): void {.cdecl,
+  proc igsetkeyowner*(key: Imguikey_63963925; ownerid: Imguiid_63963847;
+                      flags: Imguiinputflags_63964059): void {.cdecl,
       importc: "igSetKeyOwner".}
 else:
   static :
     hint("Declaration of " & "igsetkeyowner" &
         " already exists, not redeclaring")
 when not declared(igsetitemkeyowner):
-  proc igsetitemkeyowner*(key: Imguikey_80741142; flags: Imguiinputflags_80741276): void {.
+  proc igsetitemkeyowner*(key: Imguikey_63963925; flags: Imguiinputflags_63964059): void {.
       cdecl, importc: "igSetItemKeyOwner".}
 else:
   static :
     hint("Declaration of " & "igsetitemkeyowner" &
         " already exists, not redeclaring")
 when not declared(igtestkeyowner):
-  proc igtestkeyowner*(key: Imguikey_80741142; ownerid: Imguiid_80741064): bool {.
+  proc igtestkeyowner*(key: Imguikey_63963925; ownerid: Imguiid_63963847): bool {.
       cdecl, importc: "igTestKeyOwner".}
 else:
   static :
     hint("Declaration of " & "igtestkeyowner" &
         " already exists, not redeclaring")
 when not declared(iggetkeyownerdata):
-  proc iggetkeyownerdata*(key: Imguikey_80741142): ptr Imguikeyownerdata_80741460 {.
+  proc iggetkeyownerdata*(key: Imguikey_63963925): ptr Imguikeyownerdata_63964243 {.
       cdecl, importc: "igGetKeyOwnerData".}
 else:
   static :
     hint("Declaration of " & "iggetkeyownerdata" &
         " already exists, not redeclaring")
 when not declared(igiskeydownid):
-  proc igiskeydownid*(key: Imguikey_80741142; ownerid: Imguiid_80741064): bool {.
+  proc igiskeydownid*(key: Imguikey_63963925; ownerid: Imguiid_63963847): bool {.
       cdecl, importc: "igIsKeyDown_ID".}
 else:
   static :
     hint("Declaration of " & "igiskeydownid" &
         " already exists, not redeclaring")
 when not declared(igiskeypressedid):
-  proc igiskeypressedid*(key: Imguikey_80741142; ownerid: Imguiid_80741064;
-                         flags: Imguiinputflags_80741276): bool {.cdecl,
+  proc igiskeypressedid*(key: Imguikey_63963925; ownerid: Imguiid_63963847;
+                         flags: Imguiinputflags_63964059): bool {.cdecl,
       importc: "igIsKeyPressed_ID".}
 else:
   static :
     hint("Declaration of " & "igiskeypressedid" &
         " already exists, not redeclaring")
 when not declared(igiskeyreleasedid):
-  proc igiskeyreleasedid*(key: Imguikey_80741142; ownerid: Imguiid_80741064): bool {.
+  proc igiskeyreleasedid*(key: Imguikey_63963925; ownerid: Imguiid_63963847): bool {.
       cdecl, importc: "igIsKeyReleased_ID".}
 else:
   static :
     hint("Declaration of " & "igiskeyreleasedid" &
         " already exists, not redeclaring")
 when not declared(igismousedownid):
-  proc igismousedownid*(button: Imguimousebutton_80741000; ownerid: Imguiid_80741064): bool {.
+  proc igismousedownid*(button: Imguimousebutton_63963783; ownerid: Imguiid_63963847): bool {.
       cdecl, importc: "igIsMouseDown_ID".}
 else:
   static :
     hint("Declaration of " & "igismousedownid" &
         " already exists, not redeclaring")
 when not declared(igismouseclickedid):
-  proc igismouseclickedid*(button: Imguimousebutton_80741000; ownerid: Imguiid_80741064;
-                           flags: Imguiinputflags_80741276): bool {.cdecl,
+  proc igismouseclickedid*(button: Imguimousebutton_63963783; ownerid: Imguiid_63963847;
+                           flags: Imguiinputflags_63964059): bool {.cdecl,
       importc: "igIsMouseClicked_ID".}
 else:
   static :
     hint("Declaration of " & "igismouseclickedid" &
         " already exists, not redeclaring")
 when not declared(igismousereleasedid):
-  proc igismousereleasedid*(button: Imguimousebutton_80741000; ownerid: Imguiid_80741064): bool {.
+  proc igismousereleasedid*(button: Imguimousebutton_63963783; ownerid: Imguiid_63963847): bool {.
       cdecl, importc: "igIsMouseReleased_ID".}
 else:
   static :
     hint("Declaration of " & "igismousereleasedid" &
         " already exists, not redeclaring")
 when not declared(igshortcut):
-  proc igshortcut*(keychord: Imguikeychord_80741036; ownerid: Imguiid_80741064;
-                   flags: Imguiinputflags_80741276): bool {.cdecl,
+  proc igshortcut*(keychord: Imguikeychord_63963819; ownerid: Imguiid_63963847;
+                   flags: Imguiinputflags_63964059): bool {.cdecl,
       importc: "igShortcut".}
 else:
   static :
     hint("Declaration of " & "igshortcut" & " already exists, not redeclaring")
 when not declared(igsetshortcutrouting):
-  proc igsetshortcutrouting*(keychord: Imguikeychord_80741036; ownerid: Imguiid_80741064;
-                             flags: Imguiinputflags_80741276): bool {.cdecl,
+  proc igsetshortcutrouting*(keychord: Imguikeychord_63963819; ownerid: Imguiid_63963847;
+                             flags: Imguiinputflags_63964059): bool {.cdecl,
       importc: "igSetShortcutRouting".}
 else:
   static :
     hint("Declaration of " & "igsetshortcutrouting" &
         " already exists, not redeclaring")
 when not declared(igtestshortcutrouting):
-  proc igtestshortcutrouting*(keychord: Imguikeychord_80741036; ownerid: Imguiid_80741064): bool {.
+  proc igtestshortcutrouting*(keychord: Imguikeychord_63963819; ownerid: Imguiid_63963847): bool {.
       cdecl, importc: "igTestShortcutRouting".}
 else:
   static :
     hint("Declaration of " & "igtestshortcutrouting" &
         " already exists, not redeclaring")
 when not declared(iggetshortcutroutingdata):
-  proc iggetshortcutroutingdata*(keychord: Imguikeychord_80741036): ptr Imguikeyroutingdata_80741448 {.
+  proc iggetshortcutroutingdata*(keychord: Imguikeychord_63963819): ptr Imguikeyroutingdata_63964231 {.
       cdecl, importc: "igGetShortcutRoutingData".}
 else:
   static :
     hint("Declaration of " & "iggetshortcutroutingdata" &
         " already exists, not redeclaring")
 when not declared(igdockcontextinitialize):
-  proc igdockcontextinitialize*(ctx: ptr Imguicontext_80740763): void {.cdecl,
+  proc igdockcontextinitialize*(ctx: ptr Imguicontext_63963546): void {.cdecl,
       importc: "igDockContextInitialize".}
 else:
   static :
     hint("Declaration of " & "igdockcontextinitialize" &
         " already exists, not redeclaring")
 when not declared(igdockcontextshutdown):
-  proc igdockcontextshutdown*(ctx: ptr Imguicontext_80740763): void {.cdecl,
+  proc igdockcontextshutdown*(ctx: ptr Imguicontext_63963546): void {.cdecl,
       importc: "igDockContextShutdown".}
 else:
   static :
     hint("Declaration of " & "igdockcontextshutdown" &
         " already exists, not redeclaring")
 when not declared(igdockcontextclearnodes):
-  proc igdockcontextclearnodes*(ctx: ptr Imguicontext_80740763; rootid: Imguiid_80741064;
+  proc igdockcontextclearnodes*(ctx: ptr Imguicontext_63963546; rootid: Imguiid_63963847;
                                 clearsettingsrefs: bool): void {.cdecl,
       importc: "igDockContextClearNodes".}
 else:
@@ -16024,46 +16024,46 @@ else:
     hint("Declaration of " & "igdockcontextclearnodes" &
         " already exists, not redeclaring")
 when not declared(igdockcontextrebuildnodes):
-  proc igdockcontextrebuildnodes*(ctx: ptr Imguicontext_80740763): void {.cdecl,
+  proc igdockcontextrebuildnodes*(ctx: ptr Imguicontext_63963546): void {.cdecl,
       importc: "igDockContextRebuildNodes".}
 else:
   static :
     hint("Declaration of " & "igdockcontextrebuildnodes" &
         " already exists, not redeclaring")
 when not declared(igdockcontextnewframeupdateundocking):
-  proc igdockcontextnewframeupdateundocking*(ctx: ptr Imguicontext_80740763): void {.
+  proc igdockcontextnewframeupdateundocking*(ctx: ptr Imguicontext_63963546): void {.
       cdecl, importc: "igDockContextNewFrameUpdateUndocking".}
 else:
   static :
     hint("Declaration of " & "igdockcontextnewframeupdateundocking" &
         " already exists, not redeclaring")
 when not declared(igdockcontextnewframeupdatedocking):
-  proc igdockcontextnewframeupdatedocking*(ctx: ptr Imguicontext_80740763): void {.
+  proc igdockcontextnewframeupdatedocking*(ctx: ptr Imguicontext_63963546): void {.
       cdecl, importc: "igDockContextNewFrameUpdateDocking".}
 else:
   static :
     hint("Declaration of " & "igdockcontextnewframeupdatedocking" &
         " already exists, not redeclaring")
 when not declared(igdockcontextendframe):
-  proc igdockcontextendframe*(ctx: ptr Imguicontext_80740763): void {.cdecl,
+  proc igdockcontextendframe*(ctx: ptr Imguicontext_63963546): void {.cdecl,
       importc: "igDockContextEndFrame".}
 else:
   static :
     hint("Declaration of " & "igdockcontextendframe" &
         " already exists, not redeclaring")
 when not declared(igdockcontextgennodeid):
-  proc igdockcontextgennodeid*(ctx: ptr Imguicontext_80740763): Imguiid_80741064 {.
+  proc igdockcontextgennodeid*(ctx: ptr Imguicontext_63963546): Imguiid_63963847 {.
       cdecl, importc: "igDockContextGenNodeID".}
 else:
   static :
     hint("Declaration of " & "igdockcontextgennodeid" &
         " already exists, not redeclaring")
 when not declared(igdockcontextqueuedock):
-  proc igdockcontextqueuedock*(ctx: ptr Imguicontext_80740763;
-                               target: ptr Imguiwindow_80740976;
-                               targetnode: ptr Imguidocknode_80740880;
-                               payload: ptr Imguiwindow_80740976;
-                               splitdir: Imguidir_80740998; splitratio: cfloat;
+  proc igdockcontextqueuedock*(ctx: ptr Imguicontext_63963546;
+                               target: ptr Imguiwindow_63963759;
+                               targetnode: ptr Imguidocknode_63963663;
+                               payload: ptr Imguiwindow_63963759;
+                               splitdir: Imguidir_63963781; splitratio: cfloat;
                                splitouter: bool): void {.cdecl,
       importc: "igDockContextQueueDock".}
 else:
@@ -16071,64 +16071,64 @@ else:
     hint("Declaration of " & "igdockcontextqueuedock" &
         " already exists, not redeclaring")
 when not declared(igdockcontextqueueundockwindow):
-  proc igdockcontextqueueundockwindow*(ctx: ptr Imguicontext_80740763;
-                                       window: ptr Imguiwindow_80740976): void {.
+  proc igdockcontextqueueundockwindow*(ctx: ptr Imguicontext_63963546;
+                                       window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igDockContextQueueUndockWindow".}
 else:
   static :
     hint("Declaration of " & "igdockcontextqueueundockwindow" &
         " already exists, not redeclaring")
 when not declared(igdockcontextqueueundocknode):
-  proc igdockcontextqueueundocknode*(ctx: ptr Imguicontext_80740763;
-                                     node: ptr Imguidocknode_80740880): void {.
+  proc igdockcontextqueueundocknode*(ctx: ptr Imguicontext_63963546;
+                                     node: ptr Imguidocknode_63963663): void {.
       cdecl, importc: "igDockContextQueueUndockNode".}
 else:
   static :
     hint("Declaration of " & "igdockcontextqueueundocknode" &
         " already exists, not redeclaring")
 when not declared(igdockcontextprocessundockwindow):
-  proc igdockcontextprocessundockwindow*(ctx: ptr Imguicontext_80740763;
-      window: ptr Imguiwindow_80740976; clearpersistentdockingref: bool): void {.
+  proc igdockcontextprocessundockwindow*(ctx: ptr Imguicontext_63963546;
+      window: ptr Imguiwindow_63963759; clearpersistentdockingref: bool): void {.
       cdecl, importc: "igDockContextProcessUndockWindow".}
 else:
   static :
     hint("Declaration of " & "igdockcontextprocessundockwindow" &
         " already exists, not redeclaring")
 when not declared(igdockcontextprocessundocknode):
-  proc igdockcontextprocessundocknode*(ctx: ptr Imguicontext_80740763;
-                                       node: ptr Imguidocknode_80740880): void {.
+  proc igdockcontextprocessundocknode*(ctx: ptr Imguicontext_63963546;
+                                       node: ptr Imguidocknode_63963663): void {.
       cdecl, importc: "igDockContextProcessUndockNode".}
 else:
   static :
     hint("Declaration of " & "igdockcontextprocessundocknode" &
         " already exists, not redeclaring")
 when not declared(igdockcontextcalcdropposfordocking):
-  proc igdockcontextcalcdropposfordocking*(target: ptr Imguiwindow_80740976;
-      targetnode: ptr Imguidocknode_80740880; payloadwindow: ptr Imguiwindow_80740976;
-      payloadnode: ptr Imguidocknode_80740880; splitdir: Imguidir_80740998;
-      splitouter: bool; outpos: ptr Imvec2_80741096): bool {.cdecl,
+  proc igdockcontextcalcdropposfordocking*(target: ptr Imguiwindow_63963759;
+      targetnode: ptr Imguidocknode_63963663; payloadwindow: ptr Imguiwindow_63963759;
+      payloadnode: ptr Imguidocknode_63963663; splitdir: Imguidir_63963781;
+      splitouter: bool; outpos: ptr Imvec2_63963879): bool {.cdecl,
       importc: "igDockContextCalcDropPosForDocking".}
 else:
   static :
     hint("Declaration of " & "igdockcontextcalcdropposfordocking" &
         " already exists, not redeclaring")
 when not declared(igdockcontextfindnodebyid):
-  proc igdockcontextfindnodebyid*(ctx: ptr Imguicontext_80740763; id: Imguiid_80741064): ptr Imguidocknode_80740880 {.
+  proc igdockcontextfindnodebyid*(ctx: ptr Imguicontext_63963546; id: Imguiid_63963847): ptr Imguidocknode_63963663 {.
       cdecl, importc: "igDockContextFindNodeByID".}
 else:
   static :
     hint("Declaration of " & "igdockcontextfindnodebyid" &
         " already exists, not redeclaring")
 when not declared(igdocknodewindowmenuhandlerdefault):
-  proc igdocknodewindowmenuhandlerdefault*(ctx: ptr Imguicontext_80740763;
-      node: ptr Imguidocknode_80740880; tabbar: ptr Imguitabbar_80740946): void {.
+  proc igdocknodewindowmenuhandlerdefault*(ctx: ptr Imguicontext_63963546;
+      node: ptr Imguidocknode_63963663; tabbar: ptr Imguitabbar_63963729): void {.
       cdecl, importc: "igDockNodeWindowMenuHandler_Default".}
 else:
   static :
     hint("Declaration of " & "igdocknodewindowmenuhandlerdefault" &
         " already exists, not redeclaring")
 when not declared(igdocknodebeginamendtabbar):
-  proc igdocknodebeginamendtabbar*(node: ptr Imguidocknode_80740880): bool {.
+  proc igdocknodebeginamendtabbar*(node: ptr Imguidocknode_63963663): bool {.
       cdecl, importc: "igDockNodeBeginAmendTabBar".}
 else:
   static :
@@ -16142,162 +16142,162 @@ else:
     hint("Declaration of " & "igdocknodeendamendtabbar" &
         " already exists, not redeclaring")
 when not declared(igdocknodegetrootnode):
-  proc igdocknodegetrootnode*(node: ptr Imguidocknode_80740880): ptr Imguidocknode_80740880 {.
+  proc igdocknodegetrootnode*(node: ptr Imguidocknode_63963663): ptr Imguidocknode_63963663 {.
       cdecl, importc: "igDockNodeGetRootNode".}
 else:
   static :
     hint("Declaration of " & "igdocknodegetrootnode" &
         " already exists, not redeclaring")
 when not declared(igdocknodeisinhierarchyof):
-  proc igdocknodeisinhierarchyof*(node: ptr Imguidocknode_80740880;
-                                  parent: ptr Imguidocknode_80740880): bool {.
+  proc igdocknodeisinhierarchyof*(node: ptr Imguidocknode_63963663;
+                                  parent: ptr Imguidocknode_63963663): bool {.
       cdecl, importc: "igDockNodeIsInHierarchyOf".}
 else:
   static :
     hint("Declaration of " & "igdocknodeisinhierarchyof" &
         " already exists, not redeclaring")
 when not declared(igdocknodegetdepth):
-  proc igdocknodegetdepth*(node: ptr Imguidocknode_80740880): cint {.cdecl,
+  proc igdocknodegetdepth*(node: ptr Imguidocknode_63963663): cint {.cdecl,
       importc: "igDockNodeGetDepth".}
 else:
   static :
     hint("Declaration of " & "igdocknodegetdepth" &
         " already exists, not redeclaring")
 when not declared(igdocknodegetwindowmenubuttonid):
-  proc igdocknodegetwindowmenubuttonid*(node: ptr Imguidocknode_80740880): Imguiid_80741064 {.
+  proc igdocknodegetwindowmenubuttonid*(node: ptr Imguidocknode_63963663): Imguiid_63963847 {.
       cdecl, importc: "igDockNodeGetWindowMenuButtonId".}
 else:
   static :
     hint("Declaration of " & "igdocknodegetwindowmenubuttonid" &
         " already exists, not redeclaring")
 when not declared(iggetwindowdocknode):
-  proc iggetwindowdocknode*(): ptr Imguidocknode_80740880 {.cdecl,
+  proc iggetwindowdocknode*(): ptr Imguidocknode_63963663 {.cdecl,
       importc: "igGetWindowDockNode".}
 else:
   static :
     hint("Declaration of " & "iggetwindowdocknode" &
         " already exists, not redeclaring")
 when not declared(iggetwindowalwayswantowntabbar):
-  proc iggetwindowalwayswantowntabbar*(window: ptr Imguiwindow_80740976): bool {.
+  proc iggetwindowalwayswantowntabbar*(window: ptr Imguiwindow_63963759): bool {.
       cdecl, importc: "igGetWindowAlwaysWantOwnTabBar".}
 else:
   static :
     hint("Declaration of " & "iggetwindowalwayswantowntabbar" &
         " already exists, not redeclaring")
 when not declared(igbegindocked):
-  proc igbegindocked*(window: ptr Imguiwindow_80740976; popen: ptr bool): void {.
+  proc igbegindocked*(window: ptr Imguiwindow_63963759; popen: ptr bool): void {.
       cdecl, importc: "igBeginDocked".}
 else:
   static :
     hint("Declaration of " & "igbegindocked" &
         " already exists, not redeclaring")
 when not declared(igbegindockabledragdropsource):
-  proc igbegindockabledragdropsource*(window: ptr Imguiwindow_80740976): void {.
+  proc igbegindockabledragdropsource*(window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igBeginDockableDragDropSource".}
 else:
   static :
     hint("Declaration of " & "igbegindockabledragdropsource" &
         " already exists, not redeclaring")
 when not declared(igbegindockabledragdroptarget):
-  proc igbegindockabledragdroptarget*(window: ptr Imguiwindow_80740976): void {.
+  proc igbegindockabledragdroptarget*(window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igBeginDockableDragDropTarget".}
 else:
   static :
     hint("Declaration of " & "igbegindockabledragdroptarget" &
         " already exists, not redeclaring")
 when not declared(igsetwindowdock):
-  proc igsetwindowdock*(window: ptr Imguiwindow_80740976; dockid: Imguiid_80741064;
-                        cond: Imguicond_80740994): void {.cdecl,
+  proc igsetwindowdock*(window: ptr Imguiwindow_63963759; dockid: Imguiid_63963847;
+                        cond: Imguicond_63963777): void {.cdecl,
       importc: "igSetWindowDock".}
 else:
   static :
     hint("Declaration of " & "igsetwindowdock" &
         " already exists, not redeclaring")
 when not declared(igdockbuilderdockwindow):
-  proc igdockbuilderdockwindow*(windowname: cstring; nodeid: Imguiid_80741064): void {.
+  proc igdockbuilderdockwindow*(windowname: cstring; nodeid: Imguiid_63963847): void {.
       cdecl, importc: "igDockBuilderDockWindow".}
 else:
   static :
     hint("Declaration of " & "igdockbuilderdockwindow" &
         " already exists, not redeclaring")
 when not declared(igdockbuildergetnode):
-  proc igdockbuildergetnode*(nodeid: Imguiid_80741064): ptr Imguidocknode_80740880 {.
+  proc igdockbuildergetnode*(nodeid: Imguiid_63963847): ptr Imguidocknode_63963663 {.
       cdecl, importc: "igDockBuilderGetNode".}
 else:
   static :
     hint("Declaration of " & "igdockbuildergetnode" &
         " already exists, not redeclaring")
 when not declared(igdockbuildergetcentralnode):
-  proc igdockbuildergetcentralnode*(nodeid: Imguiid_80741064): ptr Imguidocknode_80740880 {.
+  proc igdockbuildergetcentralnode*(nodeid: Imguiid_63963847): ptr Imguidocknode_63963663 {.
       cdecl, importc: "igDockBuilderGetCentralNode".}
 else:
   static :
     hint("Declaration of " & "igdockbuildergetcentralnode" &
         " already exists, not redeclaring")
 when not declared(igdockbuilderaddnode):
-  proc igdockbuilderaddnode*(nodeid: Imguiid_80741064; flags: Imguidocknodeflags_80741026): Imguiid_80741064 {.
+  proc igdockbuilderaddnode*(nodeid: Imguiid_63963847; flags: Imguidocknodeflags_63963809): Imguiid_63963847 {.
       cdecl, importc: "igDockBuilderAddNode".}
 else:
   static :
     hint("Declaration of " & "igdockbuilderaddnode" &
         " already exists, not redeclaring")
 when not declared(igdockbuilderremovenode):
-  proc igdockbuilderremovenode*(nodeid: Imguiid_80741064): void {.cdecl,
+  proc igdockbuilderremovenode*(nodeid: Imguiid_63963847): void {.cdecl,
       importc: "igDockBuilderRemoveNode".}
 else:
   static :
     hint("Declaration of " & "igdockbuilderremovenode" &
         " already exists, not redeclaring")
 when not declared(igdockbuilderremovenodedockedwindows):
-  proc igdockbuilderremovenodedockedwindows*(nodeid: Imguiid_80741064;
+  proc igdockbuilderremovenodedockedwindows*(nodeid: Imguiid_63963847;
       clearsettingsrefs: bool): void {.cdecl, importc: "igDockBuilderRemoveNodeDockedWindows".}
 else:
   static :
     hint("Declaration of " & "igdockbuilderremovenodedockedwindows" &
         " already exists, not redeclaring")
 when not declared(igdockbuilderremovenodechildnodes):
-  proc igdockbuilderremovenodechildnodes*(nodeid: Imguiid_80741064): void {.
+  proc igdockbuilderremovenodechildnodes*(nodeid: Imguiid_63963847): void {.
       cdecl, importc: "igDockBuilderRemoveNodeChildNodes".}
 else:
   static :
     hint("Declaration of " & "igdockbuilderremovenodechildnodes" &
         " already exists, not redeclaring")
 when not declared(igdockbuildersetnodepos):
-  proc igdockbuildersetnodepos*(nodeid: Imguiid_80741064; pos: Imvec2_80741096): void {.
+  proc igdockbuildersetnodepos*(nodeid: Imguiid_63963847; pos: Imvec2_63963879): void {.
       cdecl, importc: "igDockBuilderSetNodePos".}
 else:
   static :
     hint("Declaration of " & "igdockbuildersetnodepos" &
         " already exists, not redeclaring")
 when not declared(igdockbuildersetnodesize):
-  proc igdockbuildersetnodesize*(nodeid: Imguiid_80741064; size: Imvec2_80741096): void {.
+  proc igdockbuildersetnodesize*(nodeid: Imguiid_63963847; size: Imvec2_63963879): void {.
       cdecl, importc: "igDockBuilderSetNodeSize".}
 else:
   static :
     hint("Declaration of " & "igdockbuildersetnodesize" &
         " already exists, not redeclaring")
 when not declared(igdockbuildersplitnode):
-  proc igdockbuildersplitnode*(nodeid: Imguiid_80741064; splitdir: Imguidir_80740998;
+  proc igdockbuildersplitnode*(nodeid: Imguiid_63963847; splitdir: Imguidir_63963781;
                                sizeratiofornodeatdir: cfloat;
-                               outidatdir: ptr Imguiid_80741064;
-                               outidatoppositedir: ptr Imguiid_80741064): Imguiid_80741064 {.
+                               outidatdir: ptr Imguiid_63963847;
+                               outidatoppositedir: ptr Imguiid_63963847): Imguiid_63963847 {.
       cdecl, importc: "igDockBuilderSplitNode".}
 else:
   static :
     hint("Declaration of " & "igdockbuildersplitnode" &
         " already exists, not redeclaring")
 when not declared(igdockbuildercopydockspace):
-  proc igdockbuildercopydockspace*(srcdockspaceid: Imguiid_80741064;
-                                   dstdockspaceid: Imguiid_80741064;
-                                   inwindowremappairs: ptr Imvectorconstcharptr_80740990): void {.
+  proc igdockbuildercopydockspace*(srcdockspaceid: Imguiid_63963847;
+                                   dstdockspaceid: Imguiid_63963847;
+                                   inwindowremappairs: ptr Imvectorconstcharptr_63963773): void {.
       cdecl, importc: "igDockBuilderCopyDockSpace".}
 else:
   static :
     hint("Declaration of " & "igdockbuildercopydockspace" &
         " already exists, not redeclaring")
 when not declared(igdockbuildercopynode):
-  proc igdockbuildercopynode*(srcnodeid: Imguiid_80741064; dstnodeid: Imguiid_80741064;
-                              outnoderemappairs: ptr Imvectorimguiid_80741560): void {.
+  proc igdockbuildercopynode*(srcnodeid: Imguiid_63963847; dstnodeid: Imguiid_63963847;
+                              outnoderemappairs: ptr Imvectorimguiid_63964343): void {.
       cdecl, importc: "igDockBuilderCopyNode".}
 else:
   static :
@@ -16311,14 +16311,14 @@ else:
     hint("Declaration of " & "igdockbuildercopywindowsettings" &
         " already exists, not redeclaring")
 when not declared(igdockbuilderfinish):
-  proc igdockbuilderfinish*(nodeid: Imguiid_80741064): void {.cdecl,
+  proc igdockbuilderfinish*(nodeid: Imguiid_63963847): void {.cdecl,
       importc: "igDockBuilderFinish".}
 else:
   static :
     hint("Declaration of " & "igdockbuilderfinish" &
         " already exists, not redeclaring")
 when not declared(igpushfocusscope):
-  proc igpushfocusscope*(id: Imguiid_80741064): void {.cdecl,
+  proc igpushfocusscope*(id: Imguiid_63963847): void {.cdecl,
       importc: "igPushFocusScope".}
 else:
   static :
@@ -16331,7 +16331,7 @@ else:
     hint("Declaration of " & "igpopfocusscope" &
         " already exists, not redeclaring")
 when not declared(iggetcurrentfocusscope):
-  proc iggetcurrentfocusscope*(): Imguiid_80741064 {.cdecl,
+  proc iggetcurrentfocusscope*(): Imguiid_63963847 {.cdecl,
       importc: "igGetCurrentFocusScope".}
 else:
   static :
@@ -16344,7 +16344,7 @@ else:
     hint("Declaration of " & "igisdragdropactive" &
         " already exists, not redeclaring")
 when not declared(igbegindragdroptargetcustom):
-  proc igbegindragdroptargetcustom*(bb: Imrect_80740850; id: Imguiid_80741064): bool {.
+  proc igbegindragdroptargetcustom*(bb: Imrect_63963633; id: Imguiid_63963847): bool {.
       cdecl, importc: "igBeginDragDropTargetCustom".}
 else:
   static :
@@ -16364,22 +16364,22 @@ else:
     hint("Declaration of " & "igisdragdroppayloadbeingaccepted" &
         " already exists, not redeclaring")
 when not declared(igrenderdragdroptargetrect):
-  proc igrenderdragdroptargetrect*(bb: Imrect_80740850): void {.cdecl,
+  proc igrenderdragdroptargetrect*(bb: Imrect_63963633): void {.cdecl,
       importc: "igRenderDragDropTargetRect".}
 else:
   static :
     hint("Declaration of " & "igrenderdragdroptargetrect" &
         " already exists, not redeclaring")
 when not declared(igsetwindowcliprectbeforesetchannel):
-  proc igsetwindowcliprectbeforesetchannel*(window: ptr Imguiwindow_80740976;
-      cliprect: Imrect_80740850): void {.cdecl,
+  proc igsetwindowcliprectbeforesetchannel*(window: ptr Imguiwindow_63963759;
+      cliprect: Imrect_63963633): void {.cdecl,
       importc: "igSetWindowClipRectBeforeSetChannel".}
 else:
   static :
     hint("Declaration of " & "igsetwindowcliprectbeforesetchannel" &
         " already exists, not redeclaring")
 when not declared(igbegincolumns):
-  proc igbegincolumns*(strid: cstring; count: cint; flags: Imguioldcolumnflags_80741282): void {.
+  proc igbegincolumns*(strid: cstring; count: cint; flags: Imguioldcolumnflags_63964065): void {.
       cdecl, importc: "igBeginColumns".}
 else:
   static :
@@ -16412,21 +16412,21 @@ else:
     hint("Declaration of " & "igpopcolumnsbackground" &
         " already exists, not redeclaring")
 when not declared(iggetcolumnsid):
-  proc iggetcolumnsid*(strid: cstring; count: cint): Imguiid_80741064 {.cdecl,
+  proc iggetcolumnsid*(strid: cstring; count: cint): Imguiid_63963847 {.cdecl,
       importc: "igGetColumnsID".}
 else:
   static :
     hint("Declaration of " & "iggetcolumnsid" &
         " already exists, not redeclaring")
 when not declared(igfindorcreatecolumns):
-  proc igfindorcreatecolumns*(window: ptr Imguiwindow_80740976; id: Imguiid_80741064): ptr Imguioldcolumns_80740926 {.
+  proc igfindorcreatecolumns*(window: ptr Imguiwindow_63963759; id: Imguiid_63963847): ptr Imguioldcolumns_63963709 {.
       cdecl, importc: "igFindOrCreateColumns".}
 else:
   static :
     hint("Declaration of " & "igfindorcreatecolumns" &
         " already exists, not redeclaring")
 when not declared(iggetcolumnoffsetfromnorm):
-  proc iggetcolumnoffsetfromnorm*(columns: ptr Imguioldcolumns_80740926;
+  proc iggetcolumnoffsetfromnorm*(columns: ptr Imguioldcolumns_63963709;
                                   offsetnorm: cfloat): cfloat {.cdecl,
       importc: "igGetColumnOffsetFromNorm".}
 else:
@@ -16434,7 +16434,7 @@ else:
     hint("Declaration of " & "iggetcolumnoffsetfromnorm" &
         " already exists, not redeclaring")
 when not declared(iggetcolumnnormfromoffset):
-  proc iggetcolumnnormfromoffset*(columns: ptr Imguioldcolumns_80740926;
+  proc iggetcolumnnormfromoffset*(columns: ptr Imguioldcolumns_63963709;
                                   offset: cfloat): cfloat {.cdecl,
       importc: "igGetColumnNormFromOffset".}
 else:
@@ -16457,7 +16457,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igtablesetcolumnsortdirection):
   proc igtablesetcolumnsortdirection*(columnn: cint;
-                                      sortdirection: Imguisortdirection_80741004;
+                                      sortdirection: Imguisortdirection_63963787;
                                       appendtosortspecs: bool): void {.cdecl,
       importc: "igTableSetColumnSortDirection".}
 else:
@@ -16493,22 +16493,22 @@ else:
     hint("Declaration of " & "igtablepopbackgroundchannel" &
         " already exists, not redeclaring")
 when not declared(iggetcurrenttable):
-  proc iggetcurrenttable*(): ptr Imguitable_80740954 {.cdecl,
+  proc iggetcurrenttable*(): ptr Imguitable_63963737 {.cdecl,
       importc: "igGetCurrentTable".}
 else:
   static :
     hint("Declaration of " & "iggetcurrenttable" &
         " already exists, not redeclaring")
 when not declared(igtablefindbyid):
-  proc igtablefindbyid*(id: Imguiid_80741064): ptr Imguitable_80740954 {.cdecl,
+  proc igtablefindbyid*(id: Imguiid_63963847): ptr Imguitable_63963737 {.cdecl,
       importc: "igTableFindByID".}
 else:
   static :
     hint("Declaration of " & "igtablefindbyid" &
         " already exists, not redeclaring")
 when not declared(igbegintableex):
-  proc igbegintableex*(name: cstring; id: Imguiid_80741064; columnscount: cint;
-                       flags: Imguitableflags_80741048; outersize: Imvec2_80741096;
+  proc igbegintableex*(name: cstring; id: Imguiid_63963847; columnscount: cint;
+                       flags: Imguitableflags_63963831; outersize: Imvec2_63963879;
                        innerwidth: cfloat): bool {.cdecl,
       importc: "igBeginTableEx".}
 else:
@@ -16516,7 +16516,7 @@ else:
     hint("Declaration of " & "igbegintableex" &
         " already exists, not redeclaring")
 when not declared(igtablebegininitmemory):
-  proc igtablebegininitmemory*(table: ptr Imguitable_80740954;
+  proc igtablebegininitmemory*(table: ptr Imguitable_63963737;
                                columnscount: cint): void {.cdecl,
       importc: "igTableBeginInitMemory".}
 else:
@@ -16524,149 +16524,149 @@ else:
     hint("Declaration of " & "igtablebegininitmemory" &
         " already exists, not redeclaring")
 when not declared(igtablebeginapplyrequests):
-  proc igtablebeginapplyrequests*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtablebeginapplyrequests*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableBeginApplyRequests".}
 else:
   static :
     hint("Declaration of " & "igtablebeginapplyrequests" &
         " already exists, not redeclaring")
 when not declared(igtablesetupdrawchannels):
-  proc igtablesetupdrawchannels*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtablesetupdrawchannels*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableSetupDrawChannels".}
 else:
   static :
     hint("Declaration of " & "igtablesetupdrawchannels" &
         " already exists, not redeclaring")
 when not declared(igtableupdatelayout):
-  proc igtableupdatelayout*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtableupdatelayout*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableUpdateLayout".}
 else:
   static :
     hint("Declaration of " & "igtableupdatelayout" &
         " already exists, not redeclaring")
 when not declared(igtableupdateborders):
-  proc igtableupdateborders*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtableupdateborders*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableUpdateBorders".}
 else:
   static :
     hint("Declaration of " & "igtableupdateborders" &
         " already exists, not redeclaring")
 when not declared(igtableupdatecolumnsweightfromwidth):
-  proc igtableupdatecolumnsweightfromwidth*(table: ptr Imguitable_80740954): void {.
+  proc igtableupdatecolumnsweightfromwidth*(table: ptr Imguitable_63963737): void {.
       cdecl, importc: "igTableUpdateColumnsWeightFromWidth".}
 else:
   static :
     hint("Declaration of " & "igtableupdatecolumnsweightfromwidth" &
         " already exists, not redeclaring")
 when not declared(igtabledrawborders):
-  proc igtabledrawborders*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtabledrawborders*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableDrawBorders".}
 else:
   static :
     hint("Declaration of " & "igtabledrawborders" &
         " already exists, not redeclaring")
 when not declared(igtabledrawcontextmenu):
-  proc igtabledrawcontextmenu*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtabledrawcontextmenu*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableDrawContextMenu".}
 else:
   static :
     hint("Declaration of " & "igtabledrawcontextmenu" &
         " already exists, not redeclaring")
 when not declared(igtablebegincontextmenupopup):
-  proc igtablebegincontextmenupopup*(table: ptr Imguitable_80740954): bool {.
+  proc igtablebegincontextmenupopup*(table: ptr Imguitable_63963737): bool {.
       cdecl, importc: "igTableBeginContextMenuPopup".}
 else:
   static :
     hint("Declaration of " & "igtablebegincontextmenupopup" &
         " already exists, not redeclaring")
 when not declared(igtablemergedrawchannels):
-  proc igtablemergedrawchannels*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtablemergedrawchannels*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableMergeDrawChannels".}
 else:
   static :
     hint("Declaration of " & "igtablemergedrawchannels" &
         " already exists, not redeclaring")
 when not declared(igtablegetinstancedata):
-  proc igtablegetinstancedata*(table: ptr Imguitable_80740954; instanceno: cint): ptr Imguitableinstancedata_80740962 {.
+  proc igtablegetinstancedata*(table: ptr Imguitable_63963737; instanceno: cint): ptr Imguitableinstancedata_63963745 {.
       cdecl, importc: "igTableGetInstanceData".}
 else:
   static :
     hint("Declaration of " & "igtablegetinstancedata" &
         " already exists, not redeclaring")
 when not declared(igtablegetinstanceid):
-  proc igtablegetinstanceid*(table: ptr Imguitable_80740954; instanceno: cint): Imguiid_80741064 {.
+  proc igtablegetinstanceid*(table: ptr Imguitable_63963737; instanceno: cint): Imguiid_63963847 {.
       cdecl, importc: "igTableGetInstanceID".}
 else:
   static :
     hint("Declaration of " & "igtablegetinstanceid" &
         " already exists, not redeclaring")
 when not declared(igtablesortspecssanitize):
-  proc igtablesortspecssanitize*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtablesortspecssanitize*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableSortSpecsSanitize".}
 else:
   static :
     hint("Declaration of " & "igtablesortspecssanitize" &
         " already exists, not redeclaring")
 when not declared(igtablesortspecsbuild):
-  proc igtablesortspecsbuild*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtablesortspecsbuild*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableSortSpecsBuild".}
 else:
   static :
     hint("Declaration of " & "igtablesortspecsbuild" &
         " already exists, not redeclaring")
 when not declared(igtablegetcolumnnextsortdirection):
-  proc igtablegetcolumnnextsortdirection*(column: ptr Imguitablecolumn_80740958): Imguisortdirection_80741004 {.
+  proc igtablegetcolumnnextsortdirection*(column: ptr Imguitablecolumn_63963741): Imguisortdirection_63963787 {.
       cdecl, importc: "igTableGetColumnNextSortDirection".}
 else:
   static :
     hint("Declaration of " & "igtablegetcolumnnextsortdirection" &
         " already exists, not redeclaring")
 when not declared(igtablefixcolumnsortdirection):
-  proc igtablefixcolumnsortdirection*(table: ptr Imguitable_80740954;
-                                      column: ptr Imguitablecolumn_80740958): void {.
+  proc igtablefixcolumnsortdirection*(table: ptr Imguitable_63963737;
+                                      column: ptr Imguitablecolumn_63963741): void {.
       cdecl, importc: "igTableFixColumnSortDirection".}
 else:
   static :
     hint("Declaration of " & "igtablefixcolumnsortdirection" &
         " already exists, not redeclaring")
 when not declared(igtablegetcolumnwidthauto):
-  proc igtablegetcolumnwidthauto*(table: ptr Imguitable_80740954;
-                                  column: ptr Imguitablecolumn_80740958): cfloat {.
+  proc igtablegetcolumnwidthauto*(table: ptr Imguitable_63963737;
+                                  column: ptr Imguitablecolumn_63963741): cfloat {.
       cdecl, importc: "igTableGetColumnWidthAuto".}
 else:
   static :
     hint("Declaration of " & "igtablegetcolumnwidthauto" &
         " already exists, not redeclaring")
 when not declared(igtablebeginrow):
-  proc igtablebeginrow*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtablebeginrow*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableBeginRow".}
 else:
   static :
     hint("Declaration of " & "igtablebeginrow" &
         " already exists, not redeclaring")
 when not declared(igtableendrow):
-  proc igtableendrow*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtableendrow*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableEndRow".}
 else:
   static :
     hint("Declaration of " & "igtableendrow" &
         " already exists, not redeclaring")
 when not declared(igtablebegincell):
-  proc igtablebegincell*(table: ptr Imguitable_80740954; columnn: cint): void {.
+  proc igtablebegincell*(table: ptr Imguitable_63963737; columnn: cint): void {.
       cdecl, importc: "igTableBeginCell".}
 else:
   static :
     hint("Declaration of " & "igtablebegincell" &
         " already exists, not redeclaring")
 when not declared(igtableendcell):
-  proc igtableendcell*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtableendcell*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableEndCell".}
 else:
   static :
     hint("Declaration of " & "igtableendcell" &
         " already exists, not redeclaring")
 when not declared(igtablegetcellbgrect):
-  proc igtablegetcellbgrect*(pout: ptr Imrect_80740850; table: ptr Imguitable_80740954;
+  proc igtablegetcellbgrect*(pout: ptr Imrect_63963633; table: ptr Imguitable_63963737;
                              columnn: cint): void {.cdecl,
       importc: "igTableGetCellBgRect".}
 else:
@@ -16674,7 +16674,7 @@ else:
     hint("Declaration of " & "igtablegetcellbgrect" &
         " already exists, not redeclaring")
 when not declared(igtablegetcolumnnametableptr):
-  proc igtablegetcolumnnametableptr*(table: ptr Imguitable_80740954;
+  proc igtablegetcolumnnametableptr*(table: ptr Imguitable_63963737;
                                      columnn: cint): cstring {.cdecl,
       importc: "igTableGetColumnName_TablePtr".}
 else:
@@ -16682,22 +16682,22 @@ else:
     hint("Declaration of " & "igtablegetcolumnnametableptr" &
         " already exists, not redeclaring")
 when not declared(igtablegetcolumnresizeid):
-  proc igtablegetcolumnresizeid*(table: ptr Imguitable_80740954; columnn: cint;
-                                 instanceno: cint): Imguiid_80741064 {.cdecl,
+  proc igtablegetcolumnresizeid*(table: ptr Imguitable_63963737; columnn: cint;
+                                 instanceno: cint): Imguiid_63963847 {.cdecl,
       importc: "igTableGetColumnResizeID".}
 else:
   static :
     hint("Declaration of " & "igtablegetcolumnresizeid" &
         " already exists, not redeclaring")
 when not declared(igtablegetmaxcolumnwidth):
-  proc igtablegetmaxcolumnwidth*(table: ptr Imguitable_80740954; columnn: cint): cfloat {.
+  proc igtablegetmaxcolumnwidth*(table: ptr Imguitable_63963737; columnn: cint): cfloat {.
       cdecl, importc: "igTableGetMaxColumnWidth".}
 else:
   static :
     hint("Declaration of " & "igtablegetmaxcolumnwidth" &
         " already exists, not redeclaring")
 when not declared(igtablesetcolumnwidthautosingle):
-  proc igtablesetcolumnwidthautosingle*(table: ptr Imguitable_80740954;
+  proc igtablesetcolumnwidthautosingle*(table: ptr Imguitable_63963737;
                                         columnn: cint): void {.cdecl,
       importc: "igTableSetColumnWidthAutoSingle".}
 else:
@@ -16705,21 +16705,21 @@ else:
     hint("Declaration of " & "igtablesetcolumnwidthautosingle" &
         " already exists, not redeclaring")
 when not declared(igtablesetcolumnwidthautoall):
-  proc igtablesetcolumnwidthautoall*(table: ptr Imguitable_80740954): void {.
+  proc igtablesetcolumnwidthautoall*(table: ptr Imguitable_63963737): void {.
       cdecl, importc: "igTableSetColumnWidthAutoAll".}
 else:
   static :
     hint("Declaration of " & "igtablesetcolumnwidthautoall" &
         " already exists, not redeclaring")
 when not declared(igtableremove):
-  proc igtableremove*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtableremove*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableRemove".}
 else:
   static :
     hint("Declaration of " & "igtableremove" &
         " already exists, not redeclaring")
 when not declared(igtablegccompacttransientbufferstableptr):
-  proc igtablegccompacttransientbufferstableptr*(table: ptr Imguitable_80740954): void {.
+  proc igtablegccompacttransientbufferstableptr*(table: ptr Imguitable_63963737): void {.
       cdecl, importc: "igTableGcCompactTransientBuffers_TablePtr".}
 else:
   static :
@@ -16727,7 +16727,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igtablegccompacttransientbufferstabletempdataptr):
   proc igtablegccompacttransientbufferstabletempdataptr*(
-      table: ptr Imguitabletempdata_80740966): void {.cdecl,
+      table: ptr Imguitabletempdata_63963749): void {.cdecl,
       importc: "igTableGcCompactTransientBuffers_TableTempDataPtr".}
 else:
   static :
@@ -16741,28 +16741,28 @@ else:
     hint("Declaration of " & "igtablegccompactsettings" &
         " already exists, not redeclaring")
 when not declared(igtableloadsettings):
-  proc igtableloadsettings*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtableloadsettings*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableLoadSettings".}
 else:
   static :
     hint("Declaration of " & "igtableloadsettings" &
         " already exists, not redeclaring")
 when not declared(igtablesavesettings):
-  proc igtablesavesettings*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtablesavesettings*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableSaveSettings".}
 else:
   static :
     hint("Declaration of " & "igtablesavesettings" &
         " already exists, not redeclaring")
 when not declared(igtableresetsettings):
-  proc igtableresetsettings*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igtableresetsettings*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igTableResetSettings".}
 else:
   static :
     hint("Declaration of " & "igtableresetsettings" &
         " already exists, not redeclaring")
 when not declared(igtablegetboundsettings):
-  proc igtablegetboundsettings*(table: ptr Imguitable_80740954): ptr Imguitablesettings_80740970 {.
+  proc igtablegetboundsettings*(table: ptr Imguitable_63963737): ptr Imguitablesettings_63963753 {.
       cdecl, importc: "igTableGetBoundSettings".}
 else:
   static :
@@ -16776,44 +16776,44 @@ else:
     hint("Declaration of " & "igtablesettingsaddsettingshandler" &
         " already exists, not redeclaring")
 when not declared(igtablesettingscreate):
-  proc igtablesettingscreate*(id: Imguiid_80741064; columnscount: cint): ptr Imguitablesettings_80740970 {.
+  proc igtablesettingscreate*(id: Imguiid_63963847; columnscount: cint): ptr Imguitablesettings_63963753 {.
       cdecl, importc: "igTableSettingsCreate".}
 else:
   static :
     hint("Declaration of " & "igtablesettingscreate" &
         " already exists, not redeclaring")
 when not declared(igtablesettingsfindbyid):
-  proc igtablesettingsfindbyid*(id: Imguiid_80741064): ptr Imguitablesettings_80740970 {.
+  proc igtablesettingsfindbyid*(id: Imguiid_63963847): ptr Imguitablesettings_63963753 {.
       cdecl, importc: "igTableSettingsFindByID".}
 else:
   static :
     hint("Declaration of " & "igtablesettingsfindbyid" &
         " already exists, not redeclaring")
 when not declared(iggetcurrenttabbar):
-  proc iggetcurrenttabbar*(): ptr Imguitabbar_80740946 {.cdecl,
+  proc iggetcurrenttabbar*(): ptr Imguitabbar_63963729 {.cdecl,
       importc: "igGetCurrentTabBar".}
 else:
   static :
     hint("Declaration of " & "iggetcurrenttabbar" &
         " already exists, not redeclaring")
 when not declared(igbegintabbarex):
-  proc igbegintabbarex*(tabbar: ptr Imguitabbar_80740946; bb: Imrect_80740850;
-                        flags: Imguitabbarflags_80741044;
-                        docknode: ptr Imguidocknode_80740880): bool {.cdecl,
+  proc igbegintabbarex*(tabbar: ptr Imguitabbar_63963729; bb: Imrect_63963633;
+                        flags: Imguitabbarflags_63963827;
+                        docknode: ptr Imguidocknode_63963663): bool {.cdecl,
       importc: "igBeginTabBarEx".}
 else:
   static :
     hint("Declaration of " & "igbegintabbarex" &
         " already exists, not redeclaring")
 when not declared(igtabbarfindtabbyid):
-  proc igtabbarfindtabbyid*(tabbar: ptr Imguitabbar_80740946; tabid: Imguiid_80741064): ptr Imguitabitem_80740950 {.
+  proc igtabbarfindtabbyid*(tabbar: ptr Imguitabbar_63963729; tabid: Imguiid_63963847): ptr Imguitabitem_63963733 {.
       cdecl, importc: "igTabBarFindTabByID".}
 else:
   static :
     hint("Declaration of " & "igtabbarfindtabbyid" &
         " already exists, not redeclaring")
 when not declared(igtabbarfindtabbyorder):
-  proc igtabbarfindtabbyorder*(tabbar: ptr Imguitabbar_80740946; order: cint): ptr Imguitabitem_80740950 {.
+  proc igtabbarfindtabbyorder*(tabbar: ptr Imguitabbar_63963729; order: cint): ptr Imguitabitem_63963733 {.
       cdecl, importc: "igTabBarFindTabByOrder".}
 else:
   static :
@@ -16821,7 +16821,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igtabbarfindmostrecentlyselectedtabforactivewindow):
   proc igtabbarfindmostrecentlyselectedtabforactivewindow*(
-      tabbar: ptr Imguitabbar_80740946): ptr Imguitabitem_80740950 {.cdecl,
+      tabbar: ptr Imguitabbar_63963729): ptr Imguitabitem_63963733 {.cdecl,
       importc: "igTabBarFindMostRecentlySelectedTabForActiveWindow".}
 else:
   static :
@@ -16829,92 +16829,92 @@ else:
         "igtabbarfindmostrecentlyselectedtabforactivewindow" &
         " already exists, not redeclaring")
 when not declared(igtabbargetcurrenttab):
-  proc igtabbargetcurrenttab*(tabbar: ptr Imguitabbar_80740946): ptr Imguitabitem_80740950 {.
+  proc igtabbargetcurrenttab*(tabbar: ptr Imguitabbar_63963729): ptr Imguitabitem_63963733 {.
       cdecl, importc: "igTabBarGetCurrentTab".}
 else:
   static :
     hint("Declaration of " & "igtabbargetcurrenttab" &
         " already exists, not redeclaring")
 when not declared(igtabbargettaborder):
-  proc igtabbargettaborder*(tabbar: ptr Imguitabbar_80740946;
-                            tab: ptr Imguitabitem_80740950): cint {.cdecl,
+  proc igtabbargettaborder*(tabbar: ptr Imguitabbar_63963729;
+                            tab: ptr Imguitabitem_63963733): cint {.cdecl,
       importc: "igTabBarGetTabOrder".}
 else:
   static :
     hint("Declaration of " & "igtabbargettaborder" &
         " already exists, not redeclaring")
 when not declared(igtabbargettabname):
-  proc igtabbargettabname*(tabbar: ptr Imguitabbar_80740946;
-                           tab: ptr Imguitabitem_80740950): cstring {.cdecl,
+  proc igtabbargettabname*(tabbar: ptr Imguitabbar_63963729;
+                           tab: ptr Imguitabitem_63963733): cstring {.cdecl,
       importc: "igTabBarGetTabName".}
 else:
   static :
     hint("Declaration of " & "igtabbargettabname" &
         " already exists, not redeclaring")
 when not declared(igtabbaraddtab):
-  proc igtabbaraddtab*(tabbar: ptr Imguitabbar_80740946;
-                       tabflags: Imguitabitemflags_80741046;
-                       window: ptr Imguiwindow_80740976): void {.cdecl,
+  proc igtabbaraddtab*(tabbar: ptr Imguitabbar_63963729;
+                       tabflags: Imguitabitemflags_63963829;
+                       window: ptr Imguiwindow_63963759): void {.cdecl,
       importc: "igTabBarAddTab".}
 else:
   static :
     hint("Declaration of " & "igtabbaraddtab" &
         " already exists, not redeclaring")
 when not declared(igtabbarremovetab):
-  proc igtabbarremovetab*(tabbar: ptr Imguitabbar_80740946; tabid: Imguiid_80741064): void {.
+  proc igtabbarremovetab*(tabbar: ptr Imguitabbar_63963729; tabid: Imguiid_63963847): void {.
       cdecl, importc: "igTabBarRemoveTab".}
 else:
   static :
     hint("Declaration of " & "igtabbarremovetab" &
         " already exists, not redeclaring")
 when not declared(igtabbarclosetab):
-  proc igtabbarclosetab*(tabbar: ptr Imguitabbar_80740946; tab: ptr Imguitabitem_80740950): void {.
+  proc igtabbarclosetab*(tabbar: ptr Imguitabbar_63963729; tab: ptr Imguitabitem_63963733): void {.
       cdecl, importc: "igTabBarCloseTab".}
 else:
   static :
     hint("Declaration of " & "igtabbarclosetab" &
         " already exists, not redeclaring")
 when not declared(igtabbarqueuefocus):
-  proc igtabbarqueuefocus*(tabbar: ptr Imguitabbar_80740946;
-                           tab: ptr Imguitabitem_80740950): void {.cdecl,
+  proc igtabbarqueuefocus*(tabbar: ptr Imguitabbar_63963729;
+                           tab: ptr Imguitabitem_63963733): void {.cdecl,
       importc: "igTabBarQueueFocus".}
 else:
   static :
     hint("Declaration of " & "igtabbarqueuefocus" &
         " already exists, not redeclaring")
 when not declared(igtabbarqueuereorder):
-  proc igtabbarqueuereorder*(tabbar: ptr Imguitabbar_80740946;
-                             tab: ptr Imguitabitem_80740950; offset: cint): void {.
+  proc igtabbarqueuereorder*(tabbar: ptr Imguitabbar_63963729;
+                             tab: ptr Imguitabitem_63963733; offset: cint): void {.
       cdecl, importc: "igTabBarQueueReorder".}
 else:
   static :
     hint("Declaration of " & "igtabbarqueuereorder" &
         " already exists, not redeclaring")
 when not declared(igtabbarqueuereorderfrommousepos):
-  proc igtabbarqueuereorderfrommousepos*(tabbar: ptr Imguitabbar_80740946;
-      tab: ptr Imguitabitem_80740950; mousepos: Imvec2_80741096): void {.cdecl,
+  proc igtabbarqueuereorderfrommousepos*(tabbar: ptr Imguitabbar_63963729;
+      tab: ptr Imguitabitem_63963733; mousepos: Imvec2_63963879): void {.cdecl,
       importc: "igTabBarQueueReorderFromMousePos".}
 else:
   static :
     hint("Declaration of " & "igtabbarqueuereorderfrommousepos" &
         " already exists, not redeclaring")
 when not declared(igtabbarprocessreorder):
-  proc igtabbarprocessreorder*(tabbar: ptr Imguitabbar_80740946): bool {.cdecl,
+  proc igtabbarprocessreorder*(tabbar: ptr Imguitabbar_63963729): bool {.cdecl,
       importc: "igTabBarProcessReorder".}
 else:
   static :
     hint("Declaration of " & "igtabbarprocessreorder" &
         " already exists, not redeclaring")
 when not declared(igtabitemex):
-  proc igtabitemex*(tabbar: ptr Imguitabbar_80740946; label: cstring;
-                    popen: ptr bool; flags: Imguitabitemflags_80741046;
-                    dockedwindow: ptr Imguiwindow_80740976): bool {.cdecl,
+  proc igtabitemex*(tabbar: ptr Imguitabbar_63963729; label: cstring;
+                    popen: ptr bool; flags: Imguitabitemflags_63963829;
+                    dockedwindow: ptr Imguiwindow_63963759): bool {.cdecl,
       importc: "igTabItemEx".}
 else:
   static :
     hint("Declaration of " & "igtabitemex" & " already exists, not redeclaring")
 when not declared(igtabitemcalcsizestr):
-  proc igtabitemcalcsizestr*(pout: ptr Imvec2_80741096; label: cstring;
+  proc igtabitemcalcsizestr*(pout: ptr Imvec2_63963879; label: cstring;
                              hasclosebuttonorunsavedmarker: bool): void {.cdecl,
       importc: "igTabItemCalcSize_Str".}
 else:
@@ -16922,28 +16922,28 @@ else:
     hint("Declaration of " & "igtabitemcalcsizestr" &
         " already exists, not redeclaring")
 when not declared(igtabitemcalcsizewindowptr):
-  proc igtabitemcalcsizewindowptr*(pout: ptr Imvec2_80741096;
-                                   window: ptr Imguiwindow_80740976): void {.
+  proc igtabitemcalcsizewindowptr*(pout: ptr Imvec2_63963879;
+                                   window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igTabItemCalcSize_WindowPtr".}
 else:
   static :
     hint("Declaration of " & "igtabitemcalcsizewindowptr" &
         " already exists, not redeclaring")
 when not declared(igtabitembackground):
-  proc igtabitembackground*(drawlist: ptr Imdrawlist_80740719; bb: Imrect_80740850;
-                            flags: Imguitabitemflags_80741046; col: Imu32_80741076): void {.
+  proc igtabitembackground*(drawlist: ptr Imdrawlist_63963502; bb: Imrect_63963633;
+                            flags: Imguitabitemflags_63963829; col: Imu32_63963859): void {.
       cdecl, importc: "igTabItemBackground".}
 else:
   static :
     hint("Declaration of " & "igtabitembackground" &
         " already exists, not redeclaring")
 when not declared(igtabitemlabelandclosebutton):
-  proc igtabitemlabelandclosebutton*(drawlist: ptr Imdrawlist_80740719;
-                                     bb: Imrect_80740850;
-                                     flags: Imguitabitemflags_80741046;
-                                     framepadding: Imvec2_80741096;
-                                     label: cstring; tabid: Imguiid_80741064;
-                                     closebuttonid: Imguiid_80741064;
+  proc igtabitemlabelandclosebutton*(drawlist: ptr Imdrawlist_63963502;
+                                     bb: Imrect_63963633;
+                                     flags: Imguitabitemflags_63963829;
+                                     framepadding: Imvec2_63963879;
+                                     label: cstring; tabid: Imguiid_63963847;
+                                     closebuttonid: Imguiid_63963847;
                                      iscontentsvisible: bool;
                                      outjustclosed: ptr bool;
                                      outtextclipped: ptr bool): void {.cdecl,
@@ -16953,14 +16953,14 @@ else:
     hint("Declaration of " & "igtabitemlabelandclosebutton" &
         " already exists, not redeclaring")
 when not declared(igrendertext):
-  proc igrendertext*(pos: Imvec2_80741096; text: cstring; textend: cstring;
+  proc igrendertext*(pos: Imvec2_63963879; text: cstring; textend: cstring;
                      hidetextafterhash: bool): void {.cdecl,
       importc: "igRenderText".}
 else:
   static :
     hint("Declaration of " & "igrendertext" & " already exists, not redeclaring")
 when not declared(igrendertextwrapped):
-  proc igrendertextwrapped*(pos: Imvec2_80741096; text: cstring;
+  proc igrendertextwrapped*(pos: Imvec2_63963879; text: cstring;
                             textend: cstring; wrapwidth: cfloat): void {.cdecl,
       importc: "igRenderTextWrapped".}
 else:
@@ -16968,45 +16968,45 @@ else:
     hint("Declaration of " & "igrendertextwrapped" &
         " already exists, not redeclaring")
 when not declared(igrendertextclipped):
-  proc igrendertextclipped*(posmin: Imvec2_80741096; posmax: Imvec2_80741096;
+  proc igrendertextclipped*(posmin: Imvec2_63963879; posmax: Imvec2_63963879;
                             text: cstring; textend: cstring;
-                            textsizeifknown: ptr Imvec2_80741096; align: Imvec2_80741096;
-                            cliprect: ptr Imrect_80740850): void {.cdecl,
+                            textsizeifknown: ptr Imvec2_63963879; align: Imvec2_63963879;
+                            cliprect: ptr Imrect_63963633): void {.cdecl,
       importc: "igRenderTextClipped".}
 else:
   static :
     hint("Declaration of " & "igrendertextclipped" &
         " already exists, not redeclaring")
 when not declared(igrendertextclippedex):
-  proc igrendertextclippedex*(drawlist: ptr Imdrawlist_80740719; posmin: Imvec2_80741096;
-                              posmax: Imvec2_80741096; text: cstring;
-                              textend: cstring; textsizeifknown: ptr Imvec2_80741096;
-                              align: Imvec2_80741096; cliprect: ptr Imrect_80740850): void {.
+  proc igrendertextclippedex*(drawlist: ptr Imdrawlist_63963502; posmin: Imvec2_63963879;
+                              posmax: Imvec2_63963879; text: cstring;
+                              textend: cstring; textsizeifknown: ptr Imvec2_63963879;
+                              align: Imvec2_63963879; cliprect: ptr Imrect_63963633): void {.
       cdecl, importc: "igRenderTextClippedEx".}
 else:
   static :
     hint("Declaration of " & "igrendertextclippedex" &
         " already exists, not redeclaring")
 when not declared(igrendertextellipsis):
-  proc igrendertextellipsis*(drawlist: ptr Imdrawlist_80740719; posmin: Imvec2_80741096;
-                             posmax: Imvec2_80741096; clipmaxx: cfloat;
+  proc igrendertextellipsis*(drawlist: ptr Imdrawlist_63963502; posmin: Imvec2_63963879;
+                             posmax: Imvec2_63963879; clipmaxx: cfloat;
                              ellipsismaxx: cfloat; text: cstring;
-                             textend: cstring; textsizeifknown: ptr Imvec2_80741096): void {.
+                             textend: cstring; textsizeifknown: ptr Imvec2_63963879): void {.
       cdecl, importc: "igRenderTextEllipsis".}
 else:
   static :
     hint("Declaration of " & "igrendertextellipsis" &
         " already exists, not redeclaring")
 when not declared(igrenderframe):
-  proc igrenderframe*(pmin: Imvec2_80741096; pmax: Imvec2_80741096;
-                      fillcol: Imu32_80741076; border: bool; rounding: cfloat): void {.
+  proc igrenderframe*(pmin: Imvec2_63963879; pmax: Imvec2_63963879;
+                      fillcol: Imu32_63963859; border: bool; rounding: cfloat): void {.
       cdecl, importc: "igRenderFrame".}
 else:
   static :
     hint("Declaration of " & "igrenderframe" &
         " already exists, not redeclaring")
 when not declared(igrenderframeborder):
-  proc igrenderframeborder*(pmin: Imvec2_80741096; pmax: Imvec2_80741096;
+  proc igrenderframeborder*(pmin: Imvec2_63963879; pmax: Imvec2_63963879;
                             rounding: cfloat): void {.cdecl,
       importc: "igRenderFrameBorder".}
 else:
@@ -17014,18 +17014,18 @@ else:
     hint("Declaration of " & "igrenderframeborder" &
         " already exists, not redeclaring")
 when not declared(igrendercolorrectwithalphacheckerboard):
-  proc igrendercolorrectwithalphacheckerboard*(drawlist: ptr Imdrawlist_80740719;
-      pmin: Imvec2_80741096; pmax: Imvec2_80741096; fillcol: Imu32_80741076;
-      gridstep: cfloat; gridoff: Imvec2_80741096; rounding: cfloat;
-      flags: Imdrawflags_80741010): void {.cdecl,
+  proc igrendercolorrectwithalphacheckerboard*(drawlist: ptr Imdrawlist_63963502;
+      pmin: Imvec2_63963879; pmax: Imvec2_63963879; fillcol: Imu32_63963859;
+      gridstep: cfloat; gridoff: Imvec2_63963879; rounding: cfloat;
+      flags: Imdrawflags_63963793): void {.cdecl,
       importc: "igRenderColorRectWithAlphaCheckerboard".}
 else:
   static :
     hint("Declaration of " & "igrendercolorrectwithalphacheckerboard" &
         " already exists, not redeclaring")
 when not declared(igrendernavhighlight):
-  proc igrendernavhighlight*(bb: Imrect_80740850; id: Imguiid_80741064;
-                             flags: Imguinavhighlightflags_80741284): void {.
+  proc igrendernavhighlight*(bb: Imrect_63963633; id: Imguiid_63963847;
+                             flags: Imguinavhighlightflags_63964067): void {.
       cdecl, importc: "igRenderNavHighlight".}
 else:
   static :
@@ -17039,59 +17039,59 @@ else:
     hint("Declaration of " & "igfindrenderedtextend" &
         " already exists, not redeclaring")
 when not declared(igrendermousecursor):
-  proc igrendermousecursor*(pos: Imvec2_80741096; scale: cfloat;
-                            mousecursor: Imguimousecursor_80741002;
-                            colfill: Imu32_80741076; colborder: Imu32_80741076;
-                            colshadow: Imu32_80741076): void {.cdecl,
+  proc igrendermousecursor*(pos: Imvec2_63963879; scale: cfloat;
+                            mousecursor: Imguimousecursor_63963785;
+                            colfill: Imu32_63963859; colborder: Imu32_63963859;
+                            colshadow: Imu32_63963859): void {.cdecl,
       importc: "igRenderMouseCursor".}
 else:
   static :
     hint("Declaration of " & "igrendermousecursor" &
         " already exists, not redeclaring")
 when not declared(igrenderarrow):
-  proc igrenderarrow*(drawlist: ptr Imdrawlist_80740719; pos: Imvec2_80741096;
-                      col: Imu32_80741076; dir: Imguidir_80740998; scale: cfloat): void {.
+  proc igrenderarrow*(drawlist: ptr Imdrawlist_63963502; pos: Imvec2_63963879;
+                      col: Imu32_63963859; dir: Imguidir_63963781; scale: cfloat): void {.
       cdecl, importc: "igRenderArrow".}
 else:
   static :
     hint("Declaration of " & "igrenderarrow" &
         " already exists, not redeclaring")
 when not declared(igrenderbullet):
-  proc igrenderbullet*(drawlist: ptr Imdrawlist_80740719; pos: Imvec2_80741096;
-                       col: Imu32_80741076): void {.cdecl,
+  proc igrenderbullet*(drawlist: ptr Imdrawlist_63963502; pos: Imvec2_63963879;
+                       col: Imu32_63963859): void {.cdecl,
       importc: "igRenderBullet".}
 else:
   static :
     hint("Declaration of " & "igrenderbullet" &
         " already exists, not redeclaring")
 when not declared(igrendercheckmark):
-  proc igrendercheckmark*(drawlist: ptr Imdrawlist_80740719; pos: Imvec2_80741096;
-                          col: Imu32_80741076; sz: cfloat): void {.cdecl,
+  proc igrendercheckmark*(drawlist: ptr Imdrawlist_63963502; pos: Imvec2_63963879;
+                          col: Imu32_63963859; sz: cfloat): void {.cdecl,
       importc: "igRenderCheckMark".}
 else:
   static :
     hint("Declaration of " & "igrendercheckmark" &
         " already exists, not redeclaring")
 when not declared(igrenderarrowpointingat):
-  proc igrenderarrowpointingat*(drawlist: ptr Imdrawlist_80740719; pos: Imvec2_80741096;
-                                halfsz: Imvec2_80741096; direction: Imguidir_80740998;
-                                col: Imu32_80741076): void {.cdecl,
+  proc igrenderarrowpointingat*(drawlist: ptr Imdrawlist_63963502; pos: Imvec2_63963879;
+                                halfsz: Imvec2_63963879; direction: Imguidir_63963781;
+                                col: Imu32_63963859): void {.cdecl,
       importc: "igRenderArrowPointingAt".}
 else:
   static :
     hint("Declaration of " & "igrenderarrowpointingat" &
         " already exists, not redeclaring")
 when not declared(igrenderarrowdockmenu):
-  proc igrenderarrowdockmenu*(drawlist: ptr Imdrawlist_80740719; pmin: Imvec2_80741096;
-                              sz: cfloat; col: Imu32_80741076): void {.cdecl,
+  proc igrenderarrowdockmenu*(drawlist: ptr Imdrawlist_63963502; pmin: Imvec2_63963879;
+                              sz: cfloat; col: Imu32_63963859): void {.cdecl,
       importc: "igRenderArrowDockMenu".}
 else:
   static :
     hint("Declaration of " & "igrenderarrowdockmenu" &
         " already exists, not redeclaring")
 when not declared(igrenderrectfilledrangeh):
-  proc igrenderrectfilledrangeh*(drawlist: ptr Imdrawlist_80740719;
-                                 rect: Imrect_80740850; col: Imu32_80741076;
+  proc igrenderrectfilledrangeh*(drawlist: ptr Imdrawlist_63963502;
+                                 rect: Imrect_63963633; col: Imu32_63963859;
                                  xstartnorm: cfloat; xendnorm: cfloat;
                                  rounding: cfloat): void {.cdecl,
       importc: "igRenderRectFilledRangeH".}
@@ -17100,62 +17100,62 @@ else:
     hint("Declaration of " & "igrenderrectfilledrangeh" &
         " already exists, not redeclaring")
 when not declared(igrenderrectfilledwithhole):
-  proc igrenderrectfilledwithhole*(drawlist: ptr Imdrawlist_80740719;
-                                   outer: Imrect_80740850; inner: Imrect_80740850;
-                                   col: Imu32_80741076; rounding: cfloat): void {.
+  proc igrenderrectfilledwithhole*(drawlist: ptr Imdrawlist_63963502;
+                                   outer: Imrect_63963633; inner: Imrect_63963633;
+                                   col: Imu32_63963859; rounding: cfloat): void {.
       cdecl, importc: "igRenderRectFilledWithHole".}
 else:
   static :
     hint("Declaration of " & "igrenderrectfilledwithhole" &
         " already exists, not redeclaring")
 when not declared(igcalcroundingflagsforrectinrect):
-  proc igcalcroundingflagsforrectinrect*(rin: Imrect_80740850; router: Imrect_80740850;
-      threshold: cfloat): Imdrawflags_80741010 {.cdecl,
+  proc igcalcroundingflagsforrectinrect*(rin: Imrect_63963633; router: Imrect_63963633;
+      threshold: cfloat): Imdrawflags_63963793 {.cdecl,
       importc: "igCalcRoundingFlagsForRectInRect".}
 else:
   static :
     hint("Declaration of " & "igcalcroundingflagsforrectinrect" &
         " already exists, not redeclaring")
 when not declared(igtextex):
-  proc igtextex*(text: cstring; textend: cstring; flags: Imguitextflags_80741296): void {.
+  proc igtextex*(text: cstring; textend: cstring; flags: Imguitextflags_63964079): void {.
       cdecl, importc: "igTextEx".}
 else:
   static :
     hint("Declaration of " & "igtextex" & " already exists, not redeclaring")
 when not declared(igbuttonex):
-  proc igbuttonex*(label: cstring; sizearg: Imvec2_80741096;
-                   flags: Imguibuttonflags_80741018): bool {.cdecl,
+  proc igbuttonex*(label: cstring; sizearg: Imvec2_63963879;
+                   flags: Imguibuttonflags_63963801): bool {.cdecl,
       importc: "igButtonEx".}
 else:
   static :
     hint("Declaration of " & "igbuttonex" & " already exists, not redeclaring")
 when not declared(igarrowbuttonex):
-  proc igarrowbuttonex*(strid: cstring; dir: Imguidir_80740998; sizearg: Imvec2_80741096;
-                        flags: Imguibuttonflags_80741018): bool {.cdecl,
+  proc igarrowbuttonex*(strid: cstring; dir: Imguidir_63963781; sizearg: Imvec2_63963879;
+                        flags: Imguibuttonflags_63963801): bool {.cdecl,
       importc: "igArrowButtonEx".}
 else:
   static :
     hint("Declaration of " & "igarrowbuttonex" &
         " already exists, not redeclaring")
 when not declared(igimagebuttonex):
-  proc igimagebuttonex*(id: Imguiid_80741064; textureid: Imtextureid_80741060;
-                        size: Imvec2_80741096; uv0: Imvec2_80741096;
-                        uv1: Imvec2_80741096; bgcol: Imvec4_80741100;
-                        tintcol: Imvec4_80741100; flags: Imguibuttonflags_80741018): bool {.
+  proc igimagebuttonex*(id: Imguiid_63963847; textureid: Imtextureid_63963843;
+                        size: Imvec2_63963879; uv0: Imvec2_63963879;
+                        uv1: Imvec2_63963879; bgcol: Imvec4_63963883;
+                        tintcol: Imvec4_63963883; flags: Imguibuttonflags_63963801): bool {.
       cdecl, importc: "igImageButtonEx".}
 else:
   static :
     hint("Declaration of " & "igimagebuttonex" &
         " already exists, not redeclaring")
 when not declared(igseparatorex):
-  proc igseparatorex*(flags: Imguiseparatorflags_80741294): void {.cdecl,
+  proc igseparatorex*(flags: Imguiseparatorflags_63964077): void {.cdecl,
       importc: "igSeparatorEx".}
 else:
   static :
     hint("Declaration of " & "igseparatorex" &
         " already exists, not redeclaring")
 when not declared(igseparatortextex):
-  proc igseparatortextex*(id: Imguiid_80741064; label: cstring;
+  proc igseparatortextex*(id: Imguiid_63963847; label: cstring;
                           labelend: cstring; extrawidth: cfloat): void {.cdecl,
       importc: "igSeparatorTextEx".}
 else:
@@ -17163,124 +17163,124 @@ else:
     hint("Declaration of " & "igseparatortextex" &
         " already exists, not redeclaring")
 when not declared(igcheckboxflagss64ptr):
-  proc igcheckboxflagss64ptr*(label: cstring; flags: ptr Ims64_80741078;
-                              flagsvalue: Ims64_80741078): bool {.cdecl,
+  proc igcheckboxflagss64ptr*(label: cstring; flags: ptr Ims64_63963861;
+                              flagsvalue: Ims64_63963861): bool {.cdecl,
       importc: "igCheckboxFlags_S64Ptr".}
 else:
   static :
     hint("Declaration of " & "igcheckboxflagss64ptr" &
         " already exists, not redeclaring")
 when not declared(igcheckboxflagsu64ptr):
-  proc igcheckboxflagsu64ptr*(label: cstring; flags: ptr Imu64_80741080;
-                              flagsvalue: Imu64_80741080): bool {.cdecl,
+  proc igcheckboxflagsu64ptr*(label: cstring; flags: ptr Imu64_63963863;
+                              flagsvalue: Imu64_63963863): bool {.cdecl,
       importc: "igCheckboxFlags_U64Ptr".}
 else:
   static :
     hint("Declaration of " & "igcheckboxflagsu64ptr" &
         " already exists, not redeclaring")
 when not declared(igclosebutton):
-  proc igclosebutton*(id: Imguiid_80741064; pos: Imvec2_80741096): bool {.cdecl,
+  proc igclosebutton*(id: Imguiid_63963847; pos: Imvec2_63963879): bool {.cdecl,
       importc: "igCloseButton".}
 else:
   static :
     hint("Declaration of " & "igclosebutton" &
         " already exists, not redeclaring")
 when not declared(igcollapsebutton):
-  proc igcollapsebutton*(id: Imguiid_80741064; pos: Imvec2_80741096;
-                         docknode: ptr Imguidocknode_80740880): bool {.cdecl,
+  proc igcollapsebutton*(id: Imguiid_63963847; pos: Imvec2_63963879;
+                         docknode: ptr Imguidocknode_63963663): bool {.cdecl,
       importc: "igCollapseButton".}
 else:
   static :
     hint("Declaration of " & "igcollapsebutton" &
         " already exists, not redeclaring")
 when not declared(igscrollbar):
-  proc igscrollbar*(axis: Imguiaxis_80741372): void {.cdecl,
+  proc igscrollbar*(axis: Imguiaxis_63964155): void {.cdecl,
       importc: "igScrollbar".}
 else:
   static :
     hint("Declaration of " & "igscrollbar" & " already exists, not redeclaring")
 when not declared(igscrollbarex):
-  proc igscrollbarex*(bb: Imrect_80740850; id: Imguiid_80741064;
-                      axis: Imguiaxis_80741372; pscrollv: ptr Ims64_80741078;
-                      availv: Ims64_80741078; contentsv: Ims64_80741078;
-                      flags: Imdrawflags_80741010): bool {.cdecl,
+  proc igscrollbarex*(bb: Imrect_63963633; id: Imguiid_63963847;
+                      axis: Imguiaxis_63964155; pscrollv: ptr Ims64_63963861;
+                      availv: Ims64_63963861; contentsv: Ims64_63963861;
+                      flags: Imdrawflags_63963793): bool {.cdecl,
       importc: "igScrollbarEx".}
 else:
   static :
     hint("Declaration of " & "igscrollbarex" &
         " already exists, not redeclaring")
 when not declared(iggetwindowscrollbarrect):
-  proc iggetwindowscrollbarrect*(pout: ptr Imrect_80740850;
-                                 window: ptr Imguiwindow_80740976;
-                                 axis: Imguiaxis_80741372): void {.cdecl,
+  proc iggetwindowscrollbarrect*(pout: ptr Imrect_63963633;
+                                 window: ptr Imguiwindow_63963759;
+                                 axis: Imguiaxis_63964155): void {.cdecl,
       importc: "igGetWindowScrollbarRect".}
 else:
   static :
     hint("Declaration of " & "iggetwindowscrollbarrect" &
         " already exists, not redeclaring")
 when not declared(iggetwindowscrollbarid):
-  proc iggetwindowscrollbarid*(window: ptr Imguiwindow_80740976; axis: Imguiaxis_80741372): Imguiid_80741064 {.
+  proc iggetwindowscrollbarid*(window: ptr Imguiwindow_63963759; axis: Imguiaxis_63964155): Imguiid_63963847 {.
       cdecl, importc: "igGetWindowScrollbarID".}
 else:
   static :
     hint("Declaration of " & "iggetwindowscrollbarid" &
         " already exists, not redeclaring")
 when not declared(iggetwindowresizecornerid):
-  proc iggetwindowresizecornerid*(window: ptr Imguiwindow_80740976; n: cint): Imguiid_80741064 {.
+  proc iggetwindowresizecornerid*(window: ptr Imguiwindow_63963759; n: cint): Imguiid_63963847 {.
       cdecl, importc: "igGetWindowResizeCornerID".}
 else:
   static :
     hint("Declaration of " & "iggetwindowresizecornerid" &
         " already exists, not redeclaring")
 when not declared(iggetwindowresizeborderid):
-  proc iggetwindowresizeborderid*(window: ptr Imguiwindow_80740976;
-                                  dir: Imguidir_80740998): Imguiid_80741064 {.
+  proc iggetwindowresizeborderid*(window: ptr Imguiwindow_63963759;
+                                  dir: Imguidir_63963781): Imguiid_63963847 {.
       cdecl, importc: "igGetWindowResizeBorderID".}
 else:
   static :
     hint("Declaration of " & "iggetwindowresizeborderid" &
         " already exists, not redeclaring")
 when not declared(igbuttonbehavior):
-  proc igbuttonbehavior*(bb: Imrect_80740850; id: Imguiid_80741064;
+  proc igbuttonbehavior*(bb: Imrect_63963633; id: Imguiid_63963847;
                          outhovered: ptr bool; outheld: ptr bool;
-                         flags: Imguibuttonflags_80741018): bool {.cdecl,
+                         flags: Imguibuttonflags_63963801): bool {.cdecl,
       importc: "igButtonBehavior".}
 else:
   static :
     hint("Declaration of " & "igbuttonbehavior" &
         " already exists, not redeclaring")
 when not declared(igdragbehavior):
-  proc igdragbehavior*(id: Imguiid_80741064; datatype: Imguidatatype_80740996;
+  proc igdragbehavior*(id: Imguiid_63963847; datatype: Imguidatatype_63963779;
                        pv: pointer; vspeed: cfloat; pmin: pointer;
-                       pmax: pointer; format: cstring; flags: Imguisliderflags_80741042): bool {.
+                       pmax: pointer; format: cstring; flags: Imguisliderflags_63963825): bool {.
       cdecl, importc: "igDragBehavior".}
 else:
   static :
     hint("Declaration of " & "igdragbehavior" &
         " already exists, not redeclaring")
 when not declared(igsliderbehavior):
-  proc igsliderbehavior*(bb: Imrect_80740850; id: Imguiid_80741064;
-                         datatype: Imguidatatype_80740996; pv: pointer;
+  proc igsliderbehavior*(bb: Imrect_63963633; id: Imguiid_63963847;
+                         datatype: Imguidatatype_63963779; pv: pointer;
                          pmin: pointer; pmax: pointer; format: cstring;
-                         flags: Imguisliderflags_80741042; outgrabbb: ptr Imrect_80740850): bool {.
+                         flags: Imguisliderflags_63963825; outgrabbb: ptr Imrect_63963633): bool {.
       cdecl, importc: "igSliderBehavior".}
 else:
   static :
     hint("Declaration of " & "igsliderbehavior" &
         " already exists, not redeclaring")
 when not declared(igsplitterbehavior):
-  proc igsplitterbehavior*(bb: Imrect_80740850; id: Imguiid_80741064;
-                           axis: Imguiaxis_80741372; size1: ptr cfloat;
+  proc igsplitterbehavior*(bb: Imrect_63963633; id: Imguiid_63963847;
+                           axis: Imguiaxis_63964155; size1: ptr cfloat;
                            size2: ptr cfloat; minsize1: cfloat;
                            minsize2: cfloat; hoverextend: cfloat;
-                           hovervisibilitydelay: cfloat; bgcol: Imu32_80741076): bool {.
+                           hovervisibilitydelay: cfloat; bgcol: Imu32_63963859): bool {.
       cdecl, importc: "igSplitterBehavior".}
 else:
   static :
     hint("Declaration of " & "igsplitterbehavior" &
         " already exists, not redeclaring")
 when not declared(igtreenodebehavior):
-  proc igtreenodebehavior*(id: Imguiid_80741064; flags: Imguitreenodeflags_80741054;
+  proc igtreenodebehavior*(id: Imguiid_63963847; flags: Imguitreenodeflags_63963837;
                            label: cstring; labelend: cstring): bool {.cdecl,
       importc: "igTreeNodeBehavior".}
 else:
@@ -17288,28 +17288,28 @@ else:
     hint("Declaration of " & "igtreenodebehavior" &
         " already exists, not redeclaring")
 when not declared(igtreepushoverrideid):
-  proc igtreepushoverrideid*(id: Imguiid_80741064): void {.cdecl,
+  proc igtreepushoverrideid*(id: Imguiid_63963847): void {.cdecl,
       importc: "igTreePushOverrideID".}
 else:
   static :
     hint("Declaration of " & "igtreepushoverrideid" &
         " already exists, not redeclaring")
 when not declared(igtreenodesetopen):
-  proc igtreenodesetopen*(id: Imguiid_80741064; open: bool): void {.cdecl,
+  proc igtreenodesetopen*(id: Imguiid_63963847; open: bool): void {.cdecl,
       importc: "igTreeNodeSetOpen".}
 else:
   static :
     hint("Declaration of " & "igtreenodesetopen" &
         " already exists, not redeclaring")
 when not declared(igtreenodeupdatenextopen):
-  proc igtreenodeupdatenextopen*(id: Imguiid_80741064; flags: Imguitreenodeflags_80741054): bool {.
+  proc igtreenodeupdatenextopen*(id: Imguiid_63963847; flags: Imguitreenodeflags_63963837): bool {.
       cdecl, importc: "igTreeNodeUpdateNextOpen".}
 else:
   static :
     hint("Declaration of " & "igtreenodeupdatenextopen" &
         " already exists, not redeclaring")
 when not declared(igdatatypegetinfo):
-  proc igdatatypegetinfo*(datatype: Imguidatatype_80740996): ptr Imguidatatypeinfo_80740870 {.
+  proc igdatatypegetinfo*(datatype: Imguidatatype_63963779): ptr Imguidatatypeinfo_63963653 {.
       cdecl, importc: "igDataTypeGetInfo".}
 else:
   static :
@@ -17317,7 +17317,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igdatatypeformatstring):
   proc igdatatypeformatstring*(buf: cstring; bufsize: cint;
-                               datatype: Imguidatatype_80740996; pdata: pointer;
+                               datatype: Imguidatatype_63963779; pdata: pointer;
                                format: cstring): cint {.cdecl,
       importc: "igDataTypeFormatString".}
 else:
@@ -17325,7 +17325,7 @@ else:
     hint("Declaration of " & "igdatatypeformatstring" &
         " already exists, not redeclaring")
 when not declared(igdatatypeapplyop):
-  proc igdatatypeapplyop*(datatype: Imguidatatype_80740996; op: cint;
+  proc igdatatypeapplyop*(datatype: Imguidatatype_63963779; op: cint;
                           output: pointer; arg1: pointer; arg2: pointer): void {.
       cdecl, importc: "igDataTypeApplyOp".}
 else:
@@ -17333,7 +17333,7 @@ else:
     hint("Declaration of " & "igdatatypeapplyop" &
         " already exists, not redeclaring")
 when not declared(igdatatypeapplyfromtext):
-  proc igdatatypeapplyfromtext*(buf: cstring; datatype: Imguidatatype_80740996;
+  proc igdatatypeapplyfromtext*(buf: cstring; datatype: Imguidatatype_63963779;
                                 pdata: pointer; format: cstring): bool {.cdecl,
       importc: "igDataTypeApplyFromText".}
 else:
@@ -17341,7 +17341,7 @@ else:
     hint("Declaration of " & "igdatatypeapplyfromtext" &
         " already exists, not redeclaring")
 when not declared(igdatatypecompare):
-  proc igdatatypecompare*(datatype: Imguidatatype_80740996; arg1: pointer;
+  proc igdatatypecompare*(datatype: Imguidatatype_63963779; arg1: pointer;
                           arg2: pointer): cint {.cdecl,
       importc: "igDataTypeCompare".}
 else:
@@ -17349,7 +17349,7 @@ else:
     hint("Declaration of " & "igdatatypecompare" &
         " already exists, not redeclaring")
 when not declared(igdatatypeclamp):
-  proc igdatatypeclamp*(datatype: Imguidatatype_80740996; pdata: pointer;
+  proc igdatatypeclamp*(datatype: Imguidatatype_63963779; pdata: pointer;
                         pmin: pointer; pmax: pointer): bool {.cdecl,
       importc: "igDataTypeClamp".}
 else:
@@ -17358,26 +17358,26 @@ else:
         " already exists, not redeclaring")
 when not declared(iginputtextex):
   proc iginputtextex*(label: cstring; hint: cstring; buf: cstring;
-                      bufsize: cint; sizearg: Imvec2_80741096;
-                      flags: Imguiinputtextflags_80741034;
-                      callback: Imguiinputtextcallback_80741088;
+                      bufsize: cint; sizearg: Imvec2_63963879;
+                      flags: Imguiinputtextflags_63963817;
+                      callback: Imguiinputtextcallback_63963871;
                       userdata: pointer): bool {.cdecl, importc: "igInputTextEx".}
 else:
   static :
     hint("Declaration of " & "iginputtextex" &
         " already exists, not redeclaring")
 when not declared(igtempinputtext):
-  proc igtempinputtext*(bb: Imrect_80740850; id: Imguiid_80741064;
+  proc igtempinputtext*(bb: Imrect_63963633; id: Imguiid_63963847;
                         label: cstring; buf: cstring; bufsize: cint;
-                        flags: Imguiinputtextflags_80741034): bool {.cdecl,
+                        flags: Imguiinputtextflags_63963817): bool {.cdecl,
       importc: "igTempInputText".}
 else:
   static :
     hint("Declaration of " & "igtempinputtext" &
         " already exists, not redeclaring")
 when not declared(igtempinputscalar):
-  proc igtempinputscalar*(bb: Imrect_80740850; id: Imguiid_80741064;
-                          label: cstring; datatype: Imguidatatype_80740996;
+  proc igtempinputscalar*(bb: Imrect_63963633; id: Imguiid_63963847;
+                          label: cstring; datatype: Imguidatatype_63963779;
                           pdata: pointer; format: cstring; pclampmin: pointer;
                           pclampmax: pointer): bool {.cdecl,
       importc: "igTempInputScalar".}
@@ -17386,14 +17386,14 @@ else:
     hint("Declaration of " & "igtempinputscalar" &
         " already exists, not redeclaring")
 when not declared(igtempinputisactive):
-  proc igtempinputisactive*(id: Imguiid_80741064): bool {.cdecl,
+  proc igtempinputisactive*(id: Imguiid_63963847): bool {.cdecl,
       importc: "igTempInputIsActive".}
 else:
   static :
     hint("Declaration of " & "igtempinputisactive" &
         " already exists, not redeclaring")
 when not declared(iggetinputtextstate):
-  proc iggetinputtextstate*(id: Imguiid_80741064): ptr Imguiinputtextstate_80740890 {.
+  proc iggetinputtextstate*(id: Imguiid_63963847): ptr Imguiinputtextstate_63963673 {.
       cdecl, importc: "igGetInputTextState".}
 else:
   static :
@@ -17401,49 +17401,49 @@ else:
         " already exists, not redeclaring")
 when not declared(igcolortooltip):
   proc igcolortooltip*(text: cstring; col: ptr cfloat;
-                       flags: Imguicoloreditflags_80741020): void {.cdecl,
+                       flags: Imguicoloreditflags_63963803): void {.cdecl,
       importc: "igColorTooltip".}
 else:
   static :
     hint("Declaration of " & "igcolortooltip" &
         " already exists, not redeclaring")
 when not declared(igcoloreditoptionspopup):
-  proc igcoloreditoptionspopup*(col: ptr cfloat; flags: Imguicoloreditflags_80741020): void {.
+  proc igcoloreditoptionspopup*(col: ptr cfloat; flags: Imguicoloreditflags_63963803): void {.
       cdecl, importc: "igColorEditOptionsPopup".}
 else:
   static :
     hint("Declaration of " & "igcoloreditoptionspopup" &
         " already exists, not redeclaring")
 when not declared(igcolorpickeroptionspopup):
-  proc igcolorpickeroptionspopup*(refcol: ptr cfloat; flags: Imguicoloreditflags_80741020): void {.
+  proc igcolorpickeroptionspopup*(refcol: ptr cfloat; flags: Imguicoloreditflags_63963803): void {.
       cdecl, importc: "igColorPickerOptionsPopup".}
 else:
   static :
     hint("Declaration of " & "igcolorpickeroptionspopup" &
         " already exists, not redeclaring")
 when not declared(igplotex):
-  proc igplotex*(plottype: Imguiplottype_80741374; label: cstring;
+  proc igplotex*(plottype: Imguiplottype_63964157; label: cstring;
                  valuesgetter: proc (a0: pointer; a1: cint): cfloat {.cdecl.};
                  data: pointer; valuescount: cint; valuesoffset: cint;
                  overlaytext: cstring; scalemin: cfloat; scalemax: cfloat;
-                 sizearg: Imvec2_80741096): cint {.cdecl, importc: "igPlotEx".}
+                 sizearg: Imvec2_63963879): cint {.cdecl, importc: "igPlotEx".}
 else:
   static :
     hint("Declaration of " & "igplotex" & " already exists, not redeclaring")
 when not declared(igshadevertslinearcolorgradientkeepalpha):
-  proc igshadevertslinearcolorgradientkeepalpha*(drawlist: ptr Imdrawlist_80740719;
-      vertstartidx: cint; vertendidx: cint; gradientp0: Imvec2_80741096;
-      gradientp1: Imvec2_80741096; col0: Imu32_80741076; col1: Imu32_80741076): void {.
+  proc igshadevertslinearcolorgradientkeepalpha*(drawlist: ptr Imdrawlist_63963502;
+      vertstartidx: cint; vertendidx: cint; gradientp0: Imvec2_63963879;
+      gradientp1: Imvec2_63963879; col0: Imu32_63963859; col1: Imu32_63963859): void {.
       cdecl, importc: "igShadeVertsLinearColorGradientKeepAlpha".}
 else:
   static :
     hint("Declaration of " & "igshadevertslinearcolorgradientkeepalpha" &
         " already exists, not redeclaring")
 when not declared(igshadevertslinearuv):
-  proc igshadevertslinearuv*(drawlist: ptr Imdrawlist_80740719;
-                             vertstartidx: cint; vertendidx: cint; a: Imvec2_80741096;
-                             b: Imvec2_80741096; uva: Imvec2_80741096;
-                             uvb: Imvec2_80741096; clamp: bool): void {.cdecl,
+  proc igshadevertslinearuv*(drawlist: ptr Imdrawlist_63963502;
+                             vertstartidx: cint; vertendidx: cint; a: Imvec2_63963879;
+                             b: Imvec2_63963879; uva: Imvec2_63963879;
+                             uvb: Imvec2_63963879; clamp: bool): void {.cdecl,
       importc: "igShadeVertsLinearUV".}
 else:
   static :
@@ -17457,14 +17457,14 @@ else:
     hint("Declaration of " & "iggccompacttransientmiscbuffers" &
         " already exists, not redeclaring")
 when not declared(iggccompacttransientwindowbuffers):
-  proc iggccompacttransientwindowbuffers*(window: ptr Imguiwindow_80740976): void {.
+  proc iggccompacttransientwindowbuffers*(window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igGcCompactTransientWindowBuffers".}
 else:
   static :
     hint("Declaration of " & "iggccompacttransientwindowbuffers" &
         " already exists, not redeclaring")
 when not declared(iggcawaketransientwindowbuffers):
-  proc iggcawaketransientwindowbuffers*(window: ptr Imguiwindow_80740976): void {.
+  proc iggcawaketransientwindowbuffers*(window: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igGcAwakeTransientWindowBuffers".}
 else:
   static :
@@ -17481,7 +17481,7 @@ else:
   static :
     hint("Declaration of " & "igdebuglogv" & " already exists, not redeclaring")
 when not declared(igerrorcheckendframerecover):
-  proc igerrorcheckendframerecover*(logcallback: Imguierrorlogcallback_80741300;
+  proc igerrorcheckendframerecover*(logcallback: Imguierrorlogcallback_63964083;
                                     userdata: pointer): void {.cdecl,
       importc: "igErrorCheckEndFrameRecover".}
 else:
@@ -17489,7 +17489,7 @@ else:
     hint("Declaration of " & "igerrorcheckendframerecover" &
         " already exists, not redeclaring")
 when not declared(igerrorcheckendwindowrecover):
-  proc igerrorcheckendwindowrecover*(logcallback: Imguierrorlogcallback_80741300;
+  proc igerrorcheckendwindowrecover*(logcallback: Imguierrorlogcallback_63964083;
                                      userdata: pointer): void {.cdecl,
       importc: "igErrorCheckEndWindowRecover".}
 else:
@@ -17505,14 +17505,14 @@ else:
         "igerrorcheckusingsetcursorpostoextendparentboundaries" &
         " already exists, not redeclaring")
 when not declared(igdebuglocateitem):
-  proc igdebuglocateitem*(targetid: Imguiid_80741064): void {.cdecl,
+  proc igdebuglocateitem*(targetid: Imguiid_63963847): void {.cdecl,
       importc: "igDebugLocateItem".}
 else:
   static :
     hint("Declaration of " & "igdebuglocateitem" &
         " already exists, not redeclaring")
 when not declared(igdebuglocateitemonhover):
-  proc igdebuglocateitemonhover*(targetid: Imguiid_80741064): void {.cdecl,
+  proc igdebuglocateitemonhover*(targetid: Imguiid_63963847): void {.cdecl,
       importc: "igDebugLocateItemOnHover".}
 else:
   static :
@@ -17526,7 +17526,7 @@ else:
     hint("Declaration of " & "igdebuglocateitemresolvewithlastitem" &
         " already exists, not redeclaring")
 when not declared(igdebugdrawitemrect):
-  proc igdebugdrawitemrect*(col: Imu32_80741076): void {.cdecl,
+  proc igdebugdrawitemrect*(col: Imu32_63963859): void {.cdecl,
       importc: "igDebugDrawItemRect".}
 else:
   static :
@@ -17540,14 +17540,14 @@ else:
     hint("Declaration of " & "igdebugstartitempicker" &
         " already exists, not redeclaring")
 when not declared(igshowfontatlas):
-  proc igshowfontatlas*(atlas: ptr Imfontatlas_80740739): void {.cdecl,
+  proc igshowfontatlas*(atlas: ptr Imfontatlas_63963522): void {.cdecl,
       importc: "igShowFontAtlas".}
 else:
   static :
     hint("Declaration of " & "igshowfontatlas" &
         " already exists, not redeclaring")
 when not declared(igdebughookidinfo):
-  proc igdebughookidinfo*(id: Imguiid_80741064; datatype: Imguidatatype_80740996;
+  proc igdebughookidinfo*(id: Imguiid_63963847; datatype: Imguidatatype_63963779;
                           dataid: pointer; dataidend: pointer): void {.cdecl,
       importc: "igDebugHookIdInfo".}
 else:
@@ -17555,31 +17555,31 @@ else:
     hint("Declaration of " & "igdebughookidinfo" &
         " already exists, not redeclaring")
 when not declared(igdebugnodecolumns):
-  proc igdebugnodecolumns*(columns: ptr Imguioldcolumns_80740926): void {.cdecl,
+  proc igdebugnodecolumns*(columns: ptr Imguioldcolumns_63963709): void {.cdecl,
       importc: "igDebugNodeColumns".}
 else:
   static :
     hint("Declaration of " & "igdebugnodecolumns" &
         " already exists, not redeclaring")
 when not declared(igdebugnodedocknode):
-  proc igdebugnodedocknode*(node: ptr Imguidocknode_80740880; label: cstring): void {.
+  proc igdebugnodedocknode*(node: ptr Imguidocknode_63963663; label: cstring): void {.
       cdecl, importc: "igDebugNodeDockNode".}
 else:
   static :
     hint("Declaration of " & "igdebugnodedocknode" &
         " already exists, not redeclaring")
 when not declared(igdebugnodedrawlist):
-  proc igdebugnodedrawlist*(window: ptr Imguiwindow_80740976;
-                            viewport: ptr Imguiviewportp_80741518;
-                            drawlist: ptr Imdrawlist_80740719; label: cstring): void {.
+  proc igdebugnodedrawlist*(window: ptr Imguiwindow_63963759;
+                            viewport: ptr Imguiviewportp_63964301;
+                            drawlist: ptr Imdrawlist_63963502; label: cstring): void {.
       cdecl, importc: "igDebugNodeDrawList".}
 else:
   static :
     hint("Declaration of " & "igdebugnodedrawlist" &
         " already exists, not redeclaring")
 when not declared(igdebugnodedrawcmdshowmeshandboundingbox):
-  proc igdebugnodedrawcmdshowmeshandboundingbox*(outdrawlist: ptr Imdrawlist_80740719;
-      drawlist: ptr Imdrawlist_80740719; drawcmd: ptr Imdrawcmd_80740711;
+  proc igdebugnodedrawcmdshowmeshandboundingbox*(outdrawlist: ptr Imdrawlist_63963502;
+      drawlist: ptr Imdrawlist_63963502; drawcmd: ptr Imdrawcmd_63963494;
       showmesh: bool; showaabb: bool): void {.cdecl,
       importc: "igDebugNodeDrawCmdShowMeshAndBoundingBox".}
 else:
@@ -17587,70 +17587,70 @@ else:
     hint("Declaration of " & "igdebugnodedrawcmdshowmeshandboundingbox" &
         " already exists, not redeclaring")
 when not declared(igdebugnodefont):
-  proc igdebugnodefont*(font: ptr Imfont_80740735): void {.cdecl,
+  proc igdebugnodefont*(font: ptr Imfont_63963518): void {.cdecl,
       importc: "igDebugNodeFont".}
 else:
   static :
     hint("Declaration of " & "igdebugnodefont" &
         " already exists, not redeclaring")
 when not declared(igdebugnodefontglyph):
-  proc igdebugnodefontglyph*(font: ptr Imfont_80740735; glyph: ptr Imfontglyph_80740751): void {.
+  proc igdebugnodefontglyph*(font: ptr Imfont_63963518; glyph: ptr Imfontglyph_63963534): void {.
       cdecl, importc: "igDebugNodeFontGlyph".}
 else:
   static :
     hint("Declaration of " & "igdebugnodefontglyph" &
         " already exists, not redeclaring")
 when not declared(igdebugnodestorage):
-  proc igdebugnodestorage*(storage: ptr Imguistorage_80740814; label: cstring): void {.
+  proc igdebugnodestorage*(storage: ptr Imguistorage_63963597; label: cstring): void {.
       cdecl, importc: "igDebugNodeStorage".}
 else:
   static :
     hint("Declaration of " & "igdebugnodestorage" &
         " already exists, not redeclaring")
 when not declared(igdebugnodetabbar):
-  proc igdebugnodetabbar*(tabbar: ptr Imguitabbar_80740946; label: cstring): void {.
+  proc igdebugnodetabbar*(tabbar: ptr Imguitabbar_63963729; label: cstring): void {.
       cdecl, importc: "igDebugNodeTabBar".}
 else:
   static :
     hint("Declaration of " & "igdebugnodetabbar" &
         " already exists, not redeclaring")
 when not declared(igdebugnodetable):
-  proc igdebugnodetable*(table: ptr Imguitable_80740954): void {.cdecl,
+  proc igdebugnodetable*(table: ptr Imguitable_63963737): void {.cdecl,
       importc: "igDebugNodeTable".}
 else:
   static :
     hint("Declaration of " & "igdebugnodetable" &
         " already exists, not redeclaring")
 when not declared(igdebugnodetablesettings):
-  proc igdebugnodetablesettings*(settings: ptr Imguitablesettings_80740970): void {.
+  proc igdebugnodetablesettings*(settings: ptr Imguitablesettings_63963753): void {.
       cdecl, importc: "igDebugNodeTableSettings".}
 else:
   static :
     hint("Declaration of " & "igdebugnodetablesettings" &
         " already exists, not redeclaring")
 when not declared(igdebugnodeinputtextstate):
-  proc igdebugnodeinputtextstate*(state: ptr Imguiinputtextstate_80740890): void {.
+  proc igdebugnodeinputtextstate*(state: ptr Imguiinputtextstate_63963673): void {.
       cdecl, importc: "igDebugNodeInputTextState".}
 else:
   static :
     hint("Declaration of " & "igdebugnodeinputtextstate" &
         " already exists, not redeclaring")
 when not declared(igdebugnodewindow):
-  proc igdebugnodewindow*(window: ptr Imguiwindow_80740976; label: cstring): void {.
+  proc igdebugnodewindow*(window: ptr Imguiwindow_63963759; label: cstring): void {.
       cdecl, importc: "igDebugNodeWindow".}
 else:
   static :
     hint("Declaration of " & "igdebugnodewindow" &
         " already exists, not redeclaring")
 when not declared(igdebugnodewindowsettings):
-  proc igdebugnodewindowsettings*(settings: ptr Imguiwindowsettings_80740984): void {.
+  proc igdebugnodewindowsettings*(settings: ptr Imguiwindowsettings_63963767): void {.
       cdecl, importc: "igDebugNodeWindowSettings".}
 else:
   static :
     hint("Declaration of " & "igdebugnodewindowsettings" &
         " already exists, not redeclaring")
 when not declared(igdebugnodewindowslist):
-  proc igdebugnodewindowslist*(windows: ptr Imvectorimguiwindowptr_80741502;
+  proc igdebugnodewindowslist*(windows: ptr Imvectorimguiwindowptr_63964285;
                                label: cstring): void {.cdecl,
       importc: "igDebugNodeWindowsList".}
 else:
@@ -17658,61 +17658,61 @@ else:
     hint("Declaration of " & "igdebugnodewindowslist" &
         " already exists, not redeclaring")
 when not declared(igdebugnodewindowslistbybeginstackparent):
-  proc igdebugnodewindowslistbybeginstackparent*(windows: ptr ptr Imguiwindow_80740976;
-      windowssize: cint; parentinbeginstack: ptr Imguiwindow_80740976): void {.
+  proc igdebugnodewindowslistbybeginstackparent*(windows: ptr ptr Imguiwindow_63963759;
+      windowssize: cint; parentinbeginstack: ptr Imguiwindow_63963759): void {.
       cdecl, importc: "igDebugNodeWindowsListByBeginStackParent".}
 else:
   static :
     hint("Declaration of " & "igdebugnodewindowslistbybeginstackparent" &
         " already exists, not redeclaring")
 when not declared(igdebugnodeviewport):
-  proc igdebugnodeviewport*(viewport: ptr Imguiviewportp_80741518): void {.
+  proc igdebugnodeviewport*(viewport: ptr Imguiviewportp_63964301): void {.
       cdecl, importc: "igDebugNodeViewport".}
 else:
   static :
     hint("Declaration of " & "igdebugnodeviewport" &
         " already exists, not redeclaring")
 when not declared(igdebugrenderkeyboardpreview):
-  proc igdebugrenderkeyboardpreview*(drawlist: ptr Imdrawlist_80740719): void {.
+  proc igdebugrenderkeyboardpreview*(drawlist: ptr Imdrawlist_63963502): void {.
       cdecl, importc: "igDebugRenderKeyboardPreview".}
 else:
   static :
     hint("Declaration of " & "igdebugrenderkeyboardpreview" &
         " already exists, not redeclaring")
 when not declared(igdebugrenderviewportthumbnail):
-  proc igdebugrenderviewportthumbnail*(drawlist: ptr Imdrawlist_80740719;
-                                       viewport: ptr Imguiviewportp_80741518;
-                                       bb: Imrect_80740850): void {.cdecl,
+  proc igdebugrenderviewportthumbnail*(drawlist: ptr Imdrawlist_63963502;
+                                       viewport: ptr Imguiviewportp_63964301;
+                                       bb: Imrect_63963633): void {.cdecl,
       importc: "igDebugRenderViewportThumbnail".}
 else:
   static :
     hint("Declaration of " & "igdebugrenderviewportthumbnail" &
         " already exists, not redeclaring")
 when not declared(igiskeypressedmap):
-  proc igiskeypressedmap*(key: Imguikey_80741142; repeat: bool): bool {.cdecl,
+  proc igiskeypressedmap*(key: Imguikey_63963925; repeat: bool): bool {.cdecl,
       importc: "igIsKeyPressedMap".}
 else:
   static :
     hint("Declaration of " & "igiskeypressedmap" &
         " already exists, not redeclaring")
 when not declared(igimfontatlasgetbuilderforstbtruetype):
-  proc igimfontatlasgetbuilderforstbtruetype*(): ptr Imfontbuilderio_80740743 {.
+  proc igimfontatlasgetbuilderforstbtruetype*(): ptr Imfontbuilderio_63963526 {.
       cdecl, importc: "igImFontAtlasGetBuilderForStbTruetype".}
 else:
   static :
     hint("Declaration of " & "igimfontatlasgetbuilderforstbtruetype" &
         " already exists, not redeclaring")
 when not declared(igimfontatlasbuildinit):
-  proc igimfontatlasbuildinit*(atlas: ptr Imfontatlas_80740739): void {.cdecl,
+  proc igimfontatlasbuildinit*(atlas: ptr Imfontatlas_63963522): void {.cdecl,
       importc: "igImFontAtlasBuildInit".}
 else:
   static :
     hint("Declaration of " & "igimfontatlasbuildinit" &
         " already exists, not redeclaring")
 when not declared(igimfontatlasbuildsetupfont):
-  proc igimfontatlasbuildsetupfont*(atlas: ptr Imfontatlas_80740739;
-                                    font: ptr Imfont_80740735;
-                                    fontconfig: ptr Imfontconfig_80740747;
+  proc igimfontatlasbuildsetupfont*(atlas: ptr Imfontatlas_63963522;
+                                    font: ptr Imfont_63963518;
+                                    fontconfig: ptr Imfontconfig_63963530;
                                     ascent: cfloat; descent: cfloat): void {.
       cdecl, importc: "igImFontAtlasBuildSetupFont".}
 else:
@@ -17720,7 +17720,7 @@ else:
     hint("Declaration of " & "igimfontatlasbuildsetupfont" &
         " already exists, not redeclaring")
 when not declared(igimfontatlasbuildpackcustomrects):
-  proc igimfontatlasbuildpackcustomrects*(atlas: ptr Imfontatlas_80740739;
+  proc igimfontatlasbuildpackcustomrects*(atlas: ptr Imfontatlas_63963522;
       stbrpcontextopaque: pointer): void {.cdecl,
       importc: "igImFontAtlasBuildPackCustomRects".}
 else:
@@ -17728,14 +17728,14 @@ else:
     hint("Declaration of " & "igimfontatlasbuildpackcustomrects" &
         " already exists, not redeclaring")
 when not declared(igimfontatlasbuildfinish):
-  proc igimfontatlasbuildfinish*(atlas: ptr Imfontatlas_80740739): void {.cdecl,
+  proc igimfontatlasbuildfinish*(atlas: ptr Imfontatlas_63963522): void {.cdecl,
       importc: "igImFontAtlasBuildFinish".}
 else:
   static :
     hint("Declaration of " & "igimfontatlasbuildfinish" &
         " already exists, not redeclaring")
 when not declared(igimfontatlasbuildrender8bpprectfromstring):
-  proc igimfontatlasbuildrender8bpprectfromstring*(atlas: ptr Imfontatlas_80740739;
+  proc igimfontatlasbuildrender8bpprectfromstring*(atlas: ptr Imfontatlas_63963522;
       x: cint; y: cint; w: cint; h: cint; instr: cstring; inmarkerchar: cschar;
       inmarkerpixelvalue: uint8): void {.cdecl,
       importc: "igImFontAtlasBuildRender8bppRectFromString".}
@@ -17744,7 +17744,7 @@ else:
     hint("Declaration of " & "igimfontatlasbuildrender8bpprectfromstring" &
         " already exists, not redeclaring")
 when not declared(igimfontatlasbuildrender32bpprectfromstring):
-  proc igimfontatlasbuildrender32bpprectfromstring*(atlas: ptr Imfontatlas_80740739;
+  proc igimfontatlasbuildrender32bpprectfromstring*(atlas: ptr Imfontatlas_63963522;
       x: cint; y: cint; w: cint; h: cint; instr: cstring; inmarkerchar: cschar;
       inmarkerpixelvalue: cuint): void {.cdecl,
       importc: "igImFontAtlasBuildRender32bppRectFromString".}
@@ -17774,7 +17774,7 @@ else:
   static :
     hint("Declaration of " & "iglogtext" & " already exists, not redeclaring")
 when not declared(Imguitextbufferappendf):
-  proc Imguitextbufferappendf*(buffer: ptr structimguitextbuffer_80740832;
+  proc Imguitextbufferappendf*(buffer: ptr structimguitextbuffer_63963615;
                                fmt: cstring): void {.cdecl, varargs,
       importc: "ImGuiTextBuffer_appendf".}
 else:
@@ -17792,28 +17792,28 @@ else:
   static :
     hint("Declaration of " & "iggetfltmin" & " already exists, not redeclaring")
 when not declared(Imvectorimwcharcreate):
-  proc Imvectorimwcharcreate*(): ptr Imvectorimwchar_80741168 {.cdecl,
+  proc Imvectorimwcharcreate*(): ptr Imvectorimwchar_63963951 {.cdecl,
       importc: "ImVector_ImWchar_create".}
 else:
   static :
     hint("Declaration of " & "Imvectorimwcharcreate" &
         " already exists, not redeclaring")
 when not declared(Imvectorimwchardestroy):
-  proc Imvectorimwchardestroy*(self: ptr Imvectorimwchar_80741168): void {.
+  proc Imvectorimwchardestroy*(self: ptr Imvectorimwchar_63963951): void {.
       cdecl, importc: "ImVector_ImWchar_destroy".}
 else:
   static :
     hint("Declaration of " & "Imvectorimwchardestroy" &
         " already exists, not redeclaring")
 when not declared(Imvectorimwcharinit):
-  proc Imvectorimwcharinit*(p: ptr Imvectorimwchar_80741168): void {.cdecl,
+  proc Imvectorimwcharinit*(p: ptr Imvectorimwchar_63963951): void {.cdecl,
       importc: "ImVector_ImWchar_Init".}
 else:
   static :
     hint("Declaration of " & "Imvectorimwcharinit" &
         " already exists, not redeclaring")
 when not declared(Imvectorimwcharuninit):
-  proc Imvectorimwcharuninit*(p: ptr Imvectorimwchar_80741168): void {.cdecl,
+  proc Imvectorimwcharuninit*(p: ptr Imvectorimwchar_63963951): void {.cdecl,
       importc: "ImVector_ImWchar_UnInit".}
 else:
   static :
@@ -17841,7 +17841,7 @@ else:
     hint("Declaration of " & "Imguiimplopengl3newframe" &
         " already exists, not redeclaring")
 when not declared(Imguiimplopengl3renderdrawdata):
-  proc Imguiimplopengl3renderdrawdata*(drawdata: ptr Imdrawdata_80740715): void {.
+  proc Imguiimplopengl3renderdrawdata*(drawdata: ptr Imdrawdata_63963498): void {.
       cdecl, importc: "ImGui_ImplOpenGL3_RenderDrawData".}
 else:
   static :
@@ -17876,7 +17876,7 @@ else:
     hint("Declaration of " & "Imguiimplopengl3destroydeviceobjects" &
         " already exists, not redeclaring")
 when not declared(Imguiimplsdl2initforopengl):
-  proc Imguiimplsdl2initforopengl*(window: ptr Sdlwindow_80741674;
+  proc Imguiimplsdl2initforopengl*(window: ptr Sdlwindow_63964457;
                                    sdlglcontext: pointer): bool {.cdecl,
       importc: "ImGui_ImplSDL2_InitForOpenGL".}
 else:
@@ -17884,29 +17884,29 @@ else:
     hint("Declaration of " & "Imguiimplsdl2initforopengl" &
         " already exists, not redeclaring")
 when not declared(Imguiimplsdl2initforvulkan):
-  proc Imguiimplsdl2initforvulkan*(window: ptr Sdlwindow_80741674): bool {.
+  proc Imguiimplsdl2initforvulkan*(window: ptr Sdlwindow_63964457): bool {.
       cdecl, importc: "ImGui_ImplSDL2_InitForVulkan".}
 else:
   static :
     hint("Declaration of " & "Imguiimplsdl2initforvulkan" &
         " already exists, not redeclaring")
 when not declared(Imguiimplsdl2initford3d):
-  proc Imguiimplsdl2initford3d*(window: ptr Sdlwindow_80741674): bool {.cdecl,
+  proc Imguiimplsdl2initford3d*(window: ptr Sdlwindow_63964457): bool {.cdecl,
       importc: "ImGui_ImplSDL2_InitForD3D".}
 else:
   static :
     hint("Declaration of " & "Imguiimplsdl2initford3d" &
         " already exists, not redeclaring")
 when not declared(Imguiimplsdl2initformetal):
-  proc Imguiimplsdl2initformetal*(window: ptr Sdlwindow_80741674): bool {.cdecl,
+  proc Imguiimplsdl2initformetal*(window: ptr Sdlwindow_63964457): bool {.cdecl,
       importc: "ImGui_ImplSDL2_InitForMetal".}
 else:
   static :
     hint("Declaration of " & "Imguiimplsdl2initformetal" &
         " already exists, not redeclaring")
 when not declared(Imguiimplsdl2initforsdlrenderer):
-  proc Imguiimplsdl2initforsdlrenderer*(window: ptr Sdlwindow_80741674;
-                                        renderer: ptr Sdlrenderer_80741676): bool {.
+  proc Imguiimplsdl2initforsdlrenderer*(window: ptr Sdlwindow_63964457;
+                                        renderer: ptr Sdlrenderer_63964459): bool {.
       cdecl, importc: "ImGui_ImplSDL2_InitForSDLRenderer".}
 else:
   static :
@@ -17927,7 +17927,7 @@ else:
     hint("Declaration of " & "Imguiimplsdl2newframe" &
         " already exists, not redeclaring")
 when not declared(Imguiimplsdl2processevent):
-  proc Imguiimplsdl2processevent*(event: ptr Sdlevent_80741678): bool {.cdecl,
+  proc Imguiimplsdl2processevent*(event: ptr Sdlevent_63964461): bool {.cdecl,
       importc: "ImGui_ImplSDL2_ProcessEvent".}
 else:
   static :

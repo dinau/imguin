@@ -2,7 +2,7 @@ import std/[strutils]
 import glfw
 import glad/gl
 
-import imguin/glfw_opengl
+import imguin/[glfw_opengl]
 include ../utils/setupFonts
 
 proc main() =
@@ -12,7 +12,7 @@ proc main() =
   const glsl_version = "#version 130" # GL 3.2 + GLSL 130
 
   var cfg = DefaultOpenglWindowConfig
-  cfg.size = (w: 1024, h: 768)
+  cfg.size = (w: 1024, h: 800)
   cfg.title = "Simple example"
   cfg.resizable = true
   cfg.version = glv33
@@ -34,7 +34,7 @@ proc main() =
   # Check opengl version
   echo "OpenGL Version: $#" % [$cast[cstring](glGetString(GL_VERSION))]
 
-  # setup imgui
+  # setup ImGui
   igCreateContext(nil)
 
   var pio = igGetIO()
@@ -42,13 +42,14 @@ proc main() =
   doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr GlfwWindow](window.getHandle), true)
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
 
-  var showDemoWindow = true
-  var showAnotherWindow = false
-  let clearColor = ImVec4(x: 0.45, y: 0.55, z: 0.60, w: 1.00)
-
-  var fval = 0.5f
-  var counter = 0
-  let col: array[3, cfloat] = [0.45f, 0.55f, 0.60f]
+  var
+    showDemoWindow = true
+    showAnotherWindow = false
+    fval = 0.5f
+    counter = 0
+  let
+    clearColor = ImVec4(x: 0.45, y: 0.55, z: 0.60, w: 1.00)
+    col: array[3, cfloat] = [0.45f, 0.55f, 0.60f]
 
   # Add multibytes font
   var (fExistMultbytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
@@ -85,7 +86,6 @@ proc main() =
       igBegin("imgui Another Window", addr showAnotherWindow, 0)
       igText("Hello from imgui")
       if igButton("Close me".cstring, ImVec2(x: 0.0f, y: 0.0f)):
-      #if igSmallButton("Close me".cstring):
         showAnotherWindow = false
       igEnd()
 

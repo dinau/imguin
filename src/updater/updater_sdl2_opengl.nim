@@ -4,7 +4,6 @@
 #   $ sudo apt install xorg-dev libopengl-dev ibgl1-mesa-glx libgl1-mesa-dev
 #   $ nim cpp -r -d:danger -d:strip --nimcache:.nimcahce src/nimgl_test.nim
 
-import nimgl/[opengl, glfw]
 import imguin/sdl2_opengl
 #
 echo "[ This is dummy program to make src/imguin/sdl2_opengl_cimguiDefs.nim ]"
