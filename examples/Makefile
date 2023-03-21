@@ -1,6 +1,6 @@
 # For build test
 
-OPTIMIZE ?= # danger  # or rel
+OPTIMIZE ?= # danger  # release dsize rsize
 # make OPTIMIZE=danger  # example
 
 .PHONY: clean

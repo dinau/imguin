@@ -1,6 +1,6 @@
 TARGET = glfw_opengl3_implot
 
-OPT += -d:ImplotEnable
+IMPLOT += -d:ImPlotEnable
 
 include ../makefile.common
 

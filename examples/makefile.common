@@ -3,20 +3,26 @@ ifeq ($(OS),Windows_NT)
 endif
 TARGET_EXE = $(TARGET)$(EXE)
 
-.PHONY: clean run dll ver gitup info danger release futhark
+.PHONY: clean run dll ver gitup info danger release futhark \
+	      dsize rsize release
 
 #OPT += --verbosity:2
 
 all: $(TARGET_EXE)
 
 %$(EXE): %.nim Makefile
-	nim c $(OPT) $(<)
+	nim c $(OPT) $(IMPLOT) $(<)
 
 danger:
-	nim c -d:danger $(OPT) $(TARGET).nim
+	nim c -d:danger $(OPT) $(IMPLOT) $(TARGET).nim
+dsize:
+	nim c -d:danger --opt:size $(OPT) $(IMPLOT) $(TARGET).nim
 
-rel:
-	nim c -d:relese $(OPT) $(TARGET).nim
+release:
+	nim c -d:relese $(OPT) $ $(IMPLOT) (TARGET).nim
+rsize:
+	nim c -d:relese --opt:size $(OPT) $ $(IMPLOT) (TARGET).nim
+
 
 clean:
 	@-rm -fr .nimcache

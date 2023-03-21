@@ -1,4 +1,4 @@
-import std/[strutils,random,sugar,math]
+import std/[strutils,random,sugar]
 import glfw
 import glad/gl
 
@@ -163,7 +163,6 @@ IMPLOT_TMP void PlotLine(const char* label_id
                       , ImPlotLineFlags flags=0
                       , int offset=0
                       , int stride=sizeof(T));
-
 
 // Plots a bar graph. Vertical by default. #bar_size and #shift are in plot units.
 IMPLOT_TMP void PlotBars(const char* label_id
