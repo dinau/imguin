@@ -49,6 +49,7 @@ proc commonOpt() =
   switch "passC", "-ffunction-sections"
   switch "passC", "-fdata-sections"
   switch "passL", "-Wl,--gc-sections"
+  #switch "passL","-Wl,-Map=000.map"
 
 #const NIMCACHE = ".nimcache_" & TC
 switch "nimcache", ".nimcache"

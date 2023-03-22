@@ -8,10 +8,8 @@ TARGET_EXE = $(TARGET)$(EXE)
 
 #OPT += --verbosity:2
 
-all: $(TARGET_EXE)
-
-%$(EXE): %.nim Makefile
-	nim c $(OPT) $(IMPLOT) $(<)
+all:
+	nim c $(OPT) $(IMPLOT) $(TARGET)
 
 danger:
 	nim c -d:danger $(OPT) $(IMPLOT) $(TARGET).nim

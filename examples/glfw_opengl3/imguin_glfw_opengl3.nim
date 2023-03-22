@@ -47,6 +47,7 @@ proc main() =
     showAnotherWindow = false
     fval = 0.5f
     counter = 0
+    sBuf{.global.}:string  = newString(200)
   let
     clearColor = ImVec4(x: 0.45, y: 0.55, z: 0.60, w: 1.00)
     col: array[3, cfloat] = [0.45f, 0.55f, 0.60f]
@@ -69,6 +70,7 @@ proc main() =
     block:
       igBegin("Nim: Dear ImGui test with Futhark", nil, 0)
       igText("This is some useful text")
+      igInputTextWithHint("InputText" ,"Input text here" ,sBuf.cstring ,sBuf.len.csize_t ,0.ImguiInputTextFlags,nil,nil)
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)

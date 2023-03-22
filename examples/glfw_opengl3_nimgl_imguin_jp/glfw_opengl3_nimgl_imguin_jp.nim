@@ -23,6 +23,8 @@ var
   sActiveFontName, sActiveFontTitle: string
   fExistMultbytesFonts = false
 
+
+
 # Forward definition
 proc winMain(hWin: glfw.GLFWWindow)
 proc startSimpleWindow()
@@ -73,7 +75,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
   igStyleColorsDark(nil) # ダーク系1
   #igStyleColorsClassic(nil) # ダーク系2
   #igStyleColorsCherry(nil)  # ダーク系3
-  #
+
   # 日本語フォントを追加
   (fExistMultbytesFonts,sActiveFontName, sActiveFontTitle) = setupFonts()
   # メインループ
@@ -111,14 +113,16 @@ proc startSimpleWindow() =
     somefloat {.global.} = 0.0'f32
     counter {.global.} = 0'i32
     sFnameSelected {.global.}: string
+    sBuf{.global.}:string  = newString(200)
   let pio = igGetIO()
-  #
+
   let sTitle = "[ImGui: v$#](起動時フォント:$# - $#)" % [$igGetVersion(),
       sActiveFontTitle, sActiveFontName]
   igBegin(sTitle.cstring, nil, 0)
   defer: igEnd()
   #
-  igText("これは日本語テキスト")
+  igText("これは日本語表示テスト")
+  igInputTextWithHint("InputText" ,"ここに日本語を入力" ,sBuf.cstring ,sBuf.len.csize_t ,0.ImguiInputTextFlags,nil,nil)
   igCheckbox("デモ・ウインドウ表示", show_demo.addr)
   igSliderFloat("浮動小数", somefloat.addr, 0.0f, 1.0f, "%3f", 0)
   when defined(windows):
@@ -139,3 +143,26 @@ proc startSimpleWindow() =
 # main
 #--------------
 main()
+
+#[
+proc iginputtextwithhint*(label: cstring
+                        ; hint: cstring
+                        ; buf: cstring
+                        ; bufsize: csize_t
+                        ; flags: Imguiinputtextflags_63963833
+                        ; callback: Imguiinputtextcallback_63963887
+                        ; userdata: pointer): bool {.cdecl,
+CIMGUI_API bool igInputTextWithHint(const char* label
+                                   ,const char* hint
+                                   ,char* buf,size_t buf_size
+                                   ,ImGuiInputTextFlags flags
+                                   ,ImGuiInputTextCallback callback
+                                   ,void* user_data);
+IMGUI_API bool InputTextWithHint(const char* label
+                               , const char* hint
+                               , char* buf
+                               , size_t buf_size
+                               , ImGuiInputTextFlags flags = 0
+                               , ImGuiInputTextCallback callback = NULL
+                               , void* user_data = NULL);
+]#

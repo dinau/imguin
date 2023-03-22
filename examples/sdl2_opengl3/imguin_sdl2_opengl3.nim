@@ -68,6 +68,7 @@ proc main() =
     counter = 0
     col: array[3, cfloat] = [0.45f, 0.55f, 0.60f]
     xQuit: bool
+    sBuf = newString(200)
 
   # Add multibyte font
   var (fExistMultbytesFonts, sActiveFontName, sActiveFontTitle) = setupFonts()
@@ -96,6 +97,7 @@ proc main() =
     block:
       igBegin("Nim: Dear ImGui test with Futhark", nil, 0)
       igText("This is some useful text")
+      igInputTextWithHint("InputText" ,"Input text here" ,sBuf.cstring ,sBuf.len.csize_t ,0.ImguiInputTextFlags,nil,nil)
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)
