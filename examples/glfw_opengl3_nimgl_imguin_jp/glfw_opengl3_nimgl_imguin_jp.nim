@@ -4,7 +4,7 @@
 #   $ sudo apt install xorg-dev libopengl-dev ibgl1-mesa-glx libgl1-mesa-dev
 
 import nimgl/[opengl, glfw]
-import imguin/glfw_opengl
+import imguin/[glfw_opengl,utils]
 
 import std/[strutils]
 include ../utils/setupFonts
@@ -22,8 +22,7 @@ var
   glfwWin: glfw.GLFWWindow
   sActiveFontName, sActiveFontTitle: string
   fExistMultbytesFonts = false
-
-
+  clearColor = ccolor(elm:(x:0.45f, y:0.55f, z:0.60f, w:1.0f))
 
 # Forward definition
 proc winMain(hWin: glfw.GLFWWindow)
@@ -96,10 +95,8 @@ proc winMain(hWin: glfw.GLFWWindow) =
     startSimpleWindow() # Simple window start
 
     igRender()
-
-    glClearColor(0.45f, 0.55f, 0.60f, 1.00f) # 背景の色
+    glClearColor(clearColor.elm.x, clearColor.elm.y, clearColor.elm.z, clearColor.elm.w) # 背景の色
     glClear(GL_COLOR_BUFFER_BIT)
-
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
     hWin.swapBuffers()
 
@@ -116,15 +113,16 @@ proc startSimpleWindow() =
     sBuf{.global.}:string  = newString(200)
   let pio = igGetIO()
 
-  let sTitle = "[ImGui: v$#](起動時フォント:$# - $#)" % [$igGetVersion(),
-      sActiveFontTitle, sActiveFontName]
-  igBegin(sTitle.cstring, nil, 0)
+  let sTitle:cstring = "[ImGui: v$#](起動時フォント:$# - $#)" % [$igGetVersion()
+                                                        ,sActiveFontTitle,sActiveFontName]
+  igBegin(sTitle, nil, 0)
   defer: igEnd()
-  #
+
   igText("これは日本語表示テスト")
   igInputTextWithHint("InputText" ,"ここに日本語を入力" ,sBuf.cstring ,sBuf.len.csize_t ,0.ImguiInputTextFlags,nil,nil)
   igCheckbox("デモ・ウインドウ表示", show_demo.addr)
   igSliderFloat("浮動小数", somefloat.addr, 0.0f, 1.0f, "%3f", 0)
+  igColorEdit3("背景色変更", clearColor.array3, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
   when defined(windows):
     if igButton("ファイルを開く", ImVec2(x: 0, y: 0)):
       sFnameSelected = fileDialog(fdOpenFile, path = ".", filename = "*.*",

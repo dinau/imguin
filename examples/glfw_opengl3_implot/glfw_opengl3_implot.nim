@@ -2,7 +2,7 @@ import std/[strutils,random,sugar]
 import glfw
 import glad/gl
 
-import imguin/[glfw_opengl]
+import imguin/[glfw_opengl,utils]
 include ../utils/setupFonts
 
 proc main() =
@@ -13,7 +13,7 @@ proc main() =
 
   var cfg = DefaultOpenglWindowConfig
   cfg.size = (w: 1024, h: 800)
-  cfg.title = "Simple example"
+  cfg.title = "Simple example with ImPlot"
   cfg.resizable = true
   cfg.version = glv33
   cfg.forwardCompat = true
@@ -52,18 +52,18 @@ proc main() =
     fval = 0.5f
     counter = 0
     sBuf = newString(200)
-  let
-    clearColor = glfw_opengl.ImVec4(x: 0.45, y: 0.55, z: 0.60, w: 1.00)
-    col: array[3, cfloat] = [0.45f, 0.55f, 0.60f]
+    clearColor = ccolor(elm:(x:0.45f, y:0.55f, z:0.60f, w:1.0f))
 
-  # Add multibytes font
+  # add multibytes font
   var (fExistMultbytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
-
+  # for ImPlot
   discard initRand()
-  var bar_data:seq[int] = collect(for i in 0..10: rand(100))
-  var x_data:seq[int] = collect(for i in 0..10: i)
-  var y_data:seq[int] = collect(for i in 0..10: i * i)
+  var
+    bar_data:seq[int] = collect(for i in 0..10: rand(100))
+    x_data:seq[int] = collect(for i in 0..10: i)
+    y_data:seq[int] = collect(for i in 0..10: i * i)
 
+  # main loop
   while not glfw.shouldClose(window):
     glfw.pollEvents()
 
@@ -83,10 +83,10 @@ proc main() =
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf.cstring ,sBuf.len.csize_t ,0.ImguiInputTextFlags,nil,nil)
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
-      igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)
-      igColorEdit3("clear color", col, cast[glfw_opengl.ImGuiColorEditFlags](ImGuiColorEditFlags_None))
+      igSliderFloat("Float", addr fval, 0.0f, 1.0f, "%.3f", 0)
+      igColorEdit3("Background color", clearColor.array3, 0.ImGuiColorEditFlags)
 
-      if igButton("Button".cstring, glfw_opengl.ImVec2(x: 0.0f, y: 0.0f)):
+      if igButton("Button", glfw_opengl.ImVec2(x: 0.0f, y: 0.0f)):
         inc counter
       igSameLine(0.0f, -1.0f)
       igText("counter = %d", counter)
@@ -97,37 +97,33 @@ proc main() =
     if showAnotherWindow:
       igBegin("imgui Another Window", addr showAnotherWindow, 0)
       igText("Hello from imgui")
-      if igButton("Close me".cstring, glfw_opengl.ImVec2(x: 0.0f, y: 0.0f)):
+      if igButton("Close me", glfw_opengl.ImVec2(x: 0.0f, y: 0.0f)):
         showAnotherWindow = false
       igEnd()
 
     # ImPlot test
     if showImPlotWindow:
       igBegin("ImPlot Test Window", addr showImPlotWindow, 0)
-      var wsize:ImVec2
-      wsize.x= 0.0f
-      wsize.y= 0.0f
-      if ImPlotBeginPlot("My Plot".cstring,wsize,0.ImplotFlags):
-        var pdata = cast[ptr Ims32](unsafeAddr bar_data[0])
-        var px_data = cast[ptr Ims32](unsafeAddr x_data[0])
-        var py_data = cast[ptr Ims32](unsafeAddr y_data[0])
-        ImPlotPlotBars_S32PtrInt("My Bar Plot".cstring
+      if ImPlotBeginPlot("My Plot",ImVec2(x:0.0f,y:0.0f),0.ImplotFlags):
+        var
+          pdata = cast[ptr Ims32](unsafeAddr bar_data[0])
+          px_data = cast[ptr Ims32](unsafeAddr x_data[0])
+          py_data = cast[ptr Ims32](unsafeAddr y_data[0])
+        ImPlotPlotBars_S32PtrInt("My Bar Plot"
                                 ,pdata
                                 ,bar_data.len.cint
                                 ,0.67.cdouble # bar_size
                                 ,0.0.cdouble  # shift
                                 ,0.ImPlotFlags
                                 ,0.cint # offset
-                                ,sizeof(cint).cint # stride
-                                )
-        ImPlotPlotLine_S32PtrS32Ptr("My Line Plot".cstring
+                                ,sizeof(cint).cint) # stride
+        ImPlotPlotLine_S32PtrS32Ptr("My Line Plot"
                                 , px_data
                                 , py_data
                                 , xdata.len.cint
                                 ,0.ImPlotFlags
                                 ,0.cint # offset
-                                ,sizeof(cint).cint # stride
-                                )
+                                ,sizeof(cint).cint) # stride
         ImPlotEndPlot()
       igEnd()
 
@@ -135,12 +131,13 @@ proc main() =
     igRender()
     glfw.makeContextCurrent(window)
     glViewport(0, 0, (pio.DisplaySize.x).GLsizei, (pio.DisplaySize.y).GLsizei)
-    glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w)
+    glClearColor(clearColor.elm.x, clearColor.elm.y, clearColor.elm.z, clearColor.elm.w)
     glClear(GL_COLOR_BUFFER_BIT)
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
     glfw.swapBuffers(window)
 
 main()
+
 #[
 CIMGUI_API void ImPlot_PlotLine_S32PtrS32Ptr(const char* label_id
                       ,const ImS32* xs

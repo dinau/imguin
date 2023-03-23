@@ -2,7 +2,7 @@ import std/[strutils]
 import glfw
 import glad/gl
 
-import imguin/[glfw_opengl]
+import imguin/[glfw_opengl,utils]
 include ../utils/setupFonts
 
 proc main() =
@@ -47,10 +47,8 @@ proc main() =
     showAnotherWindow = false
     fval = 0.5f
     counter = 0
-    sBuf{.global.}:string  = newString(200)
-  let
-    clearColor = ImVec4(x: 0.45, y: 0.55, z: 0.60, w: 1.00)
-    col: array[3, cfloat] = [0.45f, 0.55f, 0.60f]
+    sBuf = newString(200)
+    clearColor = ccolor(elm:(x:0.45f, y:0.55f, z:0.60f, w:1.0f))
 
   # Add multibytes font
   var (fExistMultbytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
@@ -73,10 +71,10 @@ proc main() =
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf.cstring ,sBuf.len.csize_t ,0.ImguiInputTextFlags,nil,nil)
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
-      igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)
-      igColorEdit3("clear color", col, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
+      igSliderFloat("Float", addr fval, 0.0f, 1.0f, "%.3f", 0)
+      igColorEdit3("Background color", clearColor.array3, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
 
-      if igButton("Button".cstring, ImVec2(x: 0.0f, y: 0.0f)):
+      if igButton("Button", ImVec2(x: 0.0f, y: 0.0f)):
         inc counter
       igSameLine(0.0f, -1.0f)
       igText("counter = %d", counter)
@@ -87,7 +85,7 @@ proc main() =
     if showAnotherWindow:
       igBegin("imgui Another Window", addr showAnotherWindow, 0)
       igText("Hello from imgui")
-      if igButton("Close me".cstring, ImVec2(x: 0.0f, y: 0.0f)):
+      if igButton("Close me", ImVec2(x: 0.0f, y: 0.0f)):
         showAnotherWindow = false
       igEnd()
 
@@ -95,7 +93,7 @@ proc main() =
     igRender()
     glfw.makeContextCurrent(window)
     glViewport(0, 0, (pio.DisplaySize.x).GLsizei, (pio.DisplaySize.y).GLsizei)
-    glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w)
+    glClearColor(clearColor.elm.x, clearColor.elm.y, clearColor.elm.z, clearColor.elm.w)
     glClear(GL_COLOR_BUFFER_BIT)
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
     glfw.swapBuffers(window)

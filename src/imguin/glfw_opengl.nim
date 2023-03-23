@@ -21,6 +21,7 @@ when defined(useFuthark):
     define "CIMGUI_USE_OPENGL3"
     "generator/output/cimgui_impl.h"
     "cimplot.h"
+    define "ImDrawIdx=\"unsigned int\""
     outputPath "glfw_opengl_cimguiDefs.nim"
 else:
   {.push discardable.}

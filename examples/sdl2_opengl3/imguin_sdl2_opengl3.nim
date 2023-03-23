@@ -1,7 +1,7 @@
 import glad/gl
 import sdl2_nim/sdl
 
-import imguin/sdl2_opengl
+import imguin/[sdl2_opengl,utils]
 include ../utils/setupFonts
 
 proc main() =
@@ -62,11 +62,10 @@ proc main() =
   var
     showDemoWindow = true
     showAnotherWindow = false
-    clearColor = ImVec4(x: 0.45, y: 0.55, z: 0.60, w: 1.00)
+    clearColor = ccolor(elm:(x:0.45f, y:0.55f, z:0.60f, w:1.0f))
 
     fval = 0.5f
     counter = 0
-    col: array[3, cfloat] = [0.45f, 0.55f, 0.60f]
     xQuit: bool
     sBuf = newString(200)
 
@@ -101,8 +100,7 @@ proc main() =
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)
-      igColorEdit3("clear color", col,
-          ImGuiColorEditFlags_None.ImGuiColorEditFlags)
+      igColorEdit3("clear color", clearColor.array3, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
 
       if igButton("Button", ImVec2(x: 0.0f, y: 0.0f)):
         inc counter
@@ -124,7 +122,7 @@ proc main() =
     igRender()
     discard sdl.glMakeCurrent(window, gl_context)
     glViewport(0, 0, (pio.DisplaySize.x).GLsizei, (pio.DisplaySize.y).GLsizei)
-    glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w)
+    glClearColor(clearColor.elm.x, clearColor.elm.y, clearColor.elm.z, clearColor.elm.w)
     glClear(GL_COLOR_BUFFER_BIT)
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
     sdl.glSwapWindow(window)
