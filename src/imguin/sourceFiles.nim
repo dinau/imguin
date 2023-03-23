@@ -3,6 +3,8 @@ import std/[pegs]
 when not declared(strutils):
   import strutils
 
+# for ImGui
+{.passC:"-DImDrawIdx=\"unsigned int\"".}
 {.passC:"-DIMGUI_DISABLE_OBSOLETE_FUNCTIONS=1".}
 
 when defined(windows):
