@@ -6,6 +6,7 @@ TARGET_EXE = $(TARGET)$(EXE)
 .PHONY: clean run dll ver gitup info danger release futhark \
 	      dsize rsize release
 
+OPT += -d:strip
 #OPT += --verbosity:2
 
 all:
@@ -17,14 +18,16 @@ dsize:
 	nim c -d:danger --opt:size $(OPT) $(IMPLOT) $(TARGET).nim
 
 release:
-	nim c -d:relese $(OPT) $ $(IMPLOT) (TARGET).nim
+	nim c -d:relese $(OPT) $ $(IMPLOT) $(TARGET).nim
 rsize:
-	nim c -d:relese --opt:size $(OPT) $ $(IMPLOT) (TARGET).nim
+	nim c -d:relese --opt:size $(OPT) $(IMPLOT) $(TARGET).nim
 
 
 clean:
 	@-rm -fr .nimcache
 	@-rm $(TARGET_EXE)
+	@#-rm $(TARGET).exp
+	@#-rm $(TARGET).lib
 
 run: all
 	@#nimble run --verbose

@@ -4,13 +4,14 @@
 #   $ sudo apt install xorg-dev libopengl-dev ibgl1-mesa-glx libgl1-mesa-dev
 
 import nimgl/[opengl, glfw]
-import imguin/[glfw_opengl,utils]
+import imguin/[glfw_opengl]
 
-import std/[strutils]
+import std/[strutils,math]
 include ../utils/setupFonts
+include imguin/simple
 
 when defined(windows):
-  import osDialog
+  import tinydialogs
 
 # メインウインドウのサイズ
 const MainWinWidth = 1080
@@ -113,22 +114,28 @@ proc startSimpleWindow() =
     sBuf{.global.}:string  = newString(200)
   let pio = igGetIO()
 
-  let sTitle:cstring = "[ImGui: v$#](起動時フォント:$# - $#)" % [$igGetVersion()
+  let sTitle = "[ImGui: v$#](起動時フォント:$# - $#)" % [$igGetVersion()
                                                         ,sActiveFontTitle,sActiveFontName]
-  igBegin(sTitle, nil, 0)
+  igBegin(sTitle.cstring, nil, 0)
   defer: igEnd()
 
   igText("これは日本語表示テスト")
-  igInputTextWithHint("InputText" ,"ここに日本語を入力" ,sBuf.cstring ,sBuf.len.csize_t ,0.ImguiInputTextFlags,nil,nil)
+  igInputTextWithHint("InputText" ,"ここに日本語を入力" ,sBuf)
   igCheckbox("デモ・ウインドウ表示", show_demo.addr)
   igSliderFloat("浮動小数", somefloat.addr, 0.0f, 1.0f, "%3f", 0)
   igColorEdit3("背景色変更", clearColor.array3, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
   when defined(windows):
     if igButton("ファイルを開く", ImVec2(x: 0, y: 0)):
-      sFnameSelected = fileDialog(fdOpenFile, path = ".", filename = "*.*",
+      sFnameSelected = openFileDialog("Open the file", getCurrentDir() / "\0", ["*.nim", "*.nims"], "Text file")
+      #sFnameSelected = fileDialog(fdOpenFile, path = ".", filename = "*.*", filters = "Source:c,cpp,m;Header:h,hpp")
       # filters = "Source[.nim, .nims, .nimble, .c, .cpp] : nim,nims,nimble,c,cpp,m;Header[.h]:h,hpp").cstring
-        filters = "Source:c,cpp,m;Header:h,hpp")
     igSameLine(0.0f, -1.0f)
+    if igIsItemHovered(Imgui_HoveredFlagsDelayShort.cint) and igBeginTooltip():
+      igText("ファイルを開きます")
+      const arr = [ 0.6f, 0.1f, 1.0f, 0.5f, 0.92f, 0.1f, 0.2f ]
+      igPlotLines("Curve", arr,overlayText = "オーバーレイ文字列")
+      igText("Sin(time) = %.2f", sin(igGetTime()));
+      igEndTooltip();
   igText("選択ファイル名 = %s", sFnameSelected.cstring)
   igText("描画フレームレート  %.3f ms/frame (%.1f FPS)"
     , 1000.0f / pio.Framerate, pio.Framerate)
@@ -142,25 +149,3 @@ proc startSimpleWindow() =
 #--------------
 main()
 
-#[
-proc iginputtextwithhint*(label: cstring
-                        ; hint: cstring
-                        ; buf: cstring
-                        ; bufsize: csize_t
-                        ; flags: Imguiinputtextflags_63963833
-                        ; callback: Imguiinputtextcallback_63963887
-                        ; userdata: pointer): bool {.cdecl,
-CIMGUI_API bool igInputTextWithHint(const char* label
-                                   ,const char* hint
-                                   ,char* buf,size_t buf_size
-                                   ,ImGuiInputTextFlags flags
-                                   ,ImGuiInputTextCallback callback
-                                   ,void* user_data);
-IMGUI_API bool InputTextWithHint(const char* label
-                               , const char* hint
-                               , char* buf
-                               , size_t buf_size
-                               , ImGuiInputTextFlags flags = 0
-                               , ImGuiInputTextCallback callback = NULL
-                               , void* user_data = NULL);
-]#

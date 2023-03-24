@@ -18,7 +18,7 @@ clean:
 
 # definition loop funciton
 define def_make
-	-@$(MAKE) -C $(1) $(OPTIMIZE)
+	@$(MAKE) -C $(1) $(OPTIMIZE)
 
 endef
 

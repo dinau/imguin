@@ -1,8 +1,9 @@
 import glad/gl
 import sdl2_nim/sdl
 
-import imguin/[sdl2_opengl,utils]
+import imguin/[sdl2_opengl]
 include ../utils/setupFonts
+include imguin/simple
 
 proc main() =
   if sdl.init(sdl.InitVideo) != 0:

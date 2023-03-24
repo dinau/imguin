@@ -2,8 +2,9 @@ import std/[strutils,random,sugar]
 import glfw
 import glad/gl
 
-import imguin/[glfw_opengl,utils]
+import imguin/[glfw_opengl]
 include ../utils/setupFonts
+include imguin/simple
 
 proc main() =
   glfw.initialize()

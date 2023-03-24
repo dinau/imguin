@@ -1,0 +1,79 @@
+switch "path","../../src" # for "import glad/gl"
+switch "hint","User:off"
+switch "hint","XDeclaredButNotUsed:off"
+
+#switch "app","gui" # dismiss back ground Window
+#
+
+#switch "passC","-std=c++17"
+#
+#switch "define", "release"
+#switch "define", "danger"
+#
+#switch "opt", "size"
+#switch "passC","-O2"
+#const LTO = true # further reudce code size
+const LTO = false
+
+#include "version.nims"
+#
+var TC = "gcc"
+#var TC = "clang"
+#var TC = "vcc"
+#var TC = "tcc"
+#var TC = "env"
+
+if TC == "vcc":
+  switch "define","lto"
+  discard
+else:
+  if "" == findExe(TC): # GCC is default compiler if TC dosn't exist on the PATH
+    TC = "gcc"
+  if "" == findExe(TC): # if gcc dosn't exist, try clang
+    TC = "clang"
+
+# Reduce code size further
+when false:
+  #switch "mm","arc" # nim-1.6.8 or later
+  switch "gc", "arc"
+  switch "define", "useMalloc"
+  switch "define", "noSignalHandler"
+  #switch "panics","on"
+
+#switch "verbosity","1"
+
+proc commonOpt() = # for gcc and clang
+  switch "passL", "-s" # remov debug info from elf file
+  switch "passC", "-ffunction-sections"
+  switch "passC", "-fdata-sections"
+  switch "passL", "-Wl,--gc-sections"
+
+#const NIMCACHE = ".nimcache_" & TC
+switch "nimcache", ".nimcache"
+
+case TC
+  of "gcc":
+    commonOpt()
+    when LTO: # These options let link time slow while reducing code size.
+      switch "define", "lto"
+    when defined(windows):
+      if "" != findExe("sccache"):
+        switch "gcc.exe","../cache-gcc.bat"
+        switch "gcc.linkerexe","../cache-g++.bat"
+  of "clang":
+    commonOpt()
+    when LTO:
+      #switch "define","lto"
+      discard
+    when defined(windows):
+      if "" != findExe("sccache"):
+        switch "clang.exe","../cache-clang.bat"
+        switch "clang.linkerexe","../cache-clang++.bat"
+
+switch "cc", TC
+
+
+echo ""
+echo "#### Compiler: [ ", TC, " ] ####"
+echo ""
+
