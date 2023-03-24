@@ -34,7 +34,7 @@ Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.
 1. Add libraries
 
    ```sh
-   nimble install glfw nimgl sdl2_nim
+   nimble install glfw nimgl sdl2_nim, tinydialogs
    ```
 
 1. For Linux Debian 11 Bullseye
@@ -168,11 +168,12 @@ nimble dump futhark
 ---
 
 - First step is done. (2023/03)
-1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](examples/sdl2_opengl3) (2023/03)
 1. Easier compilation for SDL2 app.
 1. Whether can it do `nimble install imguin` ?
 1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
-1. Can it compile with MSVC (--cc:vcc) ?
+1. ~~Can it compile with MSVC (--cc:vcc) ?~~ Done. Except SDL2 demo. (2023/03)
+1. ~~Can it compile with Clnag (--cc:clang) ?~~ Done. (2023/03) 
+1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](examples/sdl2_opengl3) (2023/03)
 
 ## My tools version
 
