@@ -26,8 +26,8 @@ rsize:
 clean:
 	@-rm -fr .nimcache
 	@-rm $(TARGET_EXE)
-	@#-rm $(TARGET).exp
-	@#-rm $(TARGET).lib
+	@-rm $(TARGET).exp
+	@-rm $(TARGET).lib
 
 run: all
 	@#nimble run --verbose

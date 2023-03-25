@@ -1,3 +1,3 @@
 @echo off
 echo *
-ccache clang %*
+ccache gcc %*

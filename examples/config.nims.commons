@@ -23,6 +23,9 @@ var TC = "gcc"
 #var TC = "tcc"
 #var TC = "env"
 
+const CCACHE_ENABLE = false
+const CCACHE = "ccache"
+
 if TC == "vcc":
   switch "define","lto"
   discard
@@ -56,24 +59,32 @@ case TC
     commonOpt()
     when LTO: # These options let link time slow while reducing code size.
       switch "define", "lto"
-    when defined(windows):
-      if "" != findExe("sccache"):
-        switch "gcc.exe","../cache-gcc.bat"
-        switch "gcc.linkerexe","../cache-g++.bat"
+    when CCACHE_ENABLE:
+      if "" != findExe(CCACHE): # exist ccache
+        when defined(windows):
+          switch "gcc.exe","../utils/ccache/cache-gcc.bat"
+          switch "gcc.linkerexe","./utils/ccache./cache-g++.bat"
+        else:
+          switch "gcc.exe","../utils/ccache/cache-gcc.sh"
+          switch "gcc.linkerexe","../utils/ccache/cache-g++.sh"
   of "clang":
     commonOpt()
     when LTO:
       #switch "define","lto"
       discard
-    when defined(windows):
-      if "" != findExe("sccache"):
-        switch "clang.exe","../cache-clang.bat"
-        switch "clang.linkerexe","../cache-clang++.bat"
+    when CCACHE_ENABLE:
+      if "" != findExe(CCACHE):
+        when defined(windows):
+          switch "clang.exe","../utils/ccache/cache-clang.bat"
+          switch "clang.linkerexe","../utils/ccache/cache-clang++.bat"
+        else:
+          switch "clang.exe","../utils/ccache/cache-clang.sh"
+          switch "clang.linkerexe","../utils/ccache/cache-clang++.sh"
 
 switch "cc", TC
 
 
 echo ""
-echo "#### Compiler: [ ", TC, " ] ####"
+echo "#### [ ", TC, " ] Compiler ####"
 echo ""
 
