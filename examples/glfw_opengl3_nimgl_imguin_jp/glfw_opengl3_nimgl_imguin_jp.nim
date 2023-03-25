@@ -3,12 +3,13 @@
 # For Linux Debian 11 Bullseye,
 #   $ sudo apt install xorg-dev libopengl-dev ibgl1-mesa-glx libgl1-mesa-dev
 
+import std/[strutils,math]
+
 import nimgl/[opengl, glfw]
 import imguin/[glfw_opengl]
-
-import std/[strutils,math]
-include ../utils/setupFonts
 include imguin/simple
+
+include ../utils/setupFonts
 
 when defined(windows):
   import tinydialogs
@@ -22,7 +23,7 @@ var
   show_demo: bool = true # デモ表示 可否
   glfwWin: glfw.GLFWWindow
   sActiveFontName, sActiveFontTitle: string
-  fExistMultbytesFonts = false
+  fExistMultibytesFonts = false
   clearColor = ccolor(elm:(x:0.45f, y:0.55f, z:0.60f, w:1.0f))
 
 # Forward definition
@@ -77,7 +78,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
   #igStyleColorsCherry(nil)  # ダーク系3
 
   # 日本語フォントを追加
-  (fExistMultbytesFonts,sActiveFontName, sActiveFontTitle) = setupFonts()
+  (fExistMultibytesFonts,sActiveFontName, sActiveFontTitle) = setupFonts()
   # メインループ
   while not hWin.windowShouldClose:
     glfwPollEvents()
@@ -106,14 +107,12 @@ proc winMain(hWin: glfw.GLFWWindow) =
 #-------------------
 proc startSimpleWindow() =
   ## 画面左の小さいWindowを描画
-
   var
-    somefloat {.global.} = 0.0'f32
-    counter {.global.} = 0'i32
+    somefloat  {.global.} = 0.0'f32
+    counter  {.global.} = 0'i32
     sFnameSelected {.global.}: string
-    sBuf{.global.}:string  = newString(200)
+    sBuf {.global.}:string  = newString(200)
   let pio = igGetIO()
-
   let sTitle = "[ImGui: v$#](起動時フォント:$# - $#)" % [$igGetVersion()
                                                         ,sActiveFontTitle,sActiveFontName]
   igBegin(sTitle.cstring, nil, 0)
@@ -126,14 +125,13 @@ proc startSimpleWindow() =
   igColorEdit3("背景色変更", clearColor.array3, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
   when defined(windows):
     if igButton("ファイルを開く", ImVec2(x: 0, y: 0)):
-      sFnameSelected = openFileDialog("Open the file", getCurrentDir() / "\0", ["*.nim", "*.nims"], "Text file")
-      #sFnameSelected = fileDialog(fdOpenFile, path = ".", filename = "*.*", filters = "Source:c,cpp,m;Header:h,hpp")
-      # filters = "Source[.nim, .nims, .nimble, .c, .cpp] : nim,nims,nimble,c,cpp,m;Header[.h]:h,hpp").cstring
+      sFnameSelected = openFileDialog("Fileを開く", getCurrentDir() / "\0", ["*.nim", "*.nims"], "Text file")
     igSameLine(0.0f, -1.0f)
+    # ヒント表示
     if igIsItemHovered(Imgui_HoveredFlagsDelayShort.cint) and igBeginTooltip():
       igText("ファイルを開きます")
-      const arr = [ 0.6f, 0.1f, 1.0f, 0.5f, 0.92f, 0.1f, 0.2f ]
-      igPlotLines("Curve", arr,overlayText = "オーバーレイ文字列")
+      const ary = [ 0.6f, 0.1f, 1.0f, 0.5f, 0.92f, 0.1f, 0.2f ]
+      igPlotLines("Curve", ary,overlayText = "オーバーレイ文字列")
       igText("Sin(time) = %.2f", sin(igGetTime()));
       igEndTooltip();
   igText("選択ファイル名 = %s", sFnameSelected.cstring)
