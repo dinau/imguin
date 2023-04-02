@@ -3,28 +3,24 @@ switch "hint","User:off"
 switch "hint","XDeclaredButNotUsed:off"
 
 #switch "app","gui" # dismiss back ground Window
-#
+
 
 #switch "passC","-std=c++17"
 #
 #switch "define", "release"
 #switch "define", "danger"
-#
+
 #switch "opt", "size"
-#switch "passC","-O2"
+
 #const LTO = true # further reudce code size
 const LTO = false
 
 #include "version.nims"
-#
 var TC = "gcc"
 #var TC = "clang"
 #var TC = "vcc"
 #var TC = "tcc"
 #var TC = "env"
-
-const CCACHE_ENABLE = false
-const CCACHE = "ccache"
 
 if TC == "vcc":
   switch "define","lto"
@@ -46,7 +42,7 @@ when false:
 #switch "verbosity","1"
 
 proc commonOpt() = # for gcc and clang
-  switch "passL", "-s" # remov debug info from elf file
+#  switch "passL", "-s" # remov debug info from elf file
   switch "passC", "-ffunction-sections"
   switch "passC", "-fdata-sections"
   switch "passL", "-Wl,--gc-sections"
@@ -59,30 +55,13 @@ case TC
     commonOpt()
     when LTO: # These options let link time slow while reducing code size.
       switch "define", "lto"
-    when CCACHE_ENABLE:
-      if "" != findExe(CCACHE): # exist ccache
-        when defined(windows):
-          switch "gcc.exe","../utils/ccache/cache-gcc.bat"
-          switch "gcc.linkerexe","./utils/ccache./cache-g++.bat"
-        else:
-          switch "gcc.exe","../utils/ccache/cache-gcc.sh"
-          switch "gcc.linkerexe","../utils/ccache/cache-g++.sh"
   of "clang":
     commonOpt()
     when LTO:
       #switch "define","lto"
       discard
-    when CCACHE_ENABLE:
-      if "" != findExe(CCACHE):
-        when defined(windows):
-          switch "clang.exe","../utils/ccache/cache-clang.bat"
-          switch "clang.linkerexe","../utils/ccache/cache-clang++.bat"
-        else:
-          switch "clang.exe","../utils/ccache/cache-clang.sh"
-          switch "clang.linkerexe","../utils/ccache/cache-clang++.sh"
 
 switch "cc", TC
-
 
 echo ""
 echo "#### [ ", TC, " ] Compiler ####"

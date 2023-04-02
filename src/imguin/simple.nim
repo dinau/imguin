@@ -1,14 +1,32 @@
-type ccolor* {.union.} = object
-  elm*:tuple[x,y,z,w: cfloat]
-  array3*: array[3, cfloat]
+#####
+when false:
+  type ccolor* = object
+    x,y,z,w: cfloat
+  proc array3(self:ccolor): array[3,cfloat] =
+    result = cast[array[3,cfloat]]([self.x,self.y,self.z])
 
-proc iginputtextwithhint*(label: string
+  proc newCColor(col:ImVec4):ccolor =
+    result.x = col.x
+    result.y = col.y
+    result.z = col.z
+    result.w = col.w
+
+  proc vec4*(self:ccolor): ImVec4 =
+    ImVec4(x:self.x,y:self.y,z:self.z,w:self.z)
+else:
+  type ccolor* {.union.} = object
+    elm*:tuple[x,y,z,w: cfloat]
+    array3*: array[3, cfloat]
+    vec4*:ImVec4
+
+#####
+proc igInputTextWithHint*(label: string
                         , hint: string
                         , buf: string
                         , bufsize: int = buf.len
                         , flags:Imguiinputtextflags = 0.Imguiinputtextflags
                         , callback: ImguiInputTextCallback = nil
-                        , userdata: pointer = nil):  bool {.discardable.} =
+                        , userdata: pointer = nil):  bool {.inline,discardable.} =
   igInputTextWithHint(label.cstring ,hint.cstring
                          ,buf.cstring
                          ,bufsize.csize_t
@@ -22,7 +40,7 @@ proc igPlotLines*[T](label:string,arry:openArray[T],size:int= arry.len
                                ,smin:float = igGetFLTMax()
                                ,smax:float = igGetFLTMax()
                                ,graphSize:Imvec2 = ImVec2(x:0,y:0)
-                               ,stride:int = sizeof(cfloat)) =
+                               ,stride:int = sizeof(cfloat)) {.inline.} =
   igPlotLinesFloatPtr(label.cstring,cast[ptr T](unsafeAddr arry), size.cint
                              ,offset.cint         # offset
                              ,overlayText.cstring # overlay text

@@ -6,7 +6,7 @@ TARGET_EXE = $(TARGET)$(EXE)
 .PHONY: clean run dll ver gitup info danger release futhark \
 	      dsize rsize release
 
-OPT += -d:strip
+#OPT += -d:strip
 #OPT += --verbosity:2
 
 all:

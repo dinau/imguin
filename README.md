@@ -172,7 +172,7 @@ nimble dump futhark
 1. Whether can it do `nimble install imguin` ?
 1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
 1. ~~Can it compile with MSVC (--cc:vcc) ?~~ Done. Except SDL2 demo. (2023/03)
-1. ~~Can it compile with Clnag (--cc:clang) ?~~ Done. (2023/03) 
+1. ~~Can it compile with Clang (--cc:clang) ?~~ Done. (2023/03) 
 1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](examples/sdl2_opengl3) (2023/03)
 
 ## My tools version
