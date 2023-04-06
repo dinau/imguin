@@ -6,7 +6,7 @@ import strformat
 #{.passL:staticExec("sdl2-config --static-libs").}
 
 when defined(windows):
-  const STATIC_LINK_CC = false      # libstd++
+  const STATIC_LINK_CC = true      # libstd++
   if TC == "vcc":
     switch "passL","d3d9.lib kernel32.lib user32.lib gdi32.lib winspool.lib"
     switch "passL","comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib"
@@ -16,11 +16,9 @@ when defined(windows):
 else: # for Linux
   const STATIC_LINK_CC = false
 
-if TC == "vcc":
-  discard
-else:
-  when STATIC_LINK_CC: # gcc static link
-      discard
+when STATIC_LINK_CC: # gcc static link
+  if TC == "vcc":
+    discard
   else:
       switch "passC", "-static"
       switch "passL", "-static -static-libgcc"
