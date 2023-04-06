@@ -20,6 +20,6 @@ when STATIC_LINK_CC: # gcc static link
   if TC == "vcc":
     discard
   else:
-      switch "passC", "-static"
-      switch "passL", "-static -static-libgcc"
+    switch "passC", "-static"
+    switch "passL", "-static -static-libgcc"
 
