@@ -3,6 +3,8 @@ import glfw
 import glad/gl
 
 import imguin/[glfw_opengl]
+import imguin/lang/imgui_ja_gryph_ranges
+
 include ../utils/setupFonts
 include imguin/simple
 

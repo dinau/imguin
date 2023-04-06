@@ -7,9 +7,10 @@ import std/[strutils,math]
 
 import nimgl/[opengl, glfw]
 import imguin/[glfw_opengl]
-include imguin/simple
+import imguin/lang/imgui_ja_gryph_ranges
 
 include ../utils/setupFonts
+include imguin/simple
 
 when defined(windows):
   import tinydialogs

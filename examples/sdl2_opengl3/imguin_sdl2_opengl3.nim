@@ -2,6 +2,8 @@ import glad/gl
 import sdl2_nim/sdl
 
 import imguin/[sdl2_opengl]
+import imguin/lang/imgui_ja_gryph_ranges
+
 include ../utils/setupFonts
 include imguin/simple
 

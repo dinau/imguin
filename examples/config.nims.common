@@ -7,10 +7,10 @@ switch "hint","XDeclaredButNotUsed:off"
 
 #switch "passC","-std=c++17"
 #
-#switch "define", "release"
+switch "define", "release"
 #switch "define", "danger"
-
-#switch "opt", "size"
+switch "opt", "size"
+#switch "mm","orc"
 
 #const LTO = true # further reudce code size
 const LTO = false
@@ -18,18 +18,21 @@ const LTO = false
 #include "version.nims"
 var TC = "gcc"
 #var TC = "clang"
+#var TC = "clang_cl" # What is this ?
 #var TC = "vcc"
 #var TC = "tcc"
 #var TC = "env"
 
-if TC == "vcc":
-  switch "define","lto"
-  discard
-else:
-  if "" == findExe(TC): # GCC is default compiler if TC dosn't exist on the PATH
-    TC = "gcc"
-  if "" == findExe(TC): # if gcc dosn't exist, try clang
-    TC = "clang"
+case TC
+  of "vcc":
+    switch "define","lto"
+  of "clang_cl":
+    switch "define","lto"
+  else:
+    if "" == findExe(TC): # GCC is default compiler if TC dosn't exist on the PATH
+      TC = "gcc"
+    if "" == findExe(TC): # if gcc dosn't exist, try clang
+      TC = "clang"
 
 # Reduce code size further
 when false:
@@ -58,8 +61,7 @@ case TC
   of "clang":
     commonOpt()
     when LTO:
-      #switch "define","lto"
-      discard
+      switch "define","lto"
 
 switch "cc", TC
 

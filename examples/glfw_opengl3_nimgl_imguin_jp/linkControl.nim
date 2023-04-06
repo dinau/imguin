@@ -19,9 +19,10 @@ when STATIC_LINK_GLFW: # GLFW static link
   switch "define","glfwStaticLib"
 else: # shared/dll
   when defined(windows):
-    switch "passL","-lglfw3"
-    switch "define", "glfwDLL"
-    #switch "define","cimguiDLL"
+    if TC != "vcc":
+      switch "passL","-lglfw3"
+      switch "define", "glfwDLL"
+      #switch "define","cimguiDLL"
   else:
     switch "passL","-lglfw"
 

@@ -16,10 +16,12 @@ when defined(windows):
 else: # for Linux
   const STATIC_LINK_CC = false
 
-when STATIC_LINK_CC: # gcc static link
-  if TC == "vcc":
-    discard
+if TC == "vcc":
+  discard
 else:
-    switch "passC", "-static"
-    switch "passL", "-static -static-libgcc"
+  when STATIC_LINK_CC: # gcc static link
+      discard
+  else:
+      switch "passC", "-static"
+      switch "passL", "-static -static-libgcc"
 

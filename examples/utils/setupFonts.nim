@@ -48,7 +48,8 @@ proc setupFonts*(): (bool,string,string) =
       seqFontNames.add (fontName,fontTitle)
       # フォントを追加
       io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, point.point2px,
-          nil, io.Fonts.ImFontAtlas_GetGlyphRangesJapanese());
+          #nil, io.Fonts.ImFontAtlas_GetGlyphRangesJapanese());
+          nil, cast[ptr ImWchar](addr glyphRangesJapanese));
   if seqFontNames.len > 0:
     result = (true,seqFontNames[0][0].extractFilename ,seqFontNames[0][1])
 
