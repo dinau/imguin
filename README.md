@@ -37,7 +37,9 @@ Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.
    nimble install glfw nimgl sdl2_nim, tinydialogs
    ```
 
-1. For Linux Debian 11 Bullseye
+1. For Linux Debian 11 Bullseye  
+Notice: Runing will be failed at this moment.  
+Runing in Linux is under construction.
 
       ```sh
       $ sudo apt install xorg-dev libopengl-dev ibgl1-mesa-glx libgl1-mesa-dev
@@ -167,26 +169,26 @@ nimble dump futhark
 
 ---
 
-- First step is done. (2023/03)
 1. Easier compilation for SDL2 app.
 1. Whether can it do `nimble install imguin` ?
 1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
+1. ~~Add Font Awesome demo.~~  Done (2023/04). 
 1. ~~Can it compile with MSVC (--cc:vcc) ?~~ Done. Except SDL2 demo. (2023/03)
 1. ~~Can it compile with Clang (--cc:clang) ?~~ Done. (2023/03) 
 1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](examples/sdl2_opengl3) (2023/03)
+- First step is done. (2023/03)
 
 ## My tools version
 
 ---
 
 Windows10 (main)
-- clang version 15.0.7 (MinGW)
-- gcc (Rev10, Built by MSYS2 project) 12.2.0 (MinGW)
-- git version 2.39.2.windows.1
 - Nim Compiler Version 1.6.12
+- gcc (Rev10, Built by MSYS2 project) 12.2.0 (MinGW)
+- git version 2.40.0.windows.1
 - SDL2.dll: SDL-release-2.26.4-0-g07d0f51fa (MinGW)
 
-Debian 11 Bullseye (sub)
+Debian 11 Bullseye
 - Debian clang version 11.0.1-2
 - gcc (Debian 10.2.1-6) 10.2.1 20210110
 - git version 2.30.2

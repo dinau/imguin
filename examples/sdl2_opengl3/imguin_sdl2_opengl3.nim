@@ -98,6 +98,7 @@ proc main() =
     # show a simple window that we created ourselves.
     block:
       igBegin("Nim: Dear ImGui test with Futhark", nil, 0)
+      defer: igEnd()
       igText("This is some useful text")
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf.cstring ,sBuf.len.csize_t ,0.ImguiInputTextFlags,nil,nil)
       igCheckbox("Demo window", addr showDemoWindow)
@@ -111,7 +112,18 @@ proc main() =
       igText("counter = %d", counter)
       igText("Application average %.3f ms/frame (%.1f FPS)",
              1000.0f / pio.Framerate, pio.Framerate)
-      igEnd()
+      #
+      when defined(windows):
+        igSeparatorText(ICON_FA_WRENCH & " Icon font test ")
+        igText(ICON_FA_TRASH_CAN & " Trash")
+        igText(ICON_FA_MAGNIFYING_GLASS_PLUS &
+          " " & ICON_FA_POWER_OFF &
+          " " & ICON_FA_MICROPHONE &
+          " " & ICON_FA_MICROCHIP &
+          " " & ICON_FA_VOLUME_HIGH &
+          " " & ICON_FA_SCISSORS &
+          " " & ICON_FA_SCREWDRIVER_WRENCH &
+          " " & ICON_FA_BLOG)
 
     # show further samll window
     if showAnotherWindow:
