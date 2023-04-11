@@ -34,7 +34,7 @@ Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.
 1. Add libraries
 
    ```sh
-   nimble install glfw nimgl sdl2_nim, tinydialogs
+   nimble install glfw nimgl sdl2_nim tinydialogs
    ```
 
 1. For Linux Debian 11 Bullseye  
