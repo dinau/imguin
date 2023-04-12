@@ -9,7 +9,7 @@ switch "hint","XDeclaredButNotUsed:off"
 #
 switch "define", "release"
 #switch "define", "danger"
-switch "opt", "size"
+#switch "opt", "size"
 #switch "mm","orc"
 
 #const LTO = true # further reudce code size

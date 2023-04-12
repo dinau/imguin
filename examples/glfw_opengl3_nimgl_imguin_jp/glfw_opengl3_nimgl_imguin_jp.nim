@@ -143,17 +143,16 @@ proc startSimpleWindow() =
   let delay = 600 * 3
   somefloat = (counter mod delay).float32 / delay.float32
   #
-  when defined(windows):
-    igSeparatorText(ICON_FA_WRENCH & " Icon font test ")
-    igText(ICON_FA_TRASH_CAN & " Trash")
-    igText(ICON_FA_MAGNIFYING_GLASS_PLUS &
-      " " & ICON_FA_POWER_OFF &
-      " " & ICON_FA_MICROPHONE &
-      " " & ICON_FA_MICROCHIP &
-      " " & ICON_FA_VOLUME_HIGH &
-      " " & ICON_FA_SCISSORS &
-      " " & ICON_FA_SCREWDRIVER_WRENCH &
-      " " & ICON_FA_BLOG)
+  igSeparatorText(ICON_FA_WRENCH & " Icon font test ")
+  igText(ICON_FA_TRASH_CAN & " Trash")
+  igText(ICON_FA_MAGNIFYING_GLASS_PLUS &
+    " " & ICON_FA_POWER_OFF &
+    " " & ICON_FA_MICROPHONE &
+    " " & ICON_FA_MICROCHIP &
+    " " & ICON_FA_VOLUME_HIGH &
+    " " & ICON_FA_SCISSORS &
+    " " & ICON_FA_SCREWDRIVER_WRENCH &
+    " " & ICON_FA_BLOG)
 
 #--------------
 # main

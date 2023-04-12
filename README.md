@@ -38,8 +38,6 @@ Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.
    ```
 
 1. For Linux Debian 11 Bullseye  
-Notice: Runing will be failed at this moment.  
-Runing in Linux is under construction.
 
       ```sh
       $ sudo apt install xorg-dev libopengl-dev ibgl1-mesa-glx libgl1-mesa-dev
@@ -172,7 +170,7 @@ nimble dump futhark
 1. Easier compilation for SDL2 app.
 1. Whether can it do `nimble install imguin` ?
 1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
-1. ~~Add Font Awesome demo.~~  Done (2023/04). 
+1. ~~Add Font Awesome (Icon Font) demo.~~  Done (2023/04). 
 1. ~~Can it compile with MSVC (--cc:vcc) ?~~ Done. Except SDL2 demo. (2023/03)
 1. ~~Can it compile with Clang (--cc:clang) ?~~ Done. (2023/03) 
 1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](examples/sdl2_opengl3) (2023/03)
@@ -192,7 +190,7 @@ Debian 11 Bullseye
 - Debian clang version 11.0.1-2
 - gcc (Debian 10.2.1-6) 10.2.1 20210110
 - git version 2.30.2
-- Nim Compiler Version 1.6.10
+- Nim Compiler Version 1.6.12
 - SDL2 ver.2.0.14
 
 ## Other link

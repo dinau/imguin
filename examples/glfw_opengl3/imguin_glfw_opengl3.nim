@@ -83,17 +83,16 @@ proc main() =
       igSameLine(0.0f, -1.0f)
       igText("counter = %d", counter)
       igText("Application average %.3f ms/frame (%.1f FPS)", (1000.0f / igGetIO().Framerate).cfloat, (igGetIO().Framerate).cfloat)
-      when defined(windows):
-        igSeparatorText(ICON_FA_WRENCH & " Icon font test ")
-        igText(ICON_FA_TRASH_CAN & " Trash")
-        igText(ICON_FA_MAGNIFYING_GLASS_PLUS &
-          " " & ICON_FA_POWER_OFF &
-          " " & ICON_FA_MICROPHONE &
-          " " & ICON_FA_MICROCHIP &
-          " " & ICON_FA_VOLUME_HIGH &
-          " " & ICON_FA_SCISSORS &
-          " " & ICON_FA_SCREWDRIVER_WRENCH &
-          " " & ICON_FA_BLOG)
+      igSeparatorText(ICON_FA_WRENCH & " Icon font test ")
+      igText(ICON_FA_TRASH_CAN & " Trash")
+      igText(ICON_FA_MAGNIFYING_GLASS_PLUS &
+        " " & ICON_FA_POWER_OFF &
+        " " & ICON_FA_MICROPHONE &
+        " " & ICON_FA_MICROCHIP &
+        " " & ICON_FA_VOLUME_HIGH &
+        " " & ICON_FA_SCISSORS &
+        " " & ICON_FA_SCREWDRIVER_WRENCH &
+        " " & ICON_FA_BLOG)
 
     # show further samll window
     if showAnotherWindow:

@@ -19,7 +19,7 @@ when defined(useFuthark):
     "generator/output/cimgui_impl.h"
     outputPath "sdl2_opengl_cimguiDefs.nim"
 else:
-  {.push discardable.}
+  {.push discardable,hint[XDeclaredButNotUsed]:off.}
   include "sdl2_opengl_cimguiDefs.nim"
   {.pop.}
 

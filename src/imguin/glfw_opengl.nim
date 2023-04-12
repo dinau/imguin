@@ -24,7 +24,7 @@ when defined(useFuthark):
     define "ImDrawIdx=\"unsigned int\""
     outputPath "glfw_opengl_cimguiDefs.nim"
 else:
-  {.push discardable.}
+  {.push discardable,hint[XDeclaredButNotUsed]:off.}
   include "glfw_opengl_cimguiDefs.nim"
   {.pop.}
   # for glfw3

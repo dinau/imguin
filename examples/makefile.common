@@ -1,12 +1,18 @@
 ifeq ($(OS),Windows_NT)
 	EXE = .exe
 endif
-TARGET_EXE = $(TARGET)$(EXE)
+
+ifneq ($(OUTPUT_EXE_NAME),)
+  TARGET_EXE = $(OUTPUT_EXE_NAME)$(EXE)
+else
+  TARGET_EXE = $(TARGET)$(EXE)
+endif
 
 .PHONY: clean run dll ver gitup info danger release futhark \
 	      dsize rsize release
 
 OPT += -d:strip
+OPT += -o:$(TARGET_EXE)
 #OPT += --verbosity:2
 
 all:

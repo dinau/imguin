@@ -60,18 +60,17 @@ proc setupFonts*(): (bool,string,string) =
   let fontFullPath = "../utils/fonticon/fa6/fa-solid-900.ttf"
   let io = igGetIO()
   #
-  when defined(windows):
-    var config {.global.}  = new_ImFontConfig()
-    config.MergeMode = true
-    # デフォルトフォント 登録
-    io.Fonts.ImFontAtlas_AddFontDefault(nil)
-    # Icon font 追加
-    var ranges_icon_fonts {.global.} = [ICON_MIN_FA.uint16,  ICON_MAX_FA.uint16, 0]
-    if os.fileExists(fontFullPath):
-      io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, 11.point2px,
-        addr config, addr ranges_icon_fonts[0]);
-    else:
-      echo "Error!: Can't find Icon fonts"
+  var config {.global.}  = new_ImFontConfig()
+  config.MergeMode = true
+  # デフォルトフォント 登録
+  io.Fonts.ImFontAtlas_AddFontDefault(nil)
+  # Icon font 追加
+  var ranges_icon_fonts {.global.} = [ICON_MIN_FA.uint16,  ICON_MAX_FA.uint16, 0]
+  if os.fileExists(fontFullPath):
+    io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, 11.point2px,
+      addr config, addr ranges_icon_fonts[0]);
+  else:
+    echo "Error!: Can't find Icon fonts"
   #
   # jp フォントを追加
   result =  (false,"Default","ProggyClean.ttf") #
@@ -80,12 +79,8 @@ proc setupFonts*(): (bool,string,string) =
     let fontFullPath = os.joinPath(fontInfo.osRootDir, fontInfo.fontDir, fontName)
     if os.fileExists(fontFullPath):
       seqFontNames.add (fontName,fontTitle)
-      when defined(windows):
-        io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, point.point2px,
-            addr config, cast[ptr ImWchar](addr glyphRangesJapanese));
-      else: # for linux, under construction
-        io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, point.point2px,
-            nil, cast[ptr ImWchar](addr glyphRangesJapanese));
+      io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, point.point2px,
+          addr config, cast[ptr ImWchar](addr glyphRangesJapanese));
 
   if seqFontNames.len > 0:
     result = (true,seqFontNames[0][0].extractFilename ,seqFontNames[0][1])

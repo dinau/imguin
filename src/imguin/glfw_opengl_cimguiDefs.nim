@@ -1637,7 +1637,7 @@ type
   Imfontbuilderio_63963527 = structimfontbuilderio_63963530 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:53:32
   structimfontbuilderio_63963529 {.pure, inheritable, bycopy.} = object
     Fontbuilderbuild*: proc (a0: ptr Imfontatlas_63963524): bool {.cdecl.} ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:3044:8
-
+  
   Imfontconfig_63963531 = structimfontconfig_63963534 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:54:29
   structimfontconfig_63963533 {.pure, inheritable, bycopy.} = object
     Fontdata*: pointer       ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1216:8
@@ -1678,11 +1678,11 @@ type
   Imfontglyphrangesbuilder_63963539 = structimfontglyphrangesbuilder_63963542 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:56:41
   structimfontglyphrangesbuilder_63963541 {.pure, inheritable, bycopy.} = object
     Usedchars*: Imvectorimu32_63964015 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1249:8
-
+  
   Imcolor_63963543 = structimcolor_63963546 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:57:24
   structimcolor_63963545 {.pure, inheritable, bycopy.} = object
     Value*: Imvec4_63963885  ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1110:8
-
+  
   Imguicontext_63963547 = structimguicontext_63963550 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:58:29
   structimguicontext_63963549 {.pure, inheritable, bycopy.} = object
     Initialized*: bool       ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2358:8
@@ -2081,7 +2081,7 @@ type
   Imguionceuponaframe_63963567 = structimguionceuponaframe_63963570 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:63:36
   structimguionceuponaframe_63963569 {.pure, inheritable, bycopy.} = object
     Refframe*: cint          ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1060:8
-
+  
   Imguipayload_63963571 = structimguipayload_63963574 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:64:29
   structimguipayload_63963573 {.pure, inheritable, bycopy.} = object
     Data*: pointer           ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1036:8
@@ -2161,7 +2161,7 @@ type
   Imguistorage_63963598 = structimguistorage_63963601 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:69:29
   structimguistorage_63963600 {.pure, inheritable, bycopy.} = object
     Data*: Imvectorimguistoragepair_63963973 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1095:8
-
+  
   Imguistyle_63963602 = structimguistyle_63963605 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:70:27
   structimguistyle_63963604 {.pure, inheritable, bycopy.} = object
     Alpha*: cfloat           ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:843:8
@@ -2225,7 +2225,7 @@ type
   Imguitextbuffer_63963614 = structimguitextbuffer_63963617 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:73:32
   structimguitextbuffer_63963616 {.pure, inheritable, bycopy.} = object
     Buf*: Imvectorchar_63963965 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1082:8
-
+  
   Imguitextfilter_63963618 = structimguitextfilter_63963621 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:74:32
   structimguitextfilter_63963620 {.pure, inheritable, bycopy.} = object
     Inputbuf*: array[256'i64, cschar] ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1073:8
@@ -2266,7 +2266,7 @@ type
   Imbitvector_63963630 = structimbitvector_63963633 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:77:28
   structimbitvector_63963632 {.pure, inheritable, bycopy.} = object
     Storage*: Imvectorimu32_63964015 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1520:8
-
+  
   Imrect_63963634 = structimrect_63963637 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:78:23
   structimrect_63963636 {.pure, inheritable, bycopy.} = object
     Min*: Imvec2_63963881    ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1514:8
@@ -2275,7 +2275,7 @@ type
   Imdrawdatabuilder_63963638 = structimdrawdatabuilder_63963641 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:79:34
   structimdrawdatabuilder_63963640 {.pure, inheritable, bycopy.} = object
     Layers*: array[2'i64, Imvectorimdrawlistptr_63964129] ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1550:8
-
+  
   Imguicolormod_63963642 = structimguicolormod_63963645 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:80:30
   structimguicolormod_63963644 {.pure, inheritable, bycopy.} = object
     Col*: Imguicol_63963777  ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1688:8
@@ -3241,7 +3241,7 @@ type
   Imvec1_63964106 = structimvec1_63964109 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1504:23
   structimvec1_63964108 {.pure, inheritable, bycopy.} = object
     x*: cfloat               ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1505:8
-
+  
   Imvec2ih_63964110 = structimvec2ih_63964113 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1509:25
   structimvec2ih_63964112 {.pure, inheritable, bycopy.} = object
     x*: cshort               ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1510:8
@@ -3269,7 +3269,7 @@ type
   Imguidatatypetempstorage_63964162 = structimguidatatypetempstorage_63964165 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1671:41
   structimguidatatypetempstorage_63964164 {.pure, inheritable, bycopy.} = object
     Data*: array[8'i64, Imu8_63963853] ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1672:8
-
+  
   Imguicombopreviewdata_63964168 = structimguicombopreviewdata_63964171 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1698:38
   structimguicombopreviewdata_63964170 {.pure, inheritable, bycopy.} = object
     Previewrect*: Imrect_63963635 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1699:8
@@ -3299,7 +3299,7 @@ type
   structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_63964188 {.
       pure, inheritable, bycopy.} = object
     Storage*: array[5'i64, Imu32_63963861] ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1853:16
-
+  
   Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_63964190 = structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_63964189 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1853:130
   Imbitarrayfornamedkeys_63964192 = Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_63964191 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1855:73
   Imguiinputeventmousepos_63964198 = structimguiinputeventmousepos_63964201 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1876:40
@@ -3320,7 +3320,7 @@ type
   Imguiinputeventmouseviewport_63964210 = structimguiinputeventmouseviewport_63964213 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1888:45
   structimguiinputeventmouseviewport_63964212 {.pure, inheritable, bycopy.} = object
     Hoveredviewportid*: Imguiid_63963849 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1889:8
-
+  
   Imguiinputeventkey_63964214 = structimguiinputeventkey_63964217 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1892:35
   structimguiinputeventkey_63964216 {.pure, inheritable, bycopy.} = object
     Key*: Imguikey_63963927  ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1893:8
@@ -3330,11 +3330,11 @@ type
   Imguiinputeventtext_63964218 = structimguiinputeventtext_63964221 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1896:36
   structimguiinputeventtext_63964220 {.pure, inheritable, bycopy.} = object
     Char*: cuint             ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1897:8
-
+  
   Imguiinputeventappfocused_63964222 = structimguiinputeventappfocused_63964225 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1900:42
   structimguiinputeventappfocused_63964224 {.pure, inheritable, bycopy.} = object
     Focused*: bool           ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1901:8
-
+  
   Imguiinputevent_63964226 = structimguiinputevent_63964229 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:1904:32
   structimguiinputevent_anon0_t {.union, bycopy.} = object
     Mousepos*: Imguiinputeventmousepos_63964199
@@ -3416,7 +3416,7 @@ type
   Imguiwindowdockstyle_63964290 = structimguiwindowdockstyle_63964293 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2173:37
   structimguiwindowdockstyle_63964292 {.pure, inheritable, bycopy.} = object
     Colors*: array[6'i64, Imu32_63963861] ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2174:8
-
+  
   structimvectorimguidockrequest_63964294 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2178:16
     Capacity*: cint
@@ -3596,11 +3596,11 @@ type
   Imvectorimguisettingshandler_63964400 = structimvectorimguisettingshandler_63964399 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2350:98
   structimchunkstreamimguiwindowsettings_63964402 {.pure, inheritable, bycopy.} = object
     Buf*: Imvectorchar_63963965 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2352:16
-
+  
   Imchunkstreamimguiwindowsettings_63964404 = structimchunkstreamimguiwindowsettings_63964403 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2352:71
   structimchunkstreamimguitablesettings_63964406 {.pure, inheritable, bycopy.} = object
     Buf*: Imvectorchar_63963965 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2354:16
-
+  
   Imchunkstreamimguitablesettings_63964408 = structimchunkstreamimguitablesettings_63964407 ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2354:70
   structimvectorimguicontexthook_63964410 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d\0000imguin\imguin\src\private\cimgui/cimgui.h:2356:16

@@ -43,8 +43,8 @@ endif
 
 all: cimgui_update \
 			glfw_opengl_$(CIMGUI_DEFS) \
-			sdl2_opengl_$(CIMGUI_DEFS) \
-			cimplot_$(CIMGUI_DEFS)
+			sdl2_opengl_$(CIMGUI_DEFS)
+			#cimplot_$(CIMGUI_DEFS)
 
 %_$(CIMGUI_DEFS): updater_%.nim
 	nim c -f -c  $(OPT) --nimcache:.nimcache_$@ $(<)
