@@ -16,7 +16,7 @@ set path=%path%;d:\tcc
 set path=%path%;c:\windows\system32
 
 set path=%path%;d:\msys32\usr\bin
-rem set path=%path%;d:\msys32\mingw32\bin
+set path=%path%;d:\msys32\mingw32\bin
 
 
 

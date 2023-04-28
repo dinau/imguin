@@ -1,4 +1,5 @@
 myImguiApp/
+premake/
 *.ini
 build-*
 org.html

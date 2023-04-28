@@ -3,11 +3,11 @@
 
 - [ImGuin](#imguin)
   - [Usage: Sample program and run](#usage-sample-program-and-run)
-    - [Prerequisite](#prerequisite)
+    - [Prerequisites](#prerequisites)
     - [Build](#build)
     - [Screen shot](#screen-shot)
-  - [Update latest Dear ImGui and CImGui](#update-latest-dear-imgui-and-cimgui)
-    - [Prerequisite](#prerequisite-1)
+  - [Update to latest Dear ImGui and CImGui](#update-to-latest-dear-imgui-and-cimgui)
+    - [Prerequisite](#prerequisite)
     - [Update ImGui/CImGui](#update-imguicimgui)
   - [Examples notice](#examples-notice)
   - [TODO](#todo)
@@ -18,7 +18,7 @@
 
 # ImGuin 
 
-[Dear Imgui](https://github.com/ocornut/imgui) wrapper using [CImGui](https://github.com/cimgui/cimgui) and [Futhark](https://github.com/PMunch/futhark) with Nim language.
+[Dear Imgui](https://github.com/ocornut/imgui) wrapper using [CImGui](https://github.com/cimgui/cimgui) and [Futhark](https://github.com/PMunch/futhark) with Nim language.  
 Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.com/cimgui/cimplot) module.
 
 **This project is under construction at this moment**
@@ -27,7 +27,7 @@ Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.
 
 ---
 
-### Prerequisite
+### Prerequisites
 
 ---
 1. Nim-1.6.10 or later
@@ -91,7 +91,7 @@ These screen shots are on Windows10.
 [glfw_opengl3_implot](examples/glfw_opengl3_implot).  
 ![alt](src/img/implot1.png)
 
-## Update latest Dear ImGui and CImGui
+## Update to latest Dear ImGui and CImGui
 
 ### Prerequisite
 
@@ -131,7 +131,7 @@ nimble dump futhark
    make
    ```
    
-   ImGui/CImGui version is **v1.89.4** at this time. (2023/03)
+   ImGui/CImGui version is **v1.89.5** at this time. (2023/05)
 - Update/Downgrade to the version that specified tag of CImGui for example,  
 
    ```sh

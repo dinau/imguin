@@ -24,9 +24,9 @@ dsize:
 	nim c -d:danger --opt:size $(OPT) $(IMPLOT) $(TARGET).nim
 
 release:
-	nim c -d:relese $(OPT) $ $(IMPLOT) $(TARGET).nim
+	nim c -d:release $(OPT) $ $(IMPLOT) $(TARGET).nim
 rsize:
-	nim c -d:relese --opt:size $(OPT) $(IMPLOT) $(TARGET).nim
+	nim c -d:release --opt:size $(OPT) $(IMPLOT) $(TARGET).nim
 
 
 clean:

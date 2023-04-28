@@ -1,4 +1,4 @@
-### READMR about font file
+### README about font file
 
 The `fa-solid-900.ttf` file is part of **fontawesome-free-6.4.0-web.zip**.
 

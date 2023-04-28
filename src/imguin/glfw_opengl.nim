@@ -1,12 +1,12 @@
 import std/[os,strutils]
 
-const ClangIncludePath = "d:/msys32/mingw32/lib/clang/15.0.7/include"
+const ClangIncludePath = "d:/msys32/mingw32/opt/llvm-15/lib/clang/15.0.7/include"
 # Set root path of ImGui/CImGui
 const CImguiRootPath   = "../../src/private/cimgui"
 const CImPlotRootPath  = "../../src/private/cimplot"
 const ImguiRootPath    = joinPath(CImguiRootPath,"imgui")
 #const ImguiBackendsPath= joinPath(CImguiRootPath,"imgui","backends")
-#
+
 when defined(useFuthark):
   import futhark
   importc:

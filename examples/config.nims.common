@@ -1,5 +1,6 @@
 switch "path","../../src" # for "import glad/gl"
 switch "hint","User:off"
+switch "hint","Name:off"
 switch "hint","XDeclaredButNotUsed:off"
 
 #switch "app","gui" # dismiss back ground Window
@@ -10,7 +11,9 @@ switch "hint","XDeclaredButNotUsed:off"
 switch "define", "release"
 #switch "define", "danger"
 #switch "opt", "size"
-switch "mm","orc"
+#
+when (NimMajor, NimMinor, NimPatch) >= (1, 6, 8):
+  switch "mm","orc"
 
 #const LTO = true # further reudce code size
 const LTO = false
