@@ -281,23 +281,7 @@ let fname = os.commandLineParams()[0]
 var strOut:string
 
 for line in readFile(fname).split("\n"):
-  if (line =~ peg"\s+'Imgui'@\s+'='\s+\d+($ / .+)") or
-     (line =~ peg"\s+'Implot'@\s+'='\s+\d+($ / .+)"):
-    #or (line =~ peg"@'declared'.+") :
-    # Convert from "Imgui" to "Imgui_"
-    #let s1 = line.replacef(peg"{\s+}{'Imgui'}{.+}","$1Imgui_$3")
-    #let s2 = s1.replacef(peg"{@','\s*}{'Imgui'}{.+}","$1Imgui_$3")
-    #
-    #let s2 = s1.replace("flags","flags_")
-    #let s3 = s2.replace("flags_)","flags)")
-    #let s4 = s3.replacef(peg"{@}{flags_$}","$1flags")
-    #let s5 = s4.replace("flags_*","flags")
-    #let s6 = s5.replace("__","_")
-    # Convert from "flags" to "flags_"
-    #let s3 = s2.replacef(peg"{@}{'flags'}{.+}","$1flags_$3")
-    #let s4 = s3.replacef(peg"{@','@'flags'}{.+}","$1flags_$3")
-    # Convert words using replacedWords
-    #
+  if (line =~ peg"\s+ ('Imgui' / 'Implot') @\s+'='\s+\d+($ / .+)"):
     let s1 = line.replace("Imgui","ImGui_")
     let s2 = s1.replace("Implot","ImPlot_")
     let s3 = s2.replace("flags","flags_")

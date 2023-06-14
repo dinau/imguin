@@ -1,4 +1,4 @@
-TARGET = imguin_glfw_opengl3
+#TARGET = imguin_glfw_opengl3
 
-include ../makefile.common
+include ../makefile.common.mk
 

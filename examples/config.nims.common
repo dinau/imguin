@@ -15,8 +15,8 @@ switch "define", "release"
 when (NimMajor, NimMinor, NimPatch) >= (1, 6, 8):
   switch "mm","orc"
 
-#const LTO = true # further reudce code size
-const LTO = false
+const LTO = true # further reudce code size
+#const LTO = false
 
 #include "version.nims"
 var TC = "gcc"

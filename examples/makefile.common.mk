@@ -1,12 +1,9 @@
+
+TARGET = $(notdir $(CURDIR))
 ifeq ($(OS),Windows_NT)
 	EXE = .exe
 endif
-
-ifneq ($(OUTPUT_EXE_NAME),)
-  TARGET_EXE = $(OUTPUT_EXE_NAME)$(EXE)
-else
-  TARGET_EXE = $(TARGET)$(EXE)
-endif
+TARGET_EXE = $(TARGET)$(EXE)
 
 .PHONY: clean run dll ver gitup info danger release futhark \
 	      dsize rsize release
