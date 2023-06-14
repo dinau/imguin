@@ -20,3 +20,11 @@ requires "glfw >= 3.3.4"
 requires "futhark >= 0.9.1"
 requires "sdl2_nim"
 requires "tinydialogs"
+
+let TARGET = "imguin"
+let Opts =""
+
+task test,"test test":
+    let cmd = "nim c -d:strip -o:$# $# $#.nim" % [TARGET.toEXE,Opts,"src/" & TARGET]
+    echo cmd
+    exec(cmd)

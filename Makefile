@@ -1,9 +1,9 @@
-.PHONY: example clean nimbleCheck
+.PHONY: example clean build
 
-all: nimbleCheck example
+all: build example
 
-nimbleCheck:
-	nimble check
+build:
+	nimble build
 
 example:
 	make -C examples
