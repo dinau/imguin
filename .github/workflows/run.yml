@@ -14,8 +14,8 @@ jobs:
         uses: jiro4989/setup-nim-action@v1
         with:
           nim-version: ${{ matrix.nim }}
-        run: git clone -b master --single-branch --depth 1 --recursive --shallow-submodules  https://github.com/cimgui/cimgui src/private/cimgui
-        run: git clone -b master --single-branch --depth 1 --recursive --shallow-submodules  https://github.com/cimgui/cimplot src/private/cimplot
-        run: make
+      - run: git clone -b master --single-branch --depth 1 --recursive --shallow-submodules  https://github.com/cimgui/cimgui src/private/cimgui
+      - run: git clone -b master --single-branch --depth 1 --recursive --shallow-submodules  https://github.com/cimgui/cimplot src/private/cimplot
+      - run: make
 
 
