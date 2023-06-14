@@ -1,4 +1,5 @@
 myImguiApp/
+examples/fontx2v/
 premake/
 *.ini
 build-*
