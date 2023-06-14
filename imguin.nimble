@@ -16,10 +16,12 @@ skipDirs = @["examples/fontx2v"
 # Dependencies
 
 requires "nim >= 1.6.10"
+requires "nimgl >= 1.3.2"
 requires "glfw >= 3.3.4"
 #requires "futhark >= 0.9.1"
 requires "sdl2_nim"
 requires "tinydialogs"
+
 
 let TARGET = "imguin"
 let Opts =""
