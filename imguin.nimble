@@ -17,7 +17,7 @@ skipDirs = @["examples/fontx2v"
 
 requires "nim >= 1.6.10"
 requires "glfw >= 3.3.4"
-requires "futhark >= 0.9.1"
+#requires "futhark >= 0.9.1"
 requires "sdl2_nim"
 requires "tinydialogs"
 

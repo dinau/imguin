@@ -6,8 +6,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        #nim: [ '1.6.12', 'devel' ]
-        nim: [ '1.6.12']
+        nim: [ '1.6.12', 'devel' ]
     name: Nim ${{ matrix.nim }} compilation
     steps:
       - uses: actions/checkout@master
