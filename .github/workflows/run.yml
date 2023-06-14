@@ -14,6 +14,8 @@ jobs:
         uses: jiro4989/setup-nim-action@v1
         with:
           nim-version: ${{ matrix.nim }}
+      - run: git clone --recursive https://github.com/cimgui/cimgui  src/private
+      - run: git clone --recursive https://github.com/epezent/implot src/private
       - run: make
 
 
