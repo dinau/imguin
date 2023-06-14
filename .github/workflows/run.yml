@@ -17,12 +17,12 @@ jobs:
         uses: jiro4989/setup-nim-action@v1
         with:
           nim-version: ${{ matrix.nim }}
-      - name: Set up MinGW
-        uses: egor-tensin/setup-mingw@v2
-        with:
-          platform: x64
+      #- name: Set up MinGW
+      #  uses: egor-tensin/setup-mingw@v2
+      #  with:
+      #    platform: x64
          #platform: x86
-      - run: pacman -S mingw-w64-x86_64-SDL2
+      #- run: pacman -S mingw-w64-x86_64-SDL2
       - run: make
 
 
