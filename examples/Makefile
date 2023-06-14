@@ -5,10 +5,10 @@ OPTIMIZE ?= # danger  # release dsize rsize
 
 .PHONY: clean
 
-DIRS := glfw_opengl3 \
-	      glfw_opengl3_implot \
-	      glfw_opengl3_nimgl_imguin_jp \
-	      sdl2_opengl3
+DIRS += glfw_opengl3
+DIRS += glfw_opengl3_implot
+DIRS +=	glfw_opengl3_nimgl_imguin_jp
+#DIRS +=	sdl2_opengl3
 
 all:
 	$(foreach model,$(DIRS), $(call def_make,$(model) ) )
