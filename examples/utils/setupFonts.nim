@@ -22,7 +22,7 @@ when defined(windows):
   const fontInfo = TFontInfo(
        osRootDir: os.getEnv("windir") # get OS root
        ,fontDir: "fonts"
-       ,fontTable: @[ # 以下全て有効にすると起動が遅くなる
+       ,fontTable: @[ # 以下全て有効にすると起動が遅くなる orz
          ("meiryo.ttc","メイリオ",14.0)
         # ,("YuGothM.ttc","遊ゴシック M",11.0)
         # ,("meiryob.ttc","メイリオ B",14.0)
@@ -37,7 +37,7 @@ else: # For Debian/Ubuntu
           ("opentype/ipafont-gothic/ipag.ttf","IPAゴシック",12.0)
          ,("opentype/ipafont-gothic/ipam.ttf","IPAゴシック M",12.0)])
 
-# Iconフォントを追加
+# Add Icon font
 # Refered to  https://github.com/nimgl/nimgl/discussions/42
 # ranges array should be global (we need to keep it alive during the application lifetime)
 # because 'addFontFromFileTTF' does not copy its values, and it needs a pointer
@@ -62,9 +62,9 @@ proc setupFonts*(): (bool,string,string) =
   #
   var config {.global.}  = new_ImFontConfig()
   config.MergeMode = true
-  # デフォルトフォント 登録
+  # Register default font
   io.Fonts.ImFontAtlas_AddFontDefault(nil)
-  # Icon font 追加
+  # Add Icon font
   var ranges_icon_fonts {.global.} = [ICON_MIN_FA.uint16,  ICON_MAX_FA.uint16, 0]
   if os.fileExists(fontFullPath):
     io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, 11.point2px,
@@ -72,7 +72,7 @@ proc setupFonts*(): (bool,string,string) =
   else:
     echo "Error!: Can't find Icon fonts"
   #
-  # jp フォントを追加
+  # Add font from 'fontTable'
   result =  (false,"Default","ProggyClean.ttf") #
   var seqFontNames: seq[(string,string)]
   for (fontName,fontTitle,point) in fontInfo.fontTable:

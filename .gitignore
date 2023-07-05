@@ -1,7 +1,8 @@
+xx/
 myImguiApp/
 examples/fontx2v/
 premake/
-*.ini
+#*.ini
 build-*
 org.html
 GPATH

@@ -65,16 +65,16 @@ Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.
    ```
 
 1. Sample program is here, [examples](examples).  
-For instance, [imguin_glfw_opengl3.nim](examples/glfw_opengl3/imguin_glfw_opengl3.nim):
+For instance, [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim):
 
    ```sh
    cd imguin/examples/glfw_opengl3
    make
    ```
 
-   After build, run `./imguin_glfw_opengl3(.exe)`.
+   After build, run `./glfw_opengl3(.exe)`.
 
-1. For static link, read this [examples/README.md](examples/README.md). 
+1. For selecting static link or dynamic link ,read this [examples/README.md](examples/README.md). 
 
 ### Screen shot
 
@@ -82,13 +82,15 @@ For instance, [imguin_glfw_opengl3.nim](examples/glfw_opengl3/imguin_glfw_opengl
 
 These screen shots are on Windows10.  
 
-[glfw_opengl3](examples/glfw_opengl3).  
+- [glfw_opengl3](examples/glfw_opengl3).  
 ![alt](src/img/screenshot1.png)
 
-[glfw_opengl3_nimgl_imguin_jp](examples/glfw_opengl3_nimgl_imguin_jp).  
+- [glfw_opengl3_nimgl_imguin_jp](examples/glfw_opengl3_nimgl_imguin_jp).  
+Showing UTF-8 label text and input text with my local country language.  
 ![alt](src/img/screenshot2.png)
 
-[glfw_opengl3_implot](examples/glfw_opengl3_implot).  
+- [glfw_opengl3_implot](examples/glfw_opengl3_implot).  
+Showing ImGui demo with ImPlot demo.  
 ![alt](src/img/implot1.png)
 
 ## Update to latest Dear ImGui and CImGui
@@ -181,9 +183,9 @@ nimble dump futhark
 ---
 
 Windows10 (main)
-- Nim Compiler Version 1.6.12
-- gcc (Rev10, Built by MSYS2 project) 12.2.0 (MinGW)
-- git version 2.40.0.windows.1
+- Nim Compiler Version 1.6.14
+- gcc.exe (Rev7, Built by MSYS2 project) 13.1.0
+- git version 2.41.0.windows.1
 - SDL2.dll: SDL-release-2.26.4-0-g07d0f51fa (MinGW)
 
 Debian 11 Bullseye

@@ -10,7 +10,7 @@
 ---
 
 If you'd like to build executable file with static link (not using `*.dll`),  
-edit `linkControl.nim` that exists respective example folder.
+edit `linkControl.nim` in respective example folder.
 
 1. To not depend on any other `*.dll` files,  
 set:
