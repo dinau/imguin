@@ -38,20 +38,19 @@ run: all
 	@#nimble run --verbose
 	./$(TARGET_EXE)
 
-info: dll ver
+info: dll
 
 dll:
 	@echo
-	@echo [dlls depend on]
+	@echo [Depending on dlls]
 ifeq ($(OS),Windows_NT)
-	@-strings $(TARGET_EXE) |  rg -i \.dll
-	@echo
+	@-ldd $(TARGET_EXE) | sort
 	@#echo [cimgui.dll version]
-	@#-strings cimgui.dll | rg -ie "^\d\.\d\d\.\d"
+	@#-strings cimgui.dll | rg -ie "^\d\.\d\d\.\d" | uniq
 else
-	@-strings $(TARGET_EXE) |  rg -e "\.so" | sort | uniq
-	@echo
+	@-ldd $(TARGET_EXE) | sort
 endif
+	@echo
 
 ver:
 	@# version check

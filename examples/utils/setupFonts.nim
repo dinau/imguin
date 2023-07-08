@@ -24,6 +24,7 @@ when defined(windows):
        ,fontDir: "fonts"
        ,fontTable: @[ # 以下全て有効にすると起動が遅くなる orz
          ("meiryo.ttc","メイリオ",14.0)
+        #,("segoeui.ttf","Seoge UI",14.0)
         # ,("YuGothM.ttc","遊ゴシック M",11.0)
         # ,("meiryob.ttc","メイリオ B",14.0)
         # ,("msgothic.ttc","MS ゴシック",11.0)
@@ -81,6 +82,7 @@ proc setupFonts*(): (bool,string,string) =
       seqFontNames.add (fontName,fontTitle)
       io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, point.point2px,
           addr config, cast[ptr ImWchar](addr glyphRangesJapanese));
+      echo "Added: ",fontFullPath
 
   if seqFontNames.len > 0:
     result = (true,seqFontNames[0][0].extractFilename ,seqFontNames[0][1])
