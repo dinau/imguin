@@ -76,7 +76,7 @@ For instance, [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim):
 
 1. For selecting static link or dynamic link ,read this [examples/README.md](examples/README.md). 
 
-### Screen shot
+### Screen shot (examples)
 
 ---
 
@@ -91,7 +91,14 @@ Showing UTF-8 label text and input text with my local country language.
 
 - [glfw_opengl3_implot](examples/glfw_opengl3_implot).  
 Showing ImGui demo with ImPlot demo.  
-![alt](src/img/implot1.png)
+![alt](src/img/implot1.png)  
+![alt](src/img/screenshot3.png)
+
+####  My test app movie  
+
+--- 
+
+[![Sample movie,Youtube](src/img/fontx2v-1.0-alpha-2023-04-small.png)](https://youtu.be/Ea0t7b9Kmq4)
 
 ## Update to latest Dear ImGui and CImGui
 
@@ -114,7 +121,7 @@ Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#ins
     nimble install --passL:"-L/usr/lib/llvm-11/lib" futhark
     ```
 
-Important Notice: Confirm Futhark version is v0.9.1 or later.
+Important Notice: Confirm Futhark version is **v0.9.3** or later.
 
 ```sh
 nimble dump futhark
@@ -133,16 +140,23 @@ nimble dump futhark
    make
    ```
    
-   ImGui/CImGui version is **v1.89.5** at this time. (2023/05)
+   ImGui/CImGui version is **v1.89.6dock** at this time. (2023/07)
 - Update/Downgrade to the version that specified tag of CImGui for example,  
 
    ```sh
    pwd
    updater
-   make CIMGUI=1.86
+   make CIMGUI=1.89.5dock
    or
-   make VER=1.86
+   make VER=1.89.5dock
    ```
+
+   - Confirmed version
+      - make CIMGUI=1.89.6dock
+      - make CIMGUI=1.89.5dock
+      - make CIMGUI=1.89.5
+      - ~~make CIMGUI=1.89.3dock~~ ?!
+      - etc ... ?
 
 ## Examples notice
 
@@ -164,11 +178,11 @@ nimble dump futhark
       you need to properly change the above folder name depending on your settings.  
       See [src/imguin/sdl2_opengl.nim](src/imguin/sdl2_opengl.nim)
 
-
 ## TODO
 
 ---
 
+1. Unfortunately ImGui 1.89.7 dosn't work well at this moment.(2023/07)
 1. Easier compilation for SDL2 app.
 1. Whether can it do `nimble install imguin` ?
 1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
