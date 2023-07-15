@@ -43,35 +43,37 @@ endif
 
 all:  wordReplacer$(EXE) \
 			cimgui_update \
-			glfw_opengl_$(CIMGUI_DEFS) \
-			sdl2_opengl_$(CIMGUI_DEFS)
+			glfw_opengl_cimguiDefs.nim \
+			sdl2_opengl_cimguiDefs.nim
 
 .PHONY: wordReplacer$(EXE)
 wordReplacer$(EXE): wordReplacer.nim
 	nim c -d:release   $<
 
-.PHONY: glfw_opengl_$(CIMGUI_DEFS) sdl2_opengl_$(CIMGUI_DEFS)
+.PHONY: glfw_opengl_cimguiDefs.nim sdl2_opengl_cimguiDefs.nim
 
-glfw_opengl_$(CIMGUI_DEFS):
+glfw_opengl_cimguiDefs.nim:
 	nim c -f -c  $(OPT) --nimcache:.nimcache_$@ updater_glfw_opengl.nim
 	./wordReplacer$(EXE) $@
 	$(MV) $@ ../../src/imguin/
 
-sdl2_opengl_$(CIMGUI_DEFS):
+sdl2_opengl_cimguiDefs.nim:
 	nim c -f -c  $(OPT) --nimcache:.nimcache_$@ updater_sdl2_opengl.nim
 	./wordReplacer$(EXE) $@
 	$(MV) $@ ../../src/imguin/
 
 cimgui_update:
+	@# Update git database by the recent changes
 	($(CD_CIMGUI_DIR); git checkout docking_inter )
 	($(CD_CIMGUI_DIR); git pull )
+	@# Change to the specified tag/branch
 	$(CHECK_OUT)
 	($(CD_CIMGUI_DIR); git submodule update --init --recursive)
 
 ifeq ($(OS),Windows_NT)
 clean:
-	-$(CMD) rmdir /q /s .nimcache_glfw_opengl_$(CIMGUI_DEFS)
-	-$(CMD) rmdir /q /s .nimcache_sdl2_opengl_$(CIMGUI_DEFS)
+	-$(CMD) rmdir /q /s .nimcache_glfw_opengl_cimguiDefs.nim
+	-$(CMD) rmdir /q /s .nimcache_sdl2_opengl_cimguiDefs.nim
 	-$(CMD) rmdir /q /s .nimcache
 else
 clean:
