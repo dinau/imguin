@@ -42,9 +42,10 @@ info: dll
 
 dll:
 	@echo
-	@echo [Depending on dlls]
 ifeq ($(OS),Windows_NT)
-	@-ldd $(TARGET_EXE) | sort
+	@#- ../../src/tools/vdd.exe $(TARGET_EXE)
+	@echo [Depending on dlls]
+	@-ldd $(TARGET_EXE) | rg -iv system  | rg -iv windows | sort | uniq
 	@#echo [cimgui.dll version]
 	@#-strings cimgui.dll | rg -ie "^\d\.\d\d\.\d" | uniq
 else
