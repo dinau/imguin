@@ -5,7 +5,6 @@ switch "hint","XDeclaredButNotUsed:off"
 
 #switch "app","gui" # dismiss back ground Window
 
-
 #switch "passC","-std=c++17"
 #
 switch "define", "release"
@@ -15,27 +14,26 @@ switch "define", "release"
 when (NimMajor, NimMinor, NimPatch) >= (1, 6, 8):
   switch "mm","orc"
 
-const LTO = true # further reudce code size
-#const LTO = false
+#const LTO = true # further reudce code size
+const LTO = false
 
 #include "version.nims"
 var TC = "gcc"
 #var TC = "clang"
-#var TC = "clang_cl" # What is this ?
+#var TC = "clang_cl"
 #var TC = "vcc"
 #var TC = "tcc"
 #var TC = "env"
 
 case TC
-  of "vcc":
-    switch "define","lto"
-  of "clang_cl":
+  of "vcc" , "clang_cl":
     switch "define","lto"
   else:
     if "" == findExe(TC): # GCC is default compiler if TC dosn't exist on the PATH
       TC = "gcc"
     if "" == findExe(TC): # if gcc dosn't exist, try clang
       TC = "clang"
+
 
 # Reduce code size further
 when false:
