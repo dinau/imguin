@@ -1,6 +1,8 @@
-
+### Common settings
 include "../config.nims.common"
+
+### Local settings
 include "linkControl.nim"
 
-
-{.passC:"-I../../src/private/cimgui".}
+### Epilogue
+include "../config.nims.end"
