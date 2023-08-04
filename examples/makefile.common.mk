@@ -45,7 +45,8 @@ dll:
 ifeq ($(OS),Windows_NT)
 	@#- ../../src/tools/vdd.exe $(TARGET_EXE)
 	@echo [Depending on dlls]
-	@-ldd $(TARGET_EXE) | rg -iv system  | rg -iv windows | sort | uniq
+	@-ldd $(TARGET_EXE)  | grep -ivE "windows/(system|winsxs)" | sort | uniq
+	@#-ldd $(TARGET_EXE) | rg   -ive "windows/(system|winsxs)" | sort | uniq
 	@#echo [cimgui.dll version]
 	@#-strings cimgui.dll | rg -ie "^\d\.\d\d\.\d" | uniq
 else
