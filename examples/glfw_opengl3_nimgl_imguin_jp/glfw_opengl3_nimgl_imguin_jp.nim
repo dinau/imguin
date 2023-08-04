@@ -103,6 +103,8 @@ proc winMain(hWin: glfw.GLFWWindow) =
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
     hWin.swapBuffers()
 
+var sBuf :string  = newString(200)
+
 #-------------------
 # startSimpleWindow
 #-------------------
@@ -112,7 +114,6 @@ proc startSimpleWindow() =
     somefloat  {.global.} = 0.0'f32
     counter  {.global.} = 0'i32
     sFnameSelected {.global.}: string
-    sBuf {.global.}:string  = newString(200)
   let pio = igGetIO()
   let sTitle = "[ImGui: v$#](起動時フォント:$# - $#)" % [$igGetVersion()
                                                         ,sActiveFontTitle,sActiveFontName]
