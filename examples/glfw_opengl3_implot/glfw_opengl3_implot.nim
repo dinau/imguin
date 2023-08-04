@@ -84,7 +84,7 @@ proc main() =
       igBegin("Nim: Dear ImGui test with Futhark", nil, 0)
       defer: igEnd()
       igText("This is some useful text")
-      igInputTextWithHint("InputText" ,"Input text here" ,sBuf.cstring ,sBuf.len.csize_t ,0.ImguiInputTextFlags,nil,nil)
+      igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.0f, "%.3f", 0)
