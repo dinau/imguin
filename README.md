@@ -63,7 +63,12 @@ Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.
    ```sh
    git clone --recursive https://github.com/dinau/imguin
    ```
+1. Install dependency packages,
 
+   ```
+   cd imguin
+   make
+   ```
 1. Sample program is here, [examples](examples).  
 For instance, [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim):
 
@@ -198,16 +203,26 @@ nimble dump futhark
 
 Windows10 (main)
 - Nim Compiler Version 1.6.14
-- gcc.exe (Rev7, Built by MSYS2 project) 13.1.0
-- git version 2.41.0.windows.1
+- gcc.exe (Rev7, Built by MSYS2 project) 13.2.0
+- clang version 15.0.7
+- git version 2.41.0.windows.3
 - SDL2.dll: SDL-release-2.26.4-0-g07d0f51fa (MinGW)
+- make: GNU Make 4.2.1
+- MSys2/MinGW tools
 
-Debian 11 Bullseye
-- Debian clang version 11.0.1-2
-- gcc (Debian 10.2.1-6) 10.2.1 20210110
-- git version 2.30.2
-- Nim Compiler Version 1.6.12
-- SDL2 ver.2.0.14
+Debian 12 Bookworm
+- Nim Compiler Version 1.6.14
+- gcc (Debian 12.2.0-14) 12.2.0
+- git version 2.39.2
+- GNU Make 4.3
+- SDL2 ver.2.26.5
+
+Debian 11 Bullseye (Obsoleted)  
+   ~~Debian clang version 11.0.1-2  
+   gcc (Debian 10.2.1-6) 10.2.1 20210110  
+   git version 2.30.2  
+   Nim Compiler Version 1.6.12  
+   SDL2 ver.2.0.14~~
 
 ## Other link
 
