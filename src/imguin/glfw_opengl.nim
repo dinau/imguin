@@ -1,6 +1,6 @@
 import std/[os,strutils]
 
-const ClangIncludePath = "d:/msys32/mingw32/opt/llvm-15/lib/clang/15.0.7/include"
+const ClangIncludePath = "c:/drvDx/msys32/mingw32/opt/llvm-15/lib/clang/15.0.7/include"
 # Set root path of ImGui/CImGui
 const CImguiRootPath   = "../../src/private/cimgui"
 const CImPlotRootPath  = "../../src/private/cimplot"

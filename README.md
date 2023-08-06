@@ -21,6 +21,8 @@
 [Dear Imgui](https://github.com/ocornut/imgui) wrapper using [CImGui](https://github.com/cimgui/cimgui) and [Futhark](https://github.com/PMunch/futhark) with Nim language.  
 Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.com/cimgui/cimplot) module.
 
+Latest version: ImGui/CImGui: v1.89.7Dock
+
 **This project is under construction at this moment**
 
 ## Usage: Sample program and run
@@ -30,29 +32,20 @@ Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.
 ### Prerequisites
 
 ---
-1. Nim-1.6.10 or later
-1. Add libraries
 
-   ```sh
-   nimble install glfw nimgl sdl2_nim tinydialogs
-   ```
+- [Nim-1.6.14](https://nim-lang.org) or later (Windows10 or Debian Linux)
+- For Linux Debian 12 Bookworm,  
 
-1. For Linux Debian 11 Bullseye  
+  ```sh
+  $ sudo apt install xorg-dev libopengl-dev libgl1-mesa-dev
+  ```
 
-      ```sh
-      $ sudo apt install xorg-dev libopengl-dev ibgl1-mesa-glx libgl1-mesa-dev
-      ```
-      
-      and for glfw3
+  and for glfw3 and sdl2, 
 
-      ```sh
-      $ sudo apt install libglfw3 libglfw3-dev
-      ```
-      and for sdl2
-
-      ```sh
-      $ sudo apt install libsdl2-dev
-      ```
+  ```sh
+  $ sudo apt install libglfw3 libglfw3-dev
+  $ sudo apt install libsdl2-dev
+  ```
 
 ### Build  
 
@@ -70,14 +63,14 @@ Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.
    make
    ```
 1. Sample program is here, [examples](examples).  
-For instance, [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim):
+For instance [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim),
 
    ```sh
    cd imguin/examples/glfw_opengl3
    make
    ```
 
-   After build, run `./glfw_opengl3(.exe)`.
+   After build, run `./glfw_opengl3(.exe)`
 
 1. For selecting static link or dynamic link ,read this [examples/README.md](examples/README.md). 
 
@@ -119,11 +112,11 @@ Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#ins
    nimble install futhark 
    ```
 
-1. Linux Debian 11 Bullseye
+1. Linux Debian 12 Bookworm
 
     ```sh
-    sudo apt install  libclang-dev
-    nimble install --passL:"-L/usr/lib/llvm-11/lib" futhark
+    sudo apt install  clang-15
+    nimble install --passL:"-L/usr/lib/llvm-15/lib" futhark
     ```
 
 Important Notice: Confirm Futhark version is **v0.9.3** or later.
@@ -145,8 +138,7 @@ nimble dump futhark
    make
    ```
    
-   ImGui/CImGui version is **v1.89.6dock** at this time. (2023/07)
-- Update/Downgrade to the version that specified tag of CImGui for example,  
+- Update/Downgrade to the version specified tag of CImGui for example,  
 
    ```sh
    pwd
@@ -156,12 +148,15 @@ nimble dump futhark
    make VER=1.89.5dock
    ```
 
-   - Confirmed version
-      - make CIMGUI=1.89.6dock
-      - make CIMGUI=1.89.5dock
-      - make CIMGUI=1.89.5
-      - ~~make CIMGUI=1.89.3dock~~ ?!
-      - etc ... ?
+- Confirmed version
+  
+  | Command                 | Date      | Windows10 | Debian<br> Bookworm | Debian<br> Bullseye |
+  | :---------------------- | :-------: | :---:     | :---:               | :---:               |
+  | make CIMGUI=1.89.8dock  | 2023/08   | ok        | -                   | -                   |
+  | make CIMGUI=1.89.7dock  | 2023/07   | ok        | -                   | -                   |
+  | make CIMGUI=1.89.6dock  |           | ok        | -                   | ok                  |
+  | make CIMGUI=1.89.5dock  |           | ok        | -                   | ok                  |
+  | make CIMGUI=1.89.5      |           | ok        | -                   | -                   |
 
 ## Examples notice
 
@@ -187,7 +182,7 @@ nimble dump futhark
 
 ---
 
-1. Unfortunately ImGui 1.89.7 dosn't work well at this moment.(2023/07)
+1. ~~Unfortunately ImGui 1.89.7 dosn't work well at this moment.(2023/07)~~ Done. (2023/08)
 1. Easier compilation for SDL2 app.
 1. Whether can it do `nimble install imguin` ?
 1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
@@ -202,7 +197,7 @@ nimble dump futhark
 ---
 
 Windows10 (main)
-- Nim Compiler Version 1.6.14
+- Nim Compiler Version 2.0.0
 - gcc.exe (Rev7, Built by MSYS2 project) 13.2.0
 - clang version 15.0.7
 - git version 2.41.0.windows.3

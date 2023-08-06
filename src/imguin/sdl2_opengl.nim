@@ -1,6 +1,11 @@
 import std/[os]
 
-const ClangIncludePath = "d:/msys32/mingw32/opt/llvm-15/lib/clang/15.0.7/include"
+# Definitions of abusolute path
+const
+  MinGwPath = "c:/drvDx/msys32/mingw32" # for windows10
+  ClangIncludePath = MinGwPath & "/opt/llvm-15/lib/clang/15.0.7/include"
+  SDL2IncludePath  = MinGwPath & "/include/SDL2"
+  SDL2LibPath      = MinGwPath & "/lib -lSDL2.dll"
 
 # Set root path of ImGui/CImGui
 const CImguiRootPath   = "../../src/private/cimgui"
@@ -29,8 +34,8 @@ else:
   when defined(windows):
     # for instance
     # https://github.com/libsdl-org/SDL/releases/download/release-2.26.4/SDL2-devel-2.26.4-mingw.zip
-    {.passC:"-Id:/msys32/mingw32/include/SDL2".}
-    {.passL:"-Ld:/msys32/mingw32/lib -lSDL2.dll".}
+    {.passC:"-I" & SDL2IncludePath.}
+    {.passL:"-L" & SDL2LibPath.}
   else: # for linux Debian 11 Bullseye or later
     {.passC:"-I/usr/include/SDL2".}
     {.passL:"-lSDL2".}
