@@ -5,7 +5,8 @@ author        = "dinau"
 description   = "Imguin: ImGui / ImPlot wrapper using Futhark"
 license       = "MIT"
 srcDir        = "src"
-skipDirs    = @["examples","src/img","src/imguin/private/updater"]
+skipDirs      = @["examples","src/img","src/imguin/private/updater"]
+bin           = @["imguin"]
 
 
 # Dependencies
