@@ -1,11 +1,16 @@
 import std/[os,strutils]
 
+proc currentSourceDir(): string {.compileTime.} =
+  result = currentSourcePath().replace("\\", "/")
+  result = result[0 ..< result.rfind("/")]
+
 const ClangIncludePath = "c:/drvDx/msys32/mingw32/opt/llvm-15/lib/clang/15.0.7/include"
 # Set root path of ImGui/CImGui
-const CImguiRootPath   = "../../src/private/cimgui"
-const CImPlotRootPath  = "../../src/private/cimplot"
+const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui")
+const CImPlotRootPath  = joinPath(currentSourceDir(),"private/cimplot")
 const ImguiRootPath    = joinPath(CImguiRootPath,"imgui")
 #const ImguiBackendsPath= joinPath(CImguiRootPath,"imgui","backends")
+
 
 when defined(useFuthark):
   import futhark

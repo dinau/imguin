@@ -1,7 +1,6 @@
-import glad/gl
 import sdl2_nim/sdl
 
-import imguin/[sdl2_opengl]
+import imguin/[glad/gl,sdl2_opengl]
 import imguin/lang/imgui_ja_gryph_ranges
 
 include ../utils/setupFonts
@@ -144,4 +143,3 @@ proc main() =
   sdl.quit()
 
 main()
-

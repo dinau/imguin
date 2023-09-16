@@ -19,9 +19,9 @@ endif
 ifeq ($(VER),)
 CHECK_OUT =
 else
-CHECK_OUT = (cd ../private/cimgui; git checkout $(VER))
+CHECK_OUT = (cd ../cimgui; git checkout $(VER))
 endif
-CD_CIMGUI_DIR = cd ../private/cimgui
+CD_CIMGUI_DIR = cd ../cimgui
 
 CIMGUI_DEFS = cimguiDefs.nim
 
@@ -55,12 +55,12 @@ wordReplacer$(EXE): wordReplacer.nim
 glfw_opengl_cimguiDefs.nim:
 	nim c -f -c  $(OPT) --nimcache:.nimcache_$@ updater_glfw_opengl.nim
 	./wordReplacer$(EXE) $@
-	$(MV) $@ ../../src/imguin/
+	$(MV) $@ ../../../imguin/
 
 sdl2_opengl_cimguiDefs.nim:
 	nim c -f -c  $(OPT) --nimcache:.nimcache_$@ updater_sdl2_opengl.nim
 	./wordReplacer$(EXE) $@
-	$(MV) $@ ../../src/imguin/
+	$(MV) $@ ../../../imguin/
 
 cimgui_update:
 	@# Update git database by the recent changes

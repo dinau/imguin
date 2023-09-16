@@ -1,6 +1,10 @@
-import std/[os]
+import std/[os,strutils]
 
+proc currentSourceDir(): string {.compileTime.} =
+  result = currentSourcePath().replace("\\", "/")
+  result = result[0 ..< result.rfind("/")]
 # Definitions of abusolute path
+
 const
   MinGwPath = "c:/drvDx/msys32/mingw32" # for windows10
   ClangIncludePath = MinGwPath & "/opt/llvm-15/lib/clang/15.0.7/include"
@@ -8,7 +12,7 @@ const
   SDL2LibPath      = MinGwPath & "/lib -lSDL2.dll"
 
 # Set root path of ImGui/CImGui
-const CImguiRootPath   = "../../src/private/cimgui"
+const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui")
 const ImguiRootPath    = joinPath(CImguiRootPath,"imgui")
 #const ImguiBackendsPath= joinPath(CImguiRootPath,"imgui","backends")
 
@@ -42,4 +46,3 @@ else:
   #
   {.compile:joinPath(ImguiRootPath,"backends/imgui_impl_sdl2.cpp").}
   include "sourceFiles.nim"
-

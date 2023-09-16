@@ -1,6 +1,6 @@
-[submodule "src/private/cimgui"]
-	path = src/private/cimgui
+[submodule "src/imguin/private/cimgui"]
+	path = src/imguin/private/cimgui
 	url = https://github.com/cimgui/cimgui
-[submodule "src/private/cimplot"]
-	path = src/private/cimplot
+[submodule "src/imguin/private/cimplot"]
+	path = src/imguin/private/cimplot
 	url = https://github.com/cimgui/cimplot

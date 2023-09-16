@@ -1,17 +1,12 @@
 # Package
 
-version       = "0.2.0"
+version       = "1.89.8"
 author        = "dinau"
-description   = "Imguin: ImGui wrapper using Futhark"
+description   = "Imguin: ImGui / ImPlot wrapper using Futhark"
 license       = "MIT"
 srcDir        = "src"
-bin           = @["imguin"]
+skipDirs    = @["examples","src/img","src/imguin/private/updater"]
 
-skipDirs = @["examples/fontx2v"
-            ,"glad"
-            ,"img"
-            ,"private"
-            ,"updater/deletable"]
 
 # Dependencies
 

@@ -1,8 +1,7 @@
 import std/[strutils,random,sugar]
 import glfw
-import glad/gl
 
-import imguin/[glfw_opengl]
+import imguin/[glad/gl,glfw_opengl]
 import imguin/lang/imgui_ja_gryph_ranges
 
 include ../utils/setupFonts

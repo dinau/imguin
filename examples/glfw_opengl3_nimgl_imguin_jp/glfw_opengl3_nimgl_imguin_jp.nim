@@ -99,7 +99,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
 
     igRender()
     glClearColor(clearColor.elm.x, clearColor.elm.y, clearColor.elm.z, clearColor.elm.w) # 背景の色
-    glClear(GL_COLOR_BUFFER_BIT)
+    glClear(opengl.GL_COLOR_BUFFER_BIT)
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
     hWin.swapBuffers()
 
@@ -159,4 +159,3 @@ proc startSimpleWindow() =
 # main
 #--------------
 main()
-
