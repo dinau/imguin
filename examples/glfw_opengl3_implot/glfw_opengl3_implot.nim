@@ -7,6 +7,33 @@ import imguin/lang/imgui_ja_gryph_ranges
 include ../utils/setupFonts
 include imguin/simple
 
+proc imPlotWindow() =
+  var
+    bar_data{.global.} = collect(for i in 0..10: rand(100).Ims32)
+    x_data  {.global.} = collect(for i in 0..10: i.Ims32)
+    y_data  {.global.} = collect(for i in 0..10: (i * i).Ims32)
+
+  if igBegin("err Window", nil, 0):
+    defer: igEnd()
+    #
+    if ImPlotBeginPlot("My error",ImVec2(x:0.0f,y:0.0f),0.ImplotFlags):
+      defer: ImPlotEndPlot()
+      #
+      ImPlotPlotBars_S32PtrInt("My Bar Plot"
+                              ,addr bar_data[0]
+                              ,bar_data.len.cint
+                              ,0.67.cdouble # bar_size
+                              ,0.0.cdouble  # shift
+                              ,0.ImPlotFlags
+                              ,0.cint # offset
+                              ,sizeof(Ims32).cint) # stride
+      ImPlotPlotLine_S32PtrS32Ptr("My Line Plot"
+                              , addr x_data[0]
+                              , addr y_data[0]
+                              , xdata.len.cint
+                              ,0.ImPlotFlags
+                              ,0.cint # offset
+                              ,sizeof(Ims32).cint) # stride
 proc main() =
   glfw.initialize()
   defer: glfw.terminate()
@@ -60,10 +87,6 @@ proc main() =
   var (fExistMultbytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
   # for ImPlot
   discard initRand()
-  var
-    bar_data:seq[int] = collect(for i in 0..10: rand(100))
-    x_data:seq[int] = collect(for i in 0..10: i)
-    y_data:seq[int] = collect(for i in 0..10: i * i)
 
   # main loop
   while not glfw.shouldClose(window):
@@ -114,30 +137,7 @@ proc main() =
       igEnd()
 
     # ImPlot test
-    if showImPlotWindow:
-      igBegin("ImPlot Test Window", addr showImPlotWindow, 0)
-      if ImPlotBeginPlot("My Plot",ImVec2(x:0.0f,y:0.0f),0.ImplotFlags):
-        var
-          pdata = cast[ptr Ims32](unsafeAddr bar_data[0])
-          px_data = cast[ptr Ims32](unsafeAddr x_data[0])
-          py_data = cast[ptr Ims32](unsafeAddr y_data[0])
-        ImPlotPlotBars_S32PtrInt("My Bar Plot"
-                                ,pdata
-                                ,bar_data.len.cint
-                                ,0.67.cdouble # bar_size
-                                ,0.0.cdouble  # shift
-                                ,0.ImPlotFlags
-                                ,0.cint # offset
-                                ,sizeof(cint).cint) # stride
-        ImPlotPlotLine_S32PtrS32Ptr("My Line Plot"
-                                , px_data
-                                , py_data
-                                , xdata.len.cint
-                                ,0.ImPlotFlags
-                                ,0.cint # offset
-                                ,sizeof(cint).cint) # stride
-        ImPlotEndPlot()
-      igEnd()
+    imPlotWindow()
 
     # render
     igRender()
