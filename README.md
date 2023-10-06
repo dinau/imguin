@@ -23,7 +23,7 @@
 [Dear Imgui](https://github.com/ocornut/imgui) wrapper using [CImGui](https://github.com/cimgui/cimgui) and [Futhark](https://github.com/PMunch/futhark) with Nim language.  
 Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.com/cimgui/cimplot) module.
 
-Latest version: ImGui/CImGui: v1.89.8Dock
+Latest version: ImGui/CImGui: v1.89.9Dock
 
 **This project is under construction at this moment**
 
@@ -160,6 +160,8 @@ nimble dump futhark
 
   | Command                 | Date      | Windows10 | Debian<br> Bookworm | Debian<br> Bullseye |
   | :---------------------- | :-------: | :---:     | :---:               | :---:               |
+  | make CIMGUI=1.89.9dock  | 2023/10   | ok        | -                   | -                   |
+  | make CIMGUI=1.89.9      | 2023/10   | NG        | -                   | -                   |
   | make CIMGUI=1.89.8dock  | 2023/08   | ok        | -                   | -                   |
   | make CIMGUI=1.89.7dock  | 2023/08   | ok        | -                   | -                   |
   | make CIMGUI=1.89.6dock  |           | ok        | -                   | ok                  |

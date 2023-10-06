@@ -7,11 +7,19 @@ import imguin/lang/imgui_ja_gryph_ranges
 include ../utils/setupFonts
 include imguin/simple
 
+template ptz(val:untyped): untyped =
+  val[0].addr
+
 proc imPlotWindow() =
   var
-    bar_data{.global.} = collect(for i in 0..10: rand(100).Ims32)
-    x_data  {.global.} = collect(for i in 0..10: i.Ims32)
-    y_data  {.global.} = collect(for i in 0..10: (i * i).Ims32)
+    bar_data{.global.}:seq[Ims32]
+    x_data  {.global.}:seq[Ims32]
+    y_data  {.global.}:seq[Ims32]
+  once: # This needs when set up compilation option to --mm:arc,--mm:orc and use nim-2.0.0 later,
+        # workaround {.global.} pragma issue.
+    bar_data= collect(for i in 0..10: rand(100).Ims32)
+    x_data  = collect(for i in 0..10: i.Ims32)
+    y_data  = collect(for i in 0..10: (i * i).Ims32)
 
   if igBegin("err Window", nil, 0):
     defer: igEnd()
@@ -20,7 +28,7 @@ proc imPlotWindow() =
       defer: ImPlotEndPlot()
       #
       ImPlotPlotBars_S32PtrInt("My Bar Plot"
-                              ,addr bar_data[0]
+                              ,bar_data.ptz
                               ,bar_data.len.cint
                               ,0.67.cdouble # bar_size
                               ,0.0.cdouble  # shift
@@ -28,8 +36,8 @@ proc imPlotWindow() =
                               ,0.cint # offset
                               ,sizeof(Ims32).cint) # stride
       ImPlotPlotLine_S32PtrS32Ptr("My Line Plot"
-                              , addr x_data[0]
-                              , addr y_data[0]
+                              , x_data.ptz
+                              , y_data.ptz
                               , xdata.len.cint
                               ,0.ImPlotFlags
                               ,0.cint # offset

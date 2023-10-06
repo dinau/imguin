@@ -1,4 +1,5 @@
-switch "path","../../src" # for "import glad/gl"
+switch "path","../../../" # for "import glad/gl"
+switch "path","../../" # for "import glad/gl"
 
 switch "nimcache",".nimcache"
 #
