@@ -38,11 +38,14 @@ proc main() =
 
   # setup ImGui
   igCreateContext(nil)
+  defer: igDestroyContext(nil)
 
   var pio = igGetIO()
 
   doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr GlfwWindow](window.getHandle), true)
+  defer: ImGui_ImplGlfw_Shutdown()
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
+  defer: ImGui_ImplOpenGL3_Shutdown()
 
   var
     showDemoWindow = true

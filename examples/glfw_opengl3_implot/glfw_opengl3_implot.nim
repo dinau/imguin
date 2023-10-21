@@ -42,6 +42,10 @@ proc imPlotWindow() =
                               ,0.ImPlotFlags
                               ,0.cint # offset
                               ,sizeof(Ims32).cint) # stride
+
+#------
+# main
+#------
 proc main() =
   glfw.initialize()
   defer: glfw.terminate()
@@ -73,6 +77,8 @@ proc main() =
 
   # setup ImGui
   igCreateContext(nil)
+  defer: igDestroyContext(nil)
+
   # setup ImPlot
   var imPlotContext = ImPlotCreateContext()
   defer: ImPlotDestroyContext(imPlotContext)
@@ -80,7 +86,9 @@ proc main() =
   var pio = igGetIO()
 
   doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr GlfwWindow](window.getHandle), true)
+  defer: ImGui_ImplGlfw_Shutdown()
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
+  defer: ImGui_ImplOpenGL3_Shutdown()
 
   var
     showDemoWindow = true
