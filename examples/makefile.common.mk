@@ -15,17 +15,17 @@ OPT += -o:$(TARGET_EXE)
 all: build dll
 
 build:
-	nim c $(OPT) $(IMPLOT) $(TARGET)
+	nim c $(OPT) $(IMOPT) $(TARGET)
 
 danger:
-	nim c -d:danger $(OPT) $(IMPLOT) $(TARGET).nim
+	nim c -d:danger $(OPT) $(IMOPT) $(TARGET).nim
 dsize:
-	nim c -d:danger --opt:size $(OPT) $(IMPLOT) $(TARGET).nim
+	nim c -d:danger --opt:size $(OPT) $(IMOPT) $(TARGET).nim
 
 release:
-	nim c -d:release $(OPT) $ $(IMPLOT) $(TARGET).nim
+	nim c -d:release $(OPT) $ $(IMOPT) $(TARGET).nim
 rsize:
-	nim c -d:release --opt:size $(OPT) $(IMPLOT) $(TARGET).nim
+	nim c -d:release --opt:size $(OPT) $(IMOPT) $(TARGET).nim
 
 
 clean:

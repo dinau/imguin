@@ -7,6 +7,10 @@
     - [Install](#install)
     - [Build examples](#build-examples)
     - [Screen shot (examples)](#screen-shot-examples)
+      - [glfw_opengl3](#glfw_opengl3)
+      - [glfw_opengl3_nimgl_imguin_jp](#glfw_opengl3_nimgl_imguin_jp)
+      - [glfw_opengl3_implot](#glfw_opengl3_implot)
+      - [glfw_opengl3_imnodes](#glfw_opengl3_imnodes)
       - [My test app movie](#my-test-app-movie)
   - [Update to latest Dear ImGui and CImGui](#update-to-latest-dear-imgui-and-cimgui)
     - [Prerequisite](#prerequisite)
@@ -88,21 +92,26 @@ For instance [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim),
 
 These screen shots are on Windows10.
 
-- [glfw_opengl3](examples/glfw_opengl3).  
+#### [glfw_opengl3](examples/glfw_opengl3)  
+
 ![alt](src/img/screenshot1.png)
 
-- [glfw_opengl3_nimgl_imguin_jp](examples/glfw_opengl3_nimgl_imguin_jp).  
+#### [glfw_opengl3_nimgl_imguin_jp](examples/glfw_opengl3_nimgl_imguin_jp)
+
 Showing UTF-8 label text and input text with my local country language.  
 ![alt](src/img/screenshot2.png)
 
-- [glfw_opengl3_implot](examples/glfw_opengl3_implot).  
+#### [glfw_opengl3_implot](examples/glfw_opengl3_implot)
+
 Showing ImGui demo with ImPlot demo.  
 ![alt](src/img/implot1.png)  
 ![alt](src/img/screenshot3.png)
 
-####  My test app movie
+#### [glfw_opengl3_imnodes](examples/glfw_opengl3_imnodes)
 
----
+![alt](src/img/imnodes-demo.png)  
+
+####  My test app movie
 
 [![Sample movie,Youtube](src/img/fontx2v-1.0-alpha-2023-04-small.png)](https://youtu.be/Ea0t7b9Kmq4)
 
@@ -192,10 +201,10 @@ nimble dump futhark
 
 ---
 
-1. ~~Unfortunately ImGui 1.89.7 dosn't work well at this moment.(2023/07)~~ Done. (2023/08)
 1. Easier compilation for SDL2 app.
-1. ~~Whether can it do `nimble install imguin` ?~~ [Done (2023/09) (#Issue 13)](https://github.com/dinau/imguin/issues/13)
 1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
+1. ~~Unfortunately ImGui 1.89.7 dosn't work well at this moment.(2023/07)~~ Done. (2023/08)
+1. ~~Whether can it do `nimble install imguin` ?~~ [Done (2023/09) (#Issue 13)](https://github.com/dinau/imguin/issues/13)
 1. ~~Add Font Awesome (Icon Font) demo.~~  Done (2023/04).
 1. ~~Can it compile with MSVC (--cc:vcc) ?~~ Done. Except SDL2 demo. (2023/03)
 1. ~~Can it compile with Clang (--cc:clang) ?~~ Done. (2023/03)

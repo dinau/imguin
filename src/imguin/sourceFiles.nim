@@ -36,3 +36,10 @@ when defined(ImPlotEnable):
   {.compile:joinPath(CImPlotRootPath,"implot/implot_demo.cpp").}
   {.compile:joinPath(CImPlotRootPath,"implot/implot_items.cpp").}
 
+when defined(ImNodesEnable):
+  {.passC:"-DIMNODES_NAMESPACE=imnodes".}
+  {.passC:"-I" & CImNodesRootPath.}
+  {.compile:joinPath(CImNodesRootPath,"cimnodes.cpp").}
+  {.compile:joinPath(CImNodesRootPath,"imnodes/imnodes.cpp").}
+
+

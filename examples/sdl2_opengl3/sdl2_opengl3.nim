@@ -6,6 +6,9 @@ import imguin/lang/imgui_ja_gryph_ranges
 include ../utils/setupFonts
 include imguin/simple
 
+#------
+# main
+#------
 proc main() =
   if sdl.init(sdl.InitVideo) != 0:
     echo "ERROR: Can't initialize SDL: ", sdl.getError()
@@ -52,8 +55,7 @@ proc main() =
   var pio = sdl2_opengl.igGetIO()
 
   var glsl_version: cstring = "#version 150"
-  doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SdlWindow](window)
-                                      , addr glsl_version)
+  doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SdlWindow](window) , addr glsl_version)
   defer: ImGui_ImplSDL2_Shutdown()
 
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)

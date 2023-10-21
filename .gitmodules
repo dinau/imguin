@@ -4,3 +4,6 @@
 [submodule "src/imguin/private/cimplot"]
 	path = src/imguin/private/cimplot
 	url = https://github.com/cimgui/cimplot
+[submodule "src/imguin/private/cimnodes"]
+	path = src/imguin/private/cimnodes
+	url = https://github.com/cimgui/cimnodes.git

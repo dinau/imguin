@@ -8,6 +8,7 @@ const ClangIncludePath = "c:/drvDx/msys32/mingw32/opt/llvm-15/lib/clang/15.0.7/i
 # Set root path of ImGui/CImGui
 const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui")
 const CImPlotRootPath  = joinPath(currentSourceDir(),"private/cimplot")
+const CImNodesRootPath = joinPath(currentSourceDir(),"private/cimnodes")
 const ImguiRootPath    = joinPath(CImguiRootPath,"imgui")
 #const ImguiBackendsPath= joinPath(CImguiRootPath,"imgui","backends")
 
@@ -18,16 +19,24 @@ when defined(useFuthark):
     syspath ClangIncludePath
     path    CImguiRootPath
     path    CImPlotRootPath
+    path    CImNodesRootPath
     #define "IMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
     define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
     define "CIMGUI_DEFINE_ENUMS_AND_STRUCTS"
+    define "IMNODES_NAMESPACE=imnodes"
+    #
     "cimgui.h"
     define "CIMGUI_USE_GLFW"
     define "CIMGUI_USE_OPENGL3"
     "generator/output/cimgui_impl.h"
+    #
     "cimplot.h"
     define "ImDrawIdx=\"unsigned int\""
+    #
+    "cimnodes.h"
+    # Output
     outputPath "glfw_opengl_cimguiDefs.nim"
+
 else:
   {.push discardable,hint[XDeclaredButNotUsed]:off.}
   include "glfw_opengl_cimguiDefs.nim"

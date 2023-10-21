@@ -13,21 +13,34 @@ const
 
 # Set root path of ImGui/CImGui
 const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui")
+const CImPlotRootPath  = joinPath(currentSourceDir(),"private/cimplot")
+const CImNodesRootPath = joinPath(currentSourceDir(),"private/cimnodes")
 const ImguiRootPath    = joinPath(CImguiRootPath,"imgui")
 #const ImguiBackendsPath= joinPath(CImguiRootPath,"imgui","backends")
+
 
 when defined(useFuthark):
   import futhark
   importc:
     syspath ClangIncludePath
     path    CImguiRootPath
+    path    CImPlotRootPath
+    path    CImNodesRootPath
     #define "IMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
     define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
     define "CIMGUI_DEFINE_ENUMS_AND_STRUCTS"
+    define "IMNODES_NAMESPACE=imnodes"
+    #
     "cimgui.h"
     define "CIMGUI_USE_SDL2"
     define "CIMGUI_USE_OPENGL3"
     "generator/output/cimgui_impl.h"
+    #
+    "cimplot.h"
+    define "ImDrawIdx=\"unsigned int\""
+    #
+    "cimnodes.h"
+    # Output
     outputPath "sdl2_opengl_cimguiDefs.nim"
 else:
   {.push discardable,hint[XDeclaredButNotUsed]:off.}

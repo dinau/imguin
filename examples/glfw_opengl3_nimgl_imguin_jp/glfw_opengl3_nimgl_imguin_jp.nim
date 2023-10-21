@@ -31,9 +31,9 @@ var
 proc winMain(hWin: glfw.GLFWWindow)
 proc startSimpleWindow()
 
-#--------------
+#------
 # main
-#--------------
+#------
 proc main() =
   # GLFWの初期化 開始
   doAssert glfwInit()
