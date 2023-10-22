@@ -7,29 +7,7 @@ import imguin/lang/imgui_ja_gryph_ranges
 include ../utils/setupFonts
 include imguin/simple
 
-#-----------
-# templates
-#-----------
-template inBeginNodeEditor(body:untyped) =
-  imNodes_BeginNodeEditor()
-  body
-  imNodes_EndNodeEditor()
-template inNodeTitleBar(body:untyped) =
-  imNodes_BeginNodeTitleBar()
-  body
-  imNodes_EndNodeTitleBar()
-template inInputAttribute(id:typed,pinShape,body:untyped) =
-  imNodes_BeginInputAttribute(id.cint,pinShape.ImNodesPinShape)
-  body
-  imNodes_EndInputAttribute()
-template inOutputAttribute(id:typed,pinShape,body:untyped) =
-  imNodes_BeginOutputAttribute(id.cint,pinShape.ImNodesPinShape)
-  body
-  imNodes_EndOutputAttribute()
-template inBeginNode(id:typed,body:untyped) =
-  imNodes_BeginNode(id.cint)
-  body
-  imNodes_EndNode()
+import imnodeDemo
 
 #------
 # main
@@ -89,6 +67,10 @@ proc main() =
   # Add multibytes font
   var (fExistMultbytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
 
+  # ImNode demo init
+  NodeEditorInitialize()
+  defer: NodeEditorShutdown()
+
   while not glfw.shouldClose(window):
     glfw.pollEvents()
 
@@ -101,36 +83,7 @@ proc main() =
       igShowDemoWindow(addr showDemoWindow)
 
     # ImNodes demo
-    type
-      nodeId = enum
-        start,
-        n1_id , n1_in , n1_out,
-        n2_id , n2_in , n2_out
-    block:
-      igBegin("ImNodes test", nil, 0)
-      defer: igEnd()
-      #
-      inBeginNodeEditor:
-        once: # set initial position
-          imnodes_SetNodeGridSpacePos(n1_id.cint,ImVec2(x: 10,y: 10))
-          imnodes_SetNodeGridSpacePos(n2_id.cint,ImVec2(x: 150,y: 90))
-        inBeginNode(n1_id): # Node1
-          inNodeTitleBar:
-            igTextUnformatted("simple node 1",nil)
-          inInputAttribute(n1_in,ImNodesPinShape_CircleFilled):
-            igText("input")
-          inOutputAttribute(n1_out,ImNodesPinShape_CircleFilled):
-            igIndent(40)
-            igText("output")
-        inBeginNode(n2_id): # Node2
-          inNodeTitleBar:
-            igTextUnformatted("simple node 2",nil)
-          inInputAttribute(n2_in,ImNodesPinShape_CircleFilled):
-            igText("input")
-          inOutputAttribute(n2_out,ImNodesPinShape_CircleFilled):
-            igIndent(40)
-            igText("output")
-        imnodes_MiniMap(0.3.cfloat,Imnodesminimaplocationtopright.ImnodesMiniMapLocation,nil,nil)
+    NodeEditorShow()
 
     # show a simple window that we created ourselves.
     block:
