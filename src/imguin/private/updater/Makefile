@@ -25,7 +25,7 @@ CD_CIMGUI_DIR = cd ../cimgui
 
 CIMGUI_DEFS = cimguiDefs.nim
 
-OPT ?=
+OPT = -d:useFuthark -d:futharkRebuild --maxLoopIterationsVM:100000000
 
 NIMCACHE = .nimcache
 
@@ -41,26 +41,34 @@ MV = $(CMD) move
 RM = $(CMD) del /q
 endif
 
+IMGUIN_DIR = ../../../imguin
+
+.PHONY: wordReplacer$(EXE) gen
+
 all:  wordReplacer$(EXE) \
 			cimgui_update \
-			glfw_opengl_cimguiDefs.nim \
-			sdl2_opengl_cimguiDefs.nim
+			$(IMGUIN_DIR)/glfw_opengl_cimguiDefs.nim \
+			$(IMGUIN_DIR)/sdl2_opengl_cimguiDefs.nim
 
-.PHONY: wordReplacer$(EXE)
+# First do manual update cimgui/cimplot/cimnodes and regeneration *defs.nim file
+gen:  wordReplacer$(EXE) \
+			$(IMGUIN_DIR)/glfw_opengl_cimguiDefs.nim \
+			$(IMGUIN_DIR)/sdl2_opengl_cimguiDefs.nim
+
 wordReplacer$(EXE): wordReplacer.nim
 	nim c -d:release   $<
 
-.PHONY: glfw_opengl_cimguiDefs.nim sdl2_opengl_cimguiDefs.nim
+.PHONY: $(IMGUIN_DIR)/glfw_opengl_cimguiDefs.nim $(IMGUIN_DIR)/sdl2_opengl_cimguiDefs.nim
 
-glfw_opengl_cimguiDefs.nim:
-	nim c -f -c  $(OPT) --nimcache:.nimcache_$@ updater_glfw_opengl.nim
-	./wordReplacer$(EXE) $@
-	$(MV) $@ ../../../imguin/
+$(IMGUIN_DIR)/glfw_opengl_cimguiDefs.nim:
+	nim c -f -c  $(OPT) --nimcache:.nimcache_$(notdir $@) $(IMGUIN_DIR)/glfw_opengl.nim
+	./wordReplacer$(EXE) $(notdir $@)
+	$(MV) $(notdir $@) $@
 
-sdl2_opengl_cimguiDefs.nim:
-	nim c -f -c  $(OPT) --nimcache:.nimcache_$@ updater_sdl2_opengl.nim
-	./wordReplacer$(EXE) $@
-	$(MV) $@ ../../../imguin/
+$(IMGUIN_DIR)/sdl2_opengl_cimguiDefs.nim:
+	nim c -f -c  $(OPT) --nimcache:.nimcache_$(notdir $@) $(IMGUIN_DIR)/sdl2_opengl.nim
+	./wordReplacer$(EXE) $(notdir $@)
+	$(MV) $(notdir $@) $@
 
 cimgui_update:
 	@# Update git database by the recent changes
@@ -78,4 +86,5 @@ clean:
 else
 clean:
 	-$(RM) -fr .nimcache_*
+	-$(RM) -fr .nimcache
 endif
