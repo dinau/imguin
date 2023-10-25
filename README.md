@@ -140,6 +140,13 @@ Important Notice: Confirm Futhark version is **v0.9.3** or later.
 
 ```sh
 nimble dump futhark
+
+name: "futhark"
+version: "0.9.3"
+author: "PMunch"
+desc: "A package which uses libclang to parse C headers into Nim files for easy interop"
+license: "MIT"
+...
 ```
 
 ### Update ImGui/CImGui
@@ -155,27 +162,22 @@ nimble dump futhark
    make
    ```
 
-- Update/Downgrade to the version specified tag of CImGui for example,
+- Update/Downgrade to the version specified tag for example,
 
    ```sh
    pwd
    updater
-   make CIMGUI=1.89.5dock
+   make VER=1.89.9.6
    or
-   make VER=1.89.5dock
+   make CIMGUI=1.89.9.6
    ```
 
 - Confirmed version
 
-  | Command                 | Date      | Windows10 | Debian<br> Bookworm | Debian<br> Bullseye |
-  | :---------------------- | :-------: | :---:     | :---:               | :---:               |
-  | make CIMGUI=1.89.9dock  | 2023/10   | ok        | -                   | -                   |
-  | make CIMGUI=1.89.9      | 2023/10   | NG        | -                   | -                   |
-  | make CIMGUI=1.89.8dock  | 2023/08   | ok        | -                   | -                   |
-  | make CIMGUI=1.89.7dock  | 2023/08   | ok        | -                   | -                   |
-  | make CIMGUI=1.89.6dock  |           | ok        | -                   | ok                  |
-  | make CIMGUI=1.89.5dock  |           | ok        | -                   | ok                  |
-  | make CIMGUI=1.89.5      |           | ok        | -                   | -                   |
+  | Command                 | Date      | Windows10 | Debian<br> Bookworm |
+  | :---------------------- | :-------: | :---:     | :---:               |
+  | make VER=1.89.9.6       | 2023/10   | ok        | NG                  |
+  | make VER=1.89.9.5       | 2023/10   | ok        | NG                  |
 
 ## Examples notice
 
