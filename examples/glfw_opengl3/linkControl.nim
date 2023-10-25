@@ -1,3 +1,5 @@
+# switch "app","gui"
+
 #---------------------------------------
 # Select static link or shared/dll link
 #---------------------------------------
@@ -34,4 +36,3 @@ when STATIC_LINK_CC: # gcc static link
   else:
     switch "passC", "-static"
     switch "passL", "-static -static-libgcc"
-

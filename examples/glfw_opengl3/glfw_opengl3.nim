@@ -8,6 +8,8 @@ include ../utils/setupFonts
 include imguin/simple
 
 proc main() =
+  const TransparentViewport = false
+
   glfw.initialize()
   defer: glfw.terminate()
 
@@ -20,6 +22,8 @@ proc main() =
   cfg.version = glv33
   cfg.forwardCompat = true
   cfg.profile = opCoreProfile
+  when TransparentViewport:
+    cfg.visible = false # Hide background (GLFW window)
 
   var window = newWindow(cfg)
   defer: window.destroy()
@@ -42,6 +46,11 @@ proc main() =
 
   var pio = igGetIO()
 
+  when TransparentViewport: # IMGUI_HAS_DOCK
+    pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_DockingEnable.cint
+    pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_ViewportsEnable.cint
+    pio.ConfigViewports_NoAutomerge = true
+
   doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr GlfwWindow](window.getHandle), true)
   defer: ImGui_ImplGlfw_Shutdown()
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
@@ -50,15 +59,22 @@ proc main() =
   var
     showDemoWindow = true
     showAnotherWindow = false
+    showFirstWindow = true
     fval = 0.5f
     counter = 0
     sBuf = newString(200)
-    clearColor = ccolor(elm:(x:0.45f, y:0.55f, z:0.60f, w:1.0f))
+  when TransparentViewport:
+    var clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
+  else:
+    var clearColor = ccolor(elm:(x:0.45f, y:0.55f, z:0.60f, w:1.0f))
+
+  igStyleColorsClassic(nil)
 
   # Add multibytes font
   var (fExistMultbytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
 
   while not glfw.shouldClose(window):
+
     glfw.pollEvents()
 
     # start imgui frame
@@ -70,10 +86,12 @@ proc main() =
       igShowDemoWindow(addr showDemoWindow)
 
     # show a simple window that we created ourselves.
-    block:
-      igBegin("Nim: Dear ImGui test with Futhark", nil, 0)
+    if showFirstWindow:
+      igBegin("Nim: Dear ImGui test with Futhark", addr showFirstWindow, 0)
       defer: igEnd()
-      igText("This is some useful text")
+      let (a,b,c) = glfw.version()
+      let s = "GLFW v$#.$#.$#" % [$a, $b, $c]
+      igText(s.cstring)
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
@@ -111,6 +129,18 @@ proc main() =
     glClearColor(clearColor.elm.x, clearColor.elm.y, clearColor.elm.z, clearColor.elm.w)
     glClear(GL_COLOR_BUFFER_BIT)
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
-    glfw.swapBuffers(window)
+    when TransparentViewport: # IMGUI_HAS_DOCK
+      if 0 != (pio.ConfigFlags and ImGuiConfigFlags_ViewportsEnable.cint):
+        var backup_current_window = glfw.currentContext()
+        igUpdatePlatformWindows()
+        igRenderPlatformWindowsDefault(nil, nil)
+        glfw.makeContextCurrent(backup_current_window)
 
+    glfw.swapBuffers(window)
+    if not showFirstWindow and not showDemoWindow and not showAnotherWindow:
+      window.shouldClose = true # End program
+
+#------
+# main
+#------
 main()
