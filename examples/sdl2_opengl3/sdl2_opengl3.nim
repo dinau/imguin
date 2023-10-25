@@ -1,3 +1,4 @@
+import std/[strutils]
 import sdl2_nim/sdl
 
 import imguin/[glad/gl,sdl2_opengl]
@@ -54,7 +55,7 @@ proc main() =
 
   var pio = sdl2_opengl.igGetIO()
 
-  var glsl_version: cstring = "#version 150"
+  var glsl_version: cstring = "#version 150" # OpenGL 3.2
   doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SdlWindow](window) , addr glsl_version)
   defer: ImGui_ImplSDL2_Shutdown()
 
@@ -100,7 +101,10 @@ proc main() =
     block:
       igBegin("Nim: Dear ImGui test with Futhark", nil, 0)
       defer: igEnd()
-      igText("This is some useful text")
+      var ver:sdl.Version
+      sdl.getVersion(ver.addr)
+      let s = "SDL2 v$#.$#.$#" % [$ver.major,$ver.minor,$ver.patch]
+      igText(s.cstring)
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)

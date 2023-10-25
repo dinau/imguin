@@ -121,7 +121,9 @@ proc main() =
     block:
       igBegin("Nim: Dear ImGui test with Futhark", nil, 0)
       defer: igEnd()
-      igText("This is some useful text")
+      let (a,b,c) = glfw.version()
+      let s = "GLFW v$#.$#.$#" % [$a, $b, $c]
+      igText(s.cstring)
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)

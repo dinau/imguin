@@ -120,6 +120,8 @@ proc startSimpleWindow() =
   igBegin(sTitle.cstring, nil, 0)
   defer: igEnd()
 
+  let s = "GLFW v"  & $glfwgetVersionString()
+  igText(s.cstring)
   igText("これは日本語表示テスト")
   igInputTextWithHint("InputText" ,"ここに日本語を入力" ,sBuf)
   igCheckbox("デモ・ウインドウ表示", show_demo.addr)
