@@ -1,9 +1,9 @@
 
 from macros import hint
 
-when not declared(Imguiwindowflagsenum):
+when not declared(enumimguiwindowflags):
   type
-    Imguiwindowflagsenum* {.size: sizeof(cint).} = enum
+    enumimguiwindowflags* {.size: sizeof(cint).} = enum
       ImGui_WindowFlags_None = 0, ImGui_WindowFlags_NotitleBar = 1,
       ImGui_WindowFlags_NoResize = 2, ImGui_WindowFlags_NoMove = 4,
       ImGui_WindowFlags_NoScrollBar = 8, ImGui_WindowFlags_NoScrollWithMouse = 16,
@@ -28,11 +28,11 @@ when not declared(Imguiwindowflagsenum):
       ImGui_WindowFlags_DockNodeHost = 536870912
 else:
   static :
-    hint("Declaration of " & "Imguiwindowflagsenum" &
+    hint("Declaration of " & "enumimguiwindowflags" &
         " already exists, not redeclaring")
-when not declared(Imguiinputtextflagsenum):
+when not declared(enumimguiinputtextflags):
   type
-    Imguiinputtextflagsenum* {.size: sizeof(cint).} = enum
+    enumimguiinputtextflags* {.size: sizeof(cint).} = enum
       ImGui_InputTextFlags_None = 0, ImGui_InputTextFlags_Charsdecimal = 1,
       ImGui_InputTextFlags_CharsHexadecimal = 2,
       ImGui_InputTextFlags_CharsUpperCase = 4,
@@ -55,11 +55,11 @@ when not declared(Imguiinputtextflagsenum):
       ImGui_InputTextFlags_EscapeClearsAll = 1048576
 else:
   static :
-    hint("Declaration of " & "Imguiinputtextflagsenum" &
+    hint("Declaration of " & "enumimguiinputtextflags" &
         " already exists, not redeclaring")
-when not declared(Imguitreenodeflagsenum):
+when not declared(enumimguitreenodeflags):
   type
-    Imguitreenodeflagsenum* {.size: sizeof(cint).} = enum
+    enumimguitreenodeflags* {.size: sizeof(cint).} = enum
       ImGui_TreenodeFlags_None = 0, ImGui_TreenodeFlags_Selected = 1,
       ImGui_TreenodeFlags_Framed = 2, ImGui_TreenodeFlags_AllowOverlap = 4,
       ImGui_TreenodeFlags_NotreePushoNopen = 8,
@@ -74,11 +74,11 @@ when not declared(Imguitreenodeflagsenum):
       ImGui_TreenodeFlags_NavLeftJumpsBackHere = 8192
 else:
   static :
-    hint("Declaration of " & "Imguitreenodeflagsenum" &
+    hint("Declaration of " & "enumimguitreenodeflags" &
         " already exists, not redeclaring")
-when not declared(Imguipopupflagsenum):
+when not declared(enumimguipopupflags):
   type
-    Imguipopupflagsenum* {.size: sizeof(cint).} = enum
+    enumimguipopupflags* {.size: sizeof(cint).} = enum
       ImGui_PopupFlags_None = 0, ImGui_PopupFlags_MouseButtonRight = 1,
       ImGui_PopupFlags_MouseButtonMiddle = 2, ImGui_PopupFlags_MouseButtonMask = 31,
       ImGui_PopupFlags_NoOpeNoverexistingPopup = 32,
@@ -86,36 +86,36 @@ when not declared(Imguipopupflagsenum):
       ImGui_PopupFlags_AnyPopupLevel = 256, ImGui_PopupFlags_AnyPopup = 384
 else:
   static :
-    hint("Declaration of " & "Imguipopupflagsenum" &
+    hint("Declaration of " & "enumimguipopupflags" &
         " already exists, not redeclaring")
 when not declared(Imguipopupflagsmousebuttonleft):
   const
-    Imguipopupflagsmousebuttonleft* = Imguipopupflagsenum.Imguipopupflagsnone
+    Imguipopupflagsmousebuttonleft* = enumimguipopupflags.Imguipopupflagsnone
 else:
   static :
     hint("Declaration of " & "Imguipopupflagsmousebuttonleft" &
         " already exists, not redeclaring")
 when not declared(Imguipopupflagsmousebuttondefault):
   const
-    Imguipopupflagsmousebuttondefault* = Imguipopupflagsenum.Imguipopupflagsmousebuttonright
+    Imguipopupflagsmousebuttondefault* = enumimguipopupflags.Imguipopupflagsmousebuttonright
 else:
   static :
     hint("Declaration of " & "Imguipopupflagsmousebuttondefault" &
         " already exists, not redeclaring")
-when not declared(Imguiselectableflagsenum):
+when not declared(enumimguiselectableflags):
   type
-    Imguiselectableflagsenum* {.size: sizeof(cint).} = enum
+    enumimguiselectableflags* {.size: sizeof(cint).} = enum
       ImGui_SelectableFlags_None = 0, ImGui_SelectableFlags_DontClosePopups = 1,
       ImGui_SelectableFlags_SpanAllColumns = 2,
       ImGui_SelectableFlags_AllowDoubleClick = 4,
       ImGui_SelectableFlags_Disabled = 8, ImGui_SelectableFlags_AllowOverlap = 16
 else:
   static :
-    hint("Declaration of " & "Imguiselectableflagsenum" &
+    hint("Declaration of " & "enumimguiselectableflags" &
         " already exists, not redeclaring")
-when not declared(Imguicomboflagsenum):
+when not declared(enumimguicomboflags):
   type
-    Imguicomboflagsenum* {.size: sizeof(cint).} = enum
+    enumimguicomboflags* {.size: sizeof(cint).} = enum
       ImGui_ComboFlags_None = 0, ImGui_ComboFlags_PopupAlignLeft = 1,
       ImGui_ComboFlags_HeightsmAll = 2, ImGui_ComboFlags_HeightRegular = 4,
       ImGui_ComboFlags_HeightLarge = 8, ImGui_ComboFlags_HeightLargest = 16,
@@ -123,11 +123,11 @@ when not declared(Imguicomboflagsenum):
       ImGui_ComboFlags_NoPreView = 64
 else:
   static :
-    hint("Declaration of " & "Imguicomboflagsenum" &
+    hint("Declaration of " & "enumimguicomboflags" &
         " already exists, not redeclaring")
-when not declared(Imguitabbarflagsenum):
+when not declared(enumimguitabbarflags):
   type
-    Imguitabbarflagsenum* {.size: sizeof(cint).} = enum
+    enumimguitabbarflags* {.size: sizeof(cint).} = enum
       ImGui_TabBarFlags_None = 0, ImGui_TabBarFlags_Reorderable = 1,
       ImGui_TabBarFlags_AutoSelectnewTabs = 2,
       ImGui_TabBarFlags_TabListPopupButton = 4,
@@ -139,18 +139,18 @@ when not declared(Imguitabbarflagsenum):
       ImGui_TabBarFlags_FittingPolicyMask = 192
 else:
   static :
-    hint("Declaration of " & "Imguitabbarflagsenum" &
+    hint("Declaration of " & "enumimguitabbarflags" &
         " already exists, not redeclaring")
 when not declared(Imguitabbarflagsfittingpolicydefault):
   const
-    Imguitabbarflagsfittingpolicydefault* = Imguitabbarflagsenum.Imguitabbarflagsfittingpolicyresizedown
+    Imguitabbarflagsfittingpolicydefault* = enumimguitabbarflags.Imguitabbarflagsfittingpolicyresizedown
 else:
   static :
     hint("Declaration of " & "Imguitabbarflagsfittingpolicydefault" &
         " already exists, not redeclaring")
-when not declared(Imguitabitemflagsenum):
+when not declared(enumimguitabitemflags):
   type
-    Imguitabitemflagsenum* {.size: sizeof(cint).} = enum
+    enumimguitabitemflags* {.size: sizeof(cint).} = enum
       ImGui_TabItemFlags_None = 0, ImGui_TabItemFlags_UnsavedDocument = 1,
       ImGui_TabItemFlags_SetSelected = 2,
       ImGui_TabItemFlags_NoCloseWithMiddleMouseButton = 4,
@@ -159,11 +159,11 @@ when not declared(Imguitabitemflagsenum):
       ImGui_TabItemFlags_Trailing = 128
 else:
   static :
-    hint("Declaration of " & "Imguitabitemflagsenum" &
+    hint("Declaration of " & "enumimguitabitemflags" &
         " already exists, not redeclaring")
-when not declared(Imguitableflagsenum):
+when not declared(enumimguitableflags):
   type
-    Imguitableflagsenum* {.size: sizeof(cint).} = enum
+    enumimguitableflags* {.size: sizeof(cint).} = enum
       ImGui_TableFlags_None = 0, ImGui_TableFlags_Resizable = 1,
       ImGui_TableFlags_Reorderable = 2, ImGui_TableFlags_Hideable = 4,
       ImGui_TableFlags_Sortable = 8, ImGui_TableFlags_NoSavedSettings = 16,
@@ -188,11 +188,11 @@ when not declared(Imguitableflagsenum):
       ImGui_TableFlags_SorttriState = 134217728
 else:
   static :
-    hint("Declaration of " & "Imguitableflagsenum" &
+    hint("Declaration of " & "enumimguitableflags" &
         " already exists, not redeclaring")
-when not declared(Imguitablecolumnflagsenum):
+when not declared(enumimguitablecolumnflags):
   type
-    Imguitablecolumnflagsenum* {.size: sizeof(cint).} = enum
+    enumimguitablecolumnflags* {.size: sizeof(cint).} = enum
       ImGui_TableColumnFlags_None = 0, ImGui_TableColumnFlags_Disabled = 1,
       ImGui_TableColumnFlags_DefaultHide = 2,
       ImGui_TableColumnFlags_DefaultSort = 4,
@@ -218,39 +218,39 @@ when not declared(Imguitablecolumnflagsenum):
       ImGui_TableColumnFlags_NoDirectResize = 1073741824
 else:
   static :
-    hint("Declaration of " & "Imguitablecolumnflagsenum" &
+    hint("Declaration of " & "enumimguitablecolumnflags" &
         " already exists, not redeclaring")
-when not declared(Imguitablerowflagsenum):
+when not declared(enumimguitablerowflags):
   type
-    Imguitablerowflagsenum* {.size: sizeof(cint).} = enum
+    enumimguitablerowflags* {.size: sizeof(cint).} = enum
       ImGui_TablerowFlags_None = 0, ImGui_TablerowFlags_Headers = 1
 else:
   static :
-    hint("Declaration of " & "Imguitablerowflagsenum" &
+    hint("Declaration of " & "enumimguitablerowflags" &
         " already exists, not redeclaring")
-when not declared(Imguitablebgtargetenum):
+when not declared(enumimguitablebgtarget):
   type
-    Imguitablebgtargetenum* {.size: sizeof(cint).} = enum
+    enumimguitablebgtarget* {.size: sizeof(cint).} = enum
       ImGui_TablebgTargetNone = 0, ImGui_TablebgTargetrowbg0 = 1,
       ImGui_TablebgTargetrowbg1 = 2, ImGui_TablebgTargetcellBg = 3
 else:
   static :
-    hint("Declaration of " & "Imguitablebgtargetenum" &
+    hint("Declaration of " & "enumimguitablebgtarget" &
         " already exists, not redeclaring")
-when not declared(Imguifocusedflagsenum):
+when not declared(enumimguifocusedflags):
   type
-    Imguifocusedflagsenum* {.size: sizeof(cint).} = enum
+    enumimguifocusedflags* {.size: sizeof(cint).} = enum
       ImGui_FocusedFlags_None = 0, ImGui_FocusedFlags_ChildWindows = 1,
       ImGui_FocusedFlags_RootWindow = 2, ImGui_FocusedFlags_RootAndChildWindows = 3,
       ImGui_FocusedFlags_AnyWindow = 4, ImGui_FocusedFlags_NoPopupHierarchy = 8,
       ImGui_FocusedFlags_DockHierarchy = 16
 else:
   static :
-    hint("Declaration of " & "Imguifocusedflagsenum" &
+    hint("Declaration of " & "enumimguifocusedflags" &
         " already exists, not redeclaring")
-when not declared(Imguihoveredflagsenum):
+when not declared(enumimguihoveredflags):
   type
-    Imguihoveredflagsenum* {.size: sizeof(cint).} = enum
+    enumimguihoveredflags* {.size: sizeof(cint).} = enum
       ImGui_HoveredFlags_None = 0, ImGui_HoveredFlags_ChildWindows = 1,
       ImGui_HoveredFlags_RootWindow = 2, ImGui_HoveredFlags_RootAndChildWindows = 3,
       ImGui_HoveredFlags_AnyWindow = 4, ImGui_HoveredFlags_NoPopupHierarchy = 8,
@@ -268,22 +268,22 @@ when not declared(Imguihoveredflagsenum):
       ImGui_HoveredFlags_NosharedDelay = 131072
 else:
   static :
-    hint("Declaration of " & "Imguihoveredflagsenum" &
+    hint("Declaration of " & "enumimguihoveredflags" &
         " already exists, not redeclaring")
-when not declared(Imguidocknodeflagsenum):
+when not declared(enumimguidocknodeflags):
   type
-    Imguidocknodeflagsenum* {.size: sizeof(cint).} = enum
+    enumimguidocknodeflags* {.size: sizeof(cint).} = enum
       ImGui_DockNodeFlags_None = 0, ImGui_DockNodeFlags_KeepAliveOnly = 1,
       ImGui_DockNodeFlags_NoDockinginCentralNode = 4,
       ImGui_DockNodeFlags_PassThruCentralNode = 8, ImGui_DockNodeFlags_NoSplit = 16,
       ImGui_DockNodeFlags_NoResize = 32, ImGui_DockNodeFlags_AutoHideTabBar = 64
 else:
   static :
-    hint("Declaration of " & "Imguidocknodeflagsenum" &
+    hint("Declaration of " & "enumimguidocknodeflags" &
         " already exists, not redeclaring")
-when not declared(Imguidragdropflagsenum):
+when not declared(enumimguidragdropflags):
   type
-    Imguidragdropflagsenum* {.size: sizeof(cint).} = enum
+    enumimguidragdropflags* {.size: sizeof(cint).} = enum
       ImGui_DragDropFlags_None = 0, ImGui_DragDropFlags_SourceNoPreViewTooltip = 1,
       ImGui_DragDropFlags_SourceNoDisableHover = 2,
       ImGui_DragDropFlags_SourceNohOldtoOpeNothers = 4,
@@ -296,39 +296,39 @@ when not declared(Imguidragdropflagsenum):
       ImGui_DragDropFlags_AcceptNoPreViewTooltip = 4096
 else:
   static :
-    hint("Declaration of " & "Imguidragdropflagsenum" &
+    hint("Declaration of " & "enumimguidragdropflags" &
         " already exists, not redeclaring")
-when not declared(Imguidatatypeenum):
+when not declared(enumimguidatatype):
   type
-    Imguidatatypeenum* {.size: sizeof(cint).} = enum
+    enumimguidatatype* {.size: sizeof(cint).} = enum
       ImGui_DataTypeS8 = 0, ImGui_DataTypeU8 = 1, ImGui_DataTypeS16 = 2,
       ImGui_DataTypeU16 = 3, ImGui_DataTypeS32 = 4, ImGui_DataTypeU32 = 5,
       ImGui_DataTypeS64 = 6, ImGui_DataTypeU64 = 7, ImGui_DataTypeFloat = 8,
       ImGui_DataTypeDouble = 9, ImGui_DataTypeCount = 10
 else:
   static :
-    hint("Declaration of " & "Imguidatatypeenum" &
+    hint("Declaration of " & "enumimguidatatype" &
         " already exists, not redeclaring")
-when not declared(Imguidirenum):
+when not declared(enumimguidir):
   type
-    Imguidirenum* {.size: sizeof(cint).} = enum
+    enumimguidir* {.size: sizeof(cint).} = enum
       Imguidirnone = -1, Imguidirleft = 0, Imguidirright = 1, Imguidirup = 2,
       ImGui_DirDown = 3, ImGui_DirCount = 4
 else:
   static :
-    hint("Declaration of " & "Imguidirenum" & " already exists, not redeclaring")
-when not declared(Imguisortdirectionenum):
+    hint("Declaration of " & "enumimguidir" & " already exists, not redeclaring")
+when not declared(enumimguisortdirection):
   type
-    Imguisortdirectionenum* {.size: sizeof(cint).} = enum
+    enumimguisortdirection* {.size: sizeof(cint).} = enum
       ImGui_SortDirectionNone = 0, ImGui_SortDirectionAscending = 1,
       ImGui_SortDirectionDescending = 2
 else:
   static :
-    hint("Declaration of " & "Imguisortdirectionenum" &
+    hint("Declaration of " & "enumimguisortdirection" &
         " already exists, not redeclaring")
-when not declared(Imguikey):
+when not declared(enumimguikey):
   type
-    Imguikey* {.size: sizeof(cint).} = enum
+    enumimguikey* {.size: sizeof(cint).} = enum
       ImGui_KeyNone = 0, ImGui_KeynamedKeyCount = 140, ImGui_KeyTab = 512,
       ImGui_KeyLeftArrow = 513, ImGui_KeyRightArrow = 514, ImGui_KeyupArrow = 515,
       ImGui_KeyDownArrow = 516, ImGui_KeyPageUp = 517, ImGui_KeyPageDown = 518,
@@ -384,44 +384,44 @@ when not declared(Imguikey):
       ImGui_ModMask = 63488
 else:
   static :
-    hint("Declaration of " & "Imguikey" & " already exists, not redeclaring")
+    hint("Declaration of " & "enumimguikey" & " already exists, not redeclaring")
 when not declared(Imguimodnone):
   const
-    Imguimodnone* = Imguikey.Imguikeynone
+    Imguimodnone* = enumimguikey.Imguikeynone
 else:
   static :
     hint("Declaration of " & "Imguimodnone" & " already exists, not redeclaring")
 when not declared(Imguikeynamedkeybegin):
   const
-    Imguikeynamedkeybegin* = Imguikey.Imguikeytab
+    Imguikeynamedkeybegin* = enumimguikey.Imguikeytab
 else:
   static :
     hint("Declaration of " & "Imguikeynamedkeybegin" &
         " already exists, not redeclaring")
 when not declared(Imguikeynamedkeyend):
   const
-    Imguikeynamedkeyend* = Imguikey.Imguikeycount
+    Imguikeynamedkeyend* = enumimguikey.Imguikeycount
 else:
   static :
     hint("Declaration of " & "Imguikeynamedkeyend" &
         " already exists, not redeclaring")
 when not declared(Imguikeykeysdatasize):
   const
-    Imguikeykeysdatasize* = Imguikey.Imguikeycount
+    Imguikeykeysdatasize* = enumimguikey.Imguikeycount
 else:
   static :
     hint("Declaration of " & "Imguikeykeysdatasize" &
         " already exists, not redeclaring")
 when not declared(Imguikeykeysdataoffset):
   const
-    Imguikeykeysdataoffset* = Imguikey.Imguikeynone
+    Imguikeykeysdataoffset* = enumimguikey.Imguikeynone
 else:
   static :
     hint("Declaration of " & "Imguikeykeysdataoffset" &
         " already exists, not redeclaring")
-when not declared(Imguinavinput):
+when not declared(enumimguinavinput):
   type
-    Imguinavinput* {.size: sizeof(cint).} = enum
+    enumimguinavinput* {.size: sizeof(cint).} = enum
       ImGui_NavInputActivate = 0, ImGui_NavInputCancel = 1,
       ImGui_NavInputInput = 2, ImGui_NavInputMenu = 3, ImGui_NavInputdPadLeft = 4,
       ImGui_NavInputdPadRight = 5, ImGui_NavInputdPadUp = 6,
@@ -432,11 +432,11 @@ when not declared(Imguinavinput):
       ImGui_NavInputTweakFast = 15, ImGui_NavInputCount = 16
 else:
   static :
-    hint("Declaration of " & "Imguinavinput" &
+    hint("Declaration of " & "enumimguinavinput" &
         " already exists, not redeclaring")
-when not declared(Imguiconfigflagsenum):
+when not declared(enumimguiconfigflags):
   type
-    Imguiconfigflagsenum* {.size: sizeof(cint).} = enum
+    enumimguiconfigflags* {.size: sizeof(cint).} = enum
       ImGui_ConfigFlags_None = 0, ImGui_ConfigFlags_NavEnableKeyboard = 1,
       ImGui_ConfigFlags_NavEnableGamePad = 2,
       ImGui_ConfigFlags_NavEnableSetMousepos = 4,
@@ -449,11 +449,11 @@ when not declared(Imguiconfigflagsenum):
       ImGui_ConfigFlags_issrgb = 1048576, ImGui_ConfigFlags_istouchscreen = 2097152
 else:
   static :
-    hint("Declaration of " & "Imguiconfigflagsenum" &
+    hint("Declaration of " & "enumimguiconfigflags" &
         " already exists, not redeclaring")
-when not declared(Imguibackendflagsenum):
+when not declared(enumimguibackendflags):
   type
-    Imguibackendflagsenum* {.size: sizeof(cint).} = enum
+    enumimguibackendflags* {.size: sizeof(cint).} = enum
       ImGui_BackendFlags_None = 0, ImGui_BackendFlags_HasGamePad = 1,
       ImGui_BackendFlags_HasMouseCursors = 2, ImGui_BackendFlags_HasSetMousepos = 4,
       ImGui_BackendFlags_RendererHasvtxoffSet = 8,
@@ -462,11 +462,11 @@ when not declared(Imguibackendflagsenum):
       ImGui_BackendFlags_RendererHasViewPorts = 4096
 else:
   static :
-    hint("Declaration of " & "Imguibackendflagsenum" &
+    hint("Declaration of " & "enumimguibackendflags" &
         " already exists, not redeclaring")
-when not declared(Imguicolenum):
+when not declared(enumimguicol):
   type
-    Imguicolenum* {.size: sizeof(cint).} = enum
+    enumimguicol* {.size: sizeof(cint).} = enum
       ImGui_ColText = 0, ImGui_ColTextDisabled = 1, ImGui_ColWindowBg = 2,
       ImGui_ColChildBg = 3, ImGui_ColPopupBg = 4, ImGui_ColBorder = 5,
       ImGui_ColBordershadow = 6, ImGui_ColFrameBg = 7, ImGui_ColFramebgHovered = 8,
@@ -495,10 +495,10 @@ when not declared(Imguicolenum):
       ImGui_ColModalWindowdimBg = 54, ImGui_ColCount = 55
 else:
   static :
-    hint("Declaration of " & "Imguicolenum" & " already exists, not redeclaring")
-when not declared(Imguistylevarenum):
+    hint("Declaration of " & "enumimguicol" & " already exists, not redeclaring")
+when not declared(enumimguistylevar):
   type
-    Imguistylevarenum* {.size: sizeof(cint).} = enum
+    enumimguistylevar* {.size: sizeof(cint).} = enum
       ImGui_StylevarAlpha = 0, ImGui_StylevarDisabledAlpha = 1,
       ImGui_StylevarWindowPadding = 2, ImGui_StylevarWindowRounding = 3,
       ImGui_StylevarWindowBordersize = 4, ImGui_StylevarWindowminsize = 5,
@@ -518,28 +518,28 @@ when not declared(Imguistylevarenum):
       ImGui_StylevarDockingSeparatorsize = 28, ImGui_StylevarCount = 29
 else:
   static :
-    hint("Declaration of " & "Imguistylevarenum" &
+    hint("Declaration of " & "enumimguistylevar" &
         " already exists, not redeclaring")
-when not declared(Imguibuttonflagsenum):
+when not declared(enumimguibuttonflags):
   type
-    Imguibuttonflagsenum* {.size: sizeof(cint).} = enum
+    enumimguibuttonflags* {.size: sizeof(cint).} = enum
       ImGui_ButtonFlags_None = 0, ImGui_ButtonFlags_MouseButtonLeft = 1,
       ImGui_ButtonFlags_MouseButtonRight = 2,
       ImGui_ButtonFlags_MouseButtonMiddle = 4, ImGui_ButtonFlags_MouseButtonMask = 7
 else:
   static :
-    hint("Declaration of " & "Imguibuttonflagsenum" &
+    hint("Declaration of " & "enumimguibuttonflags" &
         " already exists, not redeclaring")
 when not declared(Imguibuttonflagsmousebuttondefault):
   const
-    Imguibuttonflagsmousebuttondefault* = Imguibuttonflagsenum.Imguibuttonflagsmousebuttonleft
+    Imguibuttonflagsmousebuttondefault* = enumimguibuttonflags.Imguibuttonflagsmousebuttonleft
 else:
   static :
     hint("Declaration of " & "Imguibuttonflagsmousebuttondefault" &
         " already exists, not redeclaring")
-when not declared(Imguicoloreditflagsenum):
+when not declared(enumimguicoloreditflags):
   type
-    Imguicoloreditflagsenum* {.size: sizeof(cint).} = enum
+    enumimguicoloreditflags* {.size: sizeof(cint).} = enum
       ImGui_ColorEditFlags_None = 0, ImGui_ColorEditFlags_NoAlpha = 2,
       ImGui_ColorEditFlags_NoPicker = 4, ImGui_ColorEditFlags_Nooptions = 8,
       ImGui_ColorEditFlags_NosmAllPreView = 16, ImGui_ColorEditFlags_NoInputs = 32,
@@ -564,30 +564,30 @@ when not declared(Imguicoloreditflagsenum):
       ImGui_ColorEditFlags_InputMask = 402653184
 else:
   static :
-    hint("Declaration of " & "Imguicoloreditflagsenum" &
+    hint("Declaration of " & "enumimguicoloreditflags" &
         " already exists, not redeclaring")
-when not declared(Imguisliderflagsenum):
+when not declared(enumimguisliderflags):
   type
-    Imguisliderflagsenum* {.size: sizeof(cint).} = enum
+    enumimguisliderflags* {.size: sizeof(cint).} = enum
       ImGui_SliderFlags_None = 0, ImGui_SliderFlags_Alwaysclamp = 16,
       ImGui_SliderFlags_Logarithmic = 32, ImGui_SliderFlags_NoRoundtoformat = 64,
       ImGui_SliderFlags_NoInput = 128, ImGui_SliderFlags_invalidMask = 1879048207
 else:
   static :
-    hint("Declaration of " & "Imguisliderflagsenum" &
+    hint("Declaration of " & "enumimguisliderflags" &
         " already exists, not redeclaring")
-when not declared(Imguimousebuttonenum):
+when not declared(enumimguimousebutton):
   type
-    Imguimousebuttonenum* {.size: sizeof(cint).} = enum
+    enumimguimousebutton* {.size: sizeof(cint).} = enum
       ImGui_MouseButtonLeft = 0, ImGui_MouseButtonRight = 1,
       ImGui_MouseButtonMiddle = 2, ImGui_MouseButtonCount = 5
 else:
   static :
-    hint("Declaration of " & "Imguimousebuttonenum" &
+    hint("Declaration of " & "enumimguimousebutton" &
         " already exists, not redeclaring")
-when not declared(Imguimousecursorenum):
+when not declared(enumimguimousecursor):
   type
-    Imguimousecursorenum* {.size: sizeof(cint).} = enum
+    enumimguimousecursor* {.size: sizeof(cint).} = enum
       Imguimousecursornone = -1, Imguimousecursorarrow = 0,
       ImGui_MouseCursorTextInput = 1, ImGui_MouseCursorResizeAll = 2,
       ImGui_MouseCursorResizens = 3, ImGui_MouseCursorResizeew = 4,
@@ -596,29 +596,29 @@ when not declared(Imguimousecursorenum):
       ImGui_MouseCursorCount = 9
 else:
   static :
-    hint("Declaration of " & "Imguimousecursorenum" &
+    hint("Declaration of " & "enumimguimousecursor" &
         " already exists, not redeclaring")
-when not declared(Imguimousesource):
+when not declared(enumimguimousesource):
   type
-    Imguimousesource* {.size: sizeof(cint).} = enum
+    enumimguimousesource* {.size: sizeof(cint).} = enum
       ImGui_MouseSourceMouse = 0, ImGui_MouseSourcetouchscreen = 1,
       ImGui_MouseSourcepen = 2, ImGui_MouseSourceCount = 3
 else:
   static :
-    hint("Declaration of " & "Imguimousesource" &
+    hint("Declaration of " & "enumimguimousesource" &
         " already exists, not redeclaring")
-when not declared(Imguicondenum):
+when not declared(enumimguicond):
   type
-    Imguicondenum* {.size: sizeof(cint).} = enum
+    enumimguicond* {.size: sizeof(cint).} = enum
       ImGui_CondNone = 0, ImGui_CondAlways = 1, ImGui_CondOnce = 2,
       ImGui_Condfirstuseever = 4, ImGui_CondAppearing = 8
 else:
   static :
-    hint("Declaration of " & "Imguicondenum" &
+    hint("Declaration of " & "enumimguicond" &
         " already exists, not redeclaring")
-when not declared(Imdrawflagsenum):
+when not declared(enumimdrawflags):
   type
-    Imdrawflagsenum* {.size: sizeof(cint).} = enum
+    enumimdrawflags* {.size: sizeof(cint).} = enum
       Imdrawflagsnone = 0, Imdrawflagsclosed = 1,
       Imdrawflagsroundcornerstopleft = 16, Imdrawflagsroundcornerstopright = 32,
       Imdrawflagsroundcornerstop = 48, Imdrawflagsroundcornersbottomleft = 64,
@@ -629,37 +629,37 @@ when not declared(Imdrawflagsenum):
       Imdrawflagsroundcornersmask = 496
 else:
   static :
-    hint("Declaration of " & "Imdrawflagsenum" &
+    hint("Declaration of " & "enumimdrawflags" &
         " already exists, not redeclaring")
 when not declared(Imdrawflagsroundcornersdefault):
   const
-    Imdrawflagsroundcornersdefault* = Imdrawflagsenum.Imdrawflagsroundcornersall
+    Imdrawflagsroundcornersdefault* = enumimdrawflags.Imdrawflagsroundcornersall
 else:
   static :
     hint("Declaration of " & "Imdrawflagsroundcornersdefault" &
         " already exists, not redeclaring")
-when not declared(Imdrawlistflagsenum):
+when not declared(enumimdrawlistflags):
   type
-    Imdrawlistflagsenum* {.size: sizeof(cint).} = enum
+    enumimdrawlistflags* {.size: sizeof(cint).} = enum
       Imdrawlistflagsnone = 0, Imdrawlistflagsantialiasedlines = 1,
       Imdrawlistflagsantialiasedlinesusetex = 2,
       Imdrawlistflagsantialiasedfill = 4, Imdrawlistflagsallowvtxoffset = 8
 else:
   static :
-    hint("Declaration of " & "Imdrawlistflagsenum" &
+    hint("Declaration of " & "enumimdrawlistflags" &
         " already exists, not redeclaring")
-when not declared(Imfontatlasflagsenum):
+when not declared(enumimfontatlasflags):
   type
-    Imfontatlasflagsenum* {.size: sizeof(cint).} = enum
+    enumimfontatlasflags* {.size: sizeof(cint).} = enum
       Imfontatlasflagsnone = 0, Imfontatlasflagsnopoweroftwoheight = 1,
       Imfontatlasflagsnomousecursors = 2, Imfontatlasflagsnobakedlines = 4
 else:
   static :
-    hint("Declaration of " & "Imfontatlasflagsenum" &
+    hint("Declaration of " & "enumimfontatlasflags" &
         " already exists, not redeclaring")
-when not declared(Imguiviewportflagsenum):
+when not declared(enumimguiviewportflags):
   type
-    Imguiviewportflagsenum* {.size: sizeof(cint).} = enum
+    enumimguiviewportflags* {.size: sizeof(cint).} = enum
       ImGui_ViewPortFlags_None = 0, ImGui_ViewPortFlags_isPlatformWindow = 1,
       ImGui_ViewPortFlags_isPlatformmonitor = 2, ImGui_ViewPortFlags_Ownedbyapp = 4,
       ImGui_ViewPortFlags_NodeCoration = 8, ImGui_ViewPortFlags_NoTaskBarIcon = 16,
@@ -671,11 +671,11 @@ when not declared(Imguiviewportflagsenum):
       ImGui_ViewPortFlags_isMinimized = 4096, ImGui_ViewPortFlags_isFocused = 8192
 else:
   static :
-    hint("Declaration of " & "Imguiviewportflagsenum" &
+    hint("Declaration of " & "enumimguiviewportflags" &
         " already exists, not redeclaring")
-when not declared(Imguiitemflagsenum):
+when not declared(enumimguiitemflags):
   type
-    Imguiitemflagsenum* {.size: sizeof(cint).} = enum
+    enumimguiitemflags* {.size: sizeof(cint).} = enum
       ImGui_ItemFlags_None = 0, ImGui_ItemFlags_NoTabsTop = 1,
       ImGui_ItemFlags_ButtonRepeat = 2, ImGui_ItemFlags_Disabled = 4,
       ImGui_ItemFlags_NoNav = 8, ImGui_ItemFlags_NoNavDefaultFocus = 16,
@@ -685,11 +685,11 @@ when not declared(Imguiitemflagsenum):
       ImGui_ItemFlags_AllowOverlap = 512, ImGui_ItemFlags_Inputable = 1024
 else:
   static :
-    hint("Declaration of " & "Imguiitemflagsenum" &
+    hint("Declaration of " & "enumimguiitemflags" &
         " already exists, not redeclaring")
-when not declared(Imguiitemstatusflagsenum):
+when not declared(enumimguiitemstatusflags):
   type
-    Imguiitemstatusflagsenum* {.size: sizeof(cint).} = enum
+    enumimguiitemstatusflags* {.size: sizeof(cint).} = enum
       ImGui_ItemStatusFlags_None = 0, ImGui_ItemStatusFlags_HoveredRect = 1,
       ImGui_ItemStatusFlags_HasDisplayRect = 2, ImGui_ItemStatusFlags_Edited = 4,
       ImGui_ItemStatusFlags_ToggledSelection = 8,
@@ -701,31 +701,31 @@ when not declared(Imguiitemstatusflagsenum):
       ImGui_ItemStatusFlags_Visible = 512
 else:
   static :
-    hint("Declaration of " & "Imguiitemstatusflagsenum" &
+    hint("Declaration of " & "enumimguiitemstatusflags" &
         " already exists, not redeclaring")
-when not declared(Imguihoveredflagsprivate):
+when not declared(enumimguihoveredflagsprivate):
   type
-    Imguihoveredflagsprivate* {.size: sizeof(cint).} = enum
+    enumimguihoveredflagsprivate* {.size: sizeof(cint).} = enum
       ImGui_HoveredFlags_AllowedMaskforisWindowHovered = 12479,
       ImGui_HoveredFlags_DelayMask = 245760,
       ImGui_HoveredFlags_AllowedMaskforisItemHovered = 262048
 else:
   static :
-    hint("Declaration of " & "Imguihoveredflagsprivate" &
+    hint("Declaration of " & "enumimguihoveredflagsprivate" &
         " already exists, not redeclaring")
-when not declared(Imguiinputtextflagsprivate):
+when not declared(enumimguiinputtextflagsprivate):
   type
-    Imguiinputtextflagsprivate* {.size: sizeof(cint).} = enum
+    enumimguiinputtextflagsprivate* {.size: sizeof(cint).} = enum
       ImGui_InputTextFlags_Multiline = 67108864,
       ImGui_InputTextFlags_NomarkEdited = 134217728,
       ImGui_InputTextFlags_MergedItem = 268435456
 else:
   static :
-    hint("Declaration of " & "Imguiinputtextflagsprivate" &
+    hint("Declaration of " & "enumimguiinputtextflagsprivate" &
         " already exists, not redeclaring")
-when not declared(Imguibuttonflagsprivate):
+when not declared(enumimguibuttonflagsprivate):
   type
-    Imguibuttonflagsprivate* {.size: sizeof(cint).} = enum
+    enumimguibuttonflagsprivate* {.size: sizeof(cint).} = enum
       ImGui_ButtonFlags_PressedonClick = 16,
       ImGui_ButtonFlags_PressedonClickRelease = 32,
       ImGui_ButtonFlags_PressedonClickReleaseAnywHere = 64,
@@ -745,34 +745,34 @@ when not declared(Imguibuttonflagsprivate):
       ImGui_ButtonFlags_NotestKeyOwner = 2097152
 else:
   static :
-    hint("Declaration of " & "Imguibuttonflagsprivate" &
+    hint("Declaration of " & "enumimguibuttonflagsprivate" &
         " already exists, not redeclaring")
 when not declared(Imguibuttonflagspressedondefault):
   const
-    Imguibuttonflagspressedondefault* = Imguibuttonflagsprivate.Imguibuttonflagspressedonclickrelease
+    Imguibuttonflagspressedondefault* = enumimguibuttonflagsprivate.Imguibuttonflagspressedonclickrelease
 else:
   static :
     hint("Declaration of " & "Imguibuttonflagspressedondefault" &
         " already exists, not redeclaring")
-when not declared(Imguicomboflagsprivate):
+when not declared(enumimguicomboflagsprivate):
   type
-    Imguicomboflagsprivate* {.size: sizeof(cint).} = enum
+    enumimguicomboflagsprivate* {.size: sizeof(cint).} = enum
       ImGui_ComboFlags_CustomPreView = 1048576
 else:
   static :
-    hint("Declaration of " & "Imguicomboflagsprivate" &
+    hint("Declaration of " & "enumimguicomboflagsprivate" &
         " already exists, not redeclaring")
-when not declared(Imguisliderflagsprivate):
+when not declared(enumimguisliderflagsprivate):
   type
-    Imguisliderflagsprivate* {.size: sizeof(cint).} = enum
+    enumimguisliderflagsprivate* {.size: sizeof(cint).} = enum
       ImGui_SliderFlags_Vertical = 1048576, ImGui_SliderFlags_ReadOnly = 2097152
 else:
   static :
-    hint("Declaration of " & "Imguisliderflagsprivate" &
+    hint("Declaration of " & "enumimguisliderflagsprivate" &
         " already exists, not redeclaring")
-when not declared(Imguiselectableflagsprivate):
+when not declared(enumimguiselectableflagsprivate):
   type
-    Imguiselectableflagsprivate* {.size: sizeof(cint).} = enum
+    enumimguiselectableflagsprivate* {.size: sizeof(cint).} = enum
       ImGui_SelectableFlags_NohOldingActiveId = 1048576,
       ImGui_SelectableFlags_SelectonNav = 2097152,
       ImGui_SelectableFlags_SelectonClick = 4194304,
@@ -783,103 +783,105 @@ when not declared(Imguiselectableflagsprivate):
       ImGui_SelectableFlags_NoSetKeyOwner = 134217728
 else:
   static :
-    hint("Declaration of " & "Imguiselectableflagsprivate" &
+    hint("Declaration of " & "enumimguiselectableflagsprivate" &
         " already exists, not redeclaring")
-when not declared(Imguitreenodeflagsprivate):
+when not declared(enumimguitreenodeflagsprivate):
   type
-    Imguitreenodeflagsprivate* {.size: sizeof(cint).} = enum
+    enumimguitreenodeflagsprivate* {.size: sizeof(cint).} = enum
       ImGui_TreenodeFlags_ClipLabelforTrailingButton = 1048576,
       ImGui_TreenodeFlags_upsideDownArrow = 2097152
 else:
   static :
-    hint("Declaration of " & "Imguitreenodeflagsprivate" &
+    hint("Declaration of " & "enumimguitreenodeflagsprivate" &
         " already exists, not redeclaring")
-when not declared(Imguiseparatorflagsenum):
+when not declared(enumimguiseparatorflags):
   type
-    Imguiseparatorflagsenum* {.size: sizeof(cint).} = enum
+    enumimguiseparatorflags* {.size: sizeof(cint).} = enum
       ImGui_SeparatorFlags_None = 0, ImGui_SeparatorFlags_Horizontal = 1,
       ImGui_SeparatorFlags_Vertical = 2, ImGui_SeparatorFlags_SpanAllColumns = 4
 else:
   static :
-    hint("Declaration of " & "Imguiseparatorflagsenum" &
+    hint("Declaration of " & "enumimguiseparatorflags" &
         " already exists, not redeclaring")
-when not declared(Imguifocusrequestflagsenum):
+when not declared(enumimguifocusrequestflags):
   type
-    Imguifocusrequestflagsenum* {.size: sizeof(cint).} = enum
+    enumimguifocusrequestflags* {.size: sizeof(cint).} = enum
       ImGui_FocusRequestFlags_None = 0,
       ImGui_FocusRequestFlags_restoreFocusedChild = 1,
       ImGui_FocusRequestFlags_unlessbelowModal = 2
 else:
   static :
-    hint("Declaration of " & "Imguifocusrequestflagsenum" &
+    hint("Declaration of " & "enumimguifocusrequestflags" &
         " already exists, not redeclaring")
-when not declared(Imguitextflagsenum):
+when not declared(enumimguitextflags):
   type
-    Imguitextflagsenum* {.size: sizeof(cint).} = enum
+    enumimguitextflags* {.size: sizeof(cint).} = enum
       ImGui_TextFlags_None = 0, ImGui_TextFlags_NoWidthforLargeClippedText = 1
 else:
   static :
-    hint("Declaration of " & "Imguitextflagsenum" &
+    hint("Declaration of " & "enumimguitextflags" &
         " already exists, not redeclaring")
-when not declared(Imguitooltipflagsenum):
+when not declared(enumimguitooltipflags):
   type
-    Imguitooltipflagsenum* {.size: sizeof(cint).} = enum
+    enumimguitooltipflags* {.size: sizeof(cint).} = enum
       ImGui_TooltipFlags_None = 0, ImGui_TooltipFlags_OverridePrevious = 2
 else:
   static :
-    hint("Declaration of " & "Imguitooltipflagsenum" &
+    hint("Declaration of " & "enumimguitooltipflags" &
         " already exists, not redeclaring")
-when not declared(Imguilayouttypeenum):
+when not declared(enumimguilayouttype):
   type
-    Imguilayouttypeenum* {.size: sizeof(cint).} = enum
+    enumimguilayouttype* {.size: sizeof(cint).} = enum
       ImGui_LayoutTypeHorizontal = 0, ImGui_LayoutTypeVertical = 1
 else:
   static :
-    hint("Declaration of " & "Imguilayouttypeenum" &
+    hint("Declaration of " & "enumimguilayouttype" &
         " already exists, not redeclaring")
-when not declared(Imguilogtype):
+when not declared(enumimguilogtype):
   type
-    Imguilogtype* {.size: sizeof(cint).} = enum
+    enumimguilogtype* {.size: sizeof(cint).} = enum
       ImGui_LogTypeNone = 0, ImGui_LogTypetty = 1, ImGui_LogTypefile = 2,
       ImGui_LogTypebuffer = 3, ImGui_LogTypeClipboard = 4
 else:
   static :
-    hint("Declaration of " & "Imguilogtype" & " already exists, not redeclaring")
-when not declared(Imguiaxis):
+    hint("Declaration of " & "enumimguilogtype" &
+        " already exists, not redeclaring")
+when not declared(enumimguiaxis):
   type
-    Imguiaxis* {.size: sizeof(cint).} = enum
+    enumimguiaxis* {.size: sizeof(cint).} = enum
       Imguiaxisnone = -1, Imguiaxisx = 0, Imguiaxisy = 1
 else:
   static :
-    hint("Declaration of " & "Imguiaxis" & " already exists, not redeclaring")
-when not declared(Imguiplottype):
+    hint("Declaration of " & "enumimguiaxis" &
+        " already exists, not redeclaring")
+when not declared(enumimguiplottype):
   type
-    Imguiplottype* {.size: sizeof(cint).} = enum
+    enumimguiplottype* {.size: sizeof(cint).} = enum
       ImGui_PlotTypelines = 0, ImGui_PlotTypeHistogram = 1
 else:
   static :
-    hint("Declaration of " & "Imguiplottype" &
+    hint("Declaration of " & "enumimguiplottype" &
         " already exists, not redeclaring")
-when not declared(Imguipopuppositionpolicy):
+when not declared(enumimguipopuppositionpolicy):
   type
-    Imguipopuppositionpolicy* {.size: sizeof(cint).} = enum
+    enumimguipopuppositionpolicy* {.size: sizeof(cint).} = enum
       ImGui_PopuppositionPolicyDefault = 0, ImGui_PopuppositionPolicyCombobox = 1,
       ImGui_PopuppositionPolicyTooltip = 2
 else:
   static :
-    hint("Declaration of " & "Imguipopuppositionpolicy" &
+    hint("Declaration of " & "enumimguipopuppositionpolicy" &
         " already exists, not redeclaring")
-when not declared(Imguidatatypeprivate):
+when not declared(enumimguidatatypeprivate):
   type
-    Imguidatatypeprivate* {.size: sizeof(cint).} = enum
+    enumimguidatatypeprivate* {.size: sizeof(cint).} = enum
       ImGui_DataTypestring = 11, ImGui_DataTypepointer = 12, ImGui_DataTypeId = 13
 else:
   static :
-    hint("Declaration of " & "Imguidatatypeprivate" &
+    hint("Declaration of " & "enumimguidatatypeprivate" &
         " already exists, not redeclaring")
-when not declared(Imguinextwindowdataflagsenum):
+when not declared(enumimguinextwindowdataflags):
   type
-    Imguinextwindowdataflagsenum* {.size: sizeof(cint).} = enum
+    enumimguinextwindowdataflags* {.size: sizeof(cint).} = enum
       ImGui_NextWindowDataFlags_None = 0, ImGui_NextWindowDataFlags_Haspos = 1,
       ImGui_NextWindowDataFlags_Hassize = 2,
       ImGui_NextWindowDataFlags_Hascontentsize = 4,
@@ -893,20 +895,20 @@ when not declared(Imguinextwindowdataflagsenum):
       ImGui_NextWindowDataFlags_HasWindowclass = 1024
 else:
   static :
-    hint("Declaration of " & "Imguinextwindowdataflagsenum" &
+    hint("Declaration of " & "enumimguinextwindowdataflags" &
         " already exists, not redeclaring")
-when not declared(Imguinextitemdataflagsenum):
+when not declared(enumimguinextitemdataflags):
   type
-    Imguinextitemdataflagsenum* {.size: sizeof(cint).} = enum
+    enumimguinextitemdataflags* {.size: sizeof(cint).} = enum
       ImGui_NextItemDataFlags_None = 0, ImGui_NextItemDataFlags_HasWidth = 1,
       ImGui_NextItemDataFlags_HasOpen = 2
 else:
   static :
-    hint("Declaration of " & "Imguinextitemdataflagsenum" &
+    hint("Declaration of " & "enumimguinextitemdataflags" &
         " already exists, not redeclaring")
-when not declared(Imguiinputeventtype):
+when not declared(enumimguiinputeventtype):
   type
-    Imguiinputeventtype* {.size: sizeof(cint).} = enum
+    enumimguiinputeventtype* {.size: sizeof(cint).} = enum
       ImGui_InputEventTypeNone = 0, ImGui_InputEventTypeMousepos = 1,
       ImGui_InputEventTypeMouseWheel = 2, ImGui_InputEventTypeMouseButton = 3,
       ImGui_InputEventTypeMouseViewPort = 4, ImGui_InputEventTypeKey = 5,
@@ -914,21 +916,21 @@ when not declared(Imguiinputeventtype):
       ImGui_InputEventTypeCount = 8
 else:
   static :
-    hint("Declaration of " & "Imguiinputeventtype" &
+    hint("Declaration of " & "enumimguiinputeventtype" &
         " already exists, not redeclaring")
-when not declared(Imguiinputsource):
+when not declared(enumimguiinputsource):
   type
-    Imguiinputsource* {.size: sizeof(cint).} = enum
+    enumimguiinputsource* {.size: sizeof(cint).} = enum
       ImGui_InputSourceNone = 0, ImGui_InputSourceMouse = 1,
       ImGui_InputSourceKeyboard = 2, ImGui_InputSourceGamePad = 3,
       ImGui_InputSourceClipboard = 4, ImGui_InputSourceCount = 5
 else:
   static :
-    hint("Declaration of " & "Imguiinputsource" &
+    hint("Declaration of " & "enumimguiinputsource" &
         " already exists, not redeclaring")
-when not declared(Imguiinputflagsenum):
+when not declared(enumimguiinputflags):
   type
-    Imguiinputflagsenum* {.size: sizeof(cint).} = enum
+    enumimguiinputflags* {.size: sizeof(cint).} = enum
       ImGui_InputFlags_None = 0, ImGui_InputFlags_Repeat = 1,
       ImGui_InputFlags_RepeatrateDefault = 2,
       ImGui_InputFlags_RepeatrateNavMove = 4,
@@ -947,28 +949,28 @@ when not declared(Imguiinputflagsenum):
       ImGui_InputFlags_SupPortedbyshortcut = 16143
 else:
   static :
-    hint("Declaration of " & "Imguiinputflagsenum" &
+    hint("Declaration of " & "enumimguiinputflags" &
         " already exists, not redeclaring")
 when not declared(Imguiinputflagscondmask):
   const
-    Imguiinputflagscondmask* = Imguiinputflagsenum.Imguiinputflagsconddefault
+    Imguiinputflagscondmask* = enumimguiinputflags.Imguiinputflagsconddefault
 else:
   static :
     hint("Declaration of " & "Imguiinputflagscondmask" &
         " already exists, not redeclaring")
-when not declared(Imguiactivateflagsenum):
+when not declared(enumimguiactivateflags):
   type
-    Imguiactivateflagsenum* {.size: sizeof(cint).} = enum
+    enumimguiactivateflags* {.size: sizeof(cint).} = enum
       ImGui_ActivateFlags_None = 0, ImGui_ActivateFlags_PreferInput = 1,
       ImGui_ActivateFlags_PreferTweak = 2,
       ImGui_ActivateFlags_TryTopreserveState = 4
 else:
   static :
-    hint("Declaration of " & "Imguiactivateflagsenum" &
+    hint("Declaration of " & "enumimguiactivateflags" &
         " already exists, not redeclaring")
-when not declared(Imguiscrollflagsenum):
+when not declared(enumimguiscrollflags):
   type
-    Imguiscrollflagsenum* {.size: sizeof(cint).} = enum
+    enumimguiscrollflags* {.size: sizeof(cint).} = enum
       ImGui_ScrollFlags_None = 0, ImGui_ScrollFlags_KeepVisibleedgex = 1,
       ImGui_ScrollFlags_KeepVisibleedgey = 2,
       ImGui_ScrollFlags_KeepVisiblecEnterx = 4,
@@ -978,21 +980,21 @@ when not declared(Imguiscrollflagsenum):
       ImGui_ScrollFlags_NoScrollparent = 64
 else:
   static :
-    hint("Declaration of " & "Imguiscrollflagsenum" &
+    hint("Declaration of " & "enumimguiscrollflags" &
         " already exists, not redeclaring")
-when not declared(Imguinavhighlightflagsenum):
+when not declared(enumimguinavhighlightflags):
   type
-    Imguinavhighlightflagsenum* {.size: sizeof(cint).} = enum
+    enumimguinavhighlightflags* {.size: sizeof(cint).} = enum
       ImGui_NavhighlightFlags_None = 0, ImGui_NavhighlightFlags_TypeDefault = 1,
       ImGui_NavhighlightFlags_Typethin = 2, ImGui_NavhighlightFlags_Alwaysdraw = 4,
       ImGui_NavhighlightFlags_NoRounding = 8
 else:
   static :
-    hint("Declaration of " & "Imguinavhighlightflagsenum" &
+    hint("Declaration of " & "enumimguinavhighlightflags" &
         " already exists, not redeclaring")
-when not declared(Imguinavmoveflagsenum):
+when not declared(enumimguinavmoveflags):
   type
-    Imguinavmoveflagsenum* {.size: sizeof(cint).} = enum
+    enumimguinavmoveflags* {.size: sizeof(cint).} = enum
       ImGui_NavMoveFlags_None = 0, ImGui_NavMoveFlags_loopx = 1,
       ImGui_NavMoveFlags_loopy = 2, ImGui_NavMoveFlags_wrapx = 4,
       ImGui_NavMoveFlags_wrapy = 8, ImGui_NavMoveFlags_wrapMask = 15,
@@ -1005,30 +1007,30 @@ when not declared(Imguinavmoveflagsenum):
       ImGui_NavMoveFlags_NoSetNavhighlight = 16384
 else:
   static :
-    hint("Declaration of " & "Imguinavmoveflagsenum" &
+    hint("Declaration of " & "enumimguinavmoveflags" &
         " already exists, not redeclaring")
-when not declared(Imguinavlayer):
+when not declared(enumimguinavlayer):
   type
-    Imguinavlayer* {.size: sizeof(cint).} = enum
+    enumimguinavlayer* {.size: sizeof(cint).} = enum
       ImGui_Navlayermain = 0, ImGui_NavlayerMenu = 1, ImGui_NavlayerCount = 2
 else:
   static :
-    hint("Declaration of " & "Imguinavlayer" &
+    hint("Declaration of " & "enumimguinavlayer" &
         " already exists, not redeclaring")
-when not declared(Imguioldcolumnflagsenum):
+when not declared(enumimguioldcolumnflags):
   type
-    Imguioldcolumnflagsenum* {.size: sizeof(cint).} = enum
+    enumimguioldcolumnflags* {.size: sizeof(cint).} = enum
       ImGui_OldColumnFlags_None = 0, ImGui_OldColumnFlags_NoBorder = 1,
       ImGui_OldColumnFlags_NoResize = 2, ImGui_OldColumnFlags_NoPreserveWidths = 4,
       ImGui_OldColumnFlags_NoforceWithinWindow = 8,
       ImGui_OldColumnFlags_Growparentcontentssize = 16
 else:
   static :
-    hint("Declaration of " & "Imguioldcolumnflagsenum" &
+    hint("Declaration of " & "enumimguioldcolumnflags" &
         " already exists, not redeclaring")
-when not declared(Imguidocknodeflagsprivate):
+when not declared(enumimguidocknodeflagsprivate):
   type
-    Imguidocknodeflagsprivate* {.size: sizeof(cint).} = enum
+    enumimguidocknodeflagsprivate* {.size: sizeof(cint).} = enum
       Imguidocknodeflagssharedflagsinheritmask = -1,
       ImGui_DockNodeFlags_Dockspace = 1024, ImGui_DockNodeFlags_CentralNode = 2048,
       ImGui_DockNodeFlags_NoTabBar = 4096, ImGui_DockNodeFlags_HiddenTabBar = 8192,
@@ -1048,31 +1050,31 @@ when not declared(Imguidocknodeflagsprivate):
       ImGui_DockNodeFlags_LocalFlags_Mask = 12713072
 else:
   static :
-    hint("Declaration of " & "Imguidocknodeflagsprivate" &
+    hint("Declaration of " & "enumimguidocknodeflagsprivate" &
         " already exists, not redeclaring")
-when not declared(Imguidataauthorityenum):
+when not declared(enumimguidataauthority):
   type
-    Imguidataauthorityenum* {.size: sizeof(cint).} = enum
+    enumimguidataauthority* {.size: sizeof(cint).} = enum
       ImGui_DataauthorityAuto = 0, ImGui_DataauthorityDockNode = 1,
       ImGui_DataauthorityWindow = 2
 else:
   static :
-    hint("Declaration of " & "Imguidataauthorityenum" &
+    hint("Declaration of " & "enumimguidataauthority" &
         " already exists, not redeclaring")
-when not declared(Imguidocknodestate):
+when not declared(enumimguidocknodestate):
   type
-    Imguidocknodestate* {.size: sizeof(cint).} = enum
+    enumimguidocknodestate* {.size: sizeof(cint).} = enum
       ImGui_DockNodeStateunkNown = 0,
       ImGui_DockNodeStateHostWindowHiddenBecauseSingleWindow = 1,
       ImGui_DockNodeStateHostWindowHiddenBecauseWindowsareResizing = 2,
       ImGui_DockNodeStateHostWindowVisible = 3
 else:
   static :
-    hint("Declaration of " & "Imguidocknodestate" &
+    hint("Declaration of " & "enumimguidocknodestate" &
         " already exists, not redeclaring")
-when not declared(Imguiwindowdockstylecol):
+when not declared(enumimguiwindowdockstylecol):
   type
-    Imguiwindowdockstylecol* {.size: sizeof(cint).} = enum
+    enumimguiwindowdockstylecol* {.size: sizeof(cint).} = enum
       ImGui_WindowDockStyleColText = 0, ImGui_WindowDockStyleColTab = 1,
       ImGui_WindowDockStyleColTabHovered = 2,
       ImGui_WindowDockStyleColTabActive = 3,
@@ -1081,11 +1083,11 @@ when not declared(Imguiwindowdockstylecol):
       ImGui_WindowDockStyleColCount = 6
 else:
   static :
-    hint("Declaration of " & "Imguiwindowdockstylecol" &
+    hint("Declaration of " & "enumimguiwindowdockstylecol" &
         " already exists, not redeclaring")
-when not declared(Imguilockey):
+when not declared(enumimguilockey):
   type
-    Imguilockey* {.size: sizeof(cint).} = enum
+    enumimguilockey* {.size: sizeof(cint).} = enum
       ImGui_Lockeyversionstr = 0, ImGui_LockeyTablesizeone = 1,
       ImGui_LockeyTablesizeAllFit = 2, ImGui_LockeyTablesizeAllDefault = 3,
       ImGui_LockeyTablereSetorder = 4, ImGui_LockeyWindoWingmainMenuBar = 5,
@@ -1094,10 +1096,11 @@ when not declared(Imguilockey):
       ImGui_LockeyCount = 10
 else:
   static :
-    hint("Declaration of " & "Imguilockey" & " already exists, not redeclaring")
-when not declared(Imguidebuglogflagsenum):
+    hint("Declaration of " & "enumimguilockey" &
+        " already exists, not redeclaring")
+when not declared(enumimguidebuglogflags):
   type
-    Imguidebuglogflagsenum* {.size: sizeof(cint).} = enum
+    enumimguidebuglogflags* {.size: sizeof(cint).} = enum
       ImGui_DebugLogFlags_None = 0, ImGui_DebugLogFlags_EventActiveId = 1,
       ImGui_DebugLogFlags_EventFocus = 2, ImGui_DebugLogFlags_EventPopup = 4,
       ImGui_DebugLogFlags_EventNav = 8, ImGui_DebugLogFlags_EventClipper = 16,
@@ -1107,50 +1110,50 @@ when not declared(Imguidebuglogflagsenum):
       ImGui_DebugLogFlags_Outputtotty = 1024
 else:
   static :
-    hint("Declaration of " & "Imguidebuglogflagsenum" &
+    hint("Declaration of " & "enumimguidebuglogflags" &
         " already exists, not redeclaring")
-when not declared(Imguicontexthooktype):
+when not declared(enumimguicontexthooktype):
   type
-    Imguicontexthooktype* {.size: sizeof(cint).} = enum
+    enumimguicontexthooktype* {.size: sizeof(cint).} = enum
       ImGui_ContexthookTypenewFramePre = 0, ImGui_ContexthookTypenewFramepost = 1,
       ImGui_ContexthookTypeendFramePre = 2, ImGui_ContexthookTypeendFramepost = 3,
       ImGui_ContexthookTypeRenderPre = 4, ImGui_ContexthookTypeRenderpost = 5,
       ImGui_ContexthookTypeshutDown = 6, ImGui_ContexthookTypependingremoval = 7
 else:
   static :
-    hint("Declaration of " & "Imguicontexthooktype" &
+    hint("Declaration of " & "enumimguicontexthooktype" &
         " already exists, not redeclaring")
-when not declared(Imguitabbarflagsprivate):
+when not declared(enumimguitabbarflagsprivate):
   type
-    Imguitabbarflagsprivate* {.size: sizeof(cint).} = enum
+    enumimguitabbarflagsprivate* {.size: sizeof(cint).} = enum
       ImGui_TabBarFlags_DockNode = 1048576, ImGui_TabBarFlags_isFocused = 2097152,
       ImGui_TabBarFlags_SaveSettings = 4194304
 else:
   static :
-    hint("Declaration of " & "Imguitabbarflagsprivate" &
+    hint("Declaration of " & "enumimguitabbarflagsprivate" &
         " already exists, not redeclaring")
-when not declared(Imguitabitemflagsprivate):
+when not declared(enumimguitabitemflagsprivate):
   type
-    Imguitabitemflagsprivate* {.size: sizeof(cint).} = enum
+    enumimguitabitemflagsprivate* {.size: sizeof(cint).} = enum
       ImGui_TabItemFlags_SectionMask = 192,
       ImGui_TabItemFlags_NoCloseButton = 1048576,
       ImGui_TabItemFlags_Button = 2097152, ImGui_TabItemFlags_unSorted = 4194304,
       ImGui_TabItemFlags_PreView = 8388608
 else:
   static :
-    hint("Declaration of " & "Imguitabitemflagsprivate" &
+    hint("Declaration of " & "enumimguitabitemflagsprivate" &
         " already exists, not redeclaring")
-when not declared(Imaxisenum):
+when not declared(enumimaxis):
   type
-    Imaxisenum* {.size: sizeof(cint).} = enum
+    enumimaxis* {.size: sizeof(cint).} = enum
       Imaxisx1 = 0, Imaxisx2 = 1, Imaxisx3 = 2, Imaxisy1 = 3, Imaxisy2 = 4,
       Imaxisy3 = 5, Imaxiscount = 6
 else:
   static :
-    hint("Declaration of " & "Imaxisenum" & " already exists, not redeclaring")
-when not declared(Implotflagsenum):
+    hint("Declaration of " & "enumimaxis" & " already exists, not redeclaring")
+when not declared(enumimplotflags):
   type
-    Implotflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotflags* {.size: sizeof(cint).} = enum
       ImPlot_Flags_None = 0, ImPlot_Flags_Notitle = 1, ImPlot_Flags_NoLegend = 2,
       ImPlot_Flags_NoMouseText = 4, ImPlot_Flags_NoInputs = 8,
       ImPlot_Flags_NoMenus = 16, ImPlot_Flags_NoboxSelect = 32,
@@ -1159,11 +1162,11 @@ when not declared(Implotflagsenum):
       ImPlot_Flags_crosshairs = 512
 else:
   static :
-    hint("Declaration of " & "Implotflagsenum" &
+    hint("Declaration of " & "enumimplotflags" &
         " already exists, not redeclaring")
-when not declared(Implotaxisflagsenum):
+when not declared(enumimplotaxisflags):
   type
-    Implotaxisflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotaxisflags* {.size: sizeof(cint).} = enum
       ImPlot_AxisFlags_None = 0, ImPlot_AxisFlags_NoLabel = 1,
       ImPlot_AxisFlags_Nogridlines = 2, ImPlot_AxisFlags_Notickmarks = 4,
       ImPlot_AxisFlags_NotickLabels = 8, ImPlot_AxisFlags_NodeCorations = 15,
@@ -1176,11 +1179,11 @@ when not declared(Implotaxisflagsenum):
       ImPlot_AxisFlags_Lockmax = 32768, ImPlot_AxisFlags_Lock = 49152
 else:
   static :
-    hint("Declaration of " & "Implotaxisflagsenum" &
+    hint("Declaration of " & "enumimplotaxisflags" &
         " already exists, not redeclaring")
-when not declared(Implotsubplotflagsenum):
+when not declared(enumimplotsubplotflags):
   type
-    Implotsubplotflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotsubplotflags* {.size: sizeof(cint).} = enum
       ImPlot_SubPlotFlags_None = 0, ImPlot_SubPlotFlags_Notitle = 1,
       ImPlot_SubPlotFlags_NoLegend = 2, ImPlot_SubPlotFlags_NoMenus = 4,
       ImPlot_SubPlotFlags_NoResize = 8, ImPlot_SubPlotFlags_NoAlign = 16,
@@ -1189,11 +1192,11 @@ when not declared(Implotsubplotflagsenum):
       ImPlot_SubPlotFlags_linkAlly = 512, ImPlot_SubPlotFlags_Colmajor = 1024
 else:
   static :
-    hint("Declaration of " & "Implotsubplotflagsenum" &
+    hint("Declaration of " & "enumimplotsubplotflags" &
         " already exists, not redeclaring")
-when not declared(Implotlegendflagsenum):
+when not declared(enumimplotlegendflags):
   type
-    Implotlegendflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotlegendflags* {.size: sizeof(cint).} = enum
       ImPlot_LegendFlags_None = 0, ImPlot_LegendFlags_NoButtons = 1,
       ImPlot_LegendFlags_NohighlightItem = 2,
       ImPlot_LegendFlags_NohighlightAxis = 4, ImPlot_LegendFlags_NoMenus = 8,
@@ -1201,191 +1204,191 @@ when not declared(Implotlegendflagsenum):
       ImPlot_LegendFlags_Sort = 64
 else:
   static :
-    hint("Declaration of " & "Implotlegendflagsenum" &
+    hint("Declaration of " & "enumimplotlegendflags" &
         " already exists, not redeclaring")
-when not declared(Implotmousetextflagsenum):
+when not declared(enumimplotmousetextflags):
   type
-    Implotmousetextflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotmousetextflags* {.size: sizeof(cint).} = enum
       ImPlot_MouseTextFlags_None = 0, ImPlot_MouseTextFlags_Noauxaxes = 1,
       ImPlot_MouseTextFlags_Noformat = 2, ImPlot_MouseTextFlags_showAlways = 4
 else:
   static :
-    hint("Declaration of " & "Implotmousetextflagsenum" &
+    hint("Declaration of " & "enumimplotmousetextflags" &
         " already exists, not redeclaring")
-when not declared(Implotdragtoolflagsenum):
+when not declared(enumimplotdragtoolflags):
   type
-    Implotdragtoolflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotdragtoolflags* {.size: sizeof(cint).} = enum
       ImPlot_DragToolFlags_None = 0, ImPlot_DragToolFlags_NoCursors = 1,
       ImPlot_DragToolFlags_NoFit = 2, ImPlot_DragToolFlags_NoInputs = 4,
       ImPlot_DragToolFlags_Delayed = 8
 else:
   static :
-    hint("Declaration of " & "Implotdragtoolflagsenum" &
+    hint("Declaration of " & "enumimplotdragtoolflags" &
         " already exists, not redeclaring")
-when not declared(Implotcolormapscaleflagsenum):
+when not declared(enumimplotcolormapscaleflags):
   type
-    Implotcolormapscaleflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotcolormapscaleflags* {.size: sizeof(cint).} = enum
       ImPlot_ColormapScaleFlags_None = 0, ImPlot_ColormapScaleFlags_NoLabel = 1,
       ImPlot_ColormapScaleFlags_opposite = 2, ImPlot_ColormapScaleFlags_invert = 4
 else:
   static :
-    hint("Declaration of " & "Implotcolormapscaleflagsenum" &
+    hint("Declaration of " & "enumimplotcolormapscaleflags" &
         " already exists, not redeclaring")
-when not declared(Implotitemflagsenum):
+when not declared(enumimplotitemflags):
   type
-    Implotitemflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotitemflags* {.size: sizeof(cint).} = enum
       ImPlot_ItemFlags_None = 0, ImPlot_ItemFlags_NoLegend = 1,
       ImPlot_ItemFlags_NoFit = 2
 else:
   static :
-    hint("Declaration of " & "Implotitemflagsenum" &
+    hint("Declaration of " & "enumimplotitemflags" &
         " already exists, not redeclaring")
-when not declared(Implotlineflagsenum):
+when not declared(enumimplotlineflags):
   type
-    Implotlineflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotlineflags* {.size: sizeof(cint).} = enum
       ImPlot_lineFlags_None = 0, ImPlot_lineFlags_segments = 1024,
       ImPlot_lineFlags_loop = 2048, ImPlot_lineFlags_skipnan = 4096,
       ImPlot_lineFlags_NoClip = 8192, ImPlot_lineFlags_shaded = 16384
 else:
   static :
-    hint("Declaration of " & "Implotlineflagsenum" &
+    hint("Declaration of " & "enumimplotlineflags" &
         " already exists, not redeclaring")
-when not declared(Implotscatterflagsenum):
+when not declared(enumimplotscatterflags):
   type
-    Implotscatterflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotscatterflags* {.size: sizeof(cint).} = enum
       ImPlot_scatterFlags_None = 0, ImPlot_scatterFlags_NoClip = 1024
 else:
   static :
-    hint("Declaration of " & "Implotscatterflagsenum" &
+    hint("Declaration of " & "enumimplotscatterflags" &
         " already exists, not redeclaring")
-when not declared(Implotstairsflagsenum):
+when not declared(enumimplotstairsflags):
   type
-    Implotstairsflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotstairsflags* {.size: sizeof(cint).} = enum
       ImPlot_stairsFlags_None = 0, ImPlot_stairsFlags_Prestep = 1024,
       ImPlot_stairsFlags_shaded = 2048
 else:
   static :
-    hint("Declaration of " & "Implotstairsflagsenum" &
+    hint("Declaration of " & "enumimplotstairsflags" &
         " already exists, not redeclaring")
-when not declared(Implotshadedflagsenum):
+when not declared(enumimplotshadedflags):
   type
-    Implotshadedflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotshadedflags* {.size: sizeof(cint).} = enum
       ImPlot_shadedFlags_None = 0
 else:
   static :
-    hint("Declaration of " & "Implotshadedflagsenum" &
+    hint("Declaration of " & "enumimplotshadedflags" &
         " already exists, not redeclaring")
-when not declared(Implotbarsflagsenum):
+when not declared(enumimplotbarsflags):
   type
-    Implotbarsflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotbarsflags* {.size: sizeof(cint).} = enum
       ImPlot_BarsFlags_None = 0, ImPlot_BarsFlags_Horizontal = 1024
 else:
   static :
-    hint("Declaration of " & "Implotbarsflagsenum" &
+    hint("Declaration of " & "enumimplotbarsflags" &
         " already exists, not redeclaring")
-when not declared(Implotbargroupsflagsenum):
+when not declared(enumimplotbargroupsflags):
   type
-    Implotbargroupsflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotbargroupsflags* {.size: sizeof(cint).} = enum
       ImPlot_BarGroupsFlags_None = 0, ImPlot_BarGroupsFlags_Horizontal = 1024,
       ImPlot_BarGroupsFlags_Stacked = 2048
 else:
   static :
-    hint("Declaration of " & "Implotbargroupsflagsenum" &
+    hint("Declaration of " & "enumimplotbargroupsflags" &
         " already exists, not redeclaring")
-when not declared(Imploterrorbarsflagsenum):
+when not declared(enumimploterrorbarsflags):
   type
-    Imploterrorbarsflagsenum* {.size: sizeof(cint).} = enum
+    enumimploterrorbarsflags* {.size: sizeof(cint).} = enum
       ImPlot_ErrorBarsFlags_None = 0, ImPlot_ErrorBarsFlags_Horizontal = 1024
 else:
   static :
-    hint("Declaration of " & "Imploterrorbarsflagsenum" &
+    hint("Declaration of " & "enumimploterrorbarsflags" &
         " already exists, not redeclaring")
-when not declared(Implotstemsflagsenum):
+when not declared(enumimplotstemsflags):
   type
-    Implotstemsflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotstemsflags* {.size: sizeof(cint).} = enum
       ImPlot_stemsFlags_None = 0, ImPlot_stemsFlags_Horizontal = 1024
 else:
   static :
-    hint("Declaration of " & "Implotstemsflagsenum" &
+    hint("Declaration of " & "enumimplotstemsflags" &
         " already exists, not redeclaring")
-when not declared(Implotinflinesflagsenum):
+when not declared(enumimplotinflinesflags):
   type
-    Implotinflinesflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotinflinesflags* {.size: sizeof(cint).} = enum
       ImPlot_inflinesFlags_None = 0, ImPlot_inflinesFlags_Horizontal = 1024
 else:
   static :
-    hint("Declaration of " & "Implotinflinesflagsenum" &
+    hint("Declaration of " & "enumimplotinflinesflags" &
         " already exists, not redeclaring")
-when not declared(Implotpiechartflagsenum):
+when not declared(enumimplotpiechartflags):
   type
-    Implotpiechartflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotpiechartflags* {.size: sizeof(cint).} = enum
       ImPlot_piechartFlags_None = 0, ImPlot_piechartFlags_Normalize = 1024
 else:
   static :
-    hint("Declaration of " & "Implotpiechartflagsenum" &
+    hint("Declaration of " & "enumimplotpiechartflags" &
         " already exists, not redeclaring")
-when not declared(Implotheatmapflagsenum):
+when not declared(enumimplotheatmapflags):
   type
-    Implotheatmapflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotheatmapflags* {.size: sizeof(cint).} = enum
       ImPlot_heatmapFlags_None = 0, ImPlot_heatmapFlags_Colmajor = 1024
 else:
   static :
-    hint("Declaration of " & "Implotheatmapflagsenum" &
+    hint("Declaration of " & "enumimplotheatmapflags" &
         " already exists, not redeclaring")
-when not declared(Implothistogramflagsenum):
+when not declared(enumimplothistogramflags):
   type
-    Implothistogramflagsenum* {.size: sizeof(cint).} = enum
+    enumimplothistogramflags* {.size: sizeof(cint).} = enum
       ImPlot_HistogramFlags_None = 0, ImPlot_HistogramFlags_Horizontal = 1024,
       ImPlot_HistogramFlags_cumulative = 2048, ImPlot_HistogramFlags_density = 4096,
       ImPlot_HistogramFlags_NoOutliers = 8192,
       ImPlot_HistogramFlags_Colmajor = 16384
 else:
   static :
-    hint("Declaration of " & "Implothistogramflagsenum" &
+    hint("Declaration of " & "enumimplothistogramflags" &
         " already exists, not redeclaring")
-when not declared(Implotdigitalflagsenum):
+when not declared(enumimplotdigitalflags):
   type
-    Implotdigitalflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotdigitalflags* {.size: sizeof(cint).} = enum
       ImPlot_digitalFlags_None = 0
 else:
   static :
-    hint("Declaration of " & "Implotdigitalflagsenum" &
+    hint("Declaration of " & "enumimplotdigitalflags" &
         " already exists, not redeclaring")
-when not declared(Implotimageflagsenum):
+when not declared(enumimplotimageflags):
   type
-    Implotimageflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotimageflags* {.size: sizeof(cint).} = enum
       ImPlot_imageFlags_None = 0
 else:
   static :
-    hint("Declaration of " & "Implotimageflagsenum" &
+    hint("Declaration of " & "enumimplotimageflags" &
         " already exists, not redeclaring")
-when not declared(Implottextflagsenum):
+when not declared(enumimplottextflags):
   type
-    Implottextflagsenum* {.size: sizeof(cint).} = enum
+    enumimplottextflags* {.size: sizeof(cint).} = enum
       ImPlot_TextFlags_None = 0, ImPlot_TextFlags_Vertical = 1024
 else:
   static :
-    hint("Declaration of " & "Implottextflagsenum" &
+    hint("Declaration of " & "enumimplottextflags" &
         " already exists, not redeclaring")
-when not declared(Implotdummyflagsenum):
+when not declared(enumimplotdummyflags):
   type
-    Implotdummyflagsenum* {.size: sizeof(cint).} = enum
+    enumimplotdummyflags* {.size: sizeof(cint).} = enum
       ImPlot_dummyFlags_None = 0
 else:
   static :
-    hint("Declaration of " & "Implotdummyflagsenum" &
+    hint("Declaration of " & "enumimplotdummyflags" &
         " already exists, not redeclaring")
-when not declared(Implotcondenum):
+when not declared(enumimplotcond):
   type
-    Implotcondenum* {.size: sizeof(cint).} = enum
+    enumimplotcond* {.size: sizeof(cint).} = enum
       ImPlot_CondNone = 0, ImPlot_CondAlways = 1, ImPlot_CondOnce = 2
 else:
   static :
-    hint("Declaration of " & "Implotcondenum" &
+    hint("Declaration of " & "enumimplotcond" &
         " already exists, not redeclaring")
-when not declared(Implotcolenum):
+when not declared(enumimplotcol):
   type
-    Implotcolenum* {.size: sizeof(cint).} = enum
+    enumimplotcol* {.size: sizeof(cint).} = enum
       ImPlot_Colline = 0, ImPlot_Colfill = 1, ImPlot_ColmarkerOutline = 2,
       ImPlot_Colmarkerfill = 3, ImPlot_ColErrorBar = 4, ImPlot_ColFrameBg = 5,
       ImPlot_ColPlotBg = 6, ImPlot_ColPlotBorder = 7, ImPlot_ColLegendBg = 8,
@@ -1396,11 +1399,11 @@ when not declared(Implotcolenum):
       ImPlot_ColSelection = 19, ImPlot_Colcrosshairs = 20, ImPlot_ColCount = 21
 else:
   static :
-    hint("Declaration of " & "Implotcolenum" &
+    hint("Declaration of " & "enumimplotcol" &
         " already exists, not redeclaring")
-when not declared(Implotstylevarenum):
+when not declared(enumimplotstylevar):
   type
-    Implotstylevarenum* {.size: sizeof(cint).} = enum
+    enumimplotstylevar* {.size: sizeof(cint).} = enum
       ImPlot_Stylevarlineweight = 0, ImPlot_Stylevarmarker = 1,
       ImPlot_Stylevarmarkersize = 2, ImPlot_Stylevarmarkerweight = 3,
       ImPlot_StylevarfillAlpha = 4, ImPlot_StylevarErrorBarsize = 5,
@@ -1417,31 +1420,31 @@ when not declared(Implotstylevarenum):
       ImPlot_StylevarPlotminsize = 26, ImPlot_StylevarCount = 27
 else:
   static :
-    hint("Declaration of " & "Implotstylevarenum" &
+    hint("Declaration of " & "enumimplotstylevar" &
         " already exists, not redeclaring")
-when not declared(Implotscaleenum):
+when not declared(enumimplotscale):
   type
-    Implotscaleenum* {.size: sizeof(cint).} = enum
+    enumimplotscale* {.size: sizeof(cint).} = enum
       ImPlot_Scalelinear = 0, ImPlot_Scaletime = 1, ImPlot_ScaleLog10 = 2,
       ImPlot_ScalesymLog = 3
 else:
   static :
-    hint("Declaration of " & "Implotscaleenum" &
+    hint("Declaration of " & "enumimplotscale" &
         " already exists, not redeclaring")
-when not declared(Implotmarkerenum):
+when not declared(enumimplotmarker):
   type
-    Implotmarkerenum* {.size: sizeof(cint).} = enum
+    enumimplotmarker* {.size: sizeof(cint).} = enum
       Implotmarkernone = -1, Implotmarkercircle = 0, Implotmarkersquare = 1,
       ImPlot_markerdiamond = 2, ImPlot_markerUp = 3, ImPlot_markerDown = 4,
       ImPlot_markerLeft = 5, ImPlot_markerRight = 6, ImPlot_markercross = 7,
       ImPlot_markerplus = 8, ImPlot_markerasterisk = 9, ImPlot_markerCount = 10
 else:
   static :
-    hint("Declaration of " & "Implotmarkerenum" &
+    hint("Declaration of " & "enumimplotmarker" &
         " already exists, not redeclaring")
-when not declared(Implotcolormapenum):
+when not declared(enumimplotcolormap):
   type
-    Implotcolormapenum* {.size: sizeof(cint).} = enum
+    enumimplotcolormap* {.size: sizeof(cint).} = enum
       ImPlot_Colormapdeep = 0, ImPlot_Colormapdark = 1, ImPlot_Colormappastel = 2,
       ImPlot_Colormappaired = 3, ImPlot_Colormapviridis = 4,
       ImPlot_Colormapplasma = 5, ImPlot_Colormaphot = 6, ImPlot_Colormapcool = 7,
@@ -1451,11 +1454,11 @@ when not declared(Implotcolormapenum):
       ImPlot_Colormapspectral = 14, ImPlot_Colormapgreys = 15
 else:
   static :
-    hint("Declaration of " & "Implotcolormapenum" &
+    hint("Declaration of " & "enumimplotcolormap" &
         " already exists, not redeclaring")
-when not declared(Implotlocationenum):
+when not declared(enumimplotlocation):
   type
-    Implotlocationenum* {.size: sizeof(cint).} = enum
+    enumimplotlocation* {.size: sizeof(cint).} = enum
       ImPlot_LocatiOncenter = 0, ImPlot_LocationNorth = 1,
       ImPlot_LocationsOuth = 2, ImPlot_Locationwest = 4,
       ImPlot_LocationNorthwest = 5, ImPlot_LocationsOuthwest = 6,
@@ -1463,50 +1466,50 @@ when not declared(Implotlocationenum):
       ImPlot_LocationsOutheast = 10
 else:
   static :
-    hint("Declaration of " & "Implotlocationenum" &
+    hint("Declaration of " & "enumimplotlocation" &
         " already exists, not redeclaring")
-when not declared(Implotbinenum):
+when not declared(enumimplotbin):
   type
-    Implotbinenum* {.size: sizeof(cint).} = enum
+    enumimplotbin* {.size: sizeof(cint).} = enum
       Implotbinscott = -4, Implotbinrice = -3, Implotbinsturges = -2,
       Implotbinsqrt = -1
 else:
   static :
-    hint("Declaration of " & "Implotbinenum" &
+    hint("Declaration of " & "enumimplotbin" &
         " already exists, not redeclaring")
-when not declared(Implottimeunitenum):
+when not declared(enumimplottimeunit):
   type
-    Implottimeunitenum* {.size: sizeof(cint).} = enum
+    enumimplottimeunit* {.size: sizeof(cint).} = enum
       ImPlot_timeunitus = 0, ImPlot_timeunitms = 1, ImPlot_timeunits = 2,
       ImPlot_timeunitmin = 3, ImPlot_timeunithr = 4, ImPlot_timeunitday = 5,
       ImPlot_timeunitmo = 6, ImPlot_timeunityr = 7, ImPlot_timeunitCount = 8
 else:
   static :
-    hint("Declaration of " & "Implottimeunitenum" &
+    hint("Declaration of " & "enumimplottimeunit" &
         " already exists, not redeclaring")
-when not declared(Implotdatefmtenum):
+when not declared(enumimplotdatefmt):
   type
-    Implotdatefmtenum* {.size: sizeof(cint).} = enum
+    enumimplotdatefmt* {.size: sizeof(cint).} = enum
       ImPlot_DateFmtNone = 0, ImPlot_DateFmtdaymo = 1, ImPlot_DateFmtdaymoyr = 2,
       ImPlot_DateFmtmoyr = 3, ImPlot_DateFmtmo = 4, ImPlot_DateFmtyr = 5
 else:
   static :
-    hint("Declaration of " & "Implotdatefmtenum" &
+    hint("Declaration of " & "enumimplotdatefmt" &
         " already exists, not redeclaring")
-when not declared(Implottimefmtenum):
+when not declared(enumimplottimefmt):
   type
-    Implottimefmtenum* {.size: sizeof(cint).} = enum
+    enumimplottimefmt* {.size: sizeof(cint).} = enum
       ImPlot_timeFmtNone = 0, ImPlot_timeFmtus = 1, ImPlot_timeFmtsus = 2,
       ImPlot_timeFmtsms = 3, ImPlot_timeFmts = 4, ImPlot_timeFmtminsms = 5,
       ImPlot_timeFmthrminsms = 6, ImPlot_timeFmthrmins = 7,
       ImPlot_timeFmthrmin = 8, ImPlot_timeFmthr = 9
 else:
   static :
-    hint("Declaration of " & "Implottimefmtenum" &
+    hint("Declaration of " & "enumimplottimefmt" &
         " already exists, not redeclaring")
-when not declared(Imnodescolenum):
+when not declared(enumimnodescol):
   type
-    Imnodescolenum* {.size: sizeof(cint).} = enum
+    enumimnodescol* {.size: sizeof(cint).} = enum
       Imnodescolnodebackground = 0, Imnodescolnodebackgroundhovered = 1,
       Imnodescolnodebackgroundselected = 2, Imnodescolnodeoutline = 3,
       Imnodescoltitlebar = 4, Imnodescoltitlebarhovered = 5,
@@ -1525,11 +1528,11 @@ when not declared(Imnodescolenum):
       Imnodescolminimapcanvasoutline = 28, Imnodescolcount = 29
 else:
   static :
-    hint("Declaration of " & "Imnodescolenum" &
+    hint("Declaration of " & "enumimnodescol" &
         " already exists, not redeclaring")
-when not declared(Imnodesstylevarenum):
+when not declared(enumimnodesstylevar):
   type
-    Imnodesstylevarenum* {.size: sizeof(cint).} = enum
+    enumimnodesstylevar* {.size: sizeof(cint).} = enum
       Imnodesstylevargridspacing = 0, Imnodesstylevarnodecornerrounding = 1,
       Imnodesstylevarnodepadding = 2, Imnodesstylevarnodeborderthickness = 3,
       Imnodesstylevarlinkthickness = 4,
@@ -1542,47 +1545,47 @@ when not declared(Imnodesstylevarenum):
       Imnodesstylevarminimapoffset = 14, Imnodesstylevarcount = 15
 else:
   static :
-    hint("Declaration of " & "Imnodesstylevarenum" &
+    hint("Declaration of " & "enumimnodesstylevar" &
         " already exists, not redeclaring")
-when not declared(Imnodesstyleflagsenum):
+when not declared(enumimnodesstyleflags):
   type
-    Imnodesstyleflagsenum* {.size: sizeof(cint).} = enum
+    enumimnodesstyleflags* {.size: sizeof(cint).} = enum
       Imnodesstyleflagsnone = 0, Imnodesstyleflagsnodeoutline = 1,
       Imnodesstyleflagsgridlines = 4, Imnodesstyleflagsgridlinesprimary = 8,
       Imnodesstyleflagsgridsnapping = 16
 else:
   static :
-    hint("Declaration of " & "Imnodesstyleflagsenum" &
+    hint("Declaration of " & "enumimnodesstyleflags" &
         " already exists, not redeclaring")
-when not declared(Imnodespinshapeenum):
+when not declared(enumimnodespinshape):
   type
-    Imnodespinshapeenum* {.size: sizeof(cint).} = enum
+    enumimnodespinshape* {.size: sizeof(cint).} = enum
       Imnodespinshapecircle = 0, Imnodespinshapecirclefilled = 1,
       Imnodespinshapetriangle = 2, Imnodespinshapetrianglefilled = 3,
       Imnodespinshapequad = 4, Imnodespinshapequadfilled = 5
 else:
   static :
-    hint("Declaration of " & "Imnodespinshapeenum" &
+    hint("Declaration of " & "enumimnodespinshape" &
         " already exists, not redeclaring")
-when not declared(Imnodesattributeflagsenum):
+when not declared(enumimnodesattributeflags):
   type
-    Imnodesattributeflagsenum* {.size: sizeof(cint).} = enum
+    enumimnodesattributeflags* {.size: sizeof(cint).} = enum
       Imnodesattributeflagsnone = 0,
       Imnodesattributeflagsenablelinkdetachwithdragclick = 1,
       Imnodesattributeflagsenablelinkcreationonsnap = 2
 else:
   static :
-    hint("Declaration of " & "Imnodesattributeflagsenum" &
+    hint("Declaration of " & "enumimnodesattributeflags" &
         " already exists, not redeclaring")
-when not declared(Imnodesminimaplocationenum):
+when not declared(enumimnodesminimaplocation):
   type
-    Imnodesminimaplocationenum* {.size: sizeof(cint).} = enum
+    enumimnodesminimaplocation* {.size: sizeof(cint).} = enum
       Imnodesminimaplocationbottomleft = 0,
       Imnodesminimaplocationbottomright = 1, Imnodesminimaplocationtopleft = 2,
       Imnodesminimaplocationtopright = 3
 else:
   static :
-    hint("Declaration of " & "Imnodesminimaplocationenum" &
+    hint("Declaration of " & "enumimnodesminimaplocation" &
         " already exists, not redeclaring")
 when not declared(structimguitablecolumnssettings):
   type
@@ -1657,8 +1660,8 @@ type
   Imu64_28311932 = culonglong ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:195:28
   Imdrawchannel_28311934 = structimdrawchannel_28311937 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:44:30
   structimdrawchannel_28311936 {.pure, inheritable, bycopy.} = object
-    internalcmdbuffer*: Imvectorimdrawcmd_28312432 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1165:8
-    internalidxbuffer*: Imvectorimdrawidx_28312436
+    internalcmdbuffer*: Imvectorimdrawcmd_28312496 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1165:8
+    internalidxbuffer*: Imvectorimdrawidx_28312500
 
   Imdrawcmd_28311938 = structimdrawcmd_28311941 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:45:26
   structimdrawcmd_28311940 {.pure, inheritable, bycopy.} = object
@@ -1667,7 +1670,7 @@ type
     Vtxoffset*: cuint
     Idxoffset*: cuint
     Elemcount*: cuint
-    Usercallback*: Imdrawcallback_28312424
+    Usercallback*: Imdrawcallback_28312488
     Usercallbackdata*: pointer
 
   Imdrawdata_28311942 = structimdrawdata_28311945 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:46:27
@@ -1676,7 +1679,7 @@ type
     Cmdlistscount*: cint
     Totalidxcount*: cint
     Totalvtxcount*: cint
-    Cmdlists*: Imvectorimdrawlistptr_28312464
+    Cmdlists*: Imvectorimdrawlistptr_28312532
     Displaypos*: Imvec2_28312328
     Displaysize*: Imvec2_28312328
     Framebufferscale*: Imvec2_28312328
@@ -1684,19 +1687,19 @@ type
 
   Imdrawlist_28311946 = structimdrawlist_28311949 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:47:27
   structimdrawlist_28311948 {.pure, inheritable, bycopy.} = object
-    Cmdbuffer*: Imvectorimdrawcmd_28312432 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1209:8
-    Idxbuffer*: Imvectorimdrawidx_28312436
-    Vtxbuffer*: Imvectorimdrawvert_28312448
+    Cmdbuffer*: Imvectorimdrawcmd_28312496 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1209:8
+    Idxbuffer*: Imvectorimdrawidx_28312500
+    Vtxbuffer*: Imvectorimdrawvert_28312516
     Flags*: Imdrawlistflags_28312246
     internalvtxcurrentidx*: cuint
     internaldata*: ptr Imdrawlistshareddata_28311951
     internalownername*: cstring
     internalvtxwriteptr*: ptr Imdrawvert_28311959
     internalidxwriteptr*: ptr Imdrawidx_28312296
-    internalcliprectstack*: Imvectorimvec4_28312452
-    internaltextureidstack*: Imvectorimtextureid_28312456
-    internalpath*: Imvectorimvec2_28312460
-    internalcmdheader*: Imdrawcmdheader_28312426
+    internalcliprectstack*: Imvectorimvec4_28312520
+    internaltextureidstack*: Imvectorimtextureid_28312524
+    internalpath*: Imvectorimvec2_28312528
+    internalcmdheader*: Imdrawcmdheader_28312490
     internalsplitter*: Imdrawlistsplitter_28311955
     internalfringescale*: cfloat
 
@@ -1709,7 +1712,7 @@ type
     Circlesegmentmaxerror*: cfloat
     Cliprectfullscreen*: Imvec4_28312332
     Initialflags*: Imdrawlistflags_28312246
-    Tempbuffer*: Imvectorimvec2_28312460
+    Tempbuffer*: Imvectorimvec2_28312528
     Arcfastvtx*: array[48'i64, Imvec2_28312328]
     Arcfastradiuscutoff*: cfloat
     Circlesegmentcounts*: array[64'i64, Imu8_28312302]
@@ -1719,7 +1722,7 @@ type
   structimdrawlistsplitter_28311956 {.pure, inheritable, bycopy.} = object
     internalcurrent*: cint   ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1172:8
     internalcount*: cint
-    internalchannels*: Imvectorimdrawchannel_28312440
+    internalchannels*: Imvectorimdrawchannel_28312504
 
   Imdrawvert_28311958 = structimdrawvert_28311961 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:50:27
   structimdrawvert_28311960 {.pure, inheritable, bycopy.} = object
@@ -1729,11 +1732,11 @@ type
 
   Imfont_28311962 = structimfont_28311965 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:51:23
   structimfont_28311964 {.pure, inheritable, bycopy.} = object
-    Indexadvancex*: Imvectorfloat_28312490 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1329:8
+    Indexadvancex*: Imvectorfloat_28312560 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1329:8
     Fallbackadvancex*: cfloat
     Fontsize*: cfloat
-    Indexlookup*: Imvectorimwchar_28312402
-    Glyphs*: Imvectorimfontglyph_28312494
+    Indexlookup*: Imvectorimwchar_28312466
+    Glyphs*: Imvectorimfontglyph_28312564
     Fallbackglyph*: ptr Imfontglyph_28311979
     Containeratlas*: ptr Imfontatlas_28311967
     Configdata*: ptr Imfontconfig_28311975
@@ -1766,9 +1769,9 @@ type
     Texheight*: cint
     Texuvscale*: Imvec2_28312328
     Texuvwhitepixel*: Imvec2_28312328
-    Fonts*: Imvectorimfontptr_28312478
-    Customrects*: Imvectorimfontatlascustomrect_28312482
-    Configdata*: Imvectorimfontconfig_28312486
+    Fonts*: Imvectorimfontptr_28312548
+    Customrects*: Imvectorimfontatlascustomrect_28312552
+    Configdata*: Imvectorimfontconfig_28312556
     Texuvlines*: array[64'i64, Imvec4_28312332]
     Fontbuilderio*: ptr Imfontbuilderio_28311971
     Fontbuilderflags*: cuint
@@ -1818,7 +1821,7 @@ type
 
   Imfontglyphrangesbuilder_28311982 = structimfontglyphrangesbuilder_28311985 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:56:41
   structimfontglyphrangesbuilder_28311984 {.pure, inheritable, bycopy.} = object
-    Usedchars*: Imvectorimu32_28312468 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1274:8
+    Usedchars*: Imvectorimu32_28312536 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1274:8
   
   Imcolor_28311986 = structimcolor_28311989 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:57:24
   structimcolor_28311988 {.pure, inheritable, bycopy.} = object
@@ -1848,14 +1851,14 @@ type
     Gccompactall*: bool
     Testenginehookitems*: bool
     Testengine*: pointer
-    Inputeventsqueue*: Imvectorimguiinputevent_28312788
-    Inputeventstrail*: Imvectorimguiinputevent_28312788
-    Inputeventsnextmousesource*: Imguimousesource_28312396
+    Inputeventsqueue*: Imvectorimguiinputevent_28312934
+    Inputeventstrail*: Imvectorimguiinputevent_28312934
+    Inputeventsnextmousesource*: Imguimousesource_28312458
     Inputeventsnexteventid*: Imu32_28312310
-    Windows*: Imvectorimguiwindowptr_28312746
-    Windowsfocusorder*: Imvectorimguiwindowptr_28312746
-    Windowstempsortbuffer*: Imvectorimguiwindowptr_28312746
-    Currentwindowstack*: Imvectorimguiwindowstackdata_28312792
+    Windows*: Imvectorimguiwindowptr_28312884
+    Windowsfocusorder*: Imvectorimguiwindowptr_28312884
+    Windowstempsortbuffer*: Imvectorimguiwindowptr_28312884
+    Currentwindowstack*: Imvectorimguiwindowstackdata_28312938
     Windowsbyid*: Imguistorage_28312042
     Windowsactivecount*: cint
     Windowshoverpadding*: Imvec2_28312328
@@ -1887,7 +1890,7 @@ type
     Activeidhasbeeneditedthisframe*: bool
     Activeidclickoffset*: Imvec2_28312328
     Activeidwindow*: ptr Imguiwindow_28312210
-    Activeidsource*: Imguiinputsource_28312656
+    Activeidsource*: Imguiinputsource_28312774
     Activeidmousebutton*: cint
     Activeidpreviousframe*: Imguiid_28312298
     Activeidpreviousframeisalive*: bool
@@ -1895,32 +1898,32 @@ type
     Activeidpreviousframewindow*: ptr Imguiwindow_28312210
     Lastactiveid*: Imguiid_28312298
     Lastactiveidtimer*: cfloat
-    Keysownerdata*: array[140'i64, Imguikeyownerdata_28312704]
-    Keysroutingtable*: Imguikeyroutingtable_28312696
+    Keysownerdata*: array[140'i64, Imguikeyownerdata_28312822]
+    Keysroutingtable*: Imguikeyroutingtable_28312814
     Activeidusingnavdirmask*: Imu32_28312310
     Activeidusingallkeyboardkeys*: bool
     Activeidusingnavinputmask*: Imu32_28312310
     Currentfocusscopeid*: Imguiid_28312298
-    Currentitemflags*: Imguiitemflags_28312518
+    Currentitemflags*: Imguiitemflags_28312590
     Debuglocateid*: Imguiid_28312298
     Nextitemdata*: Imguinextitemdata_28312152
     Lastitemdata*: Imguilastitemdata_28312124
     Nextwindowdata*: Imguinextwindowdata_28312148
-    Colorstack*: Imvectorimguicolormod_28312796
-    Stylevarstack*: Imvectorimguistylemod_28312800
-    Fontstack*: Imvectorimfontptr_28312478
-    Focusscopestack*: Imvectorimguiid_28312804
-    Itemflagsstack*: Imvectorimguiitemflags_28312808
-    Groupstack*: Imvectorimguigroupdata_28312812
-    Openpopupstack*: Imvectorimguipopupdata_28312816
-    Beginpopupstack*: Imvectorimguipopupdata_28312816
-    Navtreenodestack*: Imvectorimguinavtreenodedata_28312820
+    Colorstack*: Imvectorimguicolormod_28312942
+    Stylevarstack*: Imvectorimguistylemod_28312946
+    Fontstack*: Imvectorimfontptr_28312548
+    Focusscopestack*: Imvectorimguiid_28312950
+    Itemflagsstack*: Imvectorimguiitemflags_28312954
+    Groupstack*: Imvectorimguigroupdata_28312958
+    Openpopupstack*: Imvectorimguipopupdata_28312962
+    Beginpopupstack*: Imvectorimguipopupdata_28312962
+    Navtreenodestack*: Imvectorimguinavtreenodedata_28312966
     Beginmenucount*: cint
-    Viewports*: Imvectorimguiviewportpptr_28312824
+    Viewports*: Imvectorimguiviewportpptr_28312970
     Currentdpiscale*: cfloat
-    Currentviewport*: ptr Imguiviewportp_28312762
-    Mouseviewport*: ptr Imguiviewportp_28312762
-    Mouselasthoveredviewport*: ptr Imguiviewportp_28312762
+    Currentviewport*: ptr Imguiviewportp_28312902
+    Mouseviewport*: ptr Imguiviewportp_28312902
+    Mouselasthoveredviewport*: ptr Imguiviewportp_28312902
     Platformlastfocusedviewportid*: Imguiid_28312298
     Fallbackmonitor*: Imguiplatformmonitor_28312030
     Viewportcreatedcount*: cint
@@ -1932,14 +1935,14 @@ type
     Navactivateid*: Imguiid_28312298
     Navactivatedownid*: Imguiid_28312298
     Navactivatepressedid*: Imguiid_28312298
-    Navactivateflags*: Imguiactivateflags_28312510
+    Navactivateflags*: Imguiactivateflags_28312582
     Navjustmovedtoid*: Imguiid_28312298
     Navjustmovedtofocusscopeid*: Imguiid_28312298
     Navjustmovedtokeymods*: Imguikeychord_28312270
     Navnextactivateid*: Imguiid_28312298
-    Navnextactivateflags*: Imguiactivateflags_28312510
-    Navinputsource*: Imguiinputsource_28312656
-    Navlayer*: Imguinavlayer_28312730
+    Navnextactivateflags*: Imguiactivateflags_28312582
+    Navinputsource*: Imguiinputsource_28312774
+    Navlayer*: Imguinavlayer_28312860
     Navidisalive*: bool
     Navmouseposdirty*: bool
     Navdisablehighlight*: bool
@@ -1951,8 +1954,8 @@ type
     Navmovesubmitted*: bool
     Navmovescoringitems*: bool
     Navmoveforwardtonextframe*: bool
-    Navmoveflags*: Imguinavmoveflags_28312526
-    Navmovescrollflags*: Imguiscrollflags_28312532
+    Navmoveflags*: Imguinavmoveflags_28312598
+    Navmovescrollflags*: Imguiscrollflags_28312604
     Navmovekeymods*: Imguikeychord_28312270
     Navmovedir*: Imguidir_28312232
     Navmovedirfordebug*: Imguidir_28312232
@@ -1992,20 +1995,20 @@ type
     Dragdropacceptidprev*: Imguiid_28312298
     Dragdropacceptframecount*: cint
     Dragdropholdjustpressedid*: Imguiid_28312298
-    Dragdroppayloadbufheap*: Imvectorunsignedchar_28312828
+    Dragdroppayloadbufheap*: Imvectorunsignedchar_28312974
     Dragdroppayloadbuflocal*: array[16'i64, uint8]
     Clippertempdatastacked*: cint
-    Clippertempdata*: Imvectorimguilistclipperdata_28312832
+    Clippertempdata*: Imvectorimguilistclipperdata_28312978
     Currenttable*: ptr Imguitable_28312188
     Tablestempdatastacked*: cint
-    Tablestempdata*: Imvectorimguitabletempdata_28312836
-    Tables*: Impoolimguitable_28312844
-    Tableslasttimeactive*: Imvectorfloat_28312490
-    Drawchannelstempmergebuffer*: Imvectorimdrawchannel_28312440
+    Tablestempdata*: Imvectorimguitabletempdata_28312982
+    Tables*: Impoolimguitable_28312990
+    Tableslasttimeactive*: Imvectorfloat_28312560
+    Drawchannelstempmergebuffer*: Imvectorimdrawchannel_28312504
     Currenttabbar*: ptr Imguitabbar_28312180
-    Tabbars*: Impoolimguitabbar_28312852
-    Currenttabbarstack*: Imvectorimguiptrorindex_28312856
-    Shrinkwidthbuffer*: Imvectorimguishrinkwidthitem_28312860
+    Tabbars*: Impoolimguitabbar_28312998
+    Currenttabbarstack*: Imvectorimguiptrorindex_28313002
+    Shrinkwidthbuffer*: Imvectorimguishrinkwidthitem_28313006
     Hoveritemdelayid*: Imguiid_28312298
     Hoveritemdelayidpreviousframe*: Imguiid_28312298
     Hoveritemdelaytimer*: cfloat
@@ -2016,7 +2019,7 @@ type
     Mousestationarytimer*: cfloat
     Mouselastvalidpos*: Imvec2_28312328
     Inputtextstate*: Imguiinputtextstate_28312118
-    Inputtextdeactivatedstate*: Imguiinputtextdeactivatedstate_28312628
+    Inputtextdeactivatedstate*: Imguiinputtextdeactivatedstate_28312738
     Inputtextpasswordfont*: Imfont_28311963
     Tempinputid*: Imguiid_28312298
     Coloreditoptions*: Imguicoloreditflags_28312254
@@ -2026,7 +2029,7 @@ type
     Coloreditsavedsat*: cfloat
     Coloreditsavedcolor*: Imu32_28312310
     Colorpickerref*: Imvec4_28312332
-    Combopreviewdata*: Imguicombopreviewdata_28312624
+    Combopreviewdata*: Imguicombopreviewdata_28312734
     Slidergrabclickoffset*: cfloat
     Slidercurrentaccum*: cfloat
     Slidercurrentaccumdirty*: bool
@@ -2038,8 +2041,8 @@ type
     Disabledstacksize*: cshort
     Lockmarkedited*: cshort
     Tooltipoverridecount*: cshort
-    Clipboardhandlerdata*: Imvectorchar_28312414
-    Menusidsubmittedthisframe*: Imvectorimguiid_28312804
+    Clipboardhandlerdata*: Imvectorchar_28312478
+    Menusidsubmittedthisframe*: Imvectorimguiid_28312950
     Platformimedata*: Imguiplatformimedata_28312034
     Platformimedataprev*: Imguiplatformimedata_28312034
     Platformimeviewport*: Imguiid_28312298
@@ -2051,15 +2054,15 @@ type
     Settingsloaded*: bool
     Settingsdirtytimer*: cfloat
     Settingsinidata*: Imguitextbuffer_28312058
-    Settingshandlers*: Imvectorimguisettingshandler_28312864
-    Settingswindows*: Imchunkstreamimguiwindowsettings_28312868
-    Settingstables*: Imchunkstreamimguitablesettings_28312872
-    Hooks*: Imvectorimguicontexthook_28312876
+    Settingshandlers*: Imvectorimguisettingshandler_28313010
+    Settingswindows*: Imchunkstreamimguiwindowsettings_28313014
+    Settingstables*: Imchunkstreamimguitablesettings_28313018
+    Hooks*: Imvectorimguicontexthook_28313022
     Hookidnext*: Imguiid_28312298
     Localizationtable*: array[10'i64, cstring]
     Logenabled*: bool
-    Logtype*: Imguilogtype_28312610
-    Logfile*: Imfilehandle_28312558
+    Logtype*: Imguilogtype_28312712
+    Logfile*: Imfilehandle_28312630
     Logbuffer*: Imguitextbuffer_28312058
     Lognextprefix*: cstring
     Lognextsuffix*: cstring
@@ -2068,9 +2071,9 @@ type
     Logdepthref*: cint
     Logdepthtoexpand*: cint
     Logdepthtoexpanddefault*: cint
-    Debuglogflags*: Imguidebuglogflags_28312512
+    Debuglogflags*: Imguidebuglogflags_28312584
     Debuglogbuf*: Imguitextbuffer_28312058
-    Debuglogindex*: Imguitextindex_28312574
+    Debuglogindex*: Imguitextindex_28312646
     Debuglogclipperautodisableframes*: Imu8_28312302
     Debuglocateframes*: Imu8_28312302
     Debugbeginreturnvalueculldepth*: Ims8_28312300
@@ -2078,7 +2081,7 @@ type
     Debugitempickermousebutton*: Imu8_28312302
     Debugitempickerbreakid*: Imguiid_28312298
     Debugmetricsconfig*: Imguimetricsconfig_28312144
-    Debugstacktool*: Imguistacktool_28312774
+    Debugstacktool*: Imguistacktool_28312918
     Debughovereddocknode*: ptr Imguidocknode_28312108
     Frameratesecperframe*: array[60'i64, cfloat]
     Frameratesecperframeidx*: cint
@@ -2087,7 +2090,7 @@ type
     Wantcapturemousenextframe*: cint
     Wantcapturekeyboardnextframe*: cint
     Wanttextinputnextframe*: cint
-    Tempbuffer*: Imvectorchar_28312414
+    Tempbuffer*: Imvectorchar_28312478
 
   Imguiio_28311994 = structimguiio_28311997 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:59:24
   structimguiio_28311996 {.pure, inheritable, bycopy.} = object
@@ -2165,7 +2168,7 @@ type
     Mousedown*: array[5'i64, bool]
     Mousewheel*: cfloat
     Mousewheelh*: cfloat
-    Mousesource*: Imguimousesource_28312396
+    Mousesource*: Imguimousesource_28312458
     Mousehoveredviewport*: Imguiid_28312298
     Keyctrl*: bool
     Keyshift*: bool
@@ -2195,7 +2198,7 @@ type
     Backendusinglegacykeyarrays*: Ims8_28312300
     Backendusinglegacynavinputarray*: bool
     Inputqueuesurrogate*: Imwchar16_28312314
-    Inputqueuecharacters*: Imvectorimwchar_28312402
+    Inputqueuecharacters*: Imvectorimwchar_28312466
 
   Imguiinputtextcallbackdata_28311998 = structimguiinputtextcallbackdata_28312001 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:60:43
   structimguiinputtextcallbackdata_28312000 {.pure, inheritable, bycopy.} = object
@@ -2204,7 +2207,7 @@ type
     Flags*: Imguiinputtextflags_28312268
     Userdata*: pointer
     Eventchar*: Imwchar_28312318
-    Eventkey*: Imguikey_28312374
+    Eventkey*: Imguikey_28312414
     Buf*: cstring
     Buftextlen*: cint
     Bufsize*: cint
@@ -2286,8 +2289,8 @@ type
         cdecl.}
     Rendererswapbuffers*: proc (a0: ptr Imguiviewport_28312066; a1: pointer): void {.
         cdecl.}
-    Monitors*: Imvectorimguiplatformmonitor_28312500
-    Viewports*: Imvectorimguiviewportptr_28312504
+    Monitors*: Imvectorimguiplatformmonitor_28312572
+    Viewports*: Imvectorimguiviewportptr_28312576
 
   Imguiplatformmonitor_28312029 = structimguiplatformmonitor_28312032 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:66:37
   structimguiplatformmonitor_28312031 {.pure, inheritable, bycopy.} = object
@@ -2313,7 +2316,7 @@ type
 
   Imguistorage_28312041 = structimguistorage_28312044 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:69:29
   structimguistorage_28312043 {.pure, inheritable, bycopy.} = object
-    Data*: Imvectorimguistoragepair_28312422 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1118:8
+    Data*: Imvectorimguistoragepair_28312486 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1118:8
   
   Imguistyle_28312045 = structimguistyle_28312048 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:70:27
   structimguistyle_28312047 {.pure, inheritable, bycopy.} = object
@@ -2383,12 +2386,12 @@ type
 
   Imguitextbuffer_28312057 = structimguitextbuffer_28312060 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:73:32
   structimguitextbuffer_28312059 {.pure, inheritable, bycopy.} = object
-    Buf*: Imvectorchar_28312414 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1105:8
+    Buf*: Imvectorchar_28312478 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1105:8
   
   Imguitextfilter_28312061 = structimguitextfilter_28312064 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:74:32
   structimguitextfilter_28312063 {.pure, inheritable, bycopy.} = object
     Inputbuf*: array[256'i64, cschar] ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1096:8
-    Filters*: Imvectorimguitextrange_28312410
+    Filters*: Imvectorimguitextrange_28312474
     Countgrep*: cint
 
   Imguiviewport_28312065 = structimguiviewport_28312068 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:75:30
@@ -2424,7 +2427,7 @@ type
 
   Imbitvector_28312073 = structimbitvector_28312076 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:77:28
   structimbitvector_28312075 {.pure, inheritable, bycopy.} = object
-    Storage*: Imvectorimu32_28312468 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1550:8
+    Storage*: Imvectorimu32_28312536 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1550:8
   
   Imrect_28312077 = structimrect_28312080 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:78:23
   structimrect_28312079 {.pure, inheritable, bycopy.} = object
@@ -2433,8 +2436,8 @@ type
 
   Imdrawdatabuilder_28312081 = structimdrawdatabuilder_28312084 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:79:34
   structimdrawdatabuilder_28312083 {.pure, inheritable, bycopy.} = object
-    Layers*: array[2'i64, ptr Imvectorimdrawlistptr_28312464] ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1578:8
-    Layerdata1*: Imvectorimdrawlistptr_28312464
+    Layers*: array[2'i64, ptr Imvectorimdrawlistptr_28312532] ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1578:8
+    Layerdata1*: Imvectorimdrawlistptr_28312532
 
   Imguicolormod_28312085 = structimguicolormod_28312088 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:80:30
   structimguicolormod_28312087 {.pure, inheritable, bycopy.} = object
@@ -2444,9 +2447,9 @@ type
   Imguicontexthook_28312089 = structimguicontexthook_28312092 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:81:33
   structimguicontexthook_28312091 {.pure, inheritable, bycopy.} = object
     Hookid*: Imguiid_28312298 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2368:8
-    Type*: Imguicontexthooktype_28312784
+    Type*: Imguicontexthooktype_28312930
     Owner*: Imguiid_28312298
-    Callback*: Imguicontexthookcallback_28312782
+    Callback*: Imguicontexthookcallback_28312926
     Userdata*: pointer
 
   Imguidatavarinfo_28312093 = structimguidatavarinfo_28312096 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:82:33
@@ -2465,8 +2468,8 @@ type
   Imguidockcontext_28312101 = structimguidockcontext_28312104 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:84:33
   structimguidockcontext_28312103 {.pure, inheritable, bycopy.} = object
     Nodes*: Imguistorage_28312042 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2240:8
-    Requests*: Imvectorimguidockrequest_28312756
-    Nodessettings*: Imvectorimguidocknodesettings_28312760
+    Requests*: Imvectorimguidockrequest_28312896
+    Nodessettings*: Imvectorimguidocknodesettings_28312900
     Wantfullrebuild*: bool
 
   Imguidockrequest_28312105 = structimguidockrequest ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:85:33
@@ -2477,15 +2480,15 @@ type
     Localflags*: Imguidocknodeflags_28312260
     Localflagsinwindows*: Imguidocknodeflags_28312260
     Mergedflags*: Imguidocknodeflags_28312260
-    State*: Imguidocknodestate_28312742
+    State*: Imguidocknodestate_28312880
     Parentnode*: ptr Imguidocknode_28312108
     Childnodes*: array[2'i64, ptr Imguidocknode_28312108]
-    Windows*: Imvectorimguiwindowptr_28312746
+    Windows*: Imvectorimguiwindowptr_28312884
     Tabbar*: ptr Imguitabbar_28312180
     Pos*: Imvec2_28312328
     Size*: Imvec2_28312328
     Sizeref*: Imvec2_28312328
-    Splitaxis*: Imguiaxis_28312612
+    Splitaxis*: Imguiaxis_28312716
     Windowclass*: Imguiwindowclass_28312070
     Lastbgcolor*: Imu32_28312310
     Hostwindow*: ptr Imguiwindow_28312210
@@ -2500,9 +2503,9 @@ type
     Selectedtabid*: Imguiid_28312298
     Wantclosetabid*: Imguiid_28312298
     Refviewportid*: Imguiid_28312298
-    Authorityforpos*: Imguidataauthority_28312506
-    Authorityforsize*: Imguidataauthority_28312506
-    Authorityforviewport*: Imguidataauthority_28312506
+    Authorityforpos*: Imguidataauthority_28312578
+    Authorityforsize*: Imguidataauthority_28312578
+    Authorityforviewport*: Imguidataauthority_28312578
     Isvisible*: bool
     Isfocused*: bool
     Isbgdrawnthisframe*: bool
@@ -2521,8 +2524,8 @@ type
     Windowid*: Imguiid_28312298 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1749:8
     Backupcursorpos*: Imvec2_28312328
     Backupcursormaxpos*: Imvec2_28312328
-    Backupindent*: Imvec1_28312562
-    Backupgroupoffset*: Imvec1_28312562
+    Backupindent*: Imvec1_28312634
+    Backupgroupoffset*: Imvec1_28312634
     Backupcurrlinesize*: Imvec2_28312328
     Backupcurrlinetextbaseoffset*: cfloat
     Backupactiveidisalive*: Imguiid_28312298
@@ -2536,13 +2539,13 @@ type
     Id*: Imguiid_28312298
     Curlenw*: cint
     Curlena*: cint
-    Textw*: Imvectorimwchar_28312402
-    Texta*: Imvectorchar_28312414
-    Initialtexta*: Imvectorchar_28312414
+    Textw*: Imvectorimwchar_28312466
+    Texta*: Imvectorchar_28312478
+    Initialtexta*: Imvectorchar_28312478
     Textaisvalid*: bool
     Bufcapacitya*: cint
     Scrollx*: cfloat
-    Stb*: Stbtexteditstate_28312550
+    Stb*: Stbtexteditstate_28312622
     Cursoranim*: cfloat
     Cursorfollow*: bool
     Selectedallmouselock*: bool
@@ -2553,15 +2556,15 @@ type
   Imguilastitemdata_28312123 = structimguilastitemdata_28312126 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:91:34
   structimguilastitemdata_28312125 {.pure, inheritable, bycopy.} = object
     Id*: Imguiid_28312298    ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1860:8
-    Inflags*: Imguiitemflags_28312518
-    Statusflags*: Imguiitemstatusflags_28312520
+    Inflags*: Imguiitemflags_28312590
+    Statusflags*: Imguiitemstatusflags_28312592
     Rect*: Imrect_28312078
     Navrect*: Imrect_28312078
     Displayrect*: Imrect_28312078
 
   Imguilocentry_28312127 = structimguilocentry_28312130 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:92:30
   structimguilocentry_28312129 {.pure, inheritable, bycopy.} = object
-    Key*: Imguilockey_28312766 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2312:8
+    Key*: Imguilockey_28312908 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2312:8
     Text*: cstring
 
   Imguimenucolumns_28312131 = structimguimenucolumns_28312134 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:93:33
@@ -2581,7 +2584,7 @@ type
     Id*: Imguiid_28312298
     Focusscopeid*: Imguiid_28312298
     Rectrel*: Imrect_28312078
-    Inflags*: Imguiitemflags_28312518
+    Inflags*: Imguiitemflags_28312590
     Distbox*: cfloat
     Distcenter*: cfloat
     Distaxial*: cfloat
@@ -2589,7 +2592,7 @@ type
   Imguinavtreenodedata_28312139 = structimguinavtreenodedata_28312142 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:95:37
   structimguinavtreenodedata_28312141 {.pure, inheritable, bycopy.} = object
     Id*: Imguiid_28312298    ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1869:8
-    Inflags*: Imguiitemflags_28312518
+    Inflags*: Imguiitemflags_28312590
     Navrect*: Imrect_28312078
 
   Imguimetricsconfig_28312143 = structimguimetricsconfig_28312146 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:96:35
@@ -2608,7 +2611,7 @@ type
 
   Imguinextwindowdata_28312147 = structimguinextwindowdata_28312150 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:97:36
   structimguinextwindowdata_28312149 {.pure, inheritable, bycopy.} = object
-    Flags*: Imguinextwindowdataflags_28312530 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1823:8
+    Flags*: Imguinextwindowdataflags_28312602 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1823:8
     Poscond*: Imguicond_28312228
     Sizecond*: Imguicond_28312228
     Collapsedcond*: Imguicond_28312228
@@ -2631,8 +2634,8 @@ type
 
   Imguinextitemdata_28312151 = structimguinextitemdata_28312154 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:98:34
   structimguinextitemdata_28312153 {.pure, inheritable, bycopy.} = object
-    Flags*: Imguinextitemdataflags_28312528 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1851:8
-    Itemflags*: Imguiitemflags_28312518
+    Flags*: Imguinextitemdataflags_28312600 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1851:8
+    Itemflags*: Imguiitemflags_28312590
     Width*: cfloat
     Focusscopeid*: Imguiid_28312298
     Opencond*: Imguicond_28312228
@@ -2642,13 +2645,13 @@ type
   structimguioldcolumndata_28312157 {.pure, inheritable, bycopy.} = object
     Offsetnorm*: cfloat      ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2116:8
     Offsetnormbeforeresize*: cfloat
-    Flags*: Imguioldcolumnflags_28312522
+    Flags*: Imguioldcolumnflags_28312594
     Cliprect*: Imrect_28312078
 
   Imguioldcolumns_28312159 = structimguioldcolumns_28312162 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:100:32
   structimguioldcolumns_28312161 {.pure, inheritable, bycopy.} = object
     Id*: Imguiid_28312298    ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2125:8
-    Flags*: Imguioldcolumnflags_28312522
+    Flags*: Imguioldcolumnflags_28312594
     Isfirstframe*: bool
     Isbeingresized*: bool
     Current*: cint
@@ -2662,7 +2665,7 @@ type
     Hostinitialcliprect*: Imrect_28312078
     Hostbackupcliprect*: Imrect_28312078
     Hostbackupparentworkrect*: Imrect_28312078
-    Columns*: Imvectorimguioldcolumndata_28312736
+    Columns*: Imvectorimguioldcolumndata_28312868
     Splitter*: Imdrawlistsplitter_28311955
 
   Imguipopupdata_28312163 = structimguipopupdata_28312166 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:101:31
@@ -2720,7 +2723,7 @@ type
 
   Imguitabbar_28312179 = structimguitabbar_28312182 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:105:28
   structimguitabbar_28312181 {.pure, inheritable, bycopy.} = object
-    Tabs*: Imvectorimguitabitem_28312888 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2871:8
+    Tabs*: Imvectorimguitabitem_28313038 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2871:8
     Flags*: Imguitabbarflags_28312278
     Id*: Imguiid_28312298
     Selectedtabid*: Imguiid_28312298
@@ -2774,12 +2777,12 @@ type
     Flags*: Imguitableflags_28312282
     Rawdata*: pointer
     Tempdata*: ptr Imguitabletempdata_28312200
-    Columns*: Imspanimguitablecolumn_28312900
-    Displayordertoindex*: Imspanimguitablecolumnidx_28312904
-    Rowcelldata*: Imspanimguitablecelldata_28312908
-    Enabledmaskbydisplayorder*: Imbitarrayptr_28312570
-    Enabledmaskbyindex*: Imbitarrayptr_28312570
-    Visiblemaskbyindex*: Imbitarrayptr_28312570
+    Columns*: Imspanimguitablecolumn_28313050
+    Displayordertoindex*: Imspanimguitablecolumnidx_28313054
+    Rowcelldata*: Imspanimguitablecelldata_28313058
+    Enabledmaskbydisplayorder*: Imbitarrayptr_28312642
+    Enabledmaskbyindex*: Imbitarrayptr_28312642
+    Visiblemaskbyindex*: Imbitarrayptr_28312642
     Settingsloadedflags*: Imguitableflags_28312282
     Settingsoffset*: cint
     Lastframeactive*: cint
@@ -2829,35 +2832,35 @@ type
     Columnsnames*: Imguitextbuffer_28312058
     Drawsplitter*: ptr Imdrawlistsplitter_28311955
     Instancedatafirst*: Imguitableinstancedata_28312196
-    Instancedataextra*: Imvectorimguitableinstancedata_28312912
+    Instancedataextra*: Imvectorimguitableinstancedata_28313062
     Sortspecssingle*: Imguitablecolumnsortspecs_28312054
-    Sortspecsmulti*: Imvectorimguitablecolumnsortspecs_28312916
+    Sortspecsmulti*: Imvectorimguitablecolumnsortspecs_28313066
     Sortspecs*: Imguitablesortspecs_28312050
-    Sortspecscount*: Imguitablecolumnidx_28312890
-    Columnsenabledcount*: Imguitablecolumnidx_28312890
-    Columnsenabledfixedcount*: Imguitablecolumnidx_28312890
-    Declcolumnscount*: Imguitablecolumnidx_28312890
-    Hoveredcolumnbody*: Imguitablecolumnidx_28312890
-    Hoveredcolumnborder*: Imguitablecolumnidx_28312890
-    Autofitsinglecolumn*: Imguitablecolumnidx_28312890
-    Resizedcolumn*: Imguitablecolumnidx_28312890
-    Lastresizedcolumn*: Imguitablecolumnidx_28312890
-    Heldheadercolumn*: Imguitablecolumnidx_28312890
-    Reordercolumn*: Imguitablecolumnidx_28312890
-    Reordercolumndir*: Imguitablecolumnidx_28312890
-    Leftmostenabledcolumn*: Imguitablecolumnidx_28312890
-    Rightmostenabledcolumn*: Imguitablecolumnidx_28312890
-    Leftmoststretchedcolumn*: Imguitablecolumnidx_28312890
-    Rightmoststretchedcolumn*: Imguitablecolumnidx_28312890
-    Contextpopupcolumn*: Imguitablecolumnidx_28312890
-    Freezerowsrequest*: Imguitablecolumnidx_28312890
-    Freezerowscount*: Imguitablecolumnidx_28312890
-    Freezecolumnsrequest*: Imguitablecolumnidx_28312890
-    Freezecolumnscount*: Imguitablecolumnidx_28312890
-    Rowcelldatacurrent*: Imguitablecolumnidx_28312890
-    Dummydrawchannel*: Imguitabledrawchannelidx_28312892
-    Bg2drawchannelcurrent*: Imguitabledrawchannelidx_28312892
-    Bg2drawchannelunfrozen*: Imguitabledrawchannelidx_28312892
+    Sortspecscount*: Imguitablecolumnidx_28313040
+    Columnsenabledcount*: Imguitablecolumnidx_28313040
+    Columnsenabledfixedcount*: Imguitablecolumnidx_28313040
+    Declcolumnscount*: Imguitablecolumnidx_28313040
+    Hoveredcolumnbody*: Imguitablecolumnidx_28313040
+    Hoveredcolumnborder*: Imguitablecolumnidx_28313040
+    Autofitsinglecolumn*: Imguitablecolumnidx_28313040
+    Resizedcolumn*: Imguitablecolumnidx_28313040
+    Lastresizedcolumn*: Imguitablecolumnidx_28313040
+    Heldheadercolumn*: Imguitablecolumnidx_28313040
+    Reordercolumn*: Imguitablecolumnidx_28313040
+    Reordercolumndir*: Imguitablecolumnidx_28313040
+    Leftmostenabledcolumn*: Imguitablecolumnidx_28313040
+    Rightmostenabledcolumn*: Imguitablecolumnidx_28313040
+    Leftmoststretchedcolumn*: Imguitablecolumnidx_28313040
+    Rightmoststretchedcolumn*: Imguitablecolumnidx_28313040
+    Contextpopupcolumn*: Imguitablecolumnidx_28313040
+    Freezerowsrequest*: Imguitablecolumnidx_28313040
+    Freezerowscount*: Imguitablecolumnidx_28313040
+    Freezecolumnsrequest*: Imguitablecolumnidx_28313040
+    Freezecolumnscount*: Imguitablecolumnidx_28313040
+    Rowcelldatacurrent*: Imguitablecolumnidx_28313040
+    Dummydrawchannel*: Imguitabledrawchannelidx_28313042
+    Bg2drawchannelcurrent*: Imguitabledrawchannelidx_28313042
+    Bg2drawchannelunfrozen*: Imguitabledrawchannelidx_28313042
     Islayoutlocked*: bool
     Isinsiderow*: bool
     Isinitializing*: bool
@@ -2896,14 +2899,14 @@ type
     Contentmaxxheadersused*: cfloat
     Contentmaxxheadersideal*: cfloat
     Nameoffset*: Ims16_28312304
-    Displayorder*: Imguitablecolumnidx_28312890
-    Indexwithinenabledset*: Imguitablecolumnidx_28312890
-    Prevenabledcolumn*: Imguitablecolumnidx_28312890
-    Nextenabledcolumn*: Imguitablecolumnidx_28312890
-    Sortorder*: Imguitablecolumnidx_28312890
-    Drawchannelcurrent*: Imguitabledrawchannelidx_28312892
-    Drawchannelfrozen*: Imguitabledrawchannelidx_28312892
-    Drawchannelunfrozen*: Imguitabledrawchannelidx_28312892
+    Displayorder*: Imguitablecolumnidx_28313040
+    Indexwithinenabledset*: Imguitablecolumnidx_28313040
+    Prevenabledcolumn*: Imguitablecolumnidx_28313040
+    Nextenabledcolumn*: Imguitablecolumnidx_28313040
+    Sortorder*: Imguitablecolumnidx_28313040
+    Drawchannelcurrent*: Imguitabledrawchannelidx_28313042
+    Drawchannelfrozen*: Imguitabledrawchannelidx_28313042
+    Drawchannelunfrozen*: Imguitabledrawchannelidx_28313042
     Isenabled*: bool
     Isuserenabled*: bool
     Isuserenablednextframe*: bool
@@ -2940,7 +2943,7 @@ type
     Hostbackupprevlinesize*: Imvec2_28312328
     Hostbackupcurrlinesize*: Imvec2_28312328
     Hostbackupcursormaxpos*: Imvec2_28312328
-    Hostbackupcolumnsoffset*: Imvec1_28312562
+    Hostbackupcolumnsoffset*: Imvec1_28312634
     Hostbackupitemwidth*: cfloat
     Hostbackupitemwidthstacksize*: cint
 
@@ -2949,8 +2952,8 @@ type
     Id*: Imguiid_28312298    ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:3111:8
     Saveflags*: Imguitableflags_28312282
     Refscale*: cfloat
-    Columnscount*: Imguitablecolumnidx_28312890
-    Columnscountmax*: Imguitablecolumnidx_28312890
+    Columnscount*: Imguitablecolumnidx_28313040
+    Columnscountmax*: Imguitablecolumnidx_28313040
     Wantapply*: bool
 
   Imguitablecolumnssettings_28312207 = structimguitablecolumnssettings ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:112:42
@@ -2962,7 +2965,7 @@ type
     Flags*: Imguiwindowflags_28312292
     Flagspreviousframe*: Imguiwindowflags_28312292
     Windowclass*: Imguiwindowclass_28312070
-    Viewport*: ptr Imguiviewportp_28312762
+    Viewport*: ptr Imguiviewportp_28312902
     Viewportid*: Imguiid_28312298
     Viewportpos*: Imvec2_28312328
     Viewportallowplatformmonitorextend*: cint
@@ -3027,7 +3030,7 @@ type
     Setwindowdockallowflags*: Imguicond_28312228
     Setwindowposval*: Imvec2_28312328
     Setwindowpospivot*: Imvec2_28312328
-    Idstack*: Imvectorimguiid_28312804
+    Idstack*: Imvectorimguiid_28312950
     Dc*: Imguiwindowtempdata_28312214
     Outerrectclipped*: Imrect_28312078
     Innerrect*: Imrect_28312078
@@ -3036,14 +3039,14 @@ type
     Parentworkrect*: Imrect_28312078
     Cliprect*: Imrect_28312078
     Contentregionrect*: Imrect_28312078
-    Hittestholesize*: Imvec2ih_28312566
-    Hittestholeoffset*: Imvec2ih_28312566
+    Hittestholesize*: Imvec2ih_28312638
+    Hittestholeoffset*: Imvec2ih_28312638
     Lastframeactive*: cint
     Lastframejustfocused*: cint
     Lasttimeactive*: cfloat
     Itemwidthdefault*: cfloat
     Statestorage*: Imguistorage_28312042
-    Columnsstorage*: Imvectorimguioldcolumns_28312880
+    Columnsstorage*: Imvectorimguioldcolumns_28313026
     Fontwindowscale*: cfloat
     Fontdpiscale*: cfloat
     Settingsoffset*: cint
@@ -3069,11 +3072,11 @@ type
     Docktabisvisible*: bool
     Docktabwantclose*: bool
     Dockorder*: cshort
-    Dockstyle*: Imguiwindowdockstyle_28312750
+    Dockstyle*: Imguiwindowdockstyle_28312890
     Docknode*: ptr Imguidocknode_28312108
     Docknodeashost*: ptr Imguidocknode_28312108
     Dockid*: Imguiid_28312298
-    Docktabitemstatusflags*: Imguiitemstatusflags_28312520
+    Docktabitemstatusflags*: Imguiitemstatusflags_28312592
     Docktabitemrect*: Imrect_28312078
 
   Imguiwindowtempdata_28312213 = structimguiwindowtempdata_28312216 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:114:36
@@ -3089,11 +3092,11 @@ type
     Prevlinetextbaseoffset*: cfloat
     Issameline*: bool
     Issetpos*: bool
-    Indent*: Imvec1_28312562
-    Columnsoffset*: Imvec1_28312562
-    Groupoffset*: Imvec1_28312562
+    Indent*: Imvec1_28312634
+    Columnsoffset*: Imvec1_28312634
+    Groupoffset*: Imvec1_28312634
     Cursorstartposlossyness*: Imvec2_28312328
-    Navlayercurrent*: Imguinavlayer_28312730
+    Navlayercurrent*: Imguinavlayer_28312860
     Navlayersactivemask*: cshort
     Navlayersactivemasknext*: cshort
     Navisscrollpushablex*: bool
@@ -3104,23 +3107,23 @@ type
     Menucolumns*: Imguimenucolumns_28312132
     Treedepth*: cint
     Treejumptoparentonpopmask*: Imu32_28312310
-    Childwindows*: Imvectorimguiwindowptr_28312746
+    Childwindows*: Imvectorimguiwindowptr_28312884
     Statestorage*: ptr Imguistorage_28312042
     Currentcolumns*: ptr Imguioldcolumns_28312160
     Currenttableidx*: cint
-    Layouttype*: Imguilayouttype_28312508
-    Parentlayouttype*: Imguilayouttype_28312508
+    Layouttype*: Imguilayouttype_28312580
+    Parentlayouttype*: Imguilayouttype_28312580
     Itemwidth*: cfloat
     Textwrappos*: cfloat
-    Itemwidthstack*: Imvectorfloat_28312490
-    Textwrapposstack*: Imvectorfloat_28312490
+    Itemwidthstack*: Imvectorfloat_28312560
+    Textwrapposstack*: Imvectorfloat_28312560
 
   Imguiwindowsettings_28312217 = structimguiwindowsettings_28312220 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:115:36
   structimguiwindowsettings_28312219 {.pure, inheritable, bycopy.} = object
     Id*: Imguiid_28312298    ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2273:8
-    Pos*: Imvec2ih_28312566
-    Size*: Imvec2ih_28312566
-    Viewportpos*: Imvec2ih_28312566
+    Pos*: Imvec2ih_28312638
+    Size*: Imvec2ih_28312638
+    Viewportpos*: Imvec2ih_28312638
     Viewportid*: Imguiid_28312298
     Dockid*: Imguiid_28312298
     Classid*: Imguiid_28312298
@@ -3200,109 +3203,143 @@ type
     z*: cfloat
     w*: cfloat
 
-  structimvectorimwchar_28312399 {.pure, inheritable, bycopy.} = object
+  Imguiwindowflagstypedef_28312337 = enumimguiwindowflags_28312336 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:246:2
+  Imguiinputtextflagstypedef_28312341 = enumimguiinputtextflags_28312340 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:270:2
+  Imguitreenodeflagstypedef_28312345 = enumimguitreenodeflags_28312344 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:288:2
+  Imguipopupflagstypedef_28312349 = enumimguipopupflags_28312348 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:301:2
+  Imguiselectableflagstypedef_28312353 = enumimguiselectableflags_28312352 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:309:2
+  Imguicomboflagstypedef_28312357 = enumimguicomboflags_28312356 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:320:2
+  Imguitabbarflagstypedef_28312361 = enumimguitabbarflags_28312360 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:333:2
+  Imguitabitemflagstypedef_28312365 = enumimguitabitemflags_28312364 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:344:2
+  Imguitableflagstypedef_28312369 = enumimguitableflags_28312368 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:382:2
+  Imguitablecolumnflagstypedef_28312373 = enumimguitablecolumnflags_28312372 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:411:2
+  Imguitablerowflagstypedef_28312377 = enumimguitablerowflags_28312376 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:415:2
+  Imguitablebgtargettypedef_28312381 = enumimguitablebgtarget_28312380 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:421:2
+  Imguifocusedflagstypedef_28312385 = enumimguifocusedflags_28312384 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:430:2
+  Imguihoveredflagstypedef_28312389 = enumimguihoveredflags_28312388 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:453:2
+  Imguidocknodeflagstypedef_28312393 = enumimguidocknodeflags_28312392 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:462:2
+  Imguidragdropflagstypedef_28312397 = enumimguidragdropflags_28312396 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:475:2
+  Imguidatatypetypedef_28312401 = enumimguidatatype_28312400 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:488:2
+  Imguidirtypedef_28312405 = enumimguidir_28312404 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:496:2
+  Imguisortdirectiontypedef_28312409 = enumimguisortdirection_28312408 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:501:2
+  Imguikey_28312413 = enumimguikey_28312412 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:657:2
+  Imguinavinput_28312417 = enumimguinavinput_28312416 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:662:2
+  Imguiconfigflagstypedef_28312421 = enumimguiconfigflags_28312420 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:677:2
+  Imguibackendflagstypedef_28312425 = enumimguibackendflags_28312424 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:687:2
+  Imguicoltypedef_28312429 = enumimguicol_28312428 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:745:2
+  Imguistylevartypedef_28312433 = enumimguistylevar_28312432 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:777:2
+  Imguibuttonflagstypedef_28312437 = enumimguibuttonflags_28312436 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:785:2
+  Imguicoloreditflagstypedef_28312441 = enumimguicoloreditflags_28312440 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:816:2
+  Imguisliderflagstypedef_28312445 = enumimguisliderflags_28312444 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:824:2
+  Imguimousebuttontypedef_28312449 = enumimguimousebutton_28312448 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:830:2
+  Imguimousecursortypedef_28312453 = enumimguimousecursor_28312452 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:843:2
+  Imguimousesource_28312457 = enumimguimousesource_28312456 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:849:2
+  Imguicondtypedef_28312461 = enumimguicond_28312460 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:856:2
+  structimvectorimwchar_28312463 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:917:16
     Capacity*: cint
     Data*: ptr Imwchar_28312318
 
-  Imvectorimwchar_28312401 = structimvectorimwchar_28312400 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:917:72
-  structimguitextrange_28312403 {.pure, inheritable, bycopy.} = object
+  Imvectorimwchar_28312465 = structimvectorimwchar_28312464 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:917:72
+  structimguitextrange_28312467 {.pure, inheritable, bycopy.} = object
     b*: cstring              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1087:8
     e*: cstring
 
-  Imguitextrange_28312405 = structimguitextrange_28312404 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1102:31
-  structimvectorimguitextrange_28312407 {.pure, inheritable, bycopy.} = object
+  Imguitextrange_28312469 = structimguitextrange_28312468 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1102:31
+  structimvectorimguitextrange_28312471 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1094:16
     Capacity*: cint
-    Data*: ptr Imguitextrange_28312406
+    Data*: ptr Imguitextrange_28312470
 
-  Imvectorimguitextrange_28312409 = structimvectorimguitextrange_28312408 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1094:86
-  structimvectorchar_28312411 {.pure, inheritable, bycopy.} = object
+  Imvectorimguitextrange_28312473 = structimvectorimguitextrange_28312472 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1094:86
+  structimvectorchar_28312475 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1103:16
     Capacity*: cint
     Data*: cstring
 
-  Imvectorchar_28312413 = structimvectorchar_28312412 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1103:66
+  Imvectorchar_28312477 = structimvectorchar_28312476 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1103:66
   structimguistoragepair_anon0_t {.union, bycopy.} = object
     vali*: cint
     valf*: cfloat
     valp*: pointer
 
-  structimguistoragepair_28312415 {.pure, inheritable, bycopy.} = object
+  structimguistoragepair_28312479 {.pure, inheritable, bycopy.} = object
     key*: Imguiid_28312298   ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1109:8
     anon0*: structimguistoragepair_anon0_t
 
-  Imguistoragepair_28312417 = structimguistoragepair_28312416 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1122:33
-  structimvectorimguistoragepair_28312419 {.pure, inheritable, bycopy.} = object
+  Imguistoragepair_28312481 = structimguistoragepair_28312480 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1122:33
+  structimvectorimguistoragepair_28312483 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1116:16
     Capacity*: cint
-    Data*: ptr Imguistoragepair_28312418
+    Data*: ptr Imguistoragepair_28312482
 
-  Imvectorimguistoragepair_28312421 = structimvectorimguistoragepair_28312420 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1116:90
-  Imdrawcallback_28312423 = proc (a0: ptr Imdrawlist_28311947; a1: ptr Imdrawcmd_28311939): void {.
+  Imvectorimguistoragepair_28312485 = structimvectorimguistoragepair_28312484 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1116:90
+  Imdrawcallback_28312487 = proc (a0: ptr Imdrawlist_28311947; a1: ptr Imdrawcmd_28311939): void {.
       cdecl.}                ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1137:16
-  Imdrawcmdheader_28312425 = structimdrawcmdheader_28312428 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1154:32
-  structimdrawcmdheader_28312427 {.pure, inheritable, bycopy.} = object
+  Imdrawcmdheader_28312489 = structimdrawcmdheader_28312492 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1154:32
+  structimdrawcmdheader_28312491 {.pure, inheritable, bycopy.} = object
     Cliprect*: Imvec4_28312332 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1155:8
     Textureid*: Imtextureid_28312294
     Vtxoffset*: cuint
 
-  structimvectorimdrawcmd_28312429 {.pure, inheritable, bycopy.} = object
+  structimvectorimdrawcmd_28312493 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1161:16
     Capacity*: cint
     Data*: ptr Imdrawcmd_28311939
 
-  Imvectorimdrawcmd_28312431 = structimvectorimdrawcmd_28312430 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1161:76
-  structimvectorimdrawidx_28312433 {.pure, inheritable, bycopy.} = object
+  Imvectorimdrawcmd_28312495 = structimvectorimdrawcmd_28312494 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1161:76
+  structimvectorimdrawidx_28312497 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1163:16
     Capacity*: cint
     Data*: ptr Imdrawidx_28312296
 
-  Imvectorimdrawidx_28312435 = structimvectorimdrawidx_28312434 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1163:76
-  structimvectorimdrawchannel_28312437 {.pure, inheritable, bycopy.} = object
+  Imvectorimdrawidx_28312499 = structimvectorimdrawidx_28312498 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1163:76
+  structimvectorimdrawchannel_28312501 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1170:16
     Capacity*: cint
     Data*: ptr Imdrawchannel_28311935
 
-  Imvectorimdrawchannel_28312439 = structimvectorimdrawchannel_28312438 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1170:84
-  structimvectorimdrawvert_28312445 {.pure, inheritable, bycopy.} = object
+  Imvectorimdrawchannel_28312503 = structimvectorimdrawchannel_28312502 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1170:84
+  Imdrawflagstypedef_28312507 = enumimdrawflags_28312506 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1193:2
+  Imdrawlistflagstypedef_28312511 = enumimdrawlistflags_28312510 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1200:2
+  structimvectorimdrawvert_28312513 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1201:16
     Capacity*: cint
     Data*: ptr Imdrawvert_28311959
 
-  Imvectorimdrawvert_28312447 = structimvectorimdrawvert_28312446 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1201:78
-  structimvectorimvec4_28312449 {.pure, inheritable, bycopy.} = object
+  Imvectorimdrawvert_28312515 = structimvectorimdrawvert_28312514 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1201:78
+  structimvectorimvec4_28312517 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1203:16
     Capacity*: cint
     Data*: ptr Imvec4_28312332
 
-  Imvectorimvec4_28312451 = structimvectorimvec4_28312450 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1203:70
-  structimvectorimtextureid_28312453 {.pure, inheritable, bycopy.} = object
+  Imvectorimvec4_28312519 = structimvectorimvec4_28312518 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1203:70
+  structimvectorimtextureid_28312521 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1205:16
     Capacity*: cint
     Data*: ptr Imtextureid_28312294
 
-  Imvectorimtextureid_28312455 = structimvectorimtextureid_28312454 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1205:80
-  structimvectorimvec2_28312457 {.pure, inheritable, bycopy.} = object
+  Imvectorimtextureid_28312523 = structimvectorimtextureid_28312522 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1205:80
+  structimvectorimvec2_28312525 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1207:16
     Capacity*: cint
     Data*: ptr Imvec2_28312328
 
-  Imvectorimvec2_28312459 = structimvectorimvec2_28312458 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1207:70
-  structimvectorimdrawlistptr_28312461 {.pure, inheritable, bycopy.} = object
+  Imvectorimvec2_28312527 = structimvectorimvec2_28312526 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1207:70
+  structimvectorimdrawlistptr_28312529 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1227:16
     Capacity*: cint
     Data*: ptr ptr Imdrawlist_28311947
 
-  Imvectorimdrawlistptr_28312463 = structimvectorimdrawlistptr_28312462 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1227:82
-  structimvectorimu32_28312465 {.pure, inheritable, bycopy.} = object
+  Imvectorimdrawlistptr_28312531 = structimvectorimdrawlistptr_28312530 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1227:82
+  structimvectorimu32_28312533 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1272:16
     Capacity*: cint
     Data*: ptr Imu32_28312310
 
-  Imvectorimu32_28312467 = structimvectorimu32_28312466 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1272:68
-  Imfontatlascustomrect_28312469 = structimfontatlascustomrect_28312472 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1278:38
-  structimfontatlascustomrect_28312471 {.pure, inheritable, bycopy.} = object
+  Imvectorimu32_28312535 = structimvectorimu32_28312534 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1272:68
+  Imfontatlascustomrect_28312537 = structimfontatlascustomrect_28312540 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1278:38
+  structimfontatlascustomrect_28312539 {.pure, inheritable, bycopy.} = object
     Width*: cushort          ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1279:8
     Height*: cushort
     X*: cushort
@@ -3312,85 +3349,87 @@ type
     Glyphoffset*: Imvec2_28312328
     Font*: ptr Imfont_28311963
 
-  structimvectorimfontptr_28312475 {.pure, inheritable, bycopy.} = object
+  Imfontatlasflagstypedef_28312543 = enumimfontatlasflags_28312542 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1293:2
+  structimvectorimfontptr_28312545 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1294:16
     Capacity*: cint
     Data*: ptr ptr Imfont_28311963
 
-  Imvectorimfontptr_28312477 = structimvectorimfontptr_28312476 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1294:74
-  structimvectorimfontatlascustomrect_28312479 {.pure, inheritable, bycopy.} = object
+  Imvectorimfontptr_28312547 = structimvectorimfontptr_28312546 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1294:74
+  structimvectorimfontatlascustomrect_28312549 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1296:16
     Capacity*: cint
-    Data*: ptr Imfontatlascustomrect_28312470
+    Data*: ptr Imfontatlascustomrect_28312538
 
-  Imvectorimfontatlascustomrect_28312481 = structimvectorimfontatlascustomrect_28312480 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1296:100
-  structimvectorimfontconfig_28312483 {.pure, inheritable, bycopy.} = object
+  Imvectorimfontatlascustomrect_28312551 = structimvectorimfontatlascustomrect_28312550 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1296:100
+  structimvectorimfontconfig_28312553 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1298:16
     Capacity*: cint
     Data*: ptr Imfontconfig_28311975
 
-  Imvectorimfontconfig_28312485 = structimvectorimfontconfig_28312484 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1298:82
-  structimvectorfloat_28312487 {.pure, inheritable, bycopy.} = object
+  Imvectorimfontconfig_28312555 = structimvectorimfontconfig_28312554 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1298:82
+  structimvectorfloat_28312557 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1325:16
     Capacity*: cint
     Data*: ptr cfloat
 
-  Imvectorfloat_28312489 = structimvectorfloat_28312488 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1325:68
-  structimvectorimfontglyph_28312491 {.pure, inheritable, bycopy.} = object
+  Imvectorfloat_28312559 = structimvectorfloat_28312558 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1325:68
+  structimvectorimfontglyph_28312561 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1327:16
     Capacity*: cint
     Data*: ptr Imfontglyph_28311979
 
-  Imvectorimfontglyph_28312493 = structimvectorimfontglyph_28312492 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1327:80
-  structimvectorimguiplatformmonitor_28312497 {.pure, inheritable, bycopy.} = object
+  Imvectorimfontglyph_28312563 = structimvectorimfontglyph_28312562 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1327:80
+  Imguiviewportflagstypedef_28312567 = enumimguiviewportflags_28312566 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1367:2
+  structimvectorimguiplatformmonitor_28312569 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1388:16
     Capacity*: cint
     Data*: ptr Imguiplatformmonitor_28312030
 
-  Imvectorimguiplatformmonitor_28312499 = structimvectorimguiplatformmonitor_28312498 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1388:98
-  structimvectorimguiviewportptr_28312501 {.pure, inheritable, bycopy.} = object
+  Imvectorimguiplatformmonitor_28312571 = structimvectorimguiplatformmonitor_28312570 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1388:98
+  structimvectorimguiviewportptr_28312573 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1390:16
     Capacity*: cint
     Data*: ptr ptr Imguiviewport_28312066
 
-  Imvectorimguiviewportptr_28312503 = structimvectorimguiviewportptr_28312502 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1390:88
-  Imguidataauthority_28312505 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1474:13
-  Imguilayouttype_28312507 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1475:13
-  Imguiactivateflags_28312509 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1476:13
-  Imguidebuglogflags_28312511 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1477:13
-  Imguifocusrequestflags_28312513 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1478:13
-  Imguiinputflags_28312515 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1479:13
-  Imguiitemflags_28312517 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1480:13
-  Imguiitemstatusflags_28312519 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1481:13
-  Imguioldcolumnflags_28312521 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1482:13
-  Imguinavhighlightflags_28312523 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1483:13
-  Imguinavmoveflags_28312525 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1484:13
-  Imguinextitemdataflags_28312527 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1485:13
-  Imguinextwindowdataflags_28312529 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1486:13
-  Imguiscrollflags_28312531 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1487:13
-  Imguiseparatorflags_28312533 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1488:13
-  Imguitextflags_28312535 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1489:13
-  Imguitooltipflags_28312537 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1490:13
-  Imguierrorlogcallback_28312539 = proc (a0: pointer; a1: cstring): void {.
+  Imvectorimguiviewportptr_28312575 = structimvectorimguiviewportptr_28312574 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1390:88
+  Imguidataauthority_28312577 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1474:13
+  Imguilayouttype_28312579 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1475:13
+  Imguiactivateflags_28312581 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1476:13
+  Imguidebuglogflags_28312583 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1477:13
+  Imguifocusrequestflags_28312585 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1478:13
+  Imguiinputflags_28312587 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1479:13
+  Imguiitemflags_28312589 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1480:13
+  Imguiitemstatusflags_28312591 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1481:13
+  Imguioldcolumnflags_28312593 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1482:13
+  Imguinavhighlightflags_28312595 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1483:13
+  Imguinavmoveflags_28312597 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1484:13
+  Imguinextitemdataflags_28312599 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1485:13
+  Imguinextwindowdataflags_28312601 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1486:13
+  Imguiscrollflags_28312603 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1487:13
+  Imguiseparatorflags_28312605 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1488:13
+  Imguitextflags_28312607 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1489:13
+  Imguitooltipflags_28312609 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1490:13
+  Imguierrorlogcallback_28312611 = proc (a0: pointer; a1: cstring): void {.
       cdecl, varargs.}       ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1491:16
-  Stbundorecord_28312541 = structstbundorecord_28312544 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1493:30
-  structstbundorecord_28312543 {.pure, inheritable, bycopy.} = object
+  Stbundorecord_28312613 = structstbundorecord_28312616 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1493:30
+  structstbundorecord_28312615 {.pure, inheritable, bycopy.} = object
     where*: cint             ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1494:8
     insertlength*: cint
     deletelength*: cint
     charstorage*: cint
 
-  Stbundostate_28312545 = structstbundostate_28312548 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1501:29
-  structstbundostate_28312547 {.pure, inheritable, bycopy.} = object
-    undorec*: array[99'i64, Stbundorecord_28312542] ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1502:8
+  Stbundostate_28312617 = structstbundostate_28312620 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1501:29
+  structstbundostate_28312619 {.pure, inheritable, bycopy.} = object
+    undorec*: array[99'i64, Stbundorecord_28312614] ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1502:8
     undochar*: array[999'i64, Imwchar_28312318]
     undopoint*: cshort
     redopoint*: cshort
     undocharpoint*: cint
     redocharpoint*: cint
 
-  Stbtexteditstate_28312549 = structstbtexteditstate_28312552 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1509:34
-  structstbtexteditstate_28312551 {.pure, inheritable, bycopy.} = object
+  Stbtexteditstate_28312621 = structstbtexteditstate_28312624 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1509:34
+  structstbtexteditstate_28312623 {.pure, inheritable, bycopy.} = object
     cursor*: cint            ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1510:8
     selectstart*: cint
     selectend*: cint
@@ -3404,10 +3443,10 @@ type
     padding2*: uint8
     padding3*: uint8
     preferredx*: cfloat
-    undostate*: Stbundostate_28312546
+    undostate*: Stbundostate_28312618
 
-  Stbtexteditrow_28312553 = structstbtexteditrow_28312556 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1525:31
-  structstbtexteditrow_28312555 {.pure, inheritable, bycopy.} = object
+  Stbtexteditrow_28312625 = structstbtexteditrow_28312628 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1525:31
+  structstbtexteditrow_28312627 {.pure, inheritable, bycopy.} = object
     x0*: cfloat              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1526:8
     x1*: cfloat
     baselineydelta*: cfloat
@@ -3415,204 +3454,238 @@ type
     ymax*: cfloat
     numchars*: cint
 
-  Imfilehandle_28312557 = ptr File_28312560 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1533:15
-  File_28312559 = structiobuf_28313332 ## Generated based on C:\Program Files\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_wstdio.h:31:7
-  Imvec1_28312561 = structimvec1_28312564 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1534:23
-  structimvec1_28312563 {.pure, inheritable, bycopy.} = object
+  Imfilehandle_28312629 = ptr File_28312632 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1533:15
+  File_28312631 = structiobuf_28313566 ## Generated based on C:\Program Files\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_wstdio.h:31:7
+  Imvec1_28312633 = structimvec1_28312636 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1534:23
+  structimvec1_28312635 {.pure, inheritable, bycopy.} = object
     x*: cfloat               ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1535:8
   
-  Imvec2ih_28312565 = structimvec2ih_28312568 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1539:25
-  structimvec2ih_28312567 {.pure, inheritable, bycopy.} = object
+  Imvec2ih_28312637 = structimvec2ih_28312640 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1539:25
+  structimvec2ih_28312639 {.pure, inheritable, bycopy.} = object
     x*: cshort               ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1540:8
     y*: cshort
 
-  Imbitarrayptr_28312569 = ptr Imu32_28312310 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1549:16
-  Impoolidx_28312571 = cint  ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1554:13
-  Imguitextindex_28312573 = structimguitextindex_28312576 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1555:31
-  structimguitextindex_28312575 {.pure, inheritable, bycopy.} = object
-    Lineoffsets*: Imvectorint_28312580 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1558:8
+  Imbitarrayptr_28312641 = ptr Imu32_28312310 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1549:16
+  Impoolidx_28312643 = cint  ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1554:13
+  Imguitextindex_28312645 = structimguitextindex_28312648 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1555:31
+  structimguitextindex_28312647 {.pure, inheritable, bycopy.} = object
+    Lineoffsets*: Imvectorint_28312652 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1558:8
     Endoffset*: cint
 
-  structimvectorint_28312577 {.pure, inheritable, bycopy.} = object
+  structimvectorint_28312649 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1556:16
     Capacity*: cint
     Data*: ptr cint
 
-  Imvectorint_28312579 = structimvectorint_28312578 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1556:64
-  Imguidatatypetempstorage_28312617 = structimguidatatypetempstorage_28312620 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1712:41
-  structimguidatatypetempstorage_28312619 {.pure, inheritable, bycopy.} = object
+  Imvectorint_28312651 = structimvectorint_28312650 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1556:64
+  Imguiitemflagstypedef_28312655 = enumimguiitemflags_28312654 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1596:2
+  Imguiitemstatusflagstypedef_28312659 = enumimguiitemstatusflags_28312658 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1609:2
+  Imguihoveredflagsprivate_28312663 = enumimguihoveredflagsprivate_28312662 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1614:2
+  Imguiinputtextflagsprivate_28312667 = enumimguiinputtextflagsprivate_28312666 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1619:2
+  Imguibuttonflagsprivate_28312671 = enumimguibuttonflagsprivate_28312670 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1640:2
+  Imguicomboflagsprivate_28312675 = enumimguicomboflagsprivate_28312674 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1643:2
+  Imguisliderflagsprivate_28312679 = enumimguisliderflagsprivate_28312678 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1647:2
+  Imguiselectableflagsprivate_28312683 = enumimguiselectableflagsprivate_28312682 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1657:2
+  Imguitreenodeflagsprivate_28312687 = enumimguitreenodeflagsprivate_28312686 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1661:2
+  Imguiseparatorflagstypedef_28312691 = enumimguiseparatorflags_28312690 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1667:2
+  Imguifocusrequestflagstypedef_28312695 = enumimguifocusrequestflags_28312694 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1672:2
+  Imguitextflagstypedef_28312699 = enumimguitextflags_28312698 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1676:2
+  Imguitooltipflagstypedef_28312703 = enumimguitooltipflags_28312702 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1680:2
+  Imguilayouttypetypedef_28312707 = enumimguilayouttype_28312706 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1684:2
+  Imguilogtype_28312711 = enumimguilogtype_28312710 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1691:2
+  Imguiaxis_28312715 = enumimguiaxis_28312714 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1696:2
+  Imguiplottype_28312719 = enumimguiplottype_28312718 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1700:2
+  Imguipopuppositionpolicy_28312723 = enumimguipopuppositionpolicy_28312722 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1705:2
+  Imguidatatypetempstorage_28312725 = structimguidatatypetempstorage_28312728 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1712:41
+  structimguidatatypetempstorage_28312727 {.pure, inheritable, bycopy.} = object
     Data*: array[8'i64, Imu8_28312302] ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1713:8
   
-  Imguicombopreviewdata_28312623 = structimguicombopreviewdata_28312626 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1739:38
-  structimguicombopreviewdata_28312625 {.pure, inheritable, bycopy.} = object
+  Imguidatatypeprivate_28312731 = enumimguidatatypeprivate_28312730 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1728:2
+  Imguicombopreviewdata_28312733 = structimguicombopreviewdata_28312736 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1739:38
+  structimguicombopreviewdata_28312735 {.pure, inheritable, bycopy.} = object
     Previewrect*: Imrect_28312078 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1740:8
     Backupcursorpos*: Imvec2_28312328
     Backupcursormaxpos*: Imvec2_28312328
     Backupcursorposprevline*: Imvec2_28312328
     Backupprevlinetextbaseoffset*: cfloat
-    Backuplayout*: Imguilayouttype_28312508
+    Backuplayout*: Imguilayouttype_28312580
 
-  Imguiinputtextdeactivatedstate_28312627 = structimguiinputtextdeactivatedstate_28312630 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1774:47
-  structimguiinputtextdeactivatedstate_28312629 {.pure, inheritable, bycopy.} = object
+  Imguiinputtextdeactivatedstate_28312737 = structimguiinputtextdeactivatedstate_28312740 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1774:47
+  structimguiinputtextdeactivatedstate_28312739 {.pure, inheritable, bycopy.} = object
     Id*: Imguiid_28312298    ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1775:8
-    Texta*: Imvectorchar_28312414
+    Texta*: Imvectorchar_28312478
 
-  Imguiwindowstackdata_28312635 = structimguiwindowstackdata_28312638 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1887:37
-  structimguiwindowstackdata_28312637 {.pure, inheritable, bycopy.} = object
+  Imguinextwindowdataflagstypedef_28312743 = enumimguinextwindowdataflags_28312742 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1822:2
+  Imguinextitemdataflagstypedef_28312747 = enumimguinextitemdataflags_28312746 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1850:2
+  Imguiwindowstackdata_28312749 = structimguiwindowstackdata_28312752 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1887:37
+  structimguiwindowstackdata_28312751 {.pure, inheritable, bycopy.} = object
     Window*: ptr Imguiwindow_28312210 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1888:8
     Parentlastitemdatabackup*: Imguilastitemdata_28312124
     Stacksizesonbegin*: Imguistacksizes_28312172
 
-  Imguishrinkwidthitem_28312639 = structimguishrinkwidthitem_28312642 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1894:37
-  structimguishrinkwidthitem_28312641 {.pure, inheritable, bycopy.} = object
+  Imguishrinkwidthitem_28312753 = structimguishrinkwidthitem_28312756 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1894:37
+  structimguishrinkwidthitem_28312755 {.pure, inheritable, bycopy.} = object
     Index*: cint             ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1895:8
     Width*: cfloat
     Initialwidth*: cfloat
 
-  Imguiptrorindex_28312643 = structimguiptrorindex_28312646 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1901:32
-  structimguiptrorindex_28312645 {.pure, inheritable, bycopy.} = object
+  Imguiptrorindex_28312757 = structimguiptrorindex_28312760 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1901:32
+  structimguiptrorindex_28312759 {.pure, inheritable, bycopy.} = object
     Ptr*: pointer            ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1902:8
     Index*: cint
 
-  structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312647 {.
+  structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312761 {.
       pure, inheritable, bycopy.} = object
     Storage*: array[5'i64, Imu32_28312310] ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1907:16
   
-  Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312649 = structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312648 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1907:130
-  Imbitarrayfornamedkeys_28312651 = Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312650 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1909:73
-  Imguiinputeventmousepos_28312657 = structimguiinputeventmousepos_28312660 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1929:40
-  structimguiinputeventmousepos_28312659 {.pure, inheritable, bycopy.} = object
+  Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312763 = structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312762 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1907:130
+  Imbitarrayfornamedkeys_28312765 = Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312764 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1909:73
+  Imguiinputeventtype_28312769 = enumimguiinputeventtype_28312768 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1920:2
+  Imguiinputsource_28312773 = enumimguiinputsource_28312772 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1928:2
+  Imguiinputeventmousepos_28312775 = structimguiinputeventmousepos_28312778 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1929:40
+  structimguiinputeventmousepos_28312777 {.pure, inheritable, bycopy.} = object
     Posx*: cfloat            ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1930:8
     Posy*: cfloat
-    Mousesource*: Imguimousesource_28312396
+    Mousesource*: Imguimousesource_28312458
 
-  Imguiinputeventmousewheel_28312661 = structimguiinputeventmousewheel_28312664 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1933:42
-  structimguiinputeventmousewheel_28312663 {.pure, inheritable, bycopy.} = object
+  Imguiinputeventmousewheel_28312779 = structimguiinputeventmousewheel_28312782 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1933:42
+  structimguiinputeventmousewheel_28312781 {.pure, inheritable, bycopy.} = object
     Wheelx*: cfloat          ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1934:8
     Wheely*: cfloat
-    Mousesource*: Imguimousesource_28312396
+    Mousesource*: Imguimousesource_28312458
 
-  Imguiinputeventmousebutton_28312665 = structimguiinputeventmousebutton_28312668 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1937:43
-  structimguiinputeventmousebutton_28312667 {.pure, inheritable, bycopy.} = object
+  Imguiinputeventmousebutton_28312783 = structimguiinputeventmousebutton_28312786 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1937:43
+  structimguiinputeventmousebutton_28312785 {.pure, inheritable, bycopy.} = object
     Button*: cint            ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1938:8
     Down*: bool
-    Mousesource*: Imguimousesource_28312396
+    Mousesource*: Imguimousesource_28312458
 
-  Imguiinputeventmouseviewport_28312669 = structimguiinputeventmouseviewport_28312672 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1941:45
-  structimguiinputeventmouseviewport_28312671 {.pure, inheritable, bycopy.} = object
+  Imguiinputeventmouseviewport_28312787 = structimguiinputeventmouseviewport_28312790 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1941:45
+  structimguiinputeventmouseviewport_28312789 {.pure, inheritable, bycopy.} = object
     Hoveredviewportid*: Imguiid_28312298 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1942:8
   
-  Imguiinputeventkey_28312673 = structimguiinputeventkey_28312676 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1945:35
-  structimguiinputeventkey_28312675 {.pure, inheritable, bycopy.} = object
-    Key*: Imguikey_28312374  ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1946:8
+  Imguiinputeventkey_28312791 = structimguiinputeventkey_28312794 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1945:35
+  structimguiinputeventkey_28312793 {.pure, inheritable, bycopy.} = object
+    Key*: Imguikey_28312414  ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1946:8
     Down*: bool
     Analogvalue*: cfloat
 
-  Imguiinputeventtext_28312677 = structimguiinputeventtext_28312680 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1949:36
-  structimguiinputeventtext_28312679 {.pure, inheritable, bycopy.} = object
+  Imguiinputeventtext_28312795 = structimguiinputeventtext_28312798 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1949:36
+  structimguiinputeventtext_28312797 {.pure, inheritable, bycopy.} = object
     Char*: cuint             ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1950:8
   
-  Imguiinputeventappfocused_28312681 = structimguiinputeventappfocused_28312684 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1953:42
-  structimguiinputeventappfocused_28312683 {.pure, inheritable, bycopy.} = object
+  Imguiinputeventappfocused_28312799 = structimguiinputeventappfocused_28312802 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1953:42
+  structimguiinputeventappfocused_28312801 {.pure, inheritable, bycopy.} = object
     Focused*: bool           ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1954:8
   
-  Imguiinputevent_28312685 = structimguiinputevent_28312688 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1957:32
+  Imguiinputevent_28312803 = structimguiinputevent_28312806 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1957:32
   structimguiinputevent_anon0_t {.union, bycopy.} = object
-    Mousepos*: Imguiinputeventmousepos_28312658
-    Mousewheel*: Imguiinputeventmousewheel_28312662
-    Mousebutton*: Imguiinputeventmousebutton_28312666
-    Mouseviewport*: Imguiinputeventmouseviewport_28312670
-    Key*: Imguiinputeventkey_28312674
-    Text*: Imguiinputeventtext_28312678
-    Appfocused*: Imguiinputeventappfocused_28312682
+    Mousepos*: Imguiinputeventmousepos_28312776
+    Mousewheel*: Imguiinputeventmousewheel_28312780
+    Mousebutton*: Imguiinputeventmousebutton_28312784
+    Mouseviewport*: Imguiinputeventmouseviewport_28312788
+    Key*: Imguiinputeventkey_28312792
+    Text*: Imguiinputeventtext_28312796
+    Appfocused*: Imguiinputeventappfocused_28312800
 
-  structimguiinputevent_28312687 {.pure, inheritable, bycopy.} = object
-    Type*: Imguiinputeventtype_28312654 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1958:8
-    Source*: Imguiinputsource_28312656
+  structimguiinputevent_28312805 {.pure, inheritable, bycopy.} = object
+    Type*: Imguiinputeventtype_28312770 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1958:8
+    Source*: Imguiinputsource_28312774
     Eventid*: Imu32_28312310
     anon0*: structimguiinputevent_anon0_t
     Addedbytestengine*: bool
 
-  Imguikeyroutingindex_28312689 = Ims16_28312304 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1975:15
-  Imguikeyroutingdata_28312691 = structimguikeyroutingdata_28312694 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1976:36
-  structimguikeyroutingdata_28312693 {.pure, inheritable, bycopy.} = object
-    Nextentryindex*: Imguikeyroutingindex_28312690 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1977:8
+  Imguikeyroutingindex_28312807 = Ims16_28312304 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1975:15
+  Imguikeyroutingdata_28312809 = structimguikeyroutingdata_28312812 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1976:36
+  structimguikeyroutingdata_28312811 {.pure, inheritable, bycopy.} = object
+    Nextentryindex*: Imguikeyroutingindex_28312808 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1977:8
     Mods*: Imu16_28312306
     Routingnextscore*: Imu8_28312302
     Routingcurr*: Imguiid_28312298
     Routingnext*: Imguiid_28312298
 
-  Imguikeyroutingtable_28312695 = structimguikeyroutingtable_28312698 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1985:37
-  structimguikeyroutingtable_28312697 {.pure, inheritable, bycopy.} = object
-    Index*: array[140'i64, Imguikeyroutingindex_28312690] ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1988:8
-    Entries*: Imvectorimguikeyroutingdata_28312702
-    Entriesnext*: Imvectorimguikeyroutingdata_28312702
+  Imguikeyroutingtable_28312813 = structimguikeyroutingtable_28312816 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1985:37
+  structimguikeyroutingtable_28312815 {.pure, inheritable, bycopy.} = object
+    Index*: array[140'i64, Imguikeyroutingindex_28312808] ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1988:8
+    Entries*: Imvectorimguikeyroutingdata_28312820
+    Entriesnext*: Imvectorimguikeyroutingdata_28312820
 
-  structimvectorimguikeyroutingdata_28312699 {.pure, inheritable, bycopy.} = object
+  structimvectorimguikeyroutingdata_28312817 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1986:16
     Capacity*: cint
-    Data*: ptr Imguikeyroutingdata_28312692
+    Data*: ptr Imguikeyroutingdata_28312810
 
-  Imvectorimguikeyroutingdata_28312701 = structimvectorimguikeyroutingdata_28312700 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1986:96
-  Imguikeyownerdata_28312703 = structimguikeyownerdata_28312706 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1994:34
-  structimguikeyownerdata_28312705 {.pure, inheritable, bycopy.} = object
+  Imvectorimguikeyroutingdata_28312819 = structimvectorimguikeyroutingdata_28312818 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1986:96
+  Imguikeyownerdata_28312821 = structimguikeyownerdata_28312824 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1994:34
+  structimguikeyownerdata_28312823 {.pure, inheritable, bycopy.} = object
     Ownercurr*: Imguiid_28312298 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:1995:8
     Ownernext*: Imguiid_28312298
     Lockthisframe*: bool
     Lockuntilrelease*: bool
 
-  Imguilistclipperrange_28312709 = structimguilistclipperrange_28312712 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2028:38
-  structimguilistclipperrange_28312711 {.pure, inheritable, bycopy.} = object
+  Imguiinputflagstypedef_28312827 = enumimguiinputflags_28312826 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2027:2
+  Imguilistclipperrange_28312829 = structimguilistclipperrange_28312832 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2028:38
+  structimguilistclipperrange_28312831 {.pure, inheritable, bycopy.} = object
     Min*: cint               ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2029:8
     Max*: cint
     Postoindexconvert*: bool
     Postoindexoffsetmin*: Ims8_28312300
     Postoindexoffsetmax*: Ims8_28312300
 
-  Imguilistclipperdata_28312713 = structimguilistclipperdata_28312716 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2037:37
-  structimguilistclipperdata_28312715 {.pure, inheritable, bycopy.} = object
+  Imguilistclipperdata_28312833 = structimguilistclipperdata_28312836 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2037:37
+  structimguilistclipperdata_28312835 {.pure, inheritable, bycopy.} = object
     Listclipper*: ptr Imguilistclipper_28312007 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2040:8
     Lossynessoffset*: cfloat
     Stepno*: cint
     Itemsfrozen*: cint
-    Ranges*: Imvectorimguilistclipperrange_28312720
+    Ranges*: Imvectorimguilistclipperrange_28312840
 
-  structimvectorimguilistclipperrange_28312717 {.pure, inheritable, bycopy.} = object
+  structimvectorimguilistclipperrange_28312837 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2038:16
     Capacity*: cint
-    Data*: ptr Imguilistclipperrange_28312710
+    Data*: ptr Imguilistclipperrange_28312830
 
-  Imvectorimguilistclipperrange_28312719 = structimvectorimguilistclipperrange_28312718 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2038:100
-  structimvectorimguioldcolumndata_28312733 {.pure, inheritable, bycopy.} = object
+  Imvectorimguilistclipperrange_28312839 = structimvectorimguilistclipperrange_28312838 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2038:100
+  Imguiactivateflagstypedef_28312843 = enumimguiactivateflags_28312842 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2053:2
+  Imguiscrollflagstypedef_28312847 = enumimguiscrollflags_28312846 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2065:2
+  Imguinavhighlightflagstypedef_28312851 = enumimguinavhighlightflags_28312850 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2072:2
+  Imguinavmoveflagstypedef_28312855 = enumimguinavmoveflags_28312854 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2091:2
+  Imguinavlayer_28312859 = enumimguinavlayer_28312858 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2096:2
+  Imguioldcolumnflagstypedef_28312863 = enumimguioldcolumnflags_28312862 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2115:2
+  structimvectorimguioldcolumndata_28312865 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2123:16
     Capacity*: cint
     Data*: ptr Imguioldcolumndata_28312156
 
-  Imvectorimguioldcolumndata_28312735 = structimvectorimguioldcolumndata_28312734 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2123:94
-  structimvectorimguiwindowptr_28312743 {.pure, inheritable, bycopy.} = object
+  Imvectorimguioldcolumndata_28312867 = structimvectorimguioldcolumndata_28312866 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2123:94
+  Imguidocknodeflagsprivate_28312871 = enumimguidocknodeflagsprivate_28312870 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2163:2
+  Imguidataauthoritytypedef_28312875 = enumimguidataauthority_28312874 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2168:2
+  Imguidocknodestate_28312879 = enumimguidocknodestate_28312878 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2174:2
+  structimvectorimguiwindowptr_28312881 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2175:16
     Capacity*: cint
     Data*: ptr ptr Imguiwindow_28312210
 
-  Imvectorimguiwindowptr_28312745 = structimvectorimguiwindowptr_28312744 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2175:84
-  Imguiwindowdockstyle_28312749 = structimguiwindowdockstyle_28312752 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2231:37
-  structimguiwindowdockstyle_28312751 {.pure, inheritable, bycopy.} = object
+  Imvectorimguiwindowptr_28312883 = structimvectorimguiwindowptr_28312882 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2175:84
+  Imguiwindowdockstylecol_28312887 = enumimguiwindowdockstylecol_28312886 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2230:2
+  Imguiwindowdockstyle_28312889 = structimguiwindowdockstyle_28312892 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2231:37
+  structimguiwindowdockstyle_28312891 {.pure, inheritable, bycopy.} = object
     Colors*: array[6'i64, Imu32_28312310] ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2232:8
   
-  structimvectorimguidockrequest_28312753 {.pure, inheritable, bycopy.} = object
+  structimvectorimguidockrequest_28312893 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2236:16
     Capacity*: cint
     Data*: ptr Imguidockrequest_28312106
 
-  Imvectorimguidockrequest_28312755 = structimvectorimguidockrequest_28312754 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2236:90
-  structimvectorimguidocknodesettings_28312757 {.pure, inheritable, bycopy.} = object
+  Imvectorimguidockrequest_28312895 = structimvectorimguidockrequest_28312894 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2236:90
+  structimvectorimguidocknodesettings_28312897 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2238:16
     Capacity*: cint
     Data*: ptr Imguidocknodesettings_28312112
 
-  Imvectorimguidocknodesettings_28312759 = structimvectorimguidocknodesettings_28312758 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2238:100
-  Imguiviewportp_28312761 = structimguiviewportp_28312764 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2247:31
-  structimguiviewportp_28312763 {.pure, inheritable, bycopy.} = object
+  Imvectorimguidocknodesettings_28312899 = structimvectorimguidocknodesettings_28312898 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2238:100
+  Imguiviewportp_28312901 = structimguiviewportp_28312904 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2247:31
+  structimguiviewportp_28312903 {.pure, inheritable, bycopy.} = object
     internalimguiviewport*: Imguiviewport_28312066 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2248:8
     Window*: ptr Imguiwindow_28312210
     Idx*: cint
@@ -3636,228 +3709,233 @@ type
     Buildworkoffsetmin*: Imvec2_28312328
     Buildworkoffsetmax*: Imvec2_28312328
 
-  Imguistacklevelinfo_28312769 = structimguistacklevelinfo_28312772 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2345:36
-  structimguistacklevelinfo_28312771 {.pure, inheritable, bycopy.} = object
+  Imguilockey_28312907 = enumimguilockey_28312906 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2311:2
+  Imguidebuglogflagstypedef_28312911 = enumimguidebuglogflags_28312910 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2330:2
+  Imguistacklevelinfo_28312913 = structimguistacklevelinfo_28312916 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2345:36
+  structimguistacklevelinfo_28312915 {.pure, inheritable, bycopy.} = object
     Id*: Imguiid_28312298    ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2346:8
     Queryframecount*: Ims8_28312300
     Querysuccess*: bool
     Datatype*: Imguidatatype_28312230
     Desc*: array[57'i64, cschar]
 
-  Imguistacktool_28312773 = structimguistacktool_28312776 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2354:31
-  structimguistacktool_28312775 {.pure, inheritable, bycopy.} = object
+  Imguistacktool_28312917 = structimguistacktool_28312920 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2354:31
+  structimguistacktool_28312919 {.pure, inheritable, bycopy.} = object
     Lastactiveframe*: cint   ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2357:8
     Stacklevel*: cint
     Queryid*: Imguiid_28312298
-    Results*: Imvectorimguistacklevelinfo_28312780
+    Results*: Imvectorimguistacklevelinfo_28312924
     Copytoclipboardonctrlc*: bool
     Copytoclipboardlasttime*: cfloat
 
-  structimvectorimguistacklevelinfo_28312777 {.pure, inheritable, bycopy.} = object
+  structimvectorimguistacklevelinfo_28312921 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2355:16
     Capacity*: cint
-    Data*: ptr Imguistacklevelinfo_28312770
+    Data*: ptr Imguistacklevelinfo_28312914
 
-  Imvectorimguistacklevelinfo_28312779 = structimvectorimguistacklevelinfo_28312778 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2355:96
-  Imguicontexthookcallback_28312781 = proc (a0: ptr Imguicontext_28311991;
+  Imvectorimguistacklevelinfo_28312923 = structimvectorimguistacklevelinfo_28312922 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2355:96
+  Imguicontexthookcallback_28312925 = proc (a0: ptr Imguicontext_28311991;
       a1: ptr Imguicontexthook_28312090): void {.cdecl.} ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2366:16
-  structimvectorimguiinputevent_28312785 {.pure, inheritable, bycopy.} = object
+  Imguicontexthooktype_28312929 = enumimguicontexthooktype_28312928 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2367:288
+  structimvectorimguiinputevent_28312931 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2376:16
     Capacity*: cint
-    Data*: ptr Imguiinputevent_28312686
+    Data*: ptr Imguiinputevent_28312804
 
-  Imvectorimguiinputevent_28312787 = structimvectorimguiinputevent_28312786 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2376:88
-  structimvectorimguiwindowstackdata_28312789 {.pure, inheritable, bycopy.} = object
+  Imvectorimguiinputevent_28312933 = structimvectorimguiinputevent_28312932 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2376:88
+  structimvectorimguiwindowstackdata_28312935 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2378:16
     Capacity*: cint
-    Data*: ptr Imguiwindowstackdata_28312636
+    Data*: ptr Imguiwindowstackdata_28312750
 
-  Imvectorimguiwindowstackdata_28312791 = structimvectorimguiwindowstackdata_28312790 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2378:98
-  structimvectorimguicolormod_28312793 {.pure, inheritable, bycopy.} = object
+  Imvectorimguiwindowstackdata_28312937 = structimvectorimguiwindowstackdata_28312936 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2378:98
+  structimvectorimguicolormod_28312939 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2380:16
     Capacity*: cint
     Data*: ptr Imguicolormod_28312086
 
-  Imvectorimguicolormod_28312795 = structimvectorimguicolormod_28312794 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2380:84
-  structimvectorimguistylemod_28312797 {.pure, inheritable, bycopy.} = object
+  Imvectorimguicolormod_28312941 = structimvectorimguicolormod_28312940 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2380:84
+  structimvectorimguistylemod_28312943 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2382:16
     Capacity*: cint
     Data*: ptr Imguistylemod_28312176
 
-  Imvectorimguistylemod_28312799 = structimvectorimguistylemod_28312798 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2382:84
-  structimvectorimguiid_28312801 {.pure, inheritable, bycopy.} = object
+  Imvectorimguistylemod_28312945 = structimvectorimguistylemod_28312944 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2382:84
+  structimvectorimguiid_28312947 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2384:16
     Capacity*: cint
     Data*: ptr Imguiid_28312298
 
-  Imvectorimguiid_28312803 = structimvectorimguiid_28312802 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2384:72
-  structimvectorimguiitemflags_28312805 {.pure, inheritable, bycopy.} = object
+  Imvectorimguiid_28312949 = structimvectorimguiid_28312948 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2384:72
+  structimvectorimguiitemflags_28312951 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2386:16
     Capacity*: cint
-    Data*: ptr Imguiitemflags_28312518
+    Data*: ptr Imguiitemflags_28312590
 
-  Imvectorimguiitemflags_28312807 = structimvectorimguiitemflags_28312806 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2386:86
-  structimvectorimguigroupdata_28312809 {.pure, inheritable, bycopy.} = object
+  Imvectorimguiitemflags_28312953 = structimvectorimguiitemflags_28312952 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2386:86
+  structimvectorimguigroupdata_28312955 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2388:16
     Capacity*: cint
     Data*: ptr Imguigroupdata_28312114
 
-  Imvectorimguigroupdata_28312811 = structimvectorimguigroupdata_28312810 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2388:86
-  structimvectorimguipopupdata_28312813 {.pure, inheritable, bycopy.} = object
+  Imvectorimguigroupdata_28312957 = structimvectorimguigroupdata_28312956 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2388:86
+  structimvectorimguipopupdata_28312959 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2390:16
     Capacity*: cint
     Data*: ptr Imguipopupdata_28312164
 
-  Imvectorimguipopupdata_28312815 = structimvectorimguipopupdata_28312814 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2390:86
-  structimvectorimguinavtreenodedata_28312817 {.pure, inheritable, bycopy.} = object
+  Imvectorimguipopupdata_28312961 = structimvectorimguipopupdata_28312960 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2390:86
+  structimvectorimguinavtreenodedata_28312963 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2392:16
     Capacity*: cint
     Data*: ptr Imguinavtreenodedata_28312140
 
-  Imvectorimguinavtreenodedata_28312819 = structimvectorimguinavtreenodedata_28312818 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2392:98
-  structimvectorimguiviewportpptr_28312821 {.pure, inheritable, bycopy.} = object
+  Imvectorimguinavtreenodedata_28312965 = structimvectorimguinavtreenodedata_28312964 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2392:98
+  structimvectorimguiviewportpptr_28312967 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2394:16
     Capacity*: cint
-    Data*: ptr ptr Imguiviewportp_28312762
+    Data*: ptr ptr Imguiviewportp_28312902
 
-  Imvectorimguiviewportpptr_28312823 = structimvectorimguiviewportpptr_28312822 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2394:90
-  structimvectorunsignedchar_28312825 {.pure, inheritable, bycopy.} = object
+  Imvectorimguiviewportpptr_28312969 = structimvectorimguiviewportpptr_28312968 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2394:90
+  structimvectorunsignedchar_28312971 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2396:16
     Capacity*: cint
     Data*: ptr uint8
 
-  Imvectorunsignedchar_28312827 = structimvectorunsignedchar_28312826 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2396:84
-  structimvectorimguilistclipperdata_28312829 {.pure, inheritable, bycopy.} = object
+  Imvectorunsignedchar_28312973 = structimvectorunsignedchar_28312972 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2396:84
+  structimvectorimguilistclipperdata_28312975 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2398:16
     Capacity*: cint
-    Data*: ptr Imguilistclipperdata_28312714
+    Data*: ptr Imguilistclipperdata_28312834
 
-  Imvectorimguilistclipperdata_28312831 = structimvectorimguilistclipperdata_28312830 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2398:98
-  structimvectorimguitabletempdata_28312833 {.pure, inheritable, bycopy.} = object
+  Imvectorimguilistclipperdata_28312977 = structimvectorimguilistclipperdata_28312976 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2398:98
+  structimvectorimguitabletempdata_28312979 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2400:16
     Capacity*: cint
     Data*: ptr Imguitabletempdata_28312200
 
-  Imvectorimguitabletempdata_28312835 = structimvectorimguitabletempdata_28312834 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2400:94
-  structimvectorimguitable_28312837 {.pure, inheritable, bycopy.} = object
+  Imvectorimguitabletempdata_28312981 = structimvectorimguitabletempdata_28312980 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2400:94
+  structimvectorimguitable_28312983 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2402:16
     Capacity*: cint
     Data*: ptr Imguitable_28312188
 
-  Imvectorimguitable_28312839 = structimvectorimguitable_28312838 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2402:78
-  structimpoolimguitable_28312841 {.pure, inheritable, bycopy.} = object
-    Buf*: Imvectorimguitable_28312840 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2404:16
+  Imvectorimguitable_28312985 = structimvectorimguitable_28312984 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2402:78
+  structimpoolimguitable_28312987 {.pure, inheritable, bycopy.} = object
+    Buf*: Imvectorimguitable_28312986 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2404:16
     Map*: Imguistorage_28312042
-    Freeidx*: Impoolidx_28312572
-    Alivecount*: Impoolidx_28312572
+    Freeidx*: Impoolidx_28312644
+    Alivecount*: Impoolidx_28312644
 
-  Impoolimguitable_28312843 = structimpoolimguitable_28312842 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2404:117
-  structimvectorimguitabbar_28312845 {.pure, inheritable, bycopy.} = object
+  Impoolimguitable_28312989 = structimpoolimguitable_28312988 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2404:117
+  structimvectorimguitabbar_28312991 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2406:16
     Capacity*: cint
     Data*: ptr Imguitabbar_28312180
 
-  Imvectorimguitabbar_28312847 = structimvectorimguitabbar_28312846 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2406:80
-  structimpoolimguitabbar_28312849 {.pure, inheritable, bycopy.} = object
-    Buf*: Imvectorimguitabbar_28312848 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2408:16
+  Imvectorimguitabbar_28312993 = structimvectorimguitabbar_28312992 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2406:80
+  structimpoolimguitabbar_28312995 {.pure, inheritable, bycopy.} = object
+    Buf*: Imvectorimguitabbar_28312994 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2408:16
     Map*: Imguistorage_28312042
-    Freeidx*: Impoolidx_28312572
-    Alivecount*: Impoolidx_28312572
+    Freeidx*: Impoolidx_28312644
+    Alivecount*: Impoolidx_28312644
 
-  Impoolimguitabbar_28312851 = structimpoolimguitabbar_28312850 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2408:119
-  structimvectorimguiptrorindex_28312853 {.pure, inheritable, bycopy.} = object
+  Impoolimguitabbar_28312997 = structimpoolimguitabbar_28312996 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2408:119
+  structimvectorimguiptrorindex_28312999 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2410:16
     Capacity*: cint
-    Data*: ptr Imguiptrorindex_28312644
+    Data*: ptr Imguiptrorindex_28312758
 
-  Imvectorimguiptrorindex_28312855 = structimvectorimguiptrorindex_28312854 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2410:88
-  structimvectorimguishrinkwidthitem_28312857 {.pure, inheritable, bycopy.} = object
+  Imvectorimguiptrorindex_28313001 = structimvectorimguiptrorindex_28313000 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2410:88
+  structimvectorimguishrinkwidthitem_28313003 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2412:16
     Capacity*: cint
-    Data*: ptr Imguishrinkwidthitem_28312640
+    Data*: ptr Imguishrinkwidthitem_28312754
 
-  Imvectorimguishrinkwidthitem_28312859 = structimvectorimguishrinkwidthitem_28312858 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2412:98
-  structimvectorimguisettingshandler_28312861 {.pure, inheritable, bycopy.} = object
+  Imvectorimguishrinkwidthitem_28313005 = structimvectorimguishrinkwidthitem_28313004 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2412:98
+  structimvectorimguisettingshandler_28313007 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2414:16
     Capacity*: cint
     Data*: ptr Imguisettingshandler_28312168
 
-  Imvectorimguisettingshandler_28312863 = structimvectorimguisettingshandler_28312862 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2414:98
-  structimchunkstreamimguiwindowsettings_28312865 {.pure, inheritable, bycopy.} = object
-    Buf*: Imvectorchar_28312414 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2416:16
+  Imvectorimguisettingshandler_28313009 = structimvectorimguisettingshandler_28313008 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2414:98
+  structimchunkstreamimguiwindowsettings_28313011 {.pure, inheritable, bycopy.} = object
+    Buf*: Imvectorchar_28312478 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2416:16
   
-  Imchunkstreamimguiwindowsettings_28312867 = structimchunkstreamimguiwindowsettings_28312866 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2416:71
-  structimchunkstreamimguitablesettings_28312869 {.pure, inheritable, bycopy.} = object
-    Buf*: Imvectorchar_28312414 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2418:16
+  Imchunkstreamimguiwindowsettings_28313013 = structimchunkstreamimguiwindowsettings_28313012 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2416:71
+  structimchunkstreamimguitablesettings_28313015 {.pure, inheritable, bycopy.} = object
+    Buf*: Imvectorchar_28312478 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2418:16
   
-  Imchunkstreamimguitablesettings_28312871 = structimchunkstreamimguitablesettings_28312870 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2418:70
-  structimvectorimguicontexthook_28312873 {.pure, inheritable, bycopy.} = object
+  Imchunkstreamimguitablesettings_28313017 = structimchunkstreamimguitablesettings_28313016 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2418:70
+  structimvectorimguicontexthook_28313019 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2420:16
     Capacity*: cint
     Data*: ptr Imguicontexthook_28312090
 
-  Imvectorimguicontexthook_28312875 = structimvectorimguicontexthook_28312874 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2420:90
-  structimvectorimguioldcolumns_28312877 {.pure, inheritable, bycopy.} = object
+  Imvectorimguicontexthook_28313021 = structimvectorimguicontexthook_28313020 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2420:90
+  structimvectorimguioldcolumns_28313023 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2723:16
     Capacity*: cint
     Data*: ptr Imguioldcolumns_28312160
 
-  Imvectorimguioldcolumns_28312879 = structimvectorimguioldcolumns_28312878 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2723:88
-  structimvectorimguitabitem_28312885 {.pure, inheritable, bycopy.} = object
+  Imvectorimguioldcolumns_28313025 = structimvectorimguioldcolumns_28313024 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2723:88
+  Imguitabbarflagsprivate_28313029 = enumimguitabbarflagsprivate_28313028 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2845:2
+  Imguitabitemflagsprivate_28313033 = enumimguitabitemflagsprivate_28313032 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2852:2
+  structimvectorimguitabitem_28313035 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2869:16
     Capacity*: cint
     Data*: ptr Imguitabitem_28312184
 
-  Imvectorimguitabitem_28312887 = structimvectorimguitabitem_28312886 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2869:82
-  Imguitablecolumnidx_28312889 = Ims16_28312304 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2905:15
-  Imguitabledrawchannelidx_28312891 = Imu16_28312306 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2906:15
-  Imguitablecelldata_28312893 = structimguitablecelldata_28312896 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2951:35
-  structimguitablecelldata_28312895 {.pure, inheritable, bycopy.} = object
+  Imvectorimguitabitem_28313037 = structimvectorimguitabitem_28313036 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2869:82
+  Imguitablecolumnidx_28313039 = Ims16_28312304 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2905:15
+  Imguitabledrawchannelidx_28313041 = Imu16_28312306 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2906:15
+  Imguitablecelldata_28313043 = structimguitablecelldata_28313046 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2951:35
+  structimguitablecelldata_28313045 {.pure, inheritable, bycopy.} = object
     Bgcolor*: Imu32_28312310 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2952:8
-    Column*: Imguitablecolumnidx_28312890
+    Column*: Imguitablecolumnidx_28313040
 
-  structimspanimguitablecolumn_28312897 {.pure, inheritable, bycopy.} = object
+  structimspanimguitablecolumn_28313047 {.pure, inheritable, bycopy.} = object
     Data*: ptr Imguitablecolumn_28312192 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2966:16
     Dataend*: ptr Imguitablecolumn_28312192
 
-  Imspanimguitablecolumn_28312899 = structimspanimguitablecolumn_28312898 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2966:92
-  structimspanimguitablecolumnidx_28312901 {.pure, inheritable, bycopy.} = object
-    Data*: ptr Imguitablecolumnidx_28312890 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2968:16
-    Dataend*: ptr Imguitablecolumnidx_28312890
+  Imspanimguitablecolumn_28313049 = structimspanimguitablecolumn_28313048 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2966:92
+  structimspanimguitablecolumnidx_28313051 {.pure, inheritable, bycopy.} = object
+    Data*: ptr Imguitablecolumnidx_28313040 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2968:16
+    Dataend*: ptr Imguitablecolumnidx_28313040
 
-  Imspanimguitablecolumnidx_28312903 = structimspanimguitablecolumnidx_28312902 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2968:101
-  structimspanimguitablecelldata_28312905 {.pure, inheritable, bycopy.} = object
-    Data*: ptr Imguitablecelldata_28312894 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2970:16
-    Dataend*: ptr Imguitablecelldata_28312894
+  Imspanimguitablecolumnidx_28313053 = structimspanimguitablecolumnidx_28313052 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2968:101
+  structimspanimguitablecelldata_28313055 {.pure, inheritable, bycopy.} = object
+    Data*: ptr Imguitablecelldata_28313044 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2970:16
+    Dataend*: ptr Imguitablecelldata_28313044
 
-  Imspanimguitablecelldata_28312907 = structimspanimguitablecelldata_28312906 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2970:98
-  structimvectorimguitableinstancedata_28312909 {.pure, inheritable, bycopy.} = object
+  Imspanimguitablecelldata_28313057 = structimspanimguitablecelldata_28313056 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2970:98
+  structimvectorimguitableinstancedata_28313059 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2972:16
     Capacity*: cint
     Data*: ptr Imguitableinstancedata_28312196
 
-  Imvectorimguitableinstancedata_28312911 = structimvectorimguitableinstancedata_28312910 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2972:102
-  structimvectorimguitablecolumnsortspecs_28312913 {.pure, inheritable, bycopy.} = object
+  Imvectorimguitableinstancedata_28313061 = structimvectorimguitableinstancedata_28313060 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2972:102
+  structimvectorimguitablecolumnsortspecs_28313063 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2974:16
     Capacity*: cint
     Data*: ptr Imguitablecolumnsortspecs_28312054
 
-  Imvectorimguitablecolumnsortspecs_28312915 = structimvectorimguitablecolumnsortspecs_28312914 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2974:108
-  Imguitablecolumnsettings_28312917 = structimguitablecolumnsettings_28312920 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:3099:41
-  structimguitablecolumnsettings_28312919 {.pure, inheritable, bycopy.} = object
+  Imvectorimguitablecolumnsortspecs_28313065 = structimvectorimguitablecolumnsortspecs_28313064 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:2974:108
+  Imguitablecolumnsettings_28313067 = structimguitablecolumnsettings_28313070 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:3099:41
+  structimguitablecolumnsettings_28313069 {.pure, inheritable, bycopy.} = object
     Widthorweight*: cfloat   ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:3100:8
     Userid*: Imguiid_28312298
-    Index*: Imguitablecolumnidx_28312890
-    Displayorder*: Imguitablecolumnidx_28312890
-    Sortorder*: Imguitablecolumnidx_28312890
+    Index*: Imguitablecolumnidx_28313040
+    Displayorder*: Imguitablecolumnidx_28313040
+    Sortorder*: Imguitablecolumnidx_28313040
     Sortdirection*: Imu8_28312302
     Isenabled*: Imu8_28312302
     Isstretch*: Imu8_28312302
 
-  Glfwwindow_28312921 = structglfwwindow ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\generator/output/cimgui_impl.h:3:27
-  Glfwmonitor_28312923 = structglfwmonitor ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\generator/output/cimgui_impl.h:4:28
-  tm_28312925 = structtm_28312928 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:11:19
-  structtm_28312927 {.pure, inheritable, bycopy.} = object
+  Glfwwindow_28313071 = structglfwwindow ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\generator/output/cimgui_impl.h:3:27
+  Glfwmonitor_28313073 = structglfwmonitor ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\generator/output/cimgui_impl.h:4:28
+  tm_28313075 = structtm_28313078 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:11:19
+  structtm_28313077 {.pure, inheritable, bycopy.} = object
     tmsec*: cint             ## Generated based on C:\Program Files\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_wtime.h:26:8
     tmmin*: cint
     tmhour*: cint
@@ -3868,42 +3946,42 @@ type
     tmyday*: cint
     tmisdst*: cint
 
-  Implotcontext_28312929 = structimplotcontext_28312932 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:14:30
-  structimplotcontext_28312931 {.pure, inheritable, bycopy.} = object
-    Plots*: Impoolimplotplot_28313252 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:740:8
-    Subplots*: Impoolimplotsubplot_28313260
-    Currentplot*: ptr Implotplot_28312952
-    Currentsubplot*: ptr Implotsubplot_28313230
-    Currentitems*: ptr Implotitemgroup_28313218
-    Currentitem*: ptr Implotitem_28312944
-    Previousitem*: ptr Implotitem_28312944
-    Cticker*: Implotticker_28312960
-    Annotations*: Implotannotationcollection_28313190
-    Tags*: Implottagcollection_28313202
+  Implotcontext_28313079 = structimplotcontext_28313082 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:14:30
+  structimplotcontext_28313081 {.pure, inheritable, bycopy.} = object
+    Plots*: Impoolimplotplot_28313474 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:740:8
+    Subplots*: Impoolimplotsubplot_28313482
+    Currentplot*: ptr Implotplot_28313102
+    Currentsubplot*: ptr Implotsubplot_28313452
+    Currentitems*: ptr Implotitemgroup_28313440
+    Currentitem*: ptr Implotitem_28313094
+    Previousitem*: ptr Implotitem_28313094
+    Cticker*: Implotticker_28313110
+    Annotations*: Implotannotationcollection_28313412
+    Tags*: Implottagcollection_28313424
     Childwindowmade*: bool
-    Style*: Implotstyle_28313136
-    Colormodifiers*: Imvectorimguicolormod_28312796
-    Stylemodifiers*: Imvectorimguistylemod_28312800
-    Colormapdata*: Implotcolormapdata_28313174
-    Colormapmodifiers*: Imvectorimplotcolormap_28313264
-    Tm*: tm_28312926
-    Tempdouble1*: Imvectordouble_28313268
-    Tempdouble2*: Imvectordouble_28313268
-    Tempint1*: Imvectorint_28312580
+    Style*: Implotstyle_28313352
+    Colormodifiers*: Imvectorimguicolormod_28312942
+    Stylemodifiers*: Imvectorimguistylemod_28312946
+    Colormapdata*: Implotcolormapdata_28313396
+    Colormapmodifiers*: Imvectorimplotcolormap_28313486
+    Tm*: tm_28313076
+    Tempdouble1*: Imvectordouble_28313490
+    Tempdouble2*: Imvectordouble_28313490
+    Tempint1*: Imvectorint_28312652
     Digitalplotitemcnt*: cint
     Digitalplotoffset*: cint
-    Nextplotdata*: Implotnextplotdata_28312956
-    Nextitemdata*: Implotnextitemdata_28313242
-    Inputmap*: Implotinputmap_28313140
+    Nextplotdata*: Implotnextplotdata_28313106
+    Nextitemdata*: Implotnextitemdata_28313464
+    Inputmap*: Implotinputmap_28313356
     Opencontextthisframe*: bool
     Mouseposstringbuilder*: Imguitextbuffer_28312058
-    Sortitems*: ptr Implotitemgroup_28313218
-    Alignmentdata*: Impoolimplotalignmentdata_28313272
-    Currentalignmenth*: ptr Implotalignmentdata_28313214
-    Currentalignmentv*: ptr Implotalignmentdata_28313214
+    Sortitems*: ptr Implotitemgroup_28313440
+    Alignmentdata*: Impoolimplotalignmentdata_28313494
+    Currentalignmenth*: ptr Implotalignmentdata_28313436
+    Currentalignmentv*: ptr Implotalignmentdata_28313436
 
-  Implottick_28312933 = structimplottick_28312936 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:15:27
-  structimplottick_28312935 {.pure, inheritable, bycopy.} = object
+  Implottick_28313083 = structimplottick_28313086 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:15:27
+  structimplottick_28313085 {.pure, inheritable, bycopy.} = object
     Plotpos*: cdouble        ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:535:8
     Pixelpos*: cfloat
     Labelsize*: Imvec2_28312328
@@ -3913,30 +3991,30 @@ type
     Level*: cint
     Idx*: cint
 
-  Implotaxis_28312937 = structimplotaxis_28312940 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:16:27
-  structimplotaxis_28312939 {.pure, inheritable, bycopy.} = object
+  Implotaxis_28313087 = structimplotaxis_28313090 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:16:27
+  structimplotaxis_28313089 {.pure, inheritable, bycopy.} = object
     Id*: Imguiid_28312298    ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:556:8
-    Flags*: Implotaxisflags_28312996
-    Previousflags*: Implotaxisflags_28312996
-    Range*: Implotrange_28313128
-    Rangecond*: Implotcond_28313042
-    Scale*: Implotscale_28313048
-    Fitextents*: Implotrange_28313128
-    Orthoaxis*: ptr Implotaxis_28312938
-    Constraintrange*: Implotrange_28313128
-    Constraintzoom*: Implotrange_28313128
-    Ticker*: Implotticker_28312960
-    Formatter*: Implotformatter_28313144
+    Flags*: Implotaxisflags_28313146
+    Previousflags*: Implotaxisflags_28313146
+    Range*: Implotrange_28313344
+    Rangecond*: Implotcond_28313192
+    Scale*: Implotscale_28313198
+    Fitextents*: Implotrange_28313344
+    Orthoaxis*: ptr Implotaxis_28313088
+    Constraintrange*: Implotrange_28313344
+    Constraintzoom*: Implotrange_28313344
+    Ticker*: Implotticker_28313110
+    Formatter*: Implotformatter_28313360
     Formatterdata*: pointer
     Formatspec*: array[16'i64, cschar]
-    Locator*: Implotlocator_28313162
+    Locator*: Implotlocator_28313384
     Linkedmin*: ptr cdouble
     Linkedmax*: ptr cdouble
     Pickerlevel*: cint
-    Pickertimemin*: Implottime_28313168
-    Pickertimemax*: Implottime_28313168
-    Transformforward*: Implottransform_28313148
-    Transforminverse*: Implottransform_28313148
+    Pickertimemin*: Implottime_28313390
+    Pickertimemax*: Implottime_28313390
+    Transformforward*: Implottransform_28313364
+    Transforminverse*: Implottransform_28313364
     Transformdata*: pointer
     Pixelmin*: cfloat
     Pixelmax*: cfloat
@@ -3964,9 +4042,9 @@ type
     Hovered*: bool
     Held*: bool
 
-  Implotaxiscolor_28312941 = structimplotaxiscolor ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:17:32
-  Implotitem_28312943 = structimplotitem_28312946 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:18:27
-  structimplotitem_28312945 {.pure, inheritable, bycopy.} = object
+  Implotaxiscolor_28313091 = structimplotaxiscolor ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:17:32
+  Implotitem_28313093 = structimplotitem_28313096 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:18:27
+  structimplotitem_28313095 {.pure, inheritable, bycopy.} = object
     Id*: Imguiid_28312298    ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:605:8
     Color*: Imu32_28312310
     Legendhoverrect*: Imrect_28312078
@@ -3975,31 +4053,31 @@ type
     Legendhovered*: bool
     Seenthisframe*: bool
 
-  Implotlegend_28312947 = structimplotlegend_28312950 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:19:29
-  structimplotlegend_28312949 {.pure, inheritable, bycopy.} = object
-    Flags*: Implotlegendflags_28313000 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:615:8
-    Previousflags*: Implotlegendflags_28313000
-    Location*: Implotlocation_28313054
-    Previouslocation*: Implotlocation_28313054
-    Indices*: Imvectorint_28312580
+  Implotlegend_28313097 = structimplotlegend_28313100 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:19:29
+  structimplotlegend_28313099 {.pure, inheritable, bycopy.} = object
+    Flags*: Implotlegendflags_28313150 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:615:8
+    Previousflags*: Implotlegendflags_28313150
+    Location*: Implotlocation_28313204
+    Previouslocation*: Implotlocation_28313204
+    Indices*: Imvectorint_28312652
     Labels*: Imguitextbuffer_28312058
     Rect*: Imrect_28312078
     Hovered*: bool
     Held*: bool
     Cangoinside*: bool
 
-  Implotplot_28312951 = structimplotplot_28312954 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:20:27
-  structimplotplot_28312953 {.pure, inheritable, bycopy.} = object
+  Implotplot_28313101 = structimplotplot_28313104 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:20:27
+  structimplotplot_28313103 {.pure, inheritable, bycopy.} = object
     Id*: Imguiid_28312298    ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:640:8
-    Flags*: Implotflags_28312994
-    Previousflags*: Implotflags_28312994
-    Mousetextlocation*: Implotlocation_28313054
-    Mousetextflags*: Implotmousetextflags_28313002
-    Axes*: array[6'i64, Implotaxis_28312938]
+    Flags*: Implotflags_28313144
+    Previousflags*: Implotflags_28313144
+    Mousetextlocation*: Implotlocation_28313204
+    Mousetextflags*: Implotmousetextflags_28313152
+    Axes*: array[6'i64, Implotaxis_28313088]
     Textbuffer*: Imguitextbuffer_28312058
-    Items*: Implotitemgroup_28313218
-    Currentx*: Imaxis_28312992
-    Currenty*: Imaxis_28312992
+    Items*: Implotitemgroup_28313440
+    Currentx*: Imaxis_28313142
+    Currenty*: Imaxis_28313142
     Framerect*: Imrect_28312078
     Canvasrect*: Imrect_28312078
     Plotrect*: Imrect_28312078
@@ -4017,115 +4095,148 @@ type
     Selected*: bool
     Contextlocked*: bool
 
-  Implotnextplotdata_28312955 = structimplotnextplotdata_28312958 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:21:35
-  structimplotnextplotdata_28312957 {.pure, inheritable, bycopy.} = object
-    Rangecond*: array[6'i64, Implotcond_28313042] ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:696:8
-    Range*: array[6'i64, Implotrange_28313128]
+  Implotnextplotdata_28313105 = structimplotnextplotdata_28313108 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:21:35
+  structimplotnextplotdata_28313107 {.pure, inheritable, bycopy.} = object
+    Rangecond*: array[6'i64, Implotcond_28313192] ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:696:8
+    Range*: array[6'i64, Implotrange_28313344]
     Hasrange*: array[6'i64, bool]
     Fit*: array[6'i64, bool]
     Linkedmin*: array[6'i64, ptr cdouble]
     Linkedmax*: array[6'i64, ptr cdouble]
 
-  Implotticker_28312959 = structimplotticker_28312962 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:22:29
-  structimplotticker_28312961 {.pure, inheritable, bycopy.} = object
-    Ticks*: Imvectorimplottick_28313212 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:548:8
+  Implotticker_28313109 = structimplotticker_28313112 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:22:29
+  structimplotticker_28313111 {.pure, inheritable, bycopy.} = object
+    Ticks*: Imvectorimplottick_28313434 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:548:8
     Textbuffer*: Imguitextbuffer_28312058
     Maxsize*: Imvec2_28312328
     Latesize*: Imvec2_28312328
     Levels*: cint
 
-  structimvectorims16_28312963 {.pure, inheritable, bycopy.} = object
+  structimvectorims16_28313113 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:23:16
     Capacity*: cint
     Data*: ptr Ims16_28312304
 
-  Imvectorims16_28312965 = structimvectorims16_28312964 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:23:68
-  structimvectorims32_28312967 {.pure, inheritable, bycopy.} = object
+  Imvectorims16_28313115 = structimvectorims16_28313114 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:23:68
+  structimvectorims32_28313117 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:25:16
     Capacity*: cint
     Data*: ptr Ims32_28312308
 
-  Imvectorims32_28312969 = structimvectorims32_28312968 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:25:68
-  structimvectorims64_28312971 {.pure, inheritable, bycopy.} = object
+  Imvectorims32_28313119 = structimvectorims32_28313118 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:25:68
+  structimvectorims64_28313121 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:27:16
     Capacity*: cint
     Data*: ptr Ims64_28312312
 
-  Imvectorims64_28312973 = structimvectorims64_28312972 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:27:68
-  structimvectorims8_28312975 {.pure, inheritable, bycopy.} = object
+  Imvectorims64_28313123 = structimvectorims64_28313122 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:27:68
+  structimvectorims8_28313125 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:29:16
     Capacity*: cint
-    Data*: cstring
+    Data*: ptr Ims8_28312300
 
-  Imvectorims8_28312977 = structimvectorims8_28312976 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:29:66
-  structimvectorimu16_28312979 {.pure, inheritable, bycopy.} = object
+  Imvectorims8_28313127 = structimvectorims8_28313126 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:29:66
+  structimvectorimu16_28313129 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:31:16
     Capacity*: cint
     Data*: ptr Imu16_28312306
 
-  Imvectorimu16_28312981 = structimvectorimu16_28312980 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:31:68
-  structimvectorimu64_28312983 {.pure, inheritable, bycopy.} = object
+  Imvectorimu16_28313131 = structimvectorimu16_28313130 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:31:68
+  structimvectorimu64_28313133 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:33:16
     Capacity*: cint
     Data*: ptr Imu64_28311933
 
-  Imvectorimu64_28312985 = structimvectorimu64_28312984 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:33:68
-  structimvectorimu8_28312987 {.pure, inheritable, bycopy.} = object
+  Imvectorimu64_28313135 = structimvectorimu64_28313134 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:33:68
+  structimvectorimu8_28313137 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:35:16
     Capacity*: cint
     Data*: ptr Imu8_28312302
 
-  Imvectorimu8_28312989 = structimvectorimu8_28312988 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:35:66
-  Imaxis_28312991 = cint     ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:38:13
-  Implotflags_28312993 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:39:13
-  Implotaxisflags_28312995 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:40:13
-  Implotsubplotflags_28312997 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:41:13
-  Implotlegendflags_28312999 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:42:13
-  Implotmousetextflags_28313001 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:43:13
-  Implotdragtoolflags_28313003 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:44:13
-  Implotcolormapscaleflags_28313005 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:45:13
-  Implotitemflags_28313007 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:46:13
-  Implotlineflags_28313009 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:47:13
-  Implotscatterflags_28313011 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:48:13
-  Implotstairsflags_28313013 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:49:13
-  Implotshadedflags_28313015 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:50:13
-  Implotbarsflags_28313017 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:51:13
-  Implotbargroupsflags_28313019 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:52:13
-  Imploterrorbarsflags_28313021 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:53:13
-  Implotstemsflags_28313023 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:54:13
-  Implotinflinesflags_28313025 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:55:13
-  Implotpiechartflags_28313027 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:56:13
-  Implotheatmapflags_28313029 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:57:13
-  Implothistogramflags_28313031 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:58:13
-  Implotdigitalflags_28313033 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:59:13
-  Implotimageflags_28313035 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:60:13
-  Implottextflags_28313037 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:61:13
-  Implotdummyflags_28313039 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:62:13
-  Implotcond_28313041 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:63:13
-  Implotcol_28313043 = cint  ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:64:13
-  Implotstylevar_28313045 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:65:13
-  Implotscale_28313047 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:66:13
-  Implotmarker_28313049 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:67:13
-  Implotcolormap_28313051 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:68:13
-  Implotlocation_28313053 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:69:13
-  Implotbin_28313055 = cint  ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:70:13
-  Implotpoint_28313123 = structimplotpoint_28313126 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:348:28
-  structimplotpoint_28313125 {.pure, inheritable, bycopy.} = object
+  Imvectorimu8_28313139 = structimvectorimu8_28313138 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:35:66
+  Imaxis_28313141 = cint     ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:38:13
+  Implotflags_28313143 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:39:13
+  Implotaxisflags_28313145 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:40:13
+  Implotsubplotflags_28313147 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:41:13
+  Implotlegendflags_28313149 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:42:13
+  Implotmousetextflags_28313151 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:43:13
+  Implotdragtoolflags_28313153 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:44:13
+  Implotcolormapscaleflags_28313155 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:45:13
+  Implotitemflags_28313157 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:46:13
+  Implotlineflags_28313159 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:47:13
+  Implotscatterflags_28313161 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:48:13
+  Implotstairsflags_28313163 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:49:13
+  Implotshadedflags_28313165 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:50:13
+  Implotbarsflags_28313167 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:51:13
+  Implotbargroupsflags_28313169 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:52:13
+  Imploterrorbarsflags_28313171 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:53:13
+  Implotstemsflags_28313173 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:54:13
+  Implotinflinesflags_28313175 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:55:13
+  Implotpiechartflags_28313177 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:56:13
+  Implotheatmapflags_28313179 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:57:13
+  Implothistogramflags_28313181 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:58:13
+  Implotdigitalflags_28313183 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:59:13
+  Implotimageflags_28313185 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:60:13
+  Implottextflags_28313187 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:61:13
+  Implotdummyflags_28313189 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:62:13
+  Implotcond_28313191 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:63:13
+  Implotcol_28313193 = cint  ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:64:13
+  Implotstylevar_28313195 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:65:13
+  Implotscale_28313197 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:66:13
+  Implotmarker_28313199 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:67:13
+  Implotcolormap_28313201 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:68:13
+  Implotlocation_28313203 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:69:13
+  Implotbin_28313205 = cint  ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:70:13
+  Imaxistypedef_28313209 = enumimaxis_28313208 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:79:2
+  Implotflagstypedef_28313213 = enumimplotflags_28313212 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:93:2
+  Implotaxisflagstypedef_28313217 = enumimplotaxisflags_28313216 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:115:2
+  Implotsubplotflagstypedef_28313221 = enumimplotsubplotflags_28313220 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:129:2
+  Implotlegendflagstypedef_28313225 = enumimplotlegendflags_28313224 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:139:2
+  Implotmousetextflagstypedef_28313229 = enumimplotmousetextflags_28313228 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:145:2
+  Implotdragtoolflagstypedef_28313233 = enumimplotdragtoolflags_28313232 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:152:2
+  Implotcolormapscaleflagstypedef_28313237 = enumimplotcolormapscaleflags_28313236 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:158:2
+  Implotitemflagstypedef_28313241 = enumimplotitemflags_28313240 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:163:2
+  Implotlineflagstypedef_28313245 = enumimplotlineflags_28313244 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:171:2
+  Implotscatterflagstypedef_28313249 = enumimplotscatterflags_28313248 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:175:2
+  Implotstairsflagstypedef_28313253 = enumimplotstairsflags_28313252 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:180:2
+  Implotshadedflagstypedef_28313257 = enumimplotshadedflags_28313256 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:183:2
+  Implotbarsflagstypedef_28313261 = enumimplotbarsflags_28313260 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:187:2
+  Implotbargroupsflagstypedef_28313265 = enumimplotbargroupsflags_28313264 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:192:2
+  Imploterrorbarsflagstypedef_28313269 = enumimploterrorbarsflags_28313268 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:196:2
+  Implotstemsflagstypedef_28313273 = enumimplotstemsflags_28313272 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:200:2
+  Implotinflinesflagstypedef_28313277 = enumimplotinflinesflags_28313276 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:204:2
+  Implotpiechartflagstypedef_28313281 = enumimplotpiechartflags_28313280 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:208:2
+  Implotheatmapflagstypedef_28313285 = enumimplotheatmapflags_28313284 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:212:2
+  Implothistogramflagstypedef_28313289 = enumimplothistogramflags_28313288 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:220:2
+  Implotdigitalflagstypedef_28313293 = enumimplotdigitalflags_28313292 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:223:2
+  Implotimageflagstypedef_28313297 = enumimplotimageflags_28313296 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:226:2
+  Implottextflagstypedef_28313301 = enumimplottextflags_28313300 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:230:2
+  Implotdummyflagstypedef_28313305 = enumimplotdummyflags_28313304 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:233:2
+  Implotcondtypedef_28313309 = enumimplotcond_28313308 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:238:2
+  Implotcoltypedef_28313313 = enumimplotcol_28313312 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:262:2
+  Implotstylevartypedef_28313317 = enumimplotstylevar_28313316 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:292:2
+  Implotscaletypedef_28313321 = enumimplotscale_28313320 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:298:2
+  Implotmarkertypedef_28313325 = enumimplotmarker_28313324 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:312:2
+  Implotcolormaptypedef_28313329 = enumimplotcolormap_28313328 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:330:2
+  Implotlocationtypedef_28313333 = enumimplotlocation_28313332 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:341:2
+  Implotbintypedef_28313337 = enumimplotbin_28313336 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:347:2
+  Implotpoint_28313339 = structimplotpoint_28313342 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:348:28
+  structimplotpoint_28313341 {.pure, inheritable, bycopy.} = object
     x*: cdouble              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:349:8
     y*: cdouble
 
-  Implotrange_28313127 = structimplotrange_28313130 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:353:28
-  structimplotrange_28313129 {.pure, inheritable, bycopy.} = object
+  Implotrange_28313343 = structimplotrange_28313346 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:353:28
+  structimplotrange_28313345 {.pure, inheritable, bycopy.} = object
     Min*: cdouble            ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:354:8
     Max*: cdouble
 
-  Implotrect_28313131 = structimplotrect_28313134 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:358:27
-  structimplotrect_28313133 {.pure, inheritable, bycopy.} = object
-    X*: Implotrange_28313128 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:359:8
-    Y*: Implotrange_28313128
+  Implotrect_28313347 = structimplotrect_28313350 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:358:27
+  structimplotrect_28313349 {.pure, inheritable, bycopy.} = object
+    X*: Implotrange_28313344 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:359:8
+    Y*: Implotrange_28313344
 
-  Implotstyle_28313135 = structimplotstyle_28313138 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:363:28
-  structimplotstyle_28313137 {.pure, inheritable, bycopy.} = object
+  Implotstyle_28313351 = structimplotstyle_28313354 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:363:28
+  structimplotstyle_28313353 {.pure, inheritable, bycopy.} = object
     Lineweight*: cfloat      ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:364:8
     Marker*: cint
     Markersize*: cfloat
@@ -4154,13 +4265,13 @@ type
     Plotdefaultsize*: Imvec2_28312328
     Plotminsize*: Imvec2_28312328
     Colors*: array[21'i64, Imvec4_28312332]
-    Colormap*: Implotcolormap_28313052
+    Colormap*: Implotcolormap_28313202
     Uselocaltime*: bool
     Useiso8601*: bool
     Use24hourclock*: bool
 
-  Implotinputmap_28313139 = structimplotinputmap_28313142 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:399:31
-  structimplotinputmap_28313141 {.pure, inheritable, bycopy.} = object
+  Implotinputmap_28313355 = structimplotinputmap_28313358 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:399:31
+  structimplotinputmap_28313357 {.pure, inheritable, bycopy.} = object
     Pan*: Imguimousebutton_28312234 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:400:8
     Panmod*: cint
     Fit*: Imguimousebutton_28312234
@@ -4174,59 +4285,62 @@ type
     Zoommod*: cint
     Zoomrate*: cfloat
 
-  Implotformatter_28313143 = proc (a0: cdouble; a1: cstring; a2: cint;
+  Implotformatter_28313359 = proc (a0: cdouble; a1: cstring; a2: cint;
                                    a3: pointer): cint {.cdecl.} ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:415:15
-  Implotgetter_28313145 = proc (a0: cint; a1: pointer): Implotpoint_28313124 {.
+  Implotgetter_28313361 = proc (a0: cint; a1: pointer): Implotpoint_28313340 {.
       cdecl.}                ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:416:23
-  Implottransform_28313147 = proc (a0: cdouble; a1: pointer): cdouble {.cdecl.} ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:417:18
-  Implottimeunit_28313149 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:427:13
-  Implotdatefmt_28313151 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:428:13
-  Implottimefmt_28313153 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:429:13
-  Implotlocator_28313161 = proc (a0: ptr Implotticker_28312960; a1: Implotrange_28313128;
-                                 a2: cfloat; a3: bool; a4: Implotformatter_28313144;
+  Implottransform_28313363 = proc (a0: cdouble; a1: pointer): cdouble {.cdecl.} ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:417:18
+  Implottimeunit_28313365 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:427:13
+  Implotdatefmt_28313367 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:428:13
+  Implottimefmt_28313369 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:429:13
+  Implottimeunittypedef_28313373 = enumimplottimeunit_28313372 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:440:2
+  Implotdatefmttypedef_28313377 = enumimplotdatefmt_28313376 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:448:2
+  Implottimefmttypedef_28313381 = enumimplottimefmt_28313380 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:460:2
+  Implotlocator_28313383 = proc (a0: ptr Implotticker_28313110; a1: Implotrange_28313344;
+                                 a2: cfloat; a3: bool; a4: Implotformatter_28313360;
                                  a5: pointer): void {.cdecl.} ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:461:16
-  Implotdatetimespec_28313163 = structimplotdatetimespec_28313166 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:462:35
-  structimplotdatetimespec_28313165 {.pure, inheritable, bycopy.} = object
-    Date*: Implotdatefmt_28313152 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:463:8
-    Time*: Implottimefmt_28313154
+  Implotdatetimespec_28313385 = structimplotdatetimespec_28313388 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:462:35
+  structimplotdatetimespec_28313387 {.pure, inheritable, bycopy.} = object
+    Date*: Implotdatefmt_28313368 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:463:8
+    Time*: Implottimefmt_28313370
     Useiso8601*: bool
     Use24hourclock*: bool
 
-  Implottime_28313167 = structimplottime_28313170 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:470:27
-  structimplottime_28313169 {.pure, inheritable, bycopy.} = object
-    S*: timet_28313172       ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:471:8
+  Implottime_28313389 = structimplottime_28313392 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:470:27
+  structimplottime_28313391 {.pure, inheritable, bycopy.} = object
+    S*: timet_28313394       ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:471:8
     Us*: cint
 
-  timet_28313171 = compilertime64t_28313337 ## Generated based on C:\Program Files\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt.h:631:28
-  Implotcolormapdata_28313173 = structimplotcolormapdata_28313176 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:476:35
-  structimplotcolormapdata_28313175 {.pure, inheritable, bycopy.} = object
-    Keys*: Imvectorimu32_28312468 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:479:8
-    Keycounts*: Imvectorint_28312580
-    Keyoffsets*: Imvectorint_28312580
-    Tables*: Imvectorimu32_28312468
-    Tablesizes*: Imvectorint_28312580
-    Tableoffsets*: Imvectorint_28312580
+  timet_28313393 = compilertime64t_28313571 ## Generated based on C:\Program Files\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt.h:631:28
+  Implotcolormapdata_28313395 = structimplotcolormapdata_28313398 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:476:35
+  structimplotcolormapdata_28313397 {.pure, inheritable, bycopy.} = object
+    Keys*: Imvectorimu32_28312536 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:479:8
+    Keycounts*: Imvectorint_28312652
+    Keyoffsets*: Imvectorint_28312652
+    Tables*: Imvectorimu32_28312536
+    Tablesizes*: Imvectorint_28312652
+    Tableoffsets*: Imvectorint_28312652
     Text*: Imguitextbuffer_28312058
-    Textoffsets*: Imvectorint_28312580
-    Quals*: Imvectorbool_28313180
+    Textoffsets*: Imvectorint_28312652
+    Quals*: Imvectorbool_28313402
     Map*: Imguistorage_28312042
     Count*: cint
 
-  structimvectorbool_28313177 {.pure, inheritable, bycopy.} = object
+  structimvectorbool_28313399 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:477:16
     Capacity*: cint
     Data*: ptr bool
 
-  Imvectorbool_28313179 = structimvectorbool_28313178 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:477:66
-  Implotpointerror_28313181 = structimplotpointerror_28313184 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:493:33
-  structimplotpointerror_28313183 {.pure, inheritable, bycopy.} = object
+  Imvectorbool_28313401 = structimvectorbool_28313400 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:477:66
+  Implotpointerror_28313403 = structimplotpointerror_28313406 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:493:33
+  structimplotpointerror_28313405 {.pure, inheritable, bycopy.} = object
     X*: cdouble              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:494:8
     Y*: cdouble
     Neg*: cdouble
     Pos*: cdouble
 
-  Implotannotation_28313185 = structimplotannotation_28313188 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:498:33
-  structimplotannotation_28313187 {.pure, inheritable, bycopy.} = object
+  Implotannotation_28313407 = structimplotannotation_28313410 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:498:33
+  structimplotannotation_28313409 {.pure, inheritable, bycopy.} = object
     Pos*: Imvec2_28312328    ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:499:8
     Offset*: Imvec2_28312328
     Colorbg*: Imu32_28312310
@@ -4234,111 +4348,111 @@ type
     Textoffset*: cint
     Clamp*: bool
 
-  Implotannotationcollection_28313189 = structimplotannotationcollection_28313192 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:508:43
-  structimplotannotationcollection_28313191 {.pure, inheritable, bycopy.} = object
-    Annotations*: Imvectorimplotannotation_28313196 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:511:8
+  Implotannotationcollection_28313411 = structimplotannotationcollection_28313414 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:508:43
+  structimplotannotationcollection_28313413 {.pure, inheritable, bycopy.} = object
+    Annotations*: Imvectorimplotannotation_28313418 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:511:8
     Textbuffer*: Imguitextbuffer_28312058
     Size*: cint
 
-  structimvectorimplotannotation_28313193 {.pure, inheritable, bycopy.} = object
+  structimvectorimplotannotation_28313415 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:509:16
     Capacity*: cint
-    Data*: ptr Implotannotation_28313186
+    Data*: ptr Implotannotation_28313408
 
-  Imvectorimplotannotation_28313195 = structimvectorimplotannotation_28313194 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:509:90
-  Implottag_28313197 = structimplottag_28313200 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:517:26
-  structimplottag_28313199 {.pure, inheritable, bycopy.} = object
-    Axis*: Imaxis_28312992   ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:518:8
+  Imvectorimplotannotation_28313417 = structimvectorimplotannotation_28313416 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:509:90
+  Implottag_28313419 = structimplottag_28313422 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:517:26
+  structimplottag_28313421 {.pure, inheritable, bycopy.} = object
+    Axis*: Imaxis_28313142   ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:518:8
     Value*: cdouble
     Colorbg*: Imu32_28312310
     Colorfg*: Imu32_28312310
     Textoffset*: cint
 
-  Implottagcollection_28313201 = structimplottagcollection_28313204 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:526:36
-  structimplottagcollection_28313203 {.pure, inheritable, bycopy.} = object
-    Tags*: Imvectorimplottag_28313208 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:529:8
+  Implottagcollection_28313423 = structimplottagcollection_28313426 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:526:36
+  structimplottagcollection_28313425 {.pure, inheritable, bycopy.} = object
+    Tags*: Imvectorimplottag_28313430 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:529:8
     Textbuffer*: Imguitextbuffer_28312058
     Size*: cint
 
-  structimvectorimplottag_28313205 {.pure, inheritable, bycopy.} = object
+  structimvectorimplottag_28313427 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:527:16
     Capacity*: cint
-    Data*: ptr Implottag_28313198
+    Data*: ptr Implottag_28313420
 
-  Imvectorimplottag_28313207 = structimvectorimplottag_28313206 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:527:76
-  structimvectorimplottick_28313209 {.pure, inheritable, bycopy.} = object
+  Imvectorimplottag_28313429 = structimvectorimplottag_28313428 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:527:76
+  structimvectorimplottick_28313431 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:546:16
     Capacity*: cint
-    Data*: ptr Implottick_28312934
+    Data*: ptr Implottick_28313084
 
-  Imvectorimplottick_28313211 = structimvectorimplottick_28313210 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:546:78
-  Implotalignmentdata_28313213 = structimplotalignmentdata_28313216 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:596:36
-  structimplotalignmentdata_28313215 {.pure, inheritable, bycopy.} = object
+  Imvectorimplottick_28313433 = structimvectorimplottick_28313432 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:546:78
+  Implotalignmentdata_28313435 = structimplotalignmentdata_28313438 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:596:36
+  structimplotalignmentdata_28313437 {.pure, inheritable, bycopy.} = object
     Vertical*: bool          ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:597:8
     Pada*: cfloat
     Padb*: cfloat
     Padamax*: cfloat
     Padbmax*: cfloat
 
-  Implotitemgroup_28313217 = structimplotitemgroup_28313220 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:628:32
-  structimplotitemgroup_28313219 {.pure, inheritable, bycopy.} = object
+  Implotitemgroup_28313439 = structimplotitemgroup_28313442 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:628:32
+  structimplotitemgroup_28313441 {.pure, inheritable, bycopy.} = object
     Id*: Imguiid_28312298    ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:633:8
-    Legend*: Implotlegend_28312948
-    Itempool*: Impoolimplotitem_28313228
+    Legend*: Implotlegend_28313098
+    Itempool*: Impoolimplotitem_28313450
     Colormapidx*: cint
 
-  structimvectorimplotitem_28313221 {.pure, inheritable, bycopy.} = object
+  structimvectorimplotitem_28313443 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:629:16
     Capacity*: cint
-    Data*: ptr Implotitem_28312944
+    Data*: ptr Implotitem_28313094
 
-  Imvectorimplotitem_28313223 = structimvectorimplotitem_28313222 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:629:78
-  structimpoolimplotitem_28313225 {.pure, inheritable, bycopy.} = object
-    Buf*: Imvectorimplotitem_28313224 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:631:16
+  Imvectorimplotitem_28313445 = structimvectorimplotitem_28313444 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:629:78
+  structimpoolimplotitem_28313447 {.pure, inheritable, bycopy.} = object
+    Buf*: Imvectorimplotitem_28313446 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:631:16
     Map*: Imguistorage_28312042
-    Freeidx*: Impoolidx_28312572
-    Alivecount*: Impoolidx_28312572
+    Freeidx*: Impoolidx_28312644
+    Alivecount*: Impoolidx_28312644
 
-  Impoolimplotitem_28313227 = structimpoolimplotitem_28313226 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:631:117
-  Implotsubplot_28313229 = structimplotsubplot_28313232 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:669:30
-  structimplotsubplot_28313231 {.pure, inheritable, bycopy.} = object
+  Impoolimplotitem_28313449 = structimpoolimplotitem_28313448 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:631:117
+  Implotsubplot_28313451 = structimplotsubplot_28313454 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:669:30
+  structimplotsubplot_28313453 {.pure, inheritable, bycopy.} = object
     Id*: Imguiid_28312298    ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:674:8
-    Flags*: Implotsubplotflags_28312998
-    Previousflags*: Implotsubplotflags_28312998
-    Items*: Implotitemgroup_28313218
+    Flags*: Implotsubplotflags_28313148
+    Previousflags*: Implotsubplotflags_28313148
+    Items*: Implotitemgroup_28313440
     Rows*: cint
     Cols*: cint
     Currentidx*: cint
     Framerect*: Imrect_28312078
     Gridrect*: Imrect_28312078
     Cellsize*: Imvec2_28312328
-    Rowalignmentdata*: Imvectorimplotalignmentdata_28313236
-    Colalignmentdata*: Imvectorimplotalignmentdata_28313236
-    Rowratios*: Imvectorfloat_28312490
-    Colratios*: Imvectorfloat_28312490
-    Rowlinkdata*: Imvectorimplotrange_28313240
-    Collinkdata*: Imvectorimplotrange_28313240
+    Rowalignmentdata*: Imvectorimplotalignmentdata_28313458
+    Colalignmentdata*: Imvectorimplotalignmentdata_28313458
+    Rowratios*: Imvectorfloat_28312560
+    Colratios*: Imvectorfloat_28312560
+    Rowlinkdata*: Imvectorimplotrange_28313462
+    Collinkdata*: Imvectorimplotrange_28313462
     Tempsizes*: array[2'i64, cfloat]
     Framehovered*: bool
     Hastitle*: bool
 
-  structimvectorimplotalignmentdata_28313233 {.pure, inheritable, bycopy.} = object
+  structimvectorimplotalignmentdata_28313455 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:670:16
     Capacity*: cint
-    Data*: ptr Implotalignmentdata_28313214
+    Data*: ptr Implotalignmentdata_28313436
 
-  Imvectorimplotalignmentdata_28313235 = structimvectorimplotalignmentdata_28313234 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:670:96
-  structimvectorimplotrange_28313237 {.pure, inheritable, bycopy.} = object
+  Imvectorimplotalignmentdata_28313457 = structimvectorimplotalignmentdata_28313456 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:670:96
+  structimvectorimplotrange_28313459 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:672:16
     Capacity*: cint
-    Data*: ptr Implotrange_28313128
+    Data*: ptr Implotrange_28313344
 
-  Imvectorimplotrange_28313239 = structimvectorimplotrange_28313238 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:672:80
-  Implotnextitemdata_28313241 = structimplotnextitemdata_28313244 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:705:35
-  structimplotnextitemdata_28313243 {.pure, inheritable, bycopy.} = object
+  Imvectorimplotrange_28313461 = structimvectorimplotrange_28313460 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:672:80
+  Implotnextitemdata_28313463 = structimplotnextitemdata_28313466 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:705:35
+  structimplotnextitemdata_28313465 {.pure, inheritable, bycopy.} = object
     Colors*: array[5'i64, Imvec4_28312332] ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:706:8
     Lineweight*: cfloat
-    Marker*: Implotmarker_28313050
+    Marker*: Implotmarker_28313200
     Markersize*: cfloat
     Markerweight*: cfloat
     Fillalpha*: cfloat
@@ -4352,92 +4466,97 @@ type
     Rendermarkerfill*: bool
     Hashidden*: bool
     Hidden*: bool
-    Hiddencond*: Implotcond_28313042
+    Hiddencond*: Implotcond_28313192
 
-  structimvectorimplotplot_28313245 {.pure, inheritable, bycopy.} = object
+  structimvectorimplotplot_28313467 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:726:16
     Capacity*: cint
-    Data*: ptr Implotplot_28312952
+    Data*: ptr Implotplot_28313102
 
-  Imvectorimplotplot_28313247 = structimvectorimplotplot_28313246 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:726:78
-  structimpoolimplotplot_28313249 {.pure, inheritable, bycopy.} = object
-    Buf*: Imvectorimplotplot_28313248 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:728:16
+  Imvectorimplotplot_28313469 = structimvectorimplotplot_28313468 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:726:78
+  structimpoolimplotplot_28313471 {.pure, inheritable, bycopy.} = object
+    Buf*: Imvectorimplotplot_28313470 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:728:16
     Map*: Imguistorage_28312042
-    Freeidx*: Impoolidx_28312572
-    Alivecount*: Impoolidx_28312572
+    Freeidx*: Impoolidx_28312644
+    Alivecount*: Impoolidx_28312644
 
-  Impoolimplotplot_28313251 = structimpoolimplotplot_28313250 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:728:117
-  structimvectorimplotsubplot_28313253 {.pure, inheritable, bycopy.} = object
+  Impoolimplotplot_28313473 = structimpoolimplotplot_28313472 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:728:117
+  structimvectorimplotsubplot_28313475 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:730:16
     Capacity*: cint
-    Data*: ptr Implotsubplot_28313230
+    Data*: ptr Implotsubplot_28313452
 
-  Imvectorimplotsubplot_28313255 = structimvectorimplotsubplot_28313254 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:730:84
-  structimpoolimplotsubplot_28313257 {.pure, inheritable, bycopy.} = object
-    Buf*: Imvectorimplotsubplot_28313256 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:732:16
+  Imvectorimplotsubplot_28313477 = structimvectorimplotsubplot_28313476 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:730:84
+  structimpoolimplotsubplot_28313479 {.pure, inheritable, bycopy.} = object
+    Buf*: Imvectorimplotsubplot_28313478 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:732:16
     Map*: Imguistorage_28312042
-    Freeidx*: Impoolidx_28312572
-    Alivecount*: Impoolidx_28312572
+    Freeidx*: Impoolidx_28312644
+    Alivecount*: Impoolidx_28312644
 
-  Impoolimplotsubplot_28313259 = structimpoolimplotsubplot_28313258 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:732:123
-  structimvectorimplotcolormap_28313261 {.pure, inheritable, bycopy.} = object
+  Impoolimplotsubplot_28313481 = structimpoolimplotsubplot_28313480 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:732:123
+  structimvectorimplotcolormap_28313483 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:734:16
     Capacity*: cint
-    Data*: ptr Implotcolormap_28313052
+    Data*: ptr Implotcolormap_28313202
 
-  Imvectorimplotcolormap_28313263 = structimvectorimplotcolormap_28313262 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:734:86
-  structimvectordouble_28313265 {.pure, inheritable, bycopy.} = object
+  Imvectorimplotcolormap_28313485 = structimvectorimplotcolormap_28313484 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:734:86
+  structimvectordouble_28313487 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:736:16
     Capacity*: cint
     Data*: ptr cdouble
 
-  Imvectordouble_28313267 = structimvectordouble_28313266 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:736:70
-  structimpoolimplotalignmentdata_28313269 {.pure, inheritable, bycopy.} = object
-    Buf*: Imvectorimplotalignmentdata_28313236 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:738:16
+  Imvectordouble_28313489 = structimvectordouble_28313488 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:736:70
+  structimpoolimplotalignmentdata_28313491 {.pure, inheritable, bycopy.} = object
+    Buf*: Imvectorimplotalignmentdata_28313458 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:738:16
     Map*: Imguistorage_28312042
-    Freeidx*: Impoolidx_28312572
-    Alivecount*: Impoolidx_28312572
+    Freeidx*: Impoolidx_28312644
+    Alivecount*: Impoolidx_28312644
 
-  Impoolimplotalignmentdata_28313271 = structimpoolimplotalignmentdata_28313270 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:738:135
-  Formattertimedata_28313273 = structformattertimedata_28313276 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:773:36
-  structformattertimedata_28313275 {.pure, inheritable, bycopy.} = object
-    Time*: Implottime_28313168 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:774:8
-    Spec*: Implotdatetimespec_28313164
-    Userformatter*: Implotformatter_28313144
+  Impoolimplotalignmentdata_28313493 = structimpoolimplotalignmentdata_28313492 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:738:135
+  Formattertimedata_28313495 = structformattertimedata_28313498 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:773:36
+  structformattertimedata_28313497 {.pure, inheritable, bycopy.} = object
+    Time*: Implottime_28313390 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:774:8
+    Spec*: Implotdatetimespec_28313386
+    Userformatter*: Implotformatter_28313360
     Userformatterdata*: pointer
 
-  Implotpointgetter_28313277 = proc (a0: pointer; a1: cint; a2: ptr Implotpoint_28313124): pointer {.
+  Implotpointgetter_28313499 = proc (a0: pointer; a1: cint; a2: ptr Implotpoint_28313340): pointer {.
       cdecl.}                ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:786:17
-  Imnodescontext_28313279 = structimnodescontext ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:12:31
-  Imnodeseditorcontext_28313281 = structimnodeseditorcontext ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:13:37
-  Imnodescol_28313283 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:14:13
-  Imnodesstylevar_28313285 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:15:13
-  Imnodesstyleflags_28313287 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:16:13
-  Imnodespinshape_28313289 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:17:13
-  Imnodesattributeflags_28313291 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:18:13
-  Imnodesminimaplocation_28313293 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:19:13
-  Imnodesio_28313305 = structimnodesio_28313308 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:90:26
-  structimnodesio_28313307 {.pure, inheritable, bycopy.} = object
-    Emulatethreebuttonmouse*: Emulatethreebuttonmouse_28313312 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:109:8
-    Linkdetachwithmodifierclick*: Linkdetachwithmodifierclick_28313316
-    Multipleselectmodifier*: Multipleselectmodifier_28313320
+  Imnodescontext_28313501 = structimnodescontext ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:12:31
+  Imnodeseditorcontext_28313503 = structimnodeseditorcontext ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:13:37
+  Imnodescol_28313505 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:14:13
+  Imnodesstylevar_28313507 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:15:13
+  Imnodesstyleflags_28313509 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:16:13
+  Imnodespinshape_28313511 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:17:13
+  Imnodesattributeflags_28313513 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:18:13
+  Imnodesminimaplocation_28313515 = cint ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:19:13
+  Imnodescoltypedef_28313519 = enumimnodescol_28313518 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:51:2
+  Imnodesstylevartypedef_28313523 = enumimnodesstylevar_28313522 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:69:2
+  Imnodesstyleflagstypedef_28313527 = enumimnodesstyleflags_28313526 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:76:2
+  Imnodespinshapetypedef_28313531 = enumimnodespinshape_28313530 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:84:2
+  Imnodesattributeflagstypedef_28313535 = enumimnodesattributeflags_28313534 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:89:2
+  Imnodesio_28313537 = structimnodesio_28313540 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:90:26
+  structimnodesio_28313539 {.pure, inheritable, bycopy.} = object
+    Emulatethreebuttonmouse*: Emulatethreebuttonmouse_28313544 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:109:8
+    Linkdetachwithmodifierclick*: Linkdetachwithmodifierclick_28313548
+    Multipleselectmodifier*: Multipleselectmodifier_28313552
     Altmousebutton*: cint
     Autopanningspeed*: cfloat
 
-  structemulatethreebuttonmouse_28313309 {.pure, inheritable, bycopy.} = object
+  structemulatethreebuttonmouse_28313541 {.pure, inheritable, bycopy.} = object
     Modifier*: ptr bool      ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:91:8
   
-  Emulatethreebuttonmouse_28313311 = structemulatethreebuttonmouse_28313310 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:117:40
-  structlinkdetachwithmodifierclick_28313313 {.pure, inheritable, bycopy.} = object
+  Emulatethreebuttonmouse_28313543 = structemulatethreebuttonmouse_28313542 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:117:40
+  structlinkdetachwithmodifierclick_28313545 {.pure, inheritable, bycopy.} = object
     Modifier*: ptr bool      ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:97:8
   
-  Linkdetachwithmodifierclick_28313315 = structlinkdetachwithmodifierclick_28313314 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:118:44
-  structmultipleselectmodifier_28313317 {.pure, inheritable, bycopy.} = object
+  Linkdetachwithmodifierclick_28313547 = structlinkdetachwithmodifierclick_28313546 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:118:44
+  structmultipleselectmodifier_28313549 {.pure, inheritable, bycopy.} = object
     Modifier*: ptr bool      ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:103:8
   
-  Multipleselectmodifier_28313319 = structmultipleselectmodifier_28313318 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:119:39
-  Imnodesstyle_28313321 = structimnodesstyle_28313324 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:120:29
-  structimnodesstyle_28313323 {.pure, inheritable, bycopy.} = object
+  Multipleselectmodifier_28313551 = structmultipleselectmodifier_28313550 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:119:39
+  Imnodesstyle_28313553 = structimnodesstyle_28313556 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:120:29
+  structimnodesstyle_28313555 {.pure, inheritable, bycopy.} = object
     Gridspacing*: cfloat     ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:121:8
     Nodecornerrounding*: cfloat
     Nodepadding*: Imvec2_28312328
@@ -4453,16 +4572,17 @@ type
     Pinoffset*: cfloat
     Minimappadding*: Imvec2_28312328
     Minimapoffset*: Imvec2_28312328
-    Flags*: Imnodesstyleflags_28313288
+    Flags*: Imnodesstyleflags_28313510
     Colors*: array[29'i64, cuint]
 
-  Imnodesminimapnodehoveringcallback_28313327 = proc (a0: cint; a1: pointer): void {.
+  Imnodesminimaplocationtypedef_28313559 = enumimnodesminimaplocation_28313558 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:146:2
+  Imnodesminimapnodehoveringcallback_28313561 = proc (a0: cint; a1: pointer): void {.
       cdecl.}                ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:151:16
-  Imnodesminimapnodehoveringcallbackuserdata_28313329 = pointer ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:152:15
-  structiobuf_28313331 {.pure, inheritable, bycopy.} = object
+  Imnodesminimapnodehoveringcallbackuserdata_28313563 = pointer ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimnodes\cimnodes.h:152:15
+  structiobuf_28313565 {.pure, inheritable, bycopy.} = object
     internalplaceholder*: pointer ## Generated based on C:\Program Files\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_wstdio.h:28:20
   
-  compilertime64t_28313336 = clonglong ## Generated based on C:\Program Files\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt.h:594:39
+  compilertime64t_28313570 = clonglong ## Generated based on C:\Program Files\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt.h:594:39
   structimguiio_28311997 = (when declared(structimguiio):
     structimguiio
    else:
@@ -4471,184 +4591,209 @@ type
     Imwchar32
    else:
     Imwchar32_28312315)
-  structimguitextrange_28312404 = (when declared(structimguitextrange):
+  structimguitextrange_28312468 = (when declared(structimguitextrange):
     structimguitextrange
    else:
-    structimguitextrange_28312403)
-  Imguihoveredflagsprivate_28312586 = (when declared(Imguihoveredflagsprivate):
+    structimguitextrange_28312467)
+  Imguihoveredflagsprivate_28312664 = (when declared(Imguihoveredflagsprivate):
     Imguihoveredflagsprivate
    else:
-    Imguihoveredflagsprivate_28312585)
-  Imguipopuppositionpolicy_28312616 = (when declared(Imguipopuppositionpolicy):
+    Imguihoveredflagsprivate_28312663)
+  Imguipopuppositionpolicy_28312724 = (when declared(Imguipopuppositionpolicy):
     Imguipopuppositionpolicy
    else:
-    Imguipopuppositionpolicy_28312615)
-  structimplotsubplot_28313232 = (when declared(structimplotsubplot):
+    Imguipopuppositionpolicy_28312723)
+  enumimnodesstyleflags_28313526 = (when declared(enumimnodesstyleflags):
+    enumimnodesstyleflags
+   else:
+    enumimnodesstyleflags_28313525)
+  structimplotsubplot_28313454 = (when declared(structimplotsubplot):
     structimplotsubplot
    else:
-    structimplotsubplot_28313231)
+    structimplotsubplot_28313453)
   Imguiplatformimedata_28312034 = (when declared(Imguiplatformimedata):
     Imguiplatformimedata
    else:
     Imguiplatformimedata_28312033)
-  Imvectorimfontptr_28312478 = (when declared(Imvectorimfontptr):
+  enumimplotcond_28313308 = (when declared(enumimplotcond):
+    enumimplotcond
+   else:
+    enumimplotcond_28313307)
+  Imvectorimfontptr_28312548 = (when declared(Imvectorimfontptr):
     Imvectorimfontptr
    else:
-    Imvectorimfontptr_28312477)
-  Imvectorimdrawcmd_28312432 = (when declared(Imvectorimdrawcmd):
+    Imvectorimfontptr_28312547)
+  Imvectorimdrawcmd_28312496 = (when declared(Imvectorimdrawcmd):
     Imvectorimdrawcmd
    else:
-    Imvectorimdrawcmd_28312431)
-  structimspanimguitablecolumnidx_28312902 = (when declared(
+    Imvectorimdrawcmd_28312495)
+  structimspanimguitablecolumnidx_28313052 = (when declared(
       structimspanimguitablecolumnidx):
     structimspanimguitablecolumnidx
    else:
-    structimspanimguitablecolumnidx_28312901)
-  Implotaxiscolor_28312942 = (when declared(Implotaxiscolor):
+    structimspanimguitablecolumnidx_28313051)
+  Implotaxiscolor_28313092 = (when declared(Implotaxiscolor):
     Implotaxiscolor
    else:
-    Implotaxiscolor_28312941)
-  Imvectorimfontglyph_28312494 = (when declared(Imvectorimfontglyph):
+    Implotaxiscolor_28313091)
+  Imvectorimfontglyph_28312564 = (when declared(Imvectorimfontglyph):
     Imvectorimfontglyph
    else:
-    Imvectorimfontglyph_28312493)
+    Imvectorimfontglyph_28312563)
+  enumimplotinflinesflags_28313276 = (when declared(enumimplotinflinesflags):
+    enumimplotinflinesflags
+   else:
+    enumimplotinflinesflags_28313275)
   structimguipayload_28312024 = (when declared(structimguipayload):
     structimguipayload
    else:
     structimguipayload_28312023)
-  structimplotannotation_28313188 = (when declared(structimplotannotation):
+  structimplotannotation_28313410 = (when declared(structimplotannotation):
     structimplotannotation
    else:
-    structimplotannotation_28313187)
+    structimplotannotation_28313409)
   Imguiinputtextcallbackdata_28311999 = (when declared(
       Imguiinputtextcallbackdata):
     Imguiinputtextcallbackdata
    else:
     Imguiinputtextcallbackdata_28311998)
+  enumimplotmarker_28313324 = (when declared(enumimplotmarker):
+    enumimplotmarker
+   else:
+    enumimplotmarker_28313323)
   Imbitvector_28312074 = (when declared(Imbitvector):
     Imbitvector
    else:
     Imbitvector_28312073)
-  structimvectorimdrawidx_28312434 = (when declared(structimvectorimdrawidx):
+  structimvectorimdrawidx_28312498 = (when declared(structimvectorimdrawidx):
     structimvectorimdrawidx
    else:
-    structimvectorimdrawidx_28312433)
-  Implottextflagsenum_28313104 = (when declared(Implottextflagsenum):
-    Implottextflagsenum
+    structimvectorimdrawidx_28312497)
+  Implottextflagstypedef_28313302 = (when declared(Implottextflagstypedef):
+    Implottextflagstypedef
    else:
-    Implottextflagsenum_28313103)
-  Implothistogramflagsenum_28313098 = (when declared(Implothistogramflagsenum):
-    Implothistogramflagsenum
+    Implottextflagstypedef_28313301)
+  Implothistogramflagstypedef_28313290 = (when declared(
+      Implothistogramflagstypedef):
+    Implothistogramflagstypedef
    else:
-    Implothistogramflagsenum_28313097)
+    Implothistogramflagstypedef_28313289)
   Imguitableflags_28312282 = (when declared(Imguitableflags):
     Imguitableflags
    else:
     Imguitableflags_28312281)
-  Imvectorimplotalignmentdata_28313236 = (when declared(
+  Imvectorimplotalignmentdata_28313458 = (when declared(
       Imvectorimplotalignmentdata):
     Imvectorimplotalignmentdata
    else:
-    Imvectorimplotalignmentdata_28313235)
+    Imvectorimplotalignmentdata_28313457)
   Imguiselectableflags_28312274 = (when declared(Imguiselectableflags):
     Imguiselectableflags
    else:
     Imguiselectableflags_28312273)
-  structimpoolimguitable_28312842 = (when declared(structimpoolimguitable):
+  structimpoolimguitable_28312988 = (when declared(structimpoolimguitable):
     structimpoolimguitable
    else:
-    structimpoolimguitable_28312841)
-  Imvectorimu8_28312990 = (when declared(Imvectorimu8):
+    structimpoolimguitable_28312987)
+  Imvectorimu8_28313140 = (when declared(Imvectorimu8):
     Imvectorimu8
    else:
-    Imvectorimu8_28312989)
+    Imvectorimu8_28313139)
   Imguikeychord_28312270 = (when declared(Imguikeychord):
     Imguikeychord
    else:
     Imguikeychord_28312269)
-  Imguitabledrawchannelidx_28312892 = (when declared(Imguitabledrawchannelidx):
+  Imguitabledrawchannelidx_28313042 = (when declared(Imguitabledrawchannelidx):
     Imguitabledrawchannelidx
    else:
-    Imguitabledrawchannelidx_28312891)
-  Implotdummyflags_28313040 = (when declared(Implotdummyflags):
+    Imguitabledrawchannelidx_28313041)
+  Implotdummyflags_28313190 = (when declared(Implotdummyflags):
     Implotdummyflags
    else:
-    Implotdummyflags_28313039)
-  Imguicomboflagsprivate_28312592 = (when declared(Imguicomboflagsprivate):
+    Implotdummyflags_28313189)
+  Imguicomboflagsprivate_28312676 = (when declared(Imguicomboflagsprivate):
     Imguicomboflagsprivate
    else:
-    Imguicomboflagsprivate_28312591)
-  Implotnextplotdata_28312956 = (when declared(Implotnextplotdata):
+    Imguicomboflagsprivate_28312675)
+  Implotnextplotdata_28313106 = (when declared(Implotnextplotdata):
     Implotnextplotdata
    else:
-    Implotnextplotdata_28312955)
-  Imguiconfigflagsenum_28312378 = (when declared(Imguiconfigflagsenum):
-    Imguiconfigflagsenum
+    Implotnextplotdata_28313105)
+  Imguiconfigflagstypedef_28312422 = (when declared(Imguiconfigflagstypedef):
+    Imguiconfigflagstypedef
    else:
-    Imguiconfigflagsenum_28312377)
-  Imguisortdirectionenum_28312372 = (when declared(Imguisortdirectionenum):
-    Imguisortdirectionenum
+    Imguiconfigflagstypedef_28312421)
+  Imguisortdirectiontypedef_28312410 = (when declared(Imguisortdirectiontypedef):
+    Imguisortdirectiontypedef
    else:
-    Imguisortdirectionenum_28312371)
-  Imguinextitemdataflags_28312528 = (when declared(Imguinextitemdataflags):
+    Imguisortdirectiontypedef_28312409)
+  enumimguidocknodeflags_28312392 = (when declared(enumimguidocknodeflags):
+    enumimguidocknodeflags
+   else:
+    enumimguidocknodeflags_28312391)
+  Imguinextitemdataflags_28312600 = (when declared(Imguinextitemdataflags):
     Imguinextitemdataflags
    else:
-    Imguinextitemdataflags_28312527)
-  Imnodesstylevar_28313286 = (when declared(Imnodesstylevar):
+    Imguinextitemdataflags_28312599)
+  Imnodesstylevar_28313508 = (when declared(Imnodesstylevar):
     Imnodesstylevar
    else:
-    Imnodesstylevar_28313285)
-  Imguibuttonflagsprivate_28312590 = (when declared(Imguibuttonflagsprivate):
+    Imnodesstylevar_28313507)
+  Imguibuttonflagsprivate_28312672 = (when declared(Imguibuttonflagsprivate):
     Imguibuttonflagsprivate
    else:
-    Imguibuttonflagsprivate_28312589)
-  structimvectorimguioldcolumndata_28312734 = (when declared(
+    Imguibuttonflagsprivate_28312671)
+  structimvectorimguioldcolumndata_28312866 = (when declared(
       structimvectorimguioldcolumndata):
     structimvectorimguioldcolumndata
    else:
-    structimvectorimguioldcolumndata_28312733)
+    structimvectorimguioldcolumndata_28312865)
   Imguiwindow_28312210 = (when declared(Imguiwindow):
     Imguiwindow
    else:
     Imguiwindow_28312209)
-  Imfilehandle_28312558 = (when declared(Imfilehandle):
+  Imfilehandle_28312630 = (when declared(Imfilehandle):
     Imfilehandle
    else:
-    Imfilehandle_28312557)
-  Imspanimguitablecolumn_28312900 = (when declared(Imspanimguitablecolumn):
+    Imfilehandle_28312629)
+  Imspanimguitablecolumn_28313050 = (when declared(Imspanimguitablecolumn):
     Imspanimguitablecolumn
    else:
-    Imspanimguitablecolumn_28312899)
+    Imspanimguitablecolumn_28313049)
+  enumimplotlegendflags_28313224 = (when declared(enumimplotlegendflags):
+    enumimplotlegendflags
+   else:
+    enumimplotlegendflags_28313223)
   structimguimenucolumns_28312134 = (when declared(structimguimenucolumns):
     structimguimenucolumns
    else:
     structimguimenucolumns_28312133)
-  Imguiseparatorflags_28312534 = (when declared(Imguiseparatorflags):
+  Imguiseparatorflags_28312606 = (when declared(Imguiseparatorflags):
     Imguiseparatorflags
    else:
-    Imguiseparatorflags_28312533)
-  Imbitarrayptr_28312570 = (when declared(Imbitarrayptr):
+    Imguiseparatorflags_28312605)
+  Imbitarrayptr_28312642 = (when declared(Imbitarrayptr):
     Imbitarrayptr
    else:
-    Imbitarrayptr_28312569)
-  structimvectorimguiptrorindex_28312854 = (when declared(
+    Imbitarrayptr_28312641)
+  structimvectorimguiptrorindex_28313000 = (when declared(
       structimvectorimguiptrorindex):
     structimvectorimguiptrorindex
    else:
-    structimvectorimguiptrorindex_28312853)
-  structimguiinputeventkey_28312676 = (when declared(structimguiinputeventkey):
+    structimvectorimguiptrorindex_28312999)
+  structimguiinputeventkey_28312794 = (when declared(structimguiinputeventkey):
     structimguiinputeventkey
    else:
-    structimguiinputeventkey_28312675)
-  Imvectorimvec2_28312460 = (when declared(Imvectorimvec2):
+    structimguiinputeventkey_28312793)
+  Imvectorimvec2_28312528 = (when declared(Imvectorimvec2):
     Imvectorimvec2
    else:
-    Imvectorimvec2_28312459)
-  Imvectorimguinavtreenodedata_28312820 = (when declared(
+    Imvectorimvec2_28312527)
+  Imvectorimguinavtreenodedata_28312966 = (when declared(
       Imvectorimguinavtreenodedata):
     Imvectorimguinavtreenodedata
    else:
-    Imvectorimguinavtreenodedata_28312819)
+    Imvectorimguinavtreenodedata_28312965)
   Imdrawlistflags_28312246 = (when declared(Imdrawlistflags):
     Imdrawlistflags
    else:
@@ -4657,18 +4802,18 @@ type
     Imvectorconstcharptr
    else:
     Imvectorconstcharptr_28312223)
-  structimvec1_28312564 = (when declared(structimvec1):
+  structimvec1_28312636 = (when declared(structimvec1):
     structimvec1
    else:
-    structimvec1_28312563)
-  Imguitextflags_28312536 = (when declared(Imguitextflags):
+    structimvec1_28312635)
+  Imguitextflags_28312608 = (when declared(Imguitextflags):
     Imguitextflags
    else:
-    Imguitextflags_28312535)
-  Implottimeunitenum_28313156 = (when declared(Implottimeunitenum):
-    Implottimeunitenum
+    Imguitextflags_28312607)
+  Implottimeunittypedef_28313374 = (when declared(Implottimeunittypedef):
+    Implottimeunittypedef
    else:
-    Implottimeunitenum_28313155)
+    Implottimeunittypedef_28313373)
   Imfontglyphrangesbuilder_28311983 = (when declared(Imfontglyphrangesbuilder):
     Imfontglyphrangesbuilder
    else:
@@ -4689,64 +4834,68 @@ type
     structimfontbuilderio
    else:
     structimfontbuilderio_28311972)
-  Imguibackendflagsenum_28312380 = (when declared(Imguibackendflagsenum):
-    Imguibackendflagsenum
+  Imguibackendflagstypedef_28312426 = (when declared(Imguibackendflagstypedef):
+    Imguibackendflagstypedef
    else:
-    Imguibackendflagsenum_28312379)
+    Imguibackendflagstypedef_28312425)
   Imguisliderflags_28312276 = (when declared(Imguisliderflags):
     Imguisliderflags
    else:
     Imguisliderflags_28312275)
-  structimpoolimplotsubplot_28313258 = (when declared(structimpoolimplotsubplot):
+  structimpoolimplotsubplot_28313480 = (when declared(structimpoolimplotsubplot):
     structimpoolimplotsubplot
    else:
-    structimpoolimplotsubplot_28313257)
+    structimpoolimplotsubplot_28313479)
   Imtextureid_28312294 = (when declared(Imtextureid):
     Imtextureid
    else:
     Imtextureid_28312293)
-  Imguistacktool_28312774 = (when declared(Imguistacktool):
+  Imguistacktool_28312918 = (when declared(Imguistacktool):
     Imguistacktool
    else:
-    Imguistacktool_28312773)
-  Imvectorfloat_28312490 = (when declared(Imvectorfloat):
+    Imguistacktool_28312917)
+  Imvectorfloat_28312560 = (when declared(Imvectorfloat):
     Imvectorfloat
    else:
-    Imvectorfloat_28312489)
-  Imguidataauthority_28312506 = (when declared(Imguidataauthority):
+    Imvectorfloat_28312559)
+  Imguidataauthority_28312578 = (when declared(Imguidataauthority):
     Imguidataauthority
    else:
-    Imguidataauthority_28312505)
-  Implottime_28313168 = (when declared(Implottime):
+    Imguidataauthority_28312577)
+  Implottime_28313390 = (when declared(Implottime):
     Implottime
    else:
-    Implottime_28313167)
-  structimvectorimguiwindowstackdata_28312790 = (when declared(
+    Implottime_28313389)
+  structimvectorimguiwindowstackdata_28312936 = (when declared(
       structimvectorimguiwindowstackdata):
     structimvectorimguiwindowstackdata
    else:
-    structimvectorimguiwindowstackdata_28312789)
+    structimvectorimguiwindowstackdata_28312935)
   structimfontglyphrangesbuilder_28311985 = (when declared(
       structimfontglyphrangesbuilder):
     structimfontglyphrangesbuilder
    else:
     structimfontglyphrangesbuilder_28311984)
-  Imguitablebgtargetenum_28312358 = (when declared(Imguitablebgtargetenum):
-    Imguitablebgtargetenum
+  Imguitablebgtargettypedef_28312382 = (when declared(Imguitablebgtargettypedef):
+    Imguitablebgtargettypedef
    else:
-    Imguitablebgtargetenum_28312357)
-  structimvectorimdrawcmd_28312430 = (when declared(structimvectorimdrawcmd):
+    Imguitablebgtargettypedef_28312381)
+  structimvectorimdrawcmd_28312494 = (when declared(structimvectorimdrawcmd):
     structimvectorimdrawcmd
    else:
-    structimvectorimdrawcmd_28312429)
+    structimvectorimdrawcmd_28312493)
+  enumimguitablebgtarget_28312380 = (when declared(enumimguitablebgtarget):
+    enumimguitablebgtarget
+   else:
+    enumimguitablebgtarget_28312379)
   structimguiwindowsettings_28312220 = (when declared(structimguiwindowsettings):
     structimguiwindowsettings
    else:
     structimguiwindowsettings_28312219)
-  Imguicombopreviewdata_28312624 = (when declared(Imguicombopreviewdata):
+  Imguicombopreviewdata_28312734 = (when declared(Imguicombopreviewdata):
     Imguicombopreviewdata
    else:
-    Imguicombopreviewdata_28312623)
+    Imguicombopreviewdata_28312733)
   Imguicomboflags_28312258 = (when declared(Imguicomboflags):
     Imguicomboflags
    else:
@@ -4755,35 +4904,39 @@ type
     Imguiwindowsettings
    else:
     Imguiwindowsettings_28312217)
-  Implotannotation_28313186 = (when declared(Implotannotation):
+  Implotannotation_28313408 = (when declared(Implotannotation):
     Implotannotation
    else:
-    Implotannotation_28313185)
+    Implotannotation_28313407)
+  enumimguibackendflags_28312424 = (when declared(enumimguibackendflags):
+    enumimguibackendflags
+   else:
+    enumimguibackendflags_28312423)
   Imwchar_28312318 = (when declared(Imwchar):
     Imwchar
    else:
     Imwchar_28312317)
-  Imguitabbarflagsenum_28312348 = (when declared(Imguitabbarflagsenum):
-    Imguitabbarflagsenum
+  Imguitabbarflagstypedef_28312362 = (when declared(Imguitabbarflagstypedef):
+    Imguitabbarflagstypedef
    else:
-    Imguitabbarflagsenum_28312347)
-  Imguidocknodestate_28312742 = (when declared(Imguidocknodestate):
+    Imguitabbarflagstypedef_28312361)
+  Imguidocknodestate_28312880 = (when declared(Imguidocknodestate):
     Imguidocknodestate
    else:
-    Imguidocknodestate_28312741)
+    Imguidocknodestate_28312879)
   structimguioldcolumns_28312162 = (when declared(structimguioldcolumns):
     structimguioldcolumns
    else:
     structimguioldcolumns_28312161)
-  Imvectorimguiptrorindex_28312856 = (when declared(Imvectorimguiptrorindex):
+  Imvectorimguiptrorindex_28313002 = (when declared(Imvectorimguiptrorindex):
     Imvectorimguiptrorindex
    else:
-    Imvectorimguiptrorindex_28312855)
-  structimplotannotationcollection_28313192 = (when declared(
+    Imvectorimguiptrorindex_28313001)
+  structimplotannotationcollection_28313414 = (when declared(
       structimplotannotationcollection):
     structimplotannotationcollection
    else:
-    structimplotannotationcollection_28313191)
+    structimplotannotationcollection_28313413)
   Imguidocknodesettings_28312112 = (when declared(Imguidocknodesettings):
     Imguidocknodesettings
    else:
@@ -4792,22 +4945,39 @@ type
     Imguicolormod
    else:
     Imguicolormod_28312085)
-  Imguistoragepair_28312418 = (when declared(Imguistoragepair):
+  Imguistoragepair_28312482 = (when declared(Imguistoragepair):
     Imguistoragepair
    else:
-    Imguistoragepair_28312417)
+    Imguistoragepair_28312481)
   Imvec2_28312328 = (when declared(Imvec2):
     Imvec2
    else:
     Imvec2_28312327)
+  enumimguitabitemflagsprivate_28313032 = (when declared(
+      enumimguitabitemflagsprivate):
+    enumimguitabitemflagsprivate
+   else:
+    enumimguitabitemflagsprivate_28313031)
   Imguinextitemdata_28312152 = (when declared(Imguinextitemdata):
     Imguinextitemdata
    else:
     Imguinextitemdata_28312151)
-  structimvectordouble_28313266 = (when declared(structimvectordouble):
+  structimvectordouble_28313488 = (when declared(structimvectordouble):
     structimvectordouble
    else:
-    structimvectordouble_28313265)
+    structimvectordouble_28313487)
+  enumimplotscale_28313320 = (when declared(enumimplotscale):
+    enumimplotscale
+   else:
+    enumimplotscale_28313319)
+  enumimplotstairsflags_28313252 = (when declared(enumimplotstairsflags):
+    enumimplotstairsflags
+   else:
+    enumimplotstairsflags_28313251)
+  enumimguitextflags_28312698 = (when declared(enumimguitextflags):
+    enumimguitextflags
+   else:
+    enumimguitextflags_28312697)
   Imguiinputtextflags_28312268 = (when declared(Imguiinputtextflags):
     Imguiinputtextflags
    else:
@@ -4816,35 +4986,39 @@ type
     structimguicontexthook
    else:
     structimguicontexthook_28312091)
-  structimguistoragepair_28312416 = (when declared(structimguistoragepair):
+  structimguistoragepair_28312480 = (when declared(structimguistoragepair):
     structimguistoragepair
    else:
-    structimguistoragepair_28312415)
-  structimplottime_28313170 = (when declared(structimplottime):
+    structimguistoragepair_28312479)
+  structimplottime_28313392 = (when declared(structimplottime):
     structimplottime
    else:
-    structimplottime_28313169)
-  Imguiinputtextflagsprivate_28312588 = (when declared(
+    structimplottime_28313391)
+  Imguiinputtextflagsprivate_28312668 = (when declared(
       Imguiinputtextflagsprivate):
     Imguiinputtextflagsprivate
    else:
-    Imguiinputtextflagsprivate_28312587)
-  Imguidebuglogflagsenum_28312768 = (when declared(Imguidebuglogflagsenum):
-    Imguidebuglogflagsenum
+    Imguiinputtextflagsprivate_28312667)
+  Imguidebuglogflagstypedef_28312912 = (when declared(Imguidebuglogflagstypedef):
+    Imguidebuglogflagstypedef
    else:
-    Imguidebuglogflagsenum_28312767)
+    Imguidebuglogflagstypedef_28312911)
   structimguitablesettings_28312206 = (when declared(structimguitablesettings):
     structimguitablesettings
    else:
     structimguitablesettings_28312205)
-  Imguiplottype_28312614 = (when declared(Imguiplottype):
+  Imguiplottype_28312720 = (when declared(Imguiplottype):
     Imguiplottype
    else:
-    Imguiplottype_28312613)
-  Imguiactivateflagsenum_28312722 = (when declared(Imguiactivateflagsenum):
-    Imguiactivateflagsenum
+    Imguiplottype_28312719)
+  Imguiactivateflagstypedef_28312844 = (when declared(Imguiactivateflagstypedef):
+    Imguiactivateflagstypedef
    else:
-    Imguiactivateflagsenum_28312721)
+    Imguiactivateflagstypedef_28312843)
+  enumimplotbarsflags_28313260 = (when declared(enumimplotbarsflags):
+    enumimplotbarsflags
+   else:
+    enumimplotbarsflags_28313259)
   Imguiplatformmonitor_28312030 = (when declared(Imguiplatformmonitor):
     Imguiplatformmonitor
    else:
@@ -4857,31 +5031,31 @@ type
     Imguikeydata
    else:
     Imguikeydata_28312002)
-  Imguinextwindowdataflagsenum_28312632 = (when declared(
-      Imguinextwindowdataflagsenum):
-    Imguinextwindowdataflagsenum
+  Imguinextwindowdataflagstypedef_28312744 = (when declared(
+      Imguinextwindowdataflagstypedef):
+    Imguinextwindowdataflagstypedef
    else:
-    Imguinextwindowdataflagsenum_28312631)
-  Implotrange_28313128 = (when declared(Implotrange):
+    Imguinextwindowdataflagstypedef_28312743)
+  Implotrange_28313344 = (when declared(Implotrange):
     Implotrange
    else:
-    Implotrange_28313127)
-  Imvectorims16_28312966 = (when declared(Imvectorims16):
+    Implotrange_28313343)
+  Imvectorims16_28313116 = (when declared(Imvectorims16):
     Imvectorims16
    else:
-    Imvectorims16_28312965)
-  Imvectorims64_28312974 = (when declared(Imvectorims64):
+    Imvectorims16_28313115)
+  Imvectorims64_28313124 = (when declared(Imvectorims64):
     Imvectorims64
    else:
-    Imvectorims64_28312973)
-  Imguinavlayer_28312730 = (when declared(Imguinavlayer):
+    Imvectorims64_28313123)
+  Imguinavlayer_28312860 = (when declared(Imguinavlayer):
     Imguinavlayer
    else:
-    Imguinavlayer_28312729)
-  structimplotaxis_28312940 = (when declared(structimplotaxis):
+    Imguinavlayer_28312859)
+  structimplotaxis_28313090 = (when declared(structimplotaxis):
     structimplotaxis
    else:
-    structimplotaxis_28312939)
+    structimplotaxis_28313089)
   structimguikeydata_28312005 = (when declared(structimguikeydata):
     structimguikeydata
    else:
@@ -4890,65 +5064,66 @@ type
     Imguiio
    else:
     Imguiio_28311994)
-  Imvectorims8_28312978 = (when declared(Imvectorims8):
+  Imvectorims8_28313128 = (when declared(Imvectorims8):
     Imvectorims8
    else:
-    Imvectorims8_28312977)
-  Imguicoloreditflagsenum_28312388 = (when declared(Imguicoloreditflagsenum):
-    Imguicoloreditflagsenum
+    Imvectorims8_28313127)
+  Imguicoloreditflagstypedef_28312442 = (when declared(
+      Imguicoloreditflagstypedef):
+    Imguicoloreditflagstypedef
    else:
-    Imguicoloreditflagsenum_28312387)
-  Imnodesstyleflags_28313288 = (when declared(Imnodesstyleflags):
+    Imguicoloreditflagstypedef_28312441)
+  Imnodesstyleflags_28313510 = (when declared(Imnodesstyleflags):
     Imnodesstyleflags
    else:
-    Imnodesstyleflags_28313287)
-  Imguinextitemdataflagsenum_28312634 = (when declared(
-      Imguinextitemdataflagsenum):
-    Imguinextitemdataflagsenum
+    Imnodesstyleflags_28313509)
+  Imguinextitemdataflagstypedef_28312748 = (when declared(
+      Imguinextitemdataflagstypedef):
+    Imguinextitemdataflagstypedef
    else:
-    Imguinextitemdataflagsenum_28312633)
+    Imguinextitemdataflagstypedef_28312747)
   structimdrawlistsplitter_28311957 = (when declared(structimdrawlistsplitter):
     structimdrawlistsplitter
    else:
     structimdrawlistsplitter_28311956)
-  structimplotalignmentdata_28313216 = (when declared(structimplotalignmentdata):
+  structimplotalignmentdata_28313438 = (when declared(structimplotalignmentdata):
     structimplotalignmentdata
    else:
-    structimplotalignmentdata_28313215)
+    structimplotalignmentdata_28313437)
   structimguiwindow_28312212 = (when declared(structimguiwindow):
     structimguiwindow
    else:
     structimguiwindow_28312211)
-  Imguitextindex_28312574 = (when declared(Imguitextindex):
+  Imguitextindex_28312646 = (when declared(Imguitextindex):
     Imguitextindex
    else:
-    Imguitextindex_28312573)
-  Imguiaxis_28312612 = (when declared(Imguiaxis):
+    Imguitextindex_28312645)
+  Imguiaxis_28312716 = (when declared(Imguiaxis):
     Imguiaxis
    else:
-    Imguiaxis_28312611)
+    Imguiaxis_28312715)
   Imguistylemod_28312176 = (when declared(Imguistylemod):
     Imguistylemod
    else:
     Imguistylemod_28312175)
-  Imvectorimguidocknodesettings_28312760 = (when declared(
+  Imvectorimguidocknodesettings_28312900 = (when declared(
       Imvectorimguidocknodesettings):
     Imvectorimguidocknodesettings
    else:
-    Imvectorimguidocknodesettings_28312759)
-  Imguifocusedflagsenum_28312360 = (when declared(Imguifocusedflagsenum):
-    Imguifocusedflagsenum
+    Imvectorimguidocknodesettings_28312899)
+  Imguifocusedflagstypedef_28312386 = (when declared(Imguifocusedflagstypedef):
+    Imguifocusedflagstypedef
    else:
-    Imguifocusedflagsenum_28312359)
-  structimchunkstreamimguitablesettings_28312870 = (when declared(
+    Imguifocusedflagstypedef_28312385)
+  structimchunkstreamimguitablesettings_28313016 = (when declared(
       structimchunkstreamimguitablesettings):
     structimchunkstreamimguitablesettings
    else:
-    structimchunkstreamimguitablesettings_28312869)
-  Imguibuttonflagsenum_28312386 = (when declared(Imguibuttonflagsenum):
-    Imguibuttonflagsenum
+    structimchunkstreamimguitablesettings_28313015)
+  Imguibuttonflagstypedef_28312438 = (when declared(Imguibuttonflagstypedef):
+    Imguibuttonflagstypedef
    else:
-    Imguibuttonflagsenum_28312385)
+    Imguibuttonflagstypedef_28312437)
   Imguimousecursor_28312236 = (when declared(Imguimousecursor):
     Imguimousecursor
    else:
@@ -4957,131 +5132,148 @@ type
     structimdrawdatabuilder
    else:
     structimdrawdatabuilder_28312083)
-  Imguiwindowdockstylecol_28312748 = (when declared(Imguiwindowdockstylecol):
+  Imguiwindowdockstylecol_28312888 = (when declared(Imguiwindowdockstylecol):
     Imguiwindowdockstylecol
    else:
-    Imguiwindowdockstylecol_28312747)
+    Imguiwindowdockstylecol_28312887)
+  enumimguioldcolumnflags_28312862 = (when declared(enumimguioldcolumnflags):
+    enumimguioldcolumnflags
+   else:
+    enumimguioldcolumnflags_28312861)
   Imguidocknode_28312108 = (when declared(Imguidocknode):
     Imguidocknode
    else:
     Imguidocknode_28312107)
-  Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312650 = (when declared(
+  Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312764 = (when declared(
       Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin):
     Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin
    else:
-    Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312649)
-  Imguiinputflags_28312516 = (when declared(Imguiinputflags):
+    Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312763)
+  Imguiinputflags_28312588 = (when declared(Imguiinputflags):
     Imguiinputflags
    else:
-    Imguiinputflags_28312515)
-  Imguiscrollflagsenum_28312724 = (when declared(Imguiscrollflagsenum):
-    Imguiscrollflagsenum
+    Imguiinputflags_28312587)
+  Imguiscrollflagstypedef_28312848 = (when declared(Imguiscrollflagstypedef):
+    Imguiscrollflagstypedef
    else:
-    Imguiscrollflagsenum_28312723)
-  Imguiviewportflagsenum_28312496 = (when declared(Imguiviewportflagsenum):
-    Imguiviewportflagsenum
+    Imguiscrollflagstypedef_28312847)
+  Imguiviewportflagstypedef_28312568 = (when declared(Imguiviewportflagstypedef):
+    Imguiviewportflagstypedef
    else:
-    Imguiviewportflagsenum_28312495)
-  structimguiinputeventmouseviewport_28312672 = (when declared(
+    Imguiviewportflagstypedef_28312567)
+  structimguiinputeventmouseviewport_28312790 = (when declared(
       structimguiinputeventmouseviewport):
     structimguiinputeventmouseviewport
    else:
-    structimguiinputeventmouseviewport_28312671)
+    structimguiinputeventmouseviewport_28312789)
   Imdrawchannel_28311935 = (when declared(Imdrawchannel):
     Imdrawchannel
    else:
     Imdrawchannel_28311934)
-  Implotdatefmt_28313152 = (when declared(Implotdatefmt):
+  Implotdatefmt_28313368 = (when declared(Implotdatefmt):
     Implotdatefmt
    else:
-    Implotdatefmt_28313151)
-  Imbitarrayfornamedkeys_28312652 = (when declared(Imbitarrayfornamedkeys):
+    Implotdatefmt_28313367)
+  enumimguiselectableflagsprivate_28312682 = (when declared(
+      enumimguiselectableflagsprivate):
+    enumimguiselectableflagsprivate
+   else:
+    enumimguiselectableflagsprivate_28312681)
+  Imbitarrayfornamedkeys_28312766 = (when declared(Imbitarrayfornamedkeys):
     Imbitarrayfornamedkeys
    else:
-    Imbitarrayfornamedkeys_28312651)
-  Imvectorimguistoragepair_28312422 = (when declared(Imvectorimguistoragepair):
+    Imbitarrayfornamedkeys_28312765)
+  enumimguicond_28312460 = (when declared(enumimguicond):
+    enumimguicond
+   else:
+    enumimguicond_28312459)
+  Imvectorimguistoragepair_28312486 = (when declared(Imvectorimguistoragepair):
     Imvectorimguistoragepair
    else:
-    Imvectorimguistoragepair_28312421)
-  Implotitemflagsenum_28313074 = (when declared(Implotitemflagsenum):
-    Implotitemflagsenum
+    Imvectorimguistoragepair_28312485)
+  Implotitemflagstypedef_28313242 = (when declared(Implotitemflagstypedef):
+    Implotitemflagstypedef
    else:
-    Implotitemflagsenum_28313073)
+    Implotitemflagstypedef_28313241)
   Ims8_28312300 = (when declared(Ims8):
     Ims8
    else:
     Ims8_28312299)
-  Imvectorchar_28312414 = (when declared(Imvectorchar):
+  Imvectorchar_28312478 = (when declared(Imvectorchar):
     Imvectorchar
    else:
-    Imvectorchar_28312413)
+    Imvectorchar_28312477)
   Imguicol_28312226 = (when declared(Imguicol):
     Imguicol
    else:
     Imguicol_28312225)
-  Imvectorunsignedchar_28312828 = (when declared(Imvectorunsignedchar):
+  Imvectorunsignedchar_28312974 = (when declared(Imvectorunsignedchar):
     Imvectorunsignedchar
    else:
-    Imvectorunsignedchar_28312827)
-  structimvectorimguitabletempdata_28312834 = (when declared(
+    Imvectorunsignedchar_28312973)
+  structimvectorimguitabletempdata_28312980 = (when declared(
       structimvectorimguitabletempdata):
     structimvectorimguitabletempdata
    else:
-    structimvectorimguitabletempdata_28312833)
+    structimvectorimguitabletempdata_28312979)
   structimdrawdata_28311945 = (when declared(structimdrawdata):
     structimdrawdata
    else:
     structimdrawdata_28311944)
-  Implottimefmtenum_28313160 = (when declared(Implottimefmtenum):
-    Implottimefmtenum
+  enumimguiitemstatusflags_28312658 = (when declared(enumimguiitemstatusflags):
+    enumimguiitemstatusflags
    else:
-    Implottimefmtenum_28313159)
+    enumimguiitemstatusflags_28312657)
+  Implottimefmttypedef_28313382 = (when declared(Implottimefmttypedef):
+    Implottimefmttypedef
+   else:
+    Implottimefmttypedef_28313381)
   Imguisortdirection_28312238 = (when declared(Imguisortdirection):
     Imguisortdirection
    else:
     Imguisortdirection_28312237)
-  Imnodespinshapeenum_28313302 = (when declared(Imnodespinshapeenum):
-    Imnodespinshapeenum
+  Imnodespinshapetypedef_28313532 = (when declared(Imnodespinshapetypedef):
+    Imnodespinshapetypedef
    else:
-    Imnodespinshapeenum_28313301)
+    Imnodespinshapetypedef_28313531)
   Imguiconfigflags_28312256 = (when declared(Imguiconfigflags):
     Imguiconfigflags
    else:
     Imguiconfigflags_28312255)
-  Imguilogtype_28312610 = (when declared(Imguilogtype):
+  Imguilogtype_28312712 = (when declared(Imguilogtype):
     Imguilogtype
    else:
-    Imguilogtype_28312609)
-  Implotstairsflagsenum_28313080 = (when declared(Implotstairsflagsenum):
-    Implotstairsflagsenum
+    Imguilogtype_28312711)
+  Implotstairsflagstypedef_28313254 = (when declared(Implotstairsflagstypedef):
+    Implotstairsflagstypedef
    else:
-    Implotstairsflagsenum_28313079)
-  Imvectorimtextureid_28312456 = (when declared(Imvectorimtextureid):
+    Implotstairsflagstypedef_28313253)
+  Imvectorimtextureid_28312524 = (when declared(Imvectorimtextureid):
     Imvectorimtextureid
    else:
-    Imvectorimtextureid_28312455)
-  Imguidatatypeprivate_28312622 = (when declared(Imguidatatypeprivate):
+    Imvectorimtextureid_28312523)
+  Imguidatatypeprivate_28312732 = (when declared(Imguidatatypeprivate):
     Imguidatatypeprivate
    else:
-    Imguidatatypeprivate_28312621)
-  structimvectorimguistoragepair_28312420 = (when declared(
+    Imguidatatypeprivate_28312731)
+  structimvectorimguistoragepair_28312484 = (when declared(
       structimvectorimguistoragepair):
     structimvectorimguistoragepair
    else:
-    structimvectorimguistoragepair_28312419)
-  structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312648 = (when declared(
+    structimvectorimguistoragepair_28312483)
+  structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312762 = (when declared(
       structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin):
     structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin
    else:
-    structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312647)
-  Implotscatterflagsenum_28313078 = (when declared(Implotscatterflagsenum):
-    Implotscatterflagsenum
+    structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312761)
+  Implotscatterflagstypedef_28313250 = (when declared(Implotscatterflagstypedef):
+    Implotscatterflagstypedef
    else:
-    Implotscatterflagsenum_28313077)
-  Imnodeseditorcontext_28313282 = (when declared(Imnodeseditorcontext):
+    Implotscatterflagstypedef_28313249)
+  Imnodeseditorcontext_28313504 = (when declared(Imnodeseditorcontext):
     Imnodeseditorcontext
    else:
-    Imnodeseditorcontext_28313281)
+    Imnodeseditorcontext_28313503)
   structimvectorconstcharptr_28312222 = (when declared(
       structimvectorconstcharptr):
     structimvectorconstcharptr
@@ -5091,10 +5283,10 @@ type
     Imu8
    else:
     Imu8_28312301)
-  Imnodescolenum_28313296 = (when declared(Imnodescolenum):
-    Imnodescolenum
+  Imnodescoltypedef_28313520 = (when declared(Imnodescoltypedef):
+    Imnodescoltypedef
    else:
-    Imnodescolenum_28313295)
+    Imnodescoltypedef_28313519)
   Imguimousebutton_28312234 = (when declared(Imguimousebutton):
     Imguimousebutton
    else:
@@ -5107,61 +5299,73 @@ type
     structimguiwindowclass
    else:
     structimguiwindowclass_28312071)
-  structemulatethreebuttonmouse_28313310 = (when declared(
+  structemulatethreebuttonmouse_28313542 = (when declared(
       structemulatethreebuttonmouse):
     structemulatethreebuttonmouse
    else:
-    structemulatethreebuttonmouse_28313309)
-  Imguitreenodeflagsenum_28312340 = (when declared(Imguitreenodeflagsenum):
-    Imguitreenodeflagsenum
+    structemulatethreebuttonmouse_28313541)
+  Imguitreenodeflagstypedef_28312346 = (when declared(Imguitreenodeflagstypedef):
+    Imguitreenodeflagstypedef
    else:
-    Imguitreenodeflagsenum_28312339)
-  structimvectorimfontconfig_28312484 = (when declared(
+    Imguitreenodeflagstypedef_28312345)
+  structimvectorimfontconfig_28312554 = (when declared(
       structimvectorimfontconfig):
     structimvectorimfontconfig
    else:
-    structimvectorimfontconfig_28312483)
-  Imguidatatypetempstorage_28312618 = (when declared(Imguidatatypetempstorage):
+    structimvectorimfontconfig_28312553)
+  Imguidatatypetempstorage_28312726 = (when declared(Imguidatatypetempstorage):
     Imguidatatypetempstorage
    else:
-    Imguidatatypetempstorage_28312617)
-  structimplotplot_28312954 = (when declared(structimplotplot):
+    Imguidatatypetempstorage_28312725)
+  structimplotplot_28313104 = (when declared(structimplotplot):
     structimplotplot
    else:
-    structimplotplot_28312953)
-  structimvectorimwchar_28312400 = (when declared(structimvectorimwchar):
+    structimplotplot_28313103)
+  structimvectorimwchar_28312464 = (when declared(structimvectorimwchar):
     structimvectorimwchar
    else:
-    structimvectorimwchar_28312399)
-  Imvectorimguitextrange_28312410 = (when declared(Imvectorimguitextrange):
+    structimvectorimwchar_28312463)
+  enumimguitabitemflags_28312364 = (when declared(enumimguitabitemflags):
+    enumimguitabitemflags
+   else:
+    enumimguitabitemflags_28312363)
+  Imvectorimguitextrange_28312474 = (when declared(Imvectorimguitextrange):
     Imvectorimguitextrange
    else:
-    Imvectorimguitextrange_28312409)
-  Imvectorimplottick_28313212 = (when declared(Imvectorimplottick):
+    Imvectorimguitextrange_28312473)
+  enumimplotcolormap_28313328 = (when declared(enumimplotcolormap):
+    enumimplotcolormap
+   else:
+    enumimplotcolormap_28313327)
+  Imvectorimplottick_28313434 = (when declared(Imvectorimplottick):
     Imvectorimplottick
    else:
-    Imvectorimplottick_28313211)
+    Imvectorimplottick_28313433)
   structimguiwindowtempdata_28312216 = (when declared(structimguiwindowtempdata):
     structimguiwindowtempdata
    else:
     structimguiwindowtempdata_28312215)
-  Imguifocusrequestflagsenum_28312602 = (when declared(
-      Imguifocusrequestflagsenum):
-    Imguifocusrequestflagsenum
+  Imguifocusrequestflagstypedef_28312696 = (when declared(
+      Imguifocusrequestflagstypedef):
+    Imguifocusrequestflagstypedef
    else:
-    Imguifocusrequestflagsenum_28312601)
+    Imguifocusrequestflagstypedef_28312695)
   Imguipopupflags_28312272 = (when declared(Imguipopupflags):
     Imguipopupflags
    else:
     Imguipopupflags_28312271)
-  Imguiwindowstackdata_28312636 = (when declared(Imguiwindowstackdata):
+  Imguiwindowstackdata_28312750 = (when declared(Imguiwindowstackdata):
     Imguiwindowstackdata
    else:
-    Imguiwindowstackdata_28312635)
-  Imvectorimvec4_28312452 = (when declared(Imvectorimvec4):
+    Imguiwindowstackdata_28312749)
+  Imvectorimvec4_28312520 = (when declared(Imvectorimvec4):
     Imvectorimvec4
    else:
-    Imvectorimvec4_28312451)
+    Imvectorimvec4_28312519)
+  enumimguiviewportflags_28312566 = (when declared(enumimguiviewportflags):
+    enumimguiviewportflags
+   else:
+    enumimguiviewportflags_28312565)
   Imguionceuponaframe_28312011 = (when declared(Imguionceuponaframe):
     Imguionceuponaframe
    else:
@@ -5170,10 +5374,14 @@ type
     Imguioldcolumndata
    else:
     Imguioldcolumndata_28312155)
-  Implotimageflags_28313036 = (when declared(Implotimageflags):
+  enumimguiitemflags_28312654 = (when declared(enumimguiitemflags):
+    enumimguiitemflags
+   else:
+    enumimguiitemflags_28312653)
+  Implotimageflags_28313186 = (when declared(Implotimageflags):
     Implotimageflags
    else:
-    Implotimageflags_28313035)
+    Implotimageflags_28313185)
   Imguidatavarinfo_28312094 = (when declared(Imguidatavarinfo):
     Imguidatavarinfo
    else:
@@ -5183,107 +5391,115 @@ type
     structimguiinputtextcallbackdata
    else:
     structimguiinputtextcallbackdata_28312000)
-  Imguitableflagsenum_28312352 = (when declared(Imguitableflagsenum):
-    Imguitableflagsenum
+  Imguitableflagstypedef_28312370 = (when declared(Imguitableflagstypedef):
+    Imguitableflagstypedef
    else:
-    Imguitableflagsenum_28312351)
-  structstbundorecord_28312544 = (when declared(structstbundorecord):
+    Imguitableflagstypedef_28312369)
+  structstbundorecord_28312616 = (when declared(structstbundorecord):
     structstbundorecord
    else:
-    structstbundorecord_28312543)
-  Implottag_28313198 = (when declared(Implottag):
+    structstbundorecord_28312615)
+  Implottag_28313420 = (when declared(Implottag):
     Implottag
    else:
-    Implottag_28313197)
-  structimpoolimguitabbar_28312850 = (when declared(structimpoolimguitabbar):
+    Implottag_28313419)
+  structimpoolimguitabbar_28312996 = (when declared(structimpoolimguitabbar):
     structimpoolimguitabbar
    else:
-    structimpoolimguitabbar_28312849)
-  Implotstyle_28313136 = (when declared(Implotstyle):
+    structimpoolimguitabbar_28312995)
+  Implotstyle_28313352 = (when declared(Implotstyle):
     Implotstyle
    else:
-    Implotstyle_28313135)
-  Glfwmonitor_28312924 = (when declared(Glfwmonitor):
+    Implotstyle_28313351)
+  Glfwmonitor_28313074 = (when declared(Glfwmonitor):
     Glfwmonitor
    else:
-    Glfwmonitor_28312923)
-  Imguiinputeventmousebutton_28312666 = (when declared(
+    Glfwmonitor_28313073)
+  Imguiinputeventmousebutton_28312784 = (when declared(
       Imguiinputeventmousebutton):
     Imguiinputeventmousebutton
    else:
-    Imguiinputeventmousebutton_28312665)
-  structimchunkstreamimguiwindowsettings_28312866 = (when declared(
+    Imguiinputeventmousebutton_28312783)
+  structimchunkstreamimguiwindowsettings_28313012 = (when declared(
       structimchunkstreamimguiwindowsettings):
     structimchunkstreamimguiwindowsettings
    else:
-    structimchunkstreamimguiwindowsettings_28312865)
+    structimchunkstreamimguiwindowsettings_28313011)
   structimvec4_28312334 = (when declared(structimvec4):
     structimvec4
    else:
     structimvec4_28312333)
-  structimvectorimvec2_28312458 = (when declared(structimvectorimvec2):
+  structimvectorimvec2_28312526 = (when declared(structimvectorimvec2):
     structimvectorimvec2
    else:
-    structimvectorimvec2_28312457)
-  Imguiinputeventkey_28312674 = (when declared(Imguiinputeventkey):
+    structimvectorimvec2_28312525)
+  Imguiinputeventkey_28312792 = (when declared(Imguiinputeventkey):
     Imguiinputeventkey
    else:
-    Imguiinputeventkey_28312673)
-  Imvectorimguitablecolumnsortspecs_28312916 = (when declared(
+    Imguiinputeventkey_28312791)
+  Imvectorimguitablecolumnsortspecs_28313066 = (when declared(
       Imvectorimguitablecolumnsortspecs):
     Imvectorimguitablecolumnsortspecs
    else:
-    Imvectorimguitablecolumnsortspecs_28312915)
-  structimplottagcollection_28313204 = (when declared(structimplottagcollection):
+    Imvectorimguitablecolumnsortspecs_28313065)
+  structimplottagcollection_28313426 = (when declared(structimplottagcollection):
     structimplottagcollection
    else:
-    structimplottagcollection_28313203)
-  Imvectorimguipopupdata_28312816 = (when declared(Imvectorimguipopupdata):
+    structimplottagcollection_28313425)
+  Imvectorimguipopupdata_28312962 = (when declared(Imvectorimguipopupdata):
     Imvectorimguipopupdata
    else:
-    Imvectorimguipopupdata_28312815)
-  structimvectorims64_28312972 = (when declared(structimvectorims64):
+    Imvectorimguipopupdata_28312961)
+  structimvectorims64_28313122 = (when declared(structimvectorims64):
     structimvectorims64
    else:
-    structimvectorims64_28312971)
-  Imguinavhighlightflags_28312524 = (when declared(Imguinavhighlightflags):
+    structimvectorims64_28313121)
+  enumimploterrorbarsflags_28313268 = (when declared(enumimploterrorbarsflags):
+    enumimploterrorbarsflags
+   else:
+    enumimploterrorbarsflags_28313267)
+  Imguinavhighlightflags_28312596 = (when declared(Imguinavhighlightflags):
     Imguinavhighlightflags
    else:
-    Imguinavhighlightflags_28312523)
-  Implotaxisflagsenum_28313062 = (when declared(Implotaxisflagsenum):
-    Implotaxisflagsenum
+    Imguinavhighlightflags_28312595)
+  enumimguistylevar_28312432 = (when declared(enumimguistylevar):
+    enumimguistylevar
    else:
-    Implotaxisflagsenum_28313061)
+    enumimguistylevar_28312431)
   structimguidocknode_28312110 = (when declared(structimguidocknode):
     structimguidocknode
    else:
     structimguidocknode_28312109)
-  Implotmarkerenum_28313116 = (when declared(Implotmarkerenum):
-    Implotmarkerenum
+  Implotaxisflagstypedef_28313218 = (when declared(Implotaxisflagstypedef):
+    Implotaxisflagstypedef
    else:
-    Implotmarkerenum_28313115)
-  structimvectorimplotannotation_28313194 = (when declared(
-      structimvectorimplotannotation):
-    structimvectorimplotannotation
+    Implotaxisflagstypedef_28313217)
+  Implotmarkertypedef_28313326 = (when declared(Implotmarkertypedef):
+    Implotmarkertypedef
    else:
-    structimvectorimplotannotation_28313193)
-  Implotdatefmtenum_28313158 = (when declared(Implotdatefmtenum):
-    Implotdatefmtenum
+    Implotmarkertypedef_28313325)
+  Implotdatefmttypedef_28313378 = (when declared(Implotdatefmttypedef):
+    Implotdatefmttypedef
    else:
-    Implotdatefmtenum_28313157)
+    Implotdatefmttypedef_28313377)
   structimdrawlistshareddata_28311953 = (when declared(
       structimdrawlistshareddata):
     structimdrawlistshareddata
    else:
     structimdrawlistshareddata_28311952)
-  Imvectorimplotsubplot_28313256 = (when declared(Imvectorimplotsubplot):
+  structimvectorimplotannotation_28313416 = (when declared(
+      structimvectorimplotannotation):
+    structimvectorimplotannotation
+   else:
+    structimvectorimplotannotation_28313415)
+  Imvectorimplotsubplot_28313478 = (when declared(Imvectorimplotsubplot):
     Imvectorimplotsubplot
    else:
-    Imvectorimplotsubplot_28313255)
-  Imguiitemstatusflags_28312520 = (when declared(Imguiitemstatusflags):
+    Imvectorimplotsubplot_28313477)
+  Imguiitemstatusflags_28312592 = (when declared(Imguiitemstatusflags):
     Imguiitemstatusflags
    else:
-    Imguiitemstatusflags_28312519)
+    Imguiitemstatusflags_28312591)
   Imguitabbarflags_28312278 = (when declared(Imguitabbarflags):
     Imguitabbarflags
    else:
@@ -5292,70 +5508,74 @@ type
     structimguistyle
    else:
     structimguistyle_28312047)
-  structimplotlegend_28312950 = (when declared(structimplotlegend):
+  structimplotlegend_28313100 = (when declared(structimplotlegend):
     structimplotlegend
    else:
-    structimplotlegend_28312949)
-  Imnodesstyle_28313322 = (when declared(Imnodesstyle):
+    structimplotlegend_28313099)
+  Imnodesstyle_28313554 = (when declared(Imnodesstyle):
     Imnodesstyle
    else:
-    Imnodesstyle_28313321)
-  structimguiinputeventtext_28312680 = (when declared(structimguiinputeventtext):
+    Imnodesstyle_28313553)
+  structimguiinputeventtext_28312798 = (when declared(structimguiinputeventtext):
     structimguiinputeventtext
    else:
-    structimguiinputeventtext_28312679)
-  Imguiitemflagsenum_28312582 = (when declared(Imguiitemflagsenum):
-    Imguiitemflagsenum
+    structimguiinputeventtext_28312797)
+  Imguiitemflagstypedef_28312656 = (when declared(Imguiitemflagstypedef):
+    Imguiitemflagstypedef
    else:
-    Imguiitemflagsenum_28312581)
-  Imvectorimguiinputevent_28312788 = (when declared(Imvectorimguiinputevent):
+    Imguiitemflagstypedef_28312655)
+  Imvectorimguiinputevent_28312934 = (when declared(Imvectorimguiinputevent):
     Imvectorimguiinputevent
    else:
-    Imvectorimguiinputevent_28312787)
-  Implotcolormapscaleflagsenum_28313072 = (when declared(
-      Implotcolormapscaleflagsenum):
-    Implotcolormapscaleflagsenum
+    Imvectorimguiinputevent_28312933)
+  Implotcolormapscaleflagstypedef_28313238 = (when declared(
+      Implotcolormapscaleflagstypedef):
+    Implotcolormapscaleflagstypedef
    else:
-    Implotcolormapscaleflagsenum_28313071)
-  Imguistylevarenum_28312384 = (when declared(Imguistylevarenum):
-    Imguistylevarenum
+    Implotcolormapscaleflagstypedef_28313237)
+  enumimplottimefmt_28313380 = (when declared(enumimplottimefmt):
+    enumimplottimefmt
    else:
-    Imguistylevarenum_28312383)
-  structimvectorimdrawchannel_28312438 = (when declared(
+    enumimplottimefmt_28313379)
+  Imguistylevartypedef_28312434 = (when declared(Imguistylevartypedef):
+    Imguistylevartypedef
+   else:
+    Imguistylevartypedef_28312433)
+  structimvectorimdrawchannel_28312502 = (when declared(
       structimvectorimdrawchannel):
     structimvectorimdrawchannel
    else:
-    structimvectorimdrawchannel_28312437)
-  Imvectorimplotplot_28313248 = (when declared(Imvectorimplotplot):
+    structimvectorimdrawchannel_28312501)
+  Imvectorimplotplot_28313470 = (when declared(Imvectorimplotplot):
     Imvectorimplotplot
    else:
-    Imvectorimplotplot_28313247)
-  Imguihoveredflagsenum_28312362 = (when declared(Imguihoveredflagsenum):
-    Imguihoveredflagsenum
+    Imvectorimplotplot_28313469)
+  Imguihoveredflagstypedef_28312390 = (when declared(Imguihoveredflagstypedef):
+    Imguihoveredflagstypedef
    else:
-    Imguihoveredflagsenum_28312361)
-  structimguilistclipperdata_28312716 = (when declared(
+    Imguihoveredflagstypedef_28312389)
+  structimguilistclipperdata_28312836 = (when declared(
       structimguilistclipperdata):
     structimguilistclipperdata
    else:
-    structimguilistclipperdata_28312715)
-  Imvectorims32_28312970 = (when declared(Imvectorims32):
+    structimguilistclipperdata_28312835)
+  Imvectorims32_28313120 = (when declared(Imvectorims32):
     Imvectorims32
    else:
-    Imvectorims32_28312969)
-  structimvectorimplotcolormap_28313262 = (when declared(
+    Imvectorims32_28313119)
+  structimvectorimplotcolormap_28313484 = (when declared(
       structimvectorimplotcolormap):
     structimvectorimplotcolormap
    else:
-    structimvectorimplotcolormap_28313261)
+    structimvectorimplotcolormap_28313483)
   structimguigroupdata_28312116 = (when declared(structimguigroupdata):
     structimguigroupdata
    else:
     structimguigroupdata_28312115)
-  Imguishrinkwidthitem_28312640 = (when declared(Imguishrinkwidthitem):
+  Imguishrinkwidthitem_28312754 = (when declared(Imguishrinkwidthitem):
     Imguishrinkwidthitem
    else:
-    Imguishrinkwidthitem_28312639)
+    Imguishrinkwidthitem_28312753)
   Ims64_28312312 = (when declared(Ims64):
     Ims64
    else:
@@ -5364,321 +5584,394 @@ type
     Imguiwindowtempdata
    else:
     Imguiwindowtempdata_28312213)
-  structimplotnextitemdata_28313244 = (when declared(structimplotnextitemdata):
+  enumimplotflags_28313212 = (when declared(enumimplotflags):
+    enumimplotflags
+   else:
+    enumimplotflags_28313211)
+  structimplotnextitemdata_28313466 = (when declared(structimplotnextitemdata):
     structimplotnextitemdata
    else:
-    structimplotnextitemdata_28313243)
-  Imvectorimplotitem_28313224 = (when declared(Imvectorimplotitem):
+    structimplotnextitemdata_28313465)
+  Imvectorimplotitem_28313446 = (when declared(Imvectorimplotitem):
     Imvectorimplotitem
    else:
-    Imvectorimplotitem_28313223)
-  Imvectorimguiviewportpptr_28312824 = (when declared(Imvectorimguiviewportpptr):
+    Imvectorimplotitem_28313445)
+  Imvectorimguiviewportpptr_28312970 = (when declared(Imvectorimguiviewportpptr):
     Imvectorimguiviewportpptr
    else:
-    Imvectorimguiviewportpptr_28312823)
-  Imguidocknodeflagsprivate_28312738 = (when declared(Imguidocknodeflagsprivate):
+    Imvectorimguiviewportpptr_28312969)
+  Imguidocknodeflagsprivate_28312872 = (when declared(Imguidocknodeflagsprivate):
     Imguidocknodeflagsprivate
    else:
-    Imguidocknodeflagsprivate_28312737)
+    Imguidocknodeflagsprivate_28312871)
   structimguitextfilter_28312064 = (when declared(structimguitextfilter):
     structimguitextfilter
    else:
     structimguitextfilter_28312063)
-  Imvectorimdrawlistptr_28312464 = (when declared(Imvectorimdrawlistptr):
+  enumimguidir_28312404 = (when declared(enumimguidir):
+    enumimguidir
+   else:
+    enumimguidir_28312403)
+  Imvectorimdrawlistptr_28312532 = (when declared(Imvectorimdrawlistptr):
     Imvectorimdrawlistptr
    else:
-    Imvectorimdrawlistptr_28312463)
-  structimpoolimplotplot_28313250 = (when declared(structimpoolimplotplot):
+    Imvectorimdrawlistptr_28312531)
+  enumimguiconfigflags_28312420 = (when declared(enumimguiconfigflags):
+    enumimguiconfigflags
+   else:
+    enumimguiconfigflags_28312419)
+  structimpoolimplotplot_28313472 = (when declared(structimpoolimplotplot):
     structimpoolimplotplot
    else:
-    structimpoolimplotplot_28313249)
-  structimvectorimguiplatformmonitor_28312498 = (when declared(
+    structimpoolimplotplot_28313471)
+  structimvectorimguiplatformmonitor_28312570 = (when declared(
       structimvectorimguiplatformmonitor):
     structimvectorimguiplatformmonitor
    else:
-    structimvectorimguiplatformmonitor_28312497)
-  Imvec1_28312562 = (when declared(Imvec1):
+    structimvectorimguiplatformmonitor_28312569)
+  enumimguipopuppositionpolicy_28312722 = (when declared(
+      enumimguipopuppositionpolicy):
+    enumimguipopuppositionpolicy
+   else:
+    enumimguipopuppositionpolicy_28312721)
+  Imvec1_28312634 = (when declared(Imvec1):
     Imvec1
    else:
-    Imvec1_28312561)
-  Implotdigitalflagsenum_28313100 = (when declared(Implotdigitalflagsenum):
-    Implotdigitalflagsenum
+    Imvec1_28312633)
+  Implotdigitalflagstypedef_28313294 = (when declared(Implotdigitalflagstypedef):
+    Implotdigitalflagstypedef
    else:
-    Implotdigitalflagsenum_28313099)
-  Imguistacklevelinfo_28312770 = (when declared(Imguistacklevelinfo):
+    Implotdigitalflagstypedef_28313293)
+  Imguistacklevelinfo_28312914 = (when declared(Imguistacklevelinfo):
     Imguistacklevelinfo
    else:
-    Imguistacklevelinfo_28312769)
-  Implotsubplotflagsenum_28313064 = (when declared(Implotsubplotflagsenum):
-    Implotsubplotflagsenum
+    Imguistacklevelinfo_28312913)
+  Implotsubplotflagstypedef_28313222 = (when declared(Implotsubplotflagstypedef):
+    Implotsubplotflagstypedef
    else:
-    Implotsubplotflagsenum_28313063)
-  Imvectorimguitabbar_28312848 = (when declared(Imvectorimguitabbar):
+    Implotsubplotflagstypedef_28313221)
+  enumimguilayouttype_28312706 = (when declared(enumimguilayouttype):
+    enumimguilayouttype
+   else:
+    enumimguilayouttype_28312705)
+  Imvectorimguitabbar_28312994 = (when declared(Imvectorimguitabbar):
     Imvectorimguitabbar
    else:
-    Imvectorimguitabbar_28312847)
+    Imvectorimguitabbar_28312993)
   Imu16_28312306 = (when declared(Imu16):
     Imu16
    else:
     Imu16_28312305)
-  Imvectorimguitable_28312840 = (when declared(Imvectorimguitable):
+  Imvectorimguitable_28312986 = (when declared(Imvectorimguitable):
     Imvectorimguitable
    else:
-    Imvectorimguitable_28312839)
-  structimplotdatetimespec_28313166 = (when declared(structimplotdatetimespec):
+    Imvectorimguitable_28312985)
+  structimplotdatetimespec_28313388 = (when declared(structimplotdatetimespec):
     structimplotdatetimespec
    else:
-    structimplotdatetimespec_28313165)
+    structimplotdatetimespec_28313387)
   Imdrawdata_28311943 = (when declared(Imdrawdata):
     Imdrawdata
    else:
     Imdrawdata_28311942)
-  Imvectorimfontatlascustomrect_28312482 = (when declared(
+  enumimguidatatypeprivate_28312730 = (when declared(enumimguidatatypeprivate):
+    enumimguidatatypeprivate
+   else:
+    enumimguidatatypeprivate_28312729)
+  Imvectorimfontatlascustomrect_28312552 = (when declared(
       Imvectorimfontatlascustomrect):
     Imvectorimfontatlascustomrect
    else:
-    Imvectorimfontatlascustomrect_28312481)
-  structimguicombopreviewdata_28312626 = (when declared(
+    Imvectorimfontatlascustomrect_28312551)
+  structimguicombopreviewdata_28312736 = (when declared(
       structimguicombopreviewdata):
     structimguicombopreviewdata
    else:
-    structimguicombopreviewdata_28312625)
-  Implotbargroupsflagsenum_28313086 = (when declared(Implotbargroupsflagsenum):
-    Implotbargroupsflagsenum
+    structimguicombopreviewdata_28312735)
+  Implotbargroupsflagstypedef_28313266 = (when declared(
+      Implotbargroupsflagstypedef):
+    Implotbargroupsflagstypedef
    else:
-    Implotbargroupsflagsenum_28313085)
-  structimnodesio_28313308 = (when declared(structimnodesio):
+    Implotbargroupsflagstypedef_28313265)
+  structimnodesio_28313540 = (when declared(structimnodesio):
     structimnodesio
    else:
-    structimnodesio_28313307)
-  Implotflagsenum_28313060 = (when declared(Implotflagsenum):
-    Implotflagsenum
+    structimnodesio_28313539)
+  Implotflagstypedef_28313214 = (when declared(Implotflagstypedef):
+    Implotflagstypedef
    else:
-    Implotflagsenum_28313059)
+    Implotflagstypedef_28313213)
   Imu64_28311933 = (when declared(Imu64):
     Imu64
    else:
     Imu64_28311932)
-  Imguifocusrequestflags_28312514 = (when declared(Imguifocusrequestflags):
+  Imguifocusrequestflags_28312586 = (when declared(Imguifocusrequestflags):
     Imguifocusrequestflags
    else:
-    Imguifocusrequestflags_28312513)
-  Imvectorimplotcolormap_28313264 = (when declared(Imvectorimplotcolormap):
+    Imguifocusrequestflags_28312585)
+  Imvectorimplotcolormap_28313486 = (when declared(Imvectorimplotcolormap):
     Imvectorimplotcolormap
    else:
-    Imvectorimplotcolormap_28313263)
-  Imvectorimguiid_28312804 = (when declared(Imvectorimguiid):
+    Imvectorimplotcolormap_28313485)
+  Imvectorimguiid_28312950 = (when declared(Imvectorimguiid):
     Imvectorimguiid
    else:
-    Imvectorimguiid_28312803)
+    Imvectorimguiid_28312949)
   Imguitextfilter_28312062 = (when declared(Imguitextfilter):
     Imguitextfilter
    else:
     Imguitextfilter_28312061)
-  Formattertimedata_28313274 = (when declared(Formattertimedata):
+  Formattertimedata_28313496 = (when declared(Formattertimedata):
     Formattertimedata
    else:
-    Formattertimedata_28313273)
-  Implotaxis_28312938 = (when declared(Implotaxis):
+    Formattertimedata_28313495)
+  Implotaxis_28313088 = (when declared(Implotaxis):
     Implotaxis
    else:
-    Implotaxis_28312937)
-  Imfontatlasflagsenum_28312474 = (when declared(Imfontatlasflagsenum):
-    Imfontatlasflagsenum
+    Implotaxis_28313087)
+  Imfontatlasflagstypedef_28312544 = (when declared(Imfontatlasflagstypedef):
+    Imfontatlasflagstypedef
    else:
-    Imfontatlasflagsenum_28312473)
-  Imguikeyroutingdata_28312692 = (when declared(Imguikeyroutingdata):
+    Imfontatlasflagstypedef_28312543)
+  Imguikeyroutingdata_28312810 = (when declared(Imguikeyroutingdata):
     Imguikeyroutingdata
    else:
-    Imguikeyroutingdata_28312691)
-  Imguimousebuttonenum_28312392 = (when declared(Imguimousebuttonenum):
-    Imguimousebuttonenum
+    Imguikeyroutingdata_28312809)
+  Imguimousebuttontypedef_28312450 = (when declared(Imguimousebuttontypedef):
+    Imguimousebuttontypedef
    else:
-    Imguimousebuttonenum_28312391)
+    Imguimousebuttontypedef_28312449)
+  enumimplotitemflags_28313240 = (when declared(enumimplotitemflags):
+    enumimplotitemflags
+   else:
+    enumimplotitemflags_28313239)
   Imguidockcontext_28312102 = (when declared(Imguidockcontext):
     Imguidockcontext
    else:
     Imguidockcontext_28312101)
-  Imvectorimguitableinstancedata_28312912 = (when declared(
+  Imvectorimguitableinstancedata_28313062 = (when declared(
       Imvectorimguitableinstancedata):
     Imvectorimguitableinstancedata
    else:
-    Imvectorimguitableinstancedata_28312911)
+    Imvectorimguitableinstancedata_28313061)
   structimguilastitemdata_28312126 = (when declared(structimguilastitemdata):
     structimguilastitemdata
    else:
     structimguilastitemdata_28312125)
-  Imguitabitemflagsprivate_28312884 = (when declared(Imguitabitemflagsprivate):
+  Imguitabitemflagsprivate_28313034 = (when declared(Imguitabitemflagsprivate):
     Imguitabitemflagsprivate
    else:
-    Imguitabitemflagsprivate_28312883)
-  Imploterrorbarsflags_28313022 = (when declared(Imploterrorbarsflags):
+    Imguitabitemflagsprivate_28313033)
+  Imploterrorbarsflags_28313172 = (when declared(Imploterrorbarsflags):
     Imploterrorbarsflags
    else:
-    Imploterrorbarsflags_28313021)
-  Imguinavinput_28312376 = (when declared(Imguinavinput):
+    Imploterrorbarsflags_28313171)
+  Imguinavinput_28312418 = (when declared(Imguinavinput):
     Imguinavinput
    else:
-    Imguinavinput_28312375)
-  structimvectorimguigroupdata_28312810 = (when declared(
+    Imguinavinput_28312417)
+  structimvectorimguigroupdata_28312956 = (when declared(
       structimvectorimguigroupdata):
     structimvectorimguigroupdata
    else:
-    structimvectorimguigroupdata_28312809)
+    structimvectorimguigroupdata_28312955)
+  enumimplotshadedflags_28313256 = (when declared(enumimplotshadedflags):
+    enumimplotshadedflags
+   else:
+    enumimplotshadedflags_28313255)
   Imfontbuilderio_28311971 = (when declared(Imfontbuilderio):
     Imfontbuilderio
    else:
     Imfontbuilderio_28311970)
-  Imguinavmoveflagsenum_28312728 = (when declared(Imguinavmoveflagsenum):
-    Imguinavmoveflagsenum
+  enumimplotsubplotflags_28313220 = (when declared(enumimplotsubplotflags):
+    enumimplotsubplotflags
    else:
-    Imguinavmoveflagsenum_28312727)
-  Implotimageflagsenum_28313102 = (when declared(Implotimageflagsenum):
-    Implotimageflagsenum
+    enumimplotsubplotflags_28313219)
+  enumimplotdummyflags_28313304 = (when declared(enumimplotdummyflags):
+    enumimplotdummyflags
    else:
-    Implotimageflagsenum_28313101)
-  structimguiwindowstackdata_28312638 = (when declared(
+    enumimplotdummyflags_28313303)
+  enumimdrawflags_28312506 = (when declared(enumimdrawflags):
+    enumimdrawflags
+   else:
+    enumimdrawflags_28312505)
+  enumimguicomboflagsprivate_28312674 = (when declared(
+      enumimguicomboflagsprivate):
+    enumimguicomboflagsprivate
+   else:
+    enumimguicomboflagsprivate_28312673)
+  enumimplottimeunit_28313372 = (when declared(enumimplottimeunit):
+    enumimplottimeunit
+   else:
+    enumimplottimeunit_28313371)
+  Imguinavmoveflagstypedef_28312856 = (when declared(Imguinavmoveflagstypedef):
+    Imguinavmoveflagstypedef
+   else:
+    Imguinavmoveflagstypedef_28312855)
+  Implotimageflagstypedef_28313298 = (when declared(Implotimageflagstypedef):
+    Implotimageflagstypedef
+   else:
+    Implotimageflagstypedef_28313297)
+  structimguiwindowstackdata_28312752 = (when declared(
       structimguiwindowstackdata):
     structimguiwindowstackdata
    else:
-    structimguiwindowstackdata_28312637)
-  Implotlocation_28313054 = (when declared(Implotlocation):
+    structimguiwindowstackdata_28312751)
+  Implotlocation_28313204 = (when declared(Implotlocation):
     Implotlocation
    else:
-    Implotlocation_28313053)
+    Implotlocation_28313203)
+  enumimguidebuglogflags_28312910 = (when declared(enumimguidebuglogflags):
+    enumimguidebuglogflags
+   else:
+    enumimguidebuglogflags_28312909)
   structimguistylemod_28312178 = (when declared(structimguistylemod):
     structimguistylemod
    else:
     structimguistylemod_28312177)
-  Imchunkstreamimguitablesettings_28312872 = (when declared(
+  Imchunkstreamimguitablesettings_28313018 = (when declared(
       Imchunkstreamimguitablesettings):
     Imchunkstreamimguitablesettings
    else:
-    Imchunkstreamimguitablesettings_28312871)
-  Imvectorimguilistclipperrange_28312720 = (when declared(
+    Imchunkstreamimguitablesettings_28313017)
+  Imvectorimguilistclipperrange_28312840 = (when declared(
       Imvectorimguilistclipperrange):
     Imvectorimguilistclipperrange
    else:
-    Imvectorimguilistclipperrange_28312719)
-  structimvectorchar_28312412 = (when declared(structimvectorchar):
+    Imvectorimguilistclipperrange_28312839)
+  structimvectorchar_28312476 = (when declared(structimvectorchar):
     structimvectorchar
    else:
-    structimvectorchar_28312411)
+    structimvectorchar_28312475)
   structimguicolormod_28312088 = (when declared(structimguicolormod):
     structimguicolormod
    else:
     structimguicolormod_28312087)
-  Imvectorimguistacklevelinfo_28312780 = (when declared(
+  Imvectorimguistacklevelinfo_28312924 = (when declared(
       Imvectorimguistacklevelinfo):
     Imvectorimguistacklevelinfo
    else:
-    Imvectorimguistacklevelinfo_28312779)
+    Imvectorimguistacklevelinfo_28312923)
   structimdrawcmd_28311941 = (when declared(structimdrawcmd):
     structimdrawcmd
    else:
     structimdrawcmd_28311940)
-  Imguiwindowdockstyle_28312750 = (when declared(Imguiwindowdockstyle):
+  Imguiwindowdockstyle_28312890 = (when declared(Imguiwindowdockstyle):
     Imguiwindowdockstyle
    else:
-    Imguiwindowdockstyle_28312749)
-  Linkdetachwithmodifierclick_28313316 = (when declared(
+    Imguiwindowdockstyle_28312889)
+  Linkdetachwithmodifierclick_28313548 = (when declared(
       Linkdetachwithmodifierclick):
     Linkdetachwithmodifierclick
    else:
-    Linkdetachwithmodifierclick_28313315)
-  structimvectorimtextureid_28312454 = (when declared(structimvectorimtextureid):
+    Linkdetachwithmodifierclick_28313547)
+  structimvectorimtextureid_28312522 = (when declared(structimvectorimtextureid):
     structimvectorimtextureid
    else:
-    structimvectorimtextureid_28312453)
-  structimplotitem_28312946 = (when declared(structimplotitem):
+    structimvectorimtextureid_28312521)
+  structimplotitem_28313096 = (when declared(structimplotitem):
     structimplotitem
    else:
-    structimplotitem_28312945)
+    structimplotitem_28313095)
   Imguibuttonflags_28312252 = (when declared(Imguibuttonflags):
     Imguibuttonflags
    else:
     Imguibuttonflags_28312251)
-  Implotlocationenum_28313120 = (when declared(Implotlocationenum):
-    Implotlocationenum
+  Implotlocationtypedef_28313334 = (when declared(Implotlocationtypedef):
+    Implotlocationtypedef
    else:
-    Implotlocationenum_28313119)
+    Implotlocationtypedef_28313333)
+  enumimnodesstylevar_28313522 = (when declared(enumimnodesstylevar):
+    enumimnodesstylevar
+   else:
+    enumimnodesstylevar_28313521)
   structimguistacksizes_28312174 = (when declared(structimguistacksizes):
     structimguistacksizes
    else:
     structimguistacksizes_28312173)
-  structimguiinputevent_28312688 = (when declared(structimguiinputevent):
+  structimguiinputevent_28312806 = (when declared(structimguiinputevent):
     structimguiinputevent
    else:
-    structimguiinputevent_28312687)
-  Implottimefmt_28313154 = (when declared(Implottimefmt):
+    structimguiinputevent_28312805)
+  Implottimefmt_28313370 = (when declared(Implottimefmt):
     Implottimefmt
    else:
-    Implottimefmt_28313153)
-  structimguiptrorindex_28312646 = (when declared(structimguiptrorindex):
+    Implottimefmt_28313369)
+  structimguiptrorindex_28312760 = (when declared(structimguiptrorindex):
     structimguiptrorindex
    else:
-    structimguiptrorindex_28312645)
+    structimguiptrorindex_28312759)
   Imguitabitem_28312184 = (when declared(Imguitabitem):
     Imguitabitem
    else:
     Imguitabitem_28312183)
-  structimvectorimguiviewportpptr_28312822 = (when declared(
+  structimvectorimguiviewportpptr_28312968 = (when declared(
       structimvectorimguiviewportpptr):
     structimvectorimguiviewportpptr
    else:
-    structimvectorimguiviewportpptr_28312821)
+    structimvectorimguiviewportpptr_28312967)
+  enumimplotlocation_28313332 = (when declared(enumimplotlocation):
+    enumimplotlocation
+   else:
+    enumimplotlocation_28313331)
   Imguiplatformio_28312026 = (when declared(Imguiplatformio):
     Imguiplatformio
    else:
     Imguiplatformio_28312025)
-  Imnodesattributeflagsenum_28313304 = (when declared(Imnodesattributeflagsenum):
-    Imnodesattributeflagsenum
+  Imnodesattributeflagstypedef_28313536 = (when declared(
+      Imnodesattributeflagstypedef):
+    Imnodesattributeflagstypedef
    else:
-    Imnodesattributeflagsenum_28313303)
-  Emulatethreebuttonmouse_28313312 = (when declared(Emulatethreebuttonmouse):
+    Imnodesattributeflagstypedef_28313535)
+  Emulatethreebuttonmouse_28313544 = (when declared(Emulatethreebuttonmouse):
     Emulatethreebuttonmouse
    else:
-    Emulatethreebuttonmouse_28313311)
-  Implotcontext_28312930 = (when declared(Implotcontext):
+    Emulatethreebuttonmouse_28313543)
+  Implotcontext_28313080 = (when declared(Implotcontext):
     Implotcontext
    else:
-    Implotcontext_28312929)
-  structimvectorimu16_28312980 = (when declared(structimvectorimu16):
+    Implotcontext_28313079)
+  structimvectorimu16_28313130 = (when declared(structimvectorimu16):
     structimvectorimu16
    else:
-    structimvectorimu16_28312979)
-  Imguidatatypeenum_28312368 = (when declared(Imguidatatypeenum):
-    Imguidatatypeenum
+    structimvectorimu16_28313129)
+  Imguidatatypetypedef_28312402 = (when declared(Imguidatatypetypedef):
+    Imguidatatypetypedef
    else:
-    Imguidatatypeenum_28312367)
+    Imguidatatypetypedef_28312401)
   Imguistylevar_28312240 = (when declared(Imguistylevar):
     Imguistylevar
    else:
     Imguistylevar_28312239)
-  structimplottag_28313200 = (when declared(structimplottag):
+  structimplottag_28313422 = (when declared(structimplottag):
     structimplottag
    else:
-    structimplottag_28313199)
-  Implothistogramflags_28313032 = (when declared(Implothistogramflags):
+    structimplottag_28313421)
+  Implothistogramflags_28313182 = (when declared(Implothistogramflags):
     Implothistogramflags
    else:
-    Implothistogramflags_28313031)
-  Imguitreenodeflagsprivate_28312598 = (when declared(Imguitreenodeflagsprivate):
+    Implothistogramflags_28313181)
+  Imguitreenodeflagsprivate_28312688 = (when declared(Imguitreenodeflagsprivate):
     Imguitreenodeflagsprivate
    else:
-    Imguitreenodeflagsprivate_28312597)
-  timet_28313172 = (when declared(timet):
+    Imguitreenodeflagsprivate_28312687)
+  timet_28313394 = (when declared(timet):
     timet
    else:
-    timet_28313171)
-  Imguilayouttype_28312508 = (when declared(Imguilayouttype):
+    timet_28313393)
+  Imguilayouttype_28312580 = (when declared(Imguilayouttype):
     Imguilayouttype
    else:
-    Imguilayouttype_28312507)
-  structimvectorimu32_28312466 = (when declared(structimvectorimu32):
+    Imguilayouttype_28312579)
+  structimvectorimu32_28312534 = (when declared(structimvectorimu32):
     structimvectorimu32
    else:
-    structimvectorimu32_28312465)
+    structimvectorimu32_28312533)
+  enumimguitreenodeflagsprivate_28312686 = (when declared(
+      enumimguitreenodeflagsprivate):
+    enumimguitreenodeflagsprivate
+   else:
+    enumimguitreenodeflagsprivate_28312685)
   Imguinavtreenodedata_28312140 = (when declared(Imguinavtreenodedata):
     Imguinavtreenodedata
    else:
@@ -5688,18 +5981,18 @@ type
     structimguinavtreenodedata
    else:
     structimguinavtreenodedata_28312141)
-  Implotbinenum_28313122 = (when declared(Implotbinenum):
-    Implotbinenum
+  Implotbintypedef_28313338 = (when declared(Implotbintypedef):
+    Implotbintypedef
    else:
-    Implotbinenum_28313121)
-  compilertime64t_28313337 = (when declared(compilertime64t):
+    Implotbintypedef_28313337)
+  compilertime64t_28313571 = (when declared(compilertime64t):
     compilertime64t
    else:
-    compilertime64t_28313336)
-  Stbtexteditstate_28312550 = (when declared(Stbtexteditstate):
+    compilertime64t_28313570)
+  Stbtexteditstate_28312622 = (when declared(Stbtexteditstate):
     Stbtexteditstate
    else:
-    Stbtexteditstate_28312549)
+    Stbtexteditstate_28312621)
   structimfontconfig_28311977 = (when declared(structimfontconfig):
     structimfontconfig
    else:
@@ -5708,312 +6001,373 @@ type
     Imguistacksizes
    else:
     Imguistacksizes_28312171)
+  enumimnodescol_28313518 = (when declared(enumimnodescol):
+    enumimnodescol
+   else:
+    enumimnodescol_28313517)
   Imguihoveredflags_28312266 = (when declared(Imguihoveredflags):
     Imguihoveredflags
    else:
     Imguihoveredflags_28312265)
-  structmultipleselectmodifier_28313318 = (when declared(
+  structmultipleselectmodifier_28313550 = (when declared(
       structmultipleselectmodifier):
     structmultipleselectmodifier
    else:
-    structmultipleselectmodifier_28313317)
-  Imvectorimguilistclipperdata_28312832 = (when declared(
+    structmultipleselectmodifier_28313549)
+  enumimguidatatype_28312400 = (when declared(enumimguidatatype):
+    enumimguidatatype
+   else:
+    enumimguidatatype_28312399)
+  Imvectorimguilistclipperdata_28312978 = (when declared(
       Imvectorimguilistclipperdata):
     Imvectorimguilistclipperdata
    else:
-    Imvectorimguilistclipperdata_28312831)
-  Imaxisenum_28313058 = (when declared(Imaxisenum):
-    Imaxisenum
+    Imvectorimguilistclipperdata_28312977)
+  enumimguikey_28312412 = (when declared(enumimguikey):
+    enumimguikey
    else:
-    Imaxisenum_28313057)
-  structimplotstyle_28313138 = (when declared(structimplotstyle):
+    enumimguikey_28312411)
+  Imaxistypedef_28313210 = (when declared(Imaxistypedef):
+    Imaxistypedef
+   else:
+    Imaxistypedef_28313209)
+  structimplotstyle_28313354 = (when declared(structimplotstyle):
     structimplotstyle
    else:
-    structimplotstyle_28313137)
+    structimplotstyle_28313353)
   Imguiviewportflags_28312290 = (when declared(Imguiviewportflags):
     Imguiviewportflags
    else:
     Imguiviewportflags_28312289)
-  Imvectorimplotrange_28313240 = (when declared(Imvectorimplotrange):
+  Imvectorimplotrange_28313462 = (when declared(Imvectorimplotrange):
     Imvectorimplotrange
    else:
-    Imvectorimplotrange_28313239)
-  Imvectorimguistylemod_28312800 = (when declared(Imvectorimguistylemod):
+    Imvectorimplotrange_28313461)
+  Imvectorimguistylemod_28312946 = (when declared(Imvectorimguistylemod):
     Imvectorimguistylemod
    else:
-    Imvectorimguistylemod_28312799)
+    Imvectorimguistylemod_28312945)
   Imrect_28312078 = (when declared(Imrect):
     Imrect
    else:
     Imrect_28312077)
-  Implotsubplot_28313230 = (when declared(Implotsubplot):
+  Implotsubplot_28313452 = (when declared(Implotsubplot):
     Implotsubplot
    else:
-    Implotsubplot_28313229)
+    Implotsubplot_28313451)
   structimguiplatformmonitor_28312032 = (when declared(
       structimguiplatformmonitor):
     structimguiplatformmonitor
    else:
     structimguiplatformmonitor_28312031)
+  enumimguinavlayer_28312858 = (when declared(enumimguinavlayer):
+    enumimguinavlayer
+   else:
+    enumimguinavlayer_28312857)
   structimfont_28311965 = (when declared(structimfont):
     structimfont
    else:
     structimfont_28311964)
-  structimvectorimvec4_28312450 = (when declared(structimvectorimvec4):
+  enumimguimousesource_28312456 = (when declared(enumimguimousesource):
+    enumimguimousesource
+   else:
+    enumimguimousesource_28312455)
+  structimvectorimvec4_28312518 = (when declared(structimvectorimvec4):
     structimvectorimvec4
    else:
-    structimvectorimvec4_28312449)
-  Imvectorimguiwindowptr_28312746 = (when declared(Imvectorimguiwindowptr):
+    structimvectorimvec4_28312517)
+  Imvectorimguiwindowptr_28312884 = (when declared(Imvectorimguiwindowptr):
     Imvectorimguiwindowptr
    else:
-    Imvectorimguiwindowptr_28312745)
+    Imvectorimguiwindowptr_28312883)
   Imdrawlist_28311947 = (when declared(Imdrawlist):
     Imdrawlist
    else:
     Imdrawlist_28311946)
-  Imvectorimfontconfig_28312486 = (when declared(Imvectorimfontconfig):
+  Imvectorimfontconfig_28312556 = (when declared(Imvectorimfontconfig):
     Imvectorimfontconfig
    else:
-    Imvectorimfontconfig_28312485)
-  Implotdragtoolflagsenum_28313070 = (when declared(Implotdragtoolflagsenum):
-    Implotdragtoolflagsenum
+    Imvectorimfontconfig_28312555)
+  Implotdragtoolflagstypedef_28313234 = (when declared(
+      Implotdragtoolflagstypedef):
+    Implotdragtoolflagstypedef
    else:
-    Implotdragtoolflagsenum_28313069)
+    Implotdragtoolflagstypedef_28313233)
   Imguicontext_28311991 = (when declared(Imguicontext):
     Imguicontext
    else:
     Imguicontext_28311990)
-  Implotlegend_28312948 = (when declared(Implotlegend):
+  enumimguitablerowflags_28312376 = (when declared(enumimguitablerowflags):
+    enumimguitablerowflags
+   else:
+    enumimguitablerowflags_28312375)
+  Implotlegend_28313098 = (when declared(Implotlegend):
     Implotlegend
    else:
-    Implotlegend_28312947)
-  structimplotinputmap_28313142 = (when declared(structimplotinputmap):
+    Implotlegend_28313097)
+  enumimplotdragtoolflags_28313232 = (when declared(enumimplotdragtoolflags):
+    enumimplotdragtoolflags
+   else:
+    enumimplotdragtoolflags_28313231)
+  structimplotinputmap_28313358 = (when declared(structimplotinputmap):
     structimplotinputmap
    else:
-    structimplotinputmap_28313141)
+    structimplotinputmap_28313357)
   structimguidatatypeinfo_28312100 = (when declared(structimguidatatypeinfo):
     structimguidatatypeinfo
    else:
     structimguidatatypeinfo_28312099)
-  structimvectorimplottick_28313210 = (when declared(structimvectorimplottick):
+  structimvectorimplottick_28313432 = (when declared(structimvectorimplottick):
     structimvectorimplottick
    else:
-    structimvectorimplottick_28313209)
-  Implotmarker_28313050 = (when declared(Implotmarker):
+    structimvectorimplottick_28313431)
+  Implotmarker_28313200 = (when declared(Implotmarker):
     Implotmarker
    else:
-    Implotmarker_28313049)
+    Implotmarker_28313199)
   structimguinavitemdata_28312138 = (when declared(structimguinavitemdata):
     structimguinavitemdata
    else:
     structimguinavitemdata_28312137)
-  structimvectorimguishrinkwidthitem_28312858 = (when declared(
+  structimvectorimguishrinkwidthitem_28313004 = (when declared(
       structimvectorimguishrinkwidthitem):
     structimvectorimguishrinkwidthitem
    else:
-    structimvectorimguishrinkwidthitem_28312857)
-  Imguitabbarflagsprivate_28312882 = (when declared(Imguitabbarflagsprivate):
+    structimvectorimguishrinkwidthitem_28313003)
+  Imguitabbarflagsprivate_28313030 = (when declared(Imguitabbarflagsprivate):
     Imguitabbarflagsprivate
    else:
-    Imguitabbarflagsprivate_28312881)
-  Implotgetter_28313146 = (when declared(Implotgetter):
+    Imguitabbarflagsprivate_28313029)
+  Implotgetter_28313362 = (when declared(Implotgetter):
     Implotgetter
    else:
-    Implotgetter_28313145)
-  Imguiscrollflags_28312532 = (when declared(Imguiscrollflags):
+    Implotgetter_28313361)
+  Imguiscrollflags_28312604 = (when declared(Imguiscrollflags):
     Imguiscrollflags
    else:
-    Imguiscrollflags_28312531)
-  structimplotcolormapdata_28313176 = (when declared(structimplotcolormapdata):
+    Imguiscrollflags_28312603)
+  enumimaxis_28313208 = (when declared(enumimaxis):
+    enumimaxis
+   else:
+    enumimaxis_28313207)
+  structimplotcolormapdata_28313398 = (when declared(structimplotcolormapdata):
     structimplotcolormapdata
    else:
-    structimplotcolormapdata_28313175)
-  Imguidocknodeflagsenum_28312364 = (when declared(Imguidocknodeflagsenum):
-    Imguidocknodeflagsenum
+    structimplotcolormapdata_28313397)
+  Imguidocknodeflagstypedef_28312394 = (when declared(Imguidocknodeflagstypedef):
+    Imguidocknodeflagstypedef
    else:
-    Imguidocknodeflagsenum_28312363)
-  Imguisliderflagsenum_28312390 = (when declared(Imguisliderflagsenum):
-    Imguisliderflagsenum
+    Imguidocknodeflagstypedef_28312393)
+  Imguisliderflagstypedef_28312446 = (when declared(Imguisliderflagstypedef):
+    Imguisliderflagstypedef
    else:
-    Imguisliderflagsenum_28312389)
-  Implotcolormapscaleflags_28313006 = (when declared(Implotcolormapscaleflags):
+    Imguisliderflagstypedef_28312445)
+  Implotcolormapscaleflags_28313156 = (when declared(Implotcolormapscaleflags):
     Implotcolormapscaleflags
    else:
-    Implotcolormapscaleflags_28313005)
-  Implotpiechartflagsenum_28313094 = (when declared(Implotpiechartflagsenum):
-    Implotpiechartflagsenum
+    Implotcolormapscaleflags_28313155)
+  Implotpiechartflagstypedef_28313282 = (when declared(
+      Implotpiechartflagstypedef):
+    Implotpiechartflagstypedef
    else:
-    Implotpiechartflagsenum_28313093)
+    Implotpiechartflagstypedef_28313281)
   structimguitablesortspecs_28312052 = (when declared(structimguitablesortspecs):
     structimguitablesortspecs
    else:
     structimguitablesortspecs_28312051)
-  Imvectorimguiwindowstackdata_28312792 = (when declared(
+  Imvectorimguiwindowstackdata_28312938 = (when declared(
       Imvectorimguiwindowstackdata):
     Imvectorimguiwindowstackdata
    else:
-    Imvectorimguiwindowstackdata_28312791)
-  Imguimousecursorenum_28312394 = (when declared(Imguimousecursorenum):
-    Imguimousecursorenum
+    Imvectorimguiwindowstackdata_28312937)
+  Imguimousecursortypedef_28312454 = (when declared(Imguimousecursortypedef):
+    Imguimousecursortypedef
    else:
-    Imguimousecursorenum_28312393)
-  Imguiinputflagsenum_28312708 = (when declared(Imguiinputflagsenum):
-    Imguiinputflagsenum
+    Imguimousecursortypedef_28312453)
+  Imguiinputflagstypedef_28312828 = (when declared(Imguiinputflagstypedef):
+    Imguiinputflagstypedef
    else:
-    Imguiinputflagsenum_28312707)
-  Imguitablecolumnidx_28312890 = (when declared(Imguitablecolumnidx):
+    Imguiinputflagstypedef_28312827)
+  Imguitablecolumnidx_28313040 = (when declared(Imguitablecolumnidx):
     Imguitablecolumnidx
    else:
-    Imguitablecolumnidx_28312889)
-  Imvectorint_28312580 = (when declared(Imvectorint):
+    Imguitablecolumnidx_28313039)
+  Imvectorint_28312652 = (when declared(Imvectorint):
     Imvectorint
    else:
-    Imvectorint_28312579)
-  Implotcolenum_28313110 = (when declared(Implotcolenum):
-    Implotcolenum
+    Imvectorint_28312651)
+  enumimplottextflags_28313300 = (when declared(enumimplottextflags):
+    enumimplottextflags
    else:
-    Implotcolenum_28313109)
-  Imvectorimguioldcolumndata_28312736 = (when declared(
+    enumimplottextflags_28313299)
+  Implotcoltypedef_28313314 = (when declared(Implotcoltypedef):
+    Implotcoltypedef
+   else:
+    Implotcoltypedef_28313313)
+  Imvectorimguioldcolumndata_28312868 = (when declared(
       Imvectorimguioldcolumndata):
     Imvectorimguioldcolumndata
    else:
-    Imvectorimguioldcolumndata_28312735)
-  Imguiselectableflagsenum_28312344 = (when declared(Imguiselectableflagsenum):
-    Imguiselectableflagsenum
+    Imvectorimguioldcolumndata_28312867)
+  Imguiselectableflagstypedef_28312354 = (when declared(
+      Imguiselectableflagstypedef):
+    Imguiselectableflagstypedef
    else:
-    Imguiselectableflagsenum_28312343)
+    Imguiselectableflagstypedef_28312353)
+  enumimguicoloreditflags_28312440 = (when declared(enumimguicoloreditflags):
+    enumimguicoloreditflags
+   else:
+    enumimguicoloreditflags_28312439)
   Imvec4_28312332 = (when declared(Imvec4):
     Imvec4
    else:
     Imvec4_28312331)
-  Imguikeyroutingindex_28312690 = (when declared(Imguikeyroutingindex):
+  Imguikeyroutingindex_28312808 = (when declared(Imguikeyroutingindex):
     Imguikeyroutingindex
    else:
-    Imguikeyroutingindex_28312689)
-  structimvectorimguiid_28312802 = (when declared(structimvectorimguiid):
+    Imguikeyroutingindex_28312807)
+  structimvectorimguiid_28312948 = (when declared(structimvectorimguiid):
     structimvectorimguiid
    else:
-    structimvectorimguiid_28312801)
-  structimguiwindowdockstyle_28312752 = (when declared(
+    structimvectorimguiid_28312947)
+  structimguiwindowdockstyle_28312892 = (when declared(
       structimguiwindowdockstyle):
     structimguiwindowdockstyle
    else:
-    structimguiwindowdockstyle_28312751)
-  structimvectorims16_28312964 = (when declared(structimvectorims16):
+    structimguiwindowdockstyle_28312891)
+  structimvectorims16_28313114 = (when declared(structimvectorims16):
     structimvectorims16
    else:
-    structimvectorims16_28312963)
-  structimvectorimguipopupdata_28312814 = (when declared(
+    structimvectorims16_28313113)
+  structimvectorimguipopupdata_28312960 = (when declared(
       structimvectorimguipopupdata):
     structimvectorimguipopupdata
    else:
-    structimvectorimguipopupdata_28312813)
-  Implotdigitalflags_28313034 = (when declared(Implotdigitalflags):
+    structimvectorimguipopupdata_28312959)
+  Implotdigitalflags_28313184 = (when declared(Implotdigitalflags):
     Implotdigitalflags
    else:
-    Implotdigitalflags_28313033)
-  Imvectorimguiviewportptr_28312504 = (when declared(Imvectorimguiviewportptr):
+    Implotdigitalflags_28313183)
+  Imvectorimguiviewportptr_28312576 = (when declared(Imvectorimguiviewportptr):
     Imvectorimguiviewportptr
    else:
-    Imvectorimguiviewportptr_28312503)
-  structimvectorimplotitem_28313222 = (when declared(structimvectorimplotitem):
+    Imvectorimguiviewportptr_28312575)
+  structimvectorimplotitem_28313444 = (when declared(structimvectorimplotitem):
     structimvectorimplotitem
    else:
-    structimvectorimplotitem_28313221)
-  Impoolimplotplot_28313252 = (when declared(Impoolimplotplot):
+    structimvectorimplotitem_28313443)
+  Impoolimplotplot_28313474 = (when declared(Impoolimplotplot):
     Impoolimplotplot
    else:
-    Impoolimplotplot_28313251)
+    Impoolimplotplot_28313473)
+  enumimguinextwindowdataflags_28312742 = (when declared(
+      enumimguinextwindowdataflags):
+    enumimguinextwindowdataflags
+   else:
+    enumimguinextwindowdataflags_28312741)
   Imguiid_28312298 = (when declared(Imguiid):
     Imguiid
    else:
     Imguiid_28312297)
-  Imnodesattributeflags_28313292 = (when declared(Imnodesattributeflags):
-    Imnodesattributeflags
-   else:
-    Imnodesattributeflags_28313291)
-  structimvectorimfontptr_28312476 = (when declared(structimvectorimfontptr):
+  structimvectorimfontptr_28312546 = (when declared(structimvectorimfontptr):
     structimvectorimfontptr
    else:
-    structimvectorimfontptr_28312475)
-  Imguilockey_28312766 = (when declared(Imguilockey):
+    structimvectorimfontptr_28312545)
+  Imguilockey_28312908 = (when declared(Imguilockey):
     Imguilockey
    else:
-    Imguilockey_28312765)
-  Imchunkstreamimguiwindowsettings_28312868 = (when declared(
+    Imguilockey_28312907)
+  Imnodesattributeflags_28313514 = (when declared(Imnodesattributeflags):
+    Imnodesattributeflags
+   else:
+    Imnodesattributeflags_28313513)
+  enumimguipopupflags_28312348 = (when declared(enumimguipopupflags):
+    enumimguipopupflags
+   else:
+    enumimguipopupflags_28312347)
+  Imchunkstreamimguiwindowsettings_28313014 = (when declared(
       Imchunkstreamimguiwindowsettings):
     Imchunkstreamimguiwindowsettings
    else:
-    Imchunkstreamimguiwindowsettings_28312867)
-  Imvectorimdrawidx_28312436 = (when declared(Imvectorimdrawidx):
+    Imchunkstreamimguiwindowsettings_28313013)
+  Imvectorimdrawidx_28312500 = (when declared(Imvectorimdrawidx):
     Imvectorimdrawidx
    else:
-    Imvectorimdrawidx_28312435)
-  Imvectorimdrawchannel_28312440 = (when declared(Imvectorimdrawchannel):
+    Imvectorimdrawidx_28312499)
+  Imvectorimdrawchannel_28312504 = (when declared(Imvectorimdrawchannel):
     Imvectorimdrawchannel
    else:
-    Imvectorimdrawchannel_28312439)
-  Implotformatter_28313144 = (when declared(Implotformatter):
+    Imvectorimdrawchannel_28312503)
+  Implotformatter_28313360 = (when declared(Implotformatter):
     Implotformatter
    else:
-    Implotformatter_28313143)
+    Implotformatter_28313359)
   Imguifocusedflags_28312264 = (when declared(Imguifocusedflags):
     Imguifocusedflags
    else:
     Imguifocusedflags_28312263)
-  Imguiinputtextflagsenum_28312338 = (when declared(Imguiinputtextflagsenum):
-    Imguiinputtextflagsenum
+  Imguiinputtextflagstypedef_28312342 = (when declared(
+      Imguiinputtextflagstypedef):
+    Imguiinputtextflagstypedef
    else:
-    Imguiinputtextflagsenum_28312337)
-  Imguitablecelldata_28312894 = (when declared(Imguitablecelldata):
+    Imguiinputtextflagstypedef_28312341)
+  Imguitablecelldata_28313044 = (when declared(Imguitablecelldata):
     Imguitablecelldata
    else:
-    Imguitablecelldata_28312893)
-  Implotsubplotflags_28312998 = (when declared(Implotsubplotflags):
+    Imguitablecelldata_28313043)
+  Implotsubplotflags_28313148 = (when declared(Implotsubplotflags):
     Implotsubplotflags
    else:
-    Implotsubplotflags_28312997)
-  Implotshadedflags_28313016 = (when declared(Implotshadedflags):
+    Implotsubplotflags_28313147)
+  Implotshadedflags_28313166 = (when declared(Implotshadedflags):
     Implotshadedflags
    else:
-    Implotshadedflags_28313015)
-  Implotdummyflagsenum_28313106 = (when declared(Implotdummyflagsenum):
-    Implotdummyflagsenum
+    Implotshadedflags_28313165)
+  Implotdummyflagstypedef_28313306 = (when declared(Implotdummyflagstypedef):
+    Implotdummyflagstypedef
    else:
-    Implotdummyflagsenum_28313105)
-  Imguioldcolumnflags_28312522 = (when declared(Imguioldcolumnflags):
+    Implotdummyflagstypedef_28313305)
+  Imguioldcolumnflags_28312594 = (when declared(Imguioldcolumnflags):
     Imguioldcolumnflags
    else:
-    Imguioldcolumnflags_28312521)
+    Imguioldcolumnflags_28312593)
   Imfontglyph_28311979 = (when declared(Imfontglyph):
     Imfontglyph
    else:
     Imfontglyph_28311978)
-  Imguiselectableflagsprivate_28312596 = (when declared(
+  Imguiselectableflagsprivate_28312684 = (when declared(
       Imguiselectableflagsprivate):
     Imguiselectableflagsprivate
    else:
-    Imguiselectableflagsprivate_28312595)
-  Implotpiechartflags_28313028 = (when declared(Implotpiechartflags):
+    Imguiselectableflagsprivate_28312683)
+  Implotpiechartflags_28313178 = (when declared(Implotpiechartflags):
     Implotpiechartflags
    else:
-    Implotpiechartflags_28313027)
-  structimguistacklevelinfo_28312772 = (when declared(structimguistacklevelinfo):
+    Implotpiechartflags_28313177)
+  structimguistacklevelinfo_28312916 = (when declared(structimguistacklevelinfo):
     structimguistacklevelinfo
    else:
-    structimguistacklevelinfo_28312771)
-  structtm_28312928 = (when declared(structtm):
+    structimguistacklevelinfo_28312915)
+  structtm_28313078 = (when declared(structtm):
     structtm
    else:
-    structtm_28312927)
+    structtm_28313077)
   Imdrawflags_28312244 = (when declared(Imdrawflags):
     Imdrawflags
    else:
     Imdrawflags_28312243)
-  Imguiinputeventmousewheel_28312662 = (when declared(Imguiinputeventmousewheel):
+  enumimplotimageflags_28313296 = (when declared(enumimplotimageflags):
+    enumimplotimageflags
+   else:
+    enumimplotimageflags_28313295)
+  Imguiinputeventmousewheel_28312780 = (when declared(Imguiinputeventmousewheel):
     Imguiinputeventmousewheel
    else:
-    Imguiinputeventmousewheel_28312661)
+    Imguiinputeventmousewheel_28312779)
+  enumimplotbargroupsflags_28313264 = (when declared(enumimplotbargroupsflags):
+    enumimplotbargroupsflags
+   else:
+    enumimplotbargroupsflags_28313263)
   structimguipopupdata_28312166 = (when declared(structimguipopupdata):
     structimguipopupdata
    else:
@@ -6026,31 +6380,40 @@ type
     Imguitablerowflags
    else:
     Imguitablerowflags_28312285)
-  Implotaxisflags_28312996 = (when declared(Implotaxisflags):
-    Implotaxisflags
+  enumimguitabbarflagsprivate_28313028 = (when declared(
+      enumimguitabbarflagsprivate):
+    enumimguitabbarflagsprivate
    else:
-    Implotaxisflags_28312995)
+    enumimguitabbarflagsprivate_28313027)
   structimguinextitemdata_28312154 = (when declared(structimguinextitemdata):
     structimguinextitemdata
    else:
     structimguinextitemdata_28312153)
-  structimvectorimguikeyroutingdata_28312700 = (when declared(
+  structimvectorimguikeyroutingdata_28312818 = (when declared(
       structimvectorimguikeyroutingdata):
     structimvectorimguikeyroutingdata
    else:
-    structimvectorimguikeyroutingdata_28312699)
+    structimvectorimguikeyroutingdata_28312817)
   Imguidatatypeinfo_28312098 = (when declared(Imguidatatypeinfo):
     Imguidatatypeinfo
    else:
     Imguidatatypeinfo_28312097)
+  Implotaxisflags_28313146 = (when declared(Implotaxisflags):
+    Implotaxisflags
+   else:
+    Implotaxisflags_28313145)
+  enumimguiaxis_28312714 = (when declared(enumimguiaxis):
+    enumimguiaxis
+   else:
+    enumimguiaxis_28312713)
   Imguibackendflags_28312250 = (when declared(Imguibackendflags):
     Imguibackendflags
    else:
     Imguibackendflags_28312249)
-  Imguiitemflags_28312518 = (when declared(Imguiitemflags):
+  Imguiitemflags_28312590 = (when declared(Imguiitemflags):
     Imguiitemflags
    else:
-    Imguiitemflags_28312517)
+    Imguiitemflags_28312589)
   Imguinextwindowdata_28312148 = (when declared(Imguinextwindowdata):
     Imguinextwindowdata
    else:
@@ -6059,179 +6422,203 @@ type
     Ims32
    else:
     Ims32_28312307)
-  Stbundostate_28312546 = (when declared(Stbundostate):
+  Stbundostate_28312618 = (when declared(Stbundostate):
     Stbundostate
    else:
-    Stbundostate_28312545)
-  Imguicontexthookcallback_28312782 = (when declared(Imguicontexthookcallback):
+    Stbundostate_28312617)
+  enumimguiplottype_28312718 = (when declared(enumimguiplottype):
+    enumimguiplottype
+   else:
+    enumimguiplottype_28312717)
+  Imguicontexthookcallback_28312926 = (when declared(Imguicontexthookcallback):
     Imguicontexthookcallback
    else:
-    Imguicontexthookcallback_28312781)
-  Implotcond_28313042 = (when declared(Implotcond):
+    Imguicontexthookcallback_28312925)
+  Implotcond_28313192 = (when declared(Implotcond):
     Implotcond
    else:
-    Implotcond_28313041)
-  Imvectorimplotannotation_28313196 = (when declared(Imvectorimplotannotation):
+    Implotcond_28313191)
+  Imvectorimplotannotation_28313418 = (when declared(Imvectorimplotannotation):
     Imvectorimplotannotation
    else:
-    Imvectorimplotannotation_28313195)
-  structimvectorims32_28312968 = (when declared(structimvectorims32):
+    Imvectorimplotannotation_28313417)
+  structimvectorims32_28313118 = (when declared(structimvectorims32):
     structimvectorims32
    else:
-    structimvectorims32_28312967)
-  structimguilistclipperrange_28312712 = (when declared(
+    structimvectorims32_28313117)
+  structimguilistclipperrange_28312832 = (when declared(
       structimguilistclipperrange):
     structimguilistclipperrange
    else:
-    structimguilistclipperrange_28312711)
-  structlinkdetachwithmodifierclick_28313314 = (when declared(
+    structimguilistclipperrange_28312831)
+  structlinkdetachwithmodifierclick_28313546 = (when declared(
       structlinkdetachwithmodifierclick):
     structlinkdetachwithmodifierclick
    else:
-    structlinkdetachwithmodifierclick_28313313)
+    structlinkdetachwithmodifierclick_28313545)
   Imguipayload_28312015 = (when declared(Imguipayload):
     Imguipayload
    else:
     Imguipayload_28312014)
-  Imguidirenum_28312370 = (when declared(Imguidirenum):
-    Imguidirenum
+  Imguidirtypedef_28312406 = (when declared(Imguidirtypedef):
+    Imguidirtypedef
    else:
-    Imguidirenum_28312369)
-  Implotshadedflagsenum_28313082 = (when declared(Implotshadedflagsenum):
-    Implotshadedflagsenum
+    Imguidirtypedef_28312405)
+  Implotshadedflagstypedef_28313258 = (when declared(Implotshadedflagstypedef):
+    Implotshadedflagstypedef
    else:
-    Implotshadedflagsenum_28313081)
-  Stbundorecord_28312542 = (when declared(Stbundorecord):
+    Implotshadedflagstypedef_28313257)
+  Stbundorecord_28312614 = (when declared(Stbundorecord):
     Stbundorecord
    else:
-    Stbundorecord_28312541)
-  Implotheatmapflagsenum_28313096 = (when declared(Implotheatmapflagsenum):
-    Implotheatmapflagsenum
+    Stbundorecord_28312613)
+  Implotheatmapflagstypedef_28313286 = (when declared(Implotheatmapflagstypedef):
+    Implotheatmapflagstypedef
    else:
-    Implotheatmapflagsenum_28313095)
-  Imguilistclipperrange_28312710 = (when declared(Imguilistclipperrange):
+    Implotheatmapflagstypedef_28313285)
+  Imguilistclipperrange_28312830 = (when declared(Imguilistclipperrange):
     Imguilistclipperrange
    else:
-    Imguilistclipperrange_28312709)
-  Implotlegendflags_28313000 = (when declared(Implotlegendflags):
+    Imguilistclipperrange_28312829)
+  Implotlegendflags_28313150 = (when declared(Implotlegendflags):
     Implotlegendflags
    else:
-    Implotlegendflags_28312999)
-  structimplotrange_28313130 = (when declared(structimplotrange):
+    Implotlegendflags_28313149)
+  structimplotrange_28313346 = (when declared(structimplotrange):
     structimplotrange
    else:
-    structimplotrange_28313129)
+    structimplotrange_28313345)
   structimguimetricsconfig_28312146 = (when declared(structimguimetricsconfig):
     structimguimetricsconfig
    else:
     structimguimetricsconfig_28312145)
-  structformattertimedata_28313276 = (when declared(structformattertimedata):
+  structformattertimedata_28313498 = (when declared(structformattertimedata):
     structformattertimedata
    else:
-    structformattertimedata_28313275)
-  Imvectorimguitabletempdata_28312836 = (when declared(
+    structformattertimedata_28313497)
+  Imvectorimguitabletempdata_28312982 = (when declared(
       Imvectorimguitabletempdata):
     Imvectorimguitabletempdata
    else:
-    Imvectorimguitabletempdata_28312835)
-  Imguikey_28312374 = (when declared(Imguikey):
+    Imvectorimguitabletempdata_28312981)
+  Imguikey_28312414 = (when declared(Imguikey):
     Imguikey
    else:
-    Imguikey_28312373)
+    Imguikey_28312413)
+  enumimguifocusedflags_28312384 = (when declared(enumimguifocusedflags):
+    enumimguifocusedflags
+   else:
+    enumimguifocusedflags_28312383)
   Imfont_28311963 = (when declared(Imfont):
     Imfont
    else:
     Imfont_28311962)
-  Imguikeyroutingtable_28312696 = (when declared(Imguikeyroutingtable):
+  Imguikeyroutingtable_28312814 = (when declared(Imguikeyroutingtable):
     Imguikeyroutingtable
    else:
-    Imguikeyroutingtable_28312695)
-  Imguilayouttypeenum_28312608 = (when declared(Imguilayouttypeenum):
-    Imguilayouttypeenum
+    Imguikeyroutingtable_28312813)
+  enumimfontatlasflags_28312542 = (when declared(enumimfontatlasflags):
+    enumimfontatlasflags
    else:
-    Imguilayouttypeenum_28312607)
+    enumimfontatlasflags_28312541)
+  Imguilayouttypetypedef_28312708 = (when declared(Imguilayouttypetypedef):
+    Imguilayouttypetypedef
+   else:
+    Imguilayouttypetypedef_28312707)
   Imdrawlistshareddata_28311951 = (when declared(Imdrawlistshareddata):
     Imdrawlistshareddata
    else:
     Imdrawlistshareddata_28311950)
-  Implotpointerror_28313182 = (when declared(Implotpointerror):
+  Implotpointerror_28313404 = (when declared(Implotpointerror):
     Implotpointerror
    else:
-    Implotpointerror_28313181)
+    Implotpointerror_28313403)
   structimguionceuponaframe_28312013 = (when declared(structimguionceuponaframe):
     structimguionceuponaframe
    else:
     structimguionceuponaframe_28312012)
-  Imguitooltipflagsenum_28312606 = (when declared(Imguitooltipflagsenum):
-    Imguitooltipflagsenum
+  Imguitooltipflagstypedef_28312704 = (when declared(Imguitooltipflagstypedef):
+    Imguitooltipflagstypedef
    else:
-    Imguitooltipflagsenum_28312605)
-  structimguiinputeventmousewheel_28312664 = (when declared(
+    Imguitooltipflagstypedef_28312703)
+  enumimguilogtype_28312710 = (when declared(enumimguilogtype):
+    enumimguilogtype
+   else:
+    enumimguilogtype_28312709)
+  structimguiinputeventmousewheel_28312782 = (when declared(
       structimguiinputeventmousewheel):
     structimguiinputeventmousewheel
    else:
-    structimguiinputeventmousewheel_28312663)
-  Imvectorimu16_28312982 = (when declared(Imvectorimu16):
+    structimguiinputeventmousewheel_28312781)
+  Imvectorimu16_28313132 = (when declared(Imvectorimu16):
     Imvectorimu16
    else:
-    Imvectorimu16_28312981)
-  Imguitextrange_28312406 = (when declared(Imguitextrange):
+    Imvectorimu16_28313131)
+  Imguitextrange_28312470 = (when declared(Imguitextrange):
     Imguitextrange
    else:
-    Imguitextrange_28312405)
+    Imguitextrange_28312469)
   Imguitextbuffer_28312058 = (when declared(Imguitextbuffer):
     Imguitextbuffer
    else:
     Imguitextbuffer_28312057)
-  Imdrawflagsenum_28312442 = (when declared(Imdrawflagsenum):
-    Imdrawflagsenum
+  Imdrawflagstypedef_28312508 = (when declared(Imdrawflagstypedef):
+    Imdrawflagstypedef
    else:
-    Imdrawflagsenum_28312441)
-  Multipleselectmodifier_28313320 = (when declared(Multipleselectmodifier):
+    Imdrawflagstypedef_28312507)
+  Multipleselectmodifier_28313552 = (when declared(Multipleselectmodifier):
     Multipleselectmodifier
    else:
-    Multipleselectmodifier_28313319)
+    Multipleselectmodifier_28313551)
+  enumimguiinputtextflags_28312340 = (when declared(enumimguiinputtextflags):
+    enumimguiinputtextflags
+   else:
+    enumimguiinputtextflags_28312339)
   structimguisettingshandler_28312170 = (when declared(
       structimguisettingshandler):
     structimguisettingshandler
    else:
     structimguisettingshandler_28312169)
-  Imguipopupflagsenum_28312342 = (when declared(Imguipopupflagsenum):
-    Imguipopupflagsenum
+  Imguipopupflagstypedef_28312350 = (when declared(Imguipopupflagstypedef):
+    Imguipopupflagstypedef
    else:
-    Imguipopupflagsenum_28312341)
+    Imguipopupflagstypedef_28312349)
   Imguisizecallbackdata_28312038 = (when declared(Imguisizecallbackdata):
     Imguisizecallbackdata
    else:
     Imguisizecallbackdata_28312037)
-  Imvectorimguicontexthook_28312876 = (when declared(Imvectorimguicontexthook):
+  enumimguiseparatorflags_28312690 = (when declared(enumimguiseparatorflags):
+    enumimguiseparatorflags
+   else:
+    enumimguiseparatorflags_28312689)
+  Imvectorimguicontexthook_28313022 = (when declared(Imvectorimguicontexthook):
     Imvectorimguicontexthook
    else:
-    Imvectorimguicontexthook_28312875)
-  Imguidataauthorityenum_28312740 = (when declared(Imguidataauthorityenum):
-    Imguidataauthorityenum
+    Imvectorimguicontexthook_28313021)
+  Imguidataauthoritytypedef_28312876 = (when declared(Imguidataauthoritytypedef):
+    Imguidataauthoritytypedef
    else:
-    Imguidataauthorityenum_28312739)
-  Impoolimguitabbar_28312852 = (when declared(Impoolimguitabbar):
+    Imguidataauthoritytypedef_28312875)
+  Impoolimguitabbar_28312998 = (when declared(Impoolimguitabbar):
     Impoolimguitabbar
    else:
-    Impoolimguitabbar_28312851)
+    Impoolimguitabbar_28312997)
   structimguitabitem_28312186 = (when declared(structimguitabitem):
     structimguitabitem
    else:
     structimguitabitem_28312185)
-  Implotscatterflags_28313012 = (when declared(Implotscatterflags):
+  Implotscatterflags_28313162 = (when declared(Implotscatterflags):
     Implotscatterflags
    else:
-    Implotscatterflags_28313011)
-  Imdrawlistflagsenum_28312444 = (when declared(Imdrawlistflagsenum):
-    Imdrawlistflagsenum
+    Implotscatterflags_28313161)
+  Imdrawlistflagstypedef_28312512 = (when declared(Imdrawlistflagstypedef):
+    Imdrawlistflagstypedef
    else:
-    Imdrawlistflagsenum_28312443)
-  Imvectordouble_28313268 = (when declared(Imvectordouble):
+    Imdrawlistflagstypedef_28312511)
+  Imvectordouble_28313490 = (when declared(Imvectordouble):
     Imvectordouble
    else:
-    Imvectordouble_28313267)
+    Imvectordouble_28313489)
   structimdrawchannel_28311937 = (when declared(structimdrawchannel):
     structimdrawchannel
    else:
@@ -6248,148 +6635,178 @@ type
     Imguiwindowflags
    else:
     Imguiwindowflags_28312291)
-  Imguitabitemflagsenum_28312350 = (when declared(Imguitabitemflagsenum):
-    Imguitabitemflagsenum
+  Imguitabitemflagstypedef_28312366 = (when declared(Imguitabitemflagstypedef):
+    Imguitabitemflagstypedef
    else:
-    Imguitabitemflagsenum_28312349)
+    Imguitabitemflagstypedef_28312365)
   Imguipopupdata_28312164 = (when declared(Imguipopupdata):
     Imguipopupdata
    else:
     Imguipopupdata_28312163)
-  structimguitextindex_28312576 = (when declared(structimguitextindex):
+  structimguitextindex_28312648 = (when declared(structimguitextindex):
     structimguitextindex
    else:
-    structimguitextindex_28312575)
-  structimvectorimfontglyph_28312492 = (when declared(structimvectorimfontglyph):
+    structimguitextindex_28312647)
+  structimvectorimfontglyph_28312562 = (when declared(structimvectorimfontglyph):
     structimvectorimfontglyph
    else:
-    structimvectorimfontglyph_28312491)
-  Implotmousetextflagsenum_28313068 = (when declared(Implotmousetextflagsenum):
-    Implotmousetextflagsenum
+    structimvectorimfontglyph_28312561)
+  Implotmousetextflagstypedef_28313230 = (when declared(
+      Implotmousetextflagstypedef):
+    Implotmousetextflagstypedef
    else:
-    Implotmousetextflagsenum_28313067)
+    Implotmousetextflagstypedef_28313229)
+  enumimplotpiechartflags_28313280 = (when declared(enumimplotpiechartflags):
+    enumimplotpiechartflags
+   else:
+    enumimplotpiechartflags_28313279)
   Imwchar16_28312314 = (when declared(Imwchar16):
     Imwchar16
    else:
     Imwchar16_28312313)
-  Imnodescol_28313284 = (when declared(Imnodescol):
+  enumimguisortdirection_28312408 = (when declared(enumimguisortdirection):
+    enumimguisortdirection
+   else:
+    enumimguisortdirection_28312407)
+  Imnodescol_28313506 = (when declared(Imnodescol):
     Imnodescol
    else:
-    Imnodescol_28313283)
-  tm_28312926 = (when declared(tm):
+    Imnodescol_28313505)
+  tm_28313076 = (when declared(tm):
     tm
    else:
-    tm_28312925)
-  structstbundostate_28312548 = (when declared(structstbundostate):
+    tm_28313075)
+  structstbundostate_28312620 = (when declared(structstbundostate):
     structstbundostate
    else:
-    structstbundostate_28312547)
+    structstbundostate_28312619)
   Imguitablesettings_28312204 = (when declared(Imguitablesettings):
     Imguitablesettings
    else:
     Imguitablesettings_28312203)
-  structimguistacktool_28312776 = (when declared(structimguistacktool):
+  enumimguidataauthority_28312874 = (when declared(enumimguidataauthority):
+    enumimguidataauthority
+   else:
+    enumimguidataauthority_28312873)
+  structimguistacktool_28312920 = (when declared(structimguistacktool):
     structimguistacktool
    else:
-    structimguistacktool_28312775)
-  structimpoolimplotalignmentdata_28313270 = (when declared(
+    structimguistacktool_28312919)
+  structimpoolimplotalignmentdata_28313492 = (when declared(
       structimpoolimplotalignmentdata):
     structimpoolimplotalignmentdata
    else:
-    structimpoolimplotalignmentdata_28313269)
-  Imguicontexthooktype_28312784 = (when declared(Imguicontexthooktype):
+    structimpoolimplotalignmentdata_28313491)
+  Imguicontexthooktype_28312930 = (when declared(Imguicontexthooktype):
     Imguicontexthooktype
    else:
-    Imguicontexthooktype_28312783)
-  Imnodesstylevarenum_28313298 = (when declared(Imnodesstylevarenum):
-    Imnodesstylevarenum
+    Imguicontexthooktype_28312929)
+  Imnodesstylevartypedef_28313524 = (when declared(Imnodesstylevartypedef):
+    Imnodesstylevartypedef
    else:
-    Imnodesstylevarenum_28313297)
+    Imnodesstylevartypedef_28313523)
   Imfontatlasflags_28312248 = (when declared(Imfontatlasflags):
     Imfontatlasflags
    else:
     Imfontatlasflags_28312247)
-  Imguiinputeventappfocused_28312682 = (when declared(Imguiinputeventappfocused):
+  enumimguinextitemdataflags_28312746 = (when declared(
+      enumimguinextitemdataflags):
+    enumimguinextitemdataflags
+   else:
+    enumimguinextitemdataflags_28312745)
+  Imguiinputeventappfocused_28312800 = (when declared(Imguiinputeventappfocused):
     Imguiinputeventappfocused
    else:
-    Imguiinputeventappfocused_28312681)
-  structimvectorimguicolormod_28312794 = (when declared(
+    Imguiinputeventappfocused_28312799)
+  structimvectorimguicolormod_28312940 = (when declared(
       structimvectorimguicolormod):
     structimvectorimguicolormod
    else:
-    structimvectorimguicolormod_28312793)
-  structimvectorimguinavtreenodedata_28312818 = (when declared(
+    structimvectorimguicolormod_28312939)
+  structimvectorimguinavtreenodedata_28312964 = (when declared(
       structimvectorimguinavtreenodedata):
     structimvectorimguinavtreenodedata
    else:
-    structimvectorimguinavtreenodedata_28312817)
-  Implotbargroupsflags_28313020 = (when declared(Implotbargroupsflags):
+    structimvectorimguinavtreenodedata_28312963)
+  Implotbargroupsflags_28313170 = (when declared(Implotbargroupsflags):
     Implotbargroupsflags
    else:
-    Implotbargroupsflags_28313019)
-  structimguiinputeventmousebutton_28312668 = (when declared(
+    Implotbargroupsflags_28313169)
+  structimguiinputeventmousebutton_28312786 = (when declared(
       structimguiinputeventmousebutton):
     structimguiinputeventmousebutton
    else:
-    structimguiinputeventmousebutton_28312667)
-  Implottick_28312934 = (when declared(Implottick):
+    structimguiinputeventmousebutton_28312785)
+  Implottick_28313084 = (when declared(Implottick):
     Implottick
    else:
-    Implottick_28312933)
-  structimplotticker_28312962 = (when declared(structimplotticker):
+    Implottick_28313083)
+  structimplotticker_28313112 = (when declared(structimplotticker):
     structimplotticker
    else:
-    structimplotticker_28312961)
-  structimvectorimguitableinstancedata_28312910 = (when declared(
+    structimplotticker_28313111)
+  structimvectorimguitableinstancedata_28313060 = (when declared(
       structimvectorimguitableinstancedata):
     structimvectorimguitableinstancedata
    else:
-    structimvectorimguitableinstancedata_28312909)
-  Imvectorimguiitemflags_28312808 = (when declared(Imvectorimguiitemflags):
+    structimvectorimguitableinstancedata_28313059)
+  Imvectorimguiitemflags_28312954 = (when declared(Imvectorimguiitemflags):
     Imvectorimguiitemflags
    else:
-    Imvectorimguiitemflags_28312807)
-  structimplotrect_28313134 = (when declared(structimplotrect):
+    Imvectorimguiitemflags_28312953)
+  structimplotrect_28313350 = (when declared(structimplotrect):
     structimplotrect
    else:
-    structimplotrect_28313133)
-  Imguilistclipperdata_28312714 = (when declared(Imguilistclipperdata):
+    structimplotrect_28313349)
+  Imguilistclipperdata_28312834 = (when declared(Imguilistclipperdata):
     Imguilistclipperdata
    else:
-    Imguilistclipperdata_28312713)
+    Imguilistclipperdata_28312833)
   structimrect_28312080 = (when declared(structimrect):
     structimrect
    else:
     structimrect_28312079)
-  Imguitooltipflags_28312538 = (when declared(Imguitooltipflags):
+  Imguitooltipflags_28312610 = (when declared(Imguitooltipflags):
     Imguitooltipflags
    else:
-    Imguitooltipflags_28312537)
-  structimplottick_28312936 = (when declared(structimplottick):
+    Imguitooltipflags_28312609)
+  structimplottick_28313086 = (when declared(structimplottick):
     structimplottick
    else:
-    structimplottick_28312935)
-  Implotstylevar_28313046 = (when declared(Implotstylevar):
+    structimplottick_28313085)
+  Implotstylevar_28313196 = (when declared(Implotstylevar):
     Implotstylevar
    else:
-    Implotstylevar_28313045)
+    Implotstylevar_28313195)
+  enumimplotdigitalflags_28313292 = (when declared(enumimplotdigitalflags):
+    enumimplotdigitalflags
+   else:
+    enumimplotdigitalflags_28313291)
+  enumimguitableflags_28312368 = (when declared(enumimguitableflags):
+    enumimguitableflags
+   else:
+    enumimguitableflags_28312367)
   Imguitableinstancedata_28312196 = (when declared(Imguitableinstancedata):
     Imguitableinstancedata
    else:
     Imguitableinstancedata_28312195)
-  structimvectorimguidockrequest_28312754 = (when declared(
+  structimvectorimguidockrequest_28312894 = (when declared(
       structimvectorimguidockrequest):
     structimvectorimguidockrequest
    else:
-    structimvectorimguidockrequest_28312753)
+    structimvectorimguidockrequest_28312893)
   Imguigroupdata_28312114 = (when declared(Imguigroupdata):
     Imguigroupdata
    else:
     Imguigroupdata_28312113)
-  structimplotitemgroup_28313220 = (when declared(structimplotitemgroup):
+  enumimguinavmoveflags_28312854 = (when declared(enumimguinavmoveflags):
+    enumimguinavmoveflags
+   else:
+    enumimguinavmoveflags_28312853)
+  structimplotitemgroup_28313442 = (when declared(structimplotitemgroup):
     structimplotitemgroup
    else:
-    structimplotitemgroup_28313219)
+    structimplotitemgroup_28313441)
   structimdrawlist_28311949 = (when declared(structimdrawlist):
     structimdrawlist
    else:
@@ -6399,181 +6816,236 @@ type
     structimguisizecallbackdata
    else:
     structimguisizecallbackdata_28312039)
-  Implotmousetextflags_28313002 = (when declared(Implotmousetextflags):
+  Implotmousetextflags_28313152 = (when declared(Implotmousetextflags):
     Implotmousetextflags
    else:
-    Implotmousetextflags_28313001)
-  structimguiinputeventappfocused_28312684 = (when declared(
+    Implotmousetextflags_28313151)
+  structimguiinputeventappfocused_28312802 = (when declared(
       structimguiinputeventappfocused):
     structimguiinputeventappfocused
    else:
-    structimguiinputeventappfocused_28312683)
-  structimvectorimguitable_28312838 = (when declared(structimvectorimguitable):
+    structimguiinputeventappfocused_28312801)
+  structimvectorimguitable_28312984 = (when declared(structimvectorimguitable):
     structimvectorimguitable
    else:
-    structimvectorimguitable_28312837)
-  Imguikeyownerdata_28312704 = (when declared(Imguikeyownerdata):
+    structimvectorimguitable_28312983)
+  Imguikeyownerdata_28312822 = (when declared(Imguikeyownerdata):
     Imguikeyownerdata
    else:
-    Imguikeyownerdata_28312703)
+    Imguikeyownerdata_28312821)
   Imfontatlas_28311967 = (when declared(Imfontatlas):
     Imfontatlas
    else:
     Imfontatlas_28311966)
-  Implottagcollection_28313202 = (when declared(Implottagcollection):
+  enumimguidocknodestate_28312878 = (when declared(enumimguidocknodestate):
+    enumimguidocknodestate
+   else:
+    enumimguidocknodestate_28312877)
+  Implottagcollection_28313424 = (when declared(Implottagcollection):
     Implottagcollection
    else:
-    Implottagcollection_28313201)
-  Implotstemsflagsenum_28313090 = (when declared(Implotstemsflagsenum):
-    Implotstemsflagsenum
+    Implottagcollection_28313423)
+  Implotstemsflagstypedef_28313274 = (when declared(Implotstemsflagstypedef):
+    Implotstemsflagstypedef
    else:
-    Implotstemsflagsenum_28313089)
+    Implotstemsflagstypedef_28313273)
   structimguitablecolumnsortspecs_28312056 = (when declared(
       structimguitablecolumnsortspecs):
     structimguitablecolumnsortspecs
    else:
     structimguitablecolumnsortspecs_28312055)
-  Implotstemsflags_28313024 = (when declared(Implotstemsflags):
+  Implotstemsflags_28313174 = (when declared(Implotstemsflags):
     Implotstemsflags
    else:
-    Implotstemsflags_28313023)
-  structimguiinputeventmousepos_28312660 = (when declared(
+    Implotstemsflags_28313173)
+  structimguiinputeventmousepos_28312778 = (when declared(
       structimguiinputeventmousepos):
     structimguiinputeventmousepos
    else:
-    structimguiinputeventmousepos_28312659)
-  structimguikeyroutingtable_28312698 = (when declared(
+    structimguiinputeventmousepos_28312777)
+  structimguikeyroutingtable_28312816 = (when declared(
       structimguikeyroutingtable):
     structimguikeyroutingtable
    else:
-    structimguikeyroutingtable_28312697)
-  Imguiinputeventtype_28312654 = (when declared(Imguiinputeventtype):
+    structimguikeyroutingtable_28312815)
+  Imguiinputeventtype_28312770 = (when declared(Imguiinputeventtype):
     Imguiinputeventtype
    else:
-    Imguiinputeventtype_28312653)
-  structimvectorbool_28313178 = (when declared(structimvectorbool):
+    Imguiinputeventtype_28312769)
+  enumimguilockey_28312906 = (when declared(enumimguilockey):
+    enumimguilockey
+   else:
+    enumimguilockey_28312905)
+  enumimnodesattributeflags_28313534 = (when declared(enumimnodesattributeflags):
+    enumimnodesattributeflags
+   else:
+    enumimnodesattributeflags_28313533)
+  structimvectorbool_28313400 = (when declared(structimvectorbool):
     structimvectorbool
    else:
-    structimvectorbool_28313177)
+    structimvectorbool_28313399)
   structimguiviewport_28312068 = (when declared(structimguiviewport):
     structimguiviewport
    else:
     structimguiviewport_28312067)
-  Implotrect_28313132 = (when declared(Implotrect):
+  Implotrect_28313348 = (when declared(Implotrect):
     Implotrect
    else:
-    Implotrect_28313131)
-  Imnodesminimapnodehoveringcallback_28313328 = (when declared(
+    Implotrect_28313347)
+  Imnodesminimapnodehoveringcallback_28313562 = (when declared(
       Imnodesminimapnodehoveringcallback):
     Imnodesminimapnodehoveringcallback
    else:
-    Imnodesminimapnodehoveringcallback_28313327)
-  Imguiactivateflags_28312510 = (when declared(Imguiactivateflags):
+    Imnodesminimapnodehoveringcallback_28313561)
+  Imguiactivateflags_28312582 = (when declared(Imguiactivateflags):
     Imguiactivateflags
    else:
-    Imguiactivateflags_28312509)
-  Imnodesminimaplocation_28313294 = (when declared(Imnodesminimaplocation):
+    Imguiactivateflags_28312581)
+  enumimguisliderflags_28312444 = (when declared(enumimguisliderflags):
+    enumimguisliderflags
+   else:
+    enumimguisliderflags_28312443)
+  enumimguimousebutton_28312448 = (when declared(enumimguimousebutton):
+    enumimguimousebutton
+   else:
+    enumimguimousebutton_28312447)
+  Imnodesminimaplocation_28313516 = (when declared(Imnodesminimaplocation):
     Imnodesminimaplocation
    else:
-    Imnodesminimaplocation_28313293)
-  Imguicomboflagsenum_28312346 = (when declared(Imguicomboflagsenum):
-    Imguicomboflagsenum
+    Imnodesminimaplocation_28313515)
+  enumimguicomboflags_28312356 = (when declared(enumimguicomboflags):
+    enumimguicomboflags
    else:
-    Imguicomboflagsenum_28312345)
+    enumimguicomboflags_28312355)
+  enumimguiinputflags_28312826 = (when declared(enumimguiinputflags):
+    enumimguiinputflags
+   else:
+    enumimguiinputflags_28312825)
+  Imguicomboflagstypedef_28312358 = (when declared(Imguicomboflagstypedef):
+    Imguicomboflagstypedef
+   else:
+    Imguicomboflagstypedef_28312357)
   Imu32_28312310 = (when declared(Imu32):
     Imu32
    else:
     Imu32_28312309)
-  Impoolimguitable_28312844 = (when declared(Impoolimguitable):
+  Impoolimguitable_28312990 = (when declared(Impoolimguitable):
     Impoolimguitable
    else:
-    Impoolimguitable_28312843)
-  structimvectorimguioldcolumns_28312878 = (when declared(
+    Impoolimguitable_28312989)
+  enumimguiscrollflags_28312846 = (when declared(enumimguiscrollflags):
+    enumimguiscrollflags
+   else:
+    enumimguiscrollflags_28312845)
+  enumimplotcolormapscaleflags_28313236 = (when declared(
+      enumimplotcolormapscaleflags):
+    enumimplotcolormapscaleflags
+   else:
+    enumimplotcolormapscaleflags_28313235)
+  enumimguicontexthooktype_28312928 = (when declared(enumimguicontexthooktype):
+    enumimguicontexthooktype
+   else:
+    enumimguicontexthooktype_28312927)
+  structimvectorimguioldcolumns_28313024 = (when declared(
       structimvectorimguioldcolumns):
     structimvectorimguioldcolumns
    else:
-    structimvectorimguioldcolumns_28312877)
+    structimvectorimguioldcolumns_28313023)
   Imguitabbar_28312180 = (when declared(Imguitabbar):
     Imguitabbar
    else:
     Imguitabbar_28312179)
+  enumimguibuttonflagsprivate_28312670 = (when declared(
+      enumimguibuttonflagsprivate):
+    enumimguibuttonflagsprivate
+   else:
+    enumimguibuttonflagsprivate_28312669)
+  enumimguicol_28312428 = (when declared(enumimguicol):
+    enumimguicol
+   else:
+    enumimguicol_28312427)
   Imguitablesortspecs_28312050 = (when declared(Imguitablesortspecs):
     Imguitablesortspecs
    else:
     Imguitablesortspecs_28312049)
-  Implotticker_28312960 = (when declared(Implotticker):
+  Implotticker_28313110 = (when declared(Implotticker):
     Implotticker
    else:
-    Implotticker_28312959)
-  Implotcol_28313044 = (when declared(Implotcol):
+    Implotticker_28313109)
+  Implotcol_28313194 = (when declared(Implotcol):
     Implotcol
    else:
-    Implotcol_28313043)
-  Implotbin_28313056 = (when declared(Implotbin):
+    Implotcol_28313193)
+  Implotbin_28313206 = (when declared(Implotbin):
     Implotbin
    else:
-    Implotbin_28313055)
-  Glfwwindow_28312922 = (when declared(Glfwwindow):
+    Implotbin_28313205)
+  Glfwwindow_28313072 = (when declared(Glfwwindow):
     Glfwwindow
    else:
-    Glfwwindow_28312921)
-  Imvectorimguisettingshandler_28312864 = (when declared(
+    Glfwwindow_28313071)
+  Imvectorimguisettingshandler_28313010 = (when declared(
       Imvectorimguisettingshandler):
     Imvectorimguisettingshandler
    else:
-    Imvectorimguisettingshandler_28312863)
-  structimvectorimguistacklevelinfo_28312778 = (when declared(
+    Imvectorimguisettingshandler_28313009)
+  structimvectorimguistacklevelinfo_28312922 = (when declared(
       structimvectorimguistacklevelinfo):
     structimvectorimguistacklevelinfo
    else:
-    structimvectorimguistacklevelinfo_28312777)
-  Implottransform_28313148 = (when declared(Implottransform):
+    structimvectorimguistacklevelinfo_28312921)
+  enumimnodespinshape_28313530 = (when declared(enumimnodespinshape):
+    enumimnodespinshape
+   else:
+    enumimnodespinshape_28313529)
+  Implottransform_28313364 = (when declared(Implottransform):
     Implottransform
    else:
-    Implottransform_28313147)
+    Implottransform_28313363)
   Imguiinputtextcallback_28312320 = (when declared(Imguiinputtextcallback):
     Imguiinputtextcallback
    else:
     Imguiinputtextcallback_28312319)
-  structimvectorimdrawvert_28312446 = (when declared(structimvectorimdrawvert):
+  structimvectorimdrawvert_28312514 = (when declared(structimvectorimdrawvert):
     structimvectorimdrawvert
    else:
-    structimvectorimdrawvert_28312445)
-  Imguiviewportp_28312762 = (when declared(Imguiviewportp):
+    structimvectorimdrawvert_28312513)
+  Imguiviewportp_28312902 = (when declared(Imguiviewportp):
     Imguiviewportp
    else:
-    Imguiviewportp_28312761)
+    Imguiviewportp_28312901)
   Imguiwindowclass_28312070 = (when declared(Imguiwindowclass):
     Imguiwindowclass
    else:
     Imguiwindowclass_28312069)
-  Imvectorimu32_28312468 = (when declared(Imvectorimu32):
+  Imvectorimu32_28312536 = (when declared(Imvectorimu32):
     Imvectorimu32
    else:
-    Imvectorimu32_28312467)
-  Imguiseparatorflagsenum_28312600 = (when declared(Imguiseparatorflagsenum):
-    Imguiseparatorflagsenum
+    Imvectorimu32_28312535)
+  Imguiseparatorflagstypedef_28312692 = (when declared(
+      Imguiseparatorflagstypedef):
+    Imguiseparatorflagstypedef
    else:
-    Imguiseparatorflagsenum_28312599)
-  structimvectorimguidocknodesettings_28312758 = (when declared(
+    Imguiseparatorflagstypedef_28312691)
+  structimvectorimguidocknodesettings_28312898 = (when declared(
       structimvectorimguidocknodesettings):
     structimvectorimguidocknodesettings
    else:
-    structimvectorimguidocknodesettings_28312757)
-  structimvectorimguiviewportptr_28312502 = (when declared(
+    structimvectorimguidocknodesettings_28312897)
+  structimvectorimguiviewportptr_28312574 = (when declared(
       structimvectorimguiviewportptr):
     structimvectorimguiviewportptr
    else:
-    structimvectorimguiviewportptr_28312501)
-  Imvectorimguikeyroutingdata_28312702 = (when declared(
+    structimvectorimguiviewportptr_28312573)
+  Imvectorimguikeyroutingdata_28312820 = (when declared(
       Imvectorimguikeyroutingdata):
     Imvectorimguikeyroutingdata
    else:
-    Imvectorimguikeyroutingdata_28312701)
-  structimvectorint_28312578 = (when declared(structimvectorint):
+    Imvectorimguikeyroutingdata_28312819)
+  structimvectorint_28312650 = (when declared(structimvectorint):
     structimvectorint
    else:
-    structimvectorint_28312577)
+    structimvectorint_28312649)
   structimguinextwindowdata_28312150 = (when declared(structimguinextwindowdata):
     structimguinextwindowdata
    else:
@@ -6582,22 +7054,36 @@ type
     Imdrawvert
    else:
     Imdrawvert_28311958)
-  structimvectorimplotrange_28313238 = (when declared(structimvectorimplotrange):
+  enumimguifocusrequestflags_28312694 = (when declared(
+      enumimguifocusrequestflags):
+    enumimguifocusrequestflags
+   else:
+    enumimguifocusrequestflags_28312693)
+  enumimguiinputtextflagsprivate_28312666 = (when declared(
+      enumimguiinputtextflagsprivate):
+    enumimguiinputtextflagsprivate
+   else:
+    enumimguiinputtextflagsprivate_28312665)
+  structimvectorimplotrange_28313460 = (when declared(structimvectorimplotrange):
     structimvectorimplotrange
    else:
-    structimvectorimplotrange_28313237)
+    structimvectorimplotrange_28313459)
   Imguiviewport_28312066 = (when declared(Imguiviewport):
     Imguiviewport
    else:
     Imguiviewport_28312065)
-  Implotcolormapenum_28313118 = (when declared(Implotcolormapenum):
-    Implotcolormapenum
+  Implotcolormaptypedef_28313330 = (when declared(Implotcolormaptypedef):
+    Implotcolormaptypedef
    else:
-    Implotcolormapenum_28313117)
-  Implotdragtoolflags_28313004 = (when declared(Implotdragtoolflags):
+    Implotcolormaptypedef_28313329)
+  Implotdragtoolflags_28313154 = (when declared(Implotdragtoolflags):
     Implotdragtoolflags
    else:
-    Implotdragtoolflags_28313003)
+    Implotdragtoolflags_28313153)
+  enumimguitreenodeflags_28312344 = (when declared(enumimguitreenodeflags):
+    enumimguitreenodeflags
+   else:
+    enumimguitreenodeflags_28312343)
   Imguitablecolumnssettings_28312208 = (when declared(Imguitablecolumnssettings):
     Imguitablecolumnssettings
    else:
@@ -6606,168 +7092,185 @@ type
     Imguidocknodeflags
    else:
     Imguidocknodeflags_28312259)
-  Imguitablerowflagsenum_28312356 = (when declared(Imguitablerowflagsenum):
-    Imguitablerowflagsenum
+  Imguitablerowflagstypedef_28312378 = (when declared(Imguitablerowflagstypedef):
+    Imguitablerowflagstypedef
    else:
-    Imguitablerowflagsenum_28312355)
-  structimguiinputtextdeactivatedstate_28312630 = (when declared(
+    Imguitablerowflagstypedef_28312377)
+  structimguiinputtextdeactivatedstate_28312740 = (when declared(
       structimguiinputtextdeactivatedstate):
     structimguiinputtextdeactivatedstate
    else:
-    structimguiinputtextdeactivatedstate_28312629)
-  Implotannotationcollection_28313190 = (when declared(
+    structimguiinputtextdeactivatedstate_28312739)
+  Implotannotationcollection_28313412 = (when declared(
       Implotannotationcollection):
     Implotannotationcollection
    else:
-    Implotannotationcollection_28313189)
+    Implotannotationcollection_28313411)
+  enumimguibuttonflags_28312436 = (when declared(enumimguibuttonflags):
+    enumimguibuttonflags
+   else:
+    enumimguibuttonflags_28312435)
   structimguicontext_28311993 = (when declared(structimguicontext):
     structimguicontext
    else:
     structimguicontext_28311992)
-  Imguinavmoveflags_28312526 = (when declared(Imguinavmoveflags):
+  enumimguisliderflagsprivate_28312678 = (when declared(
+      enumimguisliderflagsprivate):
+    enumimguisliderflagsprivate
+   else:
+    enumimguisliderflagsprivate_28312677)
+  Imguinavmoveflags_28312598 = (when declared(Imguinavmoveflags):
     Imguinavmoveflags
    else:
-    Imguinavmoveflags_28312525)
-  Imdrawcmdheader_28312426 = (when declared(Imdrawcmdheader):
+    Imguinavmoveflags_28312597)
+  Imdrawcmdheader_28312490 = (when declared(Imdrawcmdheader):
     Imdrawcmdheader
    else:
-    Imdrawcmdheader_28312425)
-  Imnodesstyleflagsenum_28313300 = (when declared(Imnodesstyleflagsenum):
-    Imnodesstyleflagsenum
+    Imdrawcmdheader_28312489)
+  Imnodesstyleflagstypedef_28313528 = (when declared(Imnodesstyleflagstypedef):
+    Imnodesstyleflagstypedef
    else:
-    Imnodesstyleflagsenum_28313299)
-  structimplotnextplotdata_28312958 = (when declared(structimplotnextplotdata):
+    Imnodesstyleflagstypedef_28313527)
+  enumimguitabbarflags_28312360 = (when declared(enumimguitabbarflags):
+    enumimguitabbarflags
+   else:
+    enumimguitabbarflags_28312359)
+  structimplotnextplotdata_28313108 = (when declared(structimplotnextplotdata):
     structimplotnextplotdata
    else:
-    structimplotnextplotdata_28312957)
+    structimplotnextplotdata_28313107)
   structimguiplatformio_28312028 = (when declared(structimguiplatformio):
     structimguiplatformio
    else:
     structimguiplatformio_28312027)
-  Imguiinputeventtext_28312678 = (when declared(Imguiinputeventtext):
+  Imguiinputeventtext_28312796 = (when declared(Imguiinputeventtext):
     Imguiinputeventtext
    else:
-    Imguiinputeventtext_28312677)
-  structiobuf_28313332 = (when declared(structiobuf):
+    Imguiinputeventtext_28312795)
+  structiobuf_28313566 = (when declared(structiobuf):
     structiobuf
    else:
-    structiobuf_28313331)
-  structimvectorimplotplot_28313246 = (when declared(structimvectorimplotplot):
+    structiobuf_28313565)
+  structimvectorimplotplot_28313468 = (when declared(structimvectorimplotplot):
     structimvectorimplotplot
    else:
-    structimvectorimplotplot_28313245)
-  Impoolimplotalignmentdata_28313272 = (when declared(Impoolimplotalignmentdata):
+    structimvectorimplotplot_28313467)
+  Impoolimplotalignmentdata_28313494 = (when declared(Impoolimplotalignmentdata):
     Impoolimplotalignmentdata
    else:
-    Impoolimplotalignmentdata_28313271)
+    Impoolimplotalignmentdata_28313493)
   Imguiinputtextstate_28312118 = (when declared(Imguiinputtextstate):
     Imguiinputtextstate
    else:
     Imguiinputtextstate_28312117)
-  structimvectorunsignedchar_28312826 = (when declared(
+  structimvectorunsignedchar_28312972 = (when declared(
       structimvectorunsignedchar):
     structimvectorunsignedchar
    else:
-    structimvectorunsignedchar_28312825)
+    structimvectorunsignedchar_28312971)
+  enumimplotaxisflags_28313216 = (when declared(enumimplotaxisflags):
+    enumimplotaxisflags
+   else:
+    enumimplotaxisflags_28313215)
   structimguiinputtextstate_28312120 = (when declared(structimguiinputtextstate):
     structimguiinputtextstate
    else:
     structimguiinputtextstate_28312119)
-  structimvectorimguilistclipperrange_28312718 = (when declared(
+  structimvectorimguilistclipperrange_28312838 = (when declared(
       structimvectorimguilistclipperrange):
     structimvectorimguilistclipperrange
    else:
-    structimvectorimguilistclipperrange_28312717)
+    structimvectorimguilistclipperrange_28312837)
   Imguistorage_28312042 = (when declared(Imguistorage):
     Imguistorage
    else:
     Imguistorage_28312041)
-  Imvectorimguicolormod_28312796 = (when declared(Imvectorimguicolormod):
+  Imvectorimguicolormod_28312942 = (when declared(Imvectorimguicolormod):
     Imvectorimguicolormod
    else:
-    Imvectorimguicolormod_28312795)
-  Imaxis_28312992 = (when declared(Imaxis):
+    Imvectorimguicolormod_28312941)
+  Imaxis_28313142 = (when declared(Imaxis):
     Imaxis
    else:
-    Imaxis_28312991)
-  Imguimousesource_28312396 = (when declared(Imguimousesource):
+    Imaxis_28313141)
+  Imguimousesource_28312458 = (when declared(Imguimousesource):
     Imguimousesource
    else:
-    Imguimousesource_28312395)
-  Imnodescontext_28313280 = (when declared(Imnodescontext):
+    Imguimousesource_28312457)
+  Imnodescontext_28313502 = (when declared(Imnodescontext):
     Imnodescontext
    else:
-    Imnodescontext_28313279)
+    Imnodescontext_28313501)
   structimguitextbuffer_28312060 = (when declared(structimguitextbuffer):
     structimguitextbuffer
    else:
     structimguitextbuffer_28312059)
-  structimguitablecelldata_28312896 = (when declared(structimguitablecelldata):
+  structimguitablecelldata_28313046 = (when declared(structimguitablecelldata):
     structimguitablecelldata
    else:
-    structimguitablecelldata_28312895)
-  Impoolimplotitem_28313228 = (when declared(Impoolimplotitem):
+    structimguitablecelldata_28313045)
+  Impoolimplotitem_28313450 = (when declared(Impoolimplotitem):
     Impoolimplotitem
    else:
-    Impoolimplotitem_28313227)
+    Impoolimplotitem_28313449)
   structimguiplatformimedata_28312036 = (when declared(
       structimguiplatformimedata):
     structimguiplatformimedata
    else:
     structimguiplatformimedata_28312035)
-  structimvectorimfontatlascustomrect_28312480 = (when declared(
+  structimvectorimfontatlascustomrect_28312550 = (when declared(
       structimvectorimfontatlascustomrect):
     structimvectorimfontatlascustomrect
    else:
-    structimvectorimfontatlascustomrect_28312479)
-  Imnodesio_28313306 = (when declared(Imnodesio):
+    structimvectorimfontatlascustomrect_28312549)
+  Imnodesio_28313538 = (when declared(Imnodesio):
     Imnodesio
    else:
-    Imnodesio_28313305)
-  Implotitem_28312944 = (when declared(Implotitem):
+    Imnodesio_28313537)
+  Implotitem_28313094 = (when declared(Implotitem):
     Implotitem
    else:
-    Implotitem_28312943)
-  Imguitablecolumnsettings_28312918 = (when declared(Imguitablecolumnsettings):
+    Implotitem_28313093)
+  Imguitablecolumnsettings_28313068 = (when declared(Imguitablecolumnsettings):
     Imguitablecolumnsettings
    else:
-    Imguitablecolumnsettings_28312917)
-  Imguidebuglogflags_28312512 = (when declared(Imguidebuglogflags):
+    Imguitablecolumnsettings_28313067)
+  Imguidebuglogflags_28312584 = (when declared(Imguidebuglogflags):
     Imguidebuglogflags
    else:
-    Imguidebuglogflags_28312511)
+    Imguidebuglogflags_28312583)
   Imguidir_28312232 = (when declared(Imguidir):
     Imguidir
    else:
     Imguidir_28312231)
-  Imvectorimguitabitem_28312888 = (when declared(Imvectorimguitabitem):
+  Imvectorimguitabitem_28313038 = (when declared(Imvectorimguitabitem):
     Imvectorimguitabitem
    else:
-    Imvectorimguitabitem_28312887)
-  Imguidragdropflagsenum_28312366 = (when declared(Imguidragdropflagsenum):
-    Imguidragdropflagsenum
+    Imvectorimguitabitem_28313037)
+  Imguidragdropflagstypedef_28312398 = (when declared(Imguidragdropflagstypedef):
+    Imguidragdropflagstypedef
    else:
-    Imguidragdropflagsenum_28312365)
-  Imvectorimguioldcolumns_28312880 = (when declared(Imvectorimguioldcolumns):
+    Imguidragdropflagstypedef_28312397)
+  Imvectorimguioldcolumns_28313026 = (when declared(Imvectorimguioldcolumns):
     Imvectorimguioldcolumns
    else:
-    Imvectorimguioldcolumns_28312879)
+    Imvectorimguioldcolumns_28313025)
   Imguisettingshandler_28312168 = (when declared(Imguisettingshandler):
     Imguisettingshandler
    else:
     Imguisettingshandler_28312167)
-  structstbtexteditrow_28312556 = (when declared(structstbtexteditrow):
+  structstbtexteditrow_28312628 = (when declared(structstbtexteditrow):
     structstbtexteditrow
    else:
-    structstbtexteditrow_28312555)
-  structimplotpoint_28313126 = (when declared(structimplotpoint):
+    structstbtexteditrow_28312627)
+  structimplotpoint_28313342 = (when declared(structimplotpoint):
     structimplotpoint
    else:
-    structimplotpoint_28313125)
-  Implotnextitemdata_28313242 = (when declared(Implotnextitemdata):
+    structimplotpoint_28313341)
+  Implotnextitemdata_28313464 = (when declared(Implotnextitemdata):
     Implotnextitemdata
    else:
-    Implotnextitemdata_28313241)
+    Implotnextitemdata_28313463)
   structimguilocentry_28312130 = (when declared(structimguilocentry):
     structimguilocentry
    else:
@@ -6776,47 +7279,47 @@ type
     Imdrawdatabuilder
    else:
     Imdrawdatabuilder_28312081)
-  structimvectorimguiinputevent_28312786 = (when declared(
+  structimvectorimguiinputevent_28312932 = (when declared(
       structimvectorimguiinputevent):
     structimvectorimguiinputevent
    else:
-    structimvectorimguiinputevent_28312785)
-  Implotdatetimespec_28313164 = (when declared(Implotdatetimespec):
+    structimvectorimguiinputevent_28312931)
+  Implotdatetimespec_28313386 = (when declared(Implotdatetimespec):
     Implotdatetimespec
    else:
-    Implotdatetimespec_28313163)
-  Implotbarsflags_28313018 = (when declared(Implotbarsflags):
+    Implotdatetimespec_28313385)
+  Implotbarsflags_28313168 = (when declared(Implotbarsflags):
     Implotbarsflags
    else:
-    Implotbarsflags_28313017)
-  structimspanimguitablecelldata_28312906 = (when declared(
+    Implotbarsflags_28313167)
+  structimspanimguitablecelldata_28313056 = (when declared(
       structimspanimguitablecelldata):
     structimspanimguitablecelldata
    else:
-    structimspanimguitablecelldata_28312905)
+    structimspanimguitablecelldata_28313055)
   Imguinavitemdata_28312136 = (when declared(Imguinavitemdata):
     Imguinavitemdata
    else:
     Imguinavitemdata_28312135)
-  Imnodesminimaplocationenum_28313326 = (when declared(
-      Imnodesminimaplocationenum):
-    Imnodesminimaplocationenum
+  Imnodesminimaplocationtypedef_28313560 = (when declared(
+      Imnodesminimaplocationtypedef):
+    Imnodesminimaplocationtypedef
    else:
-    Imnodesminimaplocationenum_28313325)
-  structimfontatlascustomrect_28312472 = (when declared(
+    Imnodesminimaplocationtypedef_28313559)
+  structimfontatlascustomrect_28312540 = (when declared(
       structimfontatlascustomrect):
     structimfontatlascustomrect
    else:
-    structimfontatlascustomrect_28312471)
-  structimvectorimu8_28312988 = (when declared(structimvectorimu8):
+    structimfontatlascustomrect_28312539)
+  structimvectorimu8_28313138 = (when declared(structimvectorimu8):
     structimvectorimu8
    else:
-    structimvectorimu8_28312987)
-  structimvectorimguitablecolumnsortspecs_28312914 = (when declared(
+    structimvectorimu8_28313137)
+  structimvectorimguitablecolumnsortspecs_28313064 = (when declared(
       structimvectorimguitablecolumnsortspecs):
     structimvectorimguitablecolumnsortspecs
    else:
-    structimvectorimguitablecolumnsortspecs_28312913)
+    structimvectorimguitablecolumnsortspecs_28313063)
   Imguitabletempdata_28312200 = (when declared(Imguitabletempdata):
     Imguitabletempdata
    else:
@@ -6825,47 +7328,53 @@ type
     Imguitablebgtarget
    else:
     Imguitablebgtarget_28312241)
-  structimguitablecolumnsettings_28312920 = (when declared(
+  structimguitablecolumnsettings_28313070 = (when declared(
       structimguitablecolumnsettings):
     structimguitablecolumnsettings
    else:
-    structimguitablecolumnsettings_28312919)
-  Implotstylevarenum_28313112 = (when declared(Implotstylevarenum):
-    Implotstylevarenum
+    structimguitablecolumnsettings_28313069)
+  Implotstylevartypedef_28313318 = (when declared(Implotstylevartypedef):
+    Implotstylevartypedef
    else:
-    Implotstylevarenum_28313111)
-  structimvectorfloat_28312488 = (when declared(structimvectorfloat):
+    Implotstylevartypedef_28313317)
+  enumimnodesminimaplocation_28313558 = (when declared(
+      enumimnodesminimaplocation):
+    enumimnodesminimaplocation
+   else:
+    enumimnodesminimaplocation_28313557)
+  structimvectorfloat_28312558 = (when declared(structimvectorfloat):
     structimvectorfloat
    else:
-    structimvectorfloat_28312487)
-  Imvectorimguigroupdata_28312812 = (when declared(Imvectorimguigroupdata):
+    structimvectorfloat_28312557)
+  Imvectorimguigroupdata_28312958 = (when declared(Imvectorimguigroupdata):
     Imvectorimguigroupdata
    else:
-    Imvectorimguigroupdata_28312811)
-  structimguikeyroutingdata_28312694 = (when declared(structimguikeyroutingdata):
+    Imvectorimguigroupdata_28312957)
+  structimguikeyroutingdata_28312812 = (when declared(structimguikeyroutingdata):
     structimguikeyroutingdata
    else:
-    structimguikeyroutingdata_28312693)
-  Implotinflinesflagsenum_28313092 = (when declared(Implotinflinesflagsenum):
-    Implotinflinesflagsenum
+    structimguikeyroutingdata_28312811)
+  Implotinflinesflagstypedef_28313278 = (when declared(
+      Implotinflinesflagstypedef):
+    Implotinflinesflagstypedef
    else:
-    Implotinflinesflagsenum_28313091)
-  structimvectorimguitabbar_28312846 = (when declared(structimvectorimguitabbar):
+    Implotinflinesflagstypedef_28313277)
+  structimvectorimguitabbar_28312992 = (when declared(structimvectorimguitabbar):
     structimvectorimguitabbar
    else:
-    structimvectorimguitabbar_28312845)
-  Imdrawcallback_28312424 = (when declared(Imdrawcallback):
+    structimvectorimguitabbar_28312991)
+  Imdrawcallback_28312488 = (when declared(Imdrawcallback):
     Imdrawcallback
    else:
-    Imdrawcallback_28312423)
+    Imdrawcallback_28312487)
   Imfontconfig_28311975 = (when declared(Imfontconfig):
     Imfontconfig
    else:
     Imfontconfig_28311974)
-  Implotlineflagsenum_28313076 = (when declared(Implotlineflagsenum):
-    Implotlineflagsenum
+  Implotlineflagstypedef_28313246 = (when declared(Implotlineflagstypedef):
+    Implotlineflagstypedef
    else:
-    Implotlineflagsenum_28313075)
+    Implotlineflagstypedef_28313245)
   structimbitvector_28312076 = (when declared(structimbitvector):
     structimbitvector
    else:
@@ -6874,185 +7383,223 @@ type
     structimguitabbar
    else:
     structimguitabbar_28312181)
-  Implotpoint_28313124 = (when declared(Implotpoint):
+  Implotpoint_28313340 = (when declared(Implotpoint):
     Implotpoint
    else:
-    Implotpoint_28313123)
+    Implotpoint_28313339)
   Imguidragdropflags_28312262 = (when declared(Imguidragdropflags):
     Imguidragdropflags
    else:
     Imguidragdropflags_28312261)
-  Implotalignmentdata_28313214 = (when declared(Implotalignmentdata):
+  Implotalignmentdata_28313436 = (when declared(Implotalignmentdata):
     Implotalignmentdata
    else:
-    Implotalignmentdata_28313213)
-  Impoolidx_28312572 = (when declared(Impoolidx):
+    Implotalignmentdata_28313435)
+  Impoolidx_28312644 = (when declared(Impoolidx):
     Impoolidx
    else:
-    Impoolidx_28312571)
-  Imguicolenum_28312382 = (when declared(Imguicolenum):
-    Imguicolenum
+    Impoolidx_28312643)
+  Imguicoltypedef_28312430 = (when declared(Imguicoltypedef):
+    Imguicoltypedef
    else:
-    Imguicolenum_28312381)
-  Imnodespinshape_28313290 = (when declared(Imnodespinshape):
+    Imguicoltypedef_28312429)
+  enumimguidragdropflags_28312396 = (when declared(enumimguidragdropflags):
+    enumimguidragdropflags
+   else:
+    enumimguidragdropflags_28312395)
+  Imnodespinshape_28313512 = (when declared(Imnodespinshape):
     Imnodespinshape
    else:
-    Imnodespinshape_28313289)
+    Imnodespinshape_28313511)
   structimfontglyph_28311981 = (when declared(structimfontglyph):
     structimfontglyph
    else:
     structimfontglyph_28311980)
-  Imguitextflagsenum_28312604 = (when declared(Imguitextflagsenum):
-    Imguitextflagsenum
+  Imguitextflagstypedef_28312700 = (when declared(Imguitextflagstypedef):
+    Imguitextflagstypedef
    else:
-    Imguitextflagsenum_28312603)
+    Imguitextflagstypedef_28312699)
   Imdrawlistsplitter_28311955 = (when declared(Imdrawlistsplitter):
     Imdrawlistsplitter
    else:
     Imdrawlistsplitter_28311954)
-  Imspanimguitablecolumnidx_28312904 = (when declared(Imspanimguitablecolumnidx):
+  Imspanimguitablecolumnidx_28313054 = (when declared(Imspanimguitablecolumnidx):
     Imspanimguitablecolumnidx
    else:
-    Imspanimguitablecolumnidx_28312903)
+    Imspanimguitablecolumnidx_28313053)
   structimguilistclipper_28312009 = (when declared(structimguilistclipper):
     structimguilistclipper
    else:
     structimguilistclipper_28312008)
-  structimpoolimplotitem_28313226 = (when declared(structimpoolimplotitem):
+  structimpoolimplotitem_28313448 = (when declared(structimpoolimplotitem):
     structimpoolimplotitem
    else:
-    structimpoolimplotitem_28313225)
-  Implotpointgetter_28313278 = (when declared(Implotpointgetter):
-    Implotpointgetter
+    structimpoolimplotitem_28313447)
+  enumimguiselectableflags_28312352 = (when declared(enumimguiselectableflags):
+    enumimguiselectableflags
    else:
-    Implotpointgetter_28313277)
-  Imvectorimguiplatformmonitor_28312500 = (when declared(
+    enumimguiselectableflags_28312351)
+  Imvectorimguiplatformmonitor_28312572 = (when declared(
       Imvectorimguiplatformmonitor):
     Imvectorimguiplatformmonitor
    else:
-    Imvectorimguiplatformmonitor_28312499)
-  Imguiinputsource_28312656 = (when declared(Imguiinputsource):
+    Imvectorimguiplatformmonitor_28312571)
+  Imguiinputsource_28312774 = (when declared(Imguiinputsource):
     Imguiinputsource
    else:
-    Imguiinputsource_28312655)
-  structimvectorimguiitemflags_28312806 = (when declared(
+    Imguiinputsource_28312773)
+  structimvectorimguiitemflags_28312952 = (when declared(
       structimvectorimguiitemflags):
     structimvectorimguiitemflags
    else:
-    structimvectorimguiitemflags_28312805)
-  Implotscaleenum_28313114 = (when declared(Implotscaleenum):
-    Implotscaleenum
+    structimvectorimguiitemflags_28312951)
+  Implotscaletypedef_28313322 = (when declared(Implotscaletypedef):
+    Implotscaletypedef
    else:
-    Implotscaleenum_28313113)
+    Implotscaletypedef_28313321)
   structimcolor_28311989 = (when declared(structimcolor):
     structimcolor
    else:
     structimcolor_28311988)
-  Implotcolormapdata_28313174 = (when declared(Implotcolormapdata):
+  Implotcolormapdata_28313396 = (when declared(Implotcolormapdata):
     Implotcolormapdata
    else:
-    Implotcolormapdata_28313173)
+    Implotcolormapdata_28313395)
+  Implotpointgetter_28313500 = (when declared(Implotpointgetter):
+    Implotpointgetter
+   else:
+    Implotpointgetter_28313499)
   Imguitreenodeflags_28312288 = (when declared(Imguitreenodeflags):
     Imguitreenodeflags
    else:
     Imguitreenodeflags_28312287)
-  Implottimeunit_28313150 = (when declared(Implottimeunit):
+  enumimplotcol_28313312 = (when declared(enumimplotcol):
+    enumimplotcol
+   else:
+    enumimplotcol_28313311)
+  Implottimeunit_28313366 = (when declared(Implottimeunit):
     Implottimeunit
    else:
-    Implottimeunit_28313149)
-  Imnodesminimapnodehoveringcallbackuserdata_28313330 = (when declared(
+    Implottimeunit_28313365)
+  Imnodesminimapnodehoveringcallbackuserdata_28313564 = (when declared(
       Imnodesminimapnodehoveringcallbackuserdata):
     Imnodesminimapnodehoveringcallbackuserdata
    else:
-    Imnodesminimapnodehoveringcallbackuserdata_28313329)
+    Imnodesminimapnodehoveringcallbackuserdata_28313563)
+  enumimguinavinput_28312416 = (when declared(enumimguinavinput):
+    enumimguinavinput
+   else:
+    enumimguinavinput_28312415)
+  enumimplotstylevar_28313316 = (when declared(enumimplotstylevar):
+    enumimplotstylevar
+   else:
+    enumimplotstylevar_28313315)
   structimguitable_28312190 = (when declared(structimguitable):
     structimguitable
    else:
     structimguitable_28312189)
-  Imspanimguitablecelldata_28312908 = (when declared(Imspanimguitablecelldata):
+  Imspanimguitablecelldata_28313058 = (when declared(Imspanimguitablecelldata):
     Imspanimguitablecelldata
    else:
-    Imspanimguitablecelldata_28312907)
-  Imguinextwindowdataflags_28312530 = (when declared(Imguinextwindowdataflags):
+    Imspanimguitablecelldata_28313057)
+  Imguinextwindowdataflags_28312602 = (when declared(Imguinextwindowdataflags):
     Imguinextwindowdataflags
    else:
-    Imguinextwindowdataflags_28312529)
-  structimguishrinkwidthitem_28312642 = (when declared(
+    Imguinextwindowdataflags_28312601)
+  structimguishrinkwidthitem_28312756 = (when declared(
       structimguishrinkwidthitem):
     structimguishrinkwidthitem
    else:
-    structimguishrinkwidthitem_28312641)
-  Implotflags_28312994 = (when declared(Implotflags):
+    structimguishrinkwidthitem_28312755)
+  Implotflags_28313144 = (when declared(Implotflags):
     Implotflags
    else:
-    Implotflags_28312993)
-  structimvectorimplottag_28313206 = (when declared(structimvectorimplottag):
+    Implotflags_28313143)
+  structimvectorimplottag_28313428 = (when declared(structimvectorimplottag):
     structimvectorimplottag
    else:
-    structimvectorimplottag_28313205)
+    structimvectorimplottag_28313427)
   structimguidatavarinfo_28312096 = (when declared(structimguidatavarinfo):
     structimguidatavarinfo
    else:
     structimguidatavarinfo_28312095)
-  Implotscale_28313048 = (when declared(Implotscale):
+  Implotscale_28313198 = (when declared(Implotscale):
     Implotscale
    else:
-    Implotscale_28313047)
-  Imguisliderflagsprivate_28312594 = (when declared(Imguisliderflagsprivate):
+    Implotscale_28313197)
+  enumimguitooltipflags_28312702 = (when declared(enumimguitooltipflags):
+    enumimguitooltipflags
+   else:
+    enumimguitooltipflags_28312701)
+  Imguisliderflagsprivate_28312680 = (when declared(Imguisliderflagsprivate):
     Imguisliderflagsprivate
    else:
-    Imguisliderflagsprivate_28312593)
-  structimvectorimguilistclipperdata_28312830 = (when declared(
+    Imguisliderflagsprivate_28312679)
+  enumimguiwindowflags_28312336 = (when declared(enumimguiwindowflags):
+    enumimguiwindowflags
+   else:
+    enumimguiwindowflags_28312335)
+  structimvectorimguilistclipperdata_28312976 = (when declared(
       structimvectorimguilistclipperdata):
     structimvectorimguilistclipperdata
    else:
-    structimvectorimguilistclipperdata_28312829)
-  Imploterrorbarsflagsenum_28313088 = (when declared(Imploterrorbarsflagsenum):
-    Imploterrorbarsflagsenum
+    structimvectorimguilistclipperdata_28312975)
+  Imploterrorbarsflagstypedef_28313270 = (when declared(
+      Imploterrorbarsflagstypedef):
+    Imploterrorbarsflagstypedef
    else:
-    Imploterrorbarsflagsenum_28313087)
+    Imploterrorbarsflagstypedef_28313269)
   Imguidockrequest_28312106 = (when declared(Imguidockrequest):
     Imguidockrequest
    else:
     Imguidockrequest_28312105)
-  Imguierrorlogcallback_28312540 = (when declared(Imguierrorlogcallback):
+  Imguierrorlogcallback_28312612 = (when declared(Imguierrorlogcallback):
     Imguierrorlogcallback
    else:
-    Imguierrorlogcallback_28312539)
-  structimvectorimguisettingshandler_28312862 = (when declared(
+    Imguierrorlogcallback_28312611)
+  structimvectorimguisettingshandler_28313008 = (when declared(
       structimvectorimguisettingshandler):
     structimvectorimguisettingshandler
    else:
-    structimvectorimguisettingshandler_28312861)
-  Imguiptrorindex_28312644 = (when declared(Imguiptrorindex):
+    structimvectorimguisettingshandler_28313007)
+  enumimplotheatmapflags_28313284 = (when declared(enumimplotheatmapflags):
+    enumimplotheatmapflags
+   else:
+    enumimplotheatmapflags_28313283)
+  Imguiptrorindex_28312758 = (when declared(Imguiptrorindex):
     Imguiptrorindex
    else:
-    Imguiptrorindex_28312643)
+    Imguiptrorindex_28312757)
   Imguidatatype_28312230 = (when declared(Imguidatatype):
     Imguidatatype
    else:
     Imguidatatype_28312229)
-  structimguiviewportp_28312764 = (when declared(structimguiviewportp):
+  structimguiviewportp_28312904 = (when declared(structimguiviewportp):
     structimguiviewportp
    else:
-    structimguiviewportp_28312763)
-  structimvectorimdrawlistptr_28312462 = (when declared(
+    structimguiviewportp_28312903)
+  structimvectorimdrawlistptr_28312530 = (when declared(
       structimvectorimdrawlistptr):
     structimvectorimdrawlistptr
    else:
-    structimvectorimdrawlistptr_28312461)
-  Imguiitemstatusflagsenum_28312584 = (when declared(Imguiitemstatusflagsenum):
-    Imguiitemstatusflagsenum
+    structimvectorimdrawlistptr_28312529)
+  Imguiitemstatusflagstypedef_28312660 = (when declared(
+      Imguiitemstatusflagstypedef):
+    Imguiitemstatusflagstypedef
    else:
-    Imguiitemstatusflagsenum_28312583)
-  Imguiinputeventmousepos_28312658 = (when declared(Imguiinputeventmousepos):
+    Imguiitemstatusflagstypedef_28312659)
+  Imguiinputeventmousepos_28312776 = (when declared(Imguiinputeventmousepos):
     Imguiinputeventmousepos
    else:
-    Imguiinputeventmousepos_28312657)
-  Implotplot_28312952 = (when declared(Implotplot):
+    Imguiinputeventmousepos_28312775)
+  Implotplot_28313102 = (when declared(Implotplot):
     Implotplot
    else:
-    Implotplot_28312951)
+    Implotplot_28313101)
+  enumimguitablecolumnflags_28312372 = (when declared(enumimguitablecolumnflags):
+    enumimguitablecolumnflags
+   else:
+    enumimguitablecolumnflags_28312371)
   structimdrawvert_28311961 = (when declared(structimdrawvert):
     structimdrawvert
    else:
@@ -7062,108 +7609,147 @@ type
     Imguiinputtextdeactivatedata
    else:
     Imguiinputtextdeactivatedata_28312121)
+  enumimplotstemsflags_28313272 = (when declared(enumimplotstemsflags):
+    enumimplotstemsflags
+   else:
+    enumimplotstemsflags_28313271)
   Imguilocentry_28312128 = (when declared(Imguilocentry):
     Imguilocentry
    else:
     Imguilocentry_28312127)
-  Implottextflags_28313038 = (when declared(Implottextflags):
+  Implottextflags_28313188 = (when declared(Implottextflags):
     Implottextflags
    else:
-    Implottextflags_28313037)
-  Imguitablecolumnflagsenum_28312354 = (when declared(Imguitablecolumnflagsenum):
-    Imguitablecolumnflagsenum
+    Implottextflags_28313187)
+  Imguitablecolumnflagstypedef_28312374 = (when declared(
+      Imguitablecolumnflagstypedef):
+    Imguitablecolumnflagstypedef
    else:
-    Imguitablecolumnflagsenum_28312353)
+    Imguitablecolumnflagstypedef_28312373)
   Imguitablecolumn_28312192 = (when declared(Imguitablecolumn):
     Imguitablecolumn
    else:
     Imguitablecolumn_28312191)
-  Imguiinputtextdeactivatedstate_28312628 = (when declared(
+  Imguiinputtextdeactivatedstate_28312738 = (when declared(
       Imguiinputtextdeactivatedstate):
     Imguiinputtextdeactivatedstate
    else:
-    Imguiinputtextdeactivatedstate_28312627)
+    Imguiinputtextdeactivatedstate_28312737)
   Imguitabitemflags_28312280 = (when declared(Imguitabitemflags):
     Imguitabitemflags
    else:
     Imguitabitemflags_28312279)
-  structstbtexteditstate_28312552 = (when declared(structstbtexteditstate):
+  structstbtexteditstate_28312624 = (when declared(structstbtexteditstate):
     structstbtexteditstate
    else:
-    structstbtexteditstate_28312551)
-  Implotcondenum_28313108 = (when declared(Implotcondenum):
-    Implotcondenum
+    structstbtexteditstate_28312623)
+  enumimguiinputeventtype_28312768 = (when declared(enumimguiinputeventtype):
+    enumimguiinputeventtype
    else:
-    Implotcondenum_28313107)
-  structimvectorimguistylemod_28312798 = (when declared(
+    enumimguiinputeventtype_28312767)
+  Implotcondtypedef_28313310 = (when declared(Implotcondtypedef):
+    Implotcondtypedef
+   else:
+    Implotcondtypedef_28313309)
+  structimvectorimguistylemod_28312944 = (when declared(
       structimvectorimguistylemod):
     structimvectorimguistylemod
    else:
-    structimvectorimguistylemod_28312797)
-  Imvectorimwchar_28312402 = (when declared(Imvectorimwchar):
+    structimvectorimguistylemod_28312943)
+  Imvectorimwchar_28312466 = (when declared(Imvectorimwchar):
     Imvectorimwchar
    else:
-    Imvectorimwchar_28312401)
-  Implotlegendflagsenum_28313066 = (when declared(Implotlegendflagsenum):
-    Implotlegendflagsenum
+    Imvectorimwchar_28312465)
+  Implotlegendflagstypedef_28313226 = (when declared(Implotlegendflagstypedef):
+    Implotlegendflagstypedef
    else:
-    Implotlegendflagsenum_28313065)
+    Implotlegendflagstypedef_28313225)
   Imguisizecallback_28312322 = (when declared(Imguisizecallback):
     Imguisizecallback
    else:
     Imguisizecallback_28312321)
-  structimguikeyownerdata_28312706 = (when declared(structimguikeyownerdata):
+  structimguikeyownerdata_28312824 = (when declared(structimguikeyownerdata):
     structimguikeyownerdata
    else:
-    structimguikeyownerdata_28312705)
-  Impoolimplotsubplot_28313260 = (when declared(Impoolimplotsubplot):
+    structimguikeyownerdata_28312823)
+  Impoolimplotsubplot_28313482 = (when declared(Impoolimplotsubplot):
     Impoolimplotsubplot
    else:
-    Impoolimplotsubplot_28313259)
+    Impoolimplotsubplot_28313481)
   Imguitablecolumnsortspecs_28312054 = (when declared(Imguitablecolumnsortspecs):
     Imguitablecolumnsortspecs
    else:
     Imguitablecolumnsortspecs_28312053)
-  Implotinflinesflags_28313026 = (when declared(Implotinflinesflags):
+  enumimguiwindowdockstylecol_28312886 = (when declared(
+      enumimguiwindowdockstylecol):
+    enumimguiwindowdockstylecol
+   else:
+    enumimguiwindowdockstylecol_28312885)
+  enumimplotbin_28313336 = (when declared(enumimplotbin):
+    enumimplotbin
+   else:
+    enumimplotbin_28313335)
+  Implotinflinesflags_28313176 = (when declared(Implotinflinesflags):
     Implotinflinesflags
    else:
-    Implotinflinesflags_28313025)
+    Implotinflinesflags_28313175)
+  enumimguihoveredflagsprivate_28312662 = (when declared(
+      enumimguihoveredflagsprivate):
+    enumimguihoveredflagsprivate
+   else:
+    enumimguihoveredflagsprivate_28312661)
   Imdrawcmd_28311939 = (when declared(Imdrawcmd):
     Imdrawcmd
    else:
     Imdrawcmd_28311938)
-  Implotlocator_28313162 = (when declared(Implotlocator):
+  enumimplothistogramflags_28313288 = (when declared(enumimplothistogramflags):
+    enumimplothistogramflags
+   else:
+    enumimplothistogramflags_28313287)
+  Implotlocator_28313384 = (when declared(Implotlocator):
     Implotlocator
    else:
-    Implotlocator_28313161)
-  structimdrawcmdheader_28312428 = (when declared(structimdrawcmdheader):
+    Implotlocator_28313383)
+  structimdrawcmdheader_28312492 = (when declared(structimdrawcmdheader):
     structimdrawcmdheader
    else:
-    structimdrawcmdheader_28312427)
+    structimdrawcmdheader_28312491)
   Imguistyle_28312046 = (when declared(Imguistyle):
     Imguistyle
    else:
     Imguistyle_28312045)
-  Imguicondenum_28312398 = (when declared(Imguicondenum):
-    Imguicondenum
+  Imguicondtypedef_28312462 = (when declared(Imguicondtypedef):
+    Imguicondtypedef
    else:
-    Imguicondenum_28312397)
+    Imguicondtypedef_28312461)
   Imguioldcolumns_28312160 = (when declared(Imguioldcolumns):
     Imguioldcolumns
    else:
     Imguioldcolumns_28312159)
-  Imvectorbool_28313180 = (when declared(Imvectorbool):
+  Imvectorbool_28313402 = (when declared(Imvectorbool):
     Imvectorbool
    else:
-    Imvectorbool_28313179)
-  Imvectorimplottag_28313208 = (when declared(Imvectorimplottag):
+    Imvectorbool_28313401)
+  enumimguiactivateflags_28312842 = (when declared(enumimguiactivateflags):
+    enumimguiactivateflags
+   else:
+    enumimguiactivateflags_28312841)
+  enumimplotmousetextflags_28313228 = (when declared(enumimplotmousetextflags):
+    enumimplotmousetextflags
+   else:
+    enumimplotmousetextflags_28313227)
+  Imvectorimplottag_28313430 = (when declared(Imvectorimplottag):
     Imvectorimplottag
    else:
-    Imvectorimplottag_28313207)
-  Implotlineflags_28313010 = (when declared(Implotlineflags):
+    Imvectorimplottag_28313429)
+  enumimdrawlistflags_28312510 = (when declared(enumimdrawlistflags):
+    enumimdrawlistflags
+   else:
+    enumimdrawlistflags_28312509)
+  Implotlineflags_28313160 = (when declared(Implotlineflags):
     Implotlineflags
    else:
-    Implotlineflags_28313009)
+    Implotlineflags_28313159)
   Imguimenucolumns_28312132 = (when declared(Imguimenucolumns):
     Imguimenucolumns
    else:
@@ -7176,45 +7762,54 @@ type
     structimguistorage
    else:
     structimguistorage_28312043)
-  Imvectorimguishrinkwidthitem_28312860 = (when declared(
+  Imvectorimguishrinkwidthitem_28313006 = (when declared(
       Imvectorimguishrinkwidthitem):
     Imvectorimguishrinkwidthitem
    else:
-    Imvectorimguishrinkwidthitem_28312859)
-  structimspanimguitablecolumn_28312898 = (when declared(
+    Imvectorimguishrinkwidthitem_28313005)
+  enumimplotlineflags_28313244 = (when declared(enumimplotlineflags):
+    enumimplotlineflags
+   else:
+    enumimplotlineflags_28313243)
+  structimspanimguitablecolumn_28313048 = (when declared(
       structimspanimguitablecolumn):
     structimspanimguitablecolumn
    else:
-    structimspanimguitablecolumn_28312897)
+    structimspanimguitablecolumn_28313047)
   structimfontatlas_28311969 = (when declared(structimfontatlas):
     structimfontatlas
    else:
     structimfontatlas_28311968)
-  Imvectorimdrawvert_28312448 = (when declared(Imvectorimdrawvert):
+  Imvectorimdrawvert_28312516 = (when declared(Imvectorimdrawvert):
     Imvectorimdrawvert
    else:
-    Imvectorimdrawvert_28312447)
-  Imvectorimu64_28312986 = (when declared(Imvectorimu64):
+    Imvectorimdrawvert_28312515)
+  Imvectorimu64_28313136 = (when declared(Imvectorimu64):
     Imvectorimu64
    else:
-    Imvectorimu64_28312985)
-  structimvec2ih_28312568 = (when declared(structimvec2ih):
+    Imvectorimu64_28313135)
+  structimvec2ih_28312640 = (when declared(structimvec2ih):
     structimvec2ih
    else:
-    structimvec2ih_28312567)
-  structimnodesstyle_28313324 = (when declared(structimnodesstyle):
+    structimvec2ih_28312639)
+  structimnodesstyle_28313556 = (when declared(structimnodesstyle):
     structimnodesstyle
    else:
-    structimnodesstyle_28313323)
-  structimvectorimplotsubplot_28313254 = (when declared(
+    structimnodesstyle_28313555)
+  enumimguidocknodeflagsprivate_28312870 = (when declared(
+      enumimguidocknodeflagsprivate):
+    enumimguidocknodeflagsprivate
+   else:
+    enumimguidocknodeflagsprivate_28312869)
+  structimvectorimplotsubplot_28313476 = (when declared(
       structimvectorimplotsubplot):
     structimvectorimplotsubplot
    else:
-    structimvectorimplotsubplot_28313253)
-  Stbtexteditrow_28312554 = (when declared(Stbtexteditrow):
+    structimvectorimplotsubplot_28313475)
+  Stbtexteditrow_28312626 = (when declared(Stbtexteditrow):
     Stbtexteditrow
    else:
-    Stbtexteditrow_28312553)
+    Stbtexteditrow_28312625)
   Imguitable_28312188 = (when declared(Imguitable):
     Imguitable
    else:
@@ -7223,53 +7818,62 @@ type
     structimvec2
    else:
     structimvec2_28312329)
-  structimvectorimguitextrange_28312408 = (when declared(
+  structimvectorimguitextrange_28312472 = (when declared(
       structimvectorimguitextrange):
     structimvectorimguitextrange
    else:
-    structimvectorimguitextrange_28312407)
-  Implotinputmap_28313140 = (when declared(Implotinputmap):
+    structimvectorimguitextrange_28312471)
+  Implotinputmap_28313356 = (when declared(Implotinputmap):
     Implotinputmap
    else:
-    Implotinputmap_28313139)
-  Implotitemgroup_28313218 = (when declared(Implotitemgroup):
+    Implotinputmap_28313355)
+  Implotitemgroup_28313440 = (when declared(Implotitemgroup):
     Implotitemgroup
    else:
-    Implotitemgroup_28313217)
-  Imguiwindowflagsenum_28312336 = (when declared(Imguiwindowflagsenum):
-    Imguiwindowflagsenum
+    Implotitemgroup_28313439)
+  Imguiwindowflagstypedef_28312338 = (when declared(Imguiwindowflagstypedef):
+    Imguiwindowflagstypedef
    else:
-    Imguiwindowflagsenum_28312335)
-  Imvec2ih_28312566 = (when declared(Imvec2ih):
+    Imguiwindowflagstypedef_28312337)
+  Imvec2ih_28312638 = (when declared(Imvec2ih):
     Imvec2ih
    else:
-    Imvec2ih_28312565)
-  Implotstairsflags_28313014 = (when declared(Implotstairsflags):
+    Imvec2ih_28312637)
+  enumimguinavhighlightflags_28312850 = (when declared(
+      enumimguinavhighlightflags):
+    enumimguinavhighlightflags
+   else:
+    enumimguinavhighlightflags_28312849)
+  enumimguiinputsource_28312772 = (when declared(enumimguiinputsource):
+    enumimguiinputsource
+   else:
+    enumimguiinputsource_28312771)
+  Implotstairsflags_28313164 = (when declared(Implotstairsflags):
     Implotstairsflags
    else:
-    Implotstairsflags_28313013)
+    Implotstairsflags_28313163)
   Imguilistclipper_28312007 = (when declared(Imguilistclipper):
     Imguilistclipper
    else:
     Imguilistclipper_28312006)
-  structimvectorimguicontexthook_28312874 = (when declared(
+  structimvectorimguicontexthook_28313020 = (when declared(
       structimvectorimguicontexthook):
     structimvectorimguicontexthook
    else:
-    structimvectorimguicontexthook_28312873)
-  structimplotcontext_28312932 = (when declared(structimplotcontext):
+    structimvectorimguicontexthook_28313019)
+  structimplotcontext_28313082 = (when declared(structimplotcontext):
     structimplotcontext
    else:
-    structimplotcontext_28312931)
-  Implotitemflags_28313008 = (when declared(Implotitemflags):
+    structimplotcontext_28313081)
+  Implotitemflags_28313158 = (when declared(Implotitemflags):
     Implotitemflags
    else:
-    Implotitemflags_28313007)
-  Imguiinputeventmouseviewport_28312670 = (when declared(
+    Implotitemflags_28313157)
+  Imguiinputeventmouseviewport_28312788 = (when declared(
       Imguiinputeventmouseviewport):
     Imguiinputeventmouseviewport
    else:
-    Imguiinputeventmouseviewport_28312669)
+    Imguiinputeventmouseviewport_28312787)
   Ims16_28312304 = (when declared(Ims16):
     Ims16
    else:
@@ -7278,56 +7882,64 @@ type
     structimguioldcolumndata
    else:
     structimguioldcolumndata_28312157)
-  structimvectorimguiwindowptr_28312744 = (when declared(
+  enumimplotscatterflags_28313248 = (when declared(enumimplotscatterflags):
+    enumimplotscatterflags
+   else:
+    enumimplotscatterflags_28313247)
+  enumimplotdatefmt_28313376 = (when declared(enumimplotdatefmt):
+    enumimplotdatefmt
+   else:
+    enumimplotdatefmt_28313375)
+  structimvectorimguiwindowptr_28312882 = (when declared(
       structimvectorimguiwindowptr):
     structimvectorimguiwindowptr
    else:
-    structimvectorimguiwindowptr_28312743)
-  Imvectorimguidockrequest_28312756 = (when declared(Imvectorimguidockrequest):
+    structimvectorimguiwindowptr_28312881)
+  Imvectorimguidockrequest_28312896 = (when declared(Imvectorimguidockrequest):
     Imvectorimguidockrequest
    else:
-    Imvectorimguidockrequest_28312755)
-  Implotheatmapflags_28313030 = (when declared(Implotheatmapflags):
+    Imvectorimguidockrequest_28312895)
+  Implotheatmapflags_28313180 = (when declared(Implotheatmapflags):
     Implotheatmapflags
    else:
-    Implotheatmapflags_28313029)
-  structimguidatatypetempstorage_28312620 = (when declared(
+    Implotheatmapflags_28313179)
+  structimguidatatypetempstorage_28312728 = (when declared(
       structimguidatatypetempstorage):
     structimguidatatypetempstorage
    else:
-    structimguidatatypetempstorage_28312619)
-  structimvectorims8_28312976 = (when declared(structimvectorims8):
+    structimguidatatypetempstorage_28312727)
+  structimvectorims8_28313126 = (when declared(structimvectorims8):
     structimvectorims8
    else:
-    structimvectorims8_28312975)
-  File_28312560 = (when declared(File):
+    structimvectorims8_28313125)
+  File_28312632 = (when declared(File):
     File
    else:
-    File_28312559)
+    File_28312631)
   Imcolor_28311987 = (when declared(Imcolor):
     Imcolor
    else:
     Imcolor_28311986)
-  Implotcolormap_28313052 = (when declared(Implotcolormap):
+  Implotcolormap_28313202 = (when declared(Implotcolormap):
     Implotcolormap
    else:
-    Implotcolormap_28313051)
-  Imfontatlascustomrect_28312470 = (when declared(Imfontatlascustomrect):
+    Implotcolormap_28313201)
+  Imfontatlascustomrect_28312538 = (when declared(Imfontatlascustomrect):
     Imfontatlascustomrect
    else:
-    Imfontatlascustomrect_28312469)
-  structimplotpointerror_28313184 = (when declared(structimplotpointerror):
+    Imfontatlascustomrect_28312537)
+  structimplotpointerror_28313406 = (when declared(structimplotpointerror):
     structimplotpointerror
    else:
-    structimplotpointerror_28313183)
+    structimplotpointerror_28313405)
   structimguidockcontext_28312104 = (when declared(structimguidockcontext):
     structimguidockcontext
    else:
     structimguidockcontext_28312103)
-  Implotbarsflagsenum_28313084 = (when declared(Implotbarsflagsenum):
-    Implotbarsflagsenum
+  Implotbarsflagstypedef_28313262 = (when declared(Implotbarsflagstypedef):
+    Implotbarsflagstypedef
    else:
-    Implotbarsflagsenum_28313083)
+    Implotbarsflagstypedef_28313261)
   structimguitableinstancedata_28312198 = (when declared(
       structimguitableinstancedata):
     structimguitableinstancedata
@@ -7337,37 +7949,46 @@ type
     Imguilastitemdata
    else:
     Imguilastitemdata_28312123)
-  Imguinavhighlightflagsenum_28312726 = (when declared(
-      Imguinavhighlightflagsenum):
-    Imguinavhighlightflagsenum
+  Imguinavhighlightflagstypedef_28312852 = (when declared(
+      Imguinavhighlightflagstypedef):
+    Imguinavhighlightflagstypedef
    else:
-    Imguinavhighlightflagsenum_28312725)
-  structimvectorimplotalignmentdata_28313234 = (when declared(
+    Imguinavhighlightflagstypedef_28312851)
+  structimvectorimplotalignmentdata_28313456 = (when declared(
       structimvectorimplotalignmentdata):
     structimvectorimplotalignmentdata
    else:
-    structimvectorimplotalignmentdata_28313233)
-  Imguioldcolumnflagsenum_28312732 = (when declared(Imguioldcolumnflagsenum):
-    Imguioldcolumnflagsenum
+    structimvectorimplotalignmentdata_28313455)
+  Imguioldcolumnflagstypedef_28312864 = (when declared(
+      Imguioldcolumnflagstypedef):
+    Imguioldcolumnflagstypedef
    else:
-    Imguioldcolumnflagsenum_28312731)
+    Imguioldcolumnflagstypedef_28312863)
+  enumimguihoveredflags_28312388 = (when declared(enumimguihoveredflags):
+    enumimguihoveredflags
+   else:
+    enumimguihoveredflags_28312387)
   Imguicond_28312228 = (when declared(Imguicond):
     Imguicond
    else:
     Imguicond_28312227)
-  structimvectorimguitabitem_28312886 = (when declared(
+  enumimguimousecursor_28312452 = (when declared(enumimguimousecursor):
+    enumimguimousecursor
+   else:
+    enumimguimousecursor_28312451)
+  structimvectorimguitabitem_28313036 = (when declared(
       structimvectorimguitabitem):
     structimvectorimguitabitem
    else:
-    structimvectorimguitabitem_28312885)
-  Imguiinputevent_28312686 = (when declared(Imguiinputevent):
+    structimvectorimguitabitem_28313035)
+  Imguiinputevent_28312804 = (when declared(Imguiinputevent):
     Imguiinputevent
    else:
-    Imguiinputevent_28312685)
-  structimvectorimu64_28312984 = (when declared(structimvectorimu64):
+    Imguiinputevent_28312803)
+  structimvectorimu64_28313134 = (when declared(structimvectorimu64):
     structimvectorimu64
    else:
-    structimvectorimu64_28312983)
+    structimvectorimu64_28313133)
 when not declared(structimguiio):
   type
     structimguiio* = structimguiio_28311996
@@ -7383,14 +8004,28 @@ else:
     hint("Declaration of " & "Imwchar32" & " already exists, not redeclaring")
 when not declared(structimguitextrange):
   type
-    structimguitextrange* = structimguitextrange_28312403
+    structimguitextrange* = structimguitextrange_28312467
 else:
   static :
     hint("Declaration of " & "structimguitextrange" &
         " already exists, not redeclaring")
+when not declared(Imguihoveredflagsprivate):
+  type
+    Imguihoveredflagsprivate* = Imguihoveredflagsprivate_28312663
+else:
+  static :
+    hint("Declaration of " & "Imguihoveredflagsprivate" &
+        " already exists, not redeclaring")
+when not declared(Imguipopuppositionpolicy):
+  type
+    Imguipopuppositionpolicy* = Imguipopuppositionpolicy_28312723
+else:
+  static :
+    hint("Declaration of " & "Imguipopuppositionpolicy" &
+        " already exists, not redeclaring")
 when not declared(structimplotsubplot):
   type
-    structimplotsubplot* = structimplotsubplot_28313231
+    structimplotsubplot* = structimplotsubplot_28313453
 else:
   static :
     hint("Declaration of " & "structimplotsubplot" &
@@ -7404,35 +8039,35 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvectorimfontptr):
   type
-    Imvectorimfontptr* = Imvectorimfontptr_28312477
+    Imvectorimfontptr* = Imvectorimfontptr_28312547
 else:
   static :
     hint("Declaration of " & "Imvectorimfontptr" &
         " already exists, not redeclaring")
 when not declared(Imvectorimdrawcmd):
   type
-    Imvectorimdrawcmd* = Imvectorimdrawcmd_28312431
+    Imvectorimdrawcmd* = Imvectorimdrawcmd_28312495
 else:
   static :
     hint("Declaration of " & "Imvectorimdrawcmd" &
         " already exists, not redeclaring")
 when not declared(structimspanimguitablecolumnidx):
   type
-    structimspanimguitablecolumnidx* = structimspanimguitablecolumnidx_28312901
+    structimspanimguitablecolumnidx* = structimspanimguitablecolumnidx_28313051
 else:
   static :
     hint("Declaration of " & "structimspanimguitablecolumnidx" &
         " already exists, not redeclaring")
 when not declared(Implotaxiscolor):
   type
-    Implotaxiscolor* = Implotaxiscolor_28312941
+    Implotaxiscolor* = Implotaxiscolor_28313091
 else:
   static :
     hint("Declaration of " & "Implotaxiscolor" &
         " already exists, not redeclaring")
 when not declared(Imvectorimfontglyph):
   type
-    Imvectorimfontglyph* = Imvectorimfontglyph_28312493
+    Imvectorimfontglyph* = Imvectorimfontglyph_28312563
 else:
   static :
     hint("Declaration of " & "Imvectorimfontglyph" &
@@ -7446,7 +8081,7 @@ else:
         " already exists, not redeclaring")
 when not declared(structimplotannotation):
   type
-    structimplotannotation* = structimplotannotation_28313187
+    structimplotannotation* = structimplotannotation_28313409
 else:
   static :
     hint("Declaration of " & "structimplotannotation" &
@@ -7466,10 +8101,24 @@ else:
     hint("Declaration of " & "Imbitvector" & " already exists, not redeclaring")
 when not declared(structimvectorimdrawidx):
   type
-    structimvectorimdrawidx* = structimvectorimdrawidx_28312433
+    structimvectorimdrawidx* = structimvectorimdrawidx_28312497
 else:
   static :
     hint("Declaration of " & "structimvectorimdrawidx" &
+        " already exists, not redeclaring")
+when not declared(Implottextflagstypedef):
+  type
+    Implottextflagstypedef* = Implottextflagstypedef_28313301
+else:
+  static :
+    hint("Declaration of " & "Implottextflagstypedef" &
+        " already exists, not redeclaring")
+when not declared(Implothistogramflagstypedef):
+  type
+    Implothistogramflagstypedef* = Implothistogramflagstypedef_28313289
+else:
+  static :
+    hint("Declaration of " & "Implothistogramflagstypedef" &
         " already exists, not redeclaring")
 when not declared(Imguitableflags):
   type
@@ -7480,7 +8129,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvectorimplotalignmentdata):
   type
-    Imvectorimplotalignmentdata* = Imvectorimplotalignmentdata_28313235
+    Imvectorimplotalignmentdata* = Imvectorimplotalignmentdata_28313457
 else:
   static :
     hint("Declaration of " & "Imvectorimplotalignmentdata" &
@@ -7494,14 +8143,14 @@ else:
         " already exists, not redeclaring")
 when not declared(structimpoolimguitable):
   type
-    structimpoolimguitable* = structimpoolimguitable_28312841
+    structimpoolimguitable* = structimpoolimguitable_28312987
 else:
   static :
     hint("Declaration of " & "structimpoolimguitable" &
         " already exists, not redeclaring")
 when not declared(Imvectorimu8):
   type
-    Imvectorimu8* = Imvectorimu8_28312989
+    Imvectorimu8* = Imvectorimu8_28313139
 else:
   static :
     hint("Declaration of " & "Imvectorimu8" & " already exists, not redeclaring")
@@ -7514,42 +8163,70 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguitabledrawchannelidx):
   type
-    Imguitabledrawchannelidx* = Imguitabledrawchannelidx_28312891
+    Imguitabledrawchannelidx* = Imguitabledrawchannelidx_28313041
 else:
   static :
     hint("Declaration of " & "Imguitabledrawchannelidx" &
         " already exists, not redeclaring")
 when not declared(Implotdummyflags):
   type
-    Implotdummyflags* = Implotdummyflags_28313039
+    Implotdummyflags* = Implotdummyflags_28313189
 else:
   static :
     hint("Declaration of " & "Implotdummyflags" &
         " already exists, not redeclaring")
+when not declared(Imguicomboflagsprivate):
+  type
+    Imguicomboflagsprivate* = Imguicomboflagsprivate_28312675
+else:
+  static :
+    hint("Declaration of " & "Imguicomboflagsprivate" &
+        " already exists, not redeclaring")
 when not declared(Implotnextplotdata):
   type
-    Implotnextplotdata* = Implotnextplotdata_28312955
+    Implotnextplotdata* = Implotnextplotdata_28313105
 else:
   static :
     hint("Declaration of " & "Implotnextplotdata" &
         " already exists, not redeclaring")
+when not declared(Imguiconfigflagstypedef):
+  type
+    Imguiconfigflagstypedef* = Imguiconfigflagstypedef_28312421
+else:
+  static :
+    hint("Declaration of " & "Imguiconfigflagstypedef" &
+        " already exists, not redeclaring")
+when not declared(Imguisortdirectiontypedef):
+  type
+    Imguisortdirectiontypedef* = Imguisortdirectiontypedef_28312409
+else:
+  static :
+    hint("Declaration of " & "Imguisortdirectiontypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguinextitemdataflags):
   type
-    Imguinextitemdataflags* = Imguinextitemdataflags_28312527
+    Imguinextitemdataflags* = Imguinextitemdataflags_28312599
 else:
   static :
     hint("Declaration of " & "Imguinextitemdataflags" &
         " already exists, not redeclaring")
 when not declared(Imnodesstylevar):
   type
-    Imnodesstylevar* = Imnodesstylevar_28313285
+    Imnodesstylevar* = Imnodesstylevar_28313507
 else:
   static :
     hint("Declaration of " & "Imnodesstylevar" &
         " already exists, not redeclaring")
+when not declared(Imguibuttonflagsprivate):
+  type
+    Imguibuttonflagsprivate* = Imguibuttonflagsprivate_28312671
+else:
+  static :
+    hint("Declaration of " & "Imguibuttonflagsprivate" &
+        " already exists, not redeclaring")
 when not declared(structimvectorimguioldcolumndata):
   type
-    structimvectorimguioldcolumndata* = structimvectorimguioldcolumndata_28312733
+    structimvectorimguioldcolumndata* = structimvectorimguioldcolumndata_28312865
 else:
   static :
     hint("Declaration of " & "structimvectorimguioldcolumndata" &
@@ -7562,13 +8239,13 @@ else:
     hint("Declaration of " & "Imguiwindow" & " already exists, not redeclaring")
 when not declared(Imfilehandle):
   type
-    Imfilehandle* = Imfilehandle_28312557
+    Imfilehandle* = Imfilehandle_28312629
 else:
   static :
     hint("Declaration of " & "Imfilehandle" & " already exists, not redeclaring")
 when not declared(Imspanimguitablecolumn):
   type
-    Imspanimguitablecolumn* = Imspanimguitablecolumn_28312899
+    Imspanimguitablecolumn* = Imspanimguitablecolumn_28313049
 else:
   static :
     hint("Declaration of " & "Imspanimguitablecolumn" &
@@ -7582,42 +8259,42 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiseparatorflags):
   type
-    Imguiseparatorflags* = Imguiseparatorflags_28312533
+    Imguiseparatorflags* = Imguiseparatorflags_28312605
 else:
   static :
     hint("Declaration of " & "Imguiseparatorflags" &
         " already exists, not redeclaring")
 when not declared(Imbitarrayptr):
   type
-    Imbitarrayptr* = Imbitarrayptr_28312569
+    Imbitarrayptr* = Imbitarrayptr_28312641
 else:
   static :
     hint("Declaration of " & "Imbitarrayptr" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguiptrorindex):
   type
-    structimvectorimguiptrorindex* = structimvectorimguiptrorindex_28312853
+    structimvectorimguiptrorindex* = structimvectorimguiptrorindex_28312999
 else:
   static :
     hint("Declaration of " & "structimvectorimguiptrorindex" &
         " already exists, not redeclaring")
 when not declared(structimguiinputeventkey):
   type
-    structimguiinputeventkey* = structimguiinputeventkey_28312675
+    structimguiinputeventkey* = structimguiinputeventkey_28312793
 else:
   static :
     hint("Declaration of " & "structimguiinputeventkey" &
         " already exists, not redeclaring")
 when not declared(Imvectorimvec2):
   type
-    Imvectorimvec2* = Imvectorimvec2_28312459
+    Imvectorimvec2* = Imvectorimvec2_28312527
 else:
   static :
     hint("Declaration of " & "Imvectorimvec2" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguinavtreenodedata):
   type
-    Imvectorimguinavtreenodedata* = Imvectorimguinavtreenodedata_28312819
+    Imvectorimguinavtreenodedata* = Imvectorimguinavtreenodedata_28312965
 else:
   static :
     hint("Declaration of " & "Imvectorimguinavtreenodedata" &
@@ -7638,16 +8315,23 @@ else:
         " already exists, not redeclaring")
 when not declared(structimvec1):
   type
-    structimvec1* = structimvec1_28312563
+    structimvec1* = structimvec1_28312635
 else:
   static :
     hint("Declaration of " & "structimvec1" & " already exists, not redeclaring")
 when not declared(Imguitextflags):
   type
-    Imguitextflags* = Imguitextflags_28312535
+    Imguitextflags* = Imguitextflags_28312607
 else:
   static :
     hint("Declaration of " & "Imguitextflags" &
+        " already exists, not redeclaring")
+when not declared(Implottimeunittypedef):
+  type
+    Implottimeunittypedef* = Implottimeunittypedef_28313373
+else:
+  static :
+    hint("Declaration of " & "Implottimeunittypedef" &
         " already exists, not redeclaring")
 when not declared(Imfontglyphrangesbuilder):
   type
@@ -7683,6 +8367,13 @@ else:
   static :
     hint("Declaration of " & "structimfontbuilderio" &
         " already exists, not redeclaring")
+when not declared(Imguibackendflagstypedef):
+  type
+    Imguibackendflagstypedef* = Imguibackendflagstypedef_28312425
+else:
+  static :
+    hint("Declaration of " & "Imguibackendflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguisliderflags):
   type
     Imguisliderflags* = Imguisliderflags_28312275
@@ -7692,7 +8383,7 @@ else:
         " already exists, not redeclaring")
 when not declared(structimpoolimplotsubplot):
   type
-    structimpoolimplotsubplot* = structimpoolimplotsubplot_28313257
+    structimpoolimplotsubplot* = structimpoolimplotsubplot_28313479
 else:
   static :
     hint("Declaration of " & "structimpoolimplotsubplot" &
@@ -7705,34 +8396,34 @@ else:
     hint("Declaration of " & "Imtextureid" & " already exists, not redeclaring")
 when not declared(Imguistacktool):
   type
-    Imguistacktool* = Imguistacktool_28312773
+    Imguistacktool* = Imguistacktool_28312917
 else:
   static :
     hint("Declaration of " & "Imguistacktool" &
         " already exists, not redeclaring")
 when not declared(Imvectorfloat):
   type
-    Imvectorfloat* = Imvectorfloat_28312489
+    Imvectorfloat* = Imvectorfloat_28312559
 else:
   static :
     hint("Declaration of " & "Imvectorfloat" &
         " already exists, not redeclaring")
 when not declared(Imguidataauthority):
   type
-    Imguidataauthority* = Imguidataauthority_28312505
+    Imguidataauthority* = Imguidataauthority_28312577
 else:
   static :
     hint("Declaration of " & "Imguidataauthority" &
         " already exists, not redeclaring")
 when not declared(Implottime):
   type
-    Implottime* = Implottime_28313167
+    Implottime* = Implottime_28313389
 else:
   static :
     hint("Declaration of " & "Implottime" & " already exists, not redeclaring")
 when not declared(structimvectorimguiwindowstackdata):
   type
-    structimvectorimguiwindowstackdata* = structimvectorimguiwindowstackdata_28312789
+    structimvectorimguiwindowstackdata* = structimvectorimguiwindowstackdata_28312935
 else:
   static :
     hint("Declaration of " & "structimvectorimguiwindowstackdata" &
@@ -7744,9 +8435,16 @@ else:
   static :
     hint("Declaration of " & "structimfontglyphrangesbuilder" &
         " already exists, not redeclaring")
+when not declared(Imguitablebgtargettypedef):
+  type
+    Imguitablebgtargettypedef* = Imguitablebgtargettypedef_28312381
+else:
+  static :
+    hint("Declaration of " & "Imguitablebgtargettypedef" &
+        " already exists, not redeclaring")
 when not declared(structimvectorimdrawcmd):
   type
-    structimvectorimdrawcmd* = structimvectorimdrawcmd_28312429
+    structimvectorimdrawcmd* = structimvectorimdrawcmd_28312493
 else:
   static :
     hint("Declaration of " & "structimvectorimdrawcmd" &
@@ -7760,7 +8458,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguicombopreviewdata):
   type
-    Imguicombopreviewdata* = Imguicombopreviewdata_28312623
+    Imguicombopreviewdata* = Imguicombopreviewdata_28312733
 else:
   static :
     hint("Declaration of " & "Imguicombopreviewdata" &
@@ -7781,7 +8479,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotannotation):
   type
-    Implotannotation* = Implotannotation_28313185
+    Implotannotation* = Implotannotation_28313407
 else:
   static :
     hint("Declaration of " & "Implotannotation" &
@@ -7792,6 +8490,20 @@ when not declared(Imwchar):
 else:
   static :
     hint("Declaration of " & "Imwchar" & " already exists, not redeclaring")
+when not declared(Imguitabbarflagstypedef):
+  type
+    Imguitabbarflagstypedef* = Imguitabbarflagstypedef_28312361
+else:
+  static :
+    hint("Declaration of " & "Imguitabbarflagstypedef" &
+        " already exists, not redeclaring")
+when not declared(Imguidocknodestate):
+  type
+    Imguidocknodestate* = Imguidocknodestate_28312879
+else:
+  static :
+    hint("Declaration of " & "Imguidocknodestate" &
+        " already exists, not redeclaring")
 when not declared(structimguioldcolumns):
   type
     structimguioldcolumns* = structimguioldcolumns_28312161
@@ -7801,14 +8513,14 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvectorimguiptrorindex):
   type
-    Imvectorimguiptrorindex* = Imvectorimguiptrorindex_28312855
+    Imvectorimguiptrorindex* = Imvectorimguiptrorindex_28313001
 else:
   static :
     hint("Declaration of " & "Imvectorimguiptrorindex" &
         " already exists, not redeclaring")
 when not declared(structimplotannotationcollection):
   type
-    structimplotannotationcollection* = structimplotannotationcollection_28313191
+    structimplotannotationcollection* = structimplotannotationcollection_28313413
 else:
   static :
     hint("Declaration of " & "structimplotannotationcollection" &
@@ -7829,7 +8541,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguistoragepair):
   type
-    Imguistoragepair* = Imguistoragepair_28312417
+    Imguistoragepair* = Imguistoragepair_28312481
 else:
   static :
     hint("Declaration of " & "Imguistoragepair" &
@@ -7849,7 +8561,7 @@ else:
         " already exists, not redeclaring")
 when not declared(structimvectordouble):
   type
-    structimvectordouble* = structimvectordouble_28313265
+    structimvectordouble* = structimvectordouble_28313487
 else:
   static :
     hint("Declaration of " & "structimvectordouble" &
@@ -7870,17 +8582,31 @@ else:
         " already exists, not redeclaring")
 when not declared(structimguistoragepair):
   type
-    structimguistoragepair* = structimguistoragepair_28312415
+    structimguistoragepair* = structimguistoragepair_28312479
 else:
   static :
     hint("Declaration of " & "structimguistoragepair" &
         " already exists, not redeclaring")
 when not declared(structimplottime):
   type
-    structimplottime* = structimplottime_28313169
+    structimplottime* = structimplottime_28313391
 else:
   static :
     hint("Declaration of " & "structimplottime" &
+        " already exists, not redeclaring")
+when not declared(Imguiinputtextflagsprivate):
+  type
+    Imguiinputtextflagsprivate* = Imguiinputtextflagsprivate_28312667
+else:
+  static :
+    hint("Declaration of " & "Imguiinputtextflagsprivate" &
+        " already exists, not redeclaring")
+when not declared(Imguidebuglogflagstypedef):
+  type
+    Imguidebuglogflagstypedef* = Imguidebuglogflagstypedef_28312911
+else:
+  static :
+    hint("Declaration of " & "Imguidebuglogflagstypedef" &
         " already exists, not redeclaring")
 when not declared(structimguitablesettings):
   type
@@ -7888,6 +8614,20 @@ when not declared(structimguitablesettings):
 else:
   static :
     hint("Declaration of " & "structimguitablesettings" &
+        " already exists, not redeclaring")
+when not declared(Imguiplottype):
+  type
+    Imguiplottype* = Imguiplottype_28312719
+else:
+  static :
+    hint("Declaration of " & "Imguiplottype" &
+        " already exists, not redeclaring")
+when not declared(Imguiactivateflagstypedef):
+  type
+    Imguiactivateflagstypedef* = Imguiactivateflagstypedef_28312843
+else:
+  static :
+    hint("Declaration of " & "Imguiactivateflagstypedef" &
         " already exists, not redeclaring")
 when not declared(Imguiplatformmonitor):
   type
@@ -7909,29 +8649,43 @@ when not declared(Imguikeydata):
 else:
   static :
     hint("Declaration of " & "Imguikeydata" & " already exists, not redeclaring")
+when not declared(Imguinextwindowdataflagstypedef):
+  type
+    Imguinextwindowdataflagstypedef* = Imguinextwindowdataflagstypedef_28312743
+else:
+  static :
+    hint("Declaration of " & "Imguinextwindowdataflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Implotrange):
   type
-    Implotrange* = Implotrange_28313127
+    Implotrange* = Implotrange_28313343
 else:
   static :
     hint("Declaration of " & "Implotrange" & " already exists, not redeclaring")
 when not declared(Imvectorims16):
   type
-    Imvectorims16* = Imvectorims16_28312965
+    Imvectorims16* = Imvectorims16_28313115
 else:
   static :
     hint("Declaration of " & "Imvectorims16" &
         " already exists, not redeclaring")
 when not declared(Imvectorims64):
   type
-    Imvectorims64* = Imvectorims64_28312973
+    Imvectorims64* = Imvectorims64_28313123
 else:
   static :
     hint("Declaration of " & "Imvectorims64" &
         " already exists, not redeclaring")
+when not declared(Imguinavlayer):
+  type
+    Imguinavlayer* = Imguinavlayer_28312859
+else:
+  static :
+    hint("Declaration of " & "Imguinavlayer" &
+        " already exists, not redeclaring")
 when not declared(structimplotaxis):
   type
-    structimplotaxis* = structimplotaxis_28312939
+    structimplotaxis* = structimplotaxis_28313089
 else:
   static :
     hint("Declaration of " & "structimplotaxis" &
@@ -7951,16 +8705,30 @@ else:
     hint("Declaration of " & "Imguiio" & " already exists, not redeclaring")
 when not declared(Imvectorims8):
   type
-    Imvectorims8* = Imvectorims8_28312977
+    Imvectorims8* = Imvectorims8_28313127
 else:
   static :
     hint("Declaration of " & "Imvectorims8" & " already exists, not redeclaring")
+when not declared(Imguicoloreditflagstypedef):
+  type
+    Imguicoloreditflagstypedef* = Imguicoloreditflagstypedef_28312441
+else:
+  static :
+    hint("Declaration of " & "Imguicoloreditflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imnodesstyleflags):
   type
-    Imnodesstyleflags* = Imnodesstyleflags_28313287
+    Imnodesstyleflags* = Imnodesstyleflags_28313509
 else:
   static :
     hint("Declaration of " & "Imnodesstyleflags" &
+        " already exists, not redeclaring")
+when not declared(Imguinextitemdataflagstypedef):
+  type
+    Imguinextitemdataflagstypedef* = Imguinextitemdataflagstypedef_28312747
+else:
+  static :
+    hint("Declaration of " & "Imguinextitemdataflagstypedef" &
         " already exists, not redeclaring")
 when not declared(structimdrawlistsplitter):
   type
@@ -7971,7 +8739,7 @@ else:
         " already exists, not redeclaring")
 when not declared(structimplotalignmentdata):
   type
-    structimplotalignmentdata* = structimplotalignmentdata_28313215
+    structimplotalignmentdata* = structimplotalignmentdata_28313437
 else:
   static :
     hint("Declaration of " & "structimplotalignmentdata" &
@@ -7985,11 +8753,17 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguitextindex):
   type
-    Imguitextindex* = Imguitextindex_28312573
+    Imguitextindex* = Imguitextindex_28312645
 else:
   static :
     hint("Declaration of " & "Imguitextindex" &
         " already exists, not redeclaring")
+when not declared(Imguiaxis):
+  type
+    Imguiaxis* = Imguiaxis_28312715
+else:
+  static :
+    hint("Declaration of " & "Imguiaxis" & " already exists, not redeclaring")
 when not declared(Imguistylemod):
   type
     Imguistylemod* = Imguistylemod_28312175
@@ -7999,17 +8773,31 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvectorimguidocknodesettings):
   type
-    Imvectorimguidocknodesettings* = Imvectorimguidocknodesettings_28312759
+    Imvectorimguidocknodesettings* = Imvectorimguidocknodesettings_28312899
 else:
   static :
     hint("Declaration of " & "Imvectorimguidocknodesettings" &
         " already exists, not redeclaring")
+when not declared(Imguifocusedflagstypedef):
+  type
+    Imguifocusedflagstypedef* = Imguifocusedflagstypedef_28312385
+else:
+  static :
+    hint("Declaration of " & "Imguifocusedflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(structimchunkstreamimguitablesettings):
   type
-    structimchunkstreamimguitablesettings* = structimchunkstreamimguitablesettings_28312869
+    structimchunkstreamimguitablesettings* = structimchunkstreamimguitablesettings_28313015
 else:
   static :
     hint("Declaration of " & "structimchunkstreamimguitablesettings" &
+        " already exists, not redeclaring")
+when not declared(Imguibuttonflagstypedef):
+  type
+    Imguibuttonflagstypedef* = Imguibuttonflagstypedef_28312437
+else:
+  static :
+    hint("Declaration of " & "Imguibuttonflagstypedef" &
         " already exists, not redeclaring")
 when not declared(Imguimousecursor):
   type
@@ -8025,6 +8813,13 @@ else:
   static :
     hint("Declaration of " & "structimdrawdatabuilder" &
         " already exists, not redeclaring")
+when not declared(Imguiwindowdockstylecol):
+  type
+    Imguiwindowdockstylecol* = Imguiwindowdockstylecol_28312887
+else:
+  static :
+    hint("Declaration of " & "Imguiwindowdockstylecol" &
+        " already exists, not redeclaring")
 when not declared(Imguidocknode):
   type
     Imguidocknode* = Imguidocknode_28312107
@@ -8034,7 +8829,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin):
   type
-    Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin* = Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312649
+    Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin* = Imbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312763
 else:
   static :
     hint("Declaration of " &
@@ -8042,14 +8837,28 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiinputflags):
   type
-    Imguiinputflags* = Imguiinputflags_28312515
+    Imguiinputflags* = Imguiinputflags_28312587
 else:
   static :
     hint("Declaration of " & "Imguiinputflags" &
         " already exists, not redeclaring")
+when not declared(Imguiscrollflagstypedef):
+  type
+    Imguiscrollflagstypedef* = Imguiscrollflagstypedef_28312847
+else:
+  static :
+    hint("Declaration of " & "Imguiscrollflagstypedef" &
+        " already exists, not redeclaring")
+when not declared(Imguiviewportflagstypedef):
+  type
+    Imguiviewportflagstypedef* = Imguiviewportflagstypedef_28312567
+else:
+  static :
+    hint("Declaration of " & "Imguiviewportflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(structimguiinputeventmouseviewport):
   type
-    structimguiinputeventmouseviewport* = structimguiinputeventmouseviewport_28312671
+    structimguiinputeventmouseviewport* = structimguiinputeventmouseviewport_28312789
 else:
   static :
     hint("Declaration of " & "structimguiinputeventmouseviewport" &
@@ -8063,24 +8872,31 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotdatefmt):
   type
-    Implotdatefmt* = Implotdatefmt_28313151
+    Implotdatefmt* = Implotdatefmt_28313367
 else:
   static :
     hint("Declaration of " & "Implotdatefmt" &
         " already exists, not redeclaring")
 when not declared(Imbitarrayfornamedkeys):
   type
-    Imbitarrayfornamedkeys* = Imbitarrayfornamedkeys_28312651
+    Imbitarrayfornamedkeys* = Imbitarrayfornamedkeys_28312765
 else:
   static :
     hint("Declaration of " & "Imbitarrayfornamedkeys" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguistoragepair):
   type
-    Imvectorimguistoragepair* = Imvectorimguistoragepair_28312421
+    Imvectorimguistoragepair* = Imvectorimguistoragepair_28312485
 else:
   static :
     hint("Declaration of " & "Imvectorimguistoragepair" &
+        " already exists, not redeclaring")
+when not declared(Implotitemflagstypedef):
+  type
+    Implotitemflagstypedef* = Implotitemflagstypedef_28313241
+else:
+  static :
+    hint("Declaration of " & "Implotitemflagstypedef" &
         " already exists, not redeclaring")
 when not declared(Ims8):
   type
@@ -8090,7 +8906,7 @@ else:
     hint("Declaration of " & "Ims8" & " already exists, not redeclaring")
 when not declared(Imvectorchar):
   type
-    Imvectorchar* = Imvectorchar_28312413
+    Imvectorchar* = Imvectorchar_28312477
 else:
   static :
     hint("Declaration of " & "Imvectorchar" & " already exists, not redeclaring")
@@ -8102,14 +8918,14 @@ else:
     hint("Declaration of " & "Imguicol" & " already exists, not redeclaring")
 when not declared(Imvectorunsignedchar):
   type
-    Imvectorunsignedchar* = Imvectorunsignedchar_28312827
+    Imvectorunsignedchar* = Imvectorunsignedchar_28312973
 else:
   static :
     hint("Declaration of " & "Imvectorunsignedchar" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguitabletempdata):
   type
-    structimvectorimguitabletempdata* = structimvectorimguitabletempdata_28312833
+    structimvectorimguitabletempdata* = structimvectorimguitabletempdata_28312979
 else:
   static :
     hint("Declaration of " & "structimvectorimguitabletempdata" &
@@ -8121,12 +8937,26 @@ else:
   static :
     hint("Declaration of " & "structimdrawdata" &
         " already exists, not redeclaring")
+when not declared(Implottimefmttypedef):
+  type
+    Implottimefmttypedef* = Implottimefmttypedef_28313381
+else:
+  static :
+    hint("Declaration of " & "Implottimefmttypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguisortdirection):
   type
     Imguisortdirection* = Imguisortdirection_28312237
 else:
   static :
     hint("Declaration of " & "Imguisortdirection" &
+        " already exists, not redeclaring")
+when not declared(Imnodespinshapetypedef):
+  type
+    Imnodespinshapetypedef* = Imnodespinshapetypedef_28313531
+else:
+  static :
+    hint("Declaration of " & "Imnodespinshapetypedef" &
         " already exists, not redeclaring")
 when not declared(Imguiconfigflags):
   type
@@ -8135,31 +8965,58 @@ else:
   static :
     hint("Declaration of " & "Imguiconfigflags" &
         " already exists, not redeclaring")
+when not declared(Imguilogtype):
+  type
+    Imguilogtype* = Imguilogtype_28312711
+else:
+  static :
+    hint("Declaration of " & "Imguilogtype" & " already exists, not redeclaring")
+when not declared(Implotstairsflagstypedef):
+  type
+    Implotstairsflagstypedef* = Implotstairsflagstypedef_28313253
+else:
+  static :
+    hint("Declaration of " & "Implotstairsflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imvectorimtextureid):
   type
-    Imvectorimtextureid* = Imvectorimtextureid_28312455
+    Imvectorimtextureid* = Imvectorimtextureid_28312523
 else:
   static :
     hint("Declaration of " & "Imvectorimtextureid" &
         " already exists, not redeclaring")
+when not declared(Imguidatatypeprivate):
+  type
+    Imguidatatypeprivate* = Imguidatatypeprivate_28312731
+else:
+  static :
+    hint("Declaration of " & "Imguidatatypeprivate" &
+        " already exists, not redeclaring")
 when not declared(structimvectorimguistoragepair):
   type
-    structimvectorimguistoragepair* = structimvectorimguistoragepair_28312419
+    structimvectorimguistoragepair* = structimvectorimguistoragepair_28312483
 else:
   static :
     hint("Declaration of " & "structimvectorimguistoragepair" &
         " already exists, not redeclaring")
 when not declared(structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin):
   type
-    structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin* = structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312647
+    structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin* = structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin_28312761
 else:
   static :
     hint("Declaration of " &
         "structimbitarrayimguikeynamedkeycountlessimguikeynamedkeybegin" &
         " already exists, not redeclaring")
+when not declared(Implotscatterflagstypedef):
+  type
+    Implotscatterflagstypedef* = Implotscatterflagstypedef_28313249
+else:
+  static :
+    hint("Declaration of " & "Implotscatterflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imnodeseditorcontext):
   type
-    Imnodeseditorcontext* = Imnodeseditorcontext_28313281
+    Imnodeseditorcontext* = Imnodeseditorcontext_28313503
 else:
   static :
     hint("Declaration of " & "Imnodeseditorcontext" &
@@ -8177,6 +9034,13 @@ when not declared(Imu8):
 else:
   static :
     hint("Declaration of " & "Imu8" & " already exists, not redeclaring")
+when not declared(Imnodescoltypedef):
+  type
+    Imnodescoltypedef* = Imnodescoltypedef_28313519
+else:
+  static :
+    hint("Declaration of " & "Imnodescoltypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguimousebutton):
   type
     Imguimousebutton* = Imguimousebutton_28312233
@@ -8200,49 +9064,56 @@ else:
         " already exists, not redeclaring")
 when not declared(structemulatethreebuttonmouse):
   type
-    structemulatethreebuttonmouse* = structemulatethreebuttonmouse_28313309
+    structemulatethreebuttonmouse* = structemulatethreebuttonmouse_28313541
 else:
   static :
     hint("Declaration of " & "structemulatethreebuttonmouse" &
         " already exists, not redeclaring")
+when not declared(Imguitreenodeflagstypedef):
+  type
+    Imguitreenodeflagstypedef* = Imguitreenodeflagstypedef_28312345
+else:
+  static :
+    hint("Declaration of " & "Imguitreenodeflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(structimvectorimfontconfig):
   type
-    structimvectorimfontconfig* = structimvectorimfontconfig_28312483
+    structimvectorimfontconfig* = structimvectorimfontconfig_28312553
 else:
   static :
     hint("Declaration of " & "structimvectorimfontconfig" &
         " already exists, not redeclaring")
 when not declared(Imguidatatypetempstorage):
   type
-    Imguidatatypetempstorage* = Imguidatatypetempstorage_28312617
+    Imguidatatypetempstorage* = Imguidatatypetempstorage_28312725
 else:
   static :
     hint("Declaration of " & "Imguidatatypetempstorage" &
         " already exists, not redeclaring")
 when not declared(structimplotplot):
   type
-    structimplotplot* = structimplotplot_28312953
+    structimplotplot* = structimplotplot_28313103
 else:
   static :
     hint("Declaration of " & "structimplotplot" &
         " already exists, not redeclaring")
 when not declared(structimvectorimwchar):
   type
-    structimvectorimwchar* = structimvectorimwchar_28312399
+    structimvectorimwchar* = structimvectorimwchar_28312463
 else:
   static :
     hint("Declaration of " & "structimvectorimwchar" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguitextrange):
   type
-    Imvectorimguitextrange* = Imvectorimguitextrange_28312409
+    Imvectorimguitextrange* = Imvectorimguitextrange_28312473
 else:
   static :
     hint("Declaration of " & "Imvectorimguitextrange" &
         " already exists, not redeclaring")
 when not declared(Imvectorimplottick):
   type
-    Imvectorimplottick* = Imvectorimplottick_28313211
+    Imvectorimplottick* = Imvectorimplottick_28313433
 else:
   static :
     hint("Declaration of " & "Imvectorimplottick" &
@@ -8254,6 +9125,13 @@ else:
   static :
     hint("Declaration of " & "structimguiwindowtempdata" &
         " already exists, not redeclaring")
+when not declared(Imguifocusrequestflagstypedef):
+  type
+    Imguifocusrequestflagstypedef* = Imguifocusrequestflagstypedef_28312695
+else:
+  static :
+    hint("Declaration of " & "Imguifocusrequestflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguipopupflags):
   type
     Imguipopupflags* = Imguipopupflags_28312271
@@ -8263,14 +9141,14 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiwindowstackdata):
   type
-    Imguiwindowstackdata* = Imguiwindowstackdata_28312635
+    Imguiwindowstackdata* = Imguiwindowstackdata_28312749
 else:
   static :
     hint("Declaration of " & "Imguiwindowstackdata" &
         " already exists, not redeclaring")
 when not declared(Imvectorimvec4):
   type
-    Imvectorimvec4* = Imvectorimvec4_28312451
+    Imvectorimvec4* = Imvectorimvec4_28312519
 else:
   static :
     hint("Declaration of " & "Imvectorimvec4" &
@@ -8291,7 +9169,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotimageflags):
   type
-    Implotimageflags* = Implotimageflags_28313035
+    Implotimageflags* = Implotimageflags_28313185
 else:
   static :
     hint("Declaration of " & "Implotimageflags" &
@@ -8310,48 +9188,55 @@ else:
   static :
     hint("Declaration of " & "structimguiinputtextcallbackdata" &
         " already exists, not redeclaring")
+when not declared(Imguitableflagstypedef):
+  type
+    Imguitableflagstypedef* = Imguitableflagstypedef_28312369
+else:
+  static :
+    hint("Declaration of " & "Imguitableflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(structstbundorecord):
   type
-    structstbundorecord* = structstbundorecord_28312543
+    structstbundorecord* = structstbundorecord_28312615
 else:
   static :
     hint("Declaration of " & "structstbundorecord" &
         " already exists, not redeclaring")
 when not declared(Implottag):
   type
-    Implottag* = Implottag_28313197
+    Implottag* = Implottag_28313419
 else:
   static :
     hint("Declaration of " & "Implottag" & " already exists, not redeclaring")
 when not declared(structimpoolimguitabbar):
   type
-    structimpoolimguitabbar* = structimpoolimguitabbar_28312849
+    structimpoolimguitabbar* = structimpoolimguitabbar_28312995
 else:
   static :
     hint("Declaration of " & "structimpoolimguitabbar" &
         " already exists, not redeclaring")
 when not declared(Implotstyle):
   type
-    Implotstyle* = Implotstyle_28313135
+    Implotstyle* = Implotstyle_28313351
 else:
   static :
     hint("Declaration of " & "Implotstyle" & " already exists, not redeclaring")
 when not declared(Glfwmonitor):
   type
-    Glfwmonitor* = Glfwmonitor_28312923
+    Glfwmonitor* = Glfwmonitor_28313073
 else:
   static :
     hint("Declaration of " & "Glfwmonitor" & " already exists, not redeclaring")
 when not declared(Imguiinputeventmousebutton):
   type
-    Imguiinputeventmousebutton* = Imguiinputeventmousebutton_28312665
+    Imguiinputeventmousebutton* = Imguiinputeventmousebutton_28312783
 else:
   static :
     hint("Declaration of " & "Imguiinputeventmousebutton" &
         " already exists, not redeclaring")
 when not declared(structimchunkstreamimguiwindowsettings):
   type
-    structimchunkstreamimguiwindowsettings* = structimchunkstreamimguiwindowsettings_28312865
+    structimchunkstreamimguiwindowsettings* = structimchunkstreamimguiwindowsettings_28313011
 else:
   static :
     hint("Declaration of " & "structimchunkstreamimguiwindowsettings" &
@@ -8364,49 +9249,49 @@ else:
     hint("Declaration of " & "structimvec4" & " already exists, not redeclaring")
 when not declared(structimvectorimvec2):
   type
-    structimvectorimvec2* = structimvectorimvec2_28312457
+    structimvectorimvec2* = structimvectorimvec2_28312525
 else:
   static :
     hint("Declaration of " & "structimvectorimvec2" &
         " already exists, not redeclaring")
 when not declared(Imguiinputeventkey):
   type
-    Imguiinputeventkey* = Imguiinputeventkey_28312673
+    Imguiinputeventkey* = Imguiinputeventkey_28312791
 else:
   static :
     hint("Declaration of " & "Imguiinputeventkey" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguitablecolumnsortspecs):
   type
-    Imvectorimguitablecolumnsortspecs* = Imvectorimguitablecolumnsortspecs_28312915
+    Imvectorimguitablecolumnsortspecs* = Imvectorimguitablecolumnsortspecs_28313065
 else:
   static :
     hint("Declaration of " & "Imvectorimguitablecolumnsortspecs" &
         " already exists, not redeclaring")
 when not declared(structimplottagcollection):
   type
-    structimplottagcollection* = structimplottagcollection_28313203
+    structimplottagcollection* = structimplottagcollection_28313425
 else:
   static :
     hint("Declaration of " & "structimplottagcollection" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguipopupdata):
   type
-    Imvectorimguipopupdata* = Imvectorimguipopupdata_28312815
+    Imvectorimguipopupdata* = Imvectorimguipopupdata_28312961
 else:
   static :
     hint("Declaration of " & "Imvectorimguipopupdata" &
         " already exists, not redeclaring")
 when not declared(structimvectorims64):
   type
-    structimvectorims64* = structimvectorims64_28312971
+    structimvectorims64* = structimvectorims64_28313121
 else:
   static :
     hint("Declaration of " & "structimvectorims64" &
         " already exists, not redeclaring")
 when not declared(Imguinavhighlightflags):
   type
-    Imguinavhighlightflags* = Imguinavhighlightflags_28312523
+    Imguinavhighlightflags* = Imguinavhighlightflags_28312595
 else:
   static :
     hint("Declaration of " & "Imguinavhighlightflags" &
@@ -8418,12 +9303,26 @@ else:
   static :
     hint("Declaration of " & "structimguidocknode" &
         " already exists, not redeclaring")
-when not declared(structimvectorimplotannotation):
+when not declared(Implotaxisflagstypedef):
   type
-    structimvectorimplotannotation* = structimvectorimplotannotation_28313193
+    Implotaxisflagstypedef* = Implotaxisflagstypedef_28313217
 else:
   static :
-    hint("Declaration of " & "structimvectorimplotannotation" &
+    hint("Declaration of " & "Implotaxisflagstypedef" &
+        " already exists, not redeclaring")
+when not declared(Implotmarkertypedef):
+  type
+    Implotmarkertypedef* = Implotmarkertypedef_28313325
+else:
+  static :
+    hint("Declaration of " & "Implotmarkertypedef" &
+        " already exists, not redeclaring")
+when not declared(Implotdatefmttypedef):
+  type
+    Implotdatefmttypedef* = Implotdatefmttypedef_28313377
+else:
+  static :
+    hint("Declaration of " & "Implotdatefmttypedef" &
         " already exists, not redeclaring")
 when not declared(structimdrawlistshareddata):
   type
@@ -8432,16 +9331,23 @@ else:
   static :
     hint("Declaration of " & "structimdrawlistshareddata" &
         " already exists, not redeclaring")
+when not declared(structimvectorimplotannotation):
+  type
+    structimvectorimplotannotation* = structimvectorimplotannotation_28313415
+else:
+  static :
+    hint("Declaration of " & "structimvectorimplotannotation" &
+        " already exists, not redeclaring")
 when not declared(Imvectorimplotsubplot):
   type
-    Imvectorimplotsubplot* = Imvectorimplotsubplot_28313255
+    Imvectorimplotsubplot* = Imvectorimplotsubplot_28313477
 else:
   static :
     hint("Declaration of " & "Imvectorimplotsubplot" &
         " already exists, not redeclaring")
 when not declared(Imguiitemstatusflags):
   type
-    Imguiitemstatusflags* = Imguiitemstatusflags_28312519
+    Imguiitemstatusflags* = Imguiitemstatusflags_28312591
 else:
   static :
     hint("Declaration of " & "Imguiitemstatusflags" &
@@ -8462,62 +9368,90 @@ else:
         " already exists, not redeclaring")
 when not declared(structimplotlegend):
   type
-    structimplotlegend* = structimplotlegend_28312949
+    structimplotlegend* = structimplotlegend_28313099
 else:
   static :
     hint("Declaration of " & "structimplotlegend" &
         " already exists, not redeclaring")
 when not declared(Imnodesstyle):
   type
-    Imnodesstyle* = Imnodesstyle_28313321
+    Imnodesstyle* = Imnodesstyle_28313553
 else:
   static :
     hint("Declaration of " & "Imnodesstyle" & " already exists, not redeclaring")
 when not declared(structimguiinputeventtext):
   type
-    structimguiinputeventtext* = structimguiinputeventtext_28312679
+    structimguiinputeventtext* = structimguiinputeventtext_28312797
 else:
   static :
     hint("Declaration of " & "structimguiinputeventtext" &
         " already exists, not redeclaring")
+when not declared(Imguiitemflagstypedef):
+  type
+    Imguiitemflagstypedef* = Imguiitemflagstypedef_28312655
+else:
+  static :
+    hint("Declaration of " & "Imguiitemflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imvectorimguiinputevent):
   type
-    Imvectorimguiinputevent* = Imvectorimguiinputevent_28312787
+    Imvectorimguiinputevent* = Imvectorimguiinputevent_28312933
 else:
   static :
     hint("Declaration of " & "Imvectorimguiinputevent" &
         " already exists, not redeclaring")
+when not declared(Implotcolormapscaleflagstypedef):
+  type
+    Implotcolormapscaleflagstypedef* = Implotcolormapscaleflagstypedef_28313237
+else:
+  static :
+    hint("Declaration of " & "Implotcolormapscaleflagstypedef" &
+        " already exists, not redeclaring")
+when not declared(Imguistylevartypedef):
+  type
+    Imguistylevartypedef* = Imguistylevartypedef_28312433
+else:
+  static :
+    hint("Declaration of " & "Imguistylevartypedef" &
+        " already exists, not redeclaring")
 when not declared(structimvectorimdrawchannel):
   type
-    structimvectorimdrawchannel* = structimvectorimdrawchannel_28312437
+    structimvectorimdrawchannel* = structimvectorimdrawchannel_28312501
 else:
   static :
     hint("Declaration of " & "structimvectorimdrawchannel" &
         " already exists, not redeclaring")
 when not declared(Imvectorimplotplot):
   type
-    Imvectorimplotplot* = Imvectorimplotplot_28313247
+    Imvectorimplotplot* = Imvectorimplotplot_28313469
 else:
   static :
     hint("Declaration of " & "Imvectorimplotplot" &
         " already exists, not redeclaring")
+when not declared(Imguihoveredflagstypedef):
+  type
+    Imguihoveredflagstypedef* = Imguihoveredflagstypedef_28312389
+else:
+  static :
+    hint("Declaration of " & "Imguihoveredflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(structimguilistclipperdata):
   type
-    structimguilistclipperdata* = structimguilistclipperdata_28312715
+    structimguilistclipperdata* = structimguilistclipperdata_28312835
 else:
   static :
     hint("Declaration of " & "structimguilistclipperdata" &
         " already exists, not redeclaring")
 when not declared(Imvectorims32):
   type
-    Imvectorims32* = Imvectorims32_28312969
+    Imvectorims32* = Imvectorims32_28313119
 else:
   static :
     hint("Declaration of " & "Imvectorims32" &
         " already exists, not redeclaring")
 when not declared(structimvectorimplotcolormap):
   type
-    structimvectorimplotcolormap* = structimvectorimplotcolormap_28313261
+    structimvectorimplotcolormap* = structimvectorimplotcolormap_28313483
 else:
   static :
     hint("Declaration of " & "structimvectorimplotcolormap" &
@@ -8531,7 +9465,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguishrinkwidthitem):
   type
-    Imguishrinkwidthitem* = Imguishrinkwidthitem_28312639
+    Imguishrinkwidthitem* = Imguishrinkwidthitem_28312753
 else:
   static :
     hint("Declaration of " & "Imguishrinkwidthitem" &
@@ -8551,24 +9485,31 @@ else:
         " already exists, not redeclaring")
 when not declared(structimplotnextitemdata):
   type
-    structimplotnextitemdata* = structimplotnextitemdata_28313243
+    structimplotnextitemdata* = structimplotnextitemdata_28313465
 else:
   static :
     hint("Declaration of " & "structimplotnextitemdata" &
         " already exists, not redeclaring")
 when not declared(Imvectorimplotitem):
   type
-    Imvectorimplotitem* = Imvectorimplotitem_28313223
+    Imvectorimplotitem* = Imvectorimplotitem_28313445
 else:
   static :
     hint("Declaration of " & "Imvectorimplotitem" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguiviewportpptr):
   type
-    Imvectorimguiviewportpptr* = Imvectorimguiviewportpptr_28312823
+    Imvectorimguiviewportpptr* = Imvectorimguiviewportpptr_28312969
 else:
   static :
     hint("Declaration of " & "Imvectorimguiviewportpptr" &
+        " already exists, not redeclaring")
+when not declared(Imguidocknodeflagsprivate):
+  type
+    Imguidocknodeflagsprivate* = Imguidocknodeflagsprivate_28312871
+else:
+  static :
+    hint("Declaration of " & "Imguidocknodeflagsprivate" &
         " already exists, not redeclaring")
 when not declared(structimguitextfilter):
   type
@@ -8579,41 +9520,55 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvectorimdrawlistptr):
   type
-    Imvectorimdrawlistptr* = Imvectorimdrawlistptr_28312463
+    Imvectorimdrawlistptr* = Imvectorimdrawlistptr_28312531
 else:
   static :
     hint("Declaration of " & "Imvectorimdrawlistptr" &
         " already exists, not redeclaring")
 when not declared(structimpoolimplotplot):
   type
-    structimpoolimplotplot* = structimpoolimplotplot_28313249
+    structimpoolimplotplot* = structimpoolimplotplot_28313471
 else:
   static :
     hint("Declaration of " & "structimpoolimplotplot" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguiplatformmonitor):
   type
-    structimvectorimguiplatformmonitor* = structimvectorimguiplatformmonitor_28312497
+    structimvectorimguiplatformmonitor* = structimvectorimguiplatformmonitor_28312569
 else:
   static :
     hint("Declaration of " & "structimvectorimguiplatformmonitor" &
         " already exists, not redeclaring")
 when not declared(Imvec1):
   type
-    Imvec1* = Imvec1_28312561
+    Imvec1* = Imvec1_28312633
 else:
   static :
     hint("Declaration of " & "Imvec1" & " already exists, not redeclaring")
+when not declared(Implotdigitalflagstypedef):
+  type
+    Implotdigitalflagstypedef* = Implotdigitalflagstypedef_28313293
+else:
+  static :
+    hint("Declaration of " & "Implotdigitalflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguistacklevelinfo):
   type
-    Imguistacklevelinfo* = Imguistacklevelinfo_28312769
+    Imguistacklevelinfo* = Imguistacklevelinfo_28312913
 else:
   static :
     hint("Declaration of " & "Imguistacklevelinfo" &
         " already exists, not redeclaring")
+when not declared(Implotsubplotflagstypedef):
+  type
+    Implotsubplotflagstypedef* = Implotsubplotflagstypedef_28313221
+else:
+  static :
+    hint("Declaration of " & "Implotsubplotflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imvectorimguitabbar):
   type
-    Imvectorimguitabbar* = Imvectorimguitabbar_28312847
+    Imvectorimguitabbar* = Imvectorimguitabbar_28312993
 else:
   static :
     hint("Declaration of " & "Imvectorimguitabbar" &
@@ -8626,14 +9581,14 @@ else:
     hint("Declaration of " & "Imu16" & " already exists, not redeclaring")
 when not declared(Imvectorimguitable):
   type
-    Imvectorimguitable* = Imvectorimguitable_28312839
+    Imvectorimguitable* = Imvectorimguitable_28312985
 else:
   static :
     hint("Declaration of " & "Imvectorimguitable" &
         " already exists, not redeclaring")
 when not declared(structimplotdatetimespec):
   type
-    structimplotdatetimespec* = structimplotdatetimespec_28313165
+    structimplotdatetimespec* = structimplotdatetimespec_28313387
 else:
   static :
     hint("Declaration of " & "structimplotdatetimespec" &
@@ -8646,24 +9601,38 @@ else:
     hint("Declaration of " & "Imdrawdata" & " already exists, not redeclaring")
 when not declared(Imvectorimfontatlascustomrect):
   type
-    Imvectorimfontatlascustomrect* = Imvectorimfontatlascustomrect_28312481
+    Imvectorimfontatlascustomrect* = Imvectorimfontatlascustomrect_28312551
 else:
   static :
     hint("Declaration of " & "Imvectorimfontatlascustomrect" &
         " already exists, not redeclaring")
 when not declared(structimguicombopreviewdata):
   type
-    structimguicombopreviewdata* = structimguicombopreviewdata_28312625
+    structimguicombopreviewdata* = structimguicombopreviewdata_28312735
 else:
   static :
     hint("Declaration of " & "structimguicombopreviewdata" &
         " already exists, not redeclaring")
+when not declared(Implotbargroupsflagstypedef):
+  type
+    Implotbargroupsflagstypedef* = Implotbargroupsflagstypedef_28313265
+else:
+  static :
+    hint("Declaration of " & "Implotbargroupsflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(structimnodesio):
   type
-    structimnodesio* = structimnodesio_28313307
+    structimnodesio* = structimnodesio_28313539
 else:
   static :
     hint("Declaration of " & "structimnodesio" &
+        " already exists, not redeclaring")
+when not declared(Implotflagstypedef):
+  type
+    Implotflagstypedef* = Implotflagstypedef_28313213
+else:
+  static :
+    hint("Declaration of " & "Implotflagstypedef" &
         " already exists, not redeclaring")
 when not declared(Imu64):
   type
@@ -8673,21 +9642,21 @@ else:
     hint("Declaration of " & "Imu64" & " already exists, not redeclaring")
 when not declared(Imguifocusrequestflags):
   type
-    Imguifocusrequestflags* = Imguifocusrequestflags_28312513
+    Imguifocusrequestflags* = Imguifocusrequestflags_28312585
 else:
   static :
     hint("Declaration of " & "Imguifocusrequestflags" &
         " already exists, not redeclaring")
 when not declared(Imvectorimplotcolormap):
   type
-    Imvectorimplotcolormap* = Imvectorimplotcolormap_28313263
+    Imvectorimplotcolormap* = Imvectorimplotcolormap_28313485
 else:
   static :
     hint("Declaration of " & "Imvectorimplotcolormap" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguiid):
   type
-    Imvectorimguiid* = Imvectorimguiid_28312803
+    Imvectorimguiid* = Imvectorimguiid_28312949
 else:
   static :
     hint("Declaration of " & "Imvectorimguiid" &
@@ -8701,23 +9670,37 @@ else:
         " already exists, not redeclaring")
 when not declared(Formattertimedata):
   type
-    Formattertimedata* = Formattertimedata_28313273
+    Formattertimedata* = Formattertimedata_28313495
 else:
   static :
     hint("Declaration of " & "Formattertimedata" &
         " already exists, not redeclaring")
 when not declared(Implotaxis):
   type
-    Implotaxis* = Implotaxis_28312937
+    Implotaxis* = Implotaxis_28313087
 else:
   static :
     hint("Declaration of " & "Implotaxis" & " already exists, not redeclaring")
+when not declared(Imfontatlasflagstypedef):
+  type
+    Imfontatlasflagstypedef* = Imfontatlasflagstypedef_28312543
+else:
+  static :
+    hint("Declaration of " & "Imfontatlasflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguikeyroutingdata):
   type
-    Imguikeyroutingdata* = Imguikeyroutingdata_28312691
+    Imguikeyroutingdata* = Imguikeyroutingdata_28312809
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingdata" &
+        " already exists, not redeclaring")
+when not declared(Imguimousebuttontypedef):
+  type
+    Imguimousebuttontypedef* = Imguimousebuttontypedef_28312449
+else:
+  static :
+    hint("Declaration of " & "Imguimousebuttontypedef" &
         " already exists, not redeclaring")
 when not declared(Imguidockcontext):
   type
@@ -8728,7 +9711,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvectorimguitableinstancedata):
   type
-    Imvectorimguitableinstancedata* = Imvectorimguitableinstancedata_28312911
+    Imvectorimguitableinstancedata* = Imvectorimguitableinstancedata_28313061
 else:
   static :
     hint("Declaration of " & "Imvectorimguitableinstancedata" &
@@ -8740,16 +9723,30 @@ else:
   static :
     hint("Declaration of " & "structimguilastitemdata" &
         " already exists, not redeclaring")
+when not declared(Imguitabitemflagsprivate):
+  type
+    Imguitabitemflagsprivate* = Imguitabitemflagsprivate_28313033
+else:
+  static :
+    hint("Declaration of " & "Imguitabitemflagsprivate" &
+        " already exists, not redeclaring")
 when not declared(Imploterrorbarsflags):
   type
-    Imploterrorbarsflags* = Imploterrorbarsflags_28313021
+    Imploterrorbarsflags* = Imploterrorbarsflags_28313171
 else:
   static :
     hint("Declaration of " & "Imploterrorbarsflags" &
         " already exists, not redeclaring")
+when not declared(Imguinavinput):
+  type
+    Imguinavinput* = Imguinavinput_28312417
+else:
+  static :
+    hint("Declaration of " & "Imguinavinput" &
+        " already exists, not redeclaring")
 when not declared(structimvectorimguigroupdata):
   type
-    structimvectorimguigroupdata* = structimvectorimguigroupdata_28312809
+    structimvectorimguigroupdata* = structimvectorimguigroupdata_28312955
 else:
   static :
     hint("Declaration of " & "structimvectorimguigroupdata" &
@@ -8761,16 +9758,30 @@ else:
   static :
     hint("Declaration of " & "Imfontbuilderio" &
         " already exists, not redeclaring")
+when not declared(Imguinavmoveflagstypedef):
+  type
+    Imguinavmoveflagstypedef* = Imguinavmoveflagstypedef_28312855
+else:
+  static :
+    hint("Declaration of " & "Imguinavmoveflagstypedef" &
+        " already exists, not redeclaring")
+when not declared(Implotimageflagstypedef):
+  type
+    Implotimageflagstypedef* = Implotimageflagstypedef_28313297
+else:
+  static :
+    hint("Declaration of " & "Implotimageflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(structimguiwindowstackdata):
   type
-    structimguiwindowstackdata* = structimguiwindowstackdata_28312637
+    structimguiwindowstackdata* = structimguiwindowstackdata_28312751
 else:
   static :
     hint("Declaration of " & "structimguiwindowstackdata" &
         " already exists, not redeclaring")
 when not declared(Implotlocation):
   type
-    Implotlocation* = Implotlocation_28313053
+    Implotlocation* = Implotlocation_28313203
 else:
   static :
     hint("Declaration of " & "Implotlocation" &
@@ -8784,21 +9795,21 @@ else:
         " already exists, not redeclaring")
 when not declared(Imchunkstreamimguitablesettings):
   type
-    Imchunkstreamimguitablesettings* = Imchunkstreamimguitablesettings_28312871
+    Imchunkstreamimguitablesettings* = Imchunkstreamimguitablesettings_28313017
 else:
   static :
     hint("Declaration of " & "Imchunkstreamimguitablesettings" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguilistclipperrange):
   type
-    Imvectorimguilistclipperrange* = Imvectorimguilistclipperrange_28312719
+    Imvectorimguilistclipperrange* = Imvectorimguilistclipperrange_28312839
 else:
   static :
     hint("Declaration of " & "Imvectorimguilistclipperrange" &
         " already exists, not redeclaring")
 when not declared(structimvectorchar):
   type
-    structimvectorchar* = structimvectorchar_28312411
+    structimvectorchar* = structimvectorchar_28312475
 else:
   static :
     hint("Declaration of " & "structimvectorchar" &
@@ -8812,7 +9823,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvectorimguistacklevelinfo):
   type
-    Imvectorimguistacklevelinfo* = Imvectorimguistacklevelinfo_28312779
+    Imvectorimguistacklevelinfo* = Imvectorimguistacklevelinfo_28312923
 else:
   static :
     hint("Declaration of " & "Imvectorimguistacklevelinfo" &
@@ -8826,28 +9837,28 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiwindowdockstyle):
   type
-    Imguiwindowdockstyle* = Imguiwindowdockstyle_28312749
+    Imguiwindowdockstyle* = Imguiwindowdockstyle_28312889
 else:
   static :
     hint("Declaration of " & "Imguiwindowdockstyle" &
         " already exists, not redeclaring")
 when not declared(Linkdetachwithmodifierclick):
   type
-    Linkdetachwithmodifierclick* = Linkdetachwithmodifierclick_28313315
+    Linkdetachwithmodifierclick* = Linkdetachwithmodifierclick_28313547
 else:
   static :
     hint("Declaration of " & "Linkdetachwithmodifierclick" &
         " already exists, not redeclaring")
 when not declared(structimvectorimtextureid):
   type
-    structimvectorimtextureid* = structimvectorimtextureid_28312453
+    structimvectorimtextureid* = structimvectorimtextureid_28312521
 else:
   static :
     hint("Declaration of " & "structimvectorimtextureid" &
         " already exists, not redeclaring")
 when not declared(structimplotitem):
   type
-    structimplotitem* = structimplotitem_28312945
+    structimplotitem* = structimplotitem_28313095
 else:
   static :
     hint("Declaration of " & "structimplotitem" &
@@ -8859,6 +9870,13 @@ else:
   static :
     hint("Declaration of " & "Imguibuttonflags" &
         " already exists, not redeclaring")
+when not declared(Implotlocationtypedef):
+  type
+    Implotlocationtypedef* = Implotlocationtypedef_28313333
+else:
+  static :
+    hint("Declaration of " & "Implotlocationtypedef" &
+        " already exists, not redeclaring")
 when not declared(structimguistacksizes):
   type
     structimguistacksizes* = structimguistacksizes_28312173
@@ -8868,21 +9886,21 @@ else:
         " already exists, not redeclaring")
 when not declared(structimguiinputevent):
   type
-    structimguiinputevent* = structimguiinputevent_28312687
+    structimguiinputevent* = structimguiinputevent_28312805
 else:
   static :
     hint("Declaration of " & "structimguiinputevent" &
         " already exists, not redeclaring")
 when not declared(Implottimefmt):
   type
-    Implottimefmt* = Implottimefmt_28313153
+    Implottimefmt* = Implottimefmt_28313369
 else:
   static :
     hint("Declaration of " & "Implottimefmt" &
         " already exists, not redeclaring")
 when not declared(structimguiptrorindex):
   type
-    structimguiptrorindex* = structimguiptrorindex_28312645
+    structimguiptrorindex* = structimguiptrorindex_28312759
 else:
   static :
     hint("Declaration of " & "structimguiptrorindex" &
@@ -8895,7 +9913,7 @@ else:
     hint("Declaration of " & "Imguitabitem" & " already exists, not redeclaring")
 when not declared(structimvectorimguiviewportpptr):
   type
-    structimvectorimguiviewportpptr* = structimvectorimguiviewportpptr_28312821
+    structimvectorimguiviewportpptr* = structimvectorimguiviewportpptr_28312967
 else:
   static :
     hint("Declaration of " & "structimvectorimguiviewportpptr" &
@@ -8907,26 +9925,40 @@ else:
   static :
     hint("Declaration of " & "Imguiplatformio" &
         " already exists, not redeclaring")
+when not declared(Imnodesattributeflagstypedef):
+  type
+    Imnodesattributeflagstypedef* = Imnodesattributeflagstypedef_28313535
+else:
+  static :
+    hint("Declaration of " & "Imnodesattributeflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Emulatethreebuttonmouse):
   type
-    Emulatethreebuttonmouse* = Emulatethreebuttonmouse_28313311
+    Emulatethreebuttonmouse* = Emulatethreebuttonmouse_28313543
 else:
   static :
     hint("Declaration of " & "Emulatethreebuttonmouse" &
         " already exists, not redeclaring")
 when not declared(Implotcontext):
   type
-    Implotcontext* = Implotcontext_28312929
+    Implotcontext* = Implotcontext_28313079
 else:
   static :
     hint("Declaration of " & "Implotcontext" &
         " already exists, not redeclaring")
 when not declared(structimvectorimu16):
   type
-    structimvectorimu16* = structimvectorimu16_28312979
+    structimvectorimu16* = structimvectorimu16_28313129
 else:
   static :
     hint("Declaration of " & "structimvectorimu16" &
+        " already exists, not redeclaring")
+when not declared(Imguidatatypetypedef):
+  type
+    Imguidatatypetypedef* = Imguidatatypetypedef_28312401
+else:
+  static :
+    hint("Declaration of " & "Imguidatatypetypedef" &
         " already exists, not redeclaring")
 when not declared(Imguistylevar):
   type
@@ -8937,34 +9969,41 @@ else:
         " already exists, not redeclaring")
 when not declared(structimplottag):
   type
-    structimplottag* = structimplottag_28313199
+    structimplottag* = structimplottag_28313421
 else:
   static :
     hint("Declaration of " & "structimplottag" &
         " already exists, not redeclaring")
 when not declared(Implothistogramflags):
   type
-    Implothistogramflags* = Implothistogramflags_28313031
+    Implothistogramflags* = Implothistogramflags_28313181
 else:
   static :
     hint("Declaration of " & "Implothistogramflags" &
         " already exists, not redeclaring")
+when not declared(Imguitreenodeflagsprivate):
+  type
+    Imguitreenodeflagsprivate* = Imguitreenodeflagsprivate_28312687
+else:
+  static :
+    hint("Declaration of " & "Imguitreenodeflagsprivate" &
+        " already exists, not redeclaring")
 when not declared(timet):
   type
-    timet* = timet_28313171
+    timet* = timet_28313393
 else:
   static :
     hint("Declaration of " & "timet" & " already exists, not redeclaring")
 when not declared(Imguilayouttype):
   type
-    Imguilayouttype* = Imguilayouttype_28312507
+    Imguilayouttype* = Imguilayouttype_28312579
 else:
   static :
     hint("Declaration of " & "Imguilayouttype" &
         " already exists, not redeclaring")
 when not declared(structimvectorimu32):
   type
-    structimvectorimu32* = structimvectorimu32_28312465
+    structimvectorimu32* = structimvectorimu32_28312533
 else:
   static :
     hint("Declaration of " & "structimvectorimu32" &
@@ -8983,16 +10022,23 @@ else:
   static :
     hint("Declaration of " & "structimguinavtreenodedata" &
         " already exists, not redeclaring")
+when not declared(Implotbintypedef):
+  type
+    Implotbintypedef* = Implotbintypedef_28313337
+else:
+  static :
+    hint("Declaration of " & "Implotbintypedef" &
+        " already exists, not redeclaring")
 when not declared(compilertime64t):
   type
-    compilertime64t* = compilertime64t_28313336
+    compilertime64t* = compilertime64t_28313570
 else:
   static :
     hint("Declaration of " & "compilertime64t" &
         " already exists, not redeclaring")
 when not declared(Stbtexteditstate):
   type
-    Stbtexteditstate* = Stbtexteditstate_28312549
+    Stbtexteditstate* = Stbtexteditstate_28312621
 else:
   static :
     hint("Declaration of " & "Stbtexteditstate" &
@@ -9020,21 +10066,28 @@ else:
         " already exists, not redeclaring")
 when not declared(structmultipleselectmodifier):
   type
-    structmultipleselectmodifier* = structmultipleselectmodifier_28313317
+    structmultipleselectmodifier* = structmultipleselectmodifier_28313549
 else:
   static :
     hint("Declaration of " & "structmultipleselectmodifier" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguilistclipperdata):
   type
-    Imvectorimguilistclipperdata* = Imvectorimguilistclipperdata_28312831
+    Imvectorimguilistclipperdata* = Imvectorimguilistclipperdata_28312977
 else:
   static :
     hint("Declaration of " & "Imvectorimguilistclipperdata" &
         " already exists, not redeclaring")
+when not declared(Imaxistypedef):
+  type
+    Imaxistypedef* = Imaxistypedef_28313209
+else:
+  static :
+    hint("Declaration of " & "Imaxistypedef" &
+        " already exists, not redeclaring")
 when not declared(structimplotstyle):
   type
-    structimplotstyle* = structimplotstyle_28313137
+    structimplotstyle* = structimplotstyle_28313353
 else:
   static :
     hint("Declaration of " & "structimplotstyle" &
@@ -9048,14 +10101,14 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvectorimplotrange):
   type
-    Imvectorimplotrange* = Imvectorimplotrange_28313239
+    Imvectorimplotrange* = Imvectorimplotrange_28313461
 else:
   static :
     hint("Declaration of " & "Imvectorimplotrange" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguistylemod):
   type
-    Imvectorimguistylemod* = Imvectorimguistylemod_28312799
+    Imvectorimguistylemod* = Imvectorimguistylemod_28312945
 else:
   static :
     hint("Declaration of " & "Imvectorimguistylemod" &
@@ -9068,7 +10121,7 @@ else:
     hint("Declaration of " & "Imrect" & " already exists, not redeclaring")
 when not declared(Implotsubplot):
   type
-    Implotsubplot* = Implotsubplot_28313229
+    Implotsubplot* = Implotsubplot_28313451
 else:
   static :
     hint("Declaration of " & "Implotsubplot" &
@@ -9088,14 +10141,14 @@ else:
     hint("Declaration of " & "structimfont" & " already exists, not redeclaring")
 when not declared(structimvectorimvec4):
   type
-    structimvectorimvec4* = structimvectorimvec4_28312449
+    structimvectorimvec4* = structimvectorimvec4_28312517
 else:
   static :
     hint("Declaration of " & "structimvectorimvec4" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguiwindowptr):
   type
-    Imvectorimguiwindowptr* = Imvectorimguiwindowptr_28312745
+    Imvectorimguiwindowptr* = Imvectorimguiwindowptr_28312883
 else:
   static :
     hint("Declaration of " & "Imvectorimguiwindowptr" &
@@ -9108,10 +10161,17 @@ else:
     hint("Declaration of " & "Imdrawlist" & " already exists, not redeclaring")
 when not declared(Imvectorimfontconfig):
   type
-    Imvectorimfontconfig* = Imvectorimfontconfig_28312485
+    Imvectorimfontconfig* = Imvectorimfontconfig_28312555
 else:
   static :
     hint("Declaration of " & "Imvectorimfontconfig" &
+        " already exists, not redeclaring")
+when not declared(Implotdragtoolflagstypedef):
+  type
+    Implotdragtoolflagstypedef* = Implotdragtoolflagstypedef_28313233
+else:
+  static :
+    hint("Declaration of " & "Implotdragtoolflagstypedef" &
         " already exists, not redeclaring")
 when not declared(Imguicontext):
   type
@@ -9121,13 +10181,13 @@ else:
     hint("Declaration of " & "Imguicontext" & " already exists, not redeclaring")
 when not declared(Implotlegend):
   type
-    Implotlegend* = Implotlegend_28312947
+    Implotlegend* = Implotlegend_28313097
 else:
   static :
     hint("Declaration of " & "Implotlegend" & " already exists, not redeclaring")
 when not declared(structimplotinputmap):
   type
-    structimplotinputmap* = structimplotinputmap_28313141
+    structimplotinputmap* = structimplotinputmap_28313357
 else:
   static :
     hint("Declaration of " & "structimplotinputmap" &
@@ -9141,14 +10201,14 @@ else:
         " already exists, not redeclaring")
 when not declared(structimvectorimplottick):
   type
-    structimvectorimplottick* = structimvectorimplottick_28313209
+    structimvectorimplottick* = structimvectorimplottick_28313431
 else:
   static :
     hint("Declaration of " & "structimvectorimplottick" &
         " already exists, not redeclaring")
 when not declared(Implotmarker):
   type
-    Implotmarker* = Implotmarker_28313049
+    Implotmarker* = Implotmarker_28313199
 else:
   static :
     hint("Declaration of " & "Implotmarker" & " already exists, not redeclaring")
@@ -9161,37 +10221,65 @@ else:
         " already exists, not redeclaring")
 when not declared(structimvectorimguishrinkwidthitem):
   type
-    structimvectorimguishrinkwidthitem* = structimvectorimguishrinkwidthitem_28312857
+    structimvectorimguishrinkwidthitem* = structimvectorimguishrinkwidthitem_28313003
 else:
   static :
     hint("Declaration of " & "structimvectorimguishrinkwidthitem" &
         " already exists, not redeclaring")
+when not declared(Imguitabbarflagsprivate):
+  type
+    Imguitabbarflagsprivate* = Imguitabbarflagsprivate_28313029
+else:
+  static :
+    hint("Declaration of " & "Imguitabbarflagsprivate" &
+        " already exists, not redeclaring")
 when not declared(Implotgetter):
   type
-    Implotgetter* = Implotgetter_28313145
+    Implotgetter* = Implotgetter_28313361
 else:
   static :
     hint("Declaration of " & "Implotgetter" & " already exists, not redeclaring")
 when not declared(Imguiscrollflags):
   type
-    Imguiscrollflags* = Imguiscrollflags_28312531
+    Imguiscrollflags* = Imguiscrollflags_28312603
 else:
   static :
     hint("Declaration of " & "Imguiscrollflags" &
         " already exists, not redeclaring")
 when not declared(structimplotcolormapdata):
   type
-    structimplotcolormapdata* = structimplotcolormapdata_28313175
+    structimplotcolormapdata* = structimplotcolormapdata_28313397
 else:
   static :
     hint("Declaration of " & "structimplotcolormapdata" &
         " already exists, not redeclaring")
+when not declared(Imguidocknodeflagstypedef):
+  type
+    Imguidocknodeflagstypedef* = Imguidocknodeflagstypedef_28312393
+else:
+  static :
+    hint("Declaration of " & "Imguidocknodeflagstypedef" &
+        " already exists, not redeclaring")
+when not declared(Imguisliderflagstypedef):
+  type
+    Imguisliderflagstypedef* = Imguisliderflagstypedef_28312445
+else:
+  static :
+    hint("Declaration of " & "Imguisliderflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Implotcolormapscaleflags):
   type
-    Implotcolormapscaleflags* = Implotcolormapscaleflags_28313005
+    Implotcolormapscaleflags* = Implotcolormapscaleflags_28313155
 else:
   static :
     hint("Declaration of " & "Implotcolormapscaleflags" &
+        " already exists, not redeclaring")
+when not declared(Implotpiechartflagstypedef):
+  type
+    Implotpiechartflagstypedef* = Implotpiechartflagstypedef_28313281
+else:
+  static :
+    hint("Declaration of " & "Implotpiechartflagstypedef" &
         " already exists, not redeclaring")
 when not declared(structimguitablesortspecs):
   type
@@ -9202,30 +10290,58 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvectorimguiwindowstackdata):
   type
-    Imvectorimguiwindowstackdata* = Imvectorimguiwindowstackdata_28312791
+    Imvectorimguiwindowstackdata* = Imvectorimguiwindowstackdata_28312937
 else:
   static :
     hint("Declaration of " & "Imvectorimguiwindowstackdata" &
         " already exists, not redeclaring")
+when not declared(Imguimousecursortypedef):
+  type
+    Imguimousecursortypedef* = Imguimousecursortypedef_28312453
+else:
+  static :
+    hint("Declaration of " & "Imguimousecursortypedef" &
+        " already exists, not redeclaring")
+when not declared(Imguiinputflagstypedef):
+  type
+    Imguiinputflagstypedef* = Imguiinputflagstypedef_28312827
+else:
+  static :
+    hint("Declaration of " & "Imguiinputflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguitablecolumnidx):
   type
-    Imguitablecolumnidx* = Imguitablecolumnidx_28312889
+    Imguitablecolumnidx* = Imguitablecolumnidx_28313039
 else:
   static :
     hint("Declaration of " & "Imguitablecolumnidx" &
         " already exists, not redeclaring")
 when not declared(Imvectorint):
   type
-    Imvectorint* = Imvectorint_28312579
+    Imvectorint* = Imvectorint_28312651
 else:
   static :
     hint("Declaration of " & "Imvectorint" & " already exists, not redeclaring")
+when not declared(Implotcoltypedef):
+  type
+    Implotcoltypedef* = Implotcoltypedef_28313313
+else:
+  static :
+    hint("Declaration of " & "Implotcoltypedef" &
+        " already exists, not redeclaring")
 when not declared(Imvectorimguioldcolumndata):
   type
-    Imvectorimguioldcolumndata* = Imvectorimguioldcolumndata_28312735
+    Imvectorimguioldcolumndata* = Imvectorimguioldcolumndata_28312867
 else:
   static :
     hint("Declaration of " & "Imvectorimguioldcolumndata" &
+        " already exists, not redeclaring")
+when not declared(Imguiselectableflagstypedef):
+  type
+    Imguiselectableflagstypedef* = Imguiselectableflagstypedef_28312353
+else:
+  static :
+    hint("Declaration of " & "Imguiselectableflagstypedef" &
         " already exists, not redeclaring")
 when not declared(Imvec4):
   type
@@ -9235,63 +10351,63 @@ else:
     hint("Declaration of " & "Imvec4" & " already exists, not redeclaring")
 when not declared(Imguikeyroutingindex):
   type
-    Imguikeyroutingindex* = Imguikeyroutingindex_28312689
+    Imguikeyroutingindex* = Imguikeyroutingindex_28312807
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingindex" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguiid):
   type
-    structimvectorimguiid* = structimvectorimguiid_28312801
+    structimvectorimguiid* = structimvectorimguiid_28312947
 else:
   static :
     hint("Declaration of " & "structimvectorimguiid" &
         " already exists, not redeclaring")
 when not declared(structimguiwindowdockstyle):
   type
-    structimguiwindowdockstyle* = structimguiwindowdockstyle_28312751
+    structimguiwindowdockstyle* = structimguiwindowdockstyle_28312891
 else:
   static :
     hint("Declaration of " & "structimguiwindowdockstyle" &
         " already exists, not redeclaring")
 when not declared(structimvectorims16):
   type
-    structimvectorims16* = structimvectorims16_28312963
+    structimvectorims16* = structimvectorims16_28313113
 else:
   static :
     hint("Declaration of " & "structimvectorims16" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguipopupdata):
   type
-    structimvectorimguipopupdata* = structimvectorimguipopupdata_28312813
+    structimvectorimguipopupdata* = structimvectorimguipopupdata_28312959
 else:
   static :
     hint("Declaration of " & "structimvectorimguipopupdata" &
         " already exists, not redeclaring")
 when not declared(Implotdigitalflags):
   type
-    Implotdigitalflags* = Implotdigitalflags_28313033
+    Implotdigitalflags* = Implotdigitalflags_28313183
 else:
   static :
     hint("Declaration of " & "Implotdigitalflags" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguiviewportptr):
   type
-    Imvectorimguiviewportptr* = Imvectorimguiviewportptr_28312503
+    Imvectorimguiviewportptr* = Imvectorimguiviewportptr_28312575
 else:
   static :
     hint("Declaration of " & "Imvectorimguiviewportptr" &
         " already exists, not redeclaring")
 when not declared(structimvectorimplotitem):
   type
-    structimvectorimplotitem* = structimvectorimplotitem_28313221
+    structimvectorimplotitem* = structimvectorimplotitem_28313443
 else:
   static :
     hint("Declaration of " & "structimvectorimplotitem" &
         " already exists, not redeclaring")
 when not declared(Impoolimplotplot):
   type
-    Impoolimplotplot* = Impoolimplotplot_28313251
+    Impoolimplotplot* = Impoolimplotplot_28313473
 else:
   static :
     hint("Declaration of " & "Impoolimplotplot" &
@@ -9302,44 +10418,50 @@ when not declared(Imguiid):
 else:
   static :
     hint("Declaration of " & "Imguiid" & " already exists, not redeclaring")
-when not declared(Imnodesattributeflags):
-  type
-    Imnodesattributeflags* = Imnodesattributeflags_28313291
-else:
-  static :
-    hint("Declaration of " & "Imnodesattributeflags" &
-        " already exists, not redeclaring")
 when not declared(structimvectorimfontptr):
   type
-    structimvectorimfontptr* = structimvectorimfontptr_28312475
+    structimvectorimfontptr* = structimvectorimfontptr_28312545
 else:
   static :
     hint("Declaration of " & "structimvectorimfontptr" &
         " already exists, not redeclaring")
+when not declared(Imguilockey):
+  type
+    Imguilockey* = Imguilockey_28312907
+else:
+  static :
+    hint("Declaration of " & "Imguilockey" & " already exists, not redeclaring")
+when not declared(Imnodesattributeflags):
+  type
+    Imnodesattributeflags* = Imnodesattributeflags_28313513
+else:
+  static :
+    hint("Declaration of " & "Imnodesattributeflags" &
+        " already exists, not redeclaring")
 when not declared(Imchunkstreamimguiwindowsettings):
   type
-    Imchunkstreamimguiwindowsettings* = Imchunkstreamimguiwindowsettings_28312867
+    Imchunkstreamimguiwindowsettings* = Imchunkstreamimguiwindowsettings_28313013
 else:
   static :
     hint("Declaration of " & "Imchunkstreamimguiwindowsettings" &
         " already exists, not redeclaring")
 when not declared(Imvectorimdrawidx):
   type
-    Imvectorimdrawidx* = Imvectorimdrawidx_28312435
+    Imvectorimdrawidx* = Imvectorimdrawidx_28312499
 else:
   static :
     hint("Declaration of " & "Imvectorimdrawidx" &
         " already exists, not redeclaring")
 when not declared(Imvectorimdrawchannel):
   type
-    Imvectorimdrawchannel* = Imvectorimdrawchannel_28312439
+    Imvectorimdrawchannel* = Imvectorimdrawchannel_28312503
 else:
   static :
     hint("Declaration of " & "Imvectorimdrawchannel" &
         " already exists, not redeclaring")
 when not declared(Implotformatter):
   type
-    Implotformatter* = Implotformatter_28313143
+    Implotformatter* = Implotformatter_28313359
 else:
   static :
     hint("Declaration of " & "Implotformatter" &
@@ -9351,30 +10473,44 @@ else:
   static :
     hint("Declaration of " & "Imguifocusedflags" &
         " already exists, not redeclaring")
+when not declared(Imguiinputtextflagstypedef):
+  type
+    Imguiinputtextflagstypedef* = Imguiinputtextflagstypedef_28312341
+else:
+  static :
+    hint("Declaration of " & "Imguiinputtextflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguitablecelldata):
   type
-    Imguitablecelldata* = Imguitablecelldata_28312893
+    Imguitablecelldata* = Imguitablecelldata_28313043
 else:
   static :
     hint("Declaration of " & "Imguitablecelldata" &
         " already exists, not redeclaring")
 when not declared(Implotsubplotflags):
   type
-    Implotsubplotflags* = Implotsubplotflags_28312997
+    Implotsubplotflags* = Implotsubplotflags_28313147
 else:
   static :
     hint("Declaration of " & "Implotsubplotflags" &
         " already exists, not redeclaring")
 when not declared(Implotshadedflags):
   type
-    Implotshadedflags* = Implotshadedflags_28313015
+    Implotshadedflags* = Implotshadedflags_28313165
 else:
   static :
     hint("Declaration of " & "Implotshadedflags" &
         " already exists, not redeclaring")
+when not declared(Implotdummyflagstypedef):
+  type
+    Implotdummyflagstypedef* = Implotdummyflagstypedef_28313305
+else:
+  static :
+    hint("Declaration of " & "Implotdummyflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguioldcolumnflags):
   type
-    Imguioldcolumnflags* = Imguioldcolumnflags_28312521
+    Imguioldcolumnflags* = Imguioldcolumnflags_28312593
 else:
   static :
     hint("Declaration of " & "Imguioldcolumnflags" &
@@ -9385,23 +10521,30 @@ when not declared(Imfontglyph):
 else:
   static :
     hint("Declaration of " & "Imfontglyph" & " already exists, not redeclaring")
+when not declared(Imguiselectableflagsprivate):
+  type
+    Imguiselectableflagsprivate* = Imguiselectableflagsprivate_28312683
+else:
+  static :
+    hint("Declaration of " & "Imguiselectableflagsprivate" &
+        " already exists, not redeclaring")
 when not declared(Implotpiechartflags):
   type
-    Implotpiechartflags* = Implotpiechartflags_28313027
+    Implotpiechartflags* = Implotpiechartflags_28313177
 else:
   static :
     hint("Declaration of " & "Implotpiechartflags" &
         " already exists, not redeclaring")
 when not declared(structimguistacklevelinfo):
   type
-    structimguistacklevelinfo* = structimguistacklevelinfo_28312771
+    structimguistacklevelinfo* = structimguistacklevelinfo_28312915
 else:
   static :
     hint("Declaration of " & "structimguistacklevelinfo" &
         " already exists, not redeclaring")
 when not declared(structtm):
   type
-    structtm* = structtm_28312927
+    structtm* = structtm_28313077
 else:
   static :
     hint("Declaration of " & "structtm" & " already exists, not redeclaring")
@@ -9413,7 +10556,7 @@ else:
     hint("Declaration of " & "Imdrawflags" & " already exists, not redeclaring")
 when not declared(Imguiinputeventmousewheel):
   type
-    Imguiinputeventmousewheel* = Imguiinputeventmousewheel_28312661
+    Imguiinputeventmousewheel* = Imguiinputeventmousewheel_28312779
 else:
   static :
     hint("Declaration of " & "Imguiinputeventmousewheel" &
@@ -9439,13 +10582,6 @@ else:
   static :
     hint("Declaration of " & "Imguitablerowflags" &
         " already exists, not redeclaring")
-when not declared(Implotaxisflags):
-  type
-    Implotaxisflags* = Implotaxisflags_28312995
-else:
-  static :
-    hint("Declaration of " & "Implotaxisflags" &
-        " already exists, not redeclaring")
 when not declared(structimguinextitemdata):
   type
     structimguinextitemdata* = structimguinextitemdata_28312153
@@ -9455,7 +10591,7 @@ else:
         " already exists, not redeclaring")
 when not declared(structimvectorimguikeyroutingdata):
   type
-    structimvectorimguikeyroutingdata* = structimvectorimguikeyroutingdata_28312699
+    structimvectorimguikeyroutingdata* = structimvectorimguikeyroutingdata_28312817
 else:
   static :
     hint("Declaration of " & "structimvectorimguikeyroutingdata" &
@@ -9467,6 +10603,13 @@ else:
   static :
     hint("Declaration of " & "Imguidatatypeinfo" &
         " already exists, not redeclaring")
+when not declared(Implotaxisflags):
+  type
+    Implotaxisflags* = Implotaxisflags_28313145
+else:
+  static :
+    hint("Declaration of " & "Implotaxisflags" &
+        " already exists, not redeclaring")
 when not declared(Imguibackendflags):
   type
     Imguibackendflags* = Imguibackendflags_28312249
@@ -9476,7 +10619,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiitemflags):
   type
-    Imguiitemflags* = Imguiitemflags_28312517
+    Imguiitemflags* = Imguiitemflags_28312589
 else:
   static :
     hint("Declaration of " & "Imguiitemflags" &
@@ -9496,47 +10639,47 @@ else:
     hint("Declaration of " & "Ims32" & " already exists, not redeclaring")
 when not declared(Stbundostate):
   type
-    Stbundostate* = Stbundostate_28312545
+    Stbundostate* = Stbundostate_28312617
 else:
   static :
     hint("Declaration of " & "Stbundostate" & " already exists, not redeclaring")
 when not declared(Imguicontexthookcallback):
   type
-    Imguicontexthookcallback* = Imguicontexthookcallback_28312781
+    Imguicontexthookcallback* = Imguicontexthookcallback_28312925
 else:
   static :
     hint("Declaration of " & "Imguicontexthookcallback" &
         " already exists, not redeclaring")
 when not declared(Implotcond):
   type
-    Implotcond* = Implotcond_28313041
+    Implotcond* = Implotcond_28313191
 else:
   static :
     hint("Declaration of " & "Implotcond" & " already exists, not redeclaring")
 when not declared(Imvectorimplotannotation):
   type
-    Imvectorimplotannotation* = Imvectorimplotannotation_28313195
+    Imvectorimplotannotation* = Imvectorimplotannotation_28313417
 else:
   static :
     hint("Declaration of " & "Imvectorimplotannotation" &
         " already exists, not redeclaring")
 when not declared(structimvectorims32):
   type
-    structimvectorims32* = structimvectorims32_28312967
+    structimvectorims32* = structimvectorims32_28313117
 else:
   static :
     hint("Declaration of " & "structimvectorims32" &
         " already exists, not redeclaring")
 when not declared(structimguilistclipperrange):
   type
-    structimguilistclipperrange* = structimguilistclipperrange_28312711
+    structimguilistclipperrange* = structimguilistclipperrange_28312831
 else:
   static :
     hint("Declaration of " & "structimguilistclipperrange" &
         " already exists, not redeclaring")
 when not declared(structlinkdetachwithmodifierclick):
   type
-    structlinkdetachwithmodifierclick* = structlinkdetachwithmodifierclick_28313313
+    structlinkdetachwithmodifierclick* = structlinkdetachwithmodifierclick_28313545
 else:
   static :
     hint("Declaration of " & "structlinkdetachwithmodifierclick" &
@@ -9547,30 +10690,51 @@ when not declared(Imguipayload):
 else:
   static :
     hint("Declaration of " & "Imguipayload" & " already exists, not redeclaring")
+when not declared(Imguidirtypedef):
+  type
+    Imguidirtypedef* = Imguidirtypedef_28312405
+else:
+  static :
+    hint("Declaration of " & "Imguidirtypedef" &
+        " already exists, not redeclaring")
+when not declared(Implotshadedflagstypedef):
+  type
+    Implotshadedflagstypedef* = Implotshadedflagstypedef_28313257
+else:
+  static :
+    hint("Declaration of " & "Implotshadedflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Stbundorecord):
   type
-    Stbundorecord* = Stbundorecord_28312541
+    Stbundorecord* = Stbundorecord_28312613
 else:
   static :
     hint("Declaration of " & "Stbundorecord" &
         " already exists, not redeclaring")
+when not declared(Implotheatmapflagstypedef):
+  type
+    Implotheatmapflagstypedef* = Implotheatmapflagstypedef_28313285
+else:
+  static :
+    hint("Declaration of " & "Implotheatmapflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguilistclipperrange):
   type
-    Imguilistclipperrange* = Imguilistclipperrange_28312709
+    Imguilistclipperrange* = Imguilistclipperrange_28312829
 else:
   static :
     hint("Declaration of " & "Imguilistclipperrange" &
         " already exists, not redeclaring")
 when not declared(Implotlegendflags):
   type
-    Implotlegendflags* = Implotlegendflags_28312999
+    Implotlegendflags* = Implotlegendflags_28313149
 else:
   static :
     hint("Declaration of " & "Implotlegendflags" &
         " already exists, not redeclaring")
 when not declared(structimplotrange):
   type
-    structimplotrange* = structimplotrange_28313129
+    structimplotrange* = structimplotrange_28313345
 else:
   static :
     hint("Declaration of " & "structimplotrange" &
@@ -9584,18 +10748,24 @@ else:
         " already exists, not redeclaring")
 when not declared(structformattertimedata):
   type
-    structformattertimedata* = structformattertimedata_28313275
+    structformattertimedata* = structformattertimedata_28313497
 else:
   static :
     hint("Declaration of " & "structformattertimedata" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguitabletempdata):
   type
-    Imvectorimguitabletempdata* = Imvectorimguitabletempdata_28312835
+    Imvectorimguitabletempdata* = Imvectorimguitabletempdata_28312981
 else:
   static :
     hint("Declaration of " & "Imvectorimguitabletempdata" &
         " already exists, not redeclaring")
+when not declared(Imguikey):
+  type
+    Imguikey* = Imguikey_28312413
+else:
+  static :
+    hint("Declaration of " & "Imguikey" & " already exists, not redeclaring")
 when not declared(Imfont):
   type
     Imfont* = Imfont_28311962
@@ -9604,10 +10774,17 @@ else:
     hint("Declaration of " & "Imfont" & " already exists, not redeclaring")
 when not declared(Imguikeyroutingtable):
   type
-    Imguikeyroutingtable* = Imguikeyroutingtable_28312695
+    Imguikeyroutingtable* = Imguikeyroutingtable_28312813
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingtable" &
+        " already exists, not redeclaring")
+when not declared(Imguilayouttypetypedef):
+  type
+    Imguilayouttypetypedef* = Imguilayouttypetypedef_28312707
+else:
+  static :
+    hint("Declaration of " & "Imguilayouttypetypedef" &
         " already exists, not redeclaring")
 when not declared(Imdrawlistshareddata):
   type
@@ -9618,7 +10795,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotpointerror):
   type
-    Implotpointerror* = Implotpointerror_28313181
+    Implotpointerror* = Implotpointerror_28313403
 else:
   static :
     hint("Declaration of " & "Implotpointerror" &
@@ -9630,23 +10807,30 @@ else:
   static :
     hint("Declaration of " & "structimguionceuponaframe" &
         " already exists, not redeclaring")
+when not declared(Imguitooltipflagstypedef):
+  type
+    Imguitooltipflagstypedef* = Imguitooltipflagstypedef_28312703
+else:
+  static :
+    hint("Declaration of " & "Imguitooltipflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(structimguiinputeventmousewheel):
   type
-    structimguiinputeventmousewheel* = structimguiinputeventmousewheel_28312663
+    structimguiinputeventmousewheel* = structimguiinputeventmousewheel_28312781
 else:
   static :
     hint("Declaration of " & "structimguiinputeventmousewheel" &
         " already exists, not redeclaring")
 when not declared(Imvectorimu16):
   type
-    Imvectorimu16* = Imvectorimu16_28312981
+    Imvectorimu16* = Imvectorimu16_28313131
 else:
   static :
     hint("Declaration of " & "Imvectorimu16" &
         " already exists, not redeclaring")
 when not declared(Imguitextrange):
   type
-    Imguitextrange* = Imguitextrange_28312405
+    Imguitextrange* = Imguitextrange_28312469
 else:
   static :
     hint("Declaration of " & "Imguitextrange" &
@@ -9658,9 +10842,16 @@ else:
   static :
     hint("Declaration of " & "Imguitextbuffer" &
         " already exists, not redeclaring")
+when not declared(Imdrawflagstypedef):
+  type
+    Imdrawflagstypedef* = Imdrawflagstypedef_28312507
+else:
+  static :
+    hint("Declaration of " & "Imdrawflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Multipleselectmodifier):
   type
-    Multipleselectmodifier* = Multipleselectmodifier_28313319
+    Multipleselectmodifier* = Multipleselectmodifier_28313551
 else:
   static :
     hint("Declaration of " & "Multipleselectmodifier" &
@@ -9672,6 +10863,13 @@ else:
   static :
     hint("Declaration of " & "structimguisettingshandler" &
         " already exists, not redeclaring")
+when not declared(Imguipopupflagstypedef):
+  type
+    Imguipopupflagstypedef* = Imguipopupflagstypedef_28312349
+else:
+  static :
+    hint("Declaration of " & "Imguipopupflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguisizecallbackdata):
   type
     Imguisizecallbackdata* = Imguisizecallbackdata_28312037
@@ -9681,14 +10879,21 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvectorimguicontexthook):
   type
-    Imvectorimguicontexthook* = Imvectorimguicontexthook_28312875
+    Imvectorimguicontexthook* = Imvectorimguicontexthook_28313021
 else:
   static :
     hint("Declaration of " & "Imvectorimguicontexthook" &
         " already exists, not redeclaring")
+when not declared(Imguidataauthoritytypedef):
+  type
+    Imguidataauthoritytypedef* = Imguidataauthoritytypedef_28312875
+else:
+  static :
+    hint("Declaration of " & "Imguidataauthoritytypedef" &
+        " already exists, not redeclaring")
 when not declared(Impoolimguitabbar):
   type
-    Impoolimguitabbar* = Impoolimguitabbar_28312851
+    Impoolimguitabbar* = Impoolimguitabbar_28312997
 else:
   static :
     hint("Declaration of " & "Impoolimguitabbar" &
@@ -9702,14 +10907,21 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotscatterflags):
   type
-    Implotscatterflags* = Implotscatterflags_28313011
+    Implotscatterflags* = Implotscatterflags_28313161
 else:
   static :
     hint("Declaration of " & "Implotscatterflags" &
         " already exists, not redeclaring")
+when not declared(Imdrawlistflagstypedef):
+  type
+    Imdrawlistflagstypedef* = Imdrawlistflagstypedef_28312511
+else:
+  static :
+    hint("Declaration of " & "Imdrawlistflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imvectordouble):
   type
-    Imvectordouble* = Imvectordouble_28313267
+    Imvectordouble* = Imvectordouble_28313489
 else:
   static :
     hint("Declaration of " & "Imvectordouble" &
@@ -9742,6 +10954,13 @@ else:
   static :
     hint("Declaration of " & "Imguiwindowflags" &
         " already exists, not redeclaring")
+when not declared(Imguitabitemflagstypedef):
+  type
+    Imguitabitemflagstypedef* = Imguitabitemflagstypedef_28312365
+else:
+  static :
+    hint("Declaration of " & "Imguitabitemflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguipopupdata):
   type
     Imguipopupdata* = Imguipopupdata_28312163
@@ -9751,17 +10970,24 @@ else:
         " already exists, not redeclaring")
 when not declared(structimguitextindex):
   type
-    structimguitextindex* = structimguitextindex_28312575
+    structimguitextindex* = structimguitextindex_28312647
 else:
   static :
     hint("Declaration of " & "structimguitextindex" &
         " already exists, not redeclaring")
 when not declared(structimvectorimfontglyph):
   type
-    structimvectorimfontglyph* = structimvectorimfontglyph_28312491
+    structimvectorimfontglyph* = structimvectorimfontglyph_28312561
 else:
   static :
     hint("Declaration of " & "structimvectorimfontglyph" &
+        " already exists, not redeclaring")
+when not declared(Implotmousetextflagstypedef):
+  type
+    Implotmousetextflagstypedef* = Implotmousetextflagstypedef_28313229
+else:
+  static :
+    hint("Declaration of " & "Implotmousetextflagstypedef" &
         " already exists, not redeclaring")
 when not declared(Imwchar16):
   type
@@ -9771,19 +10997,19 @@ else:
     hint("Declaration of " & "Imwchar16" & " already exists, not redeclaring")
 when not declared(Imnodescol):
   type
-    Imnodescol* = Imnodescol_28313283
+    Imnodescol* = Imnodescol_28313505
 else:
   static :
     hint("Declaration of " & "Imnodescol" & " already exists, not redeclaring")
 when not declared(tm):
   type
-    tm* = tm_28312925
+    tm* = tm_28313075
 else:
   static :
     hint("Declaration of " & "tm" & " already exists, not redeclaring")
 when not declared(structstbundostate):
   type
-    structstbundostate* = structstbundostate_28312547
+    structstbundostate* = structstbundostate_28312619
 else:
   static :
     hint("Declaration of " & "structstbundostate" &
@@ -9797,17 +11023,31 @@ else:
         " already exists, not redeclaring")
 when not declared(structimguistacktool):
   type
-    structimguistacktool* = structimguistacktool_28312775
+    structimguistacktool* = structimguistacktool_28312919
 else:
   static :
     hint("Declaration of " & "structimguistacktool" &
         " already exists, not redeclaring")
 when not declared(structimpoolimplotalignmentdata):
   type
-    structimpoolimplotalignmentdata* = structimpoolimplotalignmentdata_28313269
+    structimpoolimplotalignmentdata* = structimpoolimplotalignmentdata_28313491
 else:
   static :
     hint("Declaration of " & "structimpoolimplotalignmentdata" &
+        " already exists, not redeclaring")
+when not declared(Imguicontexthooktype):
+  type
+    Imguicontexthooktype* = Imguicontexthooktype_28312929
+else:
+  static :
+    hint("Declaration of " & "Imguicontexthooktype" &
+        " already exists, not redeclaring")
+when not declared(Imnodesstylevartypedef):
+  type
+    Imnodesstylevartypedef* = Imnodesstylevartypedef_28313523
+else:
+  static :
+    hint("Declaration of " & "Imnodesstylevartypedef" &
         " already exists, not redeclaring")
 when not declared(Imfontatlasflags):
   type
@@ -9818,76 +11058,76 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiinputeventappfocused):
   type
-    Imguiinputeventappfocused* = Imguiinputeventappfocused_28312681
+    Imguiinputeventappfocused* = Imguiinputeventappfocused_28312799
 else:
   static :
     hint("Declaration of " & "Imguiinputeventappfocused" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguicolormod):
   type
-    structimvectorimguicolormod* = structimvectorimguicolormod_28312793
+    structimvectorimguicolormod* = structimvectorimguicolormod_28312939
 else:
   static :
     hint("Declaration of " & "structimvectorimguicolormod" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguinavtreenodedata):
   type
-    structimvectorimguinavtreenodedata* = structimvectorimguinavtreenodedata_28312817
+    structimvectorimguinavtreenodedata* = structimvectorimguinavtreenodedata_28312963
 else:
   static :
     hint("Declaration of " & "structimvectorimguinavtreenodedata" &
         " already exists, not redeclaring")
 when not declared(Implotbargroupsflags):
   type
-    Implotbargroupsflags* = Implotbargroupsflags_28313019
+    Implotbargroupsflags* = Implotbargroupsflags_28313169
 else:
   static :
     hint("Declaration of " & "Implotbargroupsflags" &
         " already exists, not redeclaring")
 when not declared(structimguiinputeventmousebutton):
   type
-    structimguiinputeventmousebutton* = structimguiinputeventmousebutton_28312667
+    structimguiinputeventmousebutton* = structimguiinputeventmousebutton_28312785
 else:
   static :
     hint("Declaration of " & "structimguiinputeventmousebutton" &
         " already exists, not redeclaring")
 when not declared(Implottick):
   type
-    Implottick* = Implottick_28312933
+    Implottick* = Implottick_28313083
 else:
   static :
     hint("Declaration of " & "Implottick" & " already exists, not redeclaring")
 when not declared(structimplotticker):
   type
-    structimplotticker* = structimplotticker_28312961
+    structimplotticker* = structimplotticker_28313111
 else:
   static :
     hint("Declaration of " & "structimplotticker" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguitableinstancedata):
   type
-    structimvectorimguitableinstancedata* = structimvectorimguitableinstancedata_28312909
+    structimvectorimguitableinstancedata* = structimvectorimguitableinstancedata_28313059
 else:
   static :
     hint("Declaration of " & "structimvectorimguitableinstancedata" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguiitemflags):
   type
-    Imvectorimguiitemflags* = Imvectorimguiitemflags_28312807
+    Imvectorimguiitemflags* = Imvectorimguiitemflags_28312953
 else:
   static :
     hint("Declaration of " & "Imvectorimguiitemflags" &
         " already exists, not redeclaring")
 when not declared(structimplotrect):
   type
-    structimplotrect* = structimplotrect_28313133
+    structimplotrect* = structimplotrect_28313349
 else:
   static :
     hint("Declaration of " & "structimplotrect" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperdata):
   type
-    Imguilistclipperdata* = Imguilistclipperdata_28312713
+    Imguilistclipperdata* = Imguilistclipperdata_28312833
 else:
   static :
     hint("Declaration of " & "Imguilistclipperdata" &
@@ -9900,21 +11140,21 @@ else:
     hint("Declaration of " & "structimrect" & " already exists, not redeclaring")
 when not declared(Imguitooltipflags):
   type
-    Imguitooltipflags* = Imguitooltipflags_28312537
+    Imguitooltipflags* = Imguitooltipflags_28312609
 else:
   static :
     hint("Declaration of " & "Imguitooltipflags" &
         " already exists, not redeclaring")
 when not declared(structimplottick):
   type
-    structimplottick* = structimplottick_28312935
+    structimplottick* = structimplottick_28313085
 else:
   static :
     hint("Declaration of " & "structimplottick" &
         " already exists, not redeclaring")
 when not declared(Implotstylevar):
   type
-    Implotstylevar* = Implotstylevar_28313045
+    Implotstylevar* = Implotstylevar_28313195
 else:
   static :
     hint("Declaration of " & "Implotstylevar" &
@@ -9928,7 +11168,7 @@ else:
         " already exists, not redeclaring")
 when not declared(structimvectorimguidockrequest):
   type
-    structimvectorimguidockrequest* = structimvectorimguidockrequest_28312753
+    structimvectorimguidockrequest* = structimvectorimguidockrequest_28312893
 else:
   static :
     hint("Declaration of " & "structimvectorimguidockrequest" &
@@ -9942,7 +11182,7 @@ else:
         " already exists, not redeclaring")
 when not declared(structimplotitemgroup):
   type
-    structimplotitemgroup* = structimplotitemgroup_28313219
+    structimplotitemgroup* = structimplotitemgroup_28313441
 else:
   static :
     hint("Declaration of " & "structimplotitemgroup" &
@@ -9963,28 +11203,28 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotmousetextflags):
   type
-    Implotmousetextflags* = Implotmousetextflags_28313001
+    Implotmousetextflags* = Implotmousetextflags_28313151
 else:
   static :
     hint("Declaration of " & "Implotmousetextflags" &
         " already exists, not redeclaring")
 when not declared(structimguiinputeventappfocused):
   type
-    structimguiinputeventappfocused* = structimguiinputeventappfocused_28312683
+    structimguiinputeventappfocused* = structimguiinputeventappfocused_28312801
 else:
   static :
     hint("Declaration of " & "structimguiinputeventappfocused" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguitable):
   type
-    structimvectorimguitable* = structimvectorimguitable_28312837
+    structimvectorimguitable* = structimvectorimguitable_28312983
 else:
   static :
     hint("Declaration of " & "structimvectorimguitable" &
         " already exists, not redeclaring")
 when not declared(Imguikeyownerdata):
   type
-    Imguikeyownerdata* = Imguikeyownerdata_28312703
+    Imguikeyownerdata* = Imguikeyownerdata_28312821
 else:
   static :
     hint("Declaration of " & "Imguikeyownerdata" &
@@ -9997,10 +11237,17 @@ else:
     hint("Declaration of " & "Imfontatlas" & " already exists, not redeclaring")
 when not declared(Implottagcollection):
   type
-    Implottagcollection* = Implottagcollection_28313201
+    Implottagcollection* = Implottagcollection_28313423
 else:
   static :
     hint("Declaration of " & "Implottagcollection" &
+        " already exists, not redeclaring")
+when not declared(Implotstemsflagstypedef):
+  type
+    Implotstemsflagstypedef* = Implotstemsflagstypedef_28313273
+else:
+  static :
+    hint("Declaration of " & "Implotstemsflagstypedef" &
         " already exists, not redeclaring")
 when not declared(structimguitablecolumnsortspecs):
   type
@@ -10011,28 +11258,35 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotstemsflags):
   type
-    Implotstemsflags* = Implotstemsflags_28313023
+    Implotstemsflags* = Implotstemsflags_28313173
 else:
   static :
     hint("Declaration of " & "Implotstemsflags" &
         " already exists, not redeclaring")
 when not declared(structimguiinputeventmousepos):
   type
-    structimguiinputeventmousepos* = structimguiinputeventmousepos_28312659
+    structimguiinputeventmousepos* = structimguiinputeventmousepos_28312777
 else:
   static :
     hint("Declaration of " & "structimguiinputeventmousepos" &
         " already exists, not redeclaring")
 when not declared(structimguikeyroutingtable):
   type
-    structimguikeyroutingtable* = structimguikeyroutingtable_28312697
+    structimguikeyroutingtable* = structimguikeyroutingtable_28312815
 else:
   static :
     hint("Declaration of " & "structimguikeyroutingtable" &
         " already exists, not redeclaring")
+when not declared(Imguiinputeventtype):
+  type
+    Imguiinputeventtype* = Imguiinputeventtype_28312769
+else:
+  static :
+    hint("Declaration of " & "Imguiinputeventtype" &
+        " already exists, not redeclaring")
 when not declared(structimvectorbool):
   type
-    structimvectorbool* = structimvectorbool_28313177
+    structimvectorbool* = structimvectorbool_28313399
 else:
   static :
     hint("Declaration of " & "structimvectorbool" &
@@ -10046,30 +11300,37 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotrect):
   type
-    Implotrect* = Implotrect_28313131
+    Implotrect* = Implotrect_28313347
 else:
   static :
     hint("Declaration of " & "Implotrect" & " already exists, not redeclaring")
 when not declared(Imnodesminimapnodehoveringcallback):
   type
-    Imnodesminimapnodehoveringcallback* = Imnodesminimapnodehoveringcallback_28313327
+    Imnodesminimapnodehoveringcallback* = Imnodesminimapnodehoveringcallback_28313561
 else:
   static :
     hint("Declaration of " & "Imnodesminimapnodehoveringcallback" &
         " already exists, not redeclaring")
 when not declared(Imguiactivateflags):
   type
-    Imguiactivateflags* = Imguiactivateflags_28312509
+    Imguiactivateflags* = Imguiactivateflags_28312581
 else:
   static :
     hint("Declaration of " & "Imguiactivateflags" &
         " already exists, not redeclaring")
 when not declared(Imnodesminimaplocation):
   type
-    Imnodesminimaplocation* = Imnodesminimaplocation_28313293
+    Imnodesminimaplocation* = Imnodesminimaplocation_28313515
 else:
   static :
     hint("Declaration of " & "Imnodesminimaplocation" &
+        " already exists, not redeclaring")
+when not declared(Imguicomboflagstypedef):
+  type
+    Imguicomboflagstypedef* = Imguicomboflagstypedef_28312357
+else:
+  static :
+    hint("Declaration of " & "Imguicomboflagstypedef" &
         " already exists, not redeclaring")
 when not declared(Imu32):
   type
@@ -10079,14 +11340,14 @@ else:
     hint("Declaration of " & "Imu32" & " already exists, not redeclaring")
 when not declared(Impoolimguitable):
   type
-    Impoolimguitable* = Impoolimguitable_28312843
+    Impoolimguitable* = Impoolimguitable_28312989
 else:
   static :
     hint("Declaration of " & "Impoolimguitable" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguioldcolumns):
   type
-    structimvectorimguioldcolumns* = structimvectorimguioldcolumns_28312877
+    structimvectorimguioldcolumns* = structimvectorimguioldcolumns_28313023
 else:
   static :
     hint("Declaration of " & "structimvectorimguioldcolumns" &
@@ -10106,45 +11367,45 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotticker):
   type
-    Implotticker* = Implotticker_28312959
+    Implotticker* = Implotticker_28313109
 else:
   static :
     hint("Declaration of " & "Implotticker" & " already exists, not redeclaring")
 when not declared(Implotcol):
   type
-    Implotcol* = Implotcol_28313043
+    Implotcol* = Implotcol_28313193
 else:
   static :
     hint("Declaration of " & "Implotcol" & " already exists, not redeclaring")
 when not declared(Implotbin):
   type
-    Implotbin* = Implotbin_28313055
+    Implotbin* = Implotbin_28313205
 else:
   static :
     hint("Declaration of " & "Implotbin" & " already exists, not redeclaring")
 when not declared(Glfwwindow):
   type
-    Glfwwindow* = Glfwwindow_28312921
+    Glfwwindow* = Glfwwindow_28313071
 else:
   static :
     hint("Declaration of " & "Glfwwindow" & " already exists, not redeclaring")
 when not declared(Imvectorimguisettingshandler):
   type
-    Imvectorimguisettingshandler* = Imvectorimguisettingshandler_28312863
+    Imvectorimguisettingshandler* = Imvectorimguisettingshandler_28313009
 else:
   static :
     hint("Declaration of " & "Imvectorimguisettingshandler" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguistacklevelinfo):
   type
-    structimvectorimguistacklevelinfo* = structimvectorimguistacklevelinfo_28312777
+    structimvectorimguistacklevelinfo* = structimvectorimguistacklevelinfo_28312921
 else:
   static :
     hint("Declaration of " & "structimvectorimguistacklevelinfo" &
         " already exists, not redeclaring")
 when not declared(Implottransform):
   type
-    Implottransform* = Implottransform_28313147
+    Implottransform* = Implottransform_28313363
 else:
   static :
     hint("Declaration of " & "Implottransform" &
@@ -10158,14 +11419,14 @@ else:
         " already exists, not redeclaring")
 when not declared(structimvectorimdrawvert):
   type
-    structimvectorimdrawvert* = structimvectorimdrawvert_28312445
+    structimvectorimdrawvert* = structimvectorimdrawvert_28312513
 else:
   static :
     hint("Declaration of " & "structimvectorimdrawvert" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportp):
   type
-    Imguiviewportp* = Imguiviewportp_28312761
+    Imguiviewportp* = Imguiviewportp_28312901
 else:
   static :
     hint("Declaration of " & "Imguiviewportp" &
@@ -10179,35 +11440,42 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvectorimu32):
   type
-    Imvectorimu32* = Imvectorimu32_28312467
+    Imvectorimu32* = Imvectorimu32_28312535
 else:
   static :
     hint("Declaration of " & "Imvectorimu32" &
         " already exists, not redeclaring")
+when not declared(Imguiseparatorflagstypedef):
+  type
+    Imguiseparatorflagstypedef* = Imguiseparatorflagstypedef_28312691
+else:
+  static :
+    hint("Declaration of " & "Imguiseparatorflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(structimvectorimguidocknodesettings):
   type
-    structimvectorimguidocknodesettings* = structimvectorimguidocknodesettings_28312757
+    structimvectorimguidocknodesettings* = structimvectorimguidocknodesettings_28312897
 else:
   static :
     hint("Declaration of " & "structimvectorimguidocknodesettings" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguiviewportptr):
   type
-    structimvectorimguiviewportptr* = structimvectorimguiviewportptr_28312501
+    structimvectorimguiviewportptr* = structimvectorimguiviewportptr_28312573
 else:
   static :
     hint("Declaration of " & "structimvectorimguiviewportptr" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguikeyroutingdata):
   type
-    Imvectorimguikeyroutingdata* = Imvectorimguikeyroutingdata_28312701
+    Imvectorimguikeyroutingdata* = Imvectorimguikeyroutingdata_28312819
 else:
   static :
     hint("Declaration of " & "Imvectorimguikeyroutingdata" &
         " already exists, not redeclaring")
 when not declared(structimvectorint):
   type
-    structimvectorint* = structimvectorint_28312577
+    structimvectorint* = structimvectorint_28312649
 else:
   static :
     hint("Declaration of " & "structimvectorint" &
@@ -10227,7 +11495,7 @@ else:
     hint("Declaration of " & "Imdrawvert" & " already exists, not redeclaring")
 when not declared(structimvectorimplotrange):
   type
-    structimvectorimplotrange* = structimvectorimplotrange_28313237
+    structimvectorimplotrange* = structimvectorimplotrange_28313459
 else:
   static :
     hint("Declaration of " & "structimvectorimplotrange" &
@@ -10239,9 +11507,16 @@ else:
   static :
     hint("Declaration of " & "Imguiviewport" &
         " already exists, not redeclaring")
+when not declared(Implotcolormaptypedef):
+  type
+    Implotcolormaptypedef* = Implotcolormaptypedef_28313329
+else:
+  static :
+    hint("Declaration of " & "Implotcolormaptypedef" &
+        " already exists, not redeclaring")
 when not declared(Implotdragtoolflags):
   type
-    Implotdragtoolflags* = Implotdragtoolflags_28313003
+    Implotdragtoolflags* = Implotdragtoolflags_28313153
 else:
   static :
     hint("Declaration of " & "Implotdragtoolflags" &
@@ -10260,16 +11535,23 @@ else:
   static :
     hint("Declaration of " & "Imguidocknodeflags" &
         " already exists, not redeclaring")
+when not declared(Imguitablerowflagstypedef):
+  type
+    Imguitablerowflagstypedef* = Imguitablerowflagstypedef_28312377
+else:
+  static :
+    hint("Declaration of " & "Imguitablerowflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(structimguiinputtextdeactivatedstate):
   type
-    structimguiinputtextdeactivatedstate* = structimguiinputtextdeactivatedstate_28312629
+    structimguiinputtextdeactivatedstate* = structimguiinputtextdeactivatedstate_28312739
 else:
   static :
     hint("Declaration of " & "structimguiinputtextdeactivatedstate" &
         " already exists, not redeclaring")
 when not declared(Implotannotationcollection):
   type
-    Implotannotationcollection* = Implotannotationcollection_28313189
+    Implotannotationcollection* = Implotannotationcollection_28313411
 else:
   static :
     hint("Declaration of " & "Implotannotationcollection" &
@@ -10283,21 +11565,28 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguinavmoveflags):
   type
-    Imguinavmoveflags* = Imguinavmoveflags_28312525
+    Imguinavmoveflags* = Imguinavmoveflags_28312597
 else:
   static :
     hint("Declaration of " & "Imguinavmoveflags" &
         " already exists, not redeclaring")
 when not declared(Imdrawcmdheader):
   type
-    Imdrawcmdheader* = Imdrawcmdheader_28312425
+    Imdrawcmdheader* = Imdrawcmdheader_28312489
 else:
   static :
     hint("Declaration of " & "Imdrawcmdheader" &
         " already exists, not redeclaring")
+when not declared(Imnodesstyleflagstypedef):
+  type
+    Imnodesstyleflagstypedef* = Imnodesstyleflagstypedef_28313527
+else:
+  static :
+    hint("Declaration of " & "Imnodesstyleflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(structimplotnextplotdata):
   type
-    structimplotnextplotdata* = structimplotnextplotdata_28312957
+    structimplotnextplotdata* = structimplotnextplotdata_28313107
 else:
   static :
     hint("Declaration of " & "structimplotnextplotdata" &
@@ -10311,27 +11600,27 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiinputeventtext):
   type
-    Imguiinputeventtext* = Imguiinputeventtext_28312677
+    Imguiinputeventtext* = Imguiinputeventtext_28312795
 else:
   static :
     hint("Declaration of " & "Imguiinputeventtext" &
         " already exists, not redeclaring")
 when not declared(structiobuf):
   type
-    structiobuf* = structiobuf_28313331
+    structiobuf* = structiobuf_28313565
 else:
   static :
     hint("Declaration of " & "structiobuf" & " already exists, not redeclaring")
 when not declared(structimvectorimplotplot):
   type
-    structimvectorimplotplot* = structimvectorimplotplot_28313245
+    structimvectorimplotplot* = structimvectorimplotplot_28313467
 else:
   static :
     hint("Declaration of " & "structimvectorimplotplot" &
         " already exists, not redeclaring")
 when not declared(Impoolimplotalignmentdata):
   type
-    Impoolimplotalignmentdata* = Impoolimplotalignmentdata_28313271
+    Impoolimplotalignmentdata* = Impoolimplotalignmentdata_28313493
 else:
   static :
     hint("Declaration of " & "Impoolimplotalignmentdata" &
@@ -10345,7 +11634,7 @@ else:
         " already exists, not redeclaring")
 when not declared(structimvectorunsignedchar):
   type
-    structimvectorunsignedchar* = structimvectorunsignedchar_28312825
+    structimvectorunsignedchar* = structimvectorunsignedchar_28312971
 else:
   static :
     hint("Declaration of " & "structimvectorunsignedchar" &
@@ -10359,7 +11648,7 @@ else:
         " already exists, not redeclaring")
 when not declared(structimvectorimguilistclipperrange):
   type
-    structimvectorimguilistclipperrange* = structimvectorimguilistclipperrange_28312717
+    structimvectorimguilistclipperrange* = structimvectorimguilistclipperrange_28312837
 else:
   static :
     hint("Declaration of " & "structimvectorimguilistclipperrange" &
@@ -10372,20 +11661,27 @@ else:
     hint("Declaration of " & "Imguistorage" & " already exists, not redeclaring")
 when not declared(Imvectorimguicolormod):
   type
-    Imvectorimguicolormod* = Imvectorimguicolormod_28312795
+    Imvectorimguicolormod* = Imvectorimguicolormod_28312941
 else:
   static :
     hint("Declaration of " & "Imvectorimguicolormod" &
         " already exists, not redeclaring")
 when not declared(Imaxis):
   type
-    Imaxis* = Imaxis_28312991
+    Imaxis* = Imaxis_28313141
 else:
   static :
     hint("Declaration of " & "Imaxis" & " already exists, not redeclaring")
+when not declared(Imguimousesource):
+  type
+    Imguimousesource* = Imguimousesource_28312457
+else:
+  static :
+    hint("Declaration of " & "Imguimousesource" &
+        " already exists, not redeclaring")
 when not declared(Imnodescontext):
   type
-    Imnodescontext* = Imnodescontext_28313279
+    Imnodescontext* = Imnodescontext_28313501
 else:
   static :
     hint("Declaration of " & "Imnodescontext" &
@@ -10399,14 +11695,14 @@ else:
         " already exists, not redeclaring")
 when not declared(structimguitablecelldata):
   type
-    structimguitablecelldata* = structimguitablecelldata_28312895
+    structimguitablecelldata* = structimguitablecelldata_28313045
 else:
   static :
     hint("Declaration of " & "structimguitablecelldata" &
         " already exists, not redeclaring")
 when not declared(Impoolimplotitem):
   type
-    Impoolimplotitem* = Impoolimplotitem_28313227
+    Impoolimplotitem* = Impoolimplotitem_28313449
 else:
   static :
     hint("Declaration of " & "Impoolimplotitem" &
@@ -10420,33 +11716,33 @@ else:
         " already exists, not redeclaring")
 when not declared(structimvectorimfontatlascustomrect):
   type
-    structimvectorimfontatlascustomrect* = structimvectorimfontatlascustomrect_28312479
+    structimvectorimfontatlascustomrect* = structimvectorimfontatlascustomrect_28312549
 else:
   static :
     hint("Declaration of " & "structimvectorimfontatlascustomrect" &
         " already exists, not redeclaring")
 when not declared(Imnodesio):
   type
-    Imnodesio* = Imnodesio_28313305
+    Imnodesio* = Imnodesio_28313537
 else:
   static :
     hint("Declaration of " & "Imnodesio" & " already exists, not redeclaring")
 when not declared(Implotitem):
   type
-    Implotitem* = Implotitem_28312943
+    Implotitem* = Implotitem_28313093
 else:
   static :
     hint("Declaration of " & "Implotitem" & " already exists, not redeclaring")
 when not declared(Imguitablecolumnsettings):
   type
-    Imguitablecolumnsettings* = Imguitablecolumnsettings_28312917
+    Imguitablecolumnsettings* = Imguitablecolumnsettings_28313067
 else:
   static :
     hint("Declaration of " & "Imguitablecolumnsettings" &
         " already exists, not redeclaring")
 when not declared(Imguidebuglogflags):
   type
-    Imguidebuglogflags* = Imguidebuglogflags_28312511
+    Imguidebuglogflags* = Imguidebuglogflags_28312583
 else:
   static :
     hint("Declaration of " & "Imguidebuglogflags" &
@@ -10459,14 +11755,21 @@ else:
     hint("Declaration of " & "Imguidir" & " already exists, not redeclaring")
 when not declared(Imvectorimguitabitem):
   type
-    Imvectorimguitabitem* = Imvectorimguitabitem_28312887
+    Imvectorimguitabitem* = Imvectorimguitabitem_28313037
 else:
   static :
     hint("Declaration of " & "Imvectorimguitabitem" &
         " already exists, not redeclaring")
+when not declared(Imguidragdropflagstypedef):
+  type
+    Imguidragdropflagstypedef* = Imguidragdropflagstypedef_28312397
+else:
+  static :
+    hint("Declaration of " & "Imguidragdropflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imvectorimguioldcolumns):
   type
-    Imvectorimguioldcolumns* = Imvectorimguioldcolumns_28312879
+    Imvectorimguioldcolumns* = Imvectorimguioldcolumns_28313025
 else:
   static :
     hint("Declaration of " & "Imvectorimguioldcolumns" &
@@ -10480,21 +11783,21 @@ else:
         " already exists, not redeclaring")
 when not declared(structstbtexteditrow):
   type
-    structstbtexteditrow* = structstbtexteditrow_28312555
+    structstbtexteditrow* = structstbtexteditrow_28312627
 else:
   static :
     hint("Declaration of " & "structstbtexteditrow" &
         " already exists, not redeclaring")
 when not declared(structimplotpoint):
   type
-    structimplotpoint* = structimplotpoint_28313125
+    structimplotpoint* = structimplotpoint_28313341
 else:
   static :
     hint("Declaration of " & "structimplotpoint" &
         " already exists, not redeclaring")
 when not declared(Implotnextitemdata):
   type
-    Implotnextitemdata* = Implotnextitemdata_28313241
+    Implotnextitemdata* = Implotnextitemdata_28313463
 else:
   static :
     hint("Declaration of " & "Implotnextitemdata" &
@@ -10515,28 +11818,28 @@ else:
         " already exists, not redeclaring")
 when not declared(structimvectorimguiinputevent):
   type
-    structimvectorimguiinputevent* = structimvectorimguiinputevent_28312785
+    structimvectorimguiinputevent* = structimvectorimguiinputevent_28312931
 else:
   static :
     hint("Declaration of " & "structimvectorimguiinputevent" &
         " already exists, not redeclaring")
 when not declared(Implotdatetimespec):
   type
-    Implotdatetimespec* = Implotdatetimespec_28313163
+    Implotdatetimespec* = Implotdatetimespec_28313385
 else:
   static :
     hint("Declaration of " & "Implotdatetimespec" &
         " already exists, not redeclaring")
 when not declared(Implotbarsflags):
   type
-    Implotbarsflags* = Implotbarsflags_28313017
+    Implotbarsflags* = Implotbarsflags_28313167
 else:
   static :
     hint("Declaration of " & "Implotbarsflags" &
         " already exists, not redeclaring")
 when not declared(structimspanimguitablecelldata):
   type
-    structimspanimguitablecelldata* = structimspanimguitablecelldata_28312905
+    structimspanimguitablecelldata* = structimspanimguitablecelldata_28313055
 else:
   static :
     hint("Declaration of " & "structimspanimguitablecelldata" &
@@ -10548,23 +11851,30 @@ else:
   static :
     hint("Declaration of " & "Imguinavitemdata" &
         " already exists, not redeclaring")
+when not declared(Imnodesminimaplocationtypedef):
+  type
+    Imnodesminimaplocationtypedef* = Imnodesminimaplocationtypedef_28313559
+else:
+  static :
+    hint("Declaration of " & "Imnodesminimaplocationtypedef" &
+        " already exists, not redeclaring")
 when not declared(structimfontatlascustomrect):
   type
-    structimfontatlascustomrect* = structimfontatlascustomrect_28312471
+    structimfontatlascustomrect* = structimfontatlascustomrect_28312539
 else:
   static :
     hint("Declaration of " & "structimfontatlascustomrect" &
         " already exists, not redeclaring")
 when not declared(structimvectorimu8):
   type
-    structimvectorimu8* = structimvectorimu8_28312987
+    structimvectorimu8* = structimvectorimu8_28313137
 else:
   static :
     hint("Declaration of " & "structimvectorimu8" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguitablecolumnsortspecs):
   type
-    structimvectorimguitablecolumnsortspecs* = structimvectorimguitablecolumnsortspecs_28312913
+    structimvectorimguitablecolumnsortspecs* = structimvectorimguitablecolumnsortspecs_28313063
 else:
   static :
     hint("Declaration of " & "structimvectorimguitablecolumnsortspecs" &
@@ -10585,42 +11895,56 @@ else:
         " already exists, not redeclaring")
 when not declared(structimguitablecolumnsettings):
   type
-    structimguitablecolumnsettings* = structimguitablecolumnsettings_28312919
+    structimguitablecolumnsettings* = structimguitablecolumnsettings_28313069
 else:
   static :
     hint("Declaration of " & "structimguitablecolumnsettings" &
         " already exists, not redeclaring")
+when not declared(Implotstylevartypedef):
+  type
+    Implotstylevartypedef* = Implotstylevartypedef_28313317
+else:
+  static :
+    hint("Declaration of " & "Implotstylevartypedef" &
+        " already exists, not redeclaring")
 when not declared(structimvectorfloat):
   type
-    structimvectorfloat* = structimvectorfloat_28312487
+    structimvectorfloat* = structimvectorfloat_28312557
 else:
   static :
     hint("Declaration of " & "structimvectorfloat" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguigroupdata):
   type
-    Imvectorimguigroupdata* = Imvectorimguigroupdata_28312811
+    Imvectorimguigroupdata* = Imvectorimguigroupdata_28312957
 else:
   static :
     hint("Declaration of " & "Imvectorimguigroupdata" &
         " already exists, not redeclaring")
 when not declared(structimguikeyroutingdata):
   type
-    structimguikeyroutingdata* = structimguikeyroutingdata_28312693
+    structimguikeyroutingdata* = structimguikeyroutingdata_28312811
 else:
   static :
     hint("Declaration of " & "structimguikeyroutingdata" &
         " already exists, not redeclaring")
+when not declared(Implotinflinesflagstypedef):
+  type
+    Implotinflinesflagstypedef* = Implotinflinesflagstypedef_28313277
+else:
+  static :
+    hint("Declaration of " & "Implotinflinesflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(structimvectorimguitabbar):
   type
-    structimvectorimguitabbar* = structimvectorimguitabbar_28312845
+    structimvectorimguitabbar* = structimvectorimguitabbar_28312991
 else:
   static :
     hint("Declaration of " & "structimvectorimguitabbar" &
         " already exists, not redeclaring")
 when not declared(Imdrawcallback):
   type
-    Imdrawcallback* = Imdrawcallback_28312423
+    Imdrawcallback* = Imdrawcallback_28312487
 else:
   static :
     hint("Declaration of " & "Imdrawcallback" &
@@ -10631,6 +11955,13 @@ when not declared(Imfontconfig):
 else:
   static :
     hint("Declaration of " & "Imfontconfig" & " already exists, not redeclaring")
+when not declared(Implotlineflagstypedef):
+  type
+    Implotlineflagstypedef* = Implotlineflagstypedef_28313245
+else:
+  static :
+    hint("Declaration of " & "Implotlineflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(structimbitvector):
   type
     structimbitvector* = structimbitvector_28312075
@@ -10647,7 +11978,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotpoint):
   type
-    Implotpoint* = Implotpoint_28313123
+    Implotpoint* = Implotpoint_28313339
 else:
   static :
     hint("Declaration of " & "Implotpoint" & " already exists, not redeclaring")
@@ -10660,20 +11991,27 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotalignmentdata):
   type
-    Implotalignmentdata* = Implotalignmentdata_28313213
+    Implotalignmentdata* = Implotalignmentdata_28313435
 else:
   static :
     hint("Declaration of " & "Implotalignmentdata" &
         " already exists, not redeclaring")
 when not declared(Impoolidx):
   type
-    Impoolidx* = Impoolidx_28312571
+    Impoolidx* = Impoolidx_28312643
 else:
   static :
     hint("Declaration of " & "Impoolidx" & " already exists, not redeclaring")
+when not declared(Imguicoltypedef):
+  type
+    Imguicoltypedef* = Imguicoltypedef_28312429
+else:
+  static :
+    hint("Declaration of " & "Imguicoltypedef" &
+        " already exists, not redeclaring")
 when not declared(Imnodespinshape):
   type
-    Imnodespinshape* = Imnodespinshape_28313289
+    Imnodespinshape* = Imnodespinshape_28313511
 else:
   static :
     hint("Declaration of " & "Imnodespinshape" &
@@ -10685,6 +12023,13 @@ else:
   static :
     hint("Declaration of " & "structimfontglyph" &
         " already exists, not redeclaring")
+when not declared(Imguitextflagstypedef):
+  type
+    Imguitextflagstypedef* = Imguitextflagstypedef_28312699
+else:
+  static :
+    hint("Declaration of " & "Imguitextflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imdrawlistsplitter):
   type
     Imdrawlistsplitter* = Imdrawlistsplitter_28311954
@@ -10694,7 +12039,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imspanimguitablecolumnidx):
   type
-    Imspanimguitablecolumnidx* = Imspanimguitablecolumnidx_28312903
+    Imspanimguitablecolumnidx* = Imspanimguitablecolumnidx_28313053
 else:
   static :
     hint("Declaration of " & "Imspanimguitablecolumnidx" &
@@ -10708,31 +12053,38 @@ else:
         " already exists, not redeclaring")
 when not declared(structimpoolimplotitem):
   type
-    structimpoolimplotitem* = structimpoolimplotitem_28313225
+    structimpoolimplotitem* = structimpoolimplotitem_28313447
 else:
   static :
     hint("Declaration of " & "structimpoolimplotitem" &
         " already exists, not redeclaring")
-when not declared(Implotpointgetter):
-  type
-    Implotpointgetter* = Implotpointgetter_28313277
-else:
-  static :
-    hint("Declaration of " & "Implotpointgetter" &
-        " already exists, not redeclaring")
 when not declared(Imvectorimguiplatformmonitor):
   type
-    Imvectorimguiplatformmonitor* = Imvectorimguiplatformmonitor_28312499
+    Imvectorimguiplatformmonitor* = Imvectorimguiplatformmonitor_28312571
 else:
   static :
     hint("Declaration of " & "Imvectorimguiplatformmonitor" &
         " already exists, not redeclaring")
+when not declared(Imguiinputsource):
+  type
+    Imguiinputsource* = Imguiinputsource_28312773
+else:
+  static :
+    hint("Declaration of " & "Imguiinputsource" &
+        " already exists, not redeclaring")
 when not declared(structimvectorimguiitemflags):
   type
-    structimvectorimguiitemflags* = structimvectorimguiitemflags_28312805
+    structimvectorimguiitemflags* = structimvectorimguiitemflags_28312951
 else:
   static :
     hint("Declaration of " & "structimvectorimguiitemflags" &
+        " already exists, not redeclaring")
+when not declared(Implotscaletypedef):
+  type
+    Implotscaletypedef* = Implotscaletypedef_28313321
+else:
+  static :
+    hint("Declaration of " & "Implotscaletypedef" &
         " already exists, not redeclaring")
 when not declared(structimcolor):
   type
@@ -10743,10 +12095,17 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotcolormapdata):
   type
-    Implotcolormapdata* = Implotcolormapdata_28313173
+    Implotcolormapdata* = Implotcolormapdata_28313395
 else:
   static :
     hint("Declaration of " & "Implotcolormapdata" &
+        " already exists, not redeclaring")
+when not declared(Implotpointgetter):
+  type
+    Implotpointgetter* = Implotpointgetter_28313499
+else:
+  static :
+    hint("Declaration of " & "Implotpointgetter" &
         " already exists, not redeclaring")
 when not declared(Imguitreenodeflags):
   type
@@ -10757,14 +12116,14 @@ else:
         " already exists, not redeclaring")
 when not declared(Implottimeunit):
   type
-    Implottimeunit* = Implottimeunit_28313149
+    Implottimeunit* = Implottimeunit_28313365
 else:
   static :
     hint("Declaration of " & "Implottimeunit" &
         " already exists, not redeclaring")
 when not declared(Imnodesminimapnodehoveringcallbackuserdata):
   type
-    Imnodesminimapnodehoveringcallbackuserdata* = Imnodesminimapnodehoveringcallbackuserdata_28313329
+    Imnodesminimapnodehoveringcallbackuserdata* = Imnodesminimapnodehoveringcallbackuserdata_28313563
 else:
   static :
     hint("Declaration of " & "Imnodesminimapnodehoveringcallbackuserdata" &
@@ -10778,34 +12137,34 @@ else:
         " already exists, not redeclaring")
 when not declared(Imspanimguitablecelldata):
   type
-    Imspanimguitablecelldata* = Imspanimguitablecelldata_28312907
+    Imspanimguitablecelldata* = Imspanimguitablecelldata_28313057
 else:
   static :
     hint("Declaration of " & "Imspanimguitablecelldata" &
         " already exists, not redeclaring")
 when not declared(Imguinextwindowdataflags):
   type
-    Imguinextwindowdataflags* = Imguinextwindowdataflags_28312529
+    Imguinextwindowdataflags* = Imguinextwindowdataflags_28312601
 else:
   static :
     hint("Declaration of " & "Imguinextwindowdataflags" &
         " already exists, not redeclaring")
 when not declared(structimguishrinkwidthitem):
   type
-    structimguishrinkwidthitem* = structimguishrinkwidthitem_28312641
+    structimguishrinkwidthitem* = structimguishrinkwidthitem_28312755
 else:
   static :
     hint("Declaration of " & "structimguishrinkwidthitem" &
         " already exists, not redeclaring")
 when not declared(Implotflags):
   type
-    Implotflags* = Implotflags_28312993
+    Implotflags* = Implotflags_28313143
 else:
   static :
     hint("Declaration of " & "Implotflags" & " already exists, not redeclaring")
 when not declared(structimvectorimplottag):
   type
-    structimvectorimplottag* = structimvectorimplottag_28313205
+    structimvectorimplottag* = structimvectorimplottag_28313427
 else:
   static :
     hint("Declaration of " & "structimvectorimplottag" &
@@ -10819,16 +12178,30 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotscale):
   type
-    Implotscale* = Implotscale_28313047
+    Implotscale* = Implotscale_28313197
 else:
   static :
     hint("Declaration of " & "Implotscale" & " already exists, not redeclaring")
+when not declared(Imguisliderflagsprivate):
+  type
+    Imguisliderflagsprivate* = Imguisliderflagsprivate_28312679
+else:
+  static :
+    hint("Declaration of " & "Imguisliderflagsprivate" &
+        " already exists, not redeclaring")
 when not declared(structimvectorimguilistclipperdata):
   type
-    structimvectorimguilistclipperdata* = structimvectorimguilistclipperdata_28312829
+    structimvectorimguilistclipperdata* = structimvectorimguilistclipperdata_28312975
 else:
   static :
     hint("Declaration of " & "structimvectorimguilistclipperdata" &
+        " already exists, not redeclaring")
+when not declared(Imploterrorbarsflagstypedef):
+  type
+    Imploterrorbarsflagstypedef* = Imploterrorbarsflagstypedef_28313269
+else:
+  static :
+    hint("Declaration of " & "Imploterrorbarsflagstypedef" &
         " already exists, not redeclaring")
 when not declared(Imguidockrequest):
   type
@@ -10839,21 +12212,21 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguierrorlogcallback):
   type
-    Imguierrorlogcallback* = Imguierrorlogcallback_28312539
+    Imguierrorlogcallback* = Imguierrorlogcallback_28312611
 else:
   static :
     hint("Declaration of " & "Imguierrorlogcallback" &
         " already exists, not redeclaring")
 when not declared(structimvectorimguisettingshandler):
   type
-    structimvectorimguisettingshandler* = structimvectorimguisettingshandler_28312861
+    structimvectorimguisettingshandler* = structimvectorimguisettingshandler_28313007
 else:
   static :
     hint("Declaration of " & "structimvectorimguisettingshandler" &
         " already exists, not redeclaring")
 when not declared(Imguiptrorindex):
   type
-    Imguiptrorindex* = Imguiptrorindex_28312643
+    Imguiptrorindex* = Imguiptrorindex_28312757
 else:
   static :
     hint("Declaration of " & "Imguiptrorindex" &
@@ -10867,28 +12240,35 @@ else:
         " already exists, not redeclaring")
 when not declared(structimguiviewportp):
   type
-    structimguiviewportp* = structimguiviewportp_28312763
+    structimguiviewportp* = structimguiviewportp_28312903
 else:
   static :
     hint("Declaration of " & "structimguiviewportp" &
         " already exists, not redeclaring")
 when not declared(structimvectorimdrawlistptr):
   type
-    structimvectorimdrawlistptr* = structimvectorimdrawlistptr_28312461
+    structimvectorimdrawlistptr* = structimvectorimdrawlistptr_28312529
 else:
   static :
     hint("Declaration of " & "structimvectorimdrawlistptr" &
         " already exists, not redeclaring")
+when not declared(Imguiitemstatusflagstypedef):
+  type
+    Imguiitemstatusflagstypedef* = Imguiitemstatusflagstypedef_28312659
+else:
+  static :
+    hint("Declaration of " & "Imguiitemstatusflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguiinputeventmousepos):
   type
-    Imguiinputeventmousepos* = Imguiinputeventmousepos_28312657
+    Imguiinputeventmousepos* = Imguiinputeventmousepos_28312775
 else:
   static :
     hint("Declaration of " & "Imguiinputeventmousepos" &
         " already exists, not redeclaring")
 when not declared(Implotplot):
   type
-    Implotplot* = Implotplot_28312951
+    Implotplot* = Implotplot_28313101
 else:
   static :
     hint("Declaration of " & "Implotplot" & " already exists, not redeclaring")
@@ -10915,10 +12295,17 @@ else:
         " already exists, not redeclaring")
 when not declared(Implottextflags):
   type
-    Implottextflags* = Implottextflags_28313037
+    Implottextflags* = Implottextflags_28313187
 else:
   static :
     hint("Declaration of " & "Implottextflags" &
+        " already exists, not redeclaring")
+when not declared(Imguitablecolumnflagstypedef):
+  type
+    Imguitablecolumnflagstypedef* = Imguitablecolumnflagstypedef_28312373
+else:
+  static :
+    hint("Declaration of " & "Imguitablecolumnflagstypedef" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumn):
   type
@@ -10929,7 +12316,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiinputtextdeactivatedstate):
   type
-    Imguiinputtextdeactivatedstate* = Imguiinputtextdeactivatedstate_28312627
+    Imguiinputtextdeactivatedstate* = Imguiinputtextdeactivatedstate_28312737
 else:
   static :
     hint("Declaration of " & "Imguiinputtextdeactivatedstate" &
@@ -10943,24 +12330,38 @@ else:
         " already exists, not redeclaring")
 when not declared(structstbtexteditstate):
   type
-    structstbtexteditstate* = structstbtexteditstate_28312551
+    structstbtexteditstate* = structstbtexteditstate_28312623
 else:
   static :
     hint("Declaration of " & "structstbtexteditstate" &
         " already exists, not redeclaring")
+when not declared(Implotcondtypedef):
+  type
+    Implotcondtypedef* = Implotcondtypedef_28313309
+else:
+  static :
+    hint("Declaration of " & "Implotcondtypedef" &
+        " already exists, not redeclaring")
 when not declared(structimvectorimguistylemod):
   type
-    structimvectorimguistylemod* = structimvectorimguistylemod_28312797
+    structimvectorimguistylemod* = structimvectorimguistylemod_28312943
 else:
   static :
     hint("Declaration of " & "structimvectorimguistylemod" &
         " already exists, not redeclaring")
 when not declared(Imvectorimwchar):
   type
-    Imvectorimwchar* = Imvectorimwchar_28312401
+    Imvectorimwchar* = Imvectorimwchar_28312465
 else:
   static :
     hint("Declaration of " & "Imvectorimwchar" &
+        " already exists, not redeclaring")
+when not declared(Implotlegendflagstypedef):
+  type
+    Implotlegendflagstypedef* = Implotlegendflagstypedef_28313225
+else:
+  static :
+    hint("Declaration of " & "Implotlegendflagstypedef" &
         " already exists, not redeclaring")
 when not declared(Imguisizecallback):
   type
@@ -10971,14 +12372,14 @@ else:
         " already exists, not redeclaring")
 when not declared(structimguikeyownerdata):
   type
-    structimguikeyownerdata* = structimguikeyownerdata_28312705
+    structimguikeyownerdata* = structimguikeyownerdata_28312823
 else:
   static :
     hint("Declaration of " & "structimguikeyownerdata" &
         " already exists, not redeclaring")
 when not declared(Impoolimplotsubplot):
   type
-    Impoolimplotsubplot* = Impoolimplotsubplot_28313259
+    Impoolimplotsubplot* = Impoolimplotsubplot_28313481
 else:
   static :
     hint("Declaration of " & "Impoolimplotsubplot" &
@@ -10992,7 +12393,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotinflinesflags):
   type
-    Implotinflinesflags* = Implotinflinesflags_28313025
+    Implotinflinesflags* = Implotinflinesflags_28313175
 else:
   static :
     hint("Declaration of " & "Implotinflinesflags" &
@@ -11005,14 +12406,14 @@ else:
     hint("Declaration of " & "Imdrawcmd" & " already exists, not redeclaring")
 when not declared(Implotlocator):
   type
-    Implotlocator* = Implotlocator_28313161
+    Implotlocator* = Implotlocator_28313383
 else:
   static :
     hint("Declaration of " & "Implotlocator" &
         " already exists, not redeclaring")
 when not declared(structimdrawcmdheader):
   type
-    structimdrawcmdheader* = structimdrawcmdheader_28312427
+    structimdrawcmdheader* = structimdrawcmdheader_28312491
 else:
   static :
     hint("Declaration of " & "structimdrawcmdheader" &
@@ -11023,6 +12424,13 @@ when not declared(Imguistyle):
 else:
   static :
     hint("Declaration of " & "Imguistyle" & " already exists, not redeclaring")
+when not declared(Imguicondtypedef):
+  type
+    Imguicondtypedef* = Imguicondtypedef_28312461
+else:
+  static :
+    hint("Declaration of " & "Imguicondtypedef" &
+        " already exists, not redeclaring")
 when not declared(Imguioldcolumns):
   type
     Imguioldcolumns* = Imguioldcolumns_28312159
@@ -11032,20 +12440,20 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvectorbool):
   type
-    Imvectorbool* = Imvectorbool_28313179
+    Imvectorbool* = Imvectorbool_28313401
 else:
   static :
     hint("Declaration of " & "Imvectorbool" & " already exists, not redeclaring")
 when not declared(Imvectorimplottag):
   type
-    Imvectorimplottag* = Imvectorimplottag_28313207
+    Imvectorimplottag* = Imvectorimplottag_28313429
 else:
   static :
     hint("Declaration of " & "Imvectorimplottag" &
         " already exists, not redeclaring")
 when not declared(Implotlineflags):
   type
-    Implotlineflags* = Implotlineflags_28313009
+    Implotlineflags* = Implotlineflags_28313159
 else:
   static :
     hint("Declaration of " & "Implotlineflags" &
@@ -11073,14 +12481,14 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvectorimguishrinkwidthitem):
   type
-    Imvectorimguishrinkwidthitem* = Imvectorimguishrinkwidthitem_28312859
+    Imvectorimguishrinkwidthitem* = Imvectorimguishrinkwidthitem_28313005
 else:
   static :
     hint("Declaration of " & "Imvectorimguishrinkwidthitem" &
         " already exists, not redeclaring")
 when not declared(structimspanimguitablecolumn):
   type
-    structimspanimguitablecolumn* = structimspanimguitablecolumn_28312897
+    structimspanimguitablecolumn* = structimspanimguitablecolumn_28313047
 else:
   static :
     hint("Declaration of " & "structimspanimguitablecolumn" &
@@ -11094,42 +12502,42 @@ else:
         " already exists, not redeclaring")
 when not declared(Imvectorimdrawvert):
   type
-    Imvectorimdrawvert* = Imvectorimdrawvert_28312447
+    Imvectorimdrawvert* = Imvectorimdrawvert_28312515
 else:
   static :
     hint("Declaration of " & "Imvectorimdrawvert" &
         " already exists, not redeclaring")
 when not declared(Imvectorimu64):
   type
-    Imvectorimu64* = Imvectorimu64_28312985
+    Imvectorimu64* = Imvectorimu64_28313135
 else:
   static :
     hint("Declaration of " & "Imvectorimu64" &
         " already exists, not redeclaring")
 when not declared(structimvec2ih):
   type
-    structimvec2ih* = structimvec2ih_28312567
+    structimvec2ih* = structimvec2ih_28312639
 else:
   static :
     hint("Declaration of " & "structimvec2ih" &
         " already exists, not redeclaring")
 when not declared(structimnodesstyle):
   type
-    structimnodesstyle* = structimnodesstyle_28313323
+    structimnodesstyle* = structimnodesstyle_28313555
 else:
   static :
     hint("Declaration of " & "structimnodesstyle" &
         " already exists, not redeclaring")
 when not declared(structimvectorimplotsubplot):
   type
-    structimvectorimplotsubplot* = structimvectorimplotsubplot_28313253
+    structimvectorimplotsubplot* = structimvectorimplotsubplot_28313475
 else:
   static :
     hint("Declaration of " & "structimvectorimplotsubplot" &
         " already exists, not redeclaring")
 when not declared(Stbtexteditrow):
   type
-    Stbtexteditrow* = Stbtexteditrow_28312553
+    Stbtexteditrow* = Stbtexteditrow_28312625
 else:
   static :
     hint("Declaration of " & "Stbtexteditrow" &
@@ -11148,34 +12556,41 @@ else:
     hint("Declaration of " & "structimvec2" & " already exists, not redeclaring")
 when not declared(structimvectorimguitextrange):
   type
-    structimvectorimguitextrange* = structimvectorimguitextrange_28312407
+    structimvectorimguitextrange* = structimvectorimguitextrange_28312471
 else:
   static :
     hint("Declaration of " & "structimvectorimguitextrange" &
         " already exists, not redeclaring")
 when not declared(Implotinputmap):
   type
-    Implotinputmap* = Implotinputmap_28313139
+    Implotinputmap* = Implotinputmap_28313355
 else:
   static :
     hint("Declaration of " & "Implotinputmap" &
         " already exists, not redeclaring")
 when not declared(Implotitemgroup):
   type
-    Implotitemgroup* = Implotitemgroup_28313217
+    Implotitemgroup* = Implotitemgroup_28313439
 else:
   static :
     hint("Declaration of " & "Implotitemgroup" &
         " already exists, not redeclaring")
+when not declared(Imguiwindowflagstypedef):
+  type
+    Imguiwindowflagstypedef* = Imguiwindowflagstypedef_28312337
+else:
+  static :
+    hint("Declaration of " & "Imguiwindowflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(Imvec2ih):
   type
-    Imvec2ih* = Imvec2ih_28312565
+    Imvec2ih* = Imvec2ih_28312637
 else:
   static :
     hint("Declaration of " & "Imvec2ih" & " already exists, not redeclaring")
 when not declared(Implotstairsflags):
   type
-    Implotstairsflags* = Implotstairsflags_28313013
+    Implotstairsflags* = Implotstairsflags_28313163
 else:
   static :
     hint("Declaration of " & "Implotstairsflags" &
@@ -11189,28 +12604,28 @@ else:
         " already exists, not redeclaring")
 when not declared(structimvectorimguicontexthook):
   type
-    structimvectorimguicontexthook* = structimvectorimguicontexthook_28312873
+    structimvectorimguicontexthook* = structimvectorimguicontexthook_28313019
 else:
   static :
     hint("Declaration of " & "structimvectorimguicontexthook" &
         " already exists, not redeclaring")
 when not declared(structimplotcontext):
   type
-    structimplotcontext* = structimplotcontext_28312931
+    structimplotcontext* = structimplotcontext_28313081
 else:
   static :
     hint("Declaration of " & "structimplotcontext" &
         " already exists, not redeclaring")
 when not declared(Implotitemflags):
   type
-    Implotitemflags* = Implotitemflags_28313007
+    Implotitemflags* = Implotitemflags_28313157
 else:
   static :
     hint("Declaration of " & "Implotitemflags" &
         " already exists, not redeclaring")
 when not declared(Imguiinputeventmouseviewport):
   type
-    Imguiinputeventmouseviewport* = Imguiinputeventmouseviewport_28312669
+    Imguiinputeventmouseviewport* = Imguiinputeventmouseviewport_28312787
 else:
   static :
     hint("Declaration of " & "Imguiinputeventmouseviewport" &
@@ -11230,42 +12645,42 @@ else:
         " already exists, not redeclaring")
 when not declared(structimvectorimguiwindowptr):
   type
-    structimvectorimguiwindowptr* = structimvectorimguiwindowptr_28312743
+    structimvectorimguiwindowptr* = structimvectorimguiwindowptr_28312881
 else:
   static :
     hint("Declaration of " & "structimvectorimguiwindowptr" &
         " already exists, not redeclaring")
 when not declared(Imvectorimguidockrequest):
   type
-    Imvectorimguidockrequest* = Imvectorimguidockrequest_28312755
+    Imvectorimguidockrequest* = Imvectorimguidockrequest_28312895
 else:
   static :
     hint("Declaration of " & "Imvectorimguidockrequest" &
         " already exists, not redeclaring")
 when not declared(Implotheatmapflags):
   type
-    Implotheatmapflags* = Implotheatmapflags_28313029
+    Implotheatmapflags* = Implotheatmapflags_28313179
 else:
   static :
     hint("Declaration of " & "Implotheatmapflags" &
         " already exists, not redeclaring")
 when not declared(structimguidatatypetempstorage):
   type
-    structimguidatatypetempstorage* = structimguidatatypetempstorage_28312619
+    structimguidatatypetempstorage* = structimguidatatypetempstorage_28312727
 else:
   static :
     hint("Declaration of " & "structimguidatatypetempstorage" &
         " already exists, not redeclaring")
 when not declared(structimvectorims8):
   type
-    structimvectorims8* = structimvectorims8_28312975
+    structimvectorims8* = structimvectorims8_28313125
 else:
   static :
     hint("Declaration of " & "structimvectorims8" &
         " already exists, not redeclaring")
 when not declared(File):
   type
-    File* = File_28312559
+    File* = File_28312631
 else:
   static :
     hint("Declaration of " & "File" & " already exists, not redeclaring")
@@ -11277,21 +12692,21 @@ else:
     hint("Declaration of " & "Imcolor" & " already exists, not redeclaring")
 when not declared(Implotcolormap):
   type
-    Implotcolormap* = Implotcolormap_28313051
+    Implotcolormap* = Implotcolormap_28313201
 else:
   static :
     hint("Declaration of " & "Implotcolormap" &
         " already exists, not redeclaring")
 when not declared(Imfontatlascustomrect):
   type
-    Imfontatlascustomrect* = Imfontatlascustomrect_28312469
+    Imfontatlascustomrect* = Imfontatlascustomrect_28312537
 else:
   static :
     hint("Declaration of " & "Imfontatlascustomrect" &
         " already exists, not redeclaring")
 when not declared(structimplotpointerror):
   type
-    structimplotpointerror* = structimplotpointerror_28313183
+    structimplotpointerror* = structimplotpointerror_28313405
 else:
   static :
     hint("Declaration of " & "structimplotpointerror" &
@@ -11302,6 +12717,13 @@ when not declared(structimguidockcontext):
 else:
   static :
     hint("Declaration of " & "structimguidockcontext" &
+        " already exists, not redeclaring")
+when not declared(Implotbarsflagstypedef):
+  type
+    Implotbarsflagstypedef* = Implotbarsflagstypedef_28313261
+else:
+  static :
+    hint("Declaration of " & "Implotbarsflagstypedef" &
         " already exists, not redeclaring")
 when not declared(structimguitableinstancedata):
   type
@@ -11317,12 +12739,26 @@ else:
   static :
     hint("Declaration of " & "Imguilastitemdata" &
         " already exists, not redeclaring")
+when not declared(Imguinavhighlightflagstypedef):
+  type
+    Imguinavhighlightflagstypedef* = Imguinavhighlightflagstypedef_28312851
+else:
+  static :
+    hint("Declaration of " & "Imguinavhighlightflagstypedef" &
+        " already exists, not redeclaring")
 when not declared(structimvectorimplotalignmentdata):
   type
-    structimvectorimplotalignmentdata* = structimvectorimplotalignmentdata_28313233
+    structimvectorimplotalignmentdata* = structimvectorimplotalignmentdata_28313455
 else:
   static :
     hint("Declaration of " & "structimvectorimplotalignmentdata" &
+        " already exists, not redeclaring")
+when not declared(Imguioldcolumnflagstypedef):
+  type
+    Imguioldcolumnflagstypedef* = Imguioldcolumnflagstypedef_28312863
+else:
+  static :
+    hint("Declaration of " & "Imguioldcolumnflagstypedef" &
         " already exists, not redeclaring")
 when not declared(Imguicond):
   type
@@ -11332,21 +12768,21 @@ else:
     hint("Declaration of " & "Imguicond" & " already exists, not redeclaring")
 when not declared(structimvectorimguitabitem):
   type
-    structimvectorimguitabitem* = structimvectorimguitabitem_28312885
+    structimvectorimguitabitem* = structimvectorimguitabitem_28313035
 else:
   static :
     hint("Declaration of " & "structimvectorimguitabitem" &
         " already exists, not redeclaring")
 when not declared(Imguiinputevent):
   type
-    Imguiinputevent* = Imguiinputevent_28312685
+    Imguiinputevent* = Imguiinputevent_28312803
 else:
   static :
     hint("Declaration of " & "Imguiinputevent" &
         " already exists, not redeclaring")
 when not declared(structimvectorimu64):
   type
-    structimvectorimu64* = structimvectorimu64_28312983
+    structimvectorimu64* = structimvectorimu64_28313133
 else:
   static :
     hint("Declaration of " & "structimvectorimu64" &
@@ -13858,28 +15294,28 @@ else:
     hint("Declaration of " & "igcolorconverthsvtorgb" &
         " already exists, not redeclaring")
 when not declared(igiskeydownnil):
-  proc igiskeydownnil*(key: Imguikey_28312374): bool {.cdecl,
+  proc igiskeydownnil*(key: Imguikey_28312414): bool {.cdecl,
       importc: "igIsKeyDown_Nil".}
 else:
   static :
     hint("Declaration of " & "igiskeydownnil" &
         " already exists, not redeclaring")
 when not declared(igiskeypressedbool):
-  proc igiskeypressedbool*(key: Imguikey_28312374; repeat: bool): bool {.cdecl,
+  proc igiskeypressedbool*(key: Imguikey_28312414; repeat: bool): bool {.cdecl,
       importc: "igIsKeyPressed_Bool".}
 else:
   static :
     hint("Declaration of " & "igiskeypressedbool" &
         " already exists, not redeclaring")
 when not declared(igiskeyreleasednil):
-  proc igiskeyreleasednil*(key: Imguikey_28312374): bool {.cdecl,
+  proc igiskeyreleasednil*(key: Imguikey_28312414): bool {.cdecl,
       importc: "igIsKeyReleased_Nil".}
 else:
   static :
     hint("Declaration of " & "igiskeyreleasednil" &
         " already exists, not redeclaring")
 when not declared(iggetkeypressedamount):
-  proc iggetkeypressedamount*(key: Imguikey_28312374; repeatdelay: cfloat;
+  proc iggetkeypressedamount*(key: Imguikey_28312414; repeatdelay: cfloat;
                               rate: cfloat): cint {.cdecl,
       importc: "igGetKeyPressedAmount".}
 else:
@@ -13887,7 +15323,7 @@ else:
     hint("Declaration of " & "iggetkeypressedamount" &
         " already exists, not redeclaring")
 when not declared(iggetkeyname):
-  proc iggetkeyname*(key: Imguikey_28312374): cstring {.cdecl,
+  proc iggetkeyname*(key: Imguikey_28312414): cstring {.cdecl,
       importc: "igGetKeyName".}
 else:
   static :
@@ -14164,7 +15600,7 @@ else:
     hint("Declaration of " & "Imguistylescaleallsizes" &
         " already exists, not redeclaring")
 when not declared(Imguiioaddkeyevent):
-  proc Imguiioaddkeyevent*(self: ptr Imguiio_28311995; key: Imguikey_28312374;
+  proc Imguiioaddkeyevent*(self: ptr Imguiio_28311995; key: Imguikey_28312414;
                            down: bool): void {.cdecl,
       importc: "ImGuiIO_AddKeyEvent".}
 else:
@@ -14172,7 +15608,7 @@ else:
     hint("Declaration of " & "Imguiioaddkeyevent" &
         " already exists, not redeclaring")
 when not declared(Imguiioaddkeyanalogevent):
-  proc Imguiioaddkeyanalogevent*(self: ptr Imguiio_28311995; key: Imguikey_28312374;
+  proc Imguiioaddkeyanalogevent*(self: ptr Imguiio_28311995; key: Imguikey_28312414;
                                  down: bool; v: cfloat): void {.cdecl,
       importc: "ImGuiIO_AddKeyAnalogEvent".}
 else:
@@ -14204,7 +15640,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiioaddmousesourceevent):
   proc Imguiioaddmousesourceevent*(self: ptr Imguiio_28311995;
-                                   source: Imguimousesource_28312396): void {.
+                                   source: Imguimousesource_28312458): void {.
       cdecl, importc: "ImGuiIO_AddMouseSourceEvent".}
 else:
   static :
@@ -14246,7 +15682,7 @@ else:
     hint("Declaration of " & "Imguiioaddinputcharactersutf8" &
         " already exists, not redeclaring")
 when not declared(Imguiiosetkeyeventnativedata):
-  proc Imguiiosetkeyeventnativedata*(self: ptr Imguiio_28311995; key: Imguikey_28312374;
+  proc Imguiiosetkeyeventnativedata*(self: ptr Imguiio_28311995; key: Imguikey_28312414;
                                      nativekeycode: cint; nativescancode: cint;
                                      nativelegacyindex: cint): void {.cdecl,
       importc: "ImGuiIO_SetKeyEventNativeData".}
@@ -14495,37 +15931,37 @@ else:
     hint("Declaration of " & "Imguitextfilterisactive" &
         " already exists, not redeclaring")
 when not declared(Imguitextrangeimguitextrangenil):
-  proc Imguitextrangeimguitextrangenil*(): ptr Imguitextrange_28312406 {.cdecl,
+  proc Imguitextrangeimguitextrangenil*(): ptr Imguitextrange_28312470 {.cdecl,
       importc: "ImGuiTextRange_ImGuiTextRange_Nil".}
 else:
   static :
     hint("Declaration of " & "Imguitextrangeimguitextrangenil" &
         " already exists, not redeclaring")
 when not declared(Imguitextrangedestroy):
-  proc Imguitextrangedestroy*(self: ptr Imguitextrange_28312406): void {.cdecl,
+  proc Imguitextrangedestroy*(self: ptr Imguitextrange_28312470): void {.cdecl,
       importc: "ImGuiTextRange_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguitextrangedestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitextrangeimguitextrangestr):
-  proc Imguitextrangeimguitextrangestr*(internalb: cstring; internale: cstring): ptr Imguitextrange_28312406 {.
+  proc Imguitextrangeimguitextrangestr*(internalb: cstring; internale: cstring): ptr Imguitextrange_28312470 {.
       cdecl, importc: "ImGuiTextRange_ImGuiTextRange_Str".}
 else:
   static :
     hint("Declaration of " & "Imguitextrangeimguitextrangestr" &
         " already exists, not redeclaring")
 when not declared(Imguitextrangeempty):
-  proc Imguitextrangeempty*(self: ptr Imguitextrange_28312406): bool {.cdecl,
+  proc Imguitextrangeempty*(self: ptr Imguitextrange_28312470): bool {.cdecl,
       importc: "ImGuiTextRange_empty".}
 else:
   static :
     hint("Declaration of " & "Imguitextrangeempty" &
         " already exists, not redeclaring")
 when not declared(Imguitextrangesplit):
-  proc Imguitextrangesplit*(self: ptr Imguitextrange_28312406;
+  proc Imguitextrangesplit*(self: ptr Imguitextrange_28312470;
                             separator: cschar;
-                            outarg: ptr Imvectorimguitextrange_28312410): void {.
+                            outarg: ptr Imvectorimguitextrange_28312474): void {.
       cdecl, importc: "ImGuiTextRange_split".}
 else:
   static :
@@ -14612,14 +16048,14 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguistoragepairimguistoragepairint):
   proc Imguistoragepairimguistoragepairint*(internalkey: Imguiid_28312298;
-      internalvali: cint): ptr Imguistoragepair_28312418 {.cdecl,
+      internalvali: cint): ptr Imguistoragepair_28312482 {.cdecl,
       importc: "ImGuiStoragePair_ImGuiStoragePair_Int".}
 else:
   static :
     hint("Declaration of " & "Imguistoragepairimguistoragepairint" &
         " already exists, not redeclaring")
 when not declared(Imguistoragepairdestroy):
-  proc Imguistoragepairdestroy*(self: ptr Imguistoragepair_28312418): void {.
+  proc Imguistoragepairdestroy*(self: ptr Imguistoragepair_28312482): void {.
       cdecl, importc: "ImGuiStoragePair_destroy".}
 else:
   static :
@@ -14627,7 +16063,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguistoragepairimguistoragepairfloat):
   proc Imguistoragepairimguistoragepairfloat*(internalkey: Imguiid_28312298;
-      internalvalf: cfloat): ptr Imguistoragepair_28312418 {.cdecl,
+      internalvalf: cfloat): ptr Imguistoragepair_28312482 {.cdecl,
       importc: "ImGuiStoragePair_ImGuiStoragePair_Float".}
 else:
   static :
@@ -14635,7 +16071,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguistoragepairimguistoragepairptr):
   proc Imguistoragepairimguistoragepairptr*(internalkey: Imguiid_28312298;
-      internalvalp: pointer): ptr Imguistoragepair_28312418 {.cdecl,
+      internalvalp: pointer): ptr Imguistoragepair_28312482 {.cdecl,
       importc: "ImGuiStoragePair_ImGuiStoragePair_Ptr".}
 else:
   static :
@@ -15288,7 +16724,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imdrawlistaddcallback):
   proc Imdrawlistaddcallback*(self: ptr Imdrawlist_28311947;
-                              callback: Imdrawcallback_28312424;
+                              callback: Imdrawcallback_28312488;
                               callbackdata: pointer): void {.cdecl,
       importc: "ImDrawList_AddCallback".}
 else:
@@ -15592,28 +17028,28 @@ else:
         " already exists, not redeclaring")
 when not declared(Imfontglyphrangesbuilderbuildranges):
   proc Imfontglyphrangesbuilderbuildranges*(self: ptr Imfontglyphrangesbuilder_28311983;
-      outranges: ptr Imvectorimwchar_28312402): void {.cdecl,
+      outranges: ptr Imvectorimwchar_28312466): void {.cdecl,
       importc: "ImFontGlyphRangesBuilder_BuildRanges".}
 else:
   static :
     hint("Declaration of " & "Imfontglyphrangesbuilderbuildranges" &
         " already exists, not redeclaring")
 when not declared(Imfontatlascustomrectimfontatlascustomrect):
-  proc Imfontatlascustomrectimfontatlascustomrect*(): ptr Imfontatlascustomrect_28312470 {.
+  proc Imfontatlascustomrectimfontatlascustomrect*(): ptr Imfontatlascustomrect_28312538 {.
       cdecl, importc: "ImFontAtlasCustomRect_ImFontAtlasCustomRect".}
 else:
   static :
     hint("Declaration of " & "Imfontatlascustomrectimfontatlascustomrect" &
         " already exists, not redeclaring")
 when not declared(Imfontatlascustomrectdestroy):
-  proc Imfontatlascustomrectdestroy*(self: ptr Imfontatlascustomrect_28312470): void {.
+  proc Imfontatlascustomrectdestroy*(self: ptr Imfontatlascustomrect_28312538): void {.
       cdecl, importc: "ImFontAtlasCustomRect_destroy".}
 else:
   static :
     hint("Declaration of " & "Imfontatlascustomrectdestroy" &
         " already exists, not redeclaring")
 when not declared(Imfontatlascustomrectispacked):
-  proc Imfontatlascustomrectispacked*(self: ptr Imfontatlascustomrect_28312470): bool {.
+  proc Imfontatlascustomrectispacked*(self: ptr Imfontatlascustomrect_28312538): bool {.
       cdecl, importc: "ImFontAtlasCustomRect_IsPacked".}
 else:
   static :
@@ -15839,7 +17275,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imfontatlasgetcustomrectbyindex):
   proc Imfontatlasgetcustomrectbyindex*(self: ptr Imfontatlas_28311967;
-                                        index: cint): ptr Imfontatlascustomrect_28312470 {.
+                                        index: cint): ptr Imfontatlascustomrect_28312538 {.
       cdecl, importc: "ImFontAtlas_GetCustomRectByIndex".}
 else:
   static :
@@ -15847,7 +17283,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imfontatlascalccustomrectuv):
   proc Imfontatlascalccustomrectuv*(self: ptr Imfontatlas_28311967;
-                                    rect: ptr Imfontatlascustomrect_28312470;
+                                    rect: ptr Imfontatlascustomrect_28312538;
                                     outuvmin: ptr Imvec2_28312328;
                                     outuvmax: ptr Imvec2_28312328): void {.
       cdecl, importc: "ImFontAtlas_CalcCustomRectUV".}
@@ -16078,7 +17514,7 @@ else:
     hint("Declaration of " & "Imguiplatformimedatadestroy" &
         " already exists, not redeclaring")
 when not declared(iggetkeyindex):
-  proc iggetkeyindex*(key: Imguikey_28312374): Imguikey_28312374 {.cdecl,
+  proc iggetkeyindex*(key: Imguikey_28312414): Imguikey_28312414 {.cdecl,
       importc: "igGetKeyIndex".}
 else:
   static :
@@ -16352,20 +17788,20 @@ else:
     hint("Declaration of " & "igimtextcountutf8bytesfromstr" &
         " already exists, not redeclaring")
 when not declared(igimfileopen):
-  proc igimfileopen*(filename: cstring; mode: cstring): Imfilehandle_28312558 {.
+  proc igimfileopen*(filename: cstring; mode: cstring): Imfilehandle_28312630 {.
       cdecl, importc: "igImFileOpen".}
 else:
   static :
     hint("Declaration of " & "igimfileopen" & " already exists, not redeclaring")
 when not declared(igimfileclose):
-  proc igimfileclose*(file: Imfilehandle_28312558): bool {.cdecl,
+  proc igimfileclose*(file: Imfilehandle_28312630): bool {.cdecl,
       importc: "igImFileClose".}
 else:
   static :
     hint("Declaration of " & "igimfileclose" &
         " already exists, not redeclaring")
 when not declared(igimfilegetsize):
-  proc igimfilegetsize*(file: Imfilehandle_28312558): Imu64_28311933 {.cdecl,
+  proc igimfilegetsize*(file: Imfilehandle_28312630): Imu64_28311933 {.cdecl,
       importc: "igImFileGetSize".}
 else:
   static :
@@ -16373,14 +17809,14 @@ else:
         " already exists, not redeclaring")
 when not declared(igimfileread):
   proc igimfileread*(data: pointer; size: Imu64_28311933; count: Imu64_28311933;
-                     file: Imfilehandle_28312558): Imu64_28311933 {.cdecl,
+                     file: Imfilehandle_28312630): Imu64_28311933 {.cdecl,
       importc: "igImFileRead".}
 else:
   static :
     hint("Declaration of " & "igimfileread" & " already exists, not redeclaring")
 when not declared(igimfilewrite):
   proc igimfilewrite*(data: pointer; size: Imu64_28311933; count: Imu64_28311933;
-                      file: Imfilehandle_28312558): Imu64_28311933 {.cdecl,
+                      file: Imfilehandle_28312630): Imu64_28311933 {.cdecl,
       importc: "igImFileWrite".}
 else:
   static :
@@ -16678,49 +18114,49 @@ else:
     hint("Declaration of " & "igimtrianglearea" &
         " already exists, not redeclaring")
 when not declared(Imvec1imvec1nil):
-  proc Imvec1imvec1nil*(): ptr Imvec1_28312562 {.cdecl,
+  proc Imvec1imvec1nil*(): ptr Imvec1_28312634 {.cdecl,
       importc: "ImVec1_ImVec1_Nil".}
 else:
   static :
     hint("Declaration of " & "Imvec1imvec1nil" &
         " already exists, not redeclaring")
 when not declared(Imvec1destroy):
-  proc Imvec1destroy*(self: ptr Imvec1_28312562): void {.cdecl,
+  proc Imvec1destroy*(self: ptr Imvec1_28312634): void {.cdecl,
       importc: "ImVec1_destroy".}
 else:
   static :
     hint("Declaration of " & "Imvec1destroy" &
         " already exists, not redeclaring")
 when not declared(Imvec1imvec1float):
-  proc Imvec1imvec1float*(internalx: cfloat): ptr Imvec1_28312562 {.cdecl,
+  proc Imvec1imvec1float*(internalx: cfloat): ptr Imvec1_28312634 {.cdecl,
       importc: "ImVec1_ImVec1_Float".}
 else:
   static :
     hint("Declaration of " & "Imvec1imvec1float" &
         " already exists, not redeclaring")
 when not declared(Imvec2ihimvec2ihnil):
-  proc Imvec2ihimvec2ihnil*(): ptr Imvec2ih_28312566 {.cdecl,
+  proc Imvec2ihimvec2ihnil*(): ptr Imvec2ih_28312638 {.cdecl,
       importc: "ImVec2ih_ImVec2ih_Nil".}
 else:
   static :
     hint("Declaration of " & "Imvec2ihimvec2ihnil" &
         " already exists, not redeclaring")
 when not declared(Imvec2ihdestroy):
-  proc Imvec2ihdestroy*(self: ptr Imvec2ih_28312566): void {.cdecl,
+  proc Imvec2ihdestroy*(self: ptr Imvec2ih_28312638): void {.cdecl,
       importc: "ImVec2ih_destroy".}
 else:
   static :
     hint("Declaration of " & "Imvec2ihdestroy" &
         " already exists, not redeclaring")
 when not declared(Imvec2ihimvec2ihshort):
-  proc Imvec2ihimvec2ihshort*(internalx: cshort; internaly: cshort): ptr Imvec2ih_28312566 {.
+  proc Imvec2ihimvec2ihshort*(internalx: cshort; internaly: cshort): ptr Imvec2ih_28312638 {.
       cdecl, importc: "ImVec2ih_ImVec2ih_short".}
 else:
   static :
     hint("Declaration of " & "Imvec2ihimvec2ihshort" &
         " already exists, not redeclaring")
 when not declared(Imvec2ihimvec2ihvec2):
-  proc Imvec2ihimvec2ihvec2*(rhs: Imvec2_28312328): ptr Imvec2ih_28312566 {.
+  proc Imvec2ihimvec2ihvec2*(rhs: Imvec2_28312328): ptr Imvec2ih_28312638 {.
       cdecl, importc: "ImVec2ih_ImVec2ih_Vec2".}
 else:
   static :
@@ -17001,21 +18437,21 @@ else:
     hint("Declaration of " & "Imbitvectorclearbit" &
         " already exists, not redeclaring")
 when not declared(Imguitextindexclear):
-  proc Imguitextindexclear*(self: ptr Imguitextindex_28312574): void {.cdecl,
+  proc Imguitextindexclear*(self: ptr Imguitextindex_28312646): void {.cdecl,
       importc: "ImGuiTextIndex_clear".}
 else:
   static :
     hint("Declaration of " & "Imguitextindexclear" &
         " already exists, not redeclaring")
 when not declared(Imguitextindexsize):
-  proc Imguitextindexsize*(self: ptr Imguitextindex_28312574): cint {.cdecl,
+  proc Imguitextindexsize*(self: ptr Imguitextindex_28312646): cint {.cdecl,
       importc: "ImGuiTextIndex_size".}
 else:
   static :
     hint("Declaration of " & "Imguitextindexsize" &
         " already exists, not redeclaring")
 when not declared(Imguitextindexgetlinebegin):
-  proc Imguitextindexgetlinebegin*(self: ptr Imguitextindex_28312574;
+  proc Imguitextindexgetlinebegin*(self: ptr Imguitextindex_28312646;
                                    base: cstring; n: cint): cstring {.cdecl,
       importc: "ImGuiTextIndex_get_line_begin".}
 else:
@@ -17023,7 +18459,7 @@ else:
     hint("Declaration of " & "Imguitextindexgetlinebegin" &
         " already exists, not redeclaring")
 when not declared(Imguitextindexgetlineend):
-  proc Imguitextindexgetlineend*(self: ptr Imguitextindex_28312574;
+  proc Imguitextindexgetlineend*(self: ptr Imguitextindex_28312646;
                                  base: cstring; n: cint): cstring {.cdecl,
       importc: "ImGuiTextIndex_get_line_end".}
 else:
@@ -17031,7 +18467,7 @@ else:
     hint("Declaration of " & "Imguitextindexgetlineend" &
         " already exists, not redeclaring")
 when not declared(Imguitextindexappend):
-  proc Imguitextindexappend*(self: ptr Imguitextindex_28312574; base: cstring;
+  proc Imguitextindexappend*(self: ptr Imguitextindex_28312646; base: cstring;
                              oldsize: cint; newsize: cint): void {.cdecl,
       importc: "ImGuiTextIndex_append".}
 else:
@@ -17111,14 +18547,14 @@ else:
     hint("Declaration of " & "Imguistylemodimguistylemodvec2" &
         " already exists, not redeclaring")
 when not declared(Imguicombopreviewdataimguicombopreviewdata):
-  proc Imguicombopreviewdataimguicombopreviewdata*(): ptr Imguicombopreviewdata_28312624 {.
+  proc Imguicombopreviewdataimguicombopreviewdata*(): ptr Imguicombopreviewdata_28312734 {.
       cdecl, importc: "ImGuiComboPreviewData_ImGuiComboPreviewData".}
 else:
   static :
     hint("Declaration of " & "Imguicombopreviewdataimguicombopreviewdata" &
         " already exists, not redeclaring")
 when not declared(Imguicombopreviewdatadestroy):
-  proc Imguicombopreviewdatadestroy*(self: ptr Imguicombopreviewdata_28312624): void {.
+  proc Imguicombopreviewdatadestroy*(self: ptr Imguicombopreviewdata_28312734): void {.
       cdecl, importc: "ImGuiComboPreviewData_destroy".}
 else:
   static :
@@ -17163,7 +18599,7 @@ else:
     hint("Declaration of " & "Imguimenucolumnscalcnexttotalwidth" &
         " already exists, not redeclaring")
 when not declared(Imguiinputtextdeactivatedstateimguiinputtextdeactivatedstate):
-  proc Imguiinputtextdeactivatedstateimguiinputtextdeactivatedstate*(): ptr Imguiinputtextdeactivatedstate_28312628 {.
+  proc Imguiinputtextdeactivatedstateimguiinputtextdeactivatedstate*(): ptr Imguiinputtextdeactivatedstate_28312738 {.
       cdecl,
       importc: "ImGuiInputTextDeactivatedState_ImGuiInputTextDeactivatedState".}
 else:
@@ -17173,7 +18609,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiinputtextdeactivatedstatedestroy):
   proc Imguiinputtextdeactivatedstatedestroy*(
-      self: ptr Imguiinputtextdeactivatedstate_28312628): void {.cdecl,
+      self: ptr Imguiinputtextdeactivatedstate_28312738): void {.cdecl,
       importc: "ImGuiInputTextDeactivatedState_destroy".}
 else:
   static :
@@ -17181,7 +18617,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiinputtextdeactivatedstateclearfreememory):
   proc Imguiinputtextdeactivatedstateclearfreememory*(
-      self: ptr Imguiinputtextdeactivatedstate_28312628): void {.cdecl,
+      self: ptr Imguiinputtextdeactivatedstate_28312738): void {.cdecl,
       importc: "ImGuiInputTextDeactivatedState_ClearFreeMemory".}
 else:
   static :
@@ -17394,91 +18830,91 @@ else:
     hint("Declaration of " & "Imguistacksizescomparewithcontextstate" &
         " already exists, not redeclaring")
 when not declared(Imguiptrorindeximguiptrorindexptr):
-  proc Imguiptrorindeximguiptrorindexptr*(ptrarg: pointer): ptr Imguiptrorindex_28312644 {.
+  proc Imguiptrorindeximguiptrorindexptr*(ptrarg: pointer): ptr Imguiptrorindex_28312758 {.
       cdecl, importc: "ImGuiPtrOrIndex_ImGuiPtrOrIndex_Ptr".}
 else:
   static :
     hint("Declaration of " & "Imguiptrorindeximguiptrorindexptr" &
         " already exists, not redeclaring")
 when not declared(Imguiptrorindexdestroy):
-  proc Imguiptrorindexdestroy*(self: ptr Imguiptrorindex_28312644): void {.
+  proc Imguiptrorindexdestroy*(self: ptr Imguiptrorindex_28312758): void {.
       cdecl, importc: "ImGuiPtrOrIndex_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiptrorindexdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguiptrorindeximguiptrorindexint):
-  proc Imguiptrorindeximguiptrorindexint*(index: cint): ptr Imguiptrorindex_28312644 {.
+  proc Imguiptrorindeximguiptrorindexint*(index: cint): ptr Imguiptrorindex_28312758 {.
       cdecl, importc: "ImGuiPtrOrIndex_ImGuiPtrOrIndex_Int".}
 else:
   static :
     hint("Declaration of " & "Imguiptrorindeximguiptrorindexint" &
         " already exists, not redeclaring")
 when not declared(Imguiinputeventimguiinputevent):
-  proc Imguiinputeventimguiinputevent*(): ptr Imguiinputevent_28312686 {.cdecl,
+  proc Imguiinputeventimguiinputevent*(): ptr Imguiinputevent_28312804 {.cdecl,
       importc: "ImGuiInputEvent_ImGuiInputEvent".}
 else:
   static :
     hint("Declaration of " & "Imguiinputeventimguiinputevent" &
         " already exists, not redeclaring")
 when not declared(Imguiinputeventdestroy):
-  proc Imguiinputeventdestroy*(self: ptr Imguiinputevent_28312686): void {.
+  proc Imguiinputeventdestroy*(self: ptr Imguiinputevent_28312804): void {.
       cdecl, importc: "ImGuiInputEvent_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiinputeventdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguikeyroutingdataimguikeyroutingdata):
-  proc Imguikeyroutingdataimguikeyroutingdata*(): ptr Imguikeyroutingdata_28312692 {.
+  proc Imguikeyroutingdataimguikeyroutingdata*(): ptr Imguikeyroutingdata_28312810 {.
       cdecl, importc: "ImGuiKeyRoutingData_ImGuiKeyRoutingData".}
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingdataimguikeyroutingdata" &
         " already exists, not redeclaring")
 when not declared(Imguikeyroutingdatadestroy):
-  proc Imguikeyroutingdatadestroy*(self: ptr Imguikeyroutingdata_28312692): void {.
+  proc Imguikeyroutingdatadestroy*(self: ptr Imguikeyroutingdata_28312810): void {.
       cdecl, importc: "ImGuiKeyRoutingData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguikeyroutingtableimguikeyroutingtable):
-  proc Imguikeyroutingtableimguikeyroutingtable*(): ptr Imguikeyroutingtable_28312696 {.
+  proc Imguikeyroutingtableimguikeyroutingtable*(): ptr Imguikeyroutingtable_28312814 {.
       cdecl, importc: "ImGuiKeyRoutingTable_ImGuiKeyRoutingTable".}
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingtableimguikeyroutingtable" &
         " already exists, not redeclaring")
 when not declared(Imguikeyroutingtabledestroy):
-  proc Imguikeyroutingtabledestroy*(self: ptr Imguikeyroutingtable_28312696): void {.
+  proc Imguikeyroutingtabledestroy*(self: ptr Imguikeyroutingtable_28312814): void {.
       cdecl, importc: "ImGuiKeyRoutingTable_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingtabledestroy" &
         " already exists, not redeclaring")
 when not declared(Imguikeyroutingtableclear):
-  proc Imguikeyroutingtableclear*(self: ptr Imguikeyroutingtable_28312696): void {.
+  proc Imguikeyroutingtableclear*(self: ptr Imguikeyroutingtable_28312814): void {.
       cdecl, importc: "ImGuiKeyRoutingTable_Clear".}
 else:
   static :
     hint("Declaration of " & "Imguikeyroutingtableclear" &
         " already exists, not redeclaring")
 when not declared(Imguikeyownerdataimguikeyownerdata):
-  proc Imguikeyownerdataimguikeyownerdata*(): ptr Imguikeyownerdata_28312704 {.
+  proc Imguikeyownerdataimguikeyownerdata*(): ptr Imguikeyownerdata_28312822 {.
       cdecl, importc: "ImGuiKeyOwnerData_ImGuiKeyOwnerData".}
 else:
   static :
     hint("Declaration of " & "Imguikeyownerdataimguikeyownerdata" &
         " already exists, not redeclaring")
 when not declared(Imguikeyownerdatadestroy):
-  proc Imguikeyownerdatadestroy*(self: ptr Imguikeyownerdata_28312704): void {.
+  proc Imguikeyownerdatadestroy*(self: ptr Imguikeyownerdata_28312822): void {.
       cdecl, importc: "ImGuiKeyOwnerData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguikeyownerdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperrangefromindices):
-  proc Imguilistclipperrangefromindices*(min: cint; max: cint): Imguilistclipperrange_28312710 {.
+  proc Imguilistclipperrangefromindices*(min: cint; max: cint): Imguilistclipperrange_28312830 {.
       cdecl, importc: "ImGuiListClipperRange_FromIndices".}
 else:
   static :
@@ -17486,28 +18922,28 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguilistclipperrangefrompositions):
   proc Imguilistclipperrangefrompositions*(y1: cfloat; y2: cfloat; offmin: cint;
-      offmax: cint): Imguilistclipperrange_28312710 {.cdecl,
+      offmax: cint): Imguilistclipperrange_28312830 {.cdecl,
       importc: "ImGuiListClipperRange_FromPositions".}
 else:
   static :
     hint("Declaration of " & "Imguilistclipperrangefrompositions" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperdataimguilistclipperdata):
-  proc Imguilistclipperdataimguilistclipperdata*(): ptr Imguilistclipperdata_28312714 {.
+  proc Imguilistclipperdataimguilistclipperdata*(): ptr Imguilistclipperdata_28312834 {.
       cdecl, importc: "ImGuiListClipperData_ImGuiListClipperData".}
 else:
   static :
     hint("Declaration of " & "Imguilistclipperdataimguilistclipperdata" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperdatadestroy):
-  proc Imguilistclipperdatadestroy*(self: ptr Imguilistclipperdata_28312714): void {.
+  proc Imguilistclipperdatadestroy*(self: ptr Imguilistclipperdata_28312834): void {.
       cdecl, importc: "ImGuiListClipperData_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguilistclipperdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguilistclipperdatareset):
-  proc Imguilistclipperdatareset*(self: ptr Imguilistclipperdata_28312714;
+  proc Imguilistclipperdatareset*(self: ptr Imguilistclipperdata_28312834;
                                   clipper: ptr Imguilistclipper_28312007): void {.
       cdecl, importc: "ImGuiListClipperData_Reset".}
 else:
@@ -17677,21 +19113,21 @@ else:
     hint("Declaration of " & "Imguidockcontextdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportpimguiviewportp):
-  proc Imguiviewportpimguiviewportp*(): ptr Imguiviewportp_28312762 {.cdecl,
+  proc Imguiviewportpimguiviewportp*(): ptr Imguiviewportp_28312902 {.cdecl,
       importc: "ImGuiViewportP_ImGuiViewportP".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportpimguiviewportp" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportpdestroy):
-  proc Imguiviewportpdestroy*(self: ptr Imguiviewportp_28312762): void {.cdecl,
+  proc Imguiviewportpdestroy*(self: ptr Imguiviewportp_28312902): void {.cdecl,
       importc: "ImGuiViewportP_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguiviewportpdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportpclearrequestflags):
-  proc Imguiviewportpclearrequestflags*(self: ptr Imguiviewportp_28312762): void {.
+  proc Imguiviewportpclearrequestflags*(self: ptr Imguiviewportp_28312902): void {.
       cdecl, importc: "ImGuiViewportP_ClearRequestFlags".}
 else:
   static :
@@ -17699,7 +19135,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiviewportpcalcworkrectpos):
   proc Imguiviewportpcalcworkrectpos*(pout: ptr Imvec2_28312328;
-                                      self: ptr Imguiviewportp_28312762;
+                                      self: ptr Imguiviewportp_28312902;
                                       offmin: Imvec2_28312328): void {.cdecl,
       importc: "ImGuiViewportP_CalcWorkRectPos".}
 else:
@@ -17708,7 +19144,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiviewportpcalcworkrectsize):
   proc Imguiviewportpcalcworkrectsize*(pout: ptr Imvec2_28312328;
-                                       self: ptr Imguiviewportp_28312762;
+                                       self: ptr Imguiviewportp_28312902;
                                        offmin: Imvec2_28312328; offmax: Imvec2_28312328): void {.
       cdecl, importc: "ImGuiViewportP_CalcWorkRectSize".}
 else:
@@ -17716,7 +19152,7 @@ else:
     hint("Declaration of " & "Imguiviewportpcalcworkrectsize" &
         " already exists, not redeclaring")
 when not declared(Imguiviewportpupdateworkrect):
-  proc Imguiviewportpupdateworkrect*(self: ptr Imguiviewportp_28312762): void {.
+  proc Imguiviewportpupdateworkrect*(self: ptr Imguiviewportp_28312902): void {.
       cdecl, importc: "ImGuiViewportP_UpdateWorkRect".}
 else:
   static :
@@ -17724,7 +19160,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiviewportpgetmainrect):
   proc Imguiviewportpgetmainrect*(pout: ptr Imrect_28312078;
-                                  self: ptr Imguiviewportp_28312762): void {.
+                                  self: ptr Imguiviewportp_28312902): void {.
       cdecl, importc: "ImGuiViewportP_GetMainRect".}
 else:
   static :
@@ -17732,7 +19168,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiviewportpgetworkrect):
   proc Imguiviewportpgetworkrect*(pout: ptr Imrect_28312078;
-                                  self: ptr Imguiviewportp_28312762): void {.
+                                  self: ptr Imguiviewportp_28312902): void {.
       cdecl, importc: "ImGuiViewportP_GetWorkRect".}
 else:
   static :
@@ -17740,7 +19176,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Imguiviewportpgetbuildworkrect):
   proc Imguiviewportpgetbuildworkrect*(pout: ptr Imrect_28312078;
-                                       self: ptr Imguiviewportp_28312762): void {.
+                                       self: ptr Imguiviewportp_28312902): void {.
       cdecl, importc: "ImGuiViewportP_GetBuildWorkRect".}
 else:
   static :
@@ -17782,28 +19218,28 @@ else:
     hint("Declaration of " & "Imguisettingshandlerdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguistacklevelinfoimguistacklevelinfo):
-  proc Imguistacklevelinfoimguistacklevelinfo*(): ptr Imguistacklevelinfo_28312770 {.
+  proc Imguistacklevelinfoimguistacklevelinfo*(): ptr Imguistacklevelinfo_28312914 {.
       cdecl, importc: "ImGuiStackLevelInfo_ImGuiStackLevelInfo".}
 else:
   static :
     hint("Declaration of " & "Imguistacklevelinfoimguistacklevelinfo" &
         " already exists, not redeclaring")
 when not declared(Imguistacklevelinfodestroy):
-  proc Imguistacklevelinfodestroy*(self: ptr Imguistacklevelinfo_28312770): void {.
+  proc Imguistacklevelinfodestroy*(self: ptr Imguistacklevelinfo_28312914): void {.
       cdecl, importc: "ImGuiStackLevelInfo_destroy".}
 else:
   static :
     hint("Declaration of " & "Imguistacklevelinfodestroy" &
         " already exists, not redeclaring")
 when not declared(Imguistacktoolimguistacktool):
-  proc Imguistacktoolimguistacktool*(): ptr Imguistacktool_28312774 {.cdecl,
+  proc Imguistacktoolimguistacktool*(): ptr Imguistacktool_28312918 {.cdecl,
       importc: "ImGuiStackTool_ImGuiStackTool".}
 else:
   static :
     hint("Declaration of " & "Imguistacktoolimguistacktool" &
         " already exists, not redeclaring")
 when not declared(Imguistacktooldestroy):
-  proc Imguistacktooldestroy*(self: ptr Imguistacktool_28312774): void {.cdecl,
+  proc Imguistacktooldestroy*(self: ptr Imguistacktool_28312918): void {.cdecl,
       importc: "ImGuiStackTool_destroy".}
 else:
   static :
@@ -18008,14 +19444,14 @@ else:
     hint("Declaration of " & "Imguitabletempdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumnsettingsimguitablecolumnsettings):
-  proc Imguitablecolumnsettingsimguitablecolumnsettings*(): ptr Imguitablecolumnsettings_28312918 {.
+  proc Imguitablecolumnsettingsimguitablecolumnsettings*(): ptr Imguitablecolumnsettings_28313068 {.
       cdecl, importc: "ImGuiTableColumnSettings_ImGuiTableColumnSettings".}
 else:
   static :
     hint("Declaration of " & "Imguitablecolumnsettingsimguitablecolumnsettings" &
         " already exists, not redeclaring")
 when not declared(Imguitablecolumnsettingsdestroy):
-  proc Imguitablecolumnsettingsdestroy*(self: ptr Imguitablecolumnsettings_28312918): void {.
+  proc Imguitablecolumnsettingsdestroy*(self: ptr Imguitablecolumnsettings_28313068): void {.
       cdecl, importc: "ImGuiTableColumnSettings_destroy".}
 else:
   static :
@@ -18036,7 +19472,7 @@ else:
     hint("Declaration of " & "Imguitablesettingsdestroy" &
         " already exists, not redeclaring")
 when not declared(Imguitablesettingsgetcolumnsettings):
-  proc Imguitablesettingsgetcolumnsettings*(self: ptr Imguitablesettings_28312204): ptr Imguitablecolumnsettings_28312918 {.
+  proc Imguitablesettingsgetcolumnsettings*(self: ptr Imguitablesettings_28312204): ptr Imguitablecolumnsettings_28313068 {.
       cdecl, importc: "ImGuiTableSettings_GetColumnSettings".}
 else:
   static :
@@ -18183,7 +19619,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igfocuswindow):
   proc igfocuswindow*(window: ptr Imguiwindow_28312210;
-                      flags: Imguifocusrequestflags_28312514): void {.cdecl,
+                      flags: Imguifocusrequestflags_28312586): void {.cdecl,
       importc: "igFocusWindow".}
 else:
   static :
@@ -18193,7 +19629,7 @@ when not declared(igfocustopmostwindowunderone):
   proc igfocustopmostwindowunderone*(underthiswindow: ptr Imguiwindow_28312210;
                                      ignorewindow: ptr Imguiwindow_28312210;
                                      filterviewport: ptr Imguiviewport_28312066;
-                                     flags: Imguifocusrequestflags_28312514): void {.
+                                     flags: Imguifocusrequestflags_28312586): void {.
       cdecl, importc: "igFocusTopMostWindowUnderOne".}
 else:
   static :
@@ -18265,7 +19701,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igadddrawlisttodrawdataex):
   proc igadddrawlisttodrawdataex*(drawdata: ptr Imdrawdata_28311943;
-                                  outlist: ptr Imvectorimdrawlistptr_28312464;
+                                  outlist: ptr Imvectorimdrawlistptr_28312532;
                                   drawlist: ptr Imdrawlist_28311947): void {.
       cdecl, importc: "igAddDrawListToDrawDataEx".}
 else:
@@ -18344,14 +19780,14 @@ else:
         " already exists, not redeclaring")
 when not declared(igcallcontexthooks):
   proc igcallcontexthooks*(context: ptr Imguicontext_28311991;
-                           typearg: Imguicontexthooktype_28312784): void {.
+                           typearg: Imguicontexthooktype_28312930): void {.
       cdecl, importc: "igCallContextHooks".}
 else:
   static :
     hint("Declaration of " & "igcallcontexthooks" &
         " already exists, not redeclaring")
 when not declared(igtranslatewindowsinviewport):
-  proc igtranslatewindowsinviewport*(viewport: ptr Imguiviewportp_28312762;
+  proc igtranslatewindowsinviewport*(viewport: ptr Imguiviewportp_28312902;
                                      oldpos: Imvec2_28312328; newpos: Imvec2_28312328): void {.
       cdecl, importc: "igTranslateWindowsInViewport".}
 else:
@@ -18359,7 +19795,7 @@ else:
     hint("Declaration of " & "igtranslatewindowsinviewport" &
         " already exists, not redeclaring")
 when not declared(igscalewindowsinviewport):
-  proc igscalewindowsinviewport*(viewport: ptr Imguiviewportp_28312762;
+  proc igscalewindowsinviewport*(viewport: ptr Imguiviewportp_28312902;
                                  scale: cfloat): void {.cdecl,
       importc: "igScaleWindowsInViewport".}
 else:
@@ -18367,7 +19803,7 @@ else:
     hint("Declaration of " & "igscalewindowsinviewport" &
         " already exists, not redeclaring")
 when not declared(igdestroyplatformwindow):
-  proc igdestroyplatformwindow*(viewport: ptr Imguiviewportp_28312762): void {.
+  proc igdestroyplatformwindow*(viewport: ptr Imguiviewportp_28312902): void {.
       cdecl, importc: "igDestroyPlatformWindow".}
 else:
   static :
@@ -18375,7 +19811,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igsetwindowviewport):
   proc igsetwindowviewport*(window: ptr Imguiwindow_28312210;
-                            viewport: ptr Imguiviewportp_28312762): void {.
+                            viewport: ptr Imguiviewportp_28312902): void {.
       cdecl, importc: "igSetWindowViewport".}
 else:
   static :
@@ -18383,7 +19819,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igsetcurrentviewport):
   proc igsetcurrentviewport*(window: ptr Imguiwindow_28312210;
-                             viewport: ptr Imguiviewportp_28312762): void {.
+                             viewport: ptr Imguiviewportp_28312902): void {.
       cdecl, importc: "igSetCurrentViewport".}
 else:
   static :
@@ -18397,7 +19833,7 @@ else:
     hint("Declaration of " & "iggetviewportplatformmonitor" &
         " already exists, not redeclaring")
 when not declared(igfindhoveredviewportfromplatformwindowstack):
-  proc igfindhoveredviewportfromplatformwindowstack*(mouseplatformpos: Imvec2_28312328): ptr Imguiviewportp_28312762 {.
+  proc igfindhoveredviewportfromplatformwindowstack*(mouseplatformpos: Imvec2_28312328): ptr Imguiviewportp_28312902 {.
       cdecl, importc: "igFindHoveredViewportFromPlatformWindowStack".}
 else:
   static :
@@ -18481,7 +19917,7 @@ else:
     hint("Declaration of " & "iglocalizeregisterentries" &
         " already exists, not redeclaring")
 when not declared(iglocalizegetmsg):
-  proc iglocalizegetmsg*(key: Imguilockey_28312766): cstring {.cdecl,
+  proc iglocalizegetmsg*(key: Imguilockey_28312908): cstring {.cdecl,
       importc: "igLocalizeGetMsg".}
 else:
   static :
@@ -18518,7 +19954,7 @@ else:
     hint("Declaration of " & "igsetscrollfromposywindowptr" &
         " already exists, not redeclaring")
 when not declared(igscrolltoitem):
-  proc igscrolltoitem*(flags: Imguiscrollflags_28312532): void {.cdecl,
+  proc igscrolltoitem*(flags: Imguiscrollflags_28312604): void {.cdecl,
       importc: "igScrollToItem".}
 else:
   static :
@@ -18526,7 +19962,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igscrolltorect):
   proc igscrolltorect*(window: ptr Imguiwindow_28312210; rect: Imrect_28312078;
-                       flags: Imguiscrollflags_28312532): void {.cdecl,
+                       flags: Imguiscrollflags_28312604): void {.cdecl,
       importc: "igScrollToRect".}
 else:
   static :
@@ -18534,7 +19970,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igscrolltorectex):
   proc igscrolltorectex*(pout: ptr Imvec2_28312328; window: ptr Imguiwindow_28312210;
-                         rect: Imrect_28312078; flags: Imguiscrollflags_28312532): void {.
+                         rect: Imrect_28312078; flags: Imguiscrollflags_28312604): void {.
       cdecl, importc: "igScrollToRectEx".}
 else:
   static :
@@ -18549,14 +19985,14 @@ else:
     hint("Declaration of " & "igscrolltobringrectintoview" &
         " already exists, not redeclaring")
 when not declared(iggetitemstatusflags):
-  proc iggetitemstatusflags*(): Imguiitemstatusflags_28312520 {.cdecl,
+  proc iggetitemstatusflags*(): Imguiitemstatusflags_28312592 {.cdecl,
       importc: "igGetItemStatusFlags".}
 else:
   static :
     hint("Declaration of " & "iggetitemstatusflags" &
         " already exists, not redeclaring")
 when not declared(iggetitemflags):
-  proc iggetitemflags*(): Imguiitemflags_28312518 {.cdecl,
+  proc iggetitemflags*(): Imguiitemflags_28312590 {.cdecl,
       importc: "igGetItemFlags".}
 else:
   static :
@@ -18656,14 +20092,14 @@ else:
         " already exists, not redeclaring")
 when not declared(igitemadd):
   proc igitemadd*(bb: Imrect_28312078; id: Imguiid_28312298; navbb: ptr Imrect_28312078;
-                  extraflags: Imguiitemflags_28312518): bool {.cdecl,
+                  extraflags: Imguiitemflags_28312590): bool {.cdecl,
       importc: "igItemAdd".}
 else:
   static :
     hint("Declaration of " & "igitemadd" & " already exists, not redeclaring")
 when not declared(igitemhoverable):
   proc igitemhoverable*(bb: Imrect_28312078; id: Imguiid_28312298;
-                        itemflags: Imguiitemflags_28312518): bool {.cdecl,
+                        itemflags: Imguiitemflags_28312590): bool {.cdecl,
       importc: "igItemHoverable".}
 else:
   static :
@@ -18685,8 +20121,8 @@ else:
     hint("Declaration of " & "igisclippedex" &
         " already exists, not redeclaring")
 when not declared(igsetlastitemdata):
-  proc igsetlastitemdata*(itemid: Imguiid_28312298; inflags: Imguiitemflags_28312518;
-                          statusflags: Imguiitemstatusflags_28312520;
+  proc igsetlastitemdata*(itemid: Imguiid_28312298; inflags: Imguiitemflags_28312590;
+                          statusflags: Imguiitemstatusflags_28312592;
                           itemrect: Imrect_28312078): void {.cdecl,
       importc: "igSetLastItemData".}
 else:
@@ -18730,7 +20166,7 @@ else:
     hint("Declaration of " & "iggetcontentregionmaxabs" &
         " already exists, not redeclaring")
 when not declared(igshrinkwidths):
-  proc igshrinkwidths*(items: ptr Imguishrinkwidthitem_28312640; count: cint;
+  proc igshrinkwidths*(items: ptr Imguishrinkwidthitem_28312754; count: cint;
                        widthexcess: cfloat): void {.cdecl,
       importc: "igShrinkWidths".}
 else:
@@ -18738,7 +20174,7 @@ else:
     hint("Declaration of " & "igshrinkwidths" &
         " already exists, not redeclaring")
 when not declared(igpushitemflag):
-  proc igpushitemflag*(option: Imguiitemflags_28312518; enabled: bool): void {.
+  proc igpushitemflag*(option: Imguiitemflags_28312590; enabled: bool): void {.
       cdecl, importc: "igPushItemFlag".}
 else:
   static :
@@ -18758,7 +20194,7 @@ else:
     hint("Declaration of " & "iggetstylevarinfo" &
         " already exists, not redeclaring")
 when not declared(iglogbegin):
-  proc iglogbegin*(typearg: Imguilogtype_28312610; autoopendepth: cint): void {.
+  proc iglogbegin*(typearg: Imguilogtype_28312712; autoopendepth: cint): void {.
       cdecl, importc: "igLogBegin".}
 else:
   static :
@@ -18838,7 +20274,7 @@ else:
     hint("Declaration of " & "igbeginpopupex" &
         " already exists, not redeclaring")
 when not declared(igbegintooltipex):
-  proc igbegintooltipex*(tooltipflags: Imguitooltipflags_28312538;
+  proc igbegintooltipex*(tooltipflags: Imguitooltipflags_28312610;
                          extrawindowflags: Imguiwindowflags_28312292): bool {.
       cdecl, importc: "igBeginTooltipEx".}
 else:
@@ -18887,7 +20323,7 @@ when not declared(igfindbestwindowposforpopupex):
                                       size: Imvec2_28312328;
                                       lastdir: ptr Imguidir_28312232;
                                       router: Imrect_28312078; ravoid: Imrect_28312078;
-                                      policy: Imguipopuppositionpolicy_28312616): void {.
+                                      policy: Imguipopuppositionpolicy_28312724): void {.
       cdecl, importc: "igFindBestWindowPosForPopupEx".}
 else:
   static :
@@ -18959,8 +20395,8 @@ else:
         " already exists, not redeclaring")
 when not declared(ignavmoverequestsubmit):
   proc ignavmoverequestsubmit*(movedir: Imguidir_28312232; clipdir: Imguidir_28312232;
-                               moveflags: Imguinavmoveflags_28312526;
-                               scrollflags: Imguiscrollflags_28312532): void {.
+                               moveflags: Imguinavmoveflags_28312598;
+                               scrollflags: Imguiscrollflags_28312604): void {.
       cdecl, importc: "igNavMoveRequestSubmit".}
 else:
   static :
@@ -18968,8 +20404,8 @@ else:
         " already exists, not redeclaring")
 when not declared(ignavmoverequestforward):
   proc ignavmoverequestforward*(movedir: Imguidir_28312232; clipdir: Imguidir_28312232;
-                                moveflags: Imguinavmoveflags_28312526;
-                                scrollflags: Imguiscrollflags_28312532): void {.
+                                moveflags: Imguinavmoveflags_28312598;
+                                scrollflags: Imguiscrollflags_28312604): void {.
       cdecl, importc: "igNavMoveRequestForward".}
 else:
   static :
@@ -19006,14 +20442,14 @@ else:
         " already exists, not redeclaring")
 when not declared(ignavmoverequesttrywrapping):
   proc ignavmoverequesttrywrapping*(window: ptr Imguiwindow_28312210;
-                                    moveflags: Imguinavmoveflags_28312526): void {.
+                                    moveflags: Imguinavmoveflags_28312598): void {.
       cdecl, importc: "igNavMoveRequestTryWrapping".}
 else:
   static :
     hint("Declaration of " & "ignavmoverequesttrywrapping" &
         " already exists, not redeclaring")
 when not declared(ignavclearpreferredposforaxis):
-  proc ignavclearpreferredposforaxis*(axis: Imguiaxis_28312612): void {.cdecl,
+  proc ignavclearpreferredposforaxis*(axis: Imguiaxis_28312716): void {.cdecl,
       importc: "igNavClearPreferredPosForAxis".}
 else:
   static :
@@ -19034,7 +20470,7 @@ else:
     hint("Declaration of " & "igsetnavwindow" &
         " already exists, not redeclaring")
 when not declared(igsetnavid):
-  proc igsetnavid*(id: Imguiid_28312298; navlayer: Imguinavlayer_28312730;
+  proc igsetnavid*(id: Imguiid_28312298; navlayer: Imguinavlayer_28312860;
                    focusscopeid: Imguiid_28312298; rectrel: Imrect_28312078): void {.
       cdecl, importc: "igSetNavID".}
 else:
@@ -19053,47 +20489,47 @@ else:
     hint("Declaration of " & "igactivateitembyid" &
         " already exists, not redeclaring")
 when not declared(igisnamedkey):
-  proc igisnamedkey*(key: Imguikey_28312374): bool {.cdecl,
+  proc igisnamedkey*(key: Imguikey_28312414): bool {.cdecl,
       importc: "igIsNamedKey".}
 else:
   static :
     hint("Declaration of " & "igisnamedkey" & " already exists, not redeclaring")
 when not declared(igisnamedkeyormodkey):
-  proc igisnamedkeyormodkey*(key: Imguikey_28312374): bool {.cdecl,
+  proc igisnamedkeyormodkey*(key: Imguikey_28312414): bool {.cdecl,
       importc: "igIsNamedKeyOrModKey".}
 else:
   static :
     hint("Declaration of " & "igisnamedkeyormodkey" &
         " already exists, not redeclaring")
 when not declared(igislegacykey):
-  proc igislegacykey*(key: Imguikey_28312374): bool {.cdecl,
+  proc igislegacykey*(key: Imguikey_28312414): bool {.cdecl,
       importc: "igIsLegacyKey".}
 else:
   static :
     hint("Declaration of " & "igislegacykey" &
         " already exists, not redeclaring")
 when not declared(igiskeyboardkey):
-  proc igiskeyboardkey*(key: Imguikey_28312374): bool {.cdecl,
+  proc igiskeyboardkey*(key: Imguikey_28312414): bool {.cdecl,
       importc: "igIsKeyboardKey".}
 else:
   static :
     hint("Declaration of " & "igiskeyboardkey" &
         " already exists, not redeclaring")
 when not declared(igisgamepadkey):
-  proc igisgamepadkey*(key: Imguikey_28312374): bool {.cdecl,
+  proc igisgamepadkey*(key: Imguikey_28312414): bool {.cdecl,
       importc: "igIsGamepadKey".}
 else:
   static :
     hint("Declaration of " & "igisgamepadkey" &
         " already exists, not redeclaring")
 when not declared(igismousekey):
-  proc igismousekey*(key: Imguikey_28312374): bool {.cdecl,
+  proc igismousekey*(key: Imguikey_28312414): bool {.cdecl,
       importc: "igIsMouseKey".}
 else:
   static :
     hint("Declaration of " & "igismousekey" & " already exists, not redeclaring")
 when not declared(igisaliaskey):
-  proc igisaliaskey*(key: Imguikey_28312374): bool {.cdecl,
+  proc igisaliaskey*(key: Imguikey_28312414): bool {.cdecl,
       importc: "igIsAliasKey".}
 else:
   static :
@@ -19107,21 +20543,21 @@ else:
         " already exists, not redeclaring")
 when not declared(igconvertsinglemodflagtokey):
   proc igconvertsinglemodflagtokey*(ctx: ptr Imguicontext_28311991;
-                                    key: Imguikey_28312374): Imguikey_28312374 {.
+                                    key: Imguikey_28312414): Imguikey_28312414 {.
       cdecl, importc: "igConvertSingleModFlagToKey".}
 else:
   static :
     hint("Declaration of " & "igconvertsinglemodflagtokey" &
         " already exists, not redeclaring")
 when not declared(iggetkeydatacontextptr):
-  proc iggetkeydatacontextptr*(ctx: ptr Imguicontext_28311991; key: Imguikey_28312374): ptr Imguikeydata_28312003 {.
+  proc iggetkeydatacontextptr*(ctx: ptr Imguicontext_28311991; key: Imguikey_28312414): ptr Imguikeydata_28312003 {.
       cdecl, importc: "igGetKeyData_ContextPtr".}
 else:
   static :
     hint("Declaration of " & "iggetkeydatacontextptr" &
         " already exists, not redeclaring")
 when not declared(iggetkeydatakey):
-  proc iggetkeydatakey*(key: Imguikey_28312374): ptr Imguikeydata_28312003 {.
+  proc iggetkeydatakey*(key: Imguikey_28312414): ptr Imguikeydata_28312003 {.
       cdecl, importc: "igGetKeyData_Key".}
 else:
   static :
@@ -19136,7 +20572,7 @@ else:
     hint("Declaration of " & "iggetkeychordname" &
         " already exists, not redeclaring")
 when not declared(igmousebuttontokey):
-  proc igmousebuttontokey*(button: Imguimousebutton_28312234): Imguikey_28312374 {.
+  proc igmousebuttontokey*(button: Imguimousebutton_28312234): Imguikey_28312414 {.
       cdecl, importc: "igMouseButtonToKey".}
 else:
   static :
@@ -19151,16 +20587,16 @@ else:
     hint("Declaration of " & "igismousedragpastthreshold" &
         " already exists, not redeclaring")
 when not declared(iggetkeymagnitude2d):
-  proc iggetkeymagnitude2d*(pout: ptr Imvec2_28312328; keyleft: Imguikey_28312374;
-                            keyright: Imguikey_28312374; keyup: Imguikey_28312374;
-                            keydown: Imguikey_28312374): void {.cdecl,
+  proc iggetkeymagnitude2d*(pout: ptr Imvec2_28312328; keyleft: Imguikey_28312414;
+                            keyright: Imguikey_28312414; keyup: Imguikey_28312414;
+                            keydown: Imguikey_28312414): void {.cdecl,
       importc: "igGetKeyMagnitude2d".}
 else:
   static :
     hint("Declaration of " & "iggetkeymagnitude2d" &
         " already exists, not redeclaring")
 when not declared(iggetnavtweakpressedamount):
-  proc iggetnavtweakpressedamount*(axis: Imguiaxis_28312612): cfloat {.cdecl,
+  proc iggetnavtweakpressedamount*(axis: Imguiaxis_28312716): cfloat {.cdecl,
       importc: "igGetNavTweakPressedAmount".}
 else:
   static :
@@ -19175,7 +20611,7 @@ else:
     hint("Declaration of " & "igcalctypematicrepeatamount" &
         " already exists, not redeclaring")
 when not declared(iggettypematicrepeatrate):
-  proc iggettypematicrepeatrate*(flags: Imguiinputflags_28312516;
+  proc iggettypematicrepeatrate*(flags: Imguiinputflags_28312588;
                                  repeatdelay: ptr cfloat; repeatrate: ptr cfloat): void {.
       cdecl, importc: "igGetTypematicRepeatRate".}
 else:
@@ -19197,15 +20633,15 @@ else:
     hint("Declaration of " & "igisactiveidusingnavdir" &
         " already exists, not redeclaring")
 when not declared(iggetkeyowner):
-  proc iggetkeyowner*(key: Imguikey_28312374): Imguiid_28312298 {.cdecl,
+  proc iggetkeyowner*(key: Imguikey_28312414): Imguiid_28312298 {.cdecl,
       importc: "igGetKeyOwner".}
 else:
   static :
     hint("Declaration of " & "iggetkeyowner" &
         " already exists, not redeclaring")
 when not declared(igsetkeyowner):
-  proc igsetkeyowner*(key: Imguikey_28312374; ownerid: Imguiid_28312298;
-                      flags: Imguiinputflags_28312516): void {.cdecl,
+  proc igsetkeyowner*(key: Imguikey_28312414; ownerid: Imguiid_28312298;
+                      flags: Imguiinputflags_28312588): void {.cdecl,
       importc: "igSetKeyOwner".}
 else:
   static :
@@ -19213,50 +20649,50 @@ else:
         " already exists, not redeclaring")
 when not declared(igsetkeyownersforkeychord):
   proc igsetkeyownersforkeychord*(key: Imguikeychord_28312270; ownerid: Imguiid_28312298;
-                                  flags: Imguiinputflags_28312516): void {.
+                                  flags: Imguiinputflags_28312588): void {.
       cdecl, importc: "igSetKeyOwnersForKeyChord".}
 else:
   static :
     hint("Declaration of " & "igsetkeyownersforkeychord" &
         " already exists, not redeclaring")
 when not declared(igsetitemkeyowner):
-  proc igsetitemkeyowner*(key: Imguikey_28312374; flags: Imguiinputflags_28312516): void {.
+  proc igsetitemkeyowner*(key: Imguikey_28312414; flags: Imguiinputflags_28312588): void {.
       cdecl, importc: "igSetItemKeyOwner".}
 else:
   static :
     hint("Declaration of " & "igsetitemkeyowner" &
         " already exists, not redeclaring")
 when not declared(igtestkeyowner):
-  proc igtestkeyowner*(key: Imguikey_28312374; ownerid: Imguiid_28312298): bool {.
+  proc igtestkeyowner*(key: Imguikey_28312414; ownerid: Imguiid_28312298): bool {.
       cdecl, importc: "igTestKeyOwner".}
 else:
   static :
     hint("Declaration of " & "igtestkeyowner" &
         " already exists, not redeclaring")
 when not declared(iggetkeyownerdata):
-  proc iggetkeyownerdata*(ctx: ptr Imguicontext_28311991; key: Imguikey_28312374): ptr Imguikeyownerdata_28312704 {.
+  proc iggetkeyownerdata*(ctx: ptr Imguicontext_28311991; key: Imguikey_28312414): ptr Imguikeyownerdata_28312822 {.
       cdecl, importc: "igGetKeyOwnerData".}
 else:
   static :
     hint("Declaration of " & "iggetkeyownerdata" &
         " already exists, not redeclaring")
 when not declared(igiskeydownid):
-  proc igiskeydownid*(key: Imguikey_28312374; ownerid: Imguiid_28312298): bool {.
+  proc igiskeydownid*(key: Imguikey_28312414; ownerid: Imguiid_28312298): bool {.
       cdecl, importc: "igIsKeyDown_ID".}
 else:
   static :
     hint("Declaration of " & "igiskeydownid" &
         " already exists, not redeclaring")
 when not declared(igiskeypressedid):
-  proc igiskeypressedid*(key: Imguikey_28312374; ownerid: Imguiid_28312298;
-                         flags: Imguiinputflags_28312516): bool {.cdecl,
+  proc igiskeypressedid*(key: Imguikey_28312414; ownerid: Imguiid_28312298;
+                         flags: Imguiinputflags_28312588): bool {.cdecl,
       importc: "igIsKeyPressed_ID".}
 else:
   static :
     hint("Declaration of " & "igiskeypressedid" &
         " already exists, not redeclaring")
 when not declared(igiskeyreleasedid):
-  proc igiskeyreleasedid*(key: Imguikey_28312374; ownerid: Imguiid_28312298): bool {.
+  proc igiskeyreleasedid*(key: Imguikey_28312414; ownerid: Imguiid_28312298): bool {.
       cdecl, importc: "igIsKeyReleased_ID".}
 else:
   static :
@@ -19271,7 +20707,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igismouseclickedid):
   proc igismouseclickedid*(button: Imguimousebutton_28312234; ownerid: Imguiid_28312298;
-                           flags: Imguiinputflags_28312516): bool {.cdecl,
+                           flags: Imguiinputflags_28312588): bool {.cdecl,
       importc: "igIsMouseClicked_ID".}
 else:
   static :
@@ -19286,14 +20722,14 @@ else:
         " already exists, not redeclaring")
 when not declared(igshortcut):
   proc igshortcut*(keychord: Imguikeychord_28312270; ownerid: Imguiid_28312298;
-                   flags: Imguiinputflags_28312516): bool {.cdecl,
+                   flags: Imguiinputflags_28312588): bool {.cdecl,
       importc: "igShortcut".}
 else:
   static :
     hint("Declaration of " & "igshortcut" & " already exists, not redeclaring")
 when not declared(igsetshortcutrouting):
   proc igsetshortcutrouting*(keychord: Imguikeychord_28312270; ownerid: Imguiid_28312298;
-                             flags: Imguiinputflags_28312516): bool {.cdecl,
+                             flags: Imguiinputflags_28312588): bool {.cdecl,
       importc: "igSetShortcutRouting".}
 else:
   static :
@@ -19307,7 +20743,7 @@ else:
     hint("Declaration of " & "igtestshortcutrouting" &
         " already exists, not redeclaring")
 when not declared(iggetshortcutroutingdata):
-  proc iggetshortcutroutingdata*(keychord: Imguikeychord_28312270): ptr Imguikeyroutingdata_28312692 {.
+  proc iggetshortcutroutingdata*(keychord: Imguikeychord_28312270): ptr Imguikeyroutingdata_28312810 {.
       cdecl, importc: "igGetShortcutRoutingData".}
 else:
   static :
@@ -19609,7 +21045,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igdockbuildercopynode):
   proc igdockbuildercopynode*(srcnodeid: Imguiid_28312298; dstnodeid: Imguiid_28312298;
-                              outnoderemappairs: ptr Imvectorimguiid_28312804): void {.
+                              outnoderemappairs: ptr Imvectorimguiid_28312950): void {.
       cdecl, importc: "igDockBuilderCopyNode".}
 else:
   static :
@@ -19691,7 +21127,7 @@ else:
     hint("Declaration of " & "igsetwindowcliprectbeforesetchannel" &
         " already exists, not redeclaring")
 when not declared(igbegincolumns):
-  proc igbegincolumns*(strid: cstring; count: cint; flags: Imguioldcolumnflags_28312522): void {.
+  proc igbegincolumns*(strid: cstring; count: cint; flags: Imguioldcolumnflags_28312594): void {.
       cdecl, importc: "igBeginColumns".}
 else:
   static :
@@ -20343,7 +21779,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igrendernavhighlight):
   proc igrendernavhighlight*(bb: Imrect_28312078; id: Imguiid_28312298;
-                             flags: Imguinavhighlightflags_28312524): void {.
+                             flags: Imguinavhighlightflags_28312596): void {.
       cdecl, importc: "igRenderNavHighlight".}
 else:
   static :
@@ -20435,7 +21871,7 @@ else:
     hint("Declaration of " & "igcalcroundingflagsforrectinrect" &
         " already exists, not redeclaring")
 when not declared(igtextex):
-  proc igtextex*(text: cstring; textend: cstring; flags: Imguitextflags_28312536): void {.
+  proc igtextex*(text: cstring; textend: cstring; flags: Imguitextflags_28312608): void {.
       cdecl, importc: "igTextEx".}
 else:
   static :
@@ -20466,7 +21902,7 @@ else:
     hint("Declaration of " & "igimagebuttonex" &
         " already exists, not redeclaring")
 when not declared(igseparatorex):
-  proc igseparatorex*(flags: Imguiseparatorflags_28312534; thickness: cfloat): void {.
+  proc igseparatorex*(flags: Imguiseparatorflags_28312606; thickness: cfloat): void {.
       cdecl, importc: "igSeparatorEx".}
 else:
   static :
@@ -20512,14 +21948,14 @@ else:
     hint("Declaration of " & "igcollapsebutton" &
         " already exists, not redeclaring")
 when not declared(igscrollbar):
-  proc igscrollbar*(axis: Imguiaxis_28312612): void {.cdecl,
+  proc igscrollbar*(axis: Imguiaxis_28312716): void {.cdecl,
       importc: "igScrollbar".}
 else:
   static :
     hint("Declaration of " & "igscrollbar" & " already exists, not redeclaring")
 when not declared(igscrollbarex):
   proc igscrollbarex*(bb: Imrect_28312078; id: Imguiid_28312298;
-                      axis: Imguiaxis_28312612; pscrollv: ptr Ims64_28312312;
+                      axis: Imguiaxis_28312716; pscrollv: ptr Ims64_28312312;
                       availv: Ims64_28312312; contentsv: Ims64_28312312;
                       flags: Imdrawflags_28312244): bool {.cdecl,
       importc: "igScrollbarEx".}
@@ -20530,14 +21966,14 @@ else:
 when not declared(iggetwindowscrollbarrect):
   proc iggetwindowscrollbarrect*(pout: ptr Imrect_28312078;
                                  window: ptr Imguiwindow_28312210;
-                                 axis: Imguiaxis_28312612): void {.cdecl,
+                                 axis: Imguiaxis_28312716): void {.cdecl,
       importc: "igGetWindowScrollbarRect".}
 else:
   static :
     hint("Declaration of " & "iggetwindowscrollbarrect" &
         " already exists, not redeclaring")
 when not declared(iggetwindowscrollbarid):
-  proc iggetwindowscrollbarid*(window: ptr Imguiwindow_28312210; axis: Imguiaxis_28312612): Imguiid_28312298 {.
+  proc iggetwindowscrollbarid*(window: ptr Imguiwindow_28312210; axis: Imguiaxis_28312716): Imguiid_28312298 {.
       cdecl, importc: "igGetWindowScrollbarID".}
 else:
   static :
@@ -20588,7 +22024,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igsplitterbehavior):
   proc igsplitterbehavior*(bb: Imrect_28312078; id: Imguiid_28312298;
-                           axis: Imguiaxis_28312612; size1: ptr cfloat;
+                           axis: Imguiaxis_28312716; size1: ptr cfloat;
                            size2: ptr cfloat; minsize1: cfloat;
                            minsize2: cfloat; hoverextend: cfloat;
                            hovervisibilitydelay: cfloat; bgcol: Imu32_28312310): bool {.
@@ -20747,7 +22183,7 @@ else:
     hint("Declaration of " & "igcolorpickeroptionspopup" &
         " already exists, not redeclaring")
 when not declared(igplotex):
-  proc igplotex*(plottype: Imguiplottype_28312614; label: cstring;
+  proc igplotex*(plottype: Imguiplottype_28312720; label: cstring;
                  valuesgetter: proc (a0: pointer; a1: cint): cfloat {.cdecl.};
                  data: pointer; valuescount: cint; valuesoffset: cint;
                  overlaytext: cstring; scalemin: cfloat; scalemax: cfloat;
@@ -20806,7 +22242,7 @@ else:
   static :
     hint("Declaration of " & "igdebuglogv" & " already exists, not redeclaring")
 when not declared(igerrorcheckendframerecover):
-  proc igerrorcheckendframerecover*(logcallback: Imguierrorlogcallback_28312540;
+  proc igerrorcheckendframerecover*(logcallback: Imguierrorlogcallback_28312612;
                                     userdata: pointer): void {.cdecl,
       importc: "igErrorCheckEndFrameRecover".}
 else:
@@ -20814,7 +22250,7 @@ else:
     hint("Declaration of " & "igerrorcheckendframerecover" &
         " already exists, not redeclaring")
 when not declared(igerrorcheckendwindowrecover):
-  proc igerrorcheckendwindowrecover*(logcallback: Imguierrorlogcallback_28312540;
+  proc igerrorcheckendwindowrecover*(logcallback: Imguierrorlogcallback_28312612;
                                      userdata: pointer): void {.cdecl,
       importc: "igErrorCheckEndWindowRecover".}
 else:
@@ -20909,7 +22345,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igdebugnodedrawlist):
   proc igdebugnodedrawlist*(window: ptr Imguiwindow_28312210;
-                            viewport: ptr Imguiviewportp_28312762;
+                            viewport: ptr Imguiviewportp_28312902;
                             drawlist: ptr Imdrawlist_28311947; label: cstring): void {.
       cdecl, importc: "igDebugNodeDrawList".}
 else:
@@ -20989,7 +22425,7 @@ else:
     hint("Declaration of " & "igdebugnodewindowsettings" &
         " already exists, not redeclaring")
 when not declared(igdebugnodewindowslist):
-  proc igdebugnodewindowslist*(windows: ptr Imvectorimguiwindowptr_28312746;
+  proc igdebugnodewindowslist*(windows: ptr Imvectorimguiwindowptr_28312884;
                                label: cstring): void {.cdecl,
       importc: "igDebugNodeWindowsList".}
 else:
@@ -21005,7 +22441,7 @@ else:
     hint("Declaration of " & "igdebugnodewindowslistbybeginstackparent" &
         " already exists, not redeclaring")
 when not declared(igdebugnodeviewport):
-  proc igdebugnodeviewport*(viewport: ptr Imguiviewportp_28312762): void {.
+  proc igdebugnodeviewport*(viewport: ptr Imguiviewportp_28312902): void {.
       cdecl, importc: "igDebugNodeViewport".}
 else:
   static :
@@ -21020,7 +22456,7 @@ else:
         " already exists, not redeclaring")
 when not declared(igdebugrenderviewportthumbnail):
   proc igdebugrenderviewportthumbnail*(drawlist: ptr Imdrawlist_28311947;
-                                       viewport: ptr Imguiviewportp_28312762;
+                                       viewport: ptr Imguiviewportp_28312902;
                                        bb: Imrect_28312078): void {.cdecl,
       importc: "igDebugRenderViewportThumbnail".}
 else:
@@ -21028,7 +22464,7 @@ else:
     hint("Declaration of " & "igdebugrenderviewportthumbnail" &
         " already exists, not redeclaring")
 when not declared(igiskeypressedmap):
-  proc igiskeypressedmap*(key: Imguikey_28312374; repeat: bool): bool {.cdecl,
+  proc igiskeypressedmap*(key: Imguikey_28312414; repeat: bool): bool {.cdecl,
       importc: "igIsKeyPressedMap".}
 else:
   static :
@@ -21131,35 +22567,35 @@ else:
   static :
     hint("Declaration of " & "iggetfltmin" & " already exists, not redeclaring")
 when not declared(Imvectorimwcharcreate):
-  proc Imvectorimwcharcreate*(): ptr Imvectorimwchar_28312402 {.cdecl,
+  proc Imvectorimwcharcreate*(): ptr Imvectorimwchar_28312466 {.cdecl,
       importc: "ImVector_ImWchar_create".}
 else:
   static :
     hint("Declaration of " & "Imvectorimwcharcreate" &
         " already exists, not redeclaring")
 when not declared(Imvectorimwchardestroy):
-  proc Imvectorimwchardestroy*(self: ptr Imvectorimwchar_28312402): void {.
+  proc Imvectorimwchardestroy*(self: ptr Imvectorimwchar_28312466): void {.
       cdecl, importc: "ImVector_ImWchar_destroy".}
 else:
   static :
     hint("Declaration of " & "Imvectorimwchardestroy" &
         " already exists, not redeclaring")
 when not declared(Imvectorimwcharinit):
-  proc Imvectorimwcharinit*(p: ptr Imvectorimwchar_28312402): void {.cdecl,
+  proc Imvectorimwcharinit*(p: ptr Imvectorimwchar_28312466): void {.cdecl,
       importc: "ImVector_ImWchar_Init".}
 else:
   static :
     hint("Declaration of " & "Imvectorimwcharinit" &
         " already exists, not redeclaring")
 when not declared(Imvectorimwcharuninit):
-  proc Imvectorimwcharuninit*(p: ptr Imvectorimwchar_28312402): void {.cdecl,
+  proc Imvectorimwcharuninit*(p: ptr Imvectorimwchar_28312466): void {.cdecl,
       importc: "ImVector_ImWchar_UnInit".}
 else:
   static :
     hint("Declaration of " & "Imvectorimwcharuninit" &
         " already exists, not redeclaring")
 when not declared(Imguiimplglfwinitforopengl):
-  proc Imguiimplglfwinitforopengl*(window: ptr Glfwwindow_28312922;
+  proc Imguiimplglfwinitforopengl*(window: ptr Glfwwindow_28313072;
                                    installcallbacks: bool): bool {.cdecl,
       importc: "ImGui_ImplGlfw_InitForOpenGL".}
 else:
@@ -21167,7 +22603,7 @@ else:
     hint("Declaration of " & "Imguiimplglfwinitforopengl" &
         " already exists, not redeclaring")
 when not declared(Imguiimplglfwinitforvulkan):
-  proc Imguiimplglfwinitforvulkan*(window: ptr Glfwwindow_28312922;
+  proc Imguiimplglfwinitforvulkan*(window: ptr Glfwwindow_28313072;
                                    installcallbacks: bool): bool {.cdecl,
       importc: "ImGui_ImplGlfw_InitForVulkan".}
 else:
@@ -21175,7 +22611,7 @@ else:
     hint("Declaration of " & "Imguiimplglfwinitforvulkan" &
         " already exists, not redeclaring")
 when not declared(Imguiimplglfwinitforother):
-  proc Imguiimplglfwinitforother*(window: ptr Glfwwindow_28312922;
+  proc Imguiimplglfwinitforother*(window: ptr Glfwwindow_28313072;
                                   installcallbacks: bool): bool {.cdecl,
       importc: "ImGui_ImplGlfw_InitForOther".}
 else:
@@ -21197,14 +22633,14 @@ else:
     hint("Declaration of " & "Imguiimplglfwnewframe" &
         " already exists, not redeclaring")
 when not declared(Imguiimplglfwinstallcallbacks):
-  proc Imguiimplglfwinstallcallbacks*(window: ptr Glfwwindow_28312922): void {.
+  proc Imguiimplglfwinstallcallbacks*(window: ptr Glfwwindow_28313072): void {.
       cdecl, importc: "ImGui_ImplGlfw_InstallCallbacks".}
 else:
   static :
     hint("Declaration of " & "Imguiimplglfwinstallcallbacks" &
         " already exists, not redeclaring")
 when not declared(Imguiimplglfwrestorecallbacks):
-  proc Imguiimplglfwrestorecallbacks*(window: ptr Glfwwindow_28312922): void {.
+  proc Imguiimplglfwrestorecallbacks*(window: ptr Glfwwindow_28313072): void {.
       cdecl, importc: "ImGui_ImplGlfw_RestoreCallbacks".}
 else:
   static :
@@ -21218,7 +22654,7 @@ else:
     hint("Declaration of " & "Imguiimplglfwsetcallbackschainforallwindows" &
         " already exists, not redeclaring")
 when not declared(Imguiimplglfwwindowfocuscallback):
-  proc Imguiimplglfwwindowfocuscallback*(window: ptr Glfwwindow_28312922;
+  proc Imguiimplglfwwindowfocuscallback*(window: ptr Glfwwindow_28313072;
       focused: cint): void {.cdecl,
                              importc: "ImGui_ImplGlfw_WindowFocusCallback".}
 else:
@@ -21226,7 +22662,7 @@ else:
     hint("Declaration of " & "Imguiimplglfwwindowfocuscallback" &
         " already exists, not redeclaring")
 when not declared(Imguiimplglfwcursorentercallback):
-  proc Imguiimplglfwcursorentercallback*(window: ptr Glfwwindow_28312922;
+  proc Imguiimplglfwcursorentercallback*(window: ptr Glfwwindow_28313072;
       entered: cint): void {.cdecl,
                              importc: "ImGui_ImplGlfw_CursorEnterCallback".}
 else:
@@ -21234,7 +22670,7 @@ else:
     hint("Declaration of " & "Imguiimplglfwcursorentercallback" &
         " already exists, not redeclaring")
 when not declared(Imguiimplglfwcursorposcallback):
-  proc Imguiimplglfwcursorposcallback*(window: ptr Glfwwindow_28312922;
+  proc Imguiimplglfwcursorposcallback*(window: ptr Glfwwindow_28313072;
                                        x: cdouble; y: cdouble): void {.cdecl,
       importc: "ImGui_ImplGlfw_CursorPosCallback".}
 else:
@@ -21242,7 +22678,7 @@ else:
     hint("Declaration of " & "Imguiimplglfwcursorposcallback" &
         " already exists, not redeclaring")
 when not declared(Imguiimplglfwmousebuttoncallback):
-  proc Imguiimplglfwmousebuttoncallback*(window: ptr Glfwwindow_28312922;
+  proc Imguiimplglfwmousebuttoncallback*(window: ptr Glfwwindow_28313072;
       button: cint; action: cint; mods: cint): void {.cdecl,
       importc: "ImGui_ImplGlfw_MouseButtonCallback".}
 else:
@@ -21250,7 +22686,7 @@ else:
     hint("Declaration of " & "Imguiimplglfwmousebuttoncallback" &
         " already exists, not redeclaring")
 when not declared(Imguiimplglfwscrollcallback):
-  proc Imguiimplglfwscrollcallback*(window: ptr Glfwwindow_28312922;
+  proc Imguiimplglfwscrollcallback*(window: ptr Glfwwindow_28313072;
                                     xoffset: cdouble; yoffset: cdouble): void {.
       cdecl, importc: "ImGui_ImplGlfw_ScrollCallback".}
 else:
@@ -21258,7 +22694,7 @@ else:
     hint("Declaration of " & "Imguiimplglfwscrollcallback" &
         " already exists, not redeclaring")
 when not declared(Imguiimplglfwkeycallback):
-  proc Imguiimplglfwkeycallback*(window: ptr Glfwwindow_28312922; key: cint;
+  proc Imguiimplglfwkeycallback*(window: ptr Glfwwindow_28313072; key: cint;
                                  scancode: cint; action: cint; mods: cint): void {.
       cdecl, importc: "ImGui_ImplGlfw_KeyCallback".}
 else:
@@ -21266,14 +22702,14 @@ else:
     hint("Declaration of " & "Imguiimplglfwkeycallback" &
         " already exists, not redeclaring")
 when not declared(Imguiimplglfwcharcallback):
-  proc Imguiimplglfwcharcallback*(window: ptr Glfwwindow_28312922; c: cuint): void {.
+  proc Imguiimplglfwcharcallback*(window: ptr Glfwwindow_28313072; c: cuint): void {.
       cdecl, importc: "ImGui_ImplGlfw_CharCallback".}
 else:
   static :
     hint("Declaration of " & "Imguiimplglfwcharcallback" &
         " already exists, not redeclaring")
 when not declared(Imguiimplglfwmonitorcallback):
-  proc Imguiimplglfwmonitorcallback*(monitor: ptr Glfwmonitor_28312924;
+  proc Imguiimplglfwmonitorcallback*(monitor: ptr Glfwmonitor_28313074;
                                      event: cint): void {.cdecl,
       importc: "ImGui_ImplGlfw_MonitorCallback".}
 else:
@@ -21337,89 +22773,89 @@ else:
     hint("Declaration of " & "Imguiimplopengl3destroydeviceobjects" &
         " already exists, not redeclaring")
 when not declared(Gimplot):
-  var Gimplot* {.importc: "GImPlot".}: ptr Implotcontext_28312930
+  var Gimplot* {.importc: "GImPlot".}: ptr Implotcontext_28313080
 else:
   static :
     hint("Declaration of " & "Gimplot" & " already exists, not redeclaring")
 when not declared(Implotpointimplotpointnil):
-  proc Implotpointimplotpointnil*(): ptr Implotpoint_28313124 {.cdecl,
+  proc Implotpointimplotpointnil*(): ptr Implotpoint_28313340 {.cdecl,
       importc: "ImPlotPoint_ImPlotPoint_Nil".}
 else:
   static :
     hint("Declaration of " & "Implotpointimplotpointnil" &
         " already exists, not redeclaring")
 when not declared(Implotpointdestroy):
-  proc Implotpointdestroy*(self: ptr Implotpoint_28313124): void {.cdecl,
+  proc Implotpointdestroy*(self: ptr Implotpoint_28313340): void {.cdecl,
       importc: "ImPlotPoint_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotpointdestroy" &
         " already exists, not redeclaring")
 when not declared(Implotpointimplotpointdouble):
-  proc Implotpointimplotpointdouble*(internalx: cdouble; internaly: cdouble): ptr Implotpoint_28313124 {.
+  proc Implotpointimplotpointdouble*(internalx: cdouble; internaly: cdouble): ptr Implotpoint_28313340 {.
       cdecl, importc: "ImPlotPoint_ImPlotPoint_double".}
 else:
   static :
     hint("Declaration of " & "Implotpointimplotpointdouble" &
         " already exists, not redeclaring")
 when not declared(Implotpointimplotpointvec2):
-  proc Implotpointimplotpointvec2*(p: Imvec2_28312328): ptr Implotpoint_28313124 {.
+  proc Implotpointimplotpointvec2*(p: Imvec2_28312328): ptr Implotpoint_28313340 {.
       cdecl, importc: "ImPlotPoint_ImPlotPoint_Vec2".}
 else:
   static :
     hint("Declaration of " & "Implotpointimplotpointvec2" &
         " already exists, not redeclaring")
 when not declared(Implotrangeimplotrangenil):
-  proc Implotrangeimplotrangenil*(): ptr Implotrange_28313128 {.cdecl,
+  proc Implotrangeimplotrangenil*(): ptr Implotrange_28313344 {.cdecl,
       importc: "ImPlotRange_ImPlotRange_Nil".}
 else:
   static :
     hint("Declaration of " & "Implotrangeimplotrangenil" &
         " already exists, not redeclaring")
 when not declared(Implotrangedestroy):
-  proc Implotrangedestroy*(self: ptr Implotrange_28313128): void {.cdecl,
+  proc Implotrangedestroy*(self: ptr Implotrange_28313344): void {.cdecl,
       importc: "ImPlotRange_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotrangedestroy" &
         " already exists, not redeclaring")
 when not declared(Implotrangeimplotrangedouble):
-  proc Implotrangeimplotrangedouble*(internalmin: cdouble; internalmax: cdouble): ptr Implotrange_28313128 {.
+  proc Implotrangeimplotrangedouble*(internalmin: cdouble; internalmax: cdouble): ptr Implotrange_28313344 {.
       cdecl, importc: "ImPlotRange_ImPlotRange_double".}
 else:
   static :
     hint("Declaration of " & "Implotrangeimplotrangedouble" &
         " already exists, not redeclaring")
 when not declared(Implotrangecontains):
-  proc Implotrangecontains*(self: ptr Implotrange_28313128; value: cdouble): bool {.
+  proc Implotrangecontains*(self: ptr Implotrange_28313344; value: cdouble): bool {.
       cdecl, importc: "ImPlotRange_Contains".}
 else:
   static :
     hint("Declaration of " & "Implotrangecontains" &
         " already exists, not redeclaring")
 when not declared(Implotrangesize):
-  proc Implotrangesize*(self: ptr Implotrange_28313128): cdouble {.cdecl,
+  proc Implotrangesize*(self: ptr Implotrange_28313344): cdouble {.cdecl,
       importc: "ImPlotRange_Size".}
 else:
   static :
     hint("Declaration of " & "Implotrangesize" &
         " already exists, not redeclaring")
 when not declared(Implotrangeclamp):
-  proc Implotrangeclamp*(self: ptr Implotrange_28313128; value: cdouble): cdouble {.
+  proc Implotrangeclamp*(self: ptr Implotrange_28313344; value: cdouble): cdouble {.
       cdecl, importc: "ImPlotRange_Clamp".}
 else:
   static :
     hint("Declaration of " & "Implotrangeclamp" &
         " already exists, not redeclaring")
 when not declared(Implotrectimplotrectnil):
-  proc Implotrectimplotrectnil*(): ptr Implotrect_28313132 {.cdecl,
+  proc Implotrectimplotrectnil*(): ptr Implotrect_28313348 {.cdecl,
       importc: "ImPlotRect_ImPlotRect_Nil".}
 else:
   static :
     hint("Declaration of " & "Implotrectimplotrectnil" &
         " already exists, not redeclaring")
 when not declared(Implotrectdestroy):
-  proc Implotrectdestroy*(self: ptr Implotrect_28313132): void {.cdecl,
+  proc Implotrectdestroy*(self: ptr Implotrect_28313348): void {.cdecl,
       importc: "ImPlotRect_destroy".}
 else:
   static :
@@ -21427,22 +22863,22 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotrectimplotrectdouble):
   proc Implotrectimplotrectdouble*(xmin: cdouble; xmax: cdouble; ymin: cdouble;
-                                   ymax: cdouble): ptr Implotrect_28313132 {.
+                                   ymax: cdouble): ptr Implotrect_28313348 {.
       cdecl, importc: "ImPlotRect_ImPlotRect_double".}
 else:
   static :
     hint("Declaration of " & "Implotrectimplotrectdouble" &
         " already exists, not redeclaring")
 when not declared(Implotrectcontainsplotpoint):
-  proc Implotrectcontainsplotpoint*(self: ptr Implotrect_28313132;
-                                    p: Implotpoint_28313124): bool {.cdecl,
+  proc Implotrectcontainsplotpoint*(self: ptr Implotrect_28313348;
+                                    p: Implotpoint_28313340): bool {.cdecl,
       importc: "ImPlotRect_Contains_PlotPoInt".}
 else:
   static :
     hint("Declaration of " & "Implotrectcontainsplotpoint" &
         " already exists, not redeclaring")
 when not declared(Implotrectcontainsdouble):
-  proc Implotrectcontainsdouble*(self: ptr Implotrect_28313132; x: cdouble;
+  proc Implotrectcontainsdouble*(self: ptr Implotrect_28313348; x: cdouble;
                                  y: cdouble): bool {.cdecl,
       importc: "ImPlotRect_Contains_double".}
 else:
@@ -21450,23 +22886,23 @@ else:
     hint("Declaration of " & "Implotrectcontainsdouble" &
         " already exists, not redeclaring")
 when not declared(Implotrectsize):
-  proc Implotrectsize*(pout: ptr Implotpoint_28313124; self: ptr Implotrect_28313132): void {.
+  proc Implotrectsize*(pout: ptr Implotpoint_28313340; self: ptr Implotrect_28313348): void {.
       cdecl, importc: "ImPlotRect_Size".}
 else:
   static :
     hint("Declaration of " & "Implotrectsize" &
         " already exists, not redeclaring")
 when not declared(Implotrectclampplotpoint):
-  proc Implotrectclampplotpoint*(pout: ptr Implotpoint_28313124;
-                                 self: ptr Implotrect_28313132; p: Implotpoint_28313124): void {.
+  proc Implotrectclampplotpoint*(pout: ptr Implotpoint_28313340;
+                                 self: ptr Implotrect_28313348; p: Implotpoint_28313340): void {.
       cdecl, importc: "ImPlotRect_Clamp_PlotPoInt".}
 else:
   static :
     hint("Declaration of " & "Implotrectclampplotpoint" &
         " already exists, not redeclaring")
 when not declared(Implotrectclampdouble):
-  proc Implotrectclampdouble*(pout: ptr Implotpoint_28313124;
-                              self: ptr Implotrect_28313132; x: cdouble;
+  proc Implotrectclampdouble*(pout: ptr Implotpoint_28313340;
+                              self: ptr Implotrect_28313348; x: cdouble;
                               y: cdouble): void {.cdecl,
       importc: "ImPlotRect_Clamp_double".}
 else:
@@ -21474,70 +22910,70 @@ else:
     hint("Declaration of " & "Implotrectclampdouble" &
         " already exists, not redeclaring")
 when not declared(Implotrectmin):
-  proc Implotrectmin*(pout: ptr Implotpoint_28313124; self: ptr Implotrect_28313132): void {.
+  proc Implotrectmin*(pout: ptr Implotpoint_28313340; self: ptr Implotrect_28313348): void {.
       cdecl, importc: "ImPlotRect_Min".}
 else:
   static :
     hint("Declaration of " & "Implotrectmin" &
         " already exists, not redeclaring")
 when not declared(Implotrectmax):
-  proc Implotrectmax*(pout: ptr Implotpoint_28313124; self: ptr Implotrect_28313132): void {.
+  proc Implotrectmax*(pout: ptr Implotpoint_28313340; self: ptr Implotrect_28313348): void {.
       cdecl, importc: "ImPlotRect_Max".}
 else:
   static :
     hint("Declaration of " & "Implotrectmax" &
         " already exists, not redeclaring")
 when not declared(Implotstyleimplotstyle):
-  proc Implotstyleimplotstyle*(): ptr Implotstyle_28313136 {.cdecl,
+  proc Implotstyleimplotstyle*(): ptr Implotstyle_28313352 {.cdecl,
       importc: "ImPlotStyle_ImPlotStyle".}
 else:
   static :
     hint("Declaration of " & "Implotstyleimplotstyle" &
         " already exists, not redeclaring")
 when not declared(Implotstyledestroy):
-  proc Implotstyledestroy*(self: ptr Implotstyle_28313136): void {.cdecl,
+  proc Implotstyledestroy*(self: ptr Implotstyle_28313352): void {.cdecl,
       importc: "ImPlotStyle_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotstyledestroy" &
         " already exists, not redeclaring")
 when not declared(Implotinputmapimplotinputmap):
-  proc Implotinputmapimplotinputmap*(): ptr Implotinputmap_28313140 {.cdecl,
+  proc Implotinputmapimplotinputmap*(): ptr Implotinputmap_28313356 {.cdecl,
       importc: "ImPlotInputMap_ImPlotInputMap".}
 else:
   static :
     hint("Declaration of " & "Implotinputmapimplotinputmap" &
         " already exists, not redeclaring")
 when not declared(Implotinputmapdestroy):
-  proc Implotinputmapdestroy*(self: ptr Implotinputmap_28313140): void {.cdecl,
+  proc Implotinputmapdestroy*(self: ptr Implotinputmap_28313356): void {.cdecl,
       importc: "ImPlotInputMap_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotinputmapdestroy" &
         " already exists, not redeclaring")
 when not declared(Implotcreatecontext):
-  proc Implotcreatecontext*(): ptr Implotcontext_28312930 {.cdecl,
+  proc Implotcreatecontext*(): ptr Implotcontext_28313080 {.cdecl,
       importc: "ImPlot_CreateContext".}
 else:
   static :
     hint("Declaration of " & "Implotcreatecontext" &
         " already exists, not redeclaring")
 when not declared(Implotdestroycontext):
-  proc Implotdestroycontext*(ctx: ptr Implotcontext_28312930): void {.cdecl,
+  proc Implotdestroycontext*(ctx: ptr Implotcontext_28313080): void {.cdecl,
       importc: "ImPlot_DestroyContext".}
 else:
   static :
     hint("Declaration of " & "Implotdestroycontext" &
         " already exists, not redeclaring")
 when not declared(Implotgetcurrentcontext):
-  proc Implotgetcurrentcontext*(): ptr Implotcontext_28312930 {.cdecl,
+  proc Implotgetcurrentcontext*(): ptr Implotcontext_28313080 {.cdecl,
       importc: "ImPlot_GetCurrentContext".}
 else:
   static :
     hint("Declaration of " & "Implotgetcurrentcontext" &
         " already exists, not redeclaring")
 when not declared(Implotsetcurrentcontext):
-  proc Implotsetcurrentcontext*(ctx: ptr Implotcontext_28312930): void {.cdecl,
+  proc Implotsetcurrentcontext*(ctx: ptr Implotcontext_28313080): void {.cdecl,
       importc: "ImPlot_SetCurrentContext".}
 else:
   static :
@@ -21552,7 +22988,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotbeginplot):
   proc Implotbeginplot*(titleid: cstring; size: Imvec2_28312328;
-                        flags: Implotflags_28312994): bool {.cdecl,
+                        flags: Implotflags_28313144): bool {.cdecl,
       importc: "ImPlot_BeginPlot".}
 else:
   static :
@@ -21566,7 +23002,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotbeginsubplots):
   proc Implotbeginsubplots*(titleid: cstring; rows: cint; cols: cint;
-                            size: Imvec2_28312328; flags: Implotsubplotflags_28312998;
+                            size: Imvec2_28312328; flags: Implotsubplotflags_28313148;
                             rowratios: ptr cfloat; colratios: ptr cfloat): bool {.
       cdecl, importc: "ImPlot_BeginSubplots".}
 else:
@@ -21580,23 +23016,23 @@ else:
     hint("Declaration of " & "Implotendsubplots" &
         " already exists, not redeclaring")
 when not declared(Implotsetupaxis):
-  proc Implotsetupaxis*(axis: Imaxis_28312992; label: cstring;
-                        flags: Implotaxisflags_28312996): void {.cdecl,
+  proc Implotsetupaxis*(axis: Imaxis_28313142; label: cstring;
+                        flags: Implotaxisflags_28313146): void {.cdecl,
       importc: "ImPlot_SetupAxis".}
 else:
   static :
     hint("Declaration of " & "Implotsetupaxis" &
         " already exists, not redeclaring")
 when not declared(Implotsetupaxislimits):
-  proc Implotsetupaxislimits*(axis: Imaxis_28312992; vmin: cdouble;
-                              vmax: cdouble; cond: Implotcond_28313042): void {.
+  proc Implotsetupaxislimits*(axis: Imaxis_28313142; vmin: cdouble;
+                              vmax: cdouble; cond: Implotcond_28313192): void {.
       cdecl, importc: "ImPlot_SetupAxisLimits".}
 else:
   static :
     hint("Declaration of " & "Implotsetupaxislimits" &
         " already exists, not redeclaring")
 when not declared(Implotsetupaxislinks):
-  proc Implotsetupaxislinks*(axis: Imaxis_28312992; linkmin: ptr cdouble;
+  proc Implotsetupaxislinks*(axis: Imaxis_28313142; linkmin: ptr cdouble;
                              linkmax: ptr cdouble): void {.cdecl,
       importc: "ImPlot_SetupAxisLinks".}
 else:
@@ -21604,22 +23040,22 @@ else:
     hint("Declaration of " & "Implotsetupaxislinks" &
         " already exists, not redeclaring")
 when not declared(Implotsetupaxisformatstr):
-  proc Implotsetupaxisformatstr*(axis: Imaxis_28312992; fmt: cstring): void {.
+  proc Implotsetupaxisformatstr*(axis: Imaxis_28313142; fmt: cstring): void {.
       cdecl, importc: "ImPlot_SetupAxisFormat_Str".}
 else:
   static :
     hint("Declaration of " & "Implotsetupaxisformatstr" &
         " already exists, not redeclaring")
 when not declared(Implotsetupaxisformatplotformatter):
-  proc Implotsetupaxisformatplotformatter*(axis: Imaxis_28312992;
-      formatter: Implotformatter_28313144; data: pointer): void {.cdecl,
+  proc Implotsetupaxisformatplotformatter*(axis: Imaxis_28313142;
+      formatter: Implotformatter_28313360; data: pointer): void {.cdecl,
       importc: "ImPlot_SetupAxisFormat_PlotFormatter".}
 else:
   static :
     hint("Declaration of " & "Implotsetupaxisformatplotformatter" &
         " already exists, not redeclaring")
 when not declared(Implotsetupaxisticksdoubleptr):
-  proc Implotsetupaxisticksdoubleptr*(axis: Imaxis_28312992;
+  proc Implotsetupaxisticksdoubleptr*(axis: Imaxis_28313142;
                                       values: ptr cdouble; nticks: cint;
                                       labels: ptr UncheckedArray[cstring];
                                       keepdefault: bool): void {.cdecl,
@@ -21629,7 +23065,7 @@ else:
     hint("Declaration of " & "Implotsetupaxisticksdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotsetupaxisticksdouble):
-  proc Implotsetupaxisticksdouble*(axis: Imaxis_28312992; vmin: cdouble;
+  proc Implotsetupaxisticksdouble*(axis: Imaxis_28313142; vmin: cdouble;
                                    vmax: cdouble; nticks: cint;
                                    labels: ptr UncheckedArray[cstring];
                                    keepdefault: bool): void {.cdecl,
@@ -21639,15 +23075,15 @@ else:
     hint("Declaration of " & "Implotsetupaxisticksdouble" &
         " already exists, not redeclaring")
 when not declared(Implotsetupaxisscaleplotscale):
-  proc Implotsetupaxisscaleplotscale*(axis: Imaxis_28312992; scale: Implotscale_28313048): void {.
+  proc Implotsetupaxisscaleplotscale*(axis: Imaxis_28313142; scale: Implotscale_28313198): void {.
       cdecl, importc: "ImPlot_SetupAxisScale_PlotScale".}
 else:
   static :
     hint("Declaration of " & "Implotsetupaxisscaleplotscale" &
         " already exists, not redeclaring")
 when not declared(Implotsetupaxisscaleplottransform):
-  proc Implotsetupaxisscaleplottransform*(axis: Imaxis_28312992;
-      forward: Implottransform_28313148; inverse: Implottransform_28313148;
+  proc Implotsetupaxisscaleplottransform*(axis: Imaxis_28313142;
+      forward: Implottransform_28313364; inverse: Implottransform_28313364;
       data: pointer): void {.cdecl,
                              importc: "ImPlot_SetupAxisScale_PlotTransform".}
 else:
@@ -21655,14 +23091,14 @@ else:
     hint("Declaration of " & "Implotsetupaxisscaleplottransform" &
         " already exists, not redeclaring")
 when not declared(Implotsetupaxislimitsconstraints):
-  proc Implotsetupaxislimitsconstraints*(axis: Imaxis_28312992; vmin: cdouble;
+  proc Implotsetupaxislimitsconstraints*(axis: Imaxis_28313142; vmin: cdouble;
       vmax: cdouble): void {.cdecl, importc: "ImPlot_SetupAxisLimitsConstraints".}
 else:
   static :
     hint("Declaration of " & "Implotsetupaxislimitsconstraints" &
         " already exists, not redeclaring")
 when not declared(Implotsetupaxiszoomconstraints):
-  proc Implotsetupaxiszoomconstraints*(axis: Imaxis_28312992; zmin: cdouble;
+  proc Implotsetupaxiszoomconstraints*(axis: Imaxis_28313142; zmin: cdouble;
                                        zmax: cdouble): void {.cdecl,
       importc: "ImPlot_SetupAxisZoomConstraints".}
 else:
@@ -21671,8 +23107,8 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotsetupaxes):
   proc Implotsetupaxes*(xlabel: cstring; ylabel: cstring;
-                        xflags: Implotaxisflags_28312996;
-                        yflags: Implotaxisflags_28312996): void {.cdecl,
+                        xflags: Implotaxisflags_28313146;
+                        yflags: Implotaxisflags_28313146): void {.cdecl,
       importc: "ImPlot_SetupAxes".}
 else:
   static :
@@ -21680,23 +23116,23 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotsetupaxeslimits):
   proc Implotsetupaxeslimits*(xmin: cdouble; xmax: cdouble; ymin: cdouble;
-                              ymax: cdouble; cond: Implotcond_28313042): void {.
+                              ymax: cdouble; cond: Implotcond_28313192): void {.
       cdecl, importc: "ImPlot_SetupAxesLimits".}
 else:
   static :
     hint("Declaration of " & "Implotsetupaxeslimits" &
         " already exists, not redeclaring")
 when not declared(Implotsetuplegend):
-  proc Implotsetuplegend*(location: Implotlocation_28313054;
-                          flags: Implotlegendflags_28313000): void {.cdecl,
+  proc Implotsetuplegend*(location: Implotlocation_28313204;
+                          flags: Implotlegendflags_28313150): void {.cdecl,
       importc: "ImPlot_SetupLegend".}
 else:
   static :
     hint("Declaration of " & "Implotsetuplegend" &
         " already exists, not redeclaring")
 when not declared(Implotsetupmousetext):
-  proc Implotsetupmousetext*(location: Implotlocation_28313054;
-                             flags: Implotmousetextflags_28313002): void {.
+  proc Implotsetupmousetext*(location: Implotlocation_28313204;
+                             flags: Implotmousetextflags_28313152): void {.
       cdecl, importc: "ImPlot_SetupMouseText".}
 else:
   static :
@@ -21709,15 +23145,15 @@ else:
     hint("Declaration of " & "Implotsetupfinish" &
         " already exists, not redeclaring")
 when not declared(Implotsetnextaxislimits):
-  proc Implotsetnextaxislimits*(axis: Imaxis_28312992; vmin: cdouble;
-                                vmax: cdouble; cond: Implotcond_28313042): void {.
+  proc Implotsetnextaxislimits*(axis: Imaxis_28313142; vmin: cdouble;
+                                vmax: cdouble; cond: Implotcond_28313192): void {.
       cdecl, importc: "ImPlot_SetNextAxisLimits".}
 else:
   static :
     hint("Declaration of " & "Implotsetnextaxislimits" &
         " already exists, not redeclaring")
 when not declared(Implotsetnextaxislinks):
-  proc Implotsetnextaxislinks*(axis: Imaxis_28312992; linkmin: ptr cdouble;
+  proc Implotsetnextaxislinks*(axis: Imaxis_28313142; linkmin: ptr cdouble;
                                linkmax: ptr cdouble): void {.cdecl,
       importc: "ImPlot_SetNextAxisLinks".}
 else:
@@ -21725,7 +23161,7 @@ else:
     hint("Declaration of " & "Implotsetnextaxislinks" &
         " already exists, not redeclaring")
 when not declared(Implotsetnextaxistofit):
-  proc Implotsetnextaxistofit*(axis: Imaxis_28312992): void {.cdecl,
+  proc Implotsetnextaxistofit*(axis: Imaxis_28313142): void {.cdecl,
       importc: "ImPlot_SetNextAxisToFit".}
 else:
   static :
@@ -21733,7 +23169,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotsetnextaxeslimits):
   proc Implotsetnextaxeslimits*(xmin: cdouble; xmax: cdouble; ymin: cdouble;
-                                ymax: cdouble; cond: Implotcond_28313042): void {.
+                                ymax: cdouble; cond: Implotcond_28313192): void {.
       cdecl, importc: "ImPlot_SetNextAxesLimits".}
 else:
   static :
@@ -21749,7 +23185,7 @@ else:
 when not declared(Implotplotlinefloatptrint):
   proc Implotplotlinefloatptrint*(labelid: cstring; values: ptr cfloat;
                                   count: cint; xscale: cdouble; xstart: cdouble;
-                                  flags: Implotlineflags_28313010; offset: cint;
+                                  flags: Implotlineflags_28313160; offset: cint;
                                   stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_FloatPtrInt".}
 else:
@@ -21759,7 +23195,7 @@ else:
 when not declared(Implotplotlinedoubleptrint):
   proc Implotplotlinedoubleptrint*(labelid: cstring; values: ptr cdouble;
                                    count: cint; xscale: cdouble;
-                                   xstart: cdouble; flags: Implotlineflags_28313010;
+                                   xstart: cdouble; flags: Implotlineflags_28313160;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_doublePtrInt".}
 else:
@@ -21767,9 +23203,9 @@ else:
     hint("Declaration of " & "Implotplotlinedoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotplotlines8ptrint):
-  proc Implotplotlines8ptrint*(labelid: cstring; values: cstring; count: cint;
-                               xscale: cdouble; xstart: cdouble;
-                               flags: Implotlineflags_28313010; offset: cint;
+  proc Implotplotlines8ptrint*(labelid: cstring; values: ptr Ims8_28312300;
+                               count: cint; xscale: cdouble; xstart: cdouble;
+                               flags: Implotlineflags_28313160; offset: cint;
                                stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_S8PtrInt".}
 else:
@@ -21779,7 +23215,7 @@ else:
 when not declared(Implotplotlineu8ptrint):
   proc Implotplotlineu8ptrint*(labelid: cstring; values: ptr Imu8_28312302;
                                count: cint; xscale: cdouble; xstart: cdouble;
-                               flags: Implotlineflags_28313010; offset: cint;
+                               flags: Implotlineflags_28313160; offset: cint;
                                stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_U8PtrInt".}
 else:
@@ -21789,7 +23225,7 @@ else:
 when not declared(Implotplotlines16ptrint):
   proc Implotplotlines16ptrint*(labelid: cstring; values: ptr Ims16_28312304;
                                 count: cint; xscale: cdouble; xstart: cdouble;
-                                flags: Implotlineflags_28313010; offset: cint;
+                                flags: Implotlineflags_28313160; offset: cint;
                                 stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_S16PtrInt".}
 else:
@@ -21799,7 +23235,7 @@ else:
 when not declared(Implotplotlineu16ptrint):
   proc Implotplotlineu16ptrint*(labelid: cstring; values: ptr Imu16_28312306;
                                 count: cint; xscale: cdouble; xstart: cdouble;
-                                flags: Implotlineflags_28313010; offset: cint;
+                                flags: Implotlineflags_28313160; offset: cint;
                                 stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_U16PtrInt".}
 else:
@@ -21809,7 +23245,7 @@ else:
 when not declared(Implotplotlines32ptrint):
   proc Implotplotlines32ptrint*(labelid: cstring; values: ptr Ims32_28312308;
                                 count: cint; xscale: cdouble; xstart: cdouble;
-                                flags: Implotlineflags_28313010; offset: cint;
+                                flags: Implotlineflags_28313160; offset: cint;
                                 stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_S32PtrInt".}
 else:
@@ -21819,7 +23255,7 @@ else:
 when not declared(Implotplotlineu32ptrint):
   proc Implotplotlineu32ptrint*(labelid: cstring; values: ptr Imu32_28312310;
                                 count: cint; xscale: cdouble; xstart: cdouble;
-                                flags: Implotlineflags_28313010; offset: cint;
+                                flags: Implotlineflags_28313160; offset: cint;
                                 stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_U32PtrInt".}
 else:
@@ -21829,7 +23265,7 @@ else:
 when not declared(Implotplotlines64ptrint):
   proc Implotplotlines64ptrint*(labelid: cstring; values: ptr Ims64_28312312;
                                 count: cint; xscale: cdouble; xstart: cdouble;
-                                flags: Implotlineflags_28313010; offset: cint;
+                                flags: Implotlineflags_28313160; offset: cint;
                                 stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_S64PtrInt".}
 else:
@@ -21839,7 +23275,7 @@ else:
 when not declared(Implotplotlineu64ptrint):
   proc Implotplotlineu64ptrint*(labelid: cstring; values: ptr Imu64_28311933;
                                 count: cint; xscale: cdouble; xstart: cdouble;
-                                flags: Implotlineflags_28313010; offset: cint;
+                                flags: Implotlineflags_28313160; offset: cint;
                                 stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_U64PtrInt".}
 else:
@@ -21849,7 +23285,7 @@ else:
 when not declared(Implotplotlinefloatptrfloatptr):
   proc Implotplotlinefloatptrfloatptr*(labelid: cstring; xs: ptr cfloat;
                                        ys: ptr cfloat; count: cint;
-                                       flags: Implotlineflags_28313010;
+                                       flags: Implotlineflags_28313160;
                                        offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotLine_FloatPtrFloatPtr".}
 else:
@@ -21858,7 +23294,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotlinedoubleptrdoubleptr):
   proc Implotplotlinedoubleptrdoubleptr*(labelid: cstring; xs: ptr cdouble;
-      ys: ptr cdouble; count: cint; flags: Implotlineflags_28313010;
+      ys: ptr cdouble; count: cint; flags: Implotlineflags_28313160;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_doublePtrdoublePtr".}
 else:
@@ -21866,9 +23302,10 @@ else:
     hint("Declaration of " & "Implotplotlinedoubleptrdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotlines8ptrs8ptr):
-  proc Implotplotlines8ptrs8ptr*(labelid: cstring; xs: cstring; ys: cstring;
-                                 count: cint; flags: Implotlineflags_28313010;
-                                 offset: cint; stride: cint): void {.cdecl,
+  proc Implotplotlines8ptrs8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
+                                 ys: ptr Ims8_28312300; count: cint;
+                                 flags: Implotlineflags_28313160; offset: cint;
+                                 stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_S8PtrS8Ptr".}
 else:
   static :
@@ -21877,7 +23314,7 @@ else:
 when not declared(Implotplotlineu8ptru8ptr):
   proc Implotplotlineu8ptru8ptr*(labelid: cstring; xs: ptr Imu8_28312302;
                                  ys: ptr Imu8_28312302; count: cint;
-                                 flags: Implotlineflags_28313010; offset: cint;
+                                 flags: Implotlineflags_28313160; offset: cint;
                                  stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_U8PtrU8Ptr".}
 else:
@@ -21887,7 +23324,7 @@ else:
 when not declared(Implotplotlines16ptrs16ptr):
   proc Implotplotlines16ptrs16ptr*(labelid: cstring; xs: ptr Ims16_28312304;
                                    ys: ptr Ims16_28312304; count: cint;
-                                   flags: Implotlineflags_28313010;
+                                   flags: Implotlineflags_28313160;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_S16PtrS16Ptr".}
 else:
@@ -21897,7 +23334,7 @@ else:
 when not declared(Implotplotlineu16ptru16ptr):
   proc Implotplotlineu16ptru16ptr*(labelid: cstring; xs: ptr Imu16_28312306;
                                    ys: ptr Imu16_28312306; count: cint;
-                                   flags: Implotlineflags_28313010;
+                                   flags: Implotlineflags_28313160;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_U16PtrU16Ptr".}
 else:
@@ -21907,7 +23344,7 @@ else:
 when not declared(Implotplotlines32ptrs32ptr):
   proc Implotplotlines32ptrs32ptr*(labelid: cstring; xs: ptr Ims32_28312308;
                                    ys: ptr Ims32_28312308; count: cint;
-                                   flags: Implotlineflags_28313010;
+                                   flags: Implotlineflags_28313160;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_S32PtrS32Ptr".}
 else:
@@ -21917,7 +23354,7 @@ else:
 when not declared(Implotplotlineu32ptru32ptr):
   proc Implotplotlineu32ptru32ptr*(labelid: cstring; xs: ptr Imu32_28312310;
                                    ys: ptr Imu32_28312310; count: cint;
-                                   flags: Implotlineflags_28313010;
+                                   flags: Implotlineflags_28313160;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_U32PtrU32Ptr".}
 else:
@@ -21927,7 +23364,7 @@ else:
 when not declared(Implotplotlines64ptrs64ptr):
   proc Implotplotlines64ptrs64ptr*(labelid: cstring; xs: ptr Ims64_28312312;
                                    ys: ptr Ims64_28312312; count: cint;
-                                   flags: Implotlineflags_28313010;
+                                   flags: Implotlineflags_28313160;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_S64PtrS64Ptr".}
 else:
@@ -21937,7 +23374,7 @@ else:
 when not declared(Implotplotlineu64ptru64ptr):
   proc Implotplotlineu64ptru64ptr*(labelid: cstring; xs: ptr Imu64_28311933;
                                    ys: ptr Imu64_28311933; count: cint;
-                                   flags: Implotlineflags_28313010;
+                                   flags: Implotlineflags_28313160;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_U64PtrU64Ptr".}
 else:
@@ -21945,8 +23382,8 @@ else:
     hint("Declaration of " & "Implotplotlineu64ptru64ptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotlineg):
-  proc Implotplotlineg*(labelid: cstring; getter: Implotpointgetter_28313278;
-                        data: pointer; count: cint; flags: Implotlineflags_28313010): void {.
+  proc Implotplotlineg*(labelid: cstring; getter: Implotpointgetter_28313500;
+                        data: pointer; count: cint; flags: Implotlineflags_28313160): void {.
       cdecl, importc: "ImPlot_PlotLineG".}
 else:
   static :
@@ -21955,7 +23392,7 @@ else:
 when not declared(Implotplotscatterfloatptrint):
   proc Implotplotscatterfloatptrint*(labelid: cstring; values: ptr cfloat;
                                      count: cint; xscale: cdouble;
-                                     xstart: cdouble; flags: Implotscatterflags_28313012;
+                                     xstart: cdouble; flags: Implotscatterflags_28313162;
                                      offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_FloatPtrInt".}
 else:
@@ -21966,7 +23403,7 @@ when not declared(Implotplotscatterdoubleptrint):
   proc Implotplotscatterdoubleptrint*(labelid: cstring; values: ptr cdouble;
                                       count: cint; xscale: cdouble;
                                       xstart: cdouble;
-                                      flags: Implotscatterflags_28313012;
+                                      flags: Implotscatterflags_28313162;
                                       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_doublePtrInt".}
 else:
@@ -21974,9 +23411,9 @@ else:
     hint("Declaration of " & "Implotplotscatterdoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotplotscatters8ptrint):
-  proc Implotplotscatters8ptrint*(labelid: cstring; values: cstring;
+  proc Implotplotscatters8ptrint*(labelid: cstring; values: ptr Ims8_28312300;
                                   count: cint; xscale: cdouble; xstart: cdouble;
-                                  flags: Implotscatterflags_28313012;
+                                  flags: Implotscatterflags_28313162;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_S8PtrInt".}
 else:
@@ -21986,7 +23423,7 @@ else:
 when not declared(Implotplotscatteru8ptrint):
   proc Implotplotscatteru8ptrint*(labelid: cstring; values: ptr Imu8_28312302;
                                   count: cint; xscale: cdouble; xstart: cdouble;
-                                  flags: Implotscatterflags_28313012;
+                                  flags: Implotscatterflags_28313162;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_U8PtrInt".}
 else:
@@ -21996,7 +23433,7 @@ else:
 when not declared(Implotplotscatters16ptrint):
   proc Implotplotscatters16ptrint*(labelid: cstring; values: ptr Ims16_28312304;
                                    count: cint; xscale: cdouble;
-                                   xstart: cdouble; flags: Implotscatterflags_28313012;
+                                   xstart: cdouble; flags: Implotscatterflags_28313162;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_S16PtrInt".}
 else:
@@ -22006,7 +23443,7 @@ else:
 when not declared(Implotplotscatteru16ptrint):
   proc Implotplotscatteru16ptrint*(labelid: cstring; values: ptr Imu16_28312306;
                                    count: cint; xscale: cdouble;
-                                   xstart: cdouble; flags: Implotscatterflags_28313012;
+                                   xstart: cdouble; flags: Implotscatterflags_28313162;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_U16PtrInt".}
 else:
@@ -22016,7 +23453,7 @@ else:
 when not declared(Implotplotscatters32ptrint):
   proc Implotplotscatters32ptrint*(labelid: cstring; values: ptr Ims32_28312308;
                                    count: cint; xscale: cdouble;
-                                   xstart: cdouble; flags: Implotscatterflags_28313012;
+                                   xstart: cdouble; flags: Implotscatterflags_28313162;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_S32PtrInt".}
 else:
@@ -22026,7 +23463,7 @@ else:
 when not declared(Implotplotscatteru32ptrint):
   proc Implotplotscatteru32ptrint*(labelid: cstring; values: ptr Imu32_28312310;
                                    count: cint; xscale: cdouble;
-                                   xstart: cdouble; flags: Implotscatterflags_28313012;
+                                   xstart: cdouble; flags: Implotscatterflags_28313162;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_U32PtrInt".}
 else:
@@ -22036,7 +23473,7 @@ else:
 when not declared(Implotplotscatters64ptrint):
   proc Implotplotscatters64ptrint*(labelid: cstring; values: ptr Ims64_28312312;
                                    count: cint; xscale: cdouble;
-                                   xstart: cdouble; flags: Implotscatterflags_28313012;
+                                   xstart: cdouble; flags: Implotscatterflags_28313162;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_S64PtrInt".}
 else:
@@ -22046,7 +23483,7 @@ else:
 when not declared(Implotplotscatteru64ptrint):
   proc Implotplotscatteru64ptrint*(labelid: cstring; values: ptr Imu64_28311933;
                                    count: cint; xscale: cdouble;
-                                   xstart: cdouble; flags: Implotscatterflags_28313012;
+                                   xstart: cdouble; flags: Implotscatterflags_28313162;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_U64PtrInt".}
 else:
@@ -22055,7 +23492,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotscatterfloatptrfloatptr):
   proc Implotplotscatterfloatptrfloatptr*(labelid: cstring; xs: ptr cfloat;
-      ys: ptr cfloat; count: cint; flags: Implotscatterflags_28313012;
+      ys: ptr cfloat; count: cint; flags: Implotscatterflags_28313162;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_FloatPtrFloatPtr".}
 else:
@@ -22064,7 +23501,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotscatterdoubleptrdoubleptr):
   proc Implotplotscatterdoubleptrdoubleptr*(labelid: cstring; xs: ptr cdouble;
-      ys: ptr cdouble; count: cint; flags: Implotscatterflags_28313012;
+      ys: ptr cdouble; count: cint; flags: Implotscatterflags_28313162;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_doublePtrdoublePtr".}
 else:
@@ -22072,8 +23509,9 @@ else:
     hint("Declaration of " & "Implotplotscatterdoubleptrdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotscatters8ptrs8ptr):
-  proc Implotplotscatters8ptrs8ptr*(labelid: cstring; xs: cstring; ys: cstring;
-                                    count: cint; flags: Implotscatterflags_28313012;
+  proc Implotplotscatters8ptrs8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
+                                    ys: ptr Ims8_28312300; count: cint;
+                                    flags: Implotscatterflags_28313162;
                                     offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_S8PtrS8Ptr".}
 else:
@@ -22083,7 +23521,7 @@ else:
 when not declared(Implotplotscatteru8ptru8ptr):
   proc Implotplotscatteru8ptru8ptr*(labelid: cstring; xs: ptr Imu8_28312302;
                                     ys: ptr Imu8_28312302; count: cint;
-                                    flags: Implotscatterflags_28313012;
+                                    flags: Implotscatterflags_28313162;
                                     offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_U8PtrU8Ptr".}
 else:
@@ -22093,7 +23531,7 @@ else:
 when not declared(Implotplotscatters16ptrs16ptr):
   proc Implotplotscatters16ptrs16ptr*(labelid: cstring; xs: ptr Ims16_28312304;
                                       ys: ptr Ims16_28312304; count: cint;
-                                      flags: Implotscatterflags_28313012;
+                                      flags: Implotscatterflags_28313162;
                                       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_S16PtrS16Ptr".}
 else:
@@ -22103,7 +23541,7 @@ else:
 when not declared(Implotplotscatteru16ptru16ptr):
   proc Implotplotscatteru16ptru16ptr*(labelid: cstring; xs: ptr Imu16_28312306;
                                       ys: ptr Imu16_28312306; count: cint;
-                                      flags: Implotscatterflags_28313012;
+                                      flags: Implotscatterflags_28313162;
                                       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_U16PtrU16Ptr".}
 else:
@@ -22113,7 +23551,7 @@ else:
 when not declared(Implotplotscatters32ptrs32ptr):
   proc Implotplotscatters32ptrs32ptr*(labelid: cstring; xs: ptr Ims32_28312308;
                                       ys: ptr Ims32_28312308; count: cint;
-                                      flags: Implotscatterflags_28313012;
+                                      flags: Implotscatterflags_28313162;
                                       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_S32PtrS32Ptr".}
 else:
@@ -22123,7 +23561,7 @@ else:
 when not declared(Implotplotscatteru32ptru32ptr):
   proc Implotplotscatteru32ptru32ptr*(labelid: cstring; xs: ptr Imu32_28312310;
                                       ys: ptr Imu32_28312310; count: cint;
-                                      flags: Implotscatterflags_28313012;
+                                      flags: Implotscatterflags_28313162;
                                       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_U32PtrU32Ptr".}
 else:
@@ -22133,7 +23571,7 @@ else:
 when not declared(Implotplotscatters64ptrs64ptr):
   proc Implotplotscatters64ptrs64ptr*(labelid: cstring; xs: ptr Ims64_28312312;
                                       ys: ptr Ims64_28312312; count: cint;
-                                      flags: Implotscatterflags_28313012;
+                                      flags: Implotscatterflags_28313162;
                                       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_S64PtrS64Ptr".}
 else:
@@ -22143,7 +23581,7 @@ else:
 when not declared(Implotplotscatteru64ptru64ptr):
   proc Implotplotscatteru64ptru64ptr*(labelid: cstring; xs: ptr Imu64_28311933;
                                       ys: ptr Imu64_28311933; count: cint;
-                                      flags: Implotscatterflags_28313012;
+                                      flags: Implotscatterflags_28313162;
                                       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_U64PtrU64Ptr".}
 else:
@@ -22151,8 +23589,8 @@ else:
     hint("Declaration of " & "Implotplotscatteru64ptru64ptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotscatterg):
-  proc Implotplotscatterg*(labelid: cstring; getter: Implotpointgetter_28313278;
-                           data: pointer; count: cint; flags: Implotscatterflags_28313012): void {.
+  proc Implotplotscatterg*(labelid: cstring; getter: Implotpointgetter_28313500;
+                           data: pointer; count: cint; flags: Implotscatterflags_28313162): void {.
       cdecl, importc: "ImPlot_PlotScatterG".}
 else:
   static :
@@ -22161,7 +23599,7 @@ else:
 when not declared(Implotplotstairsfloatptrint):
   proc Implotplotstairsfloatptrint*(labelid: cstring; values: ptr cfloat;
                                     count: cint; xscale: cdouble;
-                                    xstart: cdouble; flags: Implotstairsflags_28313014;
+                                    xstart: cdouble; flags: Implotstairsflags_28313164;
                                     offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_FloatPtrInt".}
 else:
@@ -22171,7 +23609,7 @@ else:
 when not declared(Implotplotstairsdoubleptrint):
   proc Implotplotstairsdoubleptrint*(labelid: cstring; values: ptr cdouble;
                                      count: cint; xscale: cdouble;
-                                     xstart: cdouble; flags: Implotstairsflags_28313014;
+                                     xstart: cdouble; flags: Implotstairsflags_28313164;
                                      offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_doublePtrInt".}
 else:
@@ -22179,9 +23617,9 @@ else:
     hint("Declaration of " & "Implotplotstairsdoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotplotstairss8ptrint):
-  proc Implotplotstairss8ptrint*(labelid: cstring; values: cstring; count: cint;
-                                 xscale: cdouble; xstart: cdouble;
-                                 flags: Implotstairsflags_28313014;
+  proc Implotplotstairss8ptrint*(labelid: cstring; values: ptr Ims8_28312300;
+                                 count: cint; xscale: cdouble; xstart: cdouble;
+                                 flags: Implotstairsflags_28313164;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_S8PtrInt".}
 else:
@@ -22191,7 +23629,7 @@ else:
 when not declared(Implotplotstairsu8ptrint):
   proc Implotplotstairsu8ptrint*(labelid: cstring; values: ptr Imu8_28312302;
                                  count: cint; xscale: cdouble; xstart: cdouble;
-                                 flags: Implotstairsflags_28313014;
+                                 flags: Implotstairsflags_28313164;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_U8PtrInt".}
 else:
@@ -22201,7 +23639,7 @@ else:
 when not declared(Implotplotstairss16ptrint):
   proc Implotplotstairss16ptrint*(labelid: cstring; values: ptr Ims16_28312304;
                                   count: cint; xscale: cdouble; xstart: cdouble;
-                                  flags: Implotstairsflags_28313014;
+                                  flags: Implotstairsflags_28313164;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_S16PtrInt".}
 else:
@@ -22211,7 +23649,7 @@ else:
 when not declared(Implotplotstairsu16ptrint):
   proc Implotplotstairsu16ptrint*(labelid: cstring; values: ptr Imu16_28312306;
                                   count: cint; xscale: cdouble; xstart: cdouble;
-                                  flags: Implotstairsflags_28313014;
+                                  flags: Implotstairsflags_28313164;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_U16PtrInt".}
 else:
@@ -22221,7 +23659,7 @@ else:
 when not declared(Implotplotstairss32ptrint):
   proc Implotplotstairss32ptrint*(labelid: cstring; values: ptr Ims32_28312308;
                                   count: cint; xscale: cdouble; xstart: cdouble;
-                                  flags: Implotstairsflags_28313014;
+                                  flags: Implotstairsflags_28313164;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_S32PtrInt".}
 else:
@@ -22231,7 +23669,7 @@ else:
 when not declared(Implotplotstairsu32ptrint):
   proc Implotplotstairsu32ptrint*(labelid: cstring; values: ptr Imu32_28312310;
                                   count: cint; xscale: cdouble; xstart: cdouble;
-                                  flags: Implotstairsflags_28313014;
+                                  flags: Implotstairsflags_28313164;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_U32PtrInt".}
 else:
@@ -22241,7 +23679,7 @@ else:
 when not declared(Implotplotstairss64ptrint):
   proc Implotplotstairss64ptrint*(labelid: cstring; values: ptr Ims64_28312312;
                                   count: cint; xscale: cdouble; xstart: cdouble;
-                                  flags: Implotstairsflags_28313014;
+                                  flags: Implotstairsflags_28313164;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_S64PtrInt".}
 else:
@@ -22251,7 +23689,7 @@ else:
 when not declared(Implotplotstairsu64ptrint):
   proc Implotplotstairsu64ptrint*(labelid: cstring; values: ptr Imu64_28311933;
                                   count: cint; xscale: cdouble; xstart: cdouble;
-                                  flags: Implotstairsflags_28313014;
+                                  flags: Implotstairsflags_28313164;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_U64PtrInt".}
 else:
@@ -22260,7 +23698,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotstairsfloatptrfloatptr):
   proc Implotplotstairsfloatptrfloatptr*(labelid: cstring; xs: ptr cfloat;
-      ys: ptr cfloat; count: cint; flags: Implotstairsflags_28313014;
+      ys: ptr cfloat; count: cint; flags: Implotstairsflags_28313164;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_FloatPtrFloatPtr".}
 else:
@@ -22269,7 +23707,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotstairsdoubleptrdoubleptr):
   proc Implotplotstairsdoubleptrdoubleptr*(labelid: cstring; xs: ptr cdouble;
-      ys: ptr cdouble; count: cint; flags: Implotstairsflags_28313014;
+      ys: ptr cdouble; count: cint; flags: Implotstairsflags_28313164;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_doublePtrdoublePtr".}
 else:
@@ -22277,8 +23715,9 @@ else:
     hint("Declaration of " & "Implotplotstairsdoubleptrdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotstairss8ptrs8ptr):
-  proc Implotplotstairss8ptrs8ptr*(labelid: cstring; xs: cstring; ys: cstring;
-                                   count: cint; flags: Implotstairsflags_28313014;
+  proc Implotplotstairss8ptrs8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
+                                   ys: ptr Ims8_28312300; count: cint;
+                                   flags: Implotstairsflags_28313164;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_S8PtrS8Ptr".}
 else:
@@ -22288,7 +23727,7 @@ else:
 when not declared(Implotplotstairsu8ptru8ptr):
   proc Implotplotstairsu8ptru8ptr*(labelid: cstring; xs: ptr Imu8_28312302;
                                    ys: ptr Imu8_28312302; count: cint;
-                                   flags: Implotstairsflags_28313014;
+                                   flags: Implotstairsflags_28313164;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_U8PtrU8Ptr".}
 else:
@@ -22298,7 +23737,7 @@ else:
 when not declared(Implotplotstairss16ptrs16ptr):
   proc Implotplotstairss16ptrs16ptr*(labelid: cstring; xs: ptr Ims16_28312304;
                                      ys: ptr Ims16_28312304; count: cint;
-                                     flags: Implotstairsflags_28313014;
+                                     flags: Implotstairsflags_28313164;
                                      offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_S16PtrS16Ptr".}
 else:
@@ -22308,7 +23747,7 @@ else:
 when not declared(Implotplotstairsu16ptru16ptr):
   proc Implotplotstairsu16ptru16ptr*(labelid: cstring; xs: ptr Imu16_28312306;
                                      ys: ptr Imu16_28312306; count: cint;
-                                     flags: Implotstairsflags_28313014;
+                                     flags: Implotstairsflags_28313164;
                                      offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_U16PtrU16Ptr".}
 else:
@@ -22318,7 +23757,7 @@ else:
 when not declared(Implotplotstairss32ptrs32ptr):
   proc Implotplotstairss32ptrs32ptr*(labelid: cstring; xs: ptr Ims32_28312308;
                                      ys: ptr Ims32_28312308; count: cint;
-                                     flags: Implotstairsflags_28313014;
+                                     flags: Implotstairsflags_28313164;
                                      offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_S32PtrS32Ptr".}
 else:
@@ -22328,7 +23767,7 @@ else:
 when not declared(Implotplotstairsu32ptru32ptr):
   proc Implotplotstairsu32ptru32ptr*(labelid: cstring; xs: ptr Imu32_28312310;
                                      ys: ptr Imu32_28312310; count: cint;
-                                     flags: Implotstairsflags_28313014;
+                                     flags: Implotstairsflags_28313164;
                                      offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_U32PtrU32Ptr".}
 else:
@@ -22338,7 +23777,7 @@ else:
 when not declared(Implotplotstairss64ptrs64ptr):
   proc Implotplotstairss64ptrs64ptr*(labelid: cstring; xs: ptr Ims64_28312312;
                                      ys: ptr Ims64_28312312; count: cint;
-                                     flags: Implotstairsflags_28313014;
+                                     flags: Implotstairsflags_28313164;
                                      offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_S64PtrS64Ptr".}
 else:
@@ -22348,7 +23787,7 @@ else:
 when not declared(Implotplotstairsu64ptru64ptr):
   proc Implotplotstairsu64ptru64ptr*(labelid: cstring; xs: ptr Imu64_28311933;
                                      ys: ptr Imu64_28311933; count: cint;
-                                     flags: Implotstairsflags_28313014;
+                                     flags: Implotstairsflags_28313164;
                                      offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_U64PtrU64Ptr".}
 else:
@@ -22356,8 +23795,8 @@ else:
     hint("Declaration of " & "Implotplotstairsu64ptru64ptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotstairsg):
-  proc Implotplotstairsg*(labelid: cstring; getter: Implotpointgetter_28313278;
-                          data: pointer; count: cint; flags: Implotstairsflags_28313014): void {.
+  proc Implotplotstairsg*(labelid: cstring; getter: Implotpointgetter_28313500;
+                          data: pointer; count: cint; flags: Implotstairsflags_28313164): void {.
       cdecl, importc: "ImPlot_PlotStairsG".}
 else:
   static :
@@ -22366,7 +23805,7 @@ else:
 when not declared(Implotplotshadedfloatptrint):
   proc Implotplotshadedfloatptrint*(labelid: cstring; values: ptr cfloat;
                                     count: cint; yref: cdouble; xscale: cdouble;
-                                    xstart: cdouble; flags: Implotshadedflags_28313016;
+                                    xstart: cdouble; flags: Implotshadedflags_28313166;
                                     offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_FloatPtrInt".}
 else:
@@ -22377,7 +23816,7 @@ when not declared(Implotplotshadeddoubleptrint):
   proc Implotplotshadeddoubleptrint*(labelid: cstring; values: ptr cdouble;
                                      count: cint; yref: cdouble;
                                      xscale: cdouble; xstart: cdouble;
-                                     flags: Implotshadedflags_28313016;
+                                     flags: Implotshadedflags_28313166;
                                      offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_doublePtrInt".}
 else:
@@ -22385,9 +23824,9 @@ else:
     hint("Declaration of " & "Implotplotshadeddoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotplotshadeds8ptrint):
-  proc Implotplotshadeds8ptrint*(labelid: cstring; values: cstring; count: cint;
-                                 yref: cdouble; xscale: cdouble;
-                                 xstart: cdouble; flags: Implotshadedflags_28313016;
+  proc Implotplotshadeds8ptrint*(labelid: cstring; values: ptr Ims8_28312300;
+                                 count: cint; yref: cdouble; xscale: cdouble;
+                                 xstart: cdouble; flags: Implotshadedflags_28313166;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_S8PtrInt".}
 else:
@@ -22397,7 +23836,7 @@ else:
 when not declared(Implotplotshadedu8ptrint):
   proc Implotplotshadedu8ptrint*(labelid: cstring; values: ptr Imu8_28312302;
                                  count: cint; yref: cdouble; xscale: cdouble;
-                                 xstart: cdouble; flags: Implotshadedflags_28313016;
+                                 xstart: cdouble; flags: Implotshadedflags_28313166;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_U8PtrInt".}
 else:
@@ -22407,7 +23846,7 @@ else:
 when not declared(Implotplotshadeds16ptrint):
   proc Implotplotshadeds16ptrint*(labelid: cstring; values: ptr Ims16_28312304;
                                   count: cint; yref: cdouble; xscale: cdouble;
-                                  xstart: cdouble; flags: Implotshadedflags_28313016;
+                                  xstart: cdouble; flags: Implotshadedflags_28313166;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_S16PtrInt".}
 else:
@@ -22417,7 +23856,7 @@ else:
 when not declared(Implotplotshadedu16ptrint):
   proc Implotplotshadedu16ptrint*(labelid: cstring; values: ptr Imu16_28312306;
                                   count: cint; yref: cdouble; xscale: cdouble;
-                                  xstart: cdouble; flags: Implotshadedflags_28313016;
+                                  xstart: cdouble; flags: Implotshadedflags_28313166;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_U16PtrInt".}
 else:
@@ -22427,7 +23866,7 @@ else:
 when not declared(Implotplotshadeds32ptrint):
   proc Implotplotshadeds32ptrint*(labelid: cstring; values: ptr Ims32_28312308;
                                   count: cint; yref: cdouble; xscale: cdouble;
-                                  xstart: cdouble; flags: Implotshadedflags_28313016;
+                                  xstart: cdouble; flags: Implotshadedflags_28313166;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_S32PtrInt".}
 else:
@@ -22437,7 +23876,7 @@ else:
 when not declared(Implotplotshadedu32ptrint):
   proc Implotplotshadedu32ptrint*(labelid: cstring; values: ptr Imu32_28312310;
                                   count: cint; yref: cdouble; xscale: cdouble;
-                                  xstart: cdouble; flags: Implotshadedflags_28313016;
+                                  xstart: cdouble; flags: Implotshadedflags_28313166;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_U32PtrInt".}
 else:
@@ -22447,7 +23886,7 @@ else:
 when not declared(Implotplotshadeds64ptrint):
   proc Implotplotshadeds64ptrint*(labelid: cstring; values: ptr Ims64_28312312;
                                   count: cint; yref: cdouble; xscale: cdouble;
-                                  xstart: cdouble; flags: Implotshadedflags_28313016;
+                                  xstart: cdouble; flags: Implotshadedflags_28313166;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_S64PtrInt".}
 else:
@@ -22457,7 +23896,7 @@ else:
 when not declared(Implotplotshadedu64ptrint):
   proc Implotplotshadedu64ptrint*(labelid: cstring; values: ptr Imu64_28311933;
                                   count: cint; yref: cdouble; xscale: cdouble;
-                                  xstart: cdouble; flags: Implotshadedflags_28313016;
+                                  xstart: cdouble; flags: Implotshadedflags_28313166;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_U64PtrInt".}
 else:
@@ -22466,7 +23905,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotshadedfloatptrfloatptrint):
   proc Implotplotshadedfloatptrfloatptrint*(labelid: cstring; xs: ptr cfloat;
-      ys: ptr cfloat; count: cint; yref: cdouble; flags: Implotshadedflags_28313016;
+      ys: ptr cfloat; count: cint; yref: cdouble; flags: Implotshadedflags_28313166;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_FloatPtrFloatPtrInt".}
 else:
@@ -22475,7 +23914,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotshadeddoubleptrdoubleptrint):
   proc Implotplotshadeddoubleptrdoubleptrint*(labelid: cstring; xs: ptr cdouble;
-      ys: ptr cdouble; count: cint; yref: cdouble; flags: Implotshadedflags_28313016;
+      ys: ptr cdouble; count: cint; yref: cdouble; flags: Implotshadedflags_28313166;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_doublePtrdoublePtrInt".}
 else:
@@ -22483,9 +23922,9 @@ else:
     hint("Declaration of " & "Implotplotshadeddoubleptrdoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotplotshadeds8ptrs8ptrint):
-  proc Implotplotshadeds8ptrs8ptrint*(labelid: cstring; xs: cstring;
-                                      ys: cstring; count: cint; yref: cdouble;
-                                      flags: Implotshadedflags_28313016;
+  proc Implotplotshadeds8ptrs8ptrint*(labelid: cstring; xs: ptr Ims8_28312300;
+                                      ys: ptr Ims8_28312300; count: cint;
+                                      yref: cdouble; flags: Implotshadedflags_28313166;
                                       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_S8PtrS8PtrInt".}
 else:
@@ -22495,7 +23934,7 @@ else:
 when not declared(Implotplotshadedu8ptru8ptrint):
   proc Implotplotshadedu8ptru8ptrint*(labelid: cstring; xs: ptr Imu8_28312302;
                                       ys: ptr Imu8_28312302; count: cint;
-                                      yref: cdouble; flags: Implotshadedflags_28313016;
+                                      yref: cdouble; flags: Implotshadedflags_28313166;
                                       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_U8PtrU8PtrInt".}
 else:
@@ -22505,7 +23944,7 @@ else:
 when not declared(Implotplotshadeds16ptrs16ptrint):
   proc Implotplotshadeds16ptrs16ptrint*(labelid: cstring; xs: ptr Ims16_28312304;
                                         ys: ptr Ims16_28312304; count: cint;
-                                        yref: cdouble; flags: Implotshadedflags_28313016;
+                                        yref: cdouble; flags: Implotshadedflags_28313166;
                                         offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_S16PtrS16PtrInt".}
 else:
@@ -22515,7 +23954,7 @@ else:
 when not declared(Implotplotshadedu16ptru16ptrint):
   proc Implotplotshadedu16ptru16ptrint*(labelid: cstring; xs: ptr Imu16_28312306;
                                         ys: ptr Imu16_28312306; count: cint;
-                                        yref: cdouble; flags: Implotshadedflags_28313016;
+                                        yref: cdouble; flags: Implotshadedflags_28313166;
                                         offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_U16PtrU16PtrInt".}
 else:
@@ -22525,7 +23964,7 @@ else:
 when not declared(Implotplotshadeds32ptrs32ptrint):
   proc Implotplotshadeds32ptrs32ptrint*(labelid: cstring; xs: ptr Ims32_28312308;
                                         ys: ptr Ims32_28312308; count: cint;
-                                        yref: cdouble; flags: Implotshadedflags_28313016;
+                                        yref: cdouble; flags: Implotshadedflags_28313166;
                                         offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_S32PtrS32PtrInt".}
 else:
@@ -22535,7 +23974,7 @@ else:
 when not declared(Implotplotshadedu32ptru32ptrint):
   proc Implotplotshadedu32ptru32ptrint*(labelid: cstring; xs: ptr Imu32_28312310;
                                         ys: ptr Imu32_28312310; count: cint;
-                                        yref: cdouble; flags: Implotshadedflags_28313016;
+                                        yref: cdouble; flags: Implotshadedflags_28313166;
                                         offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_U32PtrU32PtrInt".}
 else:
@@ -22545,7 +23984,7 @@ else:
 when not declared(Implotplotshadeds64ptrs64ptrint):
   proc Implotplotshadeds64ptrs64ptrint*(labelid: cstring; xs: ptr Ims64_28312312;
                                         ys: ptr Ims64_28312312; count: cint;
-                                        yref: cdouble; flags: Implotshadedflags_28313016;
+                                        yref: cdouble; flags: Implotshadedflags_28313166;
                                         offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_S64PtrS64PtrInt".}
 else:
@@ -22555,7 +23994,7 @@ else:
 when not declared(Implotplotshadedu64ptru64ptrint):
   proc Implotplotshadedu64ptru64ptrint*(labelid: cstring; xs: ptr Imu64_28311933;
                                         ys: ptr Imu64_28311933; count: cint;
-                                        yref: cdouble; flags: Implotshadedflags_28313016;
+                                        yref: cdouble; flags: Implotshadedflags_28313166;
                                         offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_U64PtrU64PtrInt".}
 else:
@@ -22565,7 +24004,7 @@ else:
 when not declared(Implotplotshadedfloatptrfloatptrfloatptr):
   proc Implotplotshadedfloatptrfloatptrfloatptr*(labelid: cstring;
       xs: ptr cfloat; ys1: ptr cfloat; ys2: ptr cfloat; count: cint;
-      flags: Implotshadedflags_28313016; offset: cint; stride: cint): void {.
+      flags: Implotshadedflags_28313166; offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_FloatPtrFloatPtrFloatPtr".}
 else:
   static :
@@ -22574,16 +24013,16 @@ else:
 when not declared(Implotplotshadeddoubleptrdoubleptrdoubleptr):
   proc Implotplotshadeddoubleptrdoubleptrdoubleptr*(labelid: cstring;
       xs: ptr cdouble; ys1: ptr cdouble; ys2: ptr cdouble; count: cint;
-      flags: Implotshadedflags_28313016; offset: cint; stride: cint): void {.
+      flags: Implotshadedflags_28313166; offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_doublePtrdoublePtrdoublePtr".}
 else:
   static :
     hint("Declaration of " & "Implotplotshadeddoubleptrdoubleptrdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotshadeds8ptrs8ptrs8ptr):
-  proc Implotplotshadeds8ptrs8ptrs8ptr*(labelid: cstring; xs: cstring;
-                                        ys1: cstring; ys2: cstring; count: cint;
-                                        flags: Implotshadedflags_28313016;
+  proc Implotplotshadeds8ptrs8ptrs8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
+                                        ys1: ptr Ims8_28312300; ys2: ptr Ims8_28312300;
+                                        count: cint; flags: Implotshadedflags_28313166;
                                         offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_S8PtrS8PtrS8Ptr".}
 else:
@@ -22593,7 +24032,7 @@ else:
 when not declared(Implotplotshadedu8ptru8ptru8ptr):
   proc Implotplotshadedu8ptru8ptru8ptr*(labelid: cstring; xs: ptr Imu8_28312302;
                                         ys1: ptr Imu8_28312302; ys2: ptr Imu8_28312302;
-                                        count: cint; flags: Implotshadedflags_28313016;
+                                        count: cint; flags: Implotshadedflags_28313166;
                                         offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_U8PtrU8PtrU8Ptr".}
 else:
@@ -22603,7 +24042,7 @@ else:
 when not declared(Implotplotshadeds16ptrs16ptrs16ptr):
   proc Implotplotshadeds16ptrs16ptrs16ptr*(labelid: cstring; xs: ptr Ims16_28312304;
       ys1: ptr Ims16_28312304; ys2: ptr Ims16_28312304; count: cint;
-      flags: Implotshadedflags_28313016; offset: cint; stride: cint): void {.
+      flags: Implotshadedflags_28313166; offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_S16PtrS16PtrS16Ptr".}
 else:
   static :
@@ -22612,7 +24051,7 @@ else:
 when not declared(Implotplotshadedu16ptru16ptru16ptr):
   proc Implotplotshadedu16ptru16ptru16ptr*(labelid: cstring; xs: ptr Imu16_28312306;
       ys1: ptr Imu16_28312306; ys2: ptr Imu16_28312306; count: cint;
-      flags: Implotshadedflags_28313016; offset: cint; stride: cint): void {.
+      flags: Implotshadedflags_28313166; offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_U16PtrU16PtrU16Ptr".}
 else:
   static :
@@ -22621,7 +24060,7 @@ else:
 when not declared(Implotplotshadeds32ptrs32ptrs32ptr):
   proc Implotplotshadeds32ptrs32ptrs32ptr*(labelid: cstring; xs: ptr Ims32_28312308;
       ys1: ptr Ims32_28312308; ys2: ptr Ims32_28312308; count: cint;
-      flags: Implotshadedflags_28313016; offset: cint; stride: cint): void {.
+      flags: Implotshadedflags_28313166; offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_S32PtrS32PtrS32Ptr".}
 else:
   static :
@@ -22630,7 +24069,7 @@ else:
 when not declared(Implotplotshadedu32ptru32ptru32ptr):
   proc Implotplotshadedu32ptru32ptru32ptr*(labelid: cstring; xs: ptr Imu32_28312310;
       ys1: ptr Imu32_28312310; ys2: ptr Imu32_28312310; count: cint;
-      flags: Implotshadedflags_28313016; offset: cint; stride: cint): void {.
+      flags: Implotshadedflags_28313166; offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_U32PtrU32PtrU32Ptr".}
 else:
   static :
@@ -22639,7 +24078,7 @@ else:
 when not declared(Implotplotshadeds64ptrs64ptrs64ptr):
   proc Implotplotshadeds64ptrs64ptrs64ptr*(labelid: cstring; xs: ptr Ims64_28312312;
       ys1: ptr Ims64_28312312; ys2: ptr Ims64_28312312; count: cint;
-      flags: Implotshadedflags_28313016; offset: cint; stride: cint): void {.
+      flags: Implotshadedflags_28313166; offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_S64PtrS64PtrS64Ptr".}
 else:
   static :
@@ -22648,16 +24087,16 @@ else:
 when not declared(Implotplotshadedu64ptru64ptru64ptr):
   proc Implotplotshadedu64ptru64ptru64ptr*(labelid: cstring; xs: ptr Imu64_28311933;
       ys1: ptr Imu64_28311933; ys2: ptr Imu64_28311933; count: cint;
-      flags: Implotshadedflags_28313016; offset: cint; stride: cint): void {.
+      flags: Implotshadedflags_28313166; offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_U64PtrU64PtrU64Ptr".}
 else:
   static :
     hint("Declaration of " & "Implotplotshadedu64ptru64ptru64ptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotshadedg):
-  proc Implotplotshadedg*(labelid: cstring; getter1: Implotpointgetter_28313278;
-                          data1: pointer; getter2: Implotpointgetter_28313278;
-                          data2: pointer; count: cint; flags: Implotshadedflags_28313016): void {.
+  proc Implotplotshadedg*(labelid: cstring; getter1: Implotpointgetter_28313500;
+                          data1: pointer; getter2: Implotpointgetter_28313500;
+                          data2: pointer; count: cint; flags: Implotshadedflags_28313166): void {.
       cdecl, importc: "ImPlot_PlotShadedG".}
 else:
   static :
@@ -22666,7 +24105,7 @@ else:
 when not declared(Implotplotbarsfloatptrint):
   proc Implotplotbarsfloatptrint*(labelid: cstring; values: ptr cfloat;
                                   count: cint; barsize: cdouble; shift: cdouble;
-                                  flags: Implotbarsflags_28313018; offset: cint;
+                                  flags: Implotbarsflags_28313168; offset: cint;
                                   stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_FloatPtrInt".}
 else:
@@ -22676,7 +24115,7 @@ else:
 when not declared(Implotplotbarsdoubleptrint):
   proc Implotplotbarsdoubleptrint*(labelid: cstring; values: ptr cdouble;
                                    count: cint; barsize: cdouble;
-                                   shift: cdouble; flags: Implotbarsflags_28313018;
+                                   shift: cdouble; flags: Implotbarsflags_28313168;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_doublePtrInt".}
 else:
@@ -22684,9 +24123,9 @@ else:
     hint("Declaration of " & "Implotplotbarsdoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotplotbarss8ptrint):
-  proc Implotplotbarss8ptrint*(labelid: cstring; values: cstring; count: cint;
-                               barsize: cdouble; shift: cdouble;
-                               flags: Implotbarsflags_28313018; offset: cint;
+  proc Implotplotbarss8ptrint*(labelid: cstring; values: ptr Ims8_28312300;
+                               count: cint; barsize: cdouble; shift: cdouble;
+                               flags: Implotbarsflags_28313168; offset: cint;
                                stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_S8PtrInt".}
 else:
@@ -22696,7 +24135,7 @@ else:
 when not declared(Implotplotbarsu8ptrint):
   proc Implotplotbarsu8ptrint*(labelid: cstring; values: ptr Imu8_28312302;
                                count: cint; barsize: cdouble; shift: cdouble;
-                               flags: Implotbarsflags_28313018; offset: cint;
+                               flags: Implotbarsflags_28313168; offset: cint;
                                stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_U8PtrInt".}
 else:
@@ -22706,7 +24145,7 @@ else:
 when not declared(Implotplotbarss16ptrint):
   proc Implotplotbarss16ptrint*(labelid: cstring; values: ptr Ims16_28312304;
                                 count: cint; barsize: cdouble; shift: cdouble;
-                                flags: Implotbarsflags_28313018; offset: cint;
+                                flags: Implotbarsflags_28313168; offset: cint;
                                 stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_S16PtrInt".}
 else:
@@ -22716,7 +24155,7 @@ else:
 when not declared(Implotplotbarsu16ptrint):
   proc Implotplotbarsu16ptrint*(labelid: cstring; values: ptr Imu16_28312306;
                                 count: cint; barsize: cdouble; shift: cdouble;
-                                flags: Implotbarsflags_28313018; offset: cint;
+                                flags: Implotbarsflags_28313168; offset: cint;
                                 stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_U16PtrInt".}
 else:
@@ -22726,7 +24165,7 @@ else:
 when not declared(Implotplotbarss32ptrint):
   proc Implotplotbarss32ptrint*(labelid: cstring; values: ptr Ims32_28312308;
                                 count: cint; barsize: cdouble; shift: cdouble;
-                                flags: Implotbarsflags_28313018; offset: cint;
+                                flags: Implotbarsflags_28313168; offset: cint;
                                 stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_S32PtrInt".}
 else:
@@ -22736,7 +24175,7 @@ else:
 when not declared(Implotplotbarsu32ptrint):
   proc Implotplotbarsu32ptrint*(labelid: cstring; values: ptr Imu32_28312310;
                                 count: cint; barsize: cdouble; shift: cdouble;
-                                flags: Implotbarsflags_28313018; offset: cint;
+                                flags: Implotbarsflags_28313168; offset: cint;
                                 stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_U32PtrInt".}
 else:
@@ -22746,7 +24185,7 @@ else:
 when not declared(Implotplotbarss64ptrint):
   proc Implotplotbarss64ptrint*(labelid: cstring; values: ptr Ims64_28312312;
                                 count: cint; barsize: cdouble; shift: cdouble;
-                                flags: Implotbarsflags_28313018; offset: cint;
+                                flags: Implotbarsflags_28313168; offset: cint;
                                 stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_S64PtrInt".}
 else:
@@ -22756,7 +24195,7 @@ else:
 when not declared(Implotplotbarsu64ptrint):
   proc Implotplotbarsu64ptrint*(labelid: cstring; values: ptr Imu64_28311933;
                                 count: cint; barsize: cdouble; shift: cdouble;
-                                flags: Implotbarsflags_28313018; offset: cint;
+                                flags: Implotbarsflags_28313168; offset: cint;
                                 stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_U64PtrInt".}
 else:
@@ -22766,7 +24205,7 @@ else:
 when not declared(Implotplotbarsfloatptrfloatptr):
   proc Implotplotbarsfloatptrfloatptr*(labelid: cstring; xs: ptr cfloat;
                                        ys: ptr cfloat; count: cint;
-                                       barsize: cdouble; flags: Implotbarsflags_28313018;
+                                       barsize: cdouble; flags: Implotbarsflags_28313168;
                                        offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotBars_FloatPtrFloatPtr".}
 else:
@@ -22775,7 +24214,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotbarsdoubleptrdoubleptr):
   proc Implotplotbarsdoubleptrdoubleptr*(labelid: cstring; xs: ptr cdouble;
-      ys: ptr cdouble; count: cint; barsize: cdouble; flags: Implotbarsflags_28313018;
+      ys: ptr cdouble; count: cint; barsize: cdouble; flags: Implotbarsflags_28313168;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_doublePtrdoublePtr".}
 else:
@@ -22783,10 +24222,10 @@ else:
     hint("Declaration of " & "Implotplotbarsdoubleptrdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotbarss8ptrs8ptr):
-  proc Implotplotbarss8ptrs8ptr*(labelid: cstring; xs: cstring; ys: cstring;
-                                 count: cint; barsize: cdouble;
-                                 flags: Implotbarsflags_28313018; offset: cint;
-                                 stride: cint): void {.cdecl,
+  proc Implotplotbarss8ptrs8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
+                                 ys: ptr Ims8_28312300; count: cint;
+                                 barsize: cdouble; flags: Implotbarsflags_28313168;
+                                 offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_S8PtrS8Ptr".}
 else:
   static :
@@ -22795,7 +24234,7 @@ else:
 when not declared(Implotplotbarsu8ptru8ptr):
   proc Implotplotbarsu8ptru8ptr*(labelid: cstring; xs: ptr Imu8_28312302;
                                  ys: ptr Imu8_28312302; count: cint;
-                                 barsize: cdouble; flags: Implotbarsflags_28313018;
+                                 barsize: cdouble; flags: Implotbarsflags_28313168;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_U8PtrU8Ptr".}
 else:
@@ -22805,7 +24244,7 @@ else:
 when not declared(Implotplotbarss16ptrs16ptr):
   proc Implotplotbarss16ptrs16ptr*(labelid: cstring; xs: ptr Ims16_28312304;
                                    ys: ptr Ims16_28312304; count: cint;
-                                   barsize: cdouble; flags: Implotbarsflags_28313018;
+                                   barsize: cdouble; flags: Implotbarsflags_28313168;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_S16PtrS16Ptr".}
 else:
@@ -22815,7 +24254,7 @@ else:
 when not declared(Implotplotbarsu16ptru16ptr):
   proc Implotplotbarsu16ptru16ptr*(labelid: cstring; xs: ptr Imu16_28312306;
                                    ys: ptr Imu16_28312306; count: cint;
-                                   barsize: cdouble; flags: Implotbarsflags_28313018;
+                                   barsize: cdouble; flags: Implotbarsflags_28313168;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_U16PtrU16Ptr".}
 else:
@@ -22825,7 +24264,7 @@ else:
 when not declared(Implotplotbarss32ptrs32ptr):
   proc Implotplotbarss32ptrs32ptr*(labelid: cstring; xs: ptr Ims32_28312308;
                                    ys: ptr Ims32_28312308; count: cint;
-                                   barsize: cdouble; flags: Implotbarsflags_28313018;
+                                   barsize: cdouble; flags: Implotbarsflags_28313168;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_S32PtrS32Ptr".}
 else:
@@ -22835,7 +24274,7 @@ else:
 when not declared(Implotplotbarsu32ptru32ptr):
   proc Implotplotbarsu32ptru32ptr*(labelid: cstring; xs: ptr Imu32_28312310;
                                    ys: ptr Imu32_28312310; count: cint;
-                                   barsize: cdouble; flags: Implotbarsflags_28313018;
+                                   barsize: cdouble; flags: Implotbarsflags_28313168;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_U32PtrU32Ptr".}
 else:
@@ -22845,7 +24284,7 @@ else:
 when not declared(Implotplotbarss64ptrs64ptr):
   proc Implotplotbarss64ptrs64ptr*(labelid: cstring; xs: ptr Ims64_28312312;
                                    ys: ptr Ims64_28312312; count: cint;
-                                   barsize: cdouble; flags: Implotbarsflags_28313018;
+                                   barsize: cdouble; flags: Implotbarsflags_28313168;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_S64PtrS64Ptr".}
 else:
@@ -22855,7 +24294,7 @@ else:
 when not declared(Implotplotbarsu64ptru64ptr):
   proc Implotplotbarsu64ptru64ptr*(labelid: cstring; xs: ptr Imu64_28311933;
                                    ys: ptr Imu64_28311933; count: cint;
-                                   barsize: cdouble; flags: Implotbarsflags_28313018;
+                                   barsize: cdouble; flags: Implotbarsflags_28313168;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_U64PtrU64Ptr".}
 else:
@@ -22863,9 +24302,9 @@ else:
     hint("Declaration of " & "Implotplotbarsu64ptru64ptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotbarsg):
-  proc Implotplotbarsg*(labelid: cstring; getter: Implotpointgetter_28313278;
+  proc Implotplotbarsg*(labelid: cstring; getter: Implotpointgetter_28313500;
                         data: pointer; count: cint; barsize: cdouble;
-                        flags: Implotbarsflags_28313018): void {.cdecl,
+                        flags: Implotbarsflags_28313168): void {.cdecl,
       importc: "ImPlot_PlotBarsG".}
 else:
   static :
@@ -22875,7 +24314,7 @@ when not declared(Implotplotbargroupsfloatptr):
   proc Implotplotbargroupsfloatptr*(labelids: ptr UncheckedArray[cstring];
                                     values: ptr cfloat; itemcount: cint;
                                     groupcount: cint; groupsize: cdouble;
-                                    shift: cdouble; flags: Implotbargroupsflags_28313020): void {.
+                                    shift: cdouble; flags: Implotbargroupsflags_28313170): void {.
       cdecl, importc: "ImPlot_PlotBarGroups_FloatPtr".}
 else:
   static :
@@ -22885,7 +24324,7 @@ when not declared(Implotplotbargroupsdoubleptr):
   proc Implotplotbargroupsdoubleptr*(labelids: ptr UncheckedArray[cstring];
                                      values: ptr cdouble; itemcount: cint;
                                      groupcount: cint; groupsize: cdouble;
-                                     shift: cdouble; flags: Implotbargroupsflags_28313020): void {.
+                                     shift: cdouble; flags: Implotbargroupsflags_28313170): void {.
       cdecl, importc: "ImPlot_PlotBarGroups_doublePtr".}
 else:
   static :
@@ -22893,9 +24332,9 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotbargroupss8ptr):
   proc Implotplotbargroupss8ptr*(labelids: ptr UncheckedArray[cstring];
-                                 values: cstring; itemcount: cint;
+                                 values: ptr Ims8_28312300; itemcount: cint;
                                  groupcount: cint; groupsize: cdouble;
-                                 shift: cdouble; flags: Implotbargroupsflags_28313020): void {.
+                                 shift: cdouble; flags: Implotbargroupsflags_28313170): void {.
       cdecl, importc: "ImPlot_PlotBarGroups_S8Ptr".}
 else:
   static :
@@ -22905,7 +24344,7 @@ when not declared(Implotplotbargroupsu8ptr):
   proc Implotplotbargroupsu8ptr*(labelids: ptr UncheckedArray[cstring];
                                  values: ptr Imu8_28312302; itemcount: cint;
                                  groupcount: cint; groupsize: cdouble;
-                                 shift: cdouble; flags: Implotbargroupsflags_28313020): void {.
+                                 shift: cdouble; flags: Implotbargroupsflags_28313170): void {.
       cdecl, importc: "ImPlot_PlotBarGroups_U8Ptr".}
 else:
   static :
@@ -22915,7 +24354,7 @@ when not declared(Implotplotbargroupss16ptr):
   proc Implotplotbargroupss16ptr*(labelids: ptr UncheckedArray[cstring];
                                   values: ptr Ims16_28312304; itemcount: cint;
                                   groupcount: cint; groupsize: cdouble;
-                                  shift: cdouble; flags: Implotbargroupsflags_28313020): void {.
+                                  shift: cdouble; flags: Implotbargroupsflags_28313170): void {.
       cdecl, importc: "ImPlot_PlotBarGroups_S16Ptr".}
 else:
   static :
@@ -22925,7 +24364,7 @@ when not declared(Implotplotbargroupsu16ptr):
   proc Implotplotbargroupsu16ptr*(labelids: ptr UncheckedArray[cstring];
                                   values: ptr Imu16_28312306; itemcount: cint;
                                   groupcount: cint; groupsize: cdouble;
-                                  shift: cdouble; flags: Implotbargroupsflags_28313020): void {.
+                                  shift: cdouble; flags: Implotbargroupsflags_28313170): void {.
       cdecl, importc: "ImPlot_PlotBarGroups_U16Ptr".}
 else:
   static :
@@ -22935,7 +24374,7 @@ when not declared(Implotplotbargroupss32ptr):
   proc Implotplotbargroupss32ptr*(labelids: ptr UncheckedArray[cstring];
                                   values: ptr Ims32_28312308; itemcount: cint;
                                   groupcount: cint; groupsize: cdouble;
-                                  shift: cdouble; flags: Implotbargroupsflags_28313020): void {.
+                                  shift: cdouble; flags: Implotbargroupsflags_28313170): void {.
       cdecl, importc: "ImPlot_PlotBarGroups_S32Ptr".}
 else:
   static :
@@ -22945,7 +24384,7 @@ when not declared(Implotplotbargroupsu32ptr):
   proc Implotplotbargroupsu32ptr*(labelids: ptr UncheckedArray[cstring];
                                   values: ptr Imu32_28312310; itemcount: cint;
                                   groupcount: cint; groupsize: cdouble;
-                                  shift: cdouble; flags: Implotbargroupsflags_28313020): void {.
+                                  shift: cdouble; flags: Implotbargroupsflags_28313170): void {.
       cdecl, importc: "ImPlot_PlotBarGroups_U32Ptr".}
 else:
   static :
@@ -22955,7 +24394,7 @@ when not declared(Implotplotbargroupss64ptr):
   proc Implotplotbargroupss64ptr*(labelids: ptr UncheckedArray[cstring];
                                   values: ptr Ims64_28312312; itemcount: cint;
                                   groupcount: cint; groupsize: cdouble;
-                                  shift: cdouble; flags: Implotbargroupsflags_28313020): void {.
+                                  shift: cdouble; flags: Implotbargroupsflags_28313170): void {.
       cdecl, importc: "ImPlot_PlotBarGroups_S64Ptr".}
 else:
   static :
@@ -22965,7 +24404,7 @@ when not declared(Implotplotbargroupsu64ptr):
   proc Implotplotbargroupsu64ptr*(labelids: ptr UncheckedArray[cstring];
                                   values: ptr Imu64_28311933; itemcount: cint;
                                   groupcount: cint; groupsize: cdouble;
-                                  shift: cdouble; flags: Implotbargroupsflags_28313020): void {.
+                                  shift: cdouble; flags: Implotbargroupsflags_28313170): void {.
       cdecl, importc: "ImPlot_PlotBarGroups_U64Ptr".}
 else:
   static :
@@ -22974,7 +24413,7 @@ else:
 when not declared(Implotploterrorbarsfloatptrfloatptrfloatptrint):
   proc Implotploterrorbarsfloatptrfloatptrfloatptrint*(labelid: cstring;
       xs: ptr cfloat; ys: ptr cfloat; err: ptr cfloat; count: cint;
-      flags: Imploterrorbarsflags_28313022; offset: cint; stride: cint): void {.
+      flags: Imploterrorbarsflags_28313172; offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotErrorBars_FloatPtrFloatPtrFloatPtrInt".}
 else:
   static :
@@ -22983,17 +24422,17 @@ else:
 when not declared(Implotploterrorbarsdoubleptrdoubleptrdoubleptrint):
   proc Implotploterrorbarsdoubleptrdoubleptrdoubleptrint*(labelid: cstring;
       xs: ptr cdouble; ys: ptr cdouble; err: ptr cdouble; count: cint;
-      flags: Imploterrorbarsflags_28313022; offset: cint; stride: cint): void {.
+      flags: Imploterrorbarsflags_28313172; offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotErrorBars_doublePtrdoublePtrdoublePtrInt".}
 else:
   static :
     hint("Declaration of " & "Implotploterrorbarsdoubleptrdoubleptrdoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotploterrorbarss8ptrs8ptrs8ptrint):
-  proc Implotploterrorbarss8ptrs8ptrs8ptrint*(labelid: cstring; xs: cstring;
-      ys: cstring; err: cstring; count: cint; flags: Imploterrorbarsflags_28313022;
-      offset: cint; stride: cint): void {.cdecl,
-      importc: "ImPlot_PlotErrorBars_S8PtrS8PtrS8PtrInt".}
+  proc Implotploterrorbarss8ptrs8ptrs8ptrint*(labelid: cstring; xs: ptr Ims8_28312300;
+      ys: ptr Ims8_28312300; err: ptr Ims8_28312300; count: cint;
+      flags: Imploterrorbarsflags_28313172; offset: cint; stride: cint): void {.
+      cdecl, importc: "ImPlot_PlotErrorBars_S8PtrS8PtrS8PtrInt".}
 else:
   static :
     hint("Declaration of " & "Implotploterrorbarss8ptrs8ptrs8ptrint" &
@@ -23001,7 +24440,7 @@ else:
 when not declared(Implotploterrorbarsu8ptru8ptru8ptrint):
   proc Implotploterrorbarsu8ptru8ptru8ptrint*(labelid: cstring; xs: ptr Imu8_28312302;
       ys: ptr Imu8_28312302; err: ptr Imu8_28312302; count: cint;
-      flags: Imploterrorbarsflags_28313022; offset: cint; stride: cint): void {.
+      flags: Imploterrorbarsflags_28313172; offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotErrorBars_U8PtrU8PtrU8PtrInt".}
 else:
   static :
@@ -23010,7 +24449,7 @@ else:
 when not declared(Implotploterrorbarss16ptrs16ptrs16ptrint):
   proc Implotploterrorbarss16ptrs16ptrs16ptrint*(labelid: cstring;
       xs: ptr Ims16_28312304; ys: ptr Ims16_28312304; err: ptr Ims16_28312304;
-      count: cint; flags: Imploterrorbarsflags_28313022; offset: cint;
+      count: cint; flags: Imploterrorbarsflags_28313172; offset: cint;
       stride: cint): void {.cdecl, importc: "ImPlot_PlotErrorBars_S16PtrS16PtrS16PtrInt".}
 else:
   static :
@@ -23019,7 +24458,7 @@ else:
 when not declared(Implotploterrorbarsu16ptru16ptru16ptrint):
   proc Implotploterrorbarsu16ptru16ptru16ptrint*(labelid: cstring;
       xs: ptr Imu16_28312306; ys: ptr Imu16_28312306; err: ptr Imu16_28312306;
-      count: cint; flags: Imploterrorbarsflags_28313022; offset: cint;
+      count: cint; flags: Imploterrorbarsflags_28313172; offset: cint;
       stride: cint): void {.cdecl, importc: "ImPlot_PlotErrorBars_U16PtrU16PtrU16PtrInt".}
 else:
   static :
@@ -23028,7 +24467,7 @@ else:
 when not declared(Implotploterrorbarss32ptrs32ptrs32ptrint):
   proc Implotploterrorbarss32ptrs32ptrs32ptrint*(labelid: cstring;
       xs: ptr Ims32_28312308; ys: ptr Ims32_28312308; err: ptr Ims32_28312308;
-      count: cint; flags: Imploterrorbarsflags_28313022; offset: cint;
+      count: cint; flags: Imploterrorbarsflags_28313172; offset: cint;
       stride: cint): void {.cdecl, importc: "ImPlot_PlotErrorBars_S32PtrS32PtrS32PtrInt".}
 else:
   static :
@@ -23037,7 +24476,7 @@ else:
 when not declared(Implotploterrorbarsu32ptru32ptru32ptrint):
   proc Implotploterrorbarsu32ptru32ptru32ptrint*(labelid: cstring;
       xs: ptr Imu32_28312310; ys: ptr Imu32_28312310; err: ptr Imu32_28312310;
-      count: cint; flags: Imploterrorbarsflags_28313022; offset: cint;
+      count: cint; flags: Imploterrorbarsflags_28313172; offset: cint;
       stride: cint): void {.cdecl, importc: "ImPlot_PlotErrorBars_U32PtrU32PtrU32PtrInt".}
 else:
   static :
@@ -23046,7 +24485,7 @@ else:
 when not declared(Implotploterrorbarss64ptrs64ptrs64ptrint):
   proc Implotploterrorbarss64ptrs64ptrs64ptrint*(labelid: cstring;
       xs: ptr Ims64_28312312; ys: ptr Ims64_28312312; err: ptr Ims64_28312312;
-      count: cint; flags: Imploterrorbarsflags_28313022; offset: cint;
+      count: cint; flags: Imploterrorbarsflags_28313172; offset: cint;
       stride: cint): void {.cdecl, importc: "ImPlot_PlotErrorBars_S64PtrS64PtrS64PtrInt".}
 else:
   static :
@@ -23055,7 +24494,7 @@ else:
 when not declared(Implotploterrorbarsu64ptru64ptru64ptrint):
   proc Implotploterrorbarsu64ptru64ptru64ptrint*(labelid: cstring;
       xs: ptr Imu64_28311933; ys: ptr Imu64_28311933; err: ptr Imu64_28311933;
-      count: cint; flags: Imploterrorbarsflags_28313022; offset: cint;
+      count: cint; flags: Imploterrorbarsflags_28313172; offset: cint;
       stride: cint): void {.cdecl, importc: "ImPlot_PlotErrorBars_U64PtrU64PtrU64PtrInt".}
 else:
   static :
@@ -23064,7 +24503,7 @@ else:
 when not declared(Implotploterrorbarsfloatptrfloatptrfloatptrfloatptr):
   proc Implotploterrorbarsfloatptrfloatptrfloatptrfloatptr*(labelid: cstring;
       xs: ptr cfloat; ys: ptr cfloat; neg: ptr cfloat; pos: ptr cfloat;
-      count: cint; flags: Imploterrorbarsflags_28313022; offset: cint;
+      count: cint; flags: Imploterrorbarsflags_28313172; offset: cint;
       stride: cint): void {.cdecl, importc: "ImPlot_PlotErrorBars_FloatPtrFloatPtrFloatPtrFloatPtr".}
 else:
   static :
@@ -23074,7 +24513,7 @@ else:
 when not declared(Implotploterrorbarsdoubleptrdoubleptrdoubleptrdoubleptr):
   proc Implotploterrorbarsdoubleptrdoubleptrdoubleptrdoubleptr*(
       labelid: cstring; xs: ptr cdouble; ys: ptr cdouble; neg: ptr cdouble;
-      pos: ptr cdouble; count: cint; flags: Imploterrorbarsflags_28313022;
+      pos: ptr cdouble; count: cint; flags: Imploterrorbarsflags_28313172;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotErrorBars_doublePtrdoublePtrdoublePtrdoublePtr".}
 else:
@@ -23083,10 +24522,10 @@ else:
         "Implotploterrorbarsdoubleptrdoubleptrdoubleptrdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotploterrorbarss8ptrs8ptrs8ptrs8ptr):
-  proc Implotploterrorbarss8ptrs8ptrs8ptrs8ptr*(labelid: cstring; xs: cstring;
-      ys: cstring; neg: cstring; pos: cstring; count: cint;
-      flags: Imploterrorbarsflags_28313022; offset: cint; stride: cint): void {.
-      cdecl, importc: "ImPlot_PlotErrorBars_S8PtrS8PtrS8PtrS8Ptr".}
+  proc Implotploterrorbarss8ptrs8ptrs8ptrs8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
+      ys: ptr Ims8_28312300; neg: ptr Ims8_28312300; pos: ptr Ims8_28312300;
+      count: cint; flags: Imploterrorbarsflags_28313172; offset: cint;
+      stride: cint): void {.cdecl, importc: "ImPlot_PlotErrorBars_S8PtrS8PtrS8PtrS8Ptr".}
 else:
   static :
     hint("Declaration of " & "Implotploterrorbarss8ptrs8ptrs8ptrs8ptr" &
@@ -23094,7 +24533,7 @@ else:
 when not declared(Implotploterrorbarsu8ptru8ptru8ptru8ptr):
   proc Implotploterrorbarsu8ptru8ptru8ptru8ptr*(labelid: cstring; xs: ptr Imu8_28312302;
       ys: ptr Imu8_28312302; neg: ptr Imu8_28312302; pos: ptr Imu8_28312302;
-      count: cint; flags: Imploterrorbarsflags_28313022; offset: cint;
+      count: cint; flags: Imploterrorbarsflags_28313172; offset: cint;
       stride: cint): void {.cdecl, importc: "ImPlot_PlotErrorBars_U8PtrU8PtrU8PtrU8Ptr".}
 else:
   static :
@@ -23103,7 +24542,7 @@ else:
 when not declared(Implotploterrorbarss16ptrs16ptrs16ptrs16ptr):
   proc Implotploterrorbarss16ptrs16ptrs16ptrs16ptr*(labelid: cstring;
       xs: ptr Ims16_28312304; ys: ptr Ims16_28312304; neg: ptr Ims16_28312304;
-      pos: ptr Ims16_28312304; count: cint; flags: Imploterrorbarsflags_28313022;
+      pos: ptr Ims16_28312304; count: cint; flags: Imploterrorbarsflags_28313172;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotErrorBars_S16PtrS16PtrS16PtrS16Ptr".}
 else:
@@ -23113,7 +24552,7 @@ else:
 when not declared(Implotploterrorbarsu16ptru16ptru16ptru16ptr):
   proc Implotploterrorbarsu16ptru16ptru16ptru16ptr*(labelid: cstring;
       xs: ptr Imu16_28312306; ys: ptr Imu16_28312306; neg: ptr Imu16_28312306;
-      pos: ptr Imu16_28312306; count: cint; flags: Imploterrorbarsflags_28313022;
+      pos: ptr Imu16_28312306; count: cint; flags: Imploterrorbarsflags_28313172;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotErrorBars_U16PtrU16PtrU16PtrU16Ptr".}
 else:
@@ -23123,7 +24562,7 @@ else:
 when not declared(Implotploterrorbarss32ptrs32ptrs32ptrs32ptr):
   proc Implotploterrorbarss32ptrs32ptrs32ptrs32ptr*(labelid: cstring;
       xs: ptr Ims32_28312308; ys: ptr Ims32_28312308; neg: ptr Ims32_28312308;
-      pos: ptr Ims32_28312308; count: cint; flags: Imploterrorbarsflags_28313022;
+      pos: ptr Ims32_28312308; count: cint; flags: Imploterrorbarsflags_28313172;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotErrorBars_S32PtrS32PtrS32PtrS32Ptr".}
 else:
@@ -23133,7 +24572,7 @@ else:
 when not declared(Implotploterrorbarsu32ptru32ptru32ptru32ptr):
   proc Implotploterrorbarsu32ptru32ptru32ptru32ptr*(labelid: cstring;
       xs: ptr Imu32_28312310; ys: ptr Imu32_28312310; neg: ptr Imu32_28312310;
-      pos: ptr Imu32_28312310; count: cint; flags: Imploterrorbarsflags_28313022;
+      pos: ptr Imu32_28312310; count: cint; flags: Imploterrorbarsflags_28313172;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotErrorBars_U32PtrU32PtrU32PtrU32Ptr".}
 else:
@@ -23143,7 +24582,7 @@ else:
 when not declared(Implotploterrorbarss64ptrs64ptrs64ptrs64ptr):
   proc Implotploterrorbarss64ptrs64ptrs64ptrs64ptr*(labelid: cstring;
       xs: ptr Ims64_28312312; ys: ptr Ims64_28312312; neg: ptr Ims64_28312312;
-      pos: ptr Ims64_28312312; count: cint; flags: Imploterrorbarsflags_28313022;
+      pos: ptr Ims64_28312312; count: cint; flags: Imploterrorbarsflags_28313172;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotErrorBars_S64PtrS64PtrS64PtrS64Ptr".}
 else:
@@ -23153,7 +24592,7 @@ else:
 when not declared(Implotploterrorbarsu64ptru64ptru64ptru64ptr):
   proc Implotploterrorbarsu64ptru64ptru64ptru64ptr*(labelid: cstring;
       xs: ptr Imu64_28311933; ys: ptr Imu64_28311933; neg: ptr Imu64_28311933;
-      pos: ptr Imu64_28311933; count: cint; flags: Imploterrorbarsflags_28313022;
+      pos: ptr Imu64_28311933; count: cint; flags: Imploterrorbarsflags_28313172;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotErrorBars_U64PtrU64PtrU64PtrU64Ptr".}
 else:
@@ -23163,7 +24602,7 @@ else:
 when not declared(Implotplotstemsfloatptrint):
   proc Implotplotstemsfloatptrint*(labelid: cstring; values: ptr cfloat;
                                    count: cint; refarg: cdouble; scale: cdouble;
-                                   start: cdouble; flags: Implotstemsflags_28313024;
+                                   start: cdouble; flags: Implotstemsflags_28313174;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_FloatPtrInt".}
 else:
@@ -23174,7 +24613,7 @@ when not declared(Implotplotstemsdoubleptrint):
   proc Implotplotstemsdoubleptrint*(labelid: cstring; values: ptr cdouble;
                                     count: cint; refarg: cdouble;
                                     scale: cdouble; start: cdouble;
-                                    flags: Implotstemsflags_28313024;
+                                    flags: Implotstemsflags_28313174;
                                     offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_doublePtrInt".}
 else:
@@ -23182,10 +24621,10 @@ else:
     hint("Declaration of " & "Implotplotstemsdoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotplotstemss8ptrint):
-  proc Implotplotstemss8ptrint*(labelid: cstring; values: cstring; count: cint;
-                                refarg: cdouble; scale: cdouble; start: cdouble;
-                                flags: Implotstemsflags_28313024; offset: cint;
-                                stride: cint): void {.cdecl,
+  proc Implotplotstemss8ptrint*(labelid: cstring; values: ptr Ims8_28312300;
+                                count: cint; refarg: cdouble; scale: cdouble;
+                                start: cdouble; flags: Implotstemsflags_28313174;
+                                offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_S8PtrInt".}
 else:
   static :
@@ -23194,7 +24633,7 @@ else:
 when not declared(Implotplotstemsu8ptrint):
   proc Implotplotstemsu8ptrint*(labelid: cstring; values: ptr Imu8_28312302;
                                 count: cint; refarg: cdouble; scale: cdouble;
-                                start: cdouble; flags: Implotstemsflags_28313024;
+                                start: cdouble; flags: Implotstemsflags_28313174;
                                 offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_U8PtrInt".}
 else:
@@ -23204,7 +24643,7 @@ else:
 when not declared(Implotplotstemss16ptrint):
   proc Implotplotstemss16ptrint*(labelid: cstring; values: ptr Ims16_28312304;
                                  count: cint; refarg: cdouble; scale: cdouble;
-                                 start: cdouble; flags: Implotstemsflags_28313024;
+                                 start: cdouble; flags: Implotstemsflags_28313174;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_S16PtrInt".}
 else:
@@ -23214,7 +24653,7 @@ else:
 when not declared(Implotplotstemsu16ptrint):
   proc Implotplotstemsu16ptrint*(labelid: cstring; values: ptr Imu16_28312306;
                                  count: cint; refarg: cdouble; scale: cdouble;
-                                 start: cdouble; flags: Implotstemsflags_28313024;
+                                 start: cdouble; flags: Implotstemsflags_28313174;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_U16PtrInt".}
 else:
@@ -23224,7 +24663,7 @@ else:
 when not declared(Implotplotstemss32ptrint):
   proc Implotplotstemss32ptrint*(labelid: cstring; values: ptr Ims32_28312308;
                                  count: cint; refarg: cdouble; scale: cdouble;
-                                 start: cdouble; flags: Implotstemsflags_28313024;
+                                 start: cdouble; flags: Implotstemsflags_28313174;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_S32PtrInt".}
 else:
@@ -23234,7 +24673,7 @@ else:
 when not declared(Implotplotstemsu32ptrint):
   proc Implotplotstemsu32ptrint*(labelid: cstring; values: ptr Imu32_28312310;
                                  count: cint; refarg: cdouble; scale: cdouble;
-                                 start: cdouble; flags: Implotstemsflags_28313024;
+                                 start: cdouble; flags: Implotstemsflags_28313174;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_U32PtrInt".}
 else:
@@ -23244,7 +24683,7 @@ else:
 when not declared(Implotplotstemss64ptrint):
   proc Implotplotstemss64ptrint*(labelid: cstring; values: ptr Ims64_28312312;
                                  count: cint; refarg: cdouble; scale: cdouble;
-                                 start: cdouble; flags: Implotstemsflags_28313024;
+                                 start: cdouble; flags: Implotstemsflags_28313174;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_S64PtrInt".}
 else:
@@ -23254,7 +24693,7 @@ else:
 when not declared(Implotplotstemsu64ptrint):
   proc Implotplotstemsu64ptrint*(labelid: cstring; values: ptr Imu64_28311933;
                                  count: cint; refarg: cdouble; scale: cdouble;
-                                 start: cdouble; flags: Implotstemsflags_28313024;
+                                 start: cdouble; flags: Implotstemsflags_28313174;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_U64PtrInt".}
 else:
@@ -23265,7 +24704,7 @@ when not declared(Implotplotstemsfloatptrfloatptr):
   proc Implotplotstemsfloatptrfloatptr*(labelid: cstring; xs: ptr cfloat;
                                         ys: ptr cfloat; count: cint;
                                         refarg: cdouble;
-                                        flags: Implotstemsflags_28313024;
+                                        flags: Implotstemsflags_28313174;
                                         offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotStems_FloatPtrFloatPtr".}
 else:
@@ -23274,7 +24713,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotstemsdoubleptrdoubleptr):
   proc Implotplotstemsdoubleptrdoubleptr*(labelid: cstring; xs: ptr cdouble;
-      ys: ptr cdouble; count: cint; refarg: cdouble; flags: Implotstemsflags_28313024;
+      ys: ptr cdouble; count: cint; refarg: cdouble; flags: Implotstemsflags_28313174;
       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_doublePtrdoublePtr".}
 else:
@@ -23282,9 +24721,9 @@ else:
     hint("Declaration of " & "Implotplotstemsdoubleptrdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotstemss8ptrs8ptr):
-  proc Implotplotstemss8ptrs8ptr*(labelid: cstring; xs: cstring; ys: cstring;
-                                  count: cint; refarg: cdouble;
-                                  flags: Implotstemsflags_28313024;
+  proc Implotplotstemss8ptrs8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
+                                  ys: ptr Ims8_28312300; count: cint;
+                                  refarg: cdouble; flags: Implotstemsflags_28313174;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_S8PtrS8Ptr".}
 else:
@@ -23294,7 +24733,7 @@ else:
 when not declared(Implotplotstemsu8ptru8ptr):
   proc Implotplotstemsu8ptru8ptr*(labelid: cstring; xs: ptr Imu8_28312302;
                                   ys: ptr Imu8_28312302; count: cint;
-                                  refarg: cdouble; flags: Implotstemsflags_28313024;
+                                  refarg: cdouble; flags: Implotstemsflags_28313174;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_U8PtrU8Ptr".}
 else:
@@ -23304,7 +24743,7 @@ else:
 when not declared(Implotplotstemss16ptrs16ptr):
   proc Implotplotstemss16ptrs16ptr*(labelid: cstring; xs: ptr Ims16_28312304;
                                     ys: ptr Ims16_28312304; count: cint;
-                                    refarg: cdouble; flags: Implotstemsflags_28313024;
+                                    refarg: cdouble; flags: Implotstemsflags_28313174;
                                     offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_S16PtrS16Ptr".}
 else:
@@ -23314,7 +24753,7 @@ else:
 when not declared(Implotplotstemsu16ptru16ptr):
   proc Implotplotstemsu16ptru16ptr*(labelid: cstring; xs: ptr Imu16_28312306;
                                     ys: ptr Imu16_28312306; count: cint;
-                                    refarg: cdouble; flags: Implotstemsflags_28313024;
+                                    refarg: cdouble; flags: Implotstemsflags_28313174;
                                     offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_U16PtrU16Ptr".}
 else:
@@ -23324,7 +24763,7 @@ else:
 when not declared(Implotplotstemss32ptrs32ptr):
   proc Implotplotstemss32ptrs32ptr*(labelid: cstring; xs: ptr Ims32_28312308;
                                     ys: ptr Ims32_28312308; count: cint;
-                                    refarg: cdouble; flags: Implotstemsflags_28313024;
+                                    refarg: cdouble; flags: Implotstemsflags_28313174;
                                     offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_S32PtrS32Ptr".}
 else:
@@ -23334,7 +24773,7 @@ else:
 when not declared(Implotplotstemsu32ptru32ptr):
   proc Implotplotstemsu32ptru32ptr*(labelid: cstring; xs: ptr Imu32_28312310;
                                     ys: ptr Imu32_28312310; count: cint;
-                                    refarg: cdouble; flags: Implotstemsflags_28313024;
+                                    refarg: cdouble; flags: Implotstemsflags_28313174;
                                     offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_U32PtrU32Ptr".}
 else:
@@ -23344,7 +24783,7 @@ else:
 when not declared(Implotplotstemss64ptrs64ptr):
   proc Implotplotstemss64ptrs64ptr*(labelid: cstring; xs: ptr Ims64_28312312;
                                     ys: ptr Ims64_28312312; count: cint;
-                                    refarg: cdouble; flags: Implotstemsflags_28313024;
+                                    refarg: cdouble; flags: Implotstemsflags_28313174;
                                     offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_S64PtrS64Ptr".}
 else:
@@ -23354,7 +24793,7 @@ else:
 when not declared(Implotplotstemsu64ptru64ptr):
   proc Implotplotstemsu64ptru64ptr*(labelid: cstring; xs: ptr Imu64_28311933;
                                     ys: ptr Imu64_28311933; count: cint;
-                                    refarg: cdouble; flags: Implotstemsflags_28313024;
+                                    refarg: cdouble; flags: Implotstemsflags_28313174;
                                     offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_U64PtrU64Ptr".}
 else:
@@ -23363,7 +24802,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotinflinesfloatptr):
   proc Implotplotinflinesfloatptr*(labelid: cstring; values: ptr cfloat;
-                                   count: cint; flags: Implotinflinesflags_28313026;
+                                   count: cint; flags: Implotinflinesflags_28313176;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotInfLines_FloatPtr".}
 else:
@@ -23372,7 +24811,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotinflinesdoubleptr):
   proc Implotplotinflinesdoubleptr*(labelid: cstring; values: ptr cdouble;
-                                    count: cint; flags: Implotinflinesflags_28313026;
+                                    count: cint; flags: Implotinflinesflags_28313176;
                                     offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotInfLines_doublePtr".}
 else:
@@ -23380,8 +24819,8 @@ else:
     hint("Declaration of " & "Implotplotinflinesdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotinfliness8ptr):
-  proc Implotplotinfliness8ptr*(labelid: cstring; values: cstring; count: cint;
-                                flags: Implotinflinesflags_28313026;
+  proc Implotplotinfliness8ptr*(labelid: cstring; values: ptr Ims8_28312300;
+                                count: cint; flags: Implotinflinesflags_28313176;
                                 offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotInfLines_S8Ptr".}
 else:
@@ -23390,7 +24829,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotinflinesu8ptr):
   proc Implotplotinflinesu8ptr*(labelid: cstring; values: ptr Imu8_28312302;
-                                count: cint; flags: Implotinflinesflags_28313026;
+                                count: cint; flags: Implotinflinesflags_28313176;
                                 offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotInfLines_U8Ptr".}
 else:
@@ -23399,7 +24838,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotinfliness16ptr):
   proc Implotplotinfliness16ptr*(labelid: cstring; values: ptr Ims16_28312304;
-                                 count: cint; flags: Implotinflinesflags_28313026;
+                                 count: cint; flags: Implotinflinesflags_28313176;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotInfLines_S16Ptr".}
 else:
@@ -23408,7 +24847,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotinflinesu16ptr):
   proc Implotplotinflinesu16ptr*(labelid: cstring; values: ptr Imu16_28312306;
-                                 count: cint; flags: Implotinflinesflags_28313026;
+                                 count: cint; flags: Implotinflinesflags_28313176;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotInfLines_U16Ptr".}
 else:
@@ -23417,7 +24856,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotinfliness32ptr):
   proc Implotplotinfliness32ptr*(labelid: cstring; values: ptr Ims32_28312308;
-                                 count: cint; flags: Implotinflinesflags_28313026;
+                                 count: cint; flags: Implotinflinesflags_28313176;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotInfLines_S32Ptr".}
 else:
@@ -23426,7 +24865,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotinflinesu32ptr):
   proc Implotplotinflinesu32ptr*(labelid: cstring; values: ptr Imu32_28312310;
-                                 count: cint; flags: Implotinflinesflags_28313026;
+                                 count: cint; flags: Implotinflinesflags_28313176;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotInfLines_U32Ptr".}
 else:
@@ -23435,7 +24874,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotinfliness64ptr):
   proc Implotplotinfliness64ptr*(labelid: cstring; values: ptr Ims64_28312312;
-                                 count: cint; flags: Implotinflinesflags_28313026;
+                                 count: cint; flags: Implotinflinesflags_28313176;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotInfLines_S64Ptr".}
 else:
@@ -23444,7 +24883,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotinflinesu64ptr):
   proc Implotplotinflinesu64ptr*(labelid: cstring; values: ptr Imu64_28311933;
-                                 count: cint; flags: Implotinflinesflags_28313026;
+                                 count: cint; flags: Implotinflinesflags_28313176;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotInfLines_U64Ptr".}
 else:
@@ -23456,7 +24895,7 @@ when not declared(Implotplotpiechartfloatptr):
                                    values: ptr cfloat; count: cint; x: cdouble;
                                    y: cdouble; radius: cdouble;
                                    labelfmt: cstring; angle0: cdouble;
-                                   flags: Implotpiechartflags_28313028): void {.
+                                   flags: Implotpiechartflags_28313178): void {.
       cdecl, importc: "ImPlot_PlotPieChart_FloatPtr".}
 else:
   static :
@@ -23467,7 +24906,7 @@ when not declared(Implotplotpiechartdoubleptr):
                                     values: ptr cdouble; count: cint;
                                     x: cdouble; y: cdouble; radius: cdouble;
                                     labelfmt: cstring; angle0: cdouble;
-                                    flags: Implotpiechartflags_28313028): void {.
+                                    flags: Implotpiechartflags_28313178): void {.
       cdecl, importc: "ImPlot_PlotPieChart_doublePtr".}
 else:
   static :
@@ -23475,9 +24914,10 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotpiecharts8ptr):
   proc Implotplotpiecharts8ptr*(labelids: ptr UncheckedArray[cstring];
-                                values: cstring; count: cint; x: cdouble;
-                                y: cdouble; radius: cdouble; labelfmt: cstring;
-                                angle0: cdouble; flags: Implotpiechartflags_28313028): void {.
+                                values: ptr Ims8_28312300; count: cint;
+                                x: cdouble; y: cdouble; radius: cdouble;
+                                labelfmt: cstring; angle0: cdouble;
+                                flags: Implotpiechartflags_28313178): void {.
       cdecl, importc: "ImPlot_PlotPieChart_S8Ptr".}
 else:
   static :
@@ -23488,7 +24928,7 @@ when not declared(Implotplotpiechartu8ptr):
                                 values: ptr Imu8_28312302; count: cint;
                                 x: cdouble; y: cdouble; radius: cdouble;
                                 labelfmt: cstring; angle0: cdouble;
-                                flags: Implotpiechartflags_28313028): void {.
+                                flags: Implotpiechartflags_28313178): void {.
       cdecl, importc: "ImPlot_PlotPieChart_U8Ptr".}
 else:
   static :
@@ -23499,7 +24939,7 @@ when not declared(Implotplotpiecharts16ptr):
                                  values: ptr Ims16_28312304; count: cint;
                                  x: cdouble; y: cdouble; radius: cdouble;
                                  labelfmt: cstring; angle0: cdouble;
-                                 flags: Implotpiechartflags_28313028): void {.
+                                 flags: Implotpiechartflags_28313178): void {.
       cdecl, importc: "ImPlot_PlotPieChart_S16Ptr".}
 else:
   static :
@@ -23510,7 +24950,7 @@ when not declared(Implotplotpiechartu16ptr):
                                  values: ptr Imu16_28312306; count: cint;
                                  x: cdouble; y: cdouble; radius: cdouble;
                                  labelfmt: cstring; angle0: cdouble;
-                                 flags: Implotpiechartflags_28313028): void {.
+                                 flags: Implotpiechartflags_28313178): void {.
       cdecl, importc: "ImPlot_PlotPieChart_U16Ptr".}
 else:
   static :
@@ -23521,7 +24961,7 @@ when not declared(Implotplotpiecharts32ptr):
                                  values: ptr Ims32_28312308; count: cint;
                                  x: cdouble; y: cdouble; radius: cdouble;
                                  labelfmt: cstring; angle0: cdouble;
-                                 flags: Implotpiechartflags_28313028): void {.
+                                 flags: Implotpiechartflags_28313178): void {.
       cdecl, importc: "ImPlot_PlotPieChart_S32Ptr".}
 else:
   static :
@@ -23532,7 +24972,7 @@ when not declared(Implotplotpiechartu32ptr):
                                  values: ptr Imu32_28312310; count: cint;
                                  x: cdouble; y: cdouble; radius: cdouble;
                                  labelfmt: cstring; angle0: cdouble;
-                                 flags: Implotpiechartflags_28313028): void {.
+                                 flags: Implotpiechartflags_28313178): void {.
       cdecl, importc: "ImPlot_PlotPieChart_U32Ptr".}
 else:
   static :
@@ -23543,7 +24983,7 @@ when not declared(Implotplotpiecharts64ptr):
                                  values: ptr Ims64_28312312; count: cint;
                                  x: cdouble; y: cdouble; radius: cdouble;
                                  labelfmt: cstring; angle0: cdouble;
-                                 flags: Implotpiechartflags_28313028): void {.
+                                 flags: Implotpiechartflags_28313178): void {.
       cdecl, importc: "ImPlot_PlotPieChart_S64Ptr".}
 else:
   static :
@@ -23554,7 +24994,7 @@ when not declared(Implotplotpiechartu64ptr):
                                  values: ptr Imu64_28311933; count: cint;
                                  x: cdouble; y: cdouble; radius: cdouble;
                                  labelfmt: cstring; angle0: cdouble;
-                                 flags: Implotpiechartflags_28313028): void {.
+                                 flags: Implotpiechartflags_28313178): void {.
       cdecl, importc: "ImPlot_PlotPieChart_U64Ptr".}
 else:
   static :
@@ -23564,9 +25004,9 @@ when not declared(Implotplotheatmapfloatptr):
   proc Implotplotheatmapfloatptr*(labelid: cstring; values: ptr cfloat;
                                   rows: cint; cols: cint; scalemin: cdouble;
                                   scalemax: cdouble; labelfmt: cstring;
-                                  boundsmin: Implotpoint_28313124;
-                                  boundsmax: Implotpoint_28313124;
-                                  flags: Implotheatmapflags_28313030): void {.
+                                  boundsmin: Implotpoint_28313340;
+                                  boundsmax: Implotpoint_28313340;
+                                  flags: Implotheatmapflags_28313180): void {.
       cdecl, importc: "ImPlot_PlotHeatmap_FloatPtr".}
 else:
   static :
@@ -23576,20 +25016,21 @@ when not declared(Implotplotheatmapdoubleptr):
   proc Implotplotheatmapdoubleptr*(labelid: cstring; values: ptr cdouble;
                                    rows: cint; cols: cint; scalemin: cdouble;
                                    scalemax: cdouble; labelfmt: cstring;
-                                   boundsmin: Implotpoint_28313124;
-                                   boundsmax: Implotpoint_28313124;
-                                   flags: Implotheatmapflags_28313030): void {.
+                                   boundsmin: Implotpoint_28313340;
+                                   boundsmax: Implotpoint_28313340;
+                                   flags: Implotheatmapflags_28313180): void {.
       cdecl, importc: "ImPlot_PlotHeatmap_doublePtr".}
 else:
   static :
     hint("Declaration of " & "Implotplotheatmapdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotheatmaps8ptr):
-  proc Implotplotheatmaps8ptr*(labelid: cstring; values: cstring; rows: cint;
-                               cols: cint; scalemin: cdouble; scalemax: cdouble;
-                               labelfmt: cstring; boundsmin: Implotpoint_28313124;
-                               boundsmax: Implotpoint_28313124;
-                               flags: Implotheatmapflags_28313030): void {.
+  proc Implotplotheatmaps8ptr*(labelid: cstring; values: ptr Ims8_28312300;
+                               rows: cint; cols: cint; scalemin: cdouble;
+                               scalemax: cdouble; labelfmt: cstring;
+                               boundsmin: Implotpoint_28313340;
+                               boundsmax: Implotpoint_28313340;
+                               flags: Implotheatmapflags_28313180): void {.
       cdecl, importc: "ImPlot_PlotHeatmap_S8Ptr".}
 else:
   static :
@@ -23599,9 +25040,9 @@ when not declared(Implotplotheatmapu8ptr):
   proc Implotplotheatmapu8ptr*(labelid: cstring; values: ptr Imu8_28312302;
                                rows: cint; cols: cint; scalemin: cdouble;
                                scalemax: cdouble; labelfmt: cstring;
-                               boundsmin: Implotpoint_28313124;
-                               boundsmax: Implotpoint_28313124;
-                               flags: Implotheatmapflags_28313030): void {.
+                               boundsmin: Implotpoint_28313340;
+                               boundsmax: Implotpoint_28313340;
+                               flags: Implotheatmapflags_28313180): void {.
       cdecl, importc: "ImPlot_PlotHeatmap_U8Ptr".}
 else:
   static :
@@ -23611,9 +25052,9 @@ when not declared(Implotplotheatmaps16ptr):
   proc Implotplotheatmaps16ptr*(labelid: cstring; values: ptr Ims16_28312304;
                                 rows: cint; cols: cint; scalemin: cdouble;
                                 scalemax: cdouble; labelfmt: cstring;
-                                boundsmin: Implotpoint_28313124;
-                                boundsmax: Implotpoint_28313124;
-                                flags: Implotheatmapflags_28313030): void {.
+                                boundsmin: Implotpoint_28313340;
+                                boundsmax: Implotpoint_28313340;
+                                flags: Implotheatmapflags_28313180): void {.
       cdecl, importc: "ImPlot_PlotHeatmap_S16Ptr".}
 else:
   static :
@@ -23623,9 +25064,9 @@ when not declared(Implotplotheatmapu16ptr):
   proc Implotplotheatmapu16ptr*(labelid: cstring; values: ptr Imu16_28312306;
                                 rows: cint; cols: cint; scalemin: cdouble;
                                 scalemax: cdouble; labelfmt: cstring;
-                                boundsmin: Implotpoint_28313124;
-                                boundsmax: Implotpoint_28313124;
-                                flags: Implotheatmapflags_28313030): void {.
+                                boundsmin: Implotpoint_28313340;
+                                boundsmax: Implotpoint_28313340;
+                                flags: Implotheatmapflags_28313180): void {.
       cdecl, importc: "ImPlot_PlotHeatmap_U16Ptr".}
 else:
   static :
@@ -23635,9 +25076,9 @@ when not declared(Implotplotheatmaps32ptr):
   proc Implotplotheatmaps32ptr*(labelid: cstring; values: ptr Ims32_28312308;
                                 rows: cint; cols: cint; scalemin: cdouble;
                                 scalemax: cdouble; labelfmt: cstring;
-                                boundsmin: Implotpoint_28313124;
-                                boundsmax: Implotpoint_28313124;
-                                flags: Implotheatmapflags_28313030): void {.
+                                boundsmin: Implotpoint_28313340;
+                                boundsmax: Implotpoint_28313340;
+                                flags: Implotheatmapflags_28313180): void {.
       cdecl, importc: "ImPlot_PlotHeatmap_S32Ptr".}
 else:
   static :
@@ -23647,9 +25088,9 @@ when not declared(Implotplotheatmapu32ptr):
   proc Implotplotheatmapu32ptr*(labelid: cstring; values: ptr Imu32_28312310;
                                 rows: cint; cols: cint; scalemin: cdouble;
                                 scalemax: cdouble; labelfmt: cstring;
-                                boundsmin: Implotpoint_28313124;
-                                boundsmax: Implotpoint_28313124;
-                                flags: Implotheatmapflags_28313030): void {.
+                                boundsmin: Implotpoint_28313340;
+                                boundsmax: Implotpoint_28313340;
+                                flags: Implotheatmapflags_28313180): void {.
       cdecl, importc: "ImPlot_PlotHeatmap_U32Ptr".}
 else:
   static :
@@ -23659,9 +25100,9 @@ when not declared(Implotplotheatmaps64ptr):
   proc Implotplotheatmaps64ptr*(labelid: cstring; values: ptr Ims64_28312312;
                                 rows: cint; cols: cint; scalemin: cdouble;
                                 scalemax: cdouble; labelfmt: cstring;
-                                boundsmin: Implotpoint_28313124;
-                                boundsmax: Implotpoint_28313124;
-                                flags: Implotheatmapflags_28313030): void {.
+                                boundsmin: Implotpoint_28313340;
+                                boundsmax: Implotpoint_28313340;
+                                flags: Implotheatmapflags_28313180): void {.
       cdecl, importc: "ImPlot_PlotHeatmap_S64Ptr".}
 else:
   static :
@@ -23671,9 +25112,9 @@ when not declared(Implotplotheatmapu64ptr):
   proc Implotplotheatmapu64ptr*(labelid: cstring; values: ptr Imu64_28311933;
                                 rows: cint; cols: cint; scalemin: cdouble;
                                 scalemax: cdouble; labelfmt: cstring;
-                                boundsmin: Implotpoint_28313124;
-                                boundsmax: Implotpoint_28313124;
-                                flags: Implotheatmapflags_28313030): void {.
+                                boundsmin: Implotpoint_28313340;
+                                boundsmax: Implotpoint_28313340;
+                                flags: Implotheatmapflags_28313180): void {.
       cdecl, importc: "ImPlot_PlotHeatmap_U64Ptr".}
 else:
   static :
@@ -23682,8 +25123,8 @@ else:
 when not declared(Implotplothistogramfloatptr):
   proc Implotplothistogramfloatptr*(labelid: cstring; values: ptr cfloat;
                                     count: cint; bins: cint; barscale: cdouble;
-                                    range: Implotrange_28313128;
-                                    flags: Implothistogramflags_28313032): cdouble {.
+                                    range: Implotrange_28313344;
+                                    flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram_FloatPtr".}
 else:
   static :
@@ -23692,18 +25133,18 @@ else:
 when not declared(Implotplothistogramdoubleptr):
   proc Implotplothistogramdoubleptr*(labelid: cstring; values: ptr cdouble;
                                      count: cint; bins: cint; barscale: cdouble;
-                                     range: Implotrange_28313128;
-                                     flags: Implothistogramflags_28313032): cdouble {.
+                                     range: Implotrange_28313344;
+                                     flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram_doublePtr".}
 else:
   static :
     hint("Declaration of " & "Implotplothistogramdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplothistograms8ptr):
-  proc Implotplothistograms8ptr*(labelid: cstring; values: cstring; count: cint;
-                                 bins: cint; barscale: cdouble;
-                                 range: Implotrange_28313128;
-                                 flags: Implothistogramflags_28313032): cdouble {.
+  proc Implotplothistograms8ptr*(labelid: cstring; values: ptr Ims8_28312300;
+                                 count: cint; bins: cint; barscale: cdouble;
+                                 range: Implotrange_28313344;
+                                 flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram_S8Ptr".}
 else:
   static :
@@ -23712,8 +25153,8 @@ else:
 when not declared(Implotplothistogramu8ptr):
   proc Implotplothistogramu8ptr*(labelid: cstring; values: ptr Imu8_28312302;
                                  count: cint; bins: cint; barscale: cdouble;
-                                 range: Implotrange_28313128;
-                                 flags: Implothistogramflags_28313032): cdouble {.
+                                 range: Implotrange_28313344;
+                                 flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram_U8Ptr".}
 else:
   static :
@@ -23722,8 +25163,8 @@ else:
 when not declared(Implotplothistograms16ptr):
   proc Implotplothistograms16ptr*(labelid: cstring; values: ptr Ims16_28312304;
                                   count: cint; bins: cint; barscale: cdouble;
-                                  range: Implotrange_28313128;
-                                  flags: Implothistogramflags_28313032): cdouble {.
+                                  range: Implotrange_28313344;
+                                  flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram_S16Ptr".}
 else:
   static :
@@ -23732,8 +25173,8 @@ else:
 when not declared(Implotplothistogramu16ptr):
   proc Implotplothistogramu16ptr*(labelid: cstring; values: ptr Imu16_28312306;
                                   count: cint; bins: cint; barscale: cdouble;
-                                  range: Implotrange_28313128;
-                                  flags: Implothistogramflags_28313032): cdouble {.
+                                  range: Implotrange_28313344;
+                                  flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram_U16Ptr".}
 else:
   static :
@@ -23742,8 +25183,8 @@ else:
 when not declared(Implotplothistograms32ptr):
   proc Implotplothistograms32ptr*(labelid: cstring; values: ptr Ims32_28312308;
                                   count: cint; bins: cint; barscale: cdouble;
-                                  range: Implotrange_28313128;
-                                  flags: Implothistogramflags_28313032): cdouble {.
+                                  range: Implotrange_28313344;
+                                  flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram_S32Ptr".}
 else:
   static :
@@ -23752,8 +25193,8 @@ else:
 when not declared(Implotplothistogramu32ptr):
   proc Implotplothistogramu32ptr*(labelid: cstring; values: ptr Imu32_28312310;
                                   count: cint; bins: cint; barscale: cdouble;
-                                  range: Implotrange_28313128;
-                                  flags: Implothistogramflags_28313032): cdouble {.
+                                  range: Implotrange_28313344;
+                                  flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram_U32Ptr".}
 else:
   static :
@@ -23762,8 +25203,8 @@ else:
 when not declared(Implotplothistograms64ptr):
   proc Implotplothistograms64ptr*(labelid: cstring; values: ptr Ims64_28312312;
                                   count: cint; bins: cint; barscale: cdouble;
-                                  range: Implotrange_28313128;
-                                  flags: Implothistogramflags_28313032): cdouble {.
+                                  range: Implotrange_28313344;
+                                  flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram_S64Ptr".}
 else:
   static :
@@ -23772,8 +25213,8 @@ else:
 when not declared(Implotplothistogramu64ptr):
   proc Implotplothistogramu64ptr*(labelid: cstring; values: ptr Imu64_28311933;
                                   count: cint; bins: cint; barscale: cdouble;
-                                  range: Implotrange_28313128;
-                                  flags: Implothistogramflags_28313032): cdouble {.
+                                  range: Implotrange_28313344;
+                                  flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram_U64Ptr".}
 else:
   static :
@@ -23782,8 +25223,8 @@ else:
 when not declared(Implotplothistogram2dfloatptr):
   proc Implotplothistogram2dfloatptr*(labelid: cstring; xs: ptr cfloat;
                                       ys: ptr cfloat; count: cint; xbins: cint;
-                                      ybins: cint; range: Implotrect_28313132;
-                                      flags: Implothistogramflags_28313032): cdouble {.
+                                      ybins: cint; range: Implotrect_28313348;
+                                      flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram2D_FloatPtr".}
 else:
   static :
@@ -23793,18 +25234,18 @@ when not declared(Implotplothistogram2ddoubleptr):
   proc Implotplothistogram2ddoubleptr*(labelid: cstring; xs: ptr cdouble;
                                        ys: ptr cdouble; count: cint;
                                        xbins: cint; ybins: cint;
-                                       range: Implotrect_28313132;
-                                       flags: Implothistogramflags_28313032): cdouble {.
+                                       range: Implotrect_28313348;
+                                       flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram2D_doublePtr".}
 else:
   static :
     hint("Declaration of " & "Implotplothistogram2ddoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplothistogram2ds8ptr):
-  proc Implotplothistogram2ds8ptr*(labelid: cstring; xs: cstring; ys: cstring;
-                                   count: cint; xbins: cint; ybins: cint;
-                                   range: Implotrect_28313132;
-                                   flags: Implothistogramflags_28313032): cdouble {.
+  proc Implotplothistogram2ds8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
+                                   ys: ptr Ims8_28312300; count: cint;
+                                   xbins: cint; ybins: cint; range: Implotrect_28313348;
+                                   flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram2D_S8Ptr".}
 else:
   static :
@@ -23813,8 +25254,8 @@ else:
 when not declared(Implotplothistogram2du8ptr):
   proc Implotplothistogram2du8ptr*(labelid: cstring; xs: ptr Imu8_28312302;
                                    ys: ptr Imu8_28312302; count: cint;
-                                   xbins: cint; ybins: cint; range: Implotrect_28313132;
-                                   flags: Implothistogramflags_28313032): cdouble {.
+                                   xbins: cint; ybins: cint; range: Implotrect_28313348;
+                                   flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram2D_U8Ptr".}
 else:
   static :
@@ -23823,8 +25264,8 @@ else:
 when not declared(Implotplothistogram2ds16ptr):
   proc Implotplothistogram2ds16ptr*(labelid: cstring; xs: ptr Ims16_28312304;
                                     ys: ptr Ims16_28312304; count: cint;
-                                    xbins: cint; ybins: cint; range: Implotrect_28313132;
-                                    flags: Implothistogramflags_28313032): cdouble {.
+                                    xbins: cint; ybins: cint; range: Implotrect_28313348;
+                                    flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram2D_S16Ptr".}
 else:
   static :
@@ -23833,8 +25274,8 @@ else:
 when not declared(Implotplothistogram2du16ptr):
   proc Implotplothistogram2du16ptr*(labelid: cstring; xs: ptr Imu16_28312306;
                                     ys: ptr Imu16_28312306; count: cint;
-                                    xbins: cint; ybins: cint; range: Implotrect_28313132;
-                                    flags: Implothistogramflags_28313032): cdouble {.
+                                    xbins: cint; ybins: cint; range: Implotrect_28313348;
+                                    flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram2D_U16Ptr".}
 else:
   static :
@@ -23843,8 +25284,8 @@ else:
 when not declared(Implotplothistogram2ds32ptr):
   proc Implotplothistogram2ds32ptr*(labelid: cstring; xs: ptr Ims32_28312308;
                                     ys: ptr Ims32_28312308; count: cint;
-                                    xbins: cint; ybins: cint; range: Implotrect_28313132;
-                                    flags: Implothistogramflags_28313032): cdouble {.
+                                    xbins: cint; ybins: cint; range: Implotrect_28313348;
+                                    flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram2D_S32Ptr".}
 else:
   static :
@@ -23853,8 +25294,8 @@ else:
 when not declared(Implotplothistogram2du32ptr):
   proc Implotplothistogram2du32ptr*(labelid: cstring; xs: ptr Imu32_28312310;
                                     ys: ptr Imu32_28312310; count: cint;
-                                    xbins: cint; ybins: cint; range: Implotrect_28313132;
-                                    flags: Implothistogramflags_28313032): cdouble {.
+                                    xbins: cint; ybins: cint; range: Implotrect_28313348;
+                                    flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram2D_U32Ptr".}
 else:
   static :
@@ -23863,8 +25304,8 @@ else:
 when not declared(Implotplothistogram2ds64ptr):
   proc Implotplothistogram2ds64ptr*(labelid: cstring; xs: ptr Ims64_28312312;
                                     ys: ptr Ims64_28312312; count: cint;
-                                    xbins: cint; ybins: cint; range: Implotrect_28313132;
-                                    flags: Implothistogramflags_28313032): cdouble {.
+                                    xbins: cint; ybins: cint; range: Implotrect_28313348;
+                                    flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram2D_S64Ptr".}
 else:
   static :
@@ -23873,8 +25314,8 @@ else:
 when not declared(Implotplothistogram2du64ptr):
   proc Implotplothistogram2du64ptr*(labelid: cstring; xs: ptr Imu64_28311933;
                                     ys: ptr Imu64_28311933; count: cint;
-                                    xbins: cint; ybins: cint; range: Implotrect_28313132;
-                                    flags: Implothistogramflags_28313032): cdouble {.
+                                    xbins: cint; ybins: cint; range: Implotrect_28313348;
+                                    flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram2D_U64Ptr".}
 else:
   static :
@@ -23883,7 +25324,7 @@ else:
 when not declared(Implotplotdigitalfloatptr):
   proc Implotplotdigitalfloatptr*(labelid: cstring; xs: ptr cfloat;
                                   ys: ptr cfloat; count: cint;
-                                  flags: Implotdigitalflags_28313034;
+                                  flags: Implotdigitalflags_28313184;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotDigital_FloatPtr".}
 else:
@@ -23893,7 +25334,7 @@ else:
 when not declared(Implotplotdigitaldoubleptr):
   proc Implotplotdigitaldoubleptr*(labelid: cstring; xs: ptr cdouble;
                                    ys: ptr cdouble; count: cint;
-                                   flags: Implotdigitalflags_28313034;
+                                   flags: Implotdigitalflags_28313184;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotDigital_doublePtr".}
 else:
@@ -23901,9 +25342,10 @@ else:
     hint("Declaration of " & "Implotplotdigitaldoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotdigitals8ptr):
-  proc Implotplotdigitals8ptr*(labelid: cstring; xs: cstring; ys: cstring;
-                               count: cint; flags: Implotdigitalflags_28313034;
-                               offset: cint; stride: cint): void {.cdecl,
+  proc Implotplotdigitals8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
+                               ys: ptr Ims8_28312300; count: cint;
+                               flags: Implotdigitalflags_28313184; offset: cint;
+                               stride: cint): void {.cdecl,
       importc: "ImPlot_PlotDigital_S8Ptr".}
 else:
   static :
@@ -23912,7 +25354,7 @@ else:
 when not declared(Implotplotdigitalu8ptr):
   proc Implotplotdigitalu8ptr*(labelid: cstring; xs: ptr Imu8_28312302;
                                ys: ptr Imu8_28312302; count: cint;
-                               flags: Implotdigitalflags_28313034; offset: cint;
+                               flags: Implotdigitalflags_28313184; offset: cint;
                                stride: cint): void {.cdecl,
       importc: "ImPlot_PlotDigital_U8Ptr".}
 else:
@@ -23922,7 +25364,7 @@ else:
 when not declared(Implotplotdigitals16ptr):
   proc Implotplotdigitals16ptr*(labelid: cstring; xs: ptr Ims16_28312304;
                                 ys: ptr Ims16_28312304; count: cint;
-                                flags: Implotdigitalflags_28313034;
+                                flags: Implotdigitalflags_28313184;
                                 offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotDigital_S16Ptr".}
 else:
@@ -23932,7 +25374,7 @@ else:
 when not declared(Implotplotdigitalu16ptr):
   proc Implotplotdigitalu16ptr*(labelid: cstring; xs: ptr Imu16_28312306;
                                 ys: ptr Imu16_28312306; count: cint;
-                                flags: Implotdigitalflags_28313034;
+                                flags: Implotdigitalflags_28313184;
                                 offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotDigital_U16Ptr".}
 else:
@@ -23942,7 +25384,7 @@ else:
 when not declared(Implotplotdigitals32ptr):
   proc Implotplotdigitals32ptr*(labelid: cstring; xs: ptr Ims32_28312308;
                                 ys: ptr Ims32_28312308; count: cint;
-                                flags: Implotdigitalflags_28313034;
+                                flags: Implotdigitalflags_28313184;
                                 offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotDigital_S32Ptr".}
 else:
@@ -23952,7 +25394,7 @@ else:
 when not declared(Implotplotdigitalu32ptr):
   proc Implotplotdigitalu32ptr*(labelid: cstring; xs: ptr Imu32_28312310;
                                 ys: ptr Imu32_28312310; count: cint;
-                                flags: Implotdigitalflags_28313034;
+                                flags: Implotdigitalflags_28313184;
                                 offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotDigital_U32Ptr".}
 else:
@@ -23962,7 +25404,7 @@ else:
 when not declared(Implotplotdigitals64ptr):
   proc Implotplotdigitals64ptr*(labelid: cstring; xs: ptr Ims64_28312312;
                                 ys: ptr Ims64_28312312; count: cint;
-                                flags: Implotdigitalflags_28313034;
+                                flags: Implotdigitalflags_28313184;
                                 offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotDigital_S64Ptr".}
 else:
@@ -23972,7 +25414,7 @@ else:
 when not declared(Implotplotdigitalu64ptr):
   proc Implotplotdigitalu64ptr*(labelid: cstring; xs: ptr Imu64_28311933;
                                 ys: ptr Imu64_28311933; count: cint;
-                                flags: Implotdigitalflags_28313034;
+                                flags: Implotdigitalflags_28313184;
                                 offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotDigital_U64Ptr".}
 else:
@@ -23980,8 +25422,8 @@ else:
     hint("Declaration of " & "Implotplotdigitalu64ptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotdigitalg):
-  proc Implotplotdigitalg*(labelid: cstring; getter: Implotpointgetter_28313278;
-                           data: pointer; count: cint; flags: Implotdigitalflags_28313034): void {.
+  proc Implotplotdigitalg*(labelid: cstring; getter: Implotpointgetter_28313500;
+                           data: pointer; count: cint; flags: Implotdigitalflags_28313184): void {.
       cdecl, importc: "ImPlot_PlotDigitalG".}
 else:
   static :
@@ -23989,9 +25431,9 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotimage):
   proc Implotplotimage*(labelid: cstring; usertextureid: Imtextureid_28312294;
-                        boundsmin: Implotpoint_28313124; boundsmax: Implotpoint_28313124;
+                        boundsmin: Implotpoint_28313340; boundsmax: Implotpoint_28313340;
                         uv0: Imvec2_28312328; uv1: Imvec2_28312328;
-                        tintcol: Imvec4_28312332; flags: Implotimageflags_28313036): void {.
+                        tintcol: Imvec4_28312332; flags: Implotimageflags_28313186): void {.
       cdecl, importc: "ImPlot_PlotImage".}
 else:
   static :
@@ -23999,14 +25441,14 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplottext):
   proc Implotplottext*(text: cstring; x: cdouble; y: cdouble; pixoffset: Imvec2_28312328;
-                       flags: Implottextflags_28313038): void {.cdecl,
+                       flags: Implottextflags_28313188): void {.cdecl,
       importc: "ImPlot_PlotText".}
 else:
   static :
     hint("Declaration of " & "Implotplottext" &
         " already exists, not redeclaring")
 when not declared(Implotplotdummy):
-  proc Implotplotdummy*(labelid: cstring; flags: Implotdummyflags_28313040): void {.
+  proc Implotplotdummy*(labelid: cstring; flags: Implotdummyflags_28313190): void {.
       cdecl, importc: "ImPlot_PlotDummy".}
 else:
   static :
@@ -24014,7 +25456,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotdragpoint):
   proc Implotdragpoint*(id: cint; x: ptr cdouble; y: ptr cdouble; col: Imvec4_28312332;
-                        size: cfloat; flags: Implotdragtoolflags_28313004): bool {.
+                        size: cfloat; flags: Implotdragtoolflags_28313154): bool {.
       cdecl, importc: "ImPlot_DragPoint".}
 else:
   static :
@@ -24022,7 +25464,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotdraglinex):
   proc Implotdraglinex*(id: cint; x: ptr cdouble; col: Imvec4_28312332;
-                        thickness: cfloat; flags: Implotdragtoolflags_28313004): bool {.
+                        thickness: cfloat; flags: Implotdragtoolflags_28313154): bool {.
       cdecl, importc: "ImPlot_DragLineX".}
 else:
   static :
@@ -24030,7 +25472,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotdragliney):
   proc Implotdragliney*(id: cint; y: ptr cdouble; col: Imvec4_28312332;
-                        thickness: cfloat; flags: Implotdragtoolflags_28313004): bool {.
+                        thickness: cfloat; flags: Implotdragtoolflags_28313154): bool {.
       cdecl, importc: "ImPlot_DragLineY".}
 else:
   static :
@@ -24039,7 +25481,7 @@ else:
 when not declared(Implotdragrect):
   proc Implotdragrect*(id: cint; x1: ptr cdouble; y1: ptr cdouble;
                        x2: ptr cdouble; y2: ptr cdouble; col: Imvec4_28312332;
-                       flags: Implotdragtoolflags_28313004): bool {.cdecl,
+                       flags: Implotdragtoolflags_28313154): bool {.cdecl,
       importc: "ImPlot_DragRect".}
 else:
   static :
@@ -24112,38 +25554,38 @@ else:
   static :
     hint("Declaration of " & "Implottagyv" & " already exists, not redeclaring")
 when not declared(Implotsetaxis):
-  proc Implotsetaxis*(axis: Imaxis_28312992): void {.cdecl,
+  proc Implotsetaxis*(axis: Imaxis_28313142): void {.cdecl,
       importc: "ImPlot_SetAxis".}
 else:
   static :
     hint("Declaration of " & "Implotsetaxis" &
         " already exists, not redeclaring")
 when not declared(Implotsetaxes):
-  proc Implotsetaxes*(xaxis: Imaxis_28312992; yaxis: Imaxis_28312992): void {.
+  proc Implotsetaxes*(xaxis: Imaxis_28313142; yaxis: Imaxis_28313142): void {.
       cdecl, importc: "ImPlot_SetAxes".}
 else:
   static :
     hint("Declaration of " & "Implotsetaxes" &
         " already exists, not redeclaring")
 when not declared(Implotpixelstoplotvec2):
-  proc Implotpixelstoplotvec2*(pout: ptr Implotpoint_28313124; pix: Imvec2_28312328;
-                               xaxis: Imaxis_28312992; yaxis: Imaxis_28312992): void {.
+  proc Implotpixelstoplotvec2*(pout: ptr Implotpoint_28313340; pix: Imvec2_28312328;
+                               xaxis: Imaxis_28313142; yaxis: Imaxis_28313142): void {.
       cdecl, importc: "ImPlot_PixelsToPlot_Vec2".}
 else:
   static :
     hint("Declaration of " & "Implotpixelstoplotvec2" &
         " already exists, not redeclaring")
 when not declared(Implotpixelstoplotfloat):
-  proc Implotpixelstoplotfloat*(pout: ptr Implotpoint_28313124; x: cfloat;
-                                y: cfloat; xaxis: Imaxis_28312992; yaxis: Imaxis_28312992): void {.
+  proc Implotpixelstoplotfloat*(pout: ptr Implotpoint_28313340; x: cfloat;
+                                y: cfloat; xaxis: Imaxis_28313142; yaxis: Imaxis_28313142): void {.
       cdecl, importc: "ImPlot_PixelsToPlot_Float".}
 else:
   static :
     hint("Declaration of " & "Implotpixelstoplotfloat" &
         " already exists, not redeclaring")
 when not declared(Implotplottopixelsplotpoint):
-  proc Implotplottopixelsplotpoint*(pout: ptr Imvec2_28312328; plt: Implotpoint_28313124;
-                                    xaxis: Imaxis_28312992; yaxis: Imaxis_28312992): void {.
+  proc Implotplottopixelsplotpoint*(pout: ptr Imvec2_28312328; plt: Implotpoint_28313340;
+                                    xaxis: Imaxis_28313142; yaxis: Imaxis_28313142): void {.
       cdecl, importc: "ImPlot_PlotToPixels_PlotPoInt".}
 else:
   static :
@@ -24151,8 +25593,8 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplottopixelsdouble):
   proc Implotplottopixelsdouble*(pout: ptr Imvec2_28312328; x: cdouble;
-                                 y: cdouble; xaxis: Imaxis_28312992;
-                                 yaxis: Imaxis_28312992): void {.cdecl,
+                                 y: cdouble; xaxis: Imaxis_28313142;
+                                 yaxis: Imaxis_28313142): void {.cdecl,
       importc: "ImPlot_PlotToPixels_double".}
 else:
   static :
@@ -24173,16 +25615,16 @@ else:
     hint("Declaration of " & "Implotgetplotsize" &
         " already exists, not redeclaring")
 when not declared(Implotgetplotmousepos):
-  proc Implotgetplotmousepos*(pout: ptr Implotpoint_28313124; xaxis: Imaxis_28312992;
-                              yaxis: Imaxis_28312992): void {.cdecl,
+  proc Implotgetplotmousepos*(pout: ptr Implotpoint_28313340; xaxis: Imaxis_28313142;
+                              yaxis: Imaxis_28313142): void {.cdecl,
       importc: "ImPlot_GetPlotMousePos".}
 else:
   static :
     hint("Declaration of " & "Implotgetplotmousepos" &
         " already exists, not redeclaring")
 when not declared(Implotgetplotlimits):
-  proc Implotgetplotlimits*(pout: ptr Implotrect_28313132; xaxis: Imaxis_28312992;
-                            yaxis: Imaxis_28312992): void {.cdecl,
+  proc Implotgetplotlimits*(pout: ptr Implotrect_28313348; xaxis: Imaxis_28313142;
+                            yaxis: Imaxis_28313142): void {.cdecl,
       importc: "ImPlot_GetPlotLimits".}
 else:
   static :
@@ -24195,7 +25637,7 @@ else:
     hint("Declaration of " & "Implotisplothovered" &
         " already exists, not redeclaring")
 when not declared(Implotisaxishovered):
-  proc Implotisaxishovered*(axis: Imaxis_28312992): bool {.cdecl,
+  proc Implotisaxishovered*(axis: Imaxis_28313142): bool {.cdecl,
       importc: "ImPlot_IsAxisHovered".}
 else:
   static :
@@ -24215,8 +25657,8 @@ else:
     hint("Declaration of " & "Implotisplotselected" &
         " already exists, not redeclaring")
 when not declared(Implotgetplotselection):
-  proc Implotgetplotselection*(pout: ptr Implotrect_28313132; xaxis: Imaxis_28312992;
-                               yaxis: Imaxis_28312992): void {.cdecl,
+  proc Implotgetplotselection*(pout: ptr Implotrect_28313348; xaxis: Imaxis_28313142;
+                               yaxis: Imaxis_28313142): void {.cdecl,
       importc: "ImPlot_GetPlotSelection".}
 else:
   static :
@@ -24230,7 +25672,7 @@ else:
     hint("Declaration of " & "Implotcancelplotselection" &
         " already exists, not redeclaring")
 when not declared(Implothidenextitem):
-  proc Implothidenextitem*(hidden: bool; cond: Implotcond_28313042): void {.
+  proc Implothidenextitem*(hidden: bool; cond: Implotcond_28313192): void {.
       cdecl, importc: "ImPlot_HideNextItem".}
 else:
   static :
@@ -24277,7 +25719,7 @@ else:
     hint("Declaration of " & "Implotbegindragdroptargetplot" &
         " already exists, not redeclaring")
 when not declared(Implotbegindragdroptargetaxis):
-  proc Implotbegindragdroptargetaxis*(axis: Imaxis_28312992): bool {.cdecl,
+  proc Implotbegindragdroptargetaxis*(axis: Imaxis_28313142): bool {.cdecl,
       importc: "ImPlot_BeginDragDropTargetAxis".}
 else:
   static :
@@ -24305,7 +25747,7 @@ else:
     hint("Declaration of " & "Implotbegindragdropsourceplot" &
         " already exists, not redeclaring")
 when not declared(Implotbegindragdropsourceaxis):
-  proc Implotbegindragdropsourceaxis*(axis: Imaxis_28312992;
+  proc Implotbegindragdropsourceaxis*(axis: Imaxis_28313142;
                                       flags: Imguidragdropflags_28312262): bool {.
       cdecl, importc: "ImPlot_BeginDragDropSourceAxis".}
 else:
@@ -24328,49 +25770,49 @@ else:
     hint("Declaration of " & "Implotenddragdropsource" &
         " already exists, not redeclaring")
 when not declared(Implotgetstyle):
-  proc Implotgetstyle*(): ptr Implotstyle_28313136 {.cdecl,
+  proc Implotgetstyle*(): ptr Implotstyle_28313352 {.cdecl,
       importc: "ImPlot_GetStyle".}
 else:
   static :
     hint("Declaration of " & "Implotgetstyle" &
         " already exists, not redeclaring")
 when not declared(Implotstylecolorsauto):
-  proc Implotstylecolorsauto*(dst: ptr Implotstyle_28313136): void {.cdecl,
+  proc Implotstylecolorsauto*(dst: ptr Implotstyle_28313352): void {.cdecl,
       importc: "ImPlot_StyleColorsAuto".}
 else:
   static :
     hint("Declaration of " & "Implotstylecolorsauto" &
         " already exists, not redeclaring")
 when not declared(Implotstylecolorsclassic):
-  proc Implotstylecolorsclassic*(dst: ptr Implotstyle_28313136): void {.cdecl,
+  proc Implotstylecolorsclassic*(dst: ptr Implotstyle_28313352): void {.cdecl,
       importc: "ImPlot_StyleColorsClassic".}
 else:
   static :
     hint("Declaration of " & "Implotstylecolorsclassic" &
         " already exists, not redeclaring")
 when not declared(Implotstylecolorsdark):
-  proc Implotstylecolorsdark*(dst: ptr Implotstyle_28313136): void {.cdecl,
+  proc Implotstylecolorsdark*(dst: ptr Implotstyle_28313352): void {.cdecl,
       importc: "ImPlot_StyleColorsDark".}
 else:
   static :
     hint("Declaration of " & "Implotstylecolorsdark" &
         " already exists, not redeclaring")
 when not declared(Implotstylecolorslight):
-  proc Implotstylecolorslight*(dst: ptr Implotstyle_28313136): void {.cdecl,
+  proc Implotstylecolorslight*(dst: ptr Implotstyle_28313352): void {.cdecl,
       importc: "ImPlot_StyleColorsLight".}
 else:
   static :
     hint("Declaration of " & "Implotstylecolorslight" &
         " already exists, not redeclaring")
 when not declared(Implotpushstylecoloru32):
-  proc Implotpushstylecoloru32*(idx: Implotcol_28313044; col: Imu32_28312310): void {.
+  proc Implotpushstylecoloru32*(idx: Implotcol_28313194; col: Imu32_28312310): void {.
       cdecl, importc: "ImPlot_PushStyleColor_U32".}
 else:
   static :
     hint("Declaration of " & "Implotpushstylecoloru32" &
         " already exists, not redeclaring")
 when not declared(Implotpushstylecolorvec4):
-  proc Implotpushstylecolorvec4*(idx: Implotcol_28313044; col: Imvec4_28312332): void {.
+  proc Implotpushstylecolorvec4*(idx: Implotcol_28313194; col: Imvec4_28312332): void {.
       cdecl, importc: "ImPlot_PushStyleColor_Vec4".}
 else:
   static :
@@ -24384,21 +25826,21 @@ else:
     hint("Declaration of " & "Implotpopstylecolor" &
         " already exists, not redeclaring")
 when not declared(Implotpushstylevarfloat):
-  proc Implotpushstylevarfloat*(idx: Implotstylevar_28313046; val: cfloat): void {.
+  proc Implotpushstylevarfloat*(idx: Implotstylevar_28313196; val: cfloat): void {.
       cdecl, importc: "ImPlot_PushStyleVar_Float".}
 else:
   static :
     hint("Declaration of " & "Implotpushstylevarfloat" &
         " already exists, not redeclaring")
 when not declared(Implotpushstylevarint):
-  proc Implotpushstylevarint*(idx: Implotstylevar_28313046; val: cint): void {.
+  proc Implotpushstylevarint*(idx: Implotstylevar_28313196; val: cint): void {.
       cdecl, importc: "ImPlot_PushStyleVar_Int".}
 else:
   static :
     hint("Declaration of " & "Implotpushstylevarint" &
         " already exists, not redeclaring")
 when not declared(Implotpushstylevarvec2):
-  proc Implotpushstylevarvec2*(idx: Implotstylevar_28313046; val: Imvec2_28312328): void {.
+  proc Implotpushstylevarvec2*(idx: Implotstylevar_28313196; val: Imvec2_28312328): void {.
       cdecl, importc: "ImPlot_PushStyleVar_Vec2".}
 else:
   static :
@@ -24426,7 +25868,7 @@ else:
     hint("Declaration of " & "Implotsetnextfillstyle" &
         " already exists, not redeclaring")
 when not declared(Implotsetnextmarkerstyle):
-  proc Implotsetnextmarkerstyle*(marker: Implotmarker_28313050; size: cfloat;
+  proc Implotsetnextmarkerstyle*(marker: Implotmarker_28313200; size: cfloat;
                                  fill: Imvec4_28312332; weight: cfloat;
                                  outline: Imvec4_28312332): void {.cdecl,
       importc: "ImPlot_SetNextMarkerStyle".}
@@ -24450,14 +25892,14 @@ else:
     hint("Declaration of " & "Implotgetlastitemcolor" &
         " already exists, not redeclaring")
 when not declared(Implotgetstylecolorname):
-  proc Implotgetstylecolorname*(idx: Implotcol_28313044): cstring {.cdecl,
+  proc Implotgetstylecolorname*(idx: Implotcol_28313194): cstring {.cdecl,
       importc: "ImPlot_GetStyleColorName".}
 else:
   static :
     hint("Declaration of " & "Implotgetstylecolorname" &
         " already exists, not redeclaring")
 when not declared(Implotgetmarkername):
-  proc Implotgetmarkername*(idx: Implotmarker_28313050): cstring {.cdecl,
+  proc Implotgetmarkername*(idx: Implotmarker_28313200): cstring {.cdecl,
       importc: "ImPlot_GetMarkerName".}
 else:
   static :
@@ -24465,7 +25907,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotaddcolormapvec4ptr):
   proc Implotaddcolormapvec4ptr*(name: cstring; cols: ptr Imvec4_28312332;
-                                 size: cint; qual: bool): Implotcolormap_28313052 {.
+                                 size: cint; qual: bool): Implotcolormap_28313202 {.
       cdecl, importc: "ImPlot_AddColormap_Vec4Ptr".}
 else:
   static :
@@ -24473,7 +25915,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotaddcolormapu32ptr):
   proc Implotaddcolormapu32ptr*(name: cstring; cols: ptr Imu32_28312310;
-                                size: cint; qual: bool): Implotcolormap_28313052 {.
+                                size: cint; qual: bool): Implotcolormap_28313202 {.
       cdecl, importc: "ImPlot_AddColormap_U32Ptr".}
 else:
   static :
@@ -24487,21 +25929,21 @@ else:
     hint("Declaration of " & "Implotgetcolormapcount" &
         " already exists, not redeclaring")
 when not declared(Implotgetcolormapname):
-  proc Implotgetcolormapname*(cmap: Implotcolormap_28313052): cstring {.cdecl,
+  proc Implotgetcolormapname*(cmap: Implotcolormap_28313202): cstring {.cdecl,
       importc: "ImPlot_GetColormapName".}
 else:
   static :
     hint("Declaration of " & "Implotgetcolormapname" &
         " already exists, not redeclaring")
 when not declared(Implotgetcolormapindex):
-  proc Implotgetcolormapindex*(name: cstring): Implotcolormap_28313052 {.cdecl,
+  proc Implotgetcolormapindex*(name: cstring): Implotcolormap_28313202 {.cdecl,
       importc: "ImPlot_GetColormapIndex".}
 else:
   static :
     hint("Declaration of " & "Implotgetcolormapindex" &
         " already exists, not redeclaring")
 when not declared(Implotpushcolormapplotcolormap):
-  proc Implotpushcolormapplotcolormap*(cmap: Implotcolormap_28313052): void {.
+  proc Implotpushcolormapplotcolormap*(cmap: Implotcolormap_28313202): void {.
       cdecl, importc: "ImPlot_PushColormap_PlotColormap".}
 else:
   static :
@@ -24529,7 +25971,7 @@ else:
     hint("Declaration of " & "Implotnextcolormapcolor" &
         " already exists, not redeclaring")
 when not declared(Implotgetcolormapsize):
-  proc Implotgetcolormapsize*(cmap: Implotcolormap_28313052): cint {.cdecl,
+  proc Implotgetcolormapsize*(cmap: Implotcolormap_28313202): cint {.cdecl,
       importc: "ImPlot_GetColormapSize".}
 else:
   static :
@@ -24537,7 +25979,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotgetcolormapcolor):
   proc Implotgetcolormapcolor*(pout: ptr Imvec4_28312332; idx: cint;
-                               cmap: Implotcolormap_28313052): void {.cdecl,
+                               cmap: Implotcolormap_28313202): void {.cdecl,
       importc: "ImPlot_GetColormapColor".}
 else:
   static :
@@ -24545,7 +25987,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotsamplecolormap):
   proc Implotsamplecolormap*(pout: ptr Imvec4_28312332; t: cfloat;
-                             cmap: Implotcolormap_28313052): void {.cdecl,
+                             cmap: Implotcolormap_28313202): void {.cdecl,
       importc: "ImPlot_SampleColormap".}
 else:
   static :
@@ -24554,8 +25996,8 @@ else:
 when not declared(Implotcolormapscale):
   proc Implotcolormapscale*(label: cstring; scalemin: cdouble;
                             scalemax: cdouble; size: Imvec2_28312328;
-                            format: cstring; flags: Implotcolormapscaleflags_28313006;
-                            cmap: Implotcolormap_28313052): void {.cdecl,
+                            format: cstring; flags: Implotcolormapscaleflags_28313156;
+                            cmap: Implotcolormap_28313202): void {.cdecl,
       importc: "ImPlot_ColormapScale".}
 else:
   static :
@@ -24563,7 +26005,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotcolormapslider):
   proc Implotcolormapslider*(label: cstring; t: ptr cfloat; outarg: ptr Imvec4_28312332;
-                             format: cstring; cmap: Implotcolormap_28313052): bool {.
+                             format: cstring; cmap: Implotcolormap_28313202): bool {.
       cdecl, importc: "ImPlot_ColormapSlider".}
 else:
   static :
@@ -24571,7 +26013,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotcolormapbutton):
   proc Implotcolormapbutton*(label: cstring; size: Imvec2_28312328;
-                             cmap: Implotcolormap_28313052): bool {.cdecl,
+                             cmap: Implotcolormap_28313202): bool {.cdecl,
       importc: "ImPlot_ColormapButton".}
 else:
   static :
@@ -24585,21 +26027,21 @@ else:
     hint("Declaration of " & "Implotbustcolorcache" &
         " already exists, not redeclaring")
 when not declared(Implotgetinputmap):
-  proc Implotgetinputmap*(): ptr Implotinputmap_28313140 {.cdecl,
+  proc Implotgetinputmap*(): ptr Implotinputmap_28313356 {.cdecl,
       importc: "ImPlot_GetInputMap".}
 else:
   static :
     hint("Declaration of " & "Implotgetinputmap" &
         " already exists, not redeclaring")
 when not declared(Implotmapinputdefault):
-  proc Implotmapinputdefault*(dst: ptr Implotinputmap_28313140): void {.cdecl,
+  proc Implotmapinputdefault*(dst: ptr Implotinputmap_28313356): void {.cdecl,
       importc: "ImPlot_MapInputDefault".}
 else:
   static :
     hint("Declaration of " & "Implotmapinputdefault" &
         " already exists, not redeclaring")
 when not declared(Implotmapinputreverse):
-  proc Implotmapinputreverse*(dst: ptr Implotinputmap_28313140): void {.cdecl,
+  proc Implotmapinputreverse*(dst: ptr Implotinputmap_28313356): void {.cdecl,
       importc: "ImPlot_MapInputReverse".}
 else:
   static :
@@ -24620,7 +26062,7 @@ else:
     hint("Declaration of " & "Implotitemiconu32" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapicon):
-  proc Implotcolormapicon*(cmap: Implotcolormap_28313052): void {.cdecl,
+  proc Implotcolormapicon*(cmap: Implotcolormap_28313202): void {.cdecl,
       importc: "ImPlot_ColormapIcon".}
 else:
   static :
@@ -24668,7 +26110,7 @@ else:
     hint("Declaration of " & "Implotshowinputmapselector" &
         " already exists, not redeclaring")
 when not declared(Implotshowstyleeditor):
-  proc Implotshowstyleeditor*(refarg: ptr Implotstyle_28313136): void {.cdecl,
+  proc Implotshowstyleeditor*(refarg: ptr Implotstyle_28313352): void {.cdecl,
       importc: "ImPlot_ShowStyleEditor".}
 else:
   static :
@@ -24955,7 +26397,7 @@ else:
     hint("Declaration of " & "Implotimminarraydoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotimminarrays8ptr):
-  proc Implotimminarrays8ptr*(values: cstring; count: cint): Ims8_28312300 {.
+  proc Implotimminarrays8ptr*(values: ptr Ims8_28312300; count: cint): Ims8_28312300 {.
       cdecl, importc: "ImPlot_ImMinArray_S8Ptr".}
 else:
   static :
@@ -25025,7 +26467,7 @@ else:
     hint("Declaration of " & "Implotimmaxarraydoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotimmaxarrays8ptr):
-  proc Implotimmaxarrays8ptr*(values: cstring; count: cint): Ims8_28312300 {.
+  proc Implotimmaxarrays8ptr*(values: ptr Ims8_28312300; count: cint): Ims8_28312300 {.
       cdecl, importc: "ImPlot_ImMaxArray_S8Ptr".}
 else:
   static :
@@ -25097,9 +26539,9 @@ else:
     hint("Declaration of " & "Implotimminmaxarraydoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotimminmaxarrays8ptr):
-  proc Implotimminmaxarrays8ptr*(values: cstring; count: cint; minout: cstring;
-                                 maxout: cstring): void {.cdecl,
-      importc: "ImPlot_ImMinMaxArray_S8Ptr".}
+  proc Implotimminmaxarrays8ptr*(values: ptr Ims8_28312300; count: cint;
+                                 minout: ptr Ims8_28312300; maxout: ptr Ims8_28312300): void {.
+      cdecl, importc: "ImPlot_ImMinMaxArray_S8Ptr".}
 else:
   static :
     hint("Declaration of " & "Implotimminmaxarrays8ptr" &
@@ -25175,8 +26617,8 @@ else:
     hint("Declaration of " & "Implotimsumdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotimsums8ptr):
-  proc Implotimsums8ptr*(values: cstring; count: cint): Ims8_28312300 {.cdecl,
-      importc: "ImPlot_ImSum_S8Ptr".}
+  proc Implotimsums8ptr*(values: ptr Ims8_28312300; count: cint): Ims8_28312300 {.
+      cdecl, importc: "ImPlot_ImSum_S8Ptr".}
 else:
   static :
     hint("Declaration of " & "Implotimsums8ptr" &
@@ -25245,8 +26687,8 @@ else:
     hint("Declaration of " & "Implotimmeandoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotimmeans8ptr):
-  proc Implotimmeans8ptr*(values: cstring; count: cint): cdouble {.cdecl,
-      importc: "ImPlot_ImMean_S8Ptr".}
+  proc Implotimmeans8ptr*(values: ptr Ims8_28312300; count: cint): cdouble {.
+      cdecl, importc: "ImPlot_ImMean_S8Ptr".}
 else:
   static :
     hint("Declaration of " & "Implotimmeans8ptr" &
@@ -25315,8 +26757,8 @@ else:
     hint("Declaration of " & "Implotimstddevdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotimstddevs8ptr):
-  proc Implotimstddevs8ptr*(values: cstring; count: cint): cdouble {.cdecl,
-      importc: "ImPlot_ImStdDev_S8Ptr".}
+  proc Implotimstddevs8ptr*(values: ptr Ims8_28312300; count: cint): cdouble {.
+      cdecl, importc: "ImPlot_ImStdDev_S8Ptr".}
 else:
   static :
     hint("Declaration of " & "Implotimstddevs8ptr" &
@@ -25472,85 +26914,85 @@ else:
     hint("Declaration of " & "Implotimoverlapsu64" &
         " already exists, not redeclaring")
 when not declared(Implotdatetimespecimplotdatetimespecnil):
-  proc Implotdatetimespecimplotdatetimespecnil*(): ptr Implotdatetimespec_28313164 {.
+  proc Implotdatetimespecimplotdatetimespecnil*(): ptr Implotdatetimespec_28313386 {.
       cdecl, importc: "ImPlotDateTimeSpec_ImPlotDateTimeSpec_Nil".}
 else:
   static :
     hint("Declaration of " & "Implotdatetimespecimplotdatetimespecnil" &
         " already exists, not redeclaring")
 when not declared(Implotdatetimespecdestroy):
-  proc Implotdatetimespecdestroy*(self: ptr Implotdatetimespec_28313164): void {.
+  proc Implotdatetimespecdestroy*(self: ptr Implotdatetimespec_28313386): void {.
       cdecl, importc: "ImPlotDateTimeSpec_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotdatetimespecdestroy" &
         " already exists, not redeclaring")
 when not declared(Implotdatetimespecimplotdatetimespecplotdatefmt):
-  proc Implotdatetimespecimplotdatetimespecplotdatefmt*(datefmt: Implotdatefmt_28313152;
-      timefmt: Implottimefmt_28313154; use24hrclk: bool; useiso8601: bool): ptr Implotdatetimespec_28313164 {.
+  proc Implotdatetimespecimplotdatetimespecplotdatefmt*(datefmt: Implotdatefmt_28313368;
+      timefmt: Implottimefmt_28313370; use24hrclk: bool; useiso8601: bool): ptr Implotdatetimespec_28313386 {.
       cdecl, importc: "ImPlotDateTimeSpec_ImPlotDateTimeSpec_PlotDateFmt".}
 else:
   static :
     hint("Declaration of " & "Implotdatetimespecimplotdatetimespecplotdatefmt" &
         " already exists, not redeclaring")
 when not declared(Implottimeimplottimenil):
-  proc Implottimeimplottimenil*(): ptr Implottime_28313168 {.cdecl,
+  proc Implottimeimplottimenil*(): ptr Implottime_28313390 {.cdecl,
       importc: "ImPlotTime_ImPlotTime_Nil".}
 else:
   static :
     hint("Declaration of " & "Implottimeimplottimenil" &
         " already exists, not redeclaring")
 when not declared(Implottimedestroy):
-  proc Implottimedestroy*(self: ptr Implottime_28313168): void {.cdecl,
+  proc Implottimedestroy*(self: ptr Implottime_28313390): void {.cdecl,
       importc: "ImPlotTime_destroy".}
 else:
   static :
     hint("Declaration of " & "Implottimedestroy" &
         " already exists, not redeclaring")
 when not declared(Implottimeimplottimetimet):
-  proc Implottimeimplottimetimet*(s: timet_28313172; us: cint): ptr Implottime_28313168 {.
+  proc Implottimeimplottimetimet*(s: timet_28313394; us: cint): ptr Implottime_28313390 {.
       cdecl, importc: "ImPlotTime_ImPlotTime_time_t".}
 else:
   static :
     hint("Declaration of " & "Implottimeimplottimetimet" &
         " already exists, not redeclaring")
 when not declared(Implottimerollover):
-  proc Implottimerollover*(self: ptr Implottime_28313168): void {.cdecl,
+  proc Implottimerollover*(self: ptr Implottime_28313390): void {.cdecl,
       importc: "ImPlotTime_RollOver".}
 else:
   static :
     hint("Declaration of " & "Implottimerollover" &
         " already exists, not redeclaring")
 when not declared(Implottimetodouble):
-  proc Implottimetodouble*(self: ptr Implottime_28313168): cdouble {.cdecl,
+  proc Implottimetodouble*(self: ptr Implottime_28313390): cdouble {.cdecl,
       importc: "ImPlotTime_ToDouble".}
 else:
   static :
     hint("Declaration of " & "Implottimetodouble" &
         " already exists, not redeclaring")
 when not declared(Implottimefromdouble):
-  proc Implottimefromdouble*(pout: ptr Implottime_28313168; t: cdouble): void {.
+  proc Implottimefromdouble*(pout: ptr Implottime_28313390; t: cdouble): void {.
       cdecl, importc: "ImPlotTime_FromDouble".}
 else:
   static :
     hint("Declaration of " & "Implottimefromdouble" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdataimplotcolormapdata):
-  proc Implotcolormapdataimplotcolormapdata*(): ptr Implotcolormapdata_28313174 {.
+  proc Implotcolormapdataimplotcolormapdata*(): ptr Implotcolormapdata_28313396 {.
       cdecl, importc: "ImPlotColormapData_ImPlotColormapData".}
 else:
   static :
     hint("Declaration of " & "Implotcolormapdataimplotcolormapdata" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdatadestroy):
-  proc Implotcolormapdatadestroy*(self: ptr Implotcolormapdata_28313174): void {.
+  proc Implotcolormapdatadestroy*(self: ptr Implotcolormapdata_28313396): void {.
       cdecl, importc: "ImPlotColormapData_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotcolormapdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdataappend):
-  proc Implotcolormapdataappend*(self: ptr Implotcolormapdata_28313174;
+  proc Implotcolormapdataappend*(self: ptr Implotcolormapdata_28313396;
                                  name: cstring; keys: ptr Imu32_28312310;
                                  count: cint; qual: bool): cint {.cdecl,
       importc: "ImPlotColormapData_Append".}
@@ -25559,71 +27001,71 @@ else:
     hint("Declaration of " & "Implotcolormapdataappend" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdataappendtable):
-  proc Implotcolormapdataappendtable*(self: ptr Implotcolormapdata_28313174;
-                                      cmap: Implotcolormap_28313052): void {.
+  proc Implotcolormapdataappendtable*(self: ptr Implotcolormapdata_28313396;
+                                      cmap: Implotcolormap_28313202): void {.
       cdecl, importc: "ImPlotColormapData__AppendTable".}
 else:
   static :
     hint("Declaration of " & "Implotcolormapdataappendtable" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdatarebuildtables):
-  proc Implotcolormapdatarebuildtables*(self: ptr Implotcolormapdata_28313174): void {.
+  proc Implotcolormapdatarebuildtables*(self: ptr Implotcolormapdata_28313396): void {.
       cdecl, importc: "ImPlotColormapData_RebuildTables".}
 else:
   static :
     hint("Declaration of " & "Implotcolormapdatarebuildtables" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdataisqual):
-  proc Implotcolormapdataisqual*(self: ptr Implotcolormapdata_28313174;
-                                 cmap: Implotcolormap_28313052): bool {.cdecl,
+  proc Implotcolormapdataisqual*(self: ptr Implotcolormapdata_28313396;
+                                 cmap: Implotcolormap_28313202): bool {.cdecl,
       importc: "ImPlotColormapData_IsQual".}
 else:
   static :
     hint("Declaration of " & "Implotcolormapdataisqual" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdatagetname):
-  proc Implotcolormapdatagetname*(self: ptr Implotcolormapdata_28313174;
-                                  cmap: Implotcolormap_28313052): cstring {.
+  proc Implotcolormapdatagetname*(self: ptr Implotcolormapdata_28313396;
+                                  cmap: Implotcolormap_28313202): cstring {.
       cdecl, importc: "ImPlotColormapData_GetName".}
 else:
   static :
     hint("Declaration of " & "Implotcolormapdatagetname" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdatagetindex):
-  proc Implotcolormapdatagetindex*(self: ptr Implotcolormapdata_28313174;
-                                   name: cstring): Implotcolormap_28313052 {.
+  proc Implotcolormapdatagetindex*(self: ptr Implotcolormapdata_28313396;
+                                   name: cstring): Implotcolormap_28313202 {.
       cdecl, importc: "ImPlotColormapData_GetIndex".}
 else:
   static :
     hint("Declaration of " & "Implotcolormapdatagetindex" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdatagetkeys):
-  proc Implotcolormapdatagetkeys*(self: ptr Implotcolormapdata_28313174;
-                                  cmap: Implotcolormap_28313052): ptr Imu32_28312310 {.
+  proc Implotcolormapdatagetkeys*(self: ptr Implotcolormapdata_28313396;
+                                  cmap: Implotcolormap_28313202): ptr Imu32_28312310 {.
       cdecl, importc: "ImPlotColormapData_GetKeys".}
 else:
   static :
     hint("Declaration of " & "Implotcolormapdatagetkeys" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdatagetkeycount):
-  proc Implotcolormapdatagetkeycount*(self: ptr Implotcolormapdata_28313174;
-                                      cmap: Implotcolormap_28313052): cint {.
+  proc Implotcolormapdatagetkeycount*(self: ptr Implotcolormapdata_28313396;
+                                      cmap: Implotcolormap_28313202): cint {.
       cdecl, importc: "ImPlotColormapData_GetKeyCount".}
 else:
   static :
     hint("Declaration of " & "Implotcolormapdatagetkeycount" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdatagetkeycolor):
-  proc Implotcolormapdatagetkeycolor*(self: ptr Implotcolormapdata_28313174;
-                                      cmap: Implotcolormap_28313052; idx: cint): Imu32_28312310 {.
+  proc Implotcolormapdatagetkeycolor*(self: ptr Implotcolormapdata_28313396;
+                                      cmap: Implotcolormap_28313202; idx: cint): Imu32_28312310 {.
       cdecl, importc: "ImPlotColormapData_GetKeyColor".}
 else:
   static :
     hint("Declaration of " & "Implotcolormapdatagetkeycolor" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdatasetkeycolor):
-  proc Implotcolormapdatasetkeycolor*(self: ptr Implotcolormapdata_28313174;
-                                      cmap: Implotcolormap_28313052; idx: cint;
+  proc Implotcolormapdatasetkeycolor*(self: ptr Implotcolormapdata_28313396;
+                                      cmap: Implotcolormap_28313202; idx: cint;
                                       value: Imu32_28312310): void {.cdecl,
       importc: "ImPlotColormapData_SetKeyColor".}
 else:
@@ -25631,32 +27073,32 @@ else:
     hint("Declaration of " & "Implotcolormapdatasetkeycolor" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdatagettable):
-  proc Implotcolormapdatagettable*(self: ptr Implotcolormapdata_28313174;
-                                   cmap: Implotcolormap_28313052): ptr Imu32_28312310 {.
+  proc Implotcolormapdatagettable*(self: ptr Implotcolormapdata_28313396;
+                                   cmap: Implotcolormap_28313202): ptr Imu32_28312310 {.
       cdecl, importc: "ImPlotColormapData_GetTable".}
 else:
   static :
     hint("Declaration of " & "Implotcolormapdatagettable" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdatagettablesize):
-  proc Implotcolormapdatagettablesize*(self: ptr Implotcolormapdata_28313174;
-                                       cmap: Implotcolormap_28313052): cint {.
+  proc Implotcolormapdatagettablesize*(self: ptr Implotcolormapdata_28313396;
+                                       cmap: Implotcolormap_28313202): cint {.
       cdecl, importc: "ImPlotColormapData_GetTableSize".}
 else:
   static :
     hint("Declaration of " & "Implotcolormapdatagettablesize" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdatagettablecolor):
-  proc Implotcolormapdatagettablecolor*(self: ptr Implotcolormapdata_28313174;
-                                        cmap: Implotcolormap_28313052; idx: cint): Imu32_28312310 {.
+  proc Implotcolormapdatagettablecolor*(self: ptr Implotcolormapdata_28313396;
+                                        cmap: Implotcolormap_28313202; idx: cint): Imu32_28312310 {.
       cdecl, importc: "ImPlotColormapData_GetTableColor".}
 else:
   static :
     hint("Declaration of " & "Implotcolormapdatagettablecolor" &
         " already exists, not redeclaring")
 when not declared(Implotcolormapdatalerptable):
-  proc Implotcolormapdatalerptable*(self: ptr Implotcolormapdata_28313174;
-                                    cmap: Implotcolormap_28313052; t: cfloat): Imu32_28312310 {.
+  proc Implotcolormapdatalerptable*(self: ptr Implotcolormapdata_28313396;
+                                    cmap: Implotcolormap_28313202; t: cfloat): Imu32_28312310 {.
       cdecl, importc: "ImPlotColormapData_LerpTable".}
 else:
   static :
@@ -25664,35 +27106,35 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotpointerrorimplotpointerror):
   proc Implotpointerrorimplotpointerror*(x: cdouble; y: cdouble; neg: cdouble;
-      pos: cdouble): ptr Implotpointerror_28313182 {.cdecl,
+      pos: cdouble): ptr Implotpointerror_28313404 {.cdecl,
       importc: "ImPlotPointError_ImPlotPointError".}
 else:
   static :
     hint("Declaration of " & "Implotpointerrorimplotpointerror" &
         " already exists, not redeclaring")
 when not declared(Implotpointerrordestroy):
-  proc Implotpointerrordestroy*(self: ptr Implotpointerror_28313182): void {.
+  proc Implotpointerrordestroy*(self: ptr Implotpointerror_28313404): void {.
       cdecl, importc: "ImPlotPointError_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotpointerrordestroy" &
         " already exists, not redeclaring")
 when not declared(Implotannotationimplotannotation):
-  proc Implotannotationimplotannotation*(): ptr Implotannotation_28313186 {.
+  proc Implotannotationimplotannotation*(): ptr Implotannotation_28313408 {.
       cdecl, importc: "ImPlotAnnotation_ImPlotAnnotation".}
 else:
   static :
     hint("Declaration of " & "Implotannotationimplotannotation" &
         " already exists, not redeclaring")
 when not declared(Implotannotationdestroy):
-  proc Implotannotationdestroy*(self: ptr Implotannotation_28313186): void {.
+  proc Implotannotationdestroy*(self: ptr Implotannotation_28313408): void {.
       cdecl, importc: "ImPlotAnnotation_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotannotationdestroy" &
         " already exists, not redeclaring")
 when not declared(Implotannotationcollectionimplotannotationcollection):
-  proc Implotannotationcollectionimplotannotationcollection*(): ptr Implotannotationcollection_28313190 {.
+  proc Implotannotationcollectionimplotannotationcollection*(): ptr Implotannotationcollection_28313412 {.
       cdecl, importc: "ImPlotAnnotationCollection_ImPlotAnnotationCollection".}
 else:
   static :
@@ -25700,14 +27142,14 @@ else:
         "Implotannotationcollectionimplotannotationcollection" &
         " already exists, not redeclaring")
 when not declared(Implotannotationcollectiondestroy):
-  proc Implotannotationcollectiondestroy*(self: ptr Implotannotationcollection_28313190): void {.
+  proc Implotannotationcollectiondestroy*(self: ptr Implotannotationcollection_28313412): void {.
       cdecl, importc: "ImPlotAnnotationCollection_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotannotationcollectiondestroy" &
         " already exists, not redeclaring")
 when not declared(Implotannotationcollectionappendv):
-  proc Implotannotationcollectionappendv*(self: ptr Implotannotationcollection_28313190;
+  proc Implotannotationcollectionappendv*(self: ptr Implotannotationcollection_28313412;
       pos: Imvec2_28312328; off: Imvec2_28312328; bg: Imu32_28312310; fg: Imu32_28312310;
       clamp: bool; fmt: cstring): void {.cdecl, varargs,
       importc: "ImPlotAnnotationCollection_AppendV".}
@@ -25716,7 +27158,7 @@ else:
     hint("Declaration of " & "Implotannotationcollectionappendv" &
         " already exists, not redeclaring")
 when not declared(Implotannotationcollectionappend):
-  proc Implotannotationcollectionappend*(self: ptr Implotannotationcollection_28313190;
+  proc Implotannotationcollectionappend*(self: ptr Implotannotationcollection_28313412;
       pos: Imvec2_28312328; off: Imvec2_28312328; bg: Imu32_28312310; fg: Imu32_28312310;
       clamp: bool; fmt: cstring): void {.cdecl, varargs,
       importc: "ImPlotAnnotationCollection_Append".}
@@ -25725,36 +27167,36 @@ else:
     hint("Declaration of " & "Implotannotationcollectionappend" &
         " already exists, not redeclaring")
 when not declared(Implotannotationcollectiongettext):
-  proc Implotannotationcollectiongettext*(self: ptr Implotannotationcollection_28313190;
+  proc Implotannotationcollectiongettext*(self: ptr Implotannotationcollection_28313412;
       idx: cint): cstring {.cdecl, importc: "ImPlotAnnotationCollection_GetText".}
 else:
   static :
     hint("Declaration of " & "Implotannotationcollectiongettext" &
         " already exists, not redeclaring")
 when not declared(Implotannotationcollectionreset):
-  proc Implotannotationcollectionreset*(self: ptr Implotannotationcollection_28313190): void {.
+  proc Implotannotationcollectionreset*(self: ptr Implotannotationcollection_28313412): void {.
       cdecl, importc: "ImPlotAnnotationCollection_Reset".}
 else:
   static :
     hint("Declaration of " & "Implotannotationcollectionreset" &
         " already exists, not redeclaring")
 when not declared(Implottagcollectionimplottagcollection):
-  proc Implottagcollectionimplottagcollection*(): ptr Implottagcollection_28313202 {.
+  proc Implottagcollectionimplottagcollection*(): ptr Implottagcollection_28313424 {.
       cdecl, importc: "ImPlotTagCollection_ImPlotTagCollection".}
 else:
   static :
     hint("Declaration of " & "Implottagcollectionimplottagcollection" &
         " already exists, not redeclaring")
 when not declared(Implottagcollectiondestroy):
-  proc Implottagcollectiondestroy*(self: ptr Implottagcollection_28313202): void {.
+  proc Implottagcollectiondestroy*(self: ptr Implottagcollection_28313424): void {.
       cdecl, importc: "ImPlotTagCollection_destroy".}
 else:
   static :
     hint("Declaration of " & "Implottagcollectiondestroy" &
         " already exists, not redeclaring")
 when not declared(Implottagcollectionappendv):
-  proc Implottagcollectionappendv*(self: ptr Implottagcollection_28313202;
-                                   axis: Imaxis_28312992; value: cdouble;
+  proc Implottagcollectionappendv*(self: ptr Implottagcollection_28313424;
+                                   axis: Imaxis_28313142; value: cdouble;
                                    bg: Imu32_28312310; fg: Imu32_28312310;
                                    fmt: cstring): void {.cdecl, varargs,
       importc: "ImPlotTagCollection_AppendV".}
@@ -25763,8 +27205,8 @@ else:
     hint("Declaration of " & "Implottagcollectionappendv" &
         " already exists, not redeclaring")
 when not declared(Implottagcollectionappend):
-  proc Implottagcollectionappend*(self: ptr Implottagcollection_28313202;
-                                  axis: Imaxis_28312992; value: cdouble;
+  proc Implottagcollectionappend*(self: ptr Implottagcollection_28313424;
+                                  axis: Imaxis_28313142; value: cdouble;
                                   bg: Imu32_28312310; fg: Imu32_28312310;
                                   fmt: cstring): void {.cdecl, varargs,
       importc: "ImPlotTagCollection_Append".}
@@ -25773,7 +27215,7 @@ else:
     hint("Declaration of " & "Implottagcollectionappend" &
         " already exists, not redeclaring")
 when not declared(Implottagcollectiongettext):
-  proc Implottagcollectiongettext*(self: ptr Implottagcollection_28313202;
+  proc Implottagcollectiongettext*(self: ptr Implottagcollection_28313424;
                                    idx: cint): cstring {.cdecl,
       importc: "ImPlotTagCollection_GetText".}
 else:
@@ -25781,7 +27223,7 @@ else:
     hint("Declaration of " & "Implottagcollectiongettext" &
         " already exists, not redeclaring")
 when not declared(Implottagcollectionreset):
-  proc Implottagcollectionreset*(self: ptr Implottagcollection_28313202): void {.
+  proc Implottagcollectionreset*(self: ptr Implottagcollection_28313424): void {.
       cdecl, importc: "ImPlotTagCollection_Reset".}
 else:
   static :
@@ -25789,76 +27231,76 @@ else:
         " already exists, not redeclaring")
 when not declared(Implottickimplottick):
   proc Implottickimplottick*(value: cdouble; major: bool; level: cint;
-                             showlabel: bool): ptr Implottick_28312934 {.cdecl,
+                             showlabel: bool): ptr Implottick_28313084 {.cdecl,
       importc: "ImPlotTick_ImPlotTick".}
 else:
   static :
     hint("Declaration of " & "Implottickimplottick" &
         " already exists, not redeclaring")
 when not declared(Implottickdestroy):
-  proc Implottickdestroy*(self: ptr Implottick_28312934): void {.cdecl,
+  proc Implottickdestroy*(self: ptr Implottick_28313084): void {.cdecl,
       importc: "ImPlotTick_destroy".}
 else:
   static :
     hint("Declaration of " & "Implottickdestroy" &
         " already exists, not redeclaring")
 when not declared(Implottickerimplotticker):
-  proc Implottickerimplotticker*(): ptr Implotticker_28312960 {.cdecl,
+  proc Implottickerimplotticker*(): ptr Implotticker_28313110 {.cdecl,
       importc: "ImPlotTicker_ImPlotTicker".}
 else:
   static :
     hint("Declaration of " & "Implottickerimplotticker" &
         " already exists, not redeclaring")
 when not declared(Implottickerdestroy):
-  proc Implottickerdestroy*(self: ptr Implotticker_28312960): void {.cdecl,
+  proc Implottickerdestroy*(self: ptr Implotticker_28313110): void {.cdecl,
       importc: "ImPlotTicker_destroy".}
 else:
   static :
     hint("Declaration of " & "Implottickerdestroy" &
         " already exists, not redeclaring")
 when not declared(Implottickeraddtickdoublestr):
-  proc Implottickeraddtickdoublestr*(self: ptr Implotticker_28312960;
+  proc Implottickeraddtickdoublestr*(self: ptr Implotticker_28313110;
                                      value: cdouble; major: bool; level: cint;
-                                     showlabel: bool; label: cstring): ptr Implottick_28312934 {.
+                                     showlabel: bool; label: cstring): ptr Implottick_28313084 {.
       cdecl, importc: "ImPlotTicker_AddTick_doubleStr".}
 else:
   static :
     hint("Declaration of " & "Implottickeraddtickdoublestr" &
         " already exists, not redeclaring")
 when not declared(Implottickeraddtickdoubleplotformatter):
-  proc Implottickeraddtickdoubleplotformatter*(self: ptr Implotticker_28312960;
+  proc Implottickeraddtickdoubleplotformatter*(self: ptr Implotticker_28313110;
       value: cdouble; major: bool; level: cint; showlabel: bool;
-      formatter: Implotformatter_28313144; data: pointer): ptr Implottick_28312934 {.
+      formatter: Implotformatter_28313360; data: pointer): ptr Implottick_28313084 {.
       cdecl, importc: "ImPlotTicker_AddTick_doublePlotFormatter".}
 else:
   static :
     hint("Declaration of " & "Implottickeraddtickdoubleplotformatter" &
         " already exists, not redeclaring")
 when not declared(Implottickeraddtickplottick):
-  proc Implottickeraddtickplottick*(self: ptr Implotticker_28312960;
-                                    tick: Implottick_28312934): ptr Implottick_28312934 {.
+  proc Implottickeraddtickplottick*(self: ptr Implotticker_28313110;
+                                    tick: Implottick_28313084): ptr Implottick_28313084 {.
       cdecl, importc: "ImPlotTicker_AddTick_PlotTick".}
 else:
   static :
     hint("Declaration of " & "Implottickeraddtickplottick" &
         " already exists, not redeclaring")
 when not declared(Implottickergettextint):
-  proc Implottickergettextint*(self: ptr Implotticker_28312960; idx: cint): cstring {.
+  proc Implottickergettextint*(self: ptr Implotticker_28313110; idx: cint): cstring {.
       cdecl, importc: "ImPlotTicker_GetText_Int".}
 else:
   static :
     hint("Declaration of " & "Implottickergettextint" &
         " already exists, not redeclaring")
 when not declared(Implottickergettextplottick):
-  proc Implottickergettextplottick*(self: ptr Implotticker_28312960;
-                                    tick: Implottick_28312934): cstring {.cdecl,
+  proc Implottickergettextplottick*(self: ptr Implotticker_28313110;
+                                    tick: Implottick_28313084): cstring {.cdecl,
       importc: "ImPlotTicker_GetText_PlotTick".}
 else:
   static :
     hint("Declaration of " & "Implottickergettextplottick" &
         " already exists, not redeclaring")
 when not declared(Implottickeroverridesizelate):
-  proc Implottickeroverridesizelate*(self: ptr Implotticker_28312960;
+  proc Implottickeroverridesizelate*(self: ptr Implotticker_28313110;
                                      size: Imvec2_28312328): void {.cdecl,
       importc: "ImPlotTicker_OverrideSizeLate".}
 else:
@@ -25866,42 +27308,42 @@ else:
     hint("Declaration of " & "Implottickeroverridesizelate" &
         " already exists, not redeclaring")
 when not declared(Implottickerreset):
-  proc Implottickerreset*(self: ptr Implotticker_28312960): void {.cdecl,
+  proc Implottickerreset*(self: ptr Implotticker_28313110): void {.cdecl,
       importc: "ImPlotTicker_Reset".}
 else:
   static :
     hint("Declaration of " & "Implottickerreset" &
         " already exists, not redeclaring")
 when not declared(Implottickertickcount):
-  proc Implottickertickcount*(self: ptr Implotticker_28312960): cint {.cdecl,
+  proc Implottickertickcount*(self: ptr Implotticker_28313110): cint {.cdecl,
       importc: "ImPlotTicker_TickCount".}
 else:
   static :
     hint("Declaration of " & "Implottickertickcount" &
         " already exists, not redeclaring")
 when not declared(Implotaxisimplotaxis):
-  proc Implotaxisimplotaxis*(): ptr Implotaxis_28312938 {.cdecl,
+  proc Implotaxisimplotaxis*(): ptr Implotaxis_28313088 {.cdecl,
       importc: "ImPlotAxis_ImPlotAxis".}
 else:
   static :
     hint("Declaration of " & "Implotaxisimplotaxis" &
         " already exists, not redeclaring")
 when not declared(Implotaxisdestroy):
-  proc Implotaxisdestroy*(self: ptr Implotaxis_28312938): void {.cdecl,
+  proc Implotaxisdestroy*(self: ptr Implotaxis_28313088): void {.cdecl,
       importc: "ImPlotAxis_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotaxisdestroy" &
         " already exists, not redeclaring")
 when not declared(Implotaxisreset):
-  proc Implotaxisreset*(self: ptr Implotaxis_28312938): void {.cdecl,
+  proc Implotaxisreset*(self: ptr Implotaxis_28313088): void {.cdecl,
       importc: "ImPlotAxis_Reset".}
 else:
   static :
     hint("Declaration of " & "Implotaxisreset" &
         " already exists, not redeclaring")
 when not declared(Implotaxissetmin):
-  proc Implotaxissetmin*(self: ptr Implotaxis_28312938; internalmin: cdouble;
+  proc Implotaxissetmin*(self: ptr Implotaxis_28313088; internalmin: cdouble;
                          force: bool): bool {.cdecl,
       importc: "ImPlotAxis_SetMin".}
 else:
@@ -25909,7 +27351,7 @@ else:
     hint("Declaration of " & "Implotaxissetmin" &
         " already exists, not redeclaring")
 when not declared(Implotaxissetmax):
-  proc Implotaxissetmax*(self: ptr Implotaxis_28312938; internalmax: cdouble;
+  proc Implotaxissetmax*(self: ptr Implotaxis_28313088; internalmax: cdouble;
                          force: bool): bool {.cdecl,
       importc: "ImPlotAxis_SetMax".}
 else:
@@ -25917,7 +27359,7 @@ else:
     hint("Declaration of " & "Implotaxissetmax" &
         " already exists, not redeclaring")
 when not declared(Implotaxissetrangedouble):
-  proc Implotaxissetrangedouble*(self: ptr Implotaxis_28312938; v1: cdouble;
+  proc Implotaxissetrangedouble*(self: ptr Implotaxis_28313088; v1: cdouble;
                                  v2: cdouble): void {.cdecl,
       importc: "ImPlotAxis_SetRange_double".}
 else:
@@ -25925,72 +27367,72 @@ else:
     hint("Declaration of " & "Implotaxissetrangedouble" &
         " already exists, not redeclaring")
 when not declared(Implotaxissetrangeplotrange):
-  proc Implotaxissetrangeplotrange*(self: ptr Implotaxis_28312938;
-                                    range: Implotrange_28313128): void {.cdecl,
+  proc Implotaxissetrangeplotrange*(self: ptr Implotaxis_28313088;
+                                    range: Implotrange_28313344): void {.cdecl,
       importc: "ImPlotAxis_SetRange_PlotRange".}
 else:
   static :
     hint("Declaration of " & "Implotaxissetrangeplotrange" &
         " already exists, not redeclaring")
 when not declared(Implotaxissetaspect):
-  proc Implotaxissetaspect*(self: ptr Implotaxis_28312938; unitperpix: cdouble): void {.
+  proc Implotaxissetaspect*(self: ptr Implotaxis_28313088; unitperpix: cdouble): void {.
       cdecl, importc: "ImPlotAxis_SetAspect".}
 else:
   static :
     hint("Declaration of " & "Implotaxissetaspect" &
         " already exists, not redeclaring")
 when not declared(Implotaxispixelsize):
-  proc Implotaxispixelsize*(self: ptr Implotaxis_28312938): cfloat {.cdecl,
+  proc Implotaxispixelsize*(self: ptr Implotaxis_28313088): cfloat {.cdecl,
       importc: "ImPlotAxis_PixelSize".}
 else:
   static :
     hint("Declaration of " & "Implotaxispixelsize" &
         " already exists, not redeclaring")
 when not declared(Implotaxisgetaspect):
-  proc Implotaxisgetaspect*(self: ptr Implotaxis_28312938): cdouble {.cdecl,
+  proc Implotaxisgetaspect*(self: ptr Implotaxis_28313088): cdouble {.cdecl,
       importc: "ImPlotAxis_GetAspect".}
 else:
   static :
     hint("Declaration of " & "Implotaxisgetaspect" &
         " already exists, not redeclaring")
 when not declared(Implotaxisconstrain):
-  proc Implotaxisconstrain*(self: ptr Implotaxis_28312938): void {.cdecl,
+  proc Implotaxisconstrain*(self: ptr Implotaxis_28313088): void {.cdecl,
       importc: "ImPlotAxis_Constrain".}
 else:
   static :
     hint("Declaration of " & "Implotaxisconstrain" &
         " already exists, not redeclaring")
 when not declared(Implotaxisupdatetransformcache):
-  proc Implotaxisupdatetransformcache*(self: ptr Implotaxis_28312938): void {.
+  proc Implotaxisupdatetransformcache*(self: ptr Implotaxis_28313088): void {.
       cdecl, importc: "ImPlotAxis_UpdateTransformCache".}
 else:
   static :
     hint("Declaration of " & "Implotaxisupdatetransformcache" &
         " already exists, not redeclaring")
 when not declared(Implotaxisplottopixels):
-  proc Implotaxisplottopixels*(self: ptr Implotaxis_28312938; plt: cdouble): cfloat {.
+  proc Implotaxisplottopixels*(self: ptr Implotaxis_28313088; plt: cdouble): cfloat {.
       cdecl, importc: "ImPlotAxis_PlotToPixels".}
 else:
   static :
     hint("Declaration of " & "Implotaxisplottopixels" &
         " already exists, not redeclaring")
 when not declared(Implotaxispixelstoplot):
-  proc Implotaxispixelstoplot*(self: ptr Implotaxis_28312938; pix: cfloat): cdouble {.
+  proc Implotaxispixelstoplot*(self: ptr Implotaxis_28313088; pix: cfloat): cdouble {.
       cdecl, importc: "ImPlotAxis_PixelsToPlot".}
 else:
   static :
     hint("Declaration of " & "Implotaxispixelstoplot" &
         " already exists, not redeclaring")
 when not declared(Implotaxisextendfit):
-  proc Implotaxisextendfit*(self: ptr Implotaxis_28312938; v: cdouble): void {.
+  proc Implotaxisextendfit*(self: ptr Implotaxis_28313088; v: cdouble): void {.
       cdecl, importc: "ImPlotAxis_ExtendFit".}
 else:
   static :
     hint("Declaration of " & "Implotaxisextendfit" &
         " already exists, not redeclaring")
 when not declared(Implotaxisextendfitwith):
-  proc Implotaxisextendfitwith*(self: ptr Implotaxis_28312938;
-                                alt: ptr Implotaxis_28312938; v: cdouble;
+  proc Implotaxisextendfitwith*(self: ptr Implotaxis_28313088;
+                                alt: ptr Implotaxis_28313088; v: cdouble;
                                 valt: cdouble): void {.cdecl,
       importc: "ImPlotAxis_ExtendFitWith".}
 else:
@@ -25998,182 +27440,182 @@ else:
     hint("Declaration of " & "Implotaxisextendfitwith" &
         " already exists, not redeclaring")
 when not declared(Implotaxisapplyfit):
-  proc Implotaxisapplyfit*(self: ptr Implotaxis_28312938; padding: cfloat): void {.
+  proc Implotaxisapplyfit*(self: ptr Implotaxis_28313088; padding: cfloat): void {.
       cdecl, importc: "ImPlotAxis_ApplyFit".}
 else:
   static :
     hint("Declaration of " & "Implotaxisapplyfit" &
         " already exists, not redeclaring")
 when not declared(Implotaxishaslabel):
-  proc Implotaxishaslabel*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxishaslabel*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_HasLabel".}
 else:
   static :
     hint("Declaration of " & "Implotaxishaslabel" &
         " already exists, not redeclaring")
 when not declared(Implotaxishasgridlines):
-  proc Implotaxishasgridlines*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxishasgridlines*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_HasGridLines".}
 else:
   static :
     hint("Declaration of " & "Implotaxishasgridlines" &
         " already exists, not redeclaring")
 when not declared(Implotaxishasticklabels):
-  proc Implotaxishasticklabels*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxishasticklabels*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_HasTickLabels".}
 else:
   static :
     hint("Declaration of " & "Implotaxishasticklabels" &
         " already exists, not redeclaring")
 when not declared(Implotaxishastickmarks):
-  proc Implotaxishastickmarks*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxishastickmarks*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_HasTickMarks".}
 else:
   static :
     hint("Declaration of " & "Implotaxishastickmarks" &
         " already exists, not redeclaring")
 when not declared(Implotaxiswillrender):
-  proc Implotaxiswillrender*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxiswillrender*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_WillRender".}
 else:
   static :
     hint("Declaration of " & "Implotaxiswillrender" &
         " already exists, not redeclaring")
 when not declared(Implotaxisisopposite):
-  proc Implotaxisisopposite*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxisisopposite*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_IsOpposite".}
 else:
   static :
     hint("Declaration of " & "Implotaxisisopposite" &
         " already exists, not redeclaring")
 when not declared(Implotaxisisinverted):
-  proc Implotaxisisinverted*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxisisinverted*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_IsInverted".}
 else:
   static :
     hint("Declaration of " & "Implotaxisisinverted" &
         " already exists, not redeclaring")
 when not declared(Implotaxisisforeground):
-  proc Implotaxisisforeground*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxisisforeground*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_IsForeground".}
 else:
   static :
     hint("Declaration of " & "Implotaxisisforeground" &
         " already exists, not redeclaring")
 when not declared(Implotaxisisautofitting):
-  proc Implotaxisisautofitting*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxisisautofitting*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_IsAutoFitting".}
 else:
   static :
     hint("Declaration of " & "Implotaxisisautofitting" &
         " already exists, not redeclaring")
 when not declared(Implotaxiscaninitfit):
-  proc Implotaxiscaninitfit*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxiscaninitfit*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_CanInitFit".}
 else:
   static :
     hint("Declaration of " & "Implotaxiscaninitfit" &
         " already exists, not redeclaring")
 when not declared(Implotaxisisrangelocked):
-  proc Implotaxisisrangelocked*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxisisrangelocked*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_IsRangeLocked".}
 else:
   static :
     hint("Declaration of " & "Implotaxisisrangelocked" &
         " already exists, not redeclaring")
 when not declared(Implotaxisislockedmin):
-  proc Implotaxisislockedmin*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxisislockedmin*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_IsLockedMin".}
 else:
   static :
     hint("Declaration of " & "Implotaxisislockedmin" &
         " already exists, not redeclaring")
 when not declared(Implotaxisislockedmax):
-  proc Implotaxisislockedmax*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxisislockedmax*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_IsLockedMax".}
 else:
   static :
     hint("Declaration of " & "Implotaxisislockedmax" &
         " already exists, not redeclaring")
 when not declared(Implotaxisislocked):
-  proc Implotaxisislocked*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxisislocked*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_IsLocked".}
 else:
   static :
     hint("Declaration of " & "Implotaxisislocked" &
         " already exists, not redeclaring")
 when not declared(Implotaxisisinputlockedmin):
-  proc Implotaxisisinputlockedmin*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxisisinputlockedmin*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_IsInputLockedMin".}
 else:
   static :
     hint("Declaration of " & "Implotaxisisinputlockedmin" &
         " already exists, not redeclaring")
 when not declared(Implotaxisisinputlockedmax):
-  proc Implotaxisisinputlockedmax*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxisisinputlockedmax*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_IsInputLockedMax".}
 else:
   static :
     hint("Declaration of " & "Implotaxisisinputlockedmax" &
         " already exists, not redeclaring")
 when not declared(Implotaxisisinputlocked):
-  proc Implotaxisisinputlocked*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxisisinputlocked*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_IsInputLocked".}
 else:
   static :
     hint("Declaration of " & "Implotaxisisinputlocked" &
         " already exists, not redeclaring")
 when not declared(Implotaxishasmenus):
-  proc Implotaxishasmenus*(self: ptr Implotaxis_28312938): bool {.cdecl,
+  proc Implotaxishasmenus*(self: ptr Implotaxis_28313088): bool {.cdecl,
       importc: "ImPlotAxis_HasMenus".}
 else:
   static :
     hint("Declaration of " & "Implotaxishasmenus" &
         " already exists, not redeclaring")
 when not declared(Implotaxisispanlocked):
-  proc Implotaxisispanlocked*(self: ptr Implotaxis_28312938; increasing: bool): bool {.
+  proc Implotaxisispanlocked*(self: ptr Implotaxis_28313088; increasing: bool): bool {.
       cdecl, importc: "ImPlotAxis_IsPanLocked".}
 else:
   static :
     hint("Declaration of " & "Implotaxisispanlocked" &
         " already exists, not redeclaring")
 when not declared(Implotaxispushlinks):
-  proc Implotaxispushlinks*(self: ptr Implotaxis_28312938): void {.cdecl,
+  proc Implotaxispushlinks*(self: ptr Implotaxis_28313088): void {.cdecl,
       importc: "ImPlotAxis_PushLinks".}
 else:
   static :
     hint("Declaration of " & "Implotaxispushlinks" &
         " already exists, not redeclaring")
 when not declared(Implotaxispulllinks):
-  proc Implotaxispulllinks*(self: ptr Implotaxis_28312938): void {.cdecl,
+  proc Implotaxispulllinks*(self: ptr Implotaxis_28313088): void {.cdecl,
       importc: "ImPlotAxis_PullLinks".}
 else:
   static :
     hint("Declaration of " & "Implotaxispulllinks" &
         " already exists, not redeclaring")
 when not declared(Implotalignmentdataimplotalignmentdata):
-  proc Implotalignmentdataimplotalignmentdata*(): ptr Implotalignmentdata_28313214 {.
+  proc Implotalignmentdataimplotalignmentdata*(): ptr Implotalignmentdata_28313436 {.
       cdecl, importc: "ImPlotAlignmentData_ImPlotAlignmentData".}
 else:
   static :
     hint("Declaration of " & "Implotalignmentdataimplotalignmentdata" &
         " already exists, not redeclaring")
 when not declared(Implotalignmentdatadestroy):
-  proc Implotalignmentdatadestroy*(self: ptr Implotalignmentdata_28313214): void {.
+  proc Implotalignmentdatadestroy*(self: ptr Implotalignmentdata_28313436): void {.
       cdecl, importc: "ImPlotAlignmentData_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotalignmentdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Implotalignmentdatabegin):
-  proc Implotalignmentdatabegin*(self: ptr Implotalignmentdata_28313214): void {.
+  proc Implotalignmentdatabegin*(self: ptr Implotalignmentdata_28313436): void {.
       cdecl, importc: "ImPlotAlignmentData_Begin".}
 else:
   static :
     hint("Declaration of " & "Implotalignmentdatabegin" &
         " already exists, not redeclaring")
 when not declared(Implotalignmentdataupdate):
-  proc Implotalignmentdataupdate*(self: ptr Implotalignmentdata_28313214;
+  proc Implotalignmentdataupdate*(self: ptr Implotalignmentdata_28313436;
                                   pada: ptr cfloat; padb: ptr cfloat;
                                   deltaa: ptr cfloat; deltab: ptr cfloat): void {.
       cdecl, importc: "ImPlotAlignmentData_Update".}
@@ -26182,77 +27624,77 @@ else:
     hint("Declaration of " & "Implotalignmentdataupdate" &
         " already exists, not redeclaring")
 when not declared(Implotalignmentdataend):
-  proc Implotalignmentdataend*(self: ptr Implotalignmentdata_28313214): void {.
+  proc Implotalignmentdataend*(self: ptr Implotalignmentdata_28313436): void {.
       cdecl, importc: "ImPlotAlignmentData_End".}
 else:
   static :
     hint("Declaration of " & "Implotalignmentdataend" &
         " already exists, not redeclaring")
 when not declared(Implotalignmentdatareset):
-  proc Implotalignmentdatareset*(self: ptr Implotalignmentdata_28313214): void {.
+  proc Implotalignmentdatareset*(self: ptr Implotalignmentdata_28313436): void {.
       cdecl, importc: "ImPlotAlignmentData_Reset".}
 else:
   static :
     hint("Declaration of " & "Implotalignmentdatareset" &
         " already exists, not redeclaring")
 when not declared(Implotitemimplotitem):
-  proc Implotitemimplotitem*(): ptr Implotitem_28312944 {.cdecl,
+  proc Implotitemimplotitem*(): ptr Implotitem_28313094 {.cdecl,
       importc: "ImPlotItem_ImPlotItem".}
 else:
   static :
     hint("Declaration of " & "Implotitemimplotitem" &
         " already exists, not redeclaring")
 when not declared(Implotitemdestroy):
-  proc Implotitemdestroy*(self: ptr Implotitem_28312944): void {.cdecl,
+  proc Implotitemdestroy*(self: ptr Implotitem_28313094): void {.cdecl,
       importc: "ImPlotItem_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotitemdestroy" &
         " already exists, not redeclaring")
 when not declared(Implotlegendimplotlegend):
-  proc Implotlegendimplotlegend*(): ptr Implotlegend_28312948 {.cdecl,
+  proc Implotlegendimplotlegend*(): ptr Implotlegend_28313098 {.cdecl,
       importc: "ImPlotLegend_ImPlotLegend".}
 else:
   static :
     hint("Declaration of " & "Implotlegendimplotlegend" &
         " already exists, not redeclaring")
 when not declared(Implotlegenddestroy):
-  proc Implotlegenddestroy*(self: ptr Implotlegend_28312948): void {.cdecl,
+  proc Implotlegenddestroy*(self: ptr Implotlegend_28313098): void {.cdecl,
       importc: "ImPlotLegend_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotlegenddestroy" &
         " already exists, not redeclaring")
 when not declared(Implotlegendreset):
-  proc Implotlegendreset*(self: ptr Implotlegend_28312948): void {.cdecl,
+  proc Implotlegendreset*(self: ptr Implotlegend_28313098): void {.cdecl,
       importc: "ImPlotLegend_Reset".}
 else:
   static :
     hint("Declaration of " & "Implotlegendreset" &
         " already exists, not redeclaring")
 when not declared(Implotitemgroupimplotitemgroup):
-  proc Implotitemgroupimplotitemgroup*(): ptr Implotitemgroup_28313218 {.cdecl,
+  proc Implotitemgroupimplotitemgroup*(): ptr Implotitemgroup_28313440 {.cdecl,
       importc: "ImPlotItemGroup_ImPlotItemGroup".}
 else:
   static :
     hint("Declaration of " & "Implotitemgroupimplotitemgroup" &
         " already exists, not redeclaring")
 when not declared(Implotitemgroupdestroy):
-  proc Implotitemgroupdestroy*(self: ptr Implotitemgroup_28313218): void {.
+  proc Implotitemgroupdestroy*(self: ptr Implotitemgroup_28313440): void {.
       cdecl, importc: "ImPlotItemGroup_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotitemgroupdestroy" &
         " already exists, not redeclaring")
 when not declared(Implotitemgroupgetitemcount):
-  proc Implotitemgroupgetitemcount*(self: ptr Implotitemgroup_28313218): cint {.
+  proc Implotitemgroupgetitemcount*(self: ptr Implotitemgroup_28313440): cint {.
       cdecl, importc: "ImPlotItemGroup_GetItemCount".}
 else:
   static :
     hint("Declaration of " & "Implotitemgroupgetitemcount" &
         " already exists, not redeclaring")
 when not declared(Implotitemgroupgetitemid):
-  proc Implotitemgroupgetitemid*(self: ptr Implotitemgroup_28313218;
+  proc Implotitemgroupgetitemid*(self: ptr Implotitemgroup_28313440;
                                  labelid: cstring): Imguiid_28312298 {.cdecl,
       importc: "ImPlotItemGroup_GetItemID".}
 else:
@@ -26260,61 +27702,61 @@ else:
     hint("Declaration of " & "Implotitemgroupgetitemid" &
         " already exists, not redeclaring")
 when not declared(Implotitemgroupgetitemidproc):
-  proc Implotitemgroupgetitemidproc*(self: ptr Implotitemgroup_28313218;
-                                     id: Imguiid_28312298): ptr Implotitem_28312944 {.
+  proc Implotitemgroupgetitemidproc*(self: ptr Implotitemgroup_28313440;
+                                     id: Imguiid_28312298): ptr Implotitem_28313094 {.
       cdecl, importc: "ImPlotItemGroup_GetItem_ID".}
 else:
   static :
     hint("Declaration of " & "Implotitemgroupgetitemidproc" &
         " already exists, not redeclaring")
 when not declared(Implotitemgroupgetitemstr):
-  proc Implotitemgroupgetitemstr*(self: ptr Implotitemgroup_28313218;
-                                  labelid: cstring): ptr Implotitem_28312944 {.
+  proc Implotitemgroupgetitemstr*(self: ptr Implotitemgroup_28313440;
+                                  labelid: cstring): ptr Implotitem_28313094 {.
       cdecl, importc: "ImPlotItemGroup_GetItem_Str".}
 else:
   static :
     hint("Declaration of " & "Implotitemgroupgetitemstr" &
         " already exists, not redeclaring")
 when not declared(Implotitemgroupgetoradditem):
-  proc Implotitemgroupgetoradditem*(self: ptr Implotitemgroup_28313218;
-                                    id: Imguiid_28312298): ptr Implotitem_28312944 {.
+  proc Implotitemgroupgetoradditem*(self: ptr Implotitemgroup_28313440;
+                                    id: Imguiid_28312298): ptr Implotitem_28313094 {.
       cdecl, importc: "ImPlotItemGroup_GetOrAddItem".}
 else:
   static :
     hint("Declaration of " & "Implotitemgroupgetoradditem" &
         " already exists, not redeclaring")
 when not declared(Implotitemgroupgetitembyindex):
-  proc Implotitemgroupgetitembyindex*(self: ptr Implotitemgroup_28313218;
-                                      i: cint): ptr Implotitem_28312944 {.cdecl,
+  proc Implotitemgroupgetitembyindex*(self: ptr Implotitemgroup_28313440;
+                                      i: cint): ptr Implotitem_28313094 {.cdecl,
       importc: "ImPlotItemGroup_GetItemByIndex".}
 else:
   static :
     hint("Declaration of " & "Implotitemgroupgetitembyindex" &
         " already exists, not redeclaring")
 when not declared(Implotitemgroupgetitemindex):
-  proc Implotitemgroupgetitemindex*(self: ptr Implotitemgroup_28313218;
-                                    item: ptr Implotitem_28312944): cint {.
+  proc Implotitemgroupgetitemindex*(self: ptr Implotitemgroup_28313440;
+                                    item: ptr Implotitem_28313094): cint {.
       cdecl, importc: "ImPlotItemGroup_GetItemIndex".}
 else:
   static :
     hint("Declaration of " & "Implotitemgroupgetitemindex" &
         " already exists, not redeclaring")
 when not declared(Implotitemgroupgetlegendcount):
-  proc Implotitemgroupgetlegendcount*(self: ptr Implotitemgroup_28313218): cint {.
+  proc Implotitemgroupgetlegendcount*(self: ptr Implotitemgroup_28313440): cint {.
       cdecl, importc: "ImPlotItemGroup_GetLegendCount".}
 else:
   static :
     hint("Declaration of " & "Implotitemgroupgetlegendcount" &
         " already exists, not redeclaring")
 when not declared(Implotitemgroupgetlegenditem):
-  proc Implotitemgroupgetlegenditem*(self: ptr Implotitemgroup_28313218; i: cint): ptr Implotitem_28312944 {.
+  proc Implotitemgroupgetlegenditem*(self: ptr Implotitemgroup_28313440; i: cint): ptr Implotitem_28313094 {.
       cdecl, importc: "ImPlotItemGroup_GetLegendItem".}
 else:
   static :
     hint("Declaration of " & "Implotitemgroupgetlegenditem" &
         " already exists, not redeclaring")
 when not declared(Implotitemgroupgetlegendlabel):
-  proc Implotitemgroupgetlegendlabel*(self: ptr Implotitemgroup_28313218;
+  proc Implotitemgroupgetlegendlabel*(self: ptr Implotitemgroup_28313440;
                                       i: cint): cstring {.cdecl,
       importc: "ImPlotItemGroup_GetLegendLabel".}
 else:
@@ -26322,211 +27764,211 @@ else:
     hint("Declaration of " & "Implotitemgroupgetlegendlabel" &
         " already exists, not redeclaring")
 when not declared(Implotitemgroupreset):
-  proc Implotitemgroupreset*(self: ptr Implotitemgroup_28313218): void {.cdecl,
+  proc Implotitemgroupreset*(self: ptr Implotitemgroup_28313440): void {.cdecl,
       importc: "ImPlotItemGroup_Reset".}
 else:
   static :
     hint("Declaration of " & "Implotitemgroupreset" &
         " already exists, not redeclaring")
 when not declared(Implotplotimplotplot):
-  proc Implotplotimplotplot*(): ptr Implotplot_28312952 {.cdecl,
+  proc Implotplotimplotplot*(): ptr Implotplot_28313102 {.cdecl,
       importc: "ImPlotPlot_ImPlotPlot".}
 else:
   static :
     hint("Declaration of " & "Implotplotimplotplot" &
         " already exists, not redeclaring")
 when not declared(Implotplotdestroy):
-  proc Implotplotdestroy*(self: ptr Implotplot_28312952): void {.cdecl,
+  proc Implotplotdestroy*(self: ptr Implotplot_28313102): void {.cdecl,
       importc: "ImPlotPlot_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotplotdestroy" &
         " already exists, not redeclaring")
 when not declared(Implotplotisinputlocked):
-  proc Implotplotisinputlocked*(self: ptr Implotplot_28312952): bool {.cdecl,
+  proc Implotplotisinputlocked*(self: ptr Implotplot_28313102): bool {.cdecl,
       importc: "ImPlotPlot_IsInputLocked".}
 else:
   static :
     hint("Declaration of " & "Implotplotisinputlocked" &
         " already exists, not redeclaring")
 when not declared(Implotplotcleartextbuffer):
-  proc Implotplotcleartextbuffer*(self: ptr Implotplot_28312952): void {.cdecl,
+  proc Implotplotcleartextbuffer*(self: ptr Implotplot_28313102): void {.cdecl,
       importc: "ImPlotPlot_ClearTextBuffer".}
 else:
   static :
     hint("Declaration of " & "Implotplotcleartextbuffer" &
         " already exists, not redeclaring")
 when not declared(Implotplotsettitle):
-  proc Implotplotsettitle*(self: ptr Implotplot_28312952; title: cstring): void {.
+  proc Implotplotsettitle*(self: ptr Implotplot_28313102; title: cstring): void {.
       cdecl, importc: "ImPlotPlot_SetTitle".}
 else:
   static :
     hint("Declaration of " & "Implotplotsettitle" &
         " already exists, not redeclaring")
 when not declared(Implotplothastitle):
-  proc Implotplothastitle*(self: ptr Implotplot_28312952): bool {.cdecl,
+  proc Implotplothastitle*(self: ptr Implotplot_28313102): bool {.cdecl,
       importc: "ImPlotPlot_HasTitle".}
 else:
   static :
     hint("Declaration of " & "Implotplothastitle" &
         " already exists, not redeclaring")
 when not declared(Implotplotgettitle):
-  proc Implotplotgettitle*(self: ptr Implotplot_28312952): cstring {.cdecl,
+  proc Implotplotgettitle*(self: ptr Implotplot_28313102): cstring {.cdecl,
       importc: "ImPlotPlot_GetTitle".}
 else:
   static :
     hint("Declaration of " & "Implotplotgettitle" &
         " already exists, not redeclaring")
 when not declared(Implotplotxaxisnil):
-  proc Implotplotxaxisnil*(self: ptr Implotplot_28312952; i: cint): ptr Implotaxis_28312938 {.
+  proc Implotplotxaxisnil*(self: ptr Implotplot_28313102; i: cint): ptr Implotaxis_28313088 {.
       cdecl, importc: "ImPlotPlot_XAxis_Nil".}
 else:
   static :
     hint("Declaration of " & "Implotplotxaxisnil" &
         " already exists, not redeclaring")
 when not declared(Implotplotxaxisconst):
-  proc Implotplotxaxisconst*(self: ptr Implotplot_28312952; i: cint): ptr Implotaxis_28312938 {.
+  proc Implotplotxaxisconst*(self: ptr Implotplot_28313102; i: cint): ptr Implotaxis_28313088 {.
       cdecl, importc: "ImPlotPlot_XAxis__const".}
 else:
   static :
     hint("Declaration of " & "Implotplotxaxisconst" &
         " already exists, not redeclaring")
 when not declared(Implotplotyaxisnil):
-  proc Implotplotyaxisnil*(self: ptr Implotplot_28312952; i: cint): ptr Implotaxis_28312938 {.
+  proc Implotplotyaxisnil*(self: ptr Implotplot_28313102; i: cint): ptr Implotaxis_28313088 {.
       cdecl, importc: "ImPlotPlot_YAxis_Nil".}
 else:
   static :
     hint("Declaration of " & "Implotplotyaxisnil" &
         " already exists, not redeclaring")
 when not declared(Implotplotyaxisconst):
-  proc Implotplotyaxisconst*(self: ptr Implotplot_28312952; i: cint): ptr Implotaxis_28312938 {.
+  proc Implotplotyaxisconst*(self: ptr Implotplot_28313102; i: cint): ptr Implotaxis_28313088 {.
       cdecl, importc: "ImPlotPlot_YAxis__const".}
 else:
   static :
     hint("Declaration of " & "Implotplotyaxisconst" &
         " already exists, not redeclaring")
 when not declared(Implotplotenabledaxesx):
-  proc Implotplotenabledaxesx*(self: ptr Implotplot_28312952): cint {.cdecl,
+  proc Implotplotenabledaxesx*(self: ptr Implotplot_28313102): cint {.cdecl,
       importc: "ImPlotPlot_EnabledAxesX".}
 else:
   static :
     hint("Declaration of " & "Implotplotenabledaxesx" &
         " already exists, not redeclaring")
 when not declared(Implotplotenabledaxesy):
-  proc Implotplotenabledaxesy*(self: ptr Implotplot_28312952): cint {.cdecl,
+  proc Implotplotenabledaxesy*(self: ptr Implotplot_28313102): cint {.cdecl,
       importc: "ImPlotPlot_EnabledAxesY".}
 else:
   static :
     hint("Declaration of " & "Implotplotenabledaxesy" &
         " already exists, not redeclaring")
 when not declared(Implotplotsetaxislabel):
-  proc Implotplotsetaxislabel*(self: ptr Implotplot_28312952;
-                               axis: ptr Implotaxis_28312938; label: cstring): void {.
+  proc Implotplotsetaxislabel*(self: ptr Implotplot_28313102;
+                               axis: ptr Implotaxis_28313088; label: cstring): void {.
       cdecl, importc: "ImPlotPlot_SetAxisLabel".}
 else:
   static :
     hint("Declaration of " & "Implotplotsetaxislabel" &
         " already exists, not redeclaring")
 when not declared(Implotplotgetaxislabel):
-  proc Implotplotgetaxislabel*(self: ptr Implotplot_28312952; axis: Implotaxis_28312938): cstring {.
+  proc Implotplotgetaxislabel*(self: ptr Implotplot_28313102; axis: Implotaxis_28313088): cstring {.
       cdecl, importc: "ImPlotPlot_GetAxisLabel".}
 else:
   static :
     hint("Declaration of " & "Implotplotgetaxislabel" &
         " already exists, not redeclaring")
 when not declared(Implotsubplotimplotsubplot):
-  proc Implotsubplotimplotsubplot*(): ptr Implotsubplot_28313230 {.cdecl,
+  proc Implotsubplotimplotsubplot*(): ptr Implotsubplot_28313452 {.cdecl,
       importc: "ImPlotSubplot_ImPlotSubplot".}
 else:
   static :
     hint("Declaration of " & "Implotsubplotimplotsubplot" &
         " already exists, not redeclaring")
 when not declared(Implotsubplotdestroy):
-  proc Implotsubplotdestroy*(self: ptr Implotsubplot_28313230): void {.cdecl,
+  proc Implotsubplotdestroy*(self: ptr Implotsubplot_28313452): void {.cdecl,
       importc: "ImPlotSubplot_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotsubplotdestroy" &
         " already exists, not redeclaring")
 when not declared(Implotnextplotdataimplotnextplotdata):
-  proc Implotnextplotdataimplotnextplotdata*(): ptr Implotnextplotdata_28312956 {.
+  proc Implotnextplotdataimplotnextplotdata*(): ptr Implotnextplotdata_28313106 {.
       cdecl, importc: "ImPlotNextPlotData_ImPlotNextPlotData".}
 else:
   static :
     hint("Declaration of " & "Implotnextplotdataimplotnextplotdata" &
         " already exists, not redeclaring")
 when not declared(Implotnextplotdatadestroy):
-  proc Implotnextplotdatadestroy*(self: ptr Implotnextplotdata_28312956): void {.
+  proc Implotnextplotdatadestroy*(self: ptr Implotnextplotdata_28313106): void {.
       cdecl, importc: "ImPlotNextPlotData_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotnextplotdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Implotnextplotdatareset):
-  proc Implotnextplotdatareset*(self: ptr Implotnextplotdata_28312956): void {.
+  proc Implotnextplotdatareset*(self: ptr Implotnextplotdata_28313106): void {.
       cdecl, importc: "ImPlotNextPlotData_Reset".}
 else:
   static :
     hint("Declaration of " & "Implotnextplotdatareset" &
         " already exists, not redeclaring")
 when not declared(Implotnextitemdataimplotnextitemdata):
-  proc Implotnextitemdataimplotnextitemdata*(): ptr Implotnextitemdata_28313242 {.
+  proc Implotnextitemdataimplotnextitemdata*(): ptr Implotnextitemdata_28313464 {.
       cdecl, importc: "ImPlotNextItemData_ImPlotNextItemData".}
 else:
   static :
     hint("Declaration of " & "Implotnextitemdataimplotnextitemdata" &
         " already exists, not redeclaring")
 when not declared(Implotnextitemdatadestroy):
-  proc Implotnextitemdatadestroy*(self: ptr Implotnextitemdata_28313242): void {.
+  proc Implotnextitemdatadestroy*(self: ptr Implotnextitemdata_28313464): void {.
       cdecl, importc: "ImPlotNextItemData_destroy".}
 else:
   static :
     hint("Declaration of " & "Implotnextitemdatadestroy" &
         " already exists, not redeclaring")
 when not declared(Implotnextitemdatareset):
-  proc Implotnextitemdatareset*(self: ptr Implotnextitemdata_28313242): void {.
+  proc Implotnextitemdatareset*(self: ptr Implotnextitemdata_28313464): void {.
       cdecl, importc: "ImPlotNextItemData_Reset".}
 else:
   static :
     hint("Declaration of " & "Implotnextitemdatareset" &
         " already exists, not redeclaring")
 when not declared(Implotinitialize):
-  proc Implotinitialize*(ctx: ptr Implotcontext_28312930): void {.cdecl,
+  proc Implotinitialize*(ctx: ptr Implotcontext_28313080): void {.cdecl,
       importc: "ImPlot_Initialize".}
 else:
   static :
     hint("Declaration of " & "Implotinitialize" &
         " already exists, not redeclaring")
 when not declared(Implotresetctxfornextplot):
-  proc Implotresetctxfornextplot*(ctx: ptr Implotcontext_28312930): void {.
+  proc Implotresetctxfornextplot*(ctx: ptr Implotcontext_28313080): void {.
       cdecl, importc: "ImPlot_ResetCtxForNextPlot".}
 else:
   static :
     hint("Declaration of " & "Implotresetctxfornextplot" &
         " already exists, not redeclaring")
 when not declared(Implotresetctxfornextalignedplots):
-  proc Implotresetctxfornextalignedplots*(ctx: ptr Implotcontext_28312930): void {.
+  proc Implotresetctxfornextalignedplots*(ctx: ptr Implotcontext_28313080): void {.
       cdecl, importc: "ImPlot_ResetCtxForNextAlignedPlots".}
 else:
   static :
     hint("Declaration of " & "Implotresetctxfornextalignedplots" &
         " already exists, not redeclaring")
 when not declared(Implotresetctxfornextsubplot):
-  proc Implotresetctxfornextsubplot*(ctx: ptr Implotcontext_28312930): void {.
+  proc Implotresetctxfornextsubplot*(ctx: ptr Implotcontext_28313080): void {.
       cdecl, importc: "ImPlot_ResetCtxForNextSubplot".}
 else:
   static :
     hint("Declaration of " & "Implotresetctxfornextsubplot" &
         " already exists, not redeclaring")
 when not declared(Implotgetplot):
-  proc Implotgetplot*(title: cstring): ptr Implotplot_28312952 {.cdecl,
+  proc Implotgetplot*(title: cstring): ptr Implotplot_28313102 {.cdecl,
       importc: "ImPlot_GetPlot".}
 else:
   static :
     hint("Declaration of " & "Implotgetplot" &
         " already exists, not redeclaring")
 when not declared(Implotgetcurrentplot):
-  proc Implotgetcurrentplot*(): ptr Implotplot_28312952 {.cdecl,
+  proc Implotgetcurrentplot*(): ptr Implotplot_28313102 {.cdecl,
       importc: "ImPlot_GetCurrentPlot".}
 else:
   static :
@@ -26539,7 +27981,7 @@ else:
     hint("Declaration of " & "Implotbustplotcache" &
         " already exists, not redeclaring")
 when not declared(Implotshowplotcontextmenu):
-  proc Implotshowplotcontextmenu*(plot: ptr Implotplot_28312952): void {.cdecl,
+  proc Implotshowplotcontextmenu*(plot: ptr Implotplot_28313102): void {.cdecl,
       importc: "ImPlot_ShowPlotContextMenu".}
 else:
   static :
@@ -26558,15 +28000,15 @@ else:
     hint("Declaration of " & "Implotsubplotnextcell" &
         " already exists, not redeclaring")
 when not declared(Implotshowsubplotscontextmenu):
-  proc Implotshowsubplotscontextmenu*(subplot: ptr Implotsubplot_28313230): void {.
+  proc Implotshowsubplotscontextmenu*(subplot: ptr Implotsubplot_28313452): void {.
       cdecl, importc: "ImPlot_ShowSubplotsContextMenu".}
 else:
   static :
     hint("Declaration of " & "Implotshowsubplotscontextmenu" &
         " already exists, not redeclaring")
 when not declared(Implotbeginitem):
-  proc Implotbeginitem*(labelid: cstring; flags: Implotitemflags_28313008;
-                        recolorfrom: Implotcol_28313044): bool {.cdecl,
+  proc Implotbeginitem*(labelid: cstring; flags: Implotitemflags_28313158;
+                        recolorfrom: Implotcol_28313194): bool {.cdecl,
       importc: "ImPlot_BeginItem".}
 else:
   static :
@@ -26579,22 +28021,22 @@ else:
     hint("Declaration of " & "Implotenditem" &
         " already exists, not redeclaring")
 when not declared(Implotregisterorgetitem):
-  proc Implotregisterorgetitem*(labelid: cstring; flags: Implotitemflags_28313008;
-                                justcreated: ptr bool): ptr Implotitem_28312944 {.
+  proc Implotregisterorgetitem*(labelid: cstring; flags: Implotitemflags_28313158;
+                                justcreated: ptr bool): ptr Implotitem_28313094 {.
       cdecl, importc: "ImPlot_RegisterOrGetItem".}
 else:
   static :
     hint("Declaration of " & "Implotregisterorgetitem" &
         " already exists, not redeclaring")
 when not declared(Implotgetitem):
-  proc Implotgetitem*(labelid: cstring): ptr Implotitem_28312944 {.cdecl,
+  proc Implotgetitem*(labelid: cstring): ptr Implotitem_28313094 {.cdecl,
       importc: "ImPlot_GetItem".}
 else:
   static :
     hint("Declaration of " & "Implotgetitem" &
         " already exists, not redeclaring")
 when not declared(Implotgetcurrentitem):
-  proc Implotgetcurrentitem*(): ptr Implotitem_28312944 {.cdecl,
+  proc Implotgetcurrentitem*(): ptr Implotitem_28313094 {.cdecl,
       importc: "ImPlot_GetCurrentItem".}
 else:
   static :
@@ -26607,28 +28049,28 @@ else:
     hint("Declaration of " & "Implotbustitemcache" &
         " already exists, not redeclaring")
 when not declared(Implotanyaxesinputlocked):
-  proc Implotanyaxesinputlocked*(axes: ptr Implotaxis_28312938; count: cint): bool {.
+  proc Implotanyaxesinputlocked*(axes: ptr Implotaxis_28313088; count: cint): bool {.
       cdecl, importc: "ImPlot_AnyAxesInputLocked".}
 else:
   static :
     hint("Declaration of " & "Implotanyaxesinputlocked" &
         " already exists, not redeclaring")
 when not declared(Implotallaxesinputlocked):
-  proc Implotallaxesinputlocked*(axes: ptr Implotaxis_28312938; count: cint): bool {.
+  proc Implotallaxesinputlocked*(axes: ptr Implotaxis_28313088; count: cint): bool {.
       cdecl, importc: "ImPlot_AllAxesInputLocked".}
 else:
   static :
     hint("Declaration of " & "Implotallaxesinputlocked" &
         " already exists, not redeclaring")
 when not declared(Implotanyaxesheld):
-  proc Implotanyaxesheld*(axes: ptr Implotaxis_28312938; count: cint): bool {.
+  proc Implotanyaxesheld*(axes: ptr Implotaxis_28313088; count: cint): bool {.
       cdecl, importc: "ImPlot_AnyAxesHeld".}
 else:
   static :
     hint("Declaration of " & "Implotanyaxesheld" &
         " already exists, not redeclaring")
 when not declared(Implotanyaxeshovered):
-  proc Implotanyaxeshovered*(axes: ptr Implotaxis_28312938; count: cint): bool {.
+  proc Implotanyaxeshovered*(axes: ptr Implotaxis_28313088; count: cint): bool {.
       cdecl, importc: "ImPlot_AnyAxesHovered".}
 else:
   static :
@@ -26653,22 +28095,22 @@ else:
     hint("Declaration of " & "Implotfitpointy" &
         " already exists, not redeclaring")
 when not declared(Implotfitpoint):
-  proc Implotfitpoint*(p: Implotpoint_28313124): void {.cdecl,
+  proc Implotfitpoint*(p: Implotpoint_28313340): void {.cdecl,
       importc: "ImPlot_FitPoint".}
 else:
   static :
     hint("Declaration of " & "Implotfitpoint" &
         " already exists, not redeclaring")
 when not declared(Implotrangesoverlap):
-  proc Implotrangesoverlap*(r1: Implotrange_28313128; r2: Implotrange_28313128): bool {.
+  proc Implotrangesoverlap*(r1: Implotrange_28313344; r2: Implotrange_28313344): bool {.
       cdecl, importc: "ImPlot_RangesOverlap".}
 else:
   static :
     hint("Declaration of " & "Implotrangesoverlap" &
         " already exists, not redeclaring")
 when not declared(Implotshowaxiscontextmenu):
-  proc Implotshowaxiscontextmenu*(axis: ptr Implotaxis_28312938;
-                                  equalaxis: ptr Implotaxis_28312938;
+  proc Implotshowaxiscontextmenu*(axis: ptr Implotaxis_28313088;
+                                  equalaxis: ptr Implotaxis_28313088;
                                   timeallowed: bool): void {.cdecl,
       importc: "ImPlot_ShowAxisContextMenu".}
 else:
@@ -26678,7 +28120,7 @@ else:
 when not declared(Implotgetlocationpos):
   proc Implotgetlocationpos*(pout: ptr Imvec2_28312328; outerrect: Imrect_28312078;
                              innersize: Imvec2_28312328;
-                             location: Implotlocation_28313054; pad: Imvec2_28312328): void {.
+                             location: Implotlocation_28313204; pad: Imvec2_28312328): void {.
       cdecl, importc: "ImPlot_GetLocationPos".}
 else:
   static :
@@ -26686,7 +28128,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotcalclegendsize):
   proc Implotcalclegendsize*(pout: ptr Imvec2_28312328;
-                             items: ptr Implotitemgroup_28313218; pad: Imvec2_28312328;
+                             items: ptr Implotitemgroup_28313440; pad: Imvec2_28312328;
                              spacing: Imvec2_28312328; vertical: bool): void {.
       cdecl, importc: "ImPlot_CalcLegendSize".}
 else:
@@ -26694,7 +28136,7 @@ else:
     hint("Declaration of " & "Implotcalclegendsize" &
         " already exists, not redeclaring")
 when not declared(Implotshowlegendentries):
-  proc Implotshowlegendentries*(items: ptr Implotitemgroup_28313218;
+  proc Implotshowlegendentries*(items: ptr Implotitemgroup_28313440;
                                 legendbb: Imrect_28312078; interactable: bool;
                                 pad: Imvec2_28312328; spacing: Imvec2_28312328;
                                 vertical: bool; Drawlist: ptr Imdrawlist_28311947): bool {.
@@ -26712,7 +28154,7 @@ else:
     hint("Declaration of " & "Implotshowaltlegend" &
         " already exists, not redeclaring")
 when not declared(Implotshowlegendcontextmenu):
-  proc Implotshowlegendcontextmenu*(legend: ptr Implotlegend_28312948;
+  proc Implotshowlegendcontextmenu*(legend: ptr Implotlegend_28313098;
                                     visible: bool): bool {.cdecl,
       importc: "ImPlot_ShowLegendContextMenu".}
 else:
@@ -26720,7 +28162,7 @@ else:
     hint("Declaration of " & "Implotshowlegendcontextmenu" &
         " already exists, not redeclaring")
 when not declared(Implotlabelaxisvalue):
-  proc Implotlabelaxisvalue*(axis: Implotaxis_28312938; value: cdouble;
+  proc Implotlabelaxisvalue*(axis: Implotaxis_28313088; value: cdouble;
                              buff: cstring; size: cint; round: bool): void {.
       cdecl, importc: "ImPlot_LabelAxisValue".}
 else:
@@ -26728,7 +28170,7 @@ else:
     hint("Declaration of " & "Implotlabelaxisvalue" &
         " already exists, not redeclaring")
 when not declared(Implotgetitemdata):
-  proc Implotgetitemdata*(): ptr Implotnextitemdata_28313242 {.cdecl,
+  proc Implotgetitemdata*(): ptr Implotnextitemdata_28313464 {.cdecl,
       importc: "ImPlot_GetItemData".}
 else:
   static :
@@ -26742,28 +28184,28 @@ else:
     hint("Declaration of " & "Implotiscolorautovec4" &
         " already exists, not redeclaring")
 when not declared(Implotiscolorautoplotcol):
-  proc Implotiscolorautoplotcol*(idx: Implotcol_28313044): bool {.cdecl,
+  proc Implotiscolorautoplotcol*(idx: Implotcol_28313194): bool {.cdecl,
       importc: "ImPlot_IsColorAuto_PlotCol".}
 else:
   static :
     hint("Declaration of " & "Implotiscolorautoplotcol" &
         " already exists, not redeclaring")
 when not declared(Implotgetautocolor):
-  proc Implotgetautocolor*(pout: ptr Imvec4_28312332; idx: Implotcol_28313044): void {.
+  proc Implotgetautocolor*(pout: ptr Imvec4_28312332; idx: Implotcol_28313194): void {.
       cdecl, importc: "ImPlot_GetAutoColor".}
 else:
   static :
     hint("Declaration of " & "Implotgetautocolor" &
         " already exists, not redeclaring")
 when not declared(Implotgetstylecolorvec4):
-  proc Implotgetstylecolorvec4*(pout: ptr Imvec4_28312332; idx: Implotcol_28313044): void {.
+  proc Implotgetstylecolorvec4*(pout: ptr Imvec4_28312332; idx: Implotcol_28313194): void {.
       cdecl, importc: "ImPlot_GetStyleColorVec4".}
 else:
   static :
     hint("Declaration of " & "Implotgetstylecolorvec4" &
         " already exists, not redeclaring")
 when not declared(Implotgetstylecoloru32):
-  proc Implotgetstylecoloru32*(idx: Implotcol_28313044): Imu32_28312310 {.cdecl,
+  proc Implotgetstylecoloru32*(idx: Implotcol_28313194): Imu32_28312310 {.cdecl,
       importc: "ImPlot_GetStyleColorU32".}
 else:
   static :
@@ -26825,7 +28267,7 @@ else:
     hint("Declaration of " & "Implotclamplabelpos" &
         " already exists, not redeclaring")
 when not declared(Implotgetcolormapcoloru32):
-  proc Implotgetcolormapcoloru32*(idx: cint; cmap: Implotcolormap_28313052): Imu32_28312310 {.
+  proc Implotgetcolormapcoloru32*(idx: cint; cmap: Implotcolormap_28313202): Imu32_28312310 {.
       cdecl, importc: "ImPlot_GetColormapColorU32".}
 else:
   static :
@@ -26839,7 +28281,7 @@ else:
     hint("Declaration of " & "Implotnextcolormapcoloru32" &
         " already exists, not redeclaring")
 when not declared(Implotsamplecolormapu32):
-  proc Implotsamplecolormapu32*(t: cfloat; cmap: Implotcolormap_28313052): Imu32_28312310 {.
+  proc Implotsamplecolormapu32*(t: cfloat; cmap: Implotcolormap_28313202): Imu32_28312310 {.
       cdecl, importc: "ImPlot_SampleColormapU32".}
 else:
   static :
@@ -26897,7 +28339,7 @@ else:
     hint("Declaration of " & "Implotintersection" &
         " already exists, not redeclaring")
 when not declared(Implotfillrangevectorfloatptr):
-  proc Implotfillrangevectorfloatptr*(buffer: ptr Imvectorfloat_28312490;
+  proc Implotfillrangevectorfloatptr*(buffer: ptr Imvectorfloat_28312560;
                                       n: cint; vmin: cfloat; vmax: cfloat): void {.
       cdecl, importc: "ImPlot_FillRange_Vector_Float_Ptr".}
 else:
@@ -26905,7 +28347,7 @@ else:
     hint("Declaration of " & "Implotfillrangevectorfloatptr" &
         " already exists, not redeclaring")
 when not declared(Implotfillrangevectordoubleptr):
-  proc Implotfillrangevectordoubleptr*(buffer: ptr Imvectordouble_28313268;
+  proc Implotfillrangevectordoubleptr*(buffer: ptr Imvectordouble_28313490;
                                        n: cint; vmin: cdouble; vmax: cdouble): void {.
       cdecl, importc: "ImPlot_FillRange_Vector_double_Ptr".}
 else:
@@ -26913,7 +28355,7 @@ else:
     hint("Declaration of " & "Implotfillrangevectordoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotfillrangevectors8ptr):
-  proc Implotfillrangevectors8ptr*(buffer: ptr Imvectorims8_28312978; n: cint;
+  proc Implotfillrangevectors8ptr*(buffer: ptr Imvectorims8_28313128; n: cint;
                                    vmin: Ims8_28312300; vmax: Ims8_28312300): void {.
       cdecl, importc: "ImPlot_FillRange_Vector_S8_Ptr".}
 else:
@@ -26921,7 +28363,7 @@ else:
     hint("Declaration of " & "Implotfillrangevectors8ptr" &
         " already exists, not redeclaring")
 when not declared(Implotfillrangevectoru8ptr):
-  proc Implotfillrangevectoru8ptr*(buffer: ptr Imvectorimu8_28312990; n: cint;
+  proc Implotfillrangevectoru8ptr*(buffer: ptr Imvectorimu8_28313140; n: cint;
                                    vmin: Imu8_28312302; vmax: Imu8_28312302): void {.
       cdecl, importc: "ImPlot_FillRange_Vector_U8_Ptr".}
 else:
@@ -26929,7 +28371,7 @@ else:
     hint("Declaration of " & "Implotfillrangevectoru8ptr" &
         " already exists, not redeclaring")
 when not declared(Implotfillrangevectors16ptr):
-  proc Implotfillrangevectors16ptr*(buffer: ptr Imvectorims16_28312966; n: cint;
+  proc Implotfillrangevectors16ptr*(buffer: ptr Imvectorims16_28313116; n: cint;
                                     vmin: Ims16_28312304; vmax: Ims16_28312304): void {.
       cdecl, importc: "ImPlot_FillRange_Vector_S16_Ptr".}
 else:
@@ -26937,7 +28379,7 @@ else:
     hint("Declaration of " & "Implotfillrangevectors16ptr" &
         " already exists, not redeclaring")
 when not declared(Implotfillrangevectoru16ptr):
-  proc Implotfillrangevectoru16ptr*(buffer: ptr Imvectorimu16_28312982; n: cint;
+  proc Implotfillrangevectoru16ptr*(buffer: ptr Imvectorimu16_28313132; n: cint;
                                     vmin: Imu16_28312306; vmax: Imu16_28312306): void {.
       cdecl, importc: "ImPlot_FillRange_Vector_U16_Ptr".}
 else:
@@ -26945,7 +28387,7 @@ else:
     hint("Declaration of " & "Implotfillrangevectoru16ptr" &
         " already exists, not redeclaring")
 when not declared(Implotfillrangevectors32ptr):
-  proc Implotfillrangevectors32ptr*(buffer: ptr Imvectorims32_28312970; n: cint;
+  proc Implotfillrangevectors32ptr*(buffer: ptr Imvectorims32_28313120; n: cint;
                                     vmin: Ims32_28312308; vmax: Ims32_28312308): void {.
       cdecl, importc: "ImPlot_FillRange_Vector_S32_Ptr".}
 else:
@@ -26953,7 +28395,7 @@ else:
     hint("Declaration of " & "Implotfillrangevectors32ptr" &
         " already exists, not redeclaring")
 when not declared(Implotfillrangevectoru32ptr):
-  proc Implotfillrangevectoru32ptr*(buffer: ptr Imvectorimu32_28312468; n: cint;
+  proc Implotfillrangevectoru32ptr*(buffer: ptr Imvectorimu32_28312536; n: cint;
                                     vmin: Imu32_28312310; vmax: Imu32_28312310): void {.
       cdecl, importc: "ImPlot_FillRange_Vector_U32_Ptr".}
 else:
@@ -26961,7 +28403,7 @@ else:
     hint("Declaration of " & "Implotfillrangevectoru32ptr" &
         " already exists, not redeclaring")
 when not declared(Implotfillrangevectors64ptr):
-  proc Implotfillrangevectors64ptr*(buffer: ptr Imvectorims64_28312974; n: cint;
+  proc Implotfillrangevectors64ptr*(buffer: ptr Imvectorims64_28313124; n: cint;
                                     vmin: Ims64_28312312; vmax: Ims64_28312312): void {.
       cdecl, importc: "ImPlot_FillRange_Vector_S64_Ptr".}
 else:
@@ -26969,7 +28411,7 @@ else:
     hint("Declaration of " & "Implotfillrangevectors64ptr" &
         " already exists, not redeclaring")
 when not declared(Implotfillrangevectoru64ptr):
-  proc Implotfillrangevectoru64ptr*(buffer: ptr Imvectorimu64_28312986; n: cint;
+  proc Implotfillrangevectoru64ptr*(buffer: ptr Imvectorimu64_28313136; n: cint;
                                     vmin: Imu64_28311933; vmax: Imu64_28311933): void {.
       cdecl, importc: "ImPlot_FillRange_Vector_U64_Ptr".}
 else:
@@ -26978,8 +28420,8 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotcalculatebinsfloatptr):
   proc Implotcalculatebinsfloatptr*(values: ptr cfloat; count: cint;
-                                    meth: Implotbin_28313056;
-                                    range: Implotrange_28313128;
+                                    meth: Implotbin_28313206;
+                                    range: Implotrange_28313344;
                                     binsout: ptr cint; widthout: ptr cdouble): void {.
       cdecl, importc: "ImPlot_CalculateBins_FloatPtr".}
 else:
@@ -26988,8 +28430,8 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotcalculatebinsdoubleptr):
   proc Implotcalculatebinsdoubleptr*(values: ptr cdouble; count: cint;
-                                     meth: Implotbin_28313056;
-                                     range: Implotrange_28313128;
+                                     meth: Implotbin_28313206;
+                                     range: Implotrange_28313344;
                                      binsout: ptr cint; widthout: ptr cdouble): void {.
       cdecl, importc: "ImPlot_CalculateBins_doublePtr".}
 else:
@@ -26997,17 +28439,17 @@ else:
     hint("Declaration of " & "Implotcalculatebinsdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotcalculatebinss8ptr):
-  proc Implotcalculatebinss8ptr*(values: cstring; count: cint; meth: Implotbin_28313056;
-                                 range: Implotrange_28313128; binsout: ptr cint;
-                                 widthout: ptr cdouble): void {.cdecl,
-      importc: "ImPlot_CalculateBins_S8Ptr".}
+  proc Implotcalculatebinss8ptr*(values: ptr Ims8_28312300; count: cint;
+                                 meth: Implotbin_28313206; range: Implotrange_28313344;
+                                 binsout: ptr cint; widthout: ptr cdouble): void {.
+      cdecl, importc: "ImPlot_CalculateBins_S8Ptr".}
 else:
   static :
     hint("Declaration of " & "Implotcalculatebinss8ptr" &
         " already exists, not redeclaring")
 when not declared(Implotcalculatebinsu8ptr):
   proc Implotcalculatebinsu8ptr*(values: ptr Imu8_28312302; count: cint;
-                                 meth: Implotbin_28313056; range: Implotrange_28313128;
+                                 meth: Implotbin_28313206; range: Implotrange_28313344;
                                  binsout: ptr cint; widthout: ptr cdouble): void {.
       cdecl, importc: "ImPlot_CalculateBins_U8Ptr".}
 else:
@@ -27016,7 +28458,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotcalculatebinss16ptr):
   proc Implotcalculatebinss16ptr*(values: ptr Ims16_28312304; count: cint;
-                                  meth: Implotbin_28313056; range: Implotrange_28313128;
+                                  meth: Implotbin_28313206; range: Implotrange_28313344;
                                   binsout: ptr cint; widthout: ptr cdouble): void {.
       cdecl, importc: "ImPlot_CalculateBins_S16Ptr".}
 else:
@@ -27025,7 +28467,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotcalculatebinsu16ptr):
   proc Implotcalculatebinsu16ptr*(values: ptr Imu16_28312306; count: cint;
-                                  meth: Implotbin_28313056; range: Implotrange_28313128;
+                                  meth: Implotbin_28313206; range: Implotrange_28313344;
                                   binsout: ptr cint; widthout: ptr cdouble): void {.
       cdecl, importc: "ImPlot_CalculateBins_U16Ptr".}
 else:
@@ -27034,7 +28476,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotcalculatebinss32ptr):
   proc Implotcalculatebinss32ptr*(values: ptr Ims32_28312308; count: cint;
-                                  meth: Implotbin_28313056; range: Implotrange_28313128;
+                                  meth: Implotbin_28313206; range: Implotrange_28313344;
                                   binsout: ptr cint; widthout: ptr cdouble): void {.
       cdecl, importc: "ImPlot_CalculateBins_S32Ptr".}
 else:
@@ -27043,7 +28485,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotcalculatebinsu32ptr):
   proc Implotcalculatebinsu32ptr*(values: ptr Imu32_28312310; count: cint;
-                                  meth: Implotbin_28313056; range: Implotrange_28313128;
+                                  meth: Implotbin_28313206; range: Implotrange_28313344;
                                   binsout: ptr cint; widthout: ptr cdouble): void {.
       cdecl, importc: "ImPlot_CalculateBins_U32Ptr".}
 else:
@@ -27052,7 +28494,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotcalculatebinss64ptr):
   proc Implotcalculatebinss64ptr*(values: ptr Ims64_28312312; count: cint;
-                                  meth: Implotbin_28313056; range: Implotrange_28313128;
+                                  meth: Implotbin_28313206; range: Implotrange_28313344;
                                   binsout: ptr cint; widthout: ptr cdouble): void {.
       cdecl, importc: "ImPlot_CalculateBins_S64Ptr".}
 else:
@@ -27061,7 +28503,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotcalculatebinsu64ptr):
   proc Implotcalculatebinsu64ptr*(values: ptr Imu64_28311933; count: cint;
-                                  meth: Implotbin_28313056; range: Implotrange_28313128;
+                                  meth: Implotbin_28313206; range: Implotrange_28313344;
                                   binsout: ptr cint; widthout: ptr cdouble): void {.
       cdecl, importc: "ImPlot_CalculateBins_U64Ptr".}
 else:
@@ -27082,35 +28524,35 @@ else:
     hint("Declaration of " & "Implotgetdaysinmonth" &
         " already exists, not redeclaring")
 when not declared(Implotmkgmttime):
-  proc Implotmkgmttime*(pout: ptr Implottime_28313168; ptm: ptr structtm_28312928): void {.
+  proc Implotmkgmttime*(pout: ptr Implottime_28313390; ptm: ptr structtm_28313078): void {.
       cdecl, importc: "ImPlot_MkGmtTime".}
 else:
   static :
     hint("Declaration of " & "Implotmkgmttime" &
         " already exists, not redeclaring")
 when not declared(Implotgetgmttime):
-  proc Implotgetgmttime*(t: Implottime_28313168; ptm: ptr tm_28312926): ptr tm_28312926 {.
+  proc Implotgetgmttime*(t: Implottime_28313390; ptm: ptr tm_28313076): ptr tm_28313076 {.
       cdecl, importc: "ImPlot_GetGmtTime".}
 else:
   static :
     hint("Declaration of " & "Implotgetgmttime" &
         " already exists, not redeclaring")
 when not declared(Implotmkloctime):
-  proc Implotmkloctime*(pout: ptr Implottime_28313168; ptm: ptr structtm_28312928): void {.
+  proc Implotmkloctime*(pout: ptr Implottime_28313390; ptm: ptr structtm_28313078): void {.
       cdecl, importc: "ImPlot_MkLocTime".}
 else:
   static :
     hint("Declaration of " & "Implotmkloctime" &
         " already exists, not redeclaring")
 when not declared(Implotgetloctime):
-  proc Implotgetloctime*(t: Implottime_28313168; ptm: ptr tm_28312926): ptr tm_28312926 {.
+  proc Implotgetloctime*(t: Implottime_28313390; ptm: ptr tm_28313076): ptr tm_28313076 {.
       cdecl, importc: "ImPlot_GetLocTime".}
 else:
   static :
     hint("Declaration of " & "Implotgetloctime" &
         " already exists, not redeclaring")
 when not declared(Implotmaketime):
-  proc Implotmaketime*(pout: ptr Implottime_28313168; year: cint; month: cint;
+  proc Implotmaketime*(pout: ptr Implottime_28313390; year: cint; month: cint;
                        day: cint; hour: cint; min: cint; sec: cint; us: cint): void {.
       cdecl, importc: "ImPlot_MakeTime".}
 else:
@@ -27118,87 +28560,87 @@ else:
     hint("Declaration of " & "Implotmaketime" &
         " already exists, not redeclaring")
 when not declared(Implotgetyear):
-  proc Implotgetyear*(t: Implottime_28313168): cint {.cdecl,
+  proc Implotgetyear*(t: Implottime_28313390): cint {.cdecl,
       importc: "ImPlot_GetYear".}
 else:
   static :
     hint("Declaration of " & "Implotgetyear" &
         " already exists, not redeclaring")
 when not declared(Implotaddtime):
-  proc Implotaddtime*(pout: ptr Implottime_28313168; t: Implottime_28313168;
-                      unit: Implottimeunit_28313150; count: cint): void {.cdecl,
+  proc Implotaddtime*(pout: ptr Implottime_28313390; t: Implottime_28313390;
+                      unit: Implottimeunit_28313366; count: cint): void {.cdecl,
       importc: "ImPlot_AddTime".}
 else:
   static :
     hint("Declaration of " & "Implotaddtime" &
         " already exists, not redeclaring")
 when not declared(Implotfloortime):
-  proc Implotfloortime*(pout: ptr Implottime_28313168; t: Implottime_28313168;
-                        unit: Implottimeunit_28313150): void {.cdecl,
+  proc Implotfloortime*(pout: ptr Implottime_28313390; t: Implottime_28313390;
+                        unit: Implottimeunit_28313366): void {.cdecl,
       importc: "ImPlot_FloorTime".}
 else:
   static :
     hint("Declaration of " & "Implotfloortime" &
         " already exists, not redeclaring")
 when not declared(Implotceiltime):
-  proc Implotceiltime*(pout: ptr Implottime_28313168; t: Implottime_28313168;
-                       unit: Implottimeunit_28313150): void {.cdecl,
+  proc Implotceiltime*(pout: ptr Implottime_28313390; t: Implottime_28313390;
+                       unit: Implottimeunit_28313366): void {.cdecl,
       importc: "ImPlot_CeilTime".}
 else:
   static :
     hint("Declaration of " & "Implotceiltime" &
         " already exists, not redeclaring")
 when not declared(Implotroundtime):
-  proc Implotroundtime*(pout: ptr Implottime_28313168; t: Implottime_28313168;
-                        unit: Implottimeunit_28313150): void {.cdecl,
+  proc Implotroundtime*(pout: ptr Implottime_28313390; t: Implottime_28313390;
+                        unit: Implottimeunit_28313366): void {.cdecl,
       importc: "ImPlot_RoundTime".}
 else:
   static :
     hint("Declaration of " & "Implotroundtime" &
         " already exists, not redeclaring")
 when not declared(Implotcombinedatetime):
-  proc Implotcombinedatetime*(pout: ptr Implottime_28313168;
-                              datepart: Implottime_28313168;
-                              timepart: Implottime_28313168): void {.cdecl,
+  proc Implotcombinedatetime*(pout: ptr Implottime_28313390;
+                              datepart: Implottime_28313390;
+                              timepart: Implottime_28313390): void {.cdecl,
       importc: "ImPlot_CombineDateTime".}
 else:
   static :
     hint("Declaration of " & "Implotcombinedatetime" &
         " already exists, not redeclaring")
 when not declared(Implotformattime):
-  proc Implotformattime*(t: Implottime_28313168; buffer: cstring; size: cint;
-                         fmt: Implottimefmt_28313154; use24hrclk: bool): cint {.
+  proc Implotformattime*(t: Implottime_28313390; buffer: cstring; size: cint;
+                         fmt: Implottimefmt_28313370; use24hrclk: bool): cint {.
       cdecl, importc: "ImPlot_FormatTime".}
 else:
   static :
     hint("Declaration of " & "Implotformattime" &
         " already exists, not redeclaring")
 when not declared(Implotformatdate):
-  proc Implotformatdate*(t: Implottime_28313168; buffer: cstring; size: cint;
-                         fmt: Implotdatefmt_28313152; useiso8601: bool): cint {.
+  proc Implotformatdate*(t: Implottime_28313390; buffer: cstring; size: cint;
+                         fmt: Implotdatefmt_28313368; useiso8601: bool): cint {.
       cdecl, importc: "ImPlot_FormatDate".}
 else:
   static :
     hint("Declaration of " & "Implotformatdate" &
         " already exists, not redeclaring")
 when not declared(Implotformatdatetime):
-  proc Implotformatdatetime*(t: Implottime_28313168; buffer: cstring;
-                             size: cint; fmt: Implotdatetimespec_28313164): cint {.
+  proc Implotformatdatetime*(t: Implottime_28313390; buffer: cstring;
+                             size: cint; fmt: Implotdatetimespec_28313386): cint {.
       cdecl, importc: "ImPlot_FormatDateTime".}
 else:
   static :
     hint("Declaration of " & "Implotformatdatetime" &
         " already exists, not redeclaring")
 when not declared(Implotshowdatepicker):
-  proc Implotshowdatepicker*(id: cstring; level: ptr cint; t: ptr Implottime_28313168;
-                             t1: ptr Implottime_28313168; t2: ptr Implottime_28313168): bool {.
+  proc Implotshowdatepicker*(id: cstring; level: ptr cint; t: ptr Implottime_28313390;
+                             t1: ptr Implottime_28313390; t2: ptr Implottime_28313390): bool {.
       cdecl, importc: "ImPlot_ShowDatePicker".}
 else:
   static :
     hint("Declaration of " & "Implotshowdatepicker" &
         " already exists, not redeclaring")
 when not declared(Implotshowtimepicker):
-  proc Implotshowtimepicker*(id: cstring; t: ptr Implottime_28313168): bool {.
+  proc Implotshowtimepicker*(id: cstring; t: ptr Implottime_28313390): bool {.
       cdecl, importc: "ImPlot_ShowTimePicker".}
 else:
   static :
@@ -27271,9 +28713,9 @@ else:
     hint("Declaration of " & "Implotformattertime" &
         " already exists, not redeclaring")
 when not declared(Implotlocatordefault):
-  proc Implotlocatordefault*(ticker: ptr Implotticker_28312960;
-                             range: Implotrange_28313128; pixels: cfloat;
-                             vertical: bool; formatter: Implotformatter_28313144;
+  proc Implotlocatordefault*(ticker: ptr Implotticker_28313110;
+                             range: Implotrange_28313344; pixels: cfloat;
+                             vertical: bool; formatter: Implotformatter_28313360;
                              formatterdata: pointer): void {.cdecl,
       importc: "ImPlot_Locator_Default".}
 else:
@@ -27281,9 +28723,9 @@ else:
     hint("Declaration of " & "Implotlocatordefault" &
         " already exists, not redeclaring")
 when not declared(Implotlocatortime):
-  proc Implotlocatortime*(ticker: ptr Implotticker_28312960; range: Implotrange_28313128;
+  proc Implotlocatortime*(ticker: ptr Implotticker_28313110; range: Implotrange_28313344;
                           pixels: cfloat; vertical: bool;
-                          formatter: Implotformatter_28313144;
+                          formatter: Implotformatter_28313360;
                           formatterdata: pointer): void {.cdecl,
       importc: "ImPlot_Locator_Time".}
 else:
@@ -27291,9 +28733,9 @@ else:
     hint("Declaration of " & "Implotlocatortime" &
         " already exists, not redeclaring")
 when not declared(Implotlocatorlog10):
-  proc Implotlocatorlog10*(ticker: ptr Implotticker_28312960;
-                           range: Implotrange_28313128; pixels: cfloat;
-                           vertical: bool; formatter: Implotformatter_28313144;
+  proc Implotlocatorlog10*(ticker: ptr Implotticker_28313110;
+                           range: Implotrange_28313344; pixels: cfloat;
+                           vertical: bool; formatter: Implotformatter_28313360;
                            formatterdata: pointer): void {.cdecl,
       importc: "ImPlot_Locator_Log10".}
 else:
@@ -27301,9 +28743,9 @@ else:
     hint("Declaration of " & "Implotlocatorlog10" &
         " already exists, not redeclaring")
 when not declared(Implotlocatorsymlog):
-  proc Implotlocatorsymlog*(ticker: ptr Implotticker_28312960;
-                            range: Implotrange_28313128; pixels: cfloat;
-                            vertical: bool; formatter: Implotformatter_28313144;
+  proc Implotlocatorsymlog*(ticker: ptr Implotticker_28313110;
+                            range: Implotrange_28313344; pixels: cfloat;
+                            vertical: bool; formatter: Implotformatter_28313360;
                             formatterdata: pointer): void {.cdecl,
       importc: "ImPlot_Locator_SymLog".}
 else:
@@ -27311,21 +28753,21 @@ else:
     hint("Declaration of " & "Implotlocatorsymlog" &
         " already exists, not redeclaring")
 when not declared(Emulatethreebuttonmouseemulatethreebuttonmouse):
-  proc Emulatethreebuttonmouseemulatethreebuttonmouse*(): ptr Emulatethreebuttonmouse_28313312 {.
+  proc Emulatethreebuttonmouseemulatethreebuttonmouse*(): ptr Emulatethreebuttonmouse_28313544 {.
       cdecl, importc: "EmulateThreeButtonMouse_EmulateThreeButtonMouse".}
 else:
   static :
     hint("Declaration of " & "Emulatethreebuttonmouseemulatethreebuttonmouse" &
         " already exists, not redeclaring")
 when not declared(Emulatethreebuttonmousedestroy):
-  proc Emulatethreebuttonmousedestroy*(self: ptr Emulatethreebuttonmouse_28313312): void {.
+  proc Emulatethreebuttonmousedestroy*(self: ptr Emulatethreebuttonmouse_28313544): void {.
       cdecl, importc: "EmulateThreeButtonMouse_destroy".}
 else:
   static :
     hint("Declaration of " & "Emulatethreebuttonmousedestroy" &
         " already exists, not redeclaring")
 when not declared(Linkdetachwithmodifierclicklinkdetachwithmodifierclick):
-  proc Linkdetachwithmodifierclicklinkdetachwithmodifierclick*(): ptr Linkdetachwithmodifierclick_28313316 {.
+  proc Linkdetachwithmodifierclicklinkdetachwithmodifierclick*(): ptr Linkdetachwithmodifierclick_28313548 {.
       cdecl, importc: "LinkDetachWithModifierClick_LinkDetachWithModifierClick".}
 else:
   static :
@@ -27333,49 +28775,49 @@ else:
         "Linkdetachwithmodifierclicklinkdetachwithmodifierclick" &
         " already exists, not redeclaring")
 when not declared(Linkdetachwithmodifierclickdestroy):
-  proc Linkdetachwithmodifierclickdestroy*(self: ptr Linkdetachwithmodifierclick_28313316): void {.
+  proc Linkdetachwithmodifierclickdestroy*(self: ptr Linkdetachwithmodifierclick_28313548): void {.
       cdecl, importc: "LinkDetachWithModifierClick_destroy".}
 else:
   static :
     hint("Declaration of " & "Linkdetachwithmodifierclickdestroy" &
         " already exists, not redeclaring")
 when not declared(Multipleselectmodifiermultipleselectmodifier):
-  proc Multipleselectmodifiermultipleselectmodifier*(): ptr Multipleselectmodifier_28313320 {.
+  proc Multipleselectmodifiermultipleselectmodifier*(): ptr Multipleselectmodifier_28313552 {.
       cdecl, importc: "MultipleSelectModifier_MultipleSelectModifier".}
 else:
   static :
     hint("Declaration of " & "Multipleselectmodifiermultipleselectmodifier" &
         " already exists, not redeclaring")
 when not declared(Multipleselectmodifierdestroy):
-  proc Multipleselectmodifierdestroy*(self: ptr Multipleselectmodifier_28313320): void {.
+  proc Multipleselectmodifierdestroy*(self: ptr Multipleselectmodifier_28313552): void {.
       cdecl, importc: "MultipleSelectModifier_destroy".}
 else:
   static :
     hint("Declaration of " & "Multipleselectmodifierdestroy" &
         " already exists, not redeclaring")
 when not declared(Imnodesioimnodesio):
-  proc Imnodesioimnodesio*(): ptr Imnodesio_28313306 {.cdecl,
+  proc Imnodesioimnodesio*(): ptr Imnodesio_28313538 {.cdecl,
       importc: "ImNodesIO_ImNodesIO".}
 else:
   static :
     hint("Declaration of " & "Imnodesioimnodesio" &
         " already exists, not redeclaring")
 when not declared(Imnodesiodestroy):
-  proc Imnodesiodestroy*(self: ptr Imnodesio_28313306): void {.cdecl,
+  proc Imnodesiodestroy*(self: ptr Imnodesio_28313538): void {.cdecl,
       importc: "ImNodesIO_destroy".}
 else:
   static :
     hint("Declaration of " & "Imnodesiodestroy" &
         " already exists, not redeclaring")
 when not declared(Imnodesstyleimnodesstyle):
-  proc Imnodesstyleimnodesstyle*(): ptr Imnodesstyle_28313322 {.cdecl,
+  proc Imnodesstyleimnodesstyle*(): ptr Imnodesstyle_28313554 {.cdecl,
       importc: "ImNodesStyle_ImNodesStyle".}
 else:
   static :
     hint("Declaration of " & "Imnodesstyleimnodesstyle" &
         " already exists, not redeclaring")
 when not declared(Imnodesstyledestroy):
-  proc Imnodesstyledestroy*(self: ptr Imnodesstyle_28313322): void {.cdecl,
+  proc Imnodesstyledestroy*(self: ptr Imnodesstyle_28313554): void {.cdecl,
       importc: "ImNodesStyle_destroy".}
 else:
   static :
@@ -27389,49 +28831,49 @@ else:
     hint("Declaration of " & "imnodessetimguicontext" &
         " already exists, not redeclaring")
 when not declared(imnodescreatecontext):
-  proc imnodescreatecontext*(): ptr Imnodescontext_28313280 {.cdecl,
+  proc imnodescreatecontext*(): ptr Imnodescontext_28313502 {.cdecl,
       importc: "imnodes_CreateContext".}
 else:
   static :
     hint("Declaration of " & "imnodescreatecontext" &
         " already exists, not redeclaring")
 when not declared(imnodesdestroycontext):
-  proc imnodesdestroycontext*(ctx: ptr Imnodescontext_28313280): void {.cdecl,
+  proc imnodesdestroycontext*(ctx: ptr Imnodescontext_28313502): void {.cdecl,
       importc: "imnodes_DestroyContext".}
 else:
   static :
     hint("Declaration of " & "imnodesdestroycontext" &
         " already exists, not redeclaring")
 when not declared(imnodesgetcurrentcontext):
-  proc imnodesgetcurrentcontext*(): ptr Imnodescontext_28313280 {.cdecl,
+  proc imnodesgetcurrentcontext*(): ptr Imnodescontext_28313502 {.cdecl,
       importc: "imnodes_GetCurrentContext".}
 else:
   static :
     hint("Declaration of " & "imnodesgetcurrentcontext" &
         " already exists, not redeclaring")
 when not declared(imnodessetcurrentcontext):
-  proc imnodessetcurrentcontext*(ctx: ptr Imnodescontext_28313280): void {.
+  proc imnodessetcurrentcontext*(ctx: ptr Imnodescontext_28313502): void {.
       cdecl, importc: "imnodes_SetCurrentContext".}
 else:
   static :
     hint("Declaration of " & "imnodessetcurrentcontext" &
         " already exists, not redeclaring")
 when not declared(imnodeseditorcontextcreate):
-  proc imnodeseditorcontextcreate*(): ptr Imnodeseditorcontext_28313282 {.cdecl,
+  proc imnodeseditorcontextcreate*(): ptr Imnodeseditorcontext_28313504 {.cdecl,
       importc: "imnodes_EditorContextCreate".}
 else:
   static :
     hint("Declaration of " & "imnodeseditorcontextcreate" &
         " already exists, not redeclaring")
 when not declared(imnodeseditorcontextfree):
-  proc imnodeseditorcontextfree*(noname1: ptr Imnodeseditorcontext_28313282): void {.
+  proc imnodeseditorcontextfree*(noname1: ptr Imnodeseditorcontext_28313504): void {.
       cdecl, importc: "imnodes_EditorContextFree".}
 else:
   static :
     hint("Declaration of " & "imnodeseditorcontextfree" &
         " already exists, not redeclaring")
 when not declared(imnodeseditorcontextset):
-  proc imnodeseditorcontextset*(noname1: ptr Imnodeseditorcontext_28313282): void {.
+  proc imnodeseditorcontextset*(noname1: ptr Imnodeseditorcontext_28313504): void {.
       cdecl, importc: "imnodes_EditorContextSet".}
 else:
   static :
@@ -27459,33 +28901,33 @@ else:
     hint("Declaration of " & "imnodeseditorcontextmovetonode" &
         " already exists, not redeclaring")
 when not declared(imnodesgetio):
-  proc imnodesgetio*(): ptr Imnodesio_28313306 {.cdecl, importc: "imnodes_GetIO".}
+  proc imnodesgetio*(): ptr Imnodesio_28313538 {.cdecl, importc: "imnodes_GetIO".}
 else:
   static :
     hint("Declaration of " & "imnodesgetio" & " already exists, not redeclaring")
 when not declared(imnodesgetstyle):
-  proc imnodesgetstyle*(): ptr Imnodesstyle_28313322 {.cdecl,
+  proc imnodesgetstyle*(): ptr Imnodesstyle_28313554 {.cdecl,
       importc: "imnodes_GetStyle".}
 else:
   static :
     hint("Declaration of " & "imnodesgetstyle" &
         " already exists, not redeclaring")
 when not declared(imnodesstylecolorsdark):
-  proc imnodesstylecolorsdark*(dest: ptr Imnodesstyle_28313322): void {.cdecl,
+  proc imnodesstylecolorsdark*(dest: ptr Imnodesstyle_28313554): void {.cdecl,
       importc: "imnodes_StyleColorsDark".}
 else:
   static :
     hint("Declaration of " & "imnodesstylecolorsdark" &
         " already exists, not redeclaring")
 when not declared(imnodesstylecolorsclassic):
-  proc imnodesstylecolorsclassic*(dest: ptr Imnodesstyle_28313322): void {.
+  proc imnodesstylecolorsclassic*(dest: ptr Imnodesstyle_28313554): void {.
       cdecl, importc: "imnodes_StyleColorsClassic".}
 else:
   static :
     hint("Declaration of " & "imnodesstylecolorsclassic" &
         " already exists, not redeclaring")
 when not declared(imnodesstylecolorslight):
-  proc imnodesstylecolorslight*(dest: ptr Imnodesstyle_28313322): void {.cdecl,
+  proc imnodesstylecolorslight*(dest: ptr Imnodesstyle_28313554): void {.cdecl,
       importc: "imnodes_StyleColorsLight".}
 else:
   static :
@@ -27506,16 +28948,16 @@ else:
         " already exists, not redeclaring")
 when not declared(imnodesminimap):
   proc imnodesminimap*(minimapsizefraction: cfloat;
-                       location: Imnodesminimaplocation_28313294;
-      nodehoveringcallback: Imnodesminimapnodehoveringcallback_28313328;
-      nodehoveringcallbackdata: Imnodesminimapnodehoveringcallbackuserdata_28313330): void {.
+                       location: Imnodesminimaplocation_28313516;
+      nodehoveringcallback: Imnodesminimapnodehoveringcallback_28313562;
+      nodehoveringcallbackdata: Imnodesminimapnodehoveringcallbackuserdata_28313564): void {.
       cdecl, importc: "imnodes_MiniMap".}
 else:
   static :
     hint("Declaration of " & "imnodesminimap" &
         " already exists, not redeclaring")
 when not declared(imnodespushcolorstyle):
-  proc imnodespushcolorstyle*(item: Imnodescol_28313284; color: cuint): void {.
+  proc imnodespushcolorstyle*(item: Imnodescol_28313506; color: cuint): void {.
       cdecl, importc: "imnodes_PushColorStyle".}
 else:
   static :
@@ -27528,7 +28970,7 @@ else:
     hint("Declaration of " & "imnodespopcolorstyle" &
         " already exists, not redeclaring")
 when not declared(imnodespushstylevarfloat):
-  proc imnodespushstylevarfloat*(styleitem: Imnodesstylevar_28313286;
+  proc imnodespushstylevarfloat*(styleitem: Imnodesstylevar_28313508;
                                  value: cfloat): void {.cdecl,
       importc: "imnodes_PushStyleVar_Float".}
 else:
@@ -27536,7 +28978,7 @@ else:
     hint("Declaration of " & "imnodespushstylevarfloat" &
         " already exists, not redeclaring")
 when not declared(imnodespushstylevarvec2):
-  proc imnodespushstylevarvec2*(styleitem: Imnodesstylevar_28313286;
+  proc imnodespushstylevarvec2*(styleitem: Imnodesstylevar_28313508;
                                 value: Imvec2_28312328): void {.cdecl,
       importc: "imnodes_PushStyleVar_Vec2".}
 else:
@@ -27584,7 +29026,7 @@ else:
     hint("Declaration of " & "imnodesendnodetitlebar" &
         " already exists, not redeclaring")
 when not declared(imnodesbegininputattribute):
-  proc imnodesbegininputattribute*(id: cint; shape: Imnodespinshape_28313290): void {.
+  proc imnodesbegininputattribute*(id: cint; shape: Imnodespinshape_28313512): void {.
       cdecl, importc: "imnodes_BeginInputAttribute".}
 else:
   static :
@@ -27598,7 +29040,7 @@ else:
     hint("Declaration of " & "imnodesendinputattribute" &
         " already exists, not redeclaring")
 when not declared(imnodesbeginoutputattribute):
-  proc imnodesbeginoutputattribute*(id: cint; shape: Imnodespinshape_28313290): void {.
+  proc imnodesbeginoutputattribute*(id: cint; shape: Imnodespinshape_28313512): void {.
       cdecl, importc: "imnodes_BeginOutputAttribute".}
 else:
   static :
@@ -27626,7 +29068,7 @@ else:
     hint("Declaration of " & "imnodesendstaticattribute" &
         " already exists, not redeclaring")
 when not declared(imnodespushattributeflag):
-  proc imnodespushattributeflag*(flag: Imnodesattributeflags_28313292): void {.
+  proc imnodespushattributeflag*(flag: Imnodesattributeflags_28313514): void {.
       cdecl, importc: "imnodes_PushAttributeFlag".}
 else:
   static :
@@ -27877,7 +29319,7 @@ else:
     hint("Declaration of " & "imnodessavecurrenteditorstatetoinistring" &
         " already exists, not redeclaring")
 when not declared(imnodessaveeditorstatetoinistring):
-  proc imnodessaveeditorstatetoinistring*(editor: ptr Imnodeseditorcontext_28313282;
+  proc imnodessaveeditorstatetoinistring*(editor: ptr Imnodeseditorcontext_28313504;
       datasize: ptr csize_t): cstring {.cdecl, importc: "imnodes_SaveEditorStateToIniString".}
 else:
   static :
@@ -27891,7 +29333,7 @@ else:
     hint("Declaration of " & "imnodesloadcurrenteditorstatefroministring" &
         " already exists, not redeclaring")
 when not declared(imnodesloadeditorstatefroministring):
-  proc imnodesloadeditorstatefroministring*(editor: ptr Imnodeseditorcontext_28313282;
+  proc imnodesloadeditorstatefroministring*(editor: ptr Imnodeseditorcontext_28313504;
       data: cstring; datasize: csize_t): void {.cdecl,
       importc: "imnodes_LoadEditorStateFromIniString".}
 else:
@@ -27906,7 +29348,7 @@ else:
     hint("Declaration of " & "imnodessavecurrenteditorstatetoinifile" &
         " already exists, not redeclaring")
 when not declared(imnodessaveeditorstatetoinifile):
-  proc imnodessaveeditorstatetoinifile*(editor: ptr Imnodeseditorcontext_28313282;
+  proc imnodessaveeditorstatetoinifile*(editor: ptr Imnodeseditorcontext_28313504;
                                         filename: cstring): void {.cdecl,
       importc: "imnodes_SaveEditorStateToIniFile".}
 else:
@@ -27921,7 +29363,7 @@ else:
     hint("Declaration of " & "imnodesloadcurrenteditorstatefrominifile" &
         " already exists, not redeclaring")
 when not declared(imnodesloadeditorstatefrominifile):
-  proc imnodesloadeditorstatefrominifile*(editor: ptr Imnodeseditorcontext_28313282;
+  proc imnodesloadeditorstatefrominifile*(editor: ptr Imnodeseditorcontext_28313504;
       filename: cstring): void {.cdecl,
                                  importc: "imnodes_LoadEditorStateFromIniFile".}
 else:

@@ -4,7 +4,7 @@ proc currentSourceDir(): string {.compileTime.} =
   result = currentSourcePath().replace("\\", "/")
   result = result[0 ..< result.rfind("/")]
 
-const ClangIncludePath = "c:/drvDx/msys32/mingw32/opt/llvm-15/lib/clang/15.0.7/include"
+const ClangIncludePath = "c:/llvm/lib/clang/17include"
 # Set root path of ImGui/CImGui
 const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui")
 const CImPlotRootPath  = joinPath(currentSourceDir(),"private/cimplot")
@@ -41,7 +41,13 @@ else:
   {.push discardable,hint[XDeclaredButNotUsed]:off.}
   include "glfw_opengl_cimguiDefs.nim"
   {.pop.}
+
   # for glfw3
-  {.passC:"-I" & joinPath(staticExec("nimble path glfw").strip,"glfw","include").}
+  # Use GLFW of glfw-4.0.0 package
+  #{.passC:"-I" & joinPath(staticExec("nimble path glfw").strip,"glfw","private","glfw","include").}
+  #
+  # Use GLFW of nimgl package
+  {.passC:"-I" & joinPath(staticExec("nimble path nimgl").strip,"nimgl","private","glfw","include").}
   {.compile:joinPath(ImguiRootPath,"backends","imgui_impl_glfw.cpp").}
+  #
   include "sourceFiles.nim"

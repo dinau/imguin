@@ -29,7 +29,7 @@ proc igInputTextWithHint*(label: string
                         , userdata: pointer = nil):  bool {.inline,discardable.} =
   igInputTextWithHint(label.cstring ,hint.cstring
                          ,buf.cstring
-                         ,bufsize.csize_t
+                         ,bufsize.cuint
                          ,flags
                          ,callback
                          ,userdata)
