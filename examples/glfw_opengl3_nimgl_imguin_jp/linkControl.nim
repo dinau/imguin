@@ -31,5 +31,4 @@ when STATIC_LINK_CC: # gcc static link
     discard
   else:
     switch "passC", "-static"
-    switch "passL", "-static -static-libgcc"
-
+    switch "passL", "-static"

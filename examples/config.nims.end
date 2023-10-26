@@ -32,7 +32,8 @@ case TC
   of "gcc":
     commonOpt()
   of "clang":
-    commonOpt()
+    #commonOpt()
+    discard
 
 when LTO: # These options let link time slow while reducing code size.
   switch "define", "lto"
@@ -42,4 +43,3 @@ switch "cc", TC
 echo ""
 echo "#### [ ", TC, " ] Compiler ####"
 echo ""
-

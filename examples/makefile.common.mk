@@ -10,6 +10,7 @@ TARGET_EXE = $(TARGET)$(EXE)
 
 OPT += -d:strip
 OPT += -o:$(TARGET_EXE)
+#OPT += --listcmd
 #OPT += --verbosity:2
 
 all: build dll
@@ -33,6 +34,8 @@ clean:
 	@-rm $(TARGET_EXE)
 	@-rm $(TARGET).exp
 	@-rm $(TARGET).lib
+	@-rm $(TARGET).ilk
+	@-rm $(TARGET).pdb
 
 run: all
 	@#nimble run --verbose
@@ -60,4 +63,3 @@ ver:
 	-@rg -ie "version\s+=.+" $(TARGET).nimble
 	@echo [version.nims]
 	-@rg -ie "\d\.\d\.\d" version.nims
-

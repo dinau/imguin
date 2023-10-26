@@ -5,10 +5,10 @@ OPTIMIZE ?= # danger  # release dsize rsize
 
 .PHONY: clean
 
-DIRS += glfw_opengl3_imnodes
 DIRS += glfw_opengl3
 DIRS += glfw_opengl3_implot
 DIRS +=	glfw_opengl3_nimgl_imguin_jp
+DIRS += glfw_opengl3_imnodes
 ifeq ($(OS),Windows_NT)
 	DIRS +=	sdl2_opengl3
 endif

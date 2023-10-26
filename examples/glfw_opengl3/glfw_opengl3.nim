@@ -1,61 +1,69 @@
-import std/[strutils]
-import glfw
+import nimgl/[opengl,glfw]
 
-import imguin/[glad/gl,glfw_opengl]
+import imguin/[glfw_opengl]
 import imguin/lang/imgui_ja_gryph_ranges
 
 include ../utils/setupFonts
 include imguin/simple
 
+const MainWinWidth = 1024
+const MainWinHeight = 800
+
+const TransparentViewport = true
+
+#--------------------
+# Forward definition
+#--------------------
+proc winMain(hWin: glfw.GLFWWindow)
+
+#------
+# main
+#------
 proc main() =
-  const TransparentViewport = false
+  doAssert glfwinit()
+  defer: glfwTerminate()
 
-  glfw.initialize()
-  defer: glfw.terminate()
-
-  const glsl_version = "#version 130" # GL 3.2 + GLSL 130
-
-  var cfg = DefaultOpenglWindowConfig
-  cfg.size = (w: 1024, h: 800)
-  cfg.title = "Simple example"
-  cfg.resizable = true
-  cfg.version = glv33
-  cfg.forwardCompat = true
-  cfg.profile = opCoreProfile
   when TransparentViewport:
-    cfg.visible = false # Hide background (GLFW window)
+    glfwWindowHint(GLFWVisible, GLFW_FALSE)
 
-  var window = newWindow(cfg)
-  defer: window.destroy()
-  if isNil window:
-    echo("Failed to create window! Terminating!\n")
-    glfw.terminate()
-    quit -1
+  glfwWindowHint(GLFWContextVersionMajor, 3)
+  glfwWindowHint(GLFWContextVersionMinor, 3)
+  glfwWindowHint(GLFWOpenglForwardCompat, GLFW_TRUE)
+  glfwWindowHint(GLFWOpenglProfile, GLFW_OPENGL_CORE_PROFILE)
+  glfwWindowHint(GLFWResizable, GLFW_TRUE)
+  #
+  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight)
+  if glfwWin.isNil:
+    quit(-1)
+  glfwWin.makeContextCurrent()
+  defer: glfwWin.destroyWindow()
 
-  glfw.makeContextCurrent(window)
-  glfw.swapInterval(1) # enable vsync
+  glfwSwapInterval(1) # Enable vsync
 
-  if not gladLoadGL(getProcAddress):
-    quit "Error initialising OpenGL"
-  # Check opengl version
-  echo "OpenGL Version: $#" % [$cast[cstring](glGetString(GL_VERSION))]
+  doAssert glInit() # OpenGL init
 
   # setup ImGui
-  igCreateContext(nil)
-  defer: igDestroyContext(nil)
-
-  var pio = igGetIO()
+  let context = igCreateContext(nil)
+  defer: context.igDestroyContext()
 
   when TransparentViewport: # IMGUI_HAS_DOCK
+    var pio = igGetIO()
     pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_DockingEnable.cint
     pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_ViewportsEnable.cint
     pio.ConfigViewports_NoAutomerge = true
 
-  doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr GlfwWindow](window.getHandle), true)
+  # GLFW + OpenGL
+  const glsl_version = "#version 130" # GL 3.2 + GLSL 130
+  doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr glfw_opengl.GlfwWindow]( glfwwin), true)
   defer: ImGui_ImplGlfw_Shutdown()
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
   defer: ImGui_ImplOpenGL3_Shutdown()
+  glfwWin.winMain()
 
+#---------
+# winMain
+#---------
+proc winMain(hWin: glfw.GLFWWindow) =
   var
     showDemoWindow = true
     showAnotherWindow = false
@@ -73,9 +81,10 @@ proc main() =
   # Add multibytes font
   var (fExistMultbytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
 
-  while not glfw.shouldClose(window):
+  var pio = igGetIO()
 
-    glfw.pollEvents()
+  while not hwin.windowShouldClose:
+    glfwPollEvents()
 
     # start imgui frame
     ImGui_ImplOpenGL3_NewFrame()
@@ -89,8 +98,7 @@ proc main() =
     if showFirstWindow:
       igBegin("Nim: Dear ImGui test with Futhark", addr showFirstWindow, 0)
       defer: igEnd()
-      let (a,b,c) = glfw.version()
-      let s = "GLFW v$#.$#.$#" % [$a, $b, $c]
+      let s = "GLFW v" & $glfwGetVersionString()
       igText(s.cstring)
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
       igCheckbox("Demo window", addr showDemoWindow)
@@ -124,21 +132,19 @@ proc main() =
 
     # render
     igRender()
-    glfw.makeContextCurrent(window)
-    glViewport(0, 0, (pio.DisplaySize.x).GLsizei, (pio.DisplaySize.y).GLsizei)
     glClearColor(clearColor.elm.x, clearColor.elm.y, clearColor.elm.z, clearColor.elm.w)
     glClear(GL_COLOR_BUFFER_BIT)
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
     when TransparentViewport: # IMGUI_HAS_DOCK
       if 0 != (pio.ConfigFlags and ImGuiConfigFlags_ViewportsEnable.cint):
-        var backup_current_window = glfw.currentContext()
+        var backup_current_window = glfwGetCurrentContext()
         igUpdatePlatformWindows()
         igRenderPlatformWindowsDefault(nil, nil)
-        glfw.makeContextCurrent(backup_current_window)
+        hwin.makeContextCurrent()
 
-    glfw.swapBuffers(window)
+    hwin.swapBuffers()
     if not showFirstWindow and not showDemoWindow and not showAnotherWindow:
-      window.shouldClose = true # End program
+      hwin.setWindowShouldClose(true) # End program
 
 #------
 # main

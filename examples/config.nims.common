@@ -1,4 +1,4 @@
-switch "path","../../src/"
+switch "path","../../src"
 switch "hint","User:off"
 switch "hint","Name:off"
 switch "hint","XDeclaredButNotUsed:off"
