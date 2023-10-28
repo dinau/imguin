@@ -3135,7 +3135,7 @@ type
   structimvectorconstcharptr_28312221 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:116:16
     Capacity*: cint
-    Data*: ptr ptr cschar
+    Data*: ptr cstring
 
   Imvectorconstcharptr_28312223 = structimvectorconstcharptr_28312222 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:116:82
   Imguicol_28312225 = cint   ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimgui\cimgui.h:151:13
@@ -4133,7 +4133,7 @@ type
   structimvectorims8_28313125 {.pure, inheritable, bycopy.} = object
     Size*: cint              ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:29:16
     Capacity*: cint
-    Data*: ptr Ims8_28312300
+    Data*: cstring
 
   Imvectorims8_28313127 = structimvectorims8_28313126 ## Generated based on C:\00nim-d-imgui\imguin\src\imguin\private\cimplot\cimplot.h:29:66
   structimvectorimu16_28313129 {.pure, inheritable, bycopy.} = object
@@ -13886,7 +13886,7 @@ else:
     hint("Declaration of " & "igcombostr" & " already exists, not redeclaring")
 when not declared(igcombofnboolptr):
   proc igcombofnboolptr*(label: cstring; currentitem: ptr cint; itemsgetter: proc (
-      a0: pointer; a1: cint; a2: ptr ptr cschar): bool {.cdecl.}; data: pointer;
+      a0: pointer; a1: cint; a2: ptr cstring): bool {.cdecl.}; data: pointer;
                          itemscount: cint; popupmaxheightinitems: cint): bool {.
       cdecl, importc: "igCombo_FnBoolPtr".}
 else:
@@ -14427,7 +14427,7 @@ else:
         " already exists, not redeclaring")
 when not declared(iglistboxfnboolptr):
   proc iglistboxfnboolptr*(label: cstring; currentitem: ptr cint; itemsgetter: proc (
-      a0: pointer; a1: cint; a2: ptr ptr cschar): bool {.cdecl.}; data: pointer;
+      a0: pointer; a1: cint; a2: ptr cstring): bool {.cdecl.}; data: pointer;
                            itemscount: cint; heightinitems: cint): bool {.cdecl,
       importc: "igListBox_FnBoolPtr".}
 else:
@@ -17352,7 +17352,7 @@ when not declared(Imfontcalctextsizea):
   proc Imfontcalctextsizea*(pout: ptr Imvec2_28312328; self: ptr Imfont_28311963;
                             size: cfloat; maxwidth: cfloat; wrapwidth: cfloat;
                             textbegin: cstring; textend: cstring;
-                            remaining: ptr ptr cschar): void {.cdecl,
+                            remaining: ptr cstring): void {.cdecl,
       importc: "ImFont_CalcTextSizeA".}
 else:
   static :
@@ -17675,16 +17675,16 @@ else:
     hint("Declaration of " & "igimformatstringv" &
         " already exists, not redeclaring")
 when not declared(igimformatstringtotempbuffer):
-  proc igimformatstringtotempbuffer*(outbuf: ptr ptr cschar;
-                                     outbufend: ptr ptr cschar; fmt: cstring): void {.
+  proc igimformatstringtotempbuffer*(outbuf: ptr cstring;
+                                     outbufend: ptr cstring; fmt: cstring): void {.
       cdecl, varargs, importc: "igImFormatStringToTempBuffer".}
 else:
   static :
     hint("Declaration of " & "igimformatstringtotempbuffer" &
         " already exists, not redeclaring")
 when not declared(igimformatstringtotempbufferv):
-  proc igimformatstringtotempbufferv*(outbuf: ptr ptr cschar;
-                                      outbufend: ptr ptr cschar; fmt: cstring): void {.
+  proc igimformatstringtotempbufferv*(outbuf: ptr cstring;
+                                      outbufend: ptr cstring; fmt: cstring): void {.
       cdecl, varargs, importc: "igImFormatStringToTempBufferV".}
 else:
   static :
@@ -17759,7 +17759,7 @@ else:
 when not declared(igimtextstrfromutf8):
   proc igimtextstrfromutf8*(outbuf: ptr Imwchar_28312318; outbufsize: cint;
                             intext: cstring; intextend: cstring;
-                            inremaining: ptr ptr cschar): cint {.cdecl,
+                            inremaining: ptr cstring): cint {.cdecl,
       importc: "igImTextStrFromUtf8".}
 else:
   static :
@@ -23203,8 +23203,8 @@ else:
     hint("Declaration of " & "Implotplotlinedoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotplotlines8ptrint):
-  proc Implotplotlines8ptrint*(labelid: cstring; values: ptr Ims8_28312300;
-                               count: cint; xscale: cdouble; xstart: cdouble;
+  proc Implotplotlines8ptrint*(labelid: cstring; values: cstring; count: cint;
+                               xscale: cdouble; xstart: cdouble;
                                flags: Implotlineflags_28313160; offset: cint;
                                stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_S8PtrInt".}
@@ -23302,10 +23302,9 @@ else:
     hint("Declaration of " & "Implotplotlinedoubleptrdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotlines8ptrs8ptr):
-  proc Implotplotlines8ptrs8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
-                                 ys: ptr Ims8_28312300; count: cint;
-                                 flags: Implotlineflags_28313160; offset: cint;
-                                 stride: cint): void {.cdecl,
+  proc Implotplotlines8ptrs8ptr*(labelid: cstring; xs: cstring; ys: cstring;
+                                 count: cint; flags: Implotlineflags_28313160;
+                                 offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotLine_S8PtrS8Ptr".}
 else:
   static :
@@ -23411,7 +23410,7 @@ else:
     hint("Declaration of " & "Implotplotscatterdoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotplotscatters8ptrint):
-  proc Implotplotscatters8ptrint*(labelid: cstring; values: ptr Ims8_28312300;
+  proc Implotplotscatters8ptrint*(labelid: cstring; values: cstring;
                                   count: cint; xscale: cdouble; xstart: cdouble;
                                   flags: Implotscatterflags_28313162;
                                   offset: cint; stride: cint): void {.cdecl,
@@ -23509,9 +23508,8 @@ else:
     hint("Declaration of " & "Implotplotscatterdoubleptrdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotscatters8ptrs8ptr):
-  proc Implotplotscatters8ptrs8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
-                                    ys: ptr Ims8_28312300; count: cint;
-                                    flags: Implotscatterflags_28313162;
+  proc Implotplotscatters8ptrs8ptr*(labelid: cstring; xs: cstring; ys: cstring;
+                                    count: cint; flags: Implotscatterflags_28313162;
                                     offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotScatter_S8PtrS8Ptr".}
 else:
@@ -23617,8 +23615,8 @@ else:
     hint("Declaration of " & "Implotplotstairsdoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotplotstairss8ptrint):
-  proc Implotplotstairss8ptrint*(labelid: cstring; values: ptr Ims8_28312300;
-                                 count: cint; xscale: cdouble; xstart: cdouble;
+  proc Implotplotstairss8ptrint*(labelid: cstring; values: cstring; count: cint;
+                                 xscale: cdouble; xstart: cdouble;
                                  flags: Implotstairsflags_28313164;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_S8PtrInt".}
@@ -23715,9 +23713,8 @@ else:
     hint("Declaration of " & "Implotplotstairsdoubleptrdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotstairss8ptrs8ptr):
-  proc Implotplotstairss8ptrs8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
-                                   ys: ptr Ims8_28312300; count: cint;
-                                   flags: Implotstairsflags_28313164;
+  proc Implotplotstairss8ptrs8ptr*(labelid: cstring; xs: cstring; ys: cstring;
+                                   count: cint; flags: Implotstairsflags_28313164;
                                    offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStairs_S8PtrS8Ptr".}
 else:
@@ -23824,8 +23821,8 @@ else:
     hint("Declaration of " & "Implotplotshadeddoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotplotshadeds8ptrint):
-  proc Implotplotshadeds8ptrint*(labelid: cstring; values: ptr Ims8_28312300;
-                                 count: cint; yref: cdouble; xscale: cdouble;
+  proc Implotplotshadeds8ptrint*(labelid: cstring; values: cstring; count: cint;
+                                 yref: cdouble; xscale: cdouble;
                                  xstart: cdouble; flags: Implotshadedflags_28313166;
                                  offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_S8PtrInt".}
@@ -23922,9 +23919,9 @@ else:
     hint("Declaration of " & "Implotplotshadeddoubleptrdoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotplotshadeds8ptrs8ptrint):
-  proc Implotplotshadeds8ptrs8ptrint*(labelid: cstring; xs: ptr Ims8_28312300;
-                                      ys: ptr Ims8_28312300; count: cint;
-                                      yref: cdouble; flags: Implotshadedflags_28313166;
+  proc Implotplotshadeds8ptrs8ptrint*(labelid: cstring; xs: cstring;
+                                      ys: cstring; count: cint; yref: cdouble;
+                                      flags: Implotshadedflags_28313166;
                                       offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotShaded_S8PtrS8PtrInt".}
 else:
@@ -24020,9 +24017,9 @@ else:
     hint("Declaration of " & "Implotplotshadeddoubleptrdoubleptrdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotshadeds8ptrs8ptrs8ptr):
-  proc Implotplotshadeds8ptrs8ptrs8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
-                                        ys1: ptr Ims8_28312300; ys2: ptr Ims8_28312300;
-                                        count: cint; flags: Implotshadedflags_28313166;
+  proc Implotplotshadeds8ptrs8ptrs8ptr*(labelid: cstring; xs: cstring;
+                                        ys1: cstring; ys2: cstring; count: cint;
+                                        flags: Implotshadedflags_28313166;
                                         offset: cint; stride: cint): void {.
       cdecl, importc: "ImPlot_PlotShaded_S8PtrS8PtrS8Ptr".}
 else:
@@ -24123,8 +24120,8 @@ else:
     hint("Declaration of " & "Implotplotbarsdoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotplotbarss8ptrint):
-  proc Implotplotbarss8ptrint*(labelid: cstring; values: ptr Ims8_28312300;
-                               count: cint; barsize: cdouble; shift: cdouble;
+  proc Implotplotbarss8ptrint*(labelid: cstring; values: cstring; count: cint;
+                               barsize: cdouble; shift: cdouble;
                                flags: Implotbarsflags_28313168; offset: cint;
                                stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_S8PtrInt".}
@@ -24222,10 +24219,10 @@ else:
     hint("Declaration of " & "Implotplotbarsdoubleptrdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotbarss8ptrs8ptr):
-  proc Implotplotbarss8ptrs8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
-                                 ys: ptr Ims8_28312300; count: cint;
-                                 barsize: cdouble; flags: Implotbarsflags_28313168;
-                                 offset: cint; stride: cint): void {.cdecl,
+  proc Implotplotbarss8ptrs8ptr*(labelid: cstring; xs: cstring; ys: cstring;
+                                 count: cint; barsize: cdouble;
+                                 flags: Implotbarsflags_28313168; offset: cint;
+                                 stride: cint): void {.cdecl,
       importc: "ImPlot_PlotBars_S8PtrS8Ptr".}
 else:
   static :
@@ -24332,7 +24329,7 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotbargroupss8ptr):
   proc Implotplotbargroupss8ptr*(labelids: ptr UncheckedArray[cstring];
-                                 values: ptr Ims8_28312300; itemcount: cint;
+                                 values: cstring; itemcount: cint;
                                  groupcount: cint; groupsize: cdouble;
                                  shift: cdouble; flags: Implotbargroupsflags_28313170): void {.
       cdecl, importc: "ImPlot_PlotBarGroups_S8Ptr".}
@@ -24429,10 +24426,10 @@ else:
     hint("Declaration of " & "Implotploterrorbarsdoubleptrdoubleptrdoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotploterrorbarss8ptrs8ptrs8ptrint):
-  proc Implotploterrorbarss8ptrs8ptrs8ptrint*(labelid: cstring; xs: ptr Ims8_28312300;
-      ys: ptr Ims8_28312300; err: ptr Ims8_28312300; count: cint;
-      flags: Imploterrorbarsflags_28313172; offset: cint; stride: cint): void {.
-      cdecl, importc: "ImPlot_PlotErrorBars_S8PtrS8PtrS8PtrInt".}
+  proc Implotploterrorbarss8ptrs8ptrs8ptrint*(labelid: cstring; xs: cstring;
+      ys: cstring; err: cstring; count: cint; flags: Imploterrorbarsflags_28313172;
+      offset: cint; stride: cint): void {.cdecl,
+      importc: "ImPlot_PlotErrorBars_S8PtrS8PtrS8PtrInt".}
 else:
   static :
     hint("Declaration of " & "Implotploterrorbarss8ptrs8ptrs8ptrint" &
@@ -24522,10 +24519,10 @@ else:
         "Implotploterrorbarsdoubleptrdoubleptrdoubleptrdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotploterrorbarss8ptrs8ptrs8ptrs8ptr):
-  proc Implotploterrorbarss8ptrs8ptrs8ptrs8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
-      ys: ptr Ims8_28312300; neg: ptr Ims8_28312300; pos: ptr Ims8_28312300;
-      count: cint; flags: Imploterrorbarsflags_28313172; offset: cint;
-      stride: cint): void {.cdecl, importc: "ImPlot_PlotErrorBars_S8PtrS8PtrS8PtrS8Ptr".}
+  proc Implotploterrorbarss8ptrs8ptrs8ptrs8ptr*(labelid: cstring; xs: cstring;
+      ys: cstring; neg: cstring; pos: cstring; count: cint;
+      flags: Imploterrorbarsflags_28313172; offset: cint; stride: cint): void {.
+      cdecl, importc: "ImPlot_PlotErrorBars_S8PtrS8PtrS8PtrS8Ptr".}
 else:
   static :
     hint("Declaration of " & "Implotploterrorbarss8ptrs8ptrs8ptrs8ptr" &
@@ -24621,10 +24618,10 @@ else:
     hint("Declaration of " & "Implotplotstemsdoubleptrint" &
         " already exists, not redeclaring")
 when not declared(Implotplotstemss8ptrint):
-  proc Implotplotstemss8ptrint*(labelid: cstring; values: ptr Ims8_28312300;
-                                count: cint; refarg: cdouble; scale: cdouble;
-                                start: cdouble; flags: Implotstemsflags_28313174;
-                                offset: cint; stride: cint): void {.cdecl,
+  proc Implotplotstemss8ptrint*(labelid: cstring; values: cstring; count: cint;
+                                refarg: cdouble; scale: cdouble; start: cdouble;
+                                flags: Implotstemsflags_28313174; offset: cint;
+                                stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_S8PtrInt".}
 else:
   static :
@@ -24721,9 +24718,9 @@ else:
     hint("Declaration of " & "Implotplotstemsdoubleptrdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotstemss8ptrs8ptr):
-  proc Implotplotstemss8ptrs8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
-                                  ys: ptr Ims8_28312300; count: cint;
-                                  refarg: cdouble; flags: Implotstemsflags_28313174;
+  proc Implotplotstemss8ptrs8ptr*(labelid: cstring; xs: cstring; ys: cstring;
+                                  count: cint; refarg: cdouble;
+                                  flags: Implotstemsflags_28313174;
                                   offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotStems_S8PtrS8Ptr".}
 else:
@@ -24819,8 +24816,8 @@ else:
     hint("Declaration of " & "Implotplotinflinesdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotinfliness8ptr):
-  proc Implotplotinfliness8ptr*(labelid: cstring; values: ptr Ims8_28312300;
-                                count: cint; flags: Implotinflinesflags_28313176;
+  proc Implotplotinfliness8ptr*(labelid: cstring; values: cstring; count: cint;
+                                flags: Implotinflinesflags_28313176;
                                 offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotInfLines_S8Ptr".}
 else:
@@ -24914,10 +24911,9 @@ else:
         " already exists, not redeclaring")
 when not declared(Implotplotpiecharts8ptr):
   proc Implotplotpiecharts8ptr*(labelids: ptr UncheckedArray[cstring];
-                                values: ptr Ims8_28312300; count: cint;
-                                x: cdouble; y: cdouble; radius: cdouble;
-                                labelfmt: cstring; angle0: cdouble;
-                                flags: Implotpiechartflags_28313178): void {.
+                                values: cstring; count: cint; x: cdouble;
+                                y: cdouble; radius: cdouble; labelfmt: cstring;
+                                angle0: cdouble; flags: Implotpiechartflags_28313178): void {.
       cdecl, importc: "ImPlot_PlotPieChart_S8Ptr".}
 else:
   static :
@@ -25025,10 +25021,9 @@ else:
     hint("Declaration of " & "Implotplotheatmapdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotheatmaps8ptr):
-  proc Implotplotheatmaps8ptr*(labelid: cstring; values: ptr Ims8_28312300;
-                               rows: cint; cols: cint; scalemin: cdouble;
-                               scalemax: cdouble; labelfmt: cstring;
-                               boundsmin: Implotpoint_28313340;
+  proc Implotplotheatmaps8ptr*(labelid: cstring; values: cstring; rows: cint;
+                               cols: cint; scalemin: cdouble; scalemax: cdouble;
+                               labelfmt: cstring; boundsmin: Implotpoint_28313340;
                                boundsmax: Implotpoint_28313340;
                                flags: Implotheatmapflags_28313180): void {.
       cdecl, importc: "ImPlot_PlotHeatmap_S8Ptr".}
@@ -25141,8 +25136,8 @@ else:
     hint("Declaration of " & "Implotplothistogramdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplothistograms8ptr):
-  proc Implotplothistograms8ptr*(labelid: cstring; values: ptr Ims8_28312300;
-                                 count: cint; bins: cint; barscale: cdouble;
+  proc Implotplothistograms8ptr*(labelid: cstring; values: cstring; count: cint;
+                                 bins: cint; barscale: cdouble;
                                  range: Implotrange_28313344;
                                  flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram_S8Ptr".}
@@ -25242,9 +25237,9 @@ else:
     hint("Declaration of " & "Implotplothistogram2ddoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplothistogram2ds8ptr):
-  proc Implotplothistogram2ds8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
-                                   ys: ptr Ims8_28312300; count: cint;
-                                   xbins: cint; ybins: cint; range: Implotrect_28313348;
+  proc Implotplothistogram2ds8ptr*(labelid: cstring; xs: cstring; ys: cstring;
+                                   count: cint; xbins: cint; ybins: cint;
+                                   range: Implotrect_28313348;
                                    flags: Implothistogramflags_28313182): cdouble {.
       cdecl, importc: "ImPlot_PlotHistogram2D_S8Ptr".}
 else:
@@ -25342,10 +25337,9 @@ else:
     hint("Declaration of " & "Implotplotdigitaldoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotplotdigitals8ptr):
-  proc Implotplotdigitals8ptr*(labelid: cstring; xs: ptr Ims8_28312300;
-                               ys: ptr Ims8_28312300; count: cint;
-                               flags: Implotdigitalflags_28313184; offset: cint;
-                               stride: cint): void {.cdecl,
+  proc Implotplotdigitals8ptr*(labelid: cstring; xs: cstring; ys: cstring;
+                               count: cint; flags: Implotdigitalflags_28313184;
+                               offset: cint; stride: cint): void {.cdecl,
       importc: "ImPlot_PlotDigital_S8Ptr".}
 else:
   static :
@@ -26397,7 +26391,7 @@ else:
     hint("Declaration of " & "Implotimminarraydoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotimminarrays8ptr):
-  proc Implotimminarrays8ptr*(values: ptr Ims8_28312300; count: cint): Ims8_28312300 {.
+  proc Implotimminarrays8ptr*(values: cstring; count: cint): Ims8_28312300 {.
       cdecl, importc: "ImPlot_ImMinArray_S8Ptr".}
 else:
   static :
@@ -26467,7 +26461,7 @@ else:
     hint("Declaration of " & "Implotimmaxarraydoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotimmaxarrays8ptr):
-  proc Implotimmaxarrays8ptr*(values: ptr Ims8_28312300; count: cint): Ims8_28312300 {.
+  proc Implotimmaxarrays8ptr*(values: cstring; count: cint): Ims8_28312300 {.
       cdecl, importc: "ImPlot_ImMaxArray_S8Ptr".}
 else:
   static :
@@ -26539,9 +26533,9 @@ else:
     hint("Declaration of " & "Implotimminmaxarraydoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotimminmaxarrays8ptr):
-  proc Implotimminmaxarrays8ptr*(values: ptr Ims8_28312300; count: cint;
-                                 minout: ptr Ims8_28312300; maxout: ptr Ims8_28312300): void {.
-      cdecl, importc: "ImPlot_ImMinMaxArray_S8Ptr".}
+  proc Implotimminmaxarrays8ptr*(values: cstring; count: cint; minout: cstring;
+                                 maxout: cstring): void {.cdecl,
+      importc: "ImPlot_ImMinMaxArray_S8Ptr".}
 else:
   static :
     hint("Declaration of " & "Implotimminmaxarrays8ptr" &
@@ -26617,8 +26611,8 @@ else:
     hint("Declaration of " & "Implotimsumdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotimsums8ptr):
-  proc Implotimsums8ptr*(values: ptr Ims8_28312300; count: cint): Ims8_28312300 {.
-      cdecl, importc: "ImPlot_ImSum_S8Ptr".}
+  proc Implotimsums8ptr*(values: cstring; count: cint): Ims8_28312300 {.cdecl,
+      importc: "ImPlot_ImSum_S8Ptr".}
 else:
   static :
     hint("Declaration of " & "Implotimsums8ptr" &
@@ -26687,8 +26681,8 @@ else:
     hint("Declaration of " & "Implotimmeandoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotimmeans8ptr):
-  proc Implotimmeans8ptr*(values: ptr Ims8_28312300; count: cint): cdouble {.
-      cdecl, importc: "ImPlot_ImMean_S8Ptr".}
+  proc Implotimmeans8ptr*(values: cstring; count: cint): cdouble {.cdecl,
+      importc: "ImPlot_ImMean_S8Ptr".}
 else:
   static :
     hint("Declaration of " & "Implotimmeans8ptr" &
@@ -26757,8 +26751,8 @@ else:
     hint("Declaration of " & "Implotimstddevdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotimstddevs8ptr):
-  proc Implotimstddevs8ptr*(values: ptr Ims8_28312300; count: cint): cdouble {.
-      cdecl, importc: "ImPlot_ImStdDev_S8Ptr".}
+  proc Implotimstddevs8ptr*(values: cstring; count: cint): cdouble {.cdecl,
+      importc: "ImPlot_ImStdDev_S8Ptr".}
 else:
   static :
     hint("Declaration of " & "Implotimstddevs8ptr" &
@@ -28439,10 +28433,10 @@ else:
     hint("Declaration of " & "Implotcalculatebinsdoubleptr" &
         " already exists, not redeclaring")
 when not declared(Implotcalculatebinss8ptr):
-  proc Implotcalculatebinss8ptr*(values: ptr Ims8_28312300; count: cint;
-                                 meth: Implotbin_28313206; range: Implotrange_28313344;
-                                 binsout: ptr cint; widthout: ptr cdouble): void {.
-      cdecl, importc: "ImPlot_CalculateBins_S8Ptr".}
+  proc Implotcalculatebinss8ptr*(values: cstring; count: cint; meth: Implotbin_28313206;
+                                 range: Implotrange_28313344; binsout: ptr cint;
+                                 widthout: ptr cdouble): void {.cdecl,
+      importc: "ImPlot_CalculateBins_S8Ptr".}
 else:
   static :
     hint("Declaration of " & "Implotcalculatebinss8ptr" &
