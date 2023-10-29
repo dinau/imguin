@@ -7,6 +7,34 @@ import imguin/lang/imgui_ja_gryph_ranges
 include ../utils/setupFonts
 include imguin/simple
 
+const MainWinWidth = 1024
+const MainWinHeight = 800
+
+#--------------
+# Configration
+#--------------
+
+#  .--------------------------------------------..---------.-----------------------.------------
+#  |         Combination of flags               ||         |     Viewport          |
+#  |--------------------------------------------||---------|-----------------------|------------
+#  | fViewport | fDocking | TransparentViewport || Docking | Transparent | Outside | Description
+#  |:---------:|:--------:|:-------------------:||:-------:|:-----------:|:-------:| -----------
+#  |  false    | false    |     false           ||    -    |     -       |   -     |
+#  |  false    | true     |     false           ||    v    |     -       |   -     | (Default): Only docking
+#  |  true     | -        |     false           ||    v    |     -       |   v     | Doncking and outside of viewport
+#  |    -      | -        |     true            ||    v    |     v       |   -     | Transparent Viewport and docking
+#  `-----------'----------'---------------------'`---------'-------------'---------'-------------
+var
+ fDocking = true
+ fViewport = false
+ TransparentViewport = false
+ #
+block:
+  if TransparentViewport:
+    fViewport = true
+  if fViewport:
+    fDocking = true
+
 #------
 # main
 #------
@@ -14,7 +42,6 @@ proc main() =
   if sdl.init(sdl.InitVideo) != 0:
     echo "ERROR: Can't initialize SDL: ", sdl.getError()
     quit -1
-
   discard sdl.glSetAttribute(GLattr.GL_CONTEXT_FLAGS, 0)
   discard sdl.glSetAttribute(GLattr.GL_CONTEXT_PROFILE_MASK, GL_CONTEXT_PROFILE_CORE)
   discard sdl.glSetAttribute(GLattr.GL_CONTEXT_MAJOR_VERSION, 3)
@@ -32,9 +59,13 @@ proc main() =
   var current: DisplayMode
   discard sdl.getCurrentDisplayMode(0, addr current)
 
-  var window = sdl.createWindow(
-        "Hello", 30, 30, 1024, 800,
-        WINDOW_SHOWN or WINDOW_OPENGL or WINDOW_RESIZABLE)
+  var flags:cuint
+  if TransparentViewport:
+    flags = WINDOW_HIDDEN or WINDOW_OPENGL or WINDOW_RESIZABLE
+  else:
+    flags = WINDOW_SHOWN or WINDOW_OPENGL or WINDOW_RESIZABLE
+
+  var window = sdl.createWindow( "Hello", 30, 30, 1024, 800, flags)
   if isNil window:
     echo "Fail to create window: ", sdl.getError()
     quit -1
@@ -54,6 +85,11 @@ proc main() =
   defer: igDestroyContext(nil)
 
   var pio = sdl2_opengl.igGetIO()
+  if fDocking:
+    pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_DockingEnable.cint
+    if fViewport:
+      pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_ViewportsEnable.cint
+      pio.ConfigViewports_NoAutomerge = true
 
   var glsl_version: cstring = "#version 150" # OpenGL 3.2
   doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SdlWindow](window) , addr glsl_version)
@@ -62,22 +98,29 @@ proc main() =
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
   defer: ImGui_ImplOpenGL3_Shutdown()
 
-  igStyleColorsDark(nil)
+  #igStyleColorsDark(nil)
+  igStyleColorsClassic(nil)
 
   var
     showDemoWindow = true
+    showFirstWindow = true
     showAnotherWindow = false
-    clearColor = ccolor(elm:(x:0.45f, y:0.55f, z:0.60f, w:1.0f))
-
     fval = 0.5f
     counter = 0
     xQuit: bool
     sBuf = newString(200)
+  var clearColor:ccolor
+  if TransparentViewport:
+    clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
+  else:
+    clearColor = ccolor(elm:(x:0.25f, y:0.65f, z:0.85f, w:1.0f))
 
   # Add multibyte font
   var (fExistMultbytesFonts, sActiveFontName, sActiveFontTitle) = setupFonts()
 
+  #-----------
   # Main loop
+  #-----------
   while not xQuit:
     var event: Event
     while 0 != sdl.pollevent(addr event):
@@ -97,14 +140,19 @@ proc main() =
     if showDemoWindow:
       igShowDemoWindow(addr showDemoWindow)
 
-    # show a simple window that we created ourselves.
-    block:
-      igBegin("Nim: Dear ImGui test with Futhark", nil, 0)
+    #-----------------
+    # showFirstWindow
+    #-----------------
+    if showFirstWindow:
+      igBegin("Nim: Dear ImGui test with Futhark", showFirstWindow.addr, 0)
       defer: igEnd()
       var ver:sdl.Version
       sdl.getVersion(ver.addr)
-      let s = "SDL2 v$#.$#.$#" % [$ver.major,$ver.minor,$ver.patch]
+      var s = "SDL2 v$#.$#.$#" % [$ver.major.int,$ver.minor.int,$ver.patch.int]
       igText(s.cstring)
+      s = "OpenGL v" & ($cast[cstring](glGetString(GL_VERSION))).split[0]
+      igText(s.cstring)
+
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
@@ -129,7 +177,9 @@ proc main() =
         " " & ICON_FA_SCREWDRIVER_WRENCH &
         " " & ICON_FA_BLOG)
 
-    # show further samll window
+    #-------------------
+    # showAnotherWindow
+    #-------------------
     if showAnotherWindow:
       igBegin("imgui Another Window", addr showAnotherWindow, 0)
       igText("Hello from imgui")
@@ -137,15 +187,30 @@ proc main() =
         showAnotherWindow = false
       igEnd()
 
+    #--------
     # render
+    #--------
     igRender()
     discard sdl.glMakeCurrent(window, gl_context)
     glViewport(0, 0, (pio.DisplaySize.x).GLsizei, (pio.DisplaySize.y).GLsizei)
     glClearColor(clearColor.elm.x, clearColor.elm.y, clearColor.elm.z, clearColor.elm.w)
     glClear(GL_COLOR_BUFFER_BIT)
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
+
+    if 0 != (pio.ConfigFlags and ImGui_ConfigFlags_ViewportsEnable.cint):
+      var backup_current_window = sdl.glGetCurrentWindow()
+      var backup_current_context = sdl.glGetCurrentContext()
+      igUpdatePlatformWindows()
+      igRenderPlatformWindowsDefault(nil, nil)
+      discard sdl.glmakeCurrent(backup_current_window,backup_current_context)
+
     sdl.glSwapWindow(window)
+    if not showFirstWindow and not showDemoWindow and not showAnotherWindow:
+      xQuit = true
 
   sdl.quit()
 
+#------
+# main
+#------
 main()

@@ -1,8 +1,8 @@
 # Package
 
-version       = "1.89.9.6"
+version       = "1.89.9.7"
 author        = "dinau"
-description   = "Imguin: ImGui / ImPlot wrapper using Futhark"
+description   = "Imguin: ImGui / ImPlot / ImNodes wrapper using Futhark"
 license       = "MIT"
 srcDir        = "src"
 skipDirs      = @["examples","src/img","src/imguin/private/updater"]
@@ -12,11 +12,9 @@ skipDirs      = @["examples","src/img","src/imguin/private/updater"]
 
 requires "nim >= 1.6.10"
 requires "nimgl >= 1.3.2"
-requires "glfw >= 3.3.4"
-#requires "futhark >= 0.9.1"
+#requires "futhark >= 0.12.0"
 requires "sdl2_nim"
 requires "tinydialogs"
-
 
 let TARGET = "imguin"
 let Opts =""

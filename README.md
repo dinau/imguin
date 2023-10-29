@@ -15,6 +15,7 @@
   - [Update to latest Dear ImGui and CImGui](#update-to-latest-dear-imgui-and-cimgui)
     - [Prerequisite](#prerequisite)
     - [Update ImGui/CImGui](#update-imguicimgui)
+    - [Combination of Futhark and Clang version](#combination-of-futhark-and-clang-version)
   - [Examples notice](#examples-notice)
   - [TODO](#todo)
   - [My tools version](#my-tools-version)
@@ -27,7 +28,8 @@
 [Dear Imgui](https://github.com/ocornut/imgui) wrapper using [CImGui](https://github.com/cimgui/cimgui) and [Futhark](https://github.com/PMunch/futhark) with Nim language.  
 Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.com/cimgui/cimplot) module.
 
-Latest version: ImGui/CImGui: v1.89.9Dock
+Latest version: ImGui/CImGui: v1.89.9Dock 
+Added: ImNodes/CImNodes (2023/10)
 
 **This project is under construction at this moment**
 
@@ -126,23 +128,23 @@ Showing ImGui demo with ImPlot demo.
 Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
 
    ```sh
-   nimble install futhark
+   nimble install --passL:"-Lc:\llvm\lib" futhark
    ```
 
 1. Linux Debian 12 Bookworm
 
     ```sh
-    sudo apt install  clang-15
-    nimble install --passL:"-L/usr/lib/llvm-15/lib" futhark
+    sudo apt install  clang-16
+    nimble install --passL:"-L/usr/lib/llvm-16/lib" futhark
     ```
 
-Important Notice: Confirm Futhark version is **v0.9.3** or later.
+Important Notice: Confirm Futhark version is **v0.12.0** at this time. (2023/10)
 
 ```sh
 nimble dump futhark
 
 name: "futhark"
-version: "0.9.3"
+version: "0.12.0"
 author: "PMunch"
 desc: "A package which uses libclang to parse C headers into Nim files for easy interop"
 license: "MIT"
@@ -176,8 +178,9 @@ license: "MIT"
 
   | Command                 | Date      | Windows10 | Debian<br> Bookworm |
   | :---------------------- | :-------: | :---:     | :---:               |
-  | make VER=1.89.9.6       | 2023/10   | ok        | NG                  |
-  | make VER=1.89.9.5       | 2023/10   | ok        | NG                  |
+  | make VER=1.89.9.6       | 2023/10   | ok        | Unknown             |
+  | make VER=1.89.9.5       | 2023/10   | ok        | Unknown             |
+
 
 ## Examples notice
 
@@ -220,7 +223,7 @@ license: "MIT"
 Windows10 (main)
 - Nim Compiler Version 2.0.0 / 1.6.14
 - gcc.exe (Rev7, Built by MSYS2 project) 13.2.0
-- clang version 15.0.7
+- clang version 17.0.1
 - git version 2.41.0.windows.3
 - SDL2.dll: SDL-release-2.26.4-0-g07d0f51fa (MinGW)
 - make: GNU Make 4.2.1

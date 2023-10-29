@@ -1,3 +1,4 @@
+import std/[strutils]
 import nimgl/[opengl,glfw]
 
 import imguin/[glfw_opengl]
@@ -9,7 +10,30 @@ include imguin/simple
 const MainWinWidth = 1024
 const MainWinHeight = 800
 
-const TransparentViewport = true
+#--------------
+# Configration
+#--------------
+
+#  .--------------------------------------------..---------.-----------------------.------------
+#  |         Combination of flags               ||         |     Viewport          |
+#  |--------------------------------------------||---------|-----------------------|------------
+#  | fViewport | fDocking | TransparentViewport || Docking | Transparent | Outside | Description
+#  |:---------:|:--------:|:-------------------:||:-------:|:-----------:|:-------:| -----------
+#  |  false    | false    |     false           ||    -    |     -       |   -     |
+#  |  false    | true     |     false           ||    v    |     -       |   -     | (Default): Only docking
+#  |  true     | -        |     false           ||    v    |     -       |   v     | Doncking and outside of viewport
+#  |    -      | -        |     true            ||    v    |     v       |   -     | Transparent Viewport and docking
+#  `-----------'----------'---------------------'`---------'-------------'---------'-------------
+var
+ fDocking = true
+ fViewport = false
+ TransparentViewport = false
+ #
+block:
+  if TransparentViewport:
+    fViewport = true
+  if fViewport:
+    fDocking = true
 
 #--------------------
 # Forward definition
@@ -20,10 +44,10 @@ proc winMain(hWin: glfw.GLFWWindow)
 # main
 #------
 proc main() =
-  doAssert glfwinit()
+  doAssert glfwInit()
   defer: glfwTerminate()
 
-  when TransparentViewport:
+  if TransparentViewport:
     glfwWindowHint(GLFWVisible, GLFW_FALSE)
 
   glfwWindowHint(GLFWContextVersionMajor, 3)
@@ -45,15 +69,15 @@ proc main() =
   # setup ImGui
   let context = igCreateContext(nil)
   defer: context.igDestroyContext()
-
-  when TransparentViewport: # IMGUI_HAS_DOCK
+  if fDocking:
     var pio = igGetIO()
     pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_DockingEnable.cint
-    pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_ViewportsEnable.cint
-    pio.ConfigViewports_NoAutomerge = true
+    if fViewport:
+      pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_ViewportsEnable.cint
+      pio.ConfigViewports_NoAutomerge = true
 
   # GLFW + OpenGL
-  const glsl_version = "#version 130" # GL 3.2 + GLSL 130
+  const glsl_version = "#version 130" # GL 3.0 + GLSL 130
   doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr glfw_opengl.GlfwWindow]( glfwwin), true)
   defer: ImGui_ImplGlfw_Shutdown()
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
@@ -71,19 +95,21 @@ proc winMain(hWin: glfw.GLFWWindow) =
     fval = 0.5f
     counter = 0
     sBuf = newString(200)
-  when TransparentViewport:
-    var clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
+  var clearColor:ccolor
+  if TransparentViewport:
+    clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
   else:
-    var clearColor = ccolor(elm:(x:0.45f, y:0.55f, z:0.60f, w:1.0f))
+    clearColor = ccolor(elm:(x:0.25f, y:0.65f, z:0.85f, w:1.0f))
 
   igStyleColorsClassic(nil)
 
   # Add multibytes font
-  var (fExistMultbytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
+  var (fExistMultibytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
 
   var pio = igGetIO()
 
-  while not hwin.windowShouldClose:
+  # main loop
+  while not hWin.windowShouldClose:
     glfwPollEvents()
 
     # start imgui frame
@@ -98,13 +124,15 @@ proc winMain(hWin: glfw.GLFWWindow) =
     if showFirstWindow:
       igBegin("Nim: Dear ImGui test with Futhark", addr showFirstWindow, 0)
       defer: igEnd()
-      let s = "GLFW v" & $glfwGetVersionString()
+      var s = "GLFW v" & $glfwGetVersionString()
+      igText(s.cstring)
+      s = "OpenGL v" & ($cast[cstring](glGetString(GL_VERSION))).split[0]
       igText(s.cstring)
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.0f, "%.3f", 0)
-      igColorEdit3("Background color", clearColor.array3, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
+      igColorEdit3("Background color", clearColor.array3, 0.ImGuiColorEditFlags)
 
       if igButton("Button", ImVec2(x: 0.0f, y: 0.0f)):
         inc counter
@@ -135,14 +163,14 @@ proc winMain(hWin: glfw.GLFWWindow) =
     glClearColor(clearColor.elm.x, clearColor.elm.y, clearColor.elm.z, clearColor.elm.w)
     glClear(GL_COLOR_BUFFER_BIT)
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
-    when TransparentViewport: # IMGUI_HAS_DOCK
-      if 0 != (pio.ConfigFlags and ImGuiConfigFlags_ViewportsEnable.cint):
-        var backup_current_window = glfwGetCurrentContext()
-        igUpdatePlatformWindows()
-        igRenderPlatformWindowsDefault(nil, nil)
-        hwin.makeContextCurrent()
 
-    hwin.swapBuffers()
+    if 0 != (pio.ConfigFlags and ImGui_ConfigFlags_ViewportsEnable.cint):
+      var backup_current_window = glfwGetCurrentContext()
+      igUpdatePlatformWindows()
+      igRenderPlatformWindowsDefault(nil, nil)
+      backup_current_window.makeContextCurrent()
+
+    hWin.swapBuffers()
     if not showFirstWindow and not showDemoWindow and not showAnotherWindow:
       hwin.setWindowShouldClose(true) # End program
 
