@@ -152,7 +152,8 @@ proc winMain(hWin: glfw.GLFWWindow) =
   igStyleColorsClassic(nil)
 
   # Add multibytes font
-  var (fExistMultbytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
+  discard setupFonts()
+
   # for ImPlot
   discard initRand()
 

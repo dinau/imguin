@@ -35,9 +35,9 @@ block:
   if fViewport:
     fDocking = true
 
-#--------------------
-# Forward definition
-#--------------------
+#---------------------
+# Forward definitions
+#---------------------
 proc winMain(hWin: glfw.GLFWWindow)
 
 #------
@@ -104,7 +104,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
   igStyleColorsClassic(nil)
 
   # Add multibytes font
-  var (fExistMultibytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
+  discard setupFonts()
 
   var pio = igGetIO()
 

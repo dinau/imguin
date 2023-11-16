@@ -116,7 +116,7 @@ proc main() =
     clearColor = ccolor(elm:(x:0.25f, y:0.65f, z:0.85f, w:1.0f))
 
   # Add multibyte font
-  var (fExistMultbytesFonts, sActiveFontName, sActiveFontTitle) = setupFonts()
+  discard setupFonts()
 
   #-----------
   # Main loop

@@ -111,7 +111,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
   igStyleColorsClassic(nil)
 
   # Add multibytes font
-  var (fExistMultbytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
+  discard setupFonts()
 
   # ImNode demo init
   NodeEditorInitialize()
