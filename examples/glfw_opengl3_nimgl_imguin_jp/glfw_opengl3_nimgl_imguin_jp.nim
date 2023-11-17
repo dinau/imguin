@@ -202,7 +202,7 @@ proc firstWindow() =
       igEndTooltip();
   igText("選択ファイル名 = %s", sFnameSelected.cstring)
   igText("描画フレームレート  %.3f ms/frame (%.1f FPS)"
-    , 1000.0f / pio.Framerate, pio.Framerate)
+    , 1000.0f / pio.Framerate.float, pio.Framerate)
   igText("経過時間 = %.1f [s]", counter.float32 / pio.Framerate)
   counter.inc
   const delay = 600 * 3
