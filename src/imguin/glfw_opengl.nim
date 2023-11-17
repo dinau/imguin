@@ -4,7 +4,8 @@ proc currentSourceDir(): string {.compileTime.} =
   result = currentSourcePath().replace("\\", "/")
   result = result[0 ..< result.rfind("/")]
 
-const ClangIncludePath = "c:/llvm/lib/clang/17include"
+#const ClangIncludePath = "c:/llvm/lib/clang/17/include"
+const ClangIncludePath = "c:/drvDx/msys32/mingw32/lib/clang/17/include"
 # Set root path of ImGui/CImGui
 const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui")
 const CImPlotRootPath  = joinPath(currentSourceDir(),"private/cimplot")
