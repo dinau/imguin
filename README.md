@@ -182,6 +182,8 @@ license: "MIT"
 
   | Command                 | Date      | Windows10 | Debian<br> Bookworm |
   | :---------------------- | :-------: | :---:     | :---:               |
+  | make VER=1.89.9.8       | 2023/12   | ok        | Unknown             |
+  | make VER=1.89.9.7       | 2023/10   | ok        | Unknown             |
   | make VER=1.89.9.6       | 2023/10   | ok        | Unknown             |
   | make VER=1.89.9.5       | 2023/10   | ok        | Unknown             |
 
