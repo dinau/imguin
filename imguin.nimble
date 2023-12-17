@@ -15,6 +15,7 @@ requires "nimgl >= 1.3.2"
 #requires "futhark >= 0.12.0"
 requires "sdl2_nim"
 requires "tinydialogs"
+requires "stb_image"
 
 let TARGET = "imguin"
 let Opts =""
