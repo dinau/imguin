@@ -46,20 +46,20 @@ IMGUIN_DIR = ../../../imguin
 
 .PHONY: wordReplacer$(EXE) glfw sdl gen
 .PHONY: $(IMGUIN_DIR)/glfw_opengl_cimguiDefs.nim $(IMGUIN_DIR)/sdl2_opengl_cimguiDefs.nim
+.PHONY: cleanGlfw cleanSdl
 
-all:  wordReplacer$(EXE) \
+all:  clean wordReplacer$(EXE) \
 			cimgui_update \
 			$(IMGUIN_DIR)/glfw_opengl_cimguiDefs.nim \
 			$(IMGUIN_DIR)/sdl2_opengl_cimguiDefs.nim
 
 # First do manual update cimgui/cimplot/cimnodes and regeneration *defs.nim file
-gen: glfw sdl
-glfw: $(IMGUIN_DIR)/glfw_opengl_cimguiDefs.nim
-sdl:  $(IMGUIN_DIR)/sdl2_opengl_cimguiDefs.nim
+gen:  clean glfw sdl
+glfw: cleanGlfw $(IMGUIN_DIR)/glfw_opengl_cimguiDefs.nim
+sdl:  cleanSdl  $(IMGUIN_DIR)/sdl2_opengl_cimguiDefs.nim
 
 wordReplacer$(EXE): wordReplacer.nim
 	nim c -d:release   $<
-
 
 $(IMGUIN_DIR)/glfw_opengl_cimguiDefs.nim:
 	nim c -f -c  $(OPT) --nimcache:.nimcache_$(notdir $@) $(IMGUIN_DIR)/glfw_opengl.nim
@@ -80,9 +80,11 @@ cimgui_update:
 	($(CD_CIMGUI_DIR); git submodule update --init --recursive)
 
 ifeq ($(OS),Windows_NT)
-clean:
+cleanGlfw:
 	-$(CMD) rmdir /q /s .nimcache_glfw_opengl_cimguiDefs.nim
+cleanSdl:
 	-$(CMD) rmdir /q /s .nimcache_sdl2_opengl_cimguiDefs.nim
+clean: cleanGlfw cleanSdl
 	-$(CMD) rmdir /q /s .nimcache
 else
 clean:

@@ -111,7 +111,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
   igStyleColorsClassic(nil)
 
   # Add multibytes font
-  var (fExistMultbytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
+  discard setupFonts()
 
   # ImNode demo init
   NodeEditorInitialize()
@@ -150,7 +150,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
         inc counter
       igSameLine(0.0f, -1.0f)
       igText("counter = %d", counter)
-      igText("Application average %.3f ms/frame (%.1f FPS)".cstring, (1000.0f / igGetIO().Framerate).cfloat, (igGetIO().Framerate).cfloat)
+      igText("Application average %.3f ms/frame (%.1f FPS)".cstring, (1000.0f / igGetIO().Framerate.float).cfloat, (igGetIO().Framerate).cfloat)
       igSeparatorText(ICON_FA_WRENCH & " Icon font test ")
       igText(ICON_FA_TRASH_CAN & " Trash")
       igText(ICON_FA_MAGNIFYING_GLASS_PLUS &

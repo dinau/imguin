@@ -116,7 +116,7 @@ proc main() =
     clearColor = ccolor(elm:(x:0.25f, y:0.65f, z:0.85f, w:1.0f))
 
   # Add multibyte font
-  var (fExistMultbytesFonts, sActiveFontName, sActiveFontTitle) = setupFonts()
+  discard setupFonts()
 
   #-----------
   # Main loop
@@ -164,7 +164,7 @@ proc main() =
       igSameLine(0.0f, -1.0f)
       igText("counter = %d", counter)
       igText("Application average %.3f ms/frame (%.1f FPS)",
-             1000.0f / pio.Framerate, pio.Framerate)
+             1000.0f / pio.Framerate.float, pio.Framerate)
       #
       igSeparatorText(ICON_FA_WRENCH & " Icon font test ")
       igText(ICON_FA_TRASH_CAN & " Trash")
