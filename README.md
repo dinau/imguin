@@ -8,6 +8,7 @@
     - [Build examples](#build-examples)
     - [Screen shot (examples)](#screen-shot-examples)
       - [glfw_opengl3](#glfw_opengl3)
+      - [glfw_opengl3_image_load](#glfw_opengl3_image_load)
       - [glfw_opengl3_nimgl_imguin_jp](#glfw_opengl3_nimgl_imguin_jp)
       - [glfw_opengl3_implot](#glfw_opengl3_implot)
       - [glfw_opengl3_imnodes](#glfw_opengl3_imnodes)
@@ -15,7 +16,6 @@
   - [Update to latest Dear ImGui and CImGui](#update-to-latest-dear-imgui-and-cimgui)
     - [Prerequisite](#prerequisite)
     - [Update ImGui/CImGui](#update-imguicimgui)
-    - [Combination of Futhark and Clang version](#combination-of-futhark-and-clang-version)
   - [Examples notice](#examples-notice)
   - [TODO](#todo)
   - [My tools version](#my-tools-version)
@@ -97,6 +97,10 @@ These screen shots are on Windows10.
 #### [glfw_opengl3](examples/glfw_opengl3)  
 
 ![alt](src/img/screenshot1.png)
+
+#### [glfw_opengl3_image_load](examples/glfw_opengl3_image_load)  
+
+![alt](src/img/image_load.png)
 
 #### [glfw_opengl3_nimgl_imguin_jp](examples/glfw_opengl3_nimgl_imguin_jp)
 

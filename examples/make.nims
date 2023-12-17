@@ -2,6 +2,7 @@ import std/[os,strutils]
 
 var projDirs = @[
 "glfw_opengl3",
+"glfw_opengl3_image_load",
 "glfw_opengl3_implot",
 "glfw_opengl3_nimgl_imguin_jp",
 "glfw_opengl3_imnodes",
