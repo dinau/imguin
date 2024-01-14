@@ -4,7 +4,7 @@ when not declared(strutils):
 
 # for ImGui
 {.passC:"-DImDrawIdx=\"unsigned int\"".}
-{.passC:"-DIMGUI_DISABLE_OBSOLETE_FUNCTIONS=1".}
+#{.passC:"-DIMGUI_DISABLE_OBSOLETE_FUNCTIONS=1".}
 
 when defined(windows):
   import std/[pegs]
@@ -41,5 +41,3 @@ when defined(ImNodesEnable):
   {.passC:"-I" & CImNodesRootPath.}
   {.compile:joinPath(CImNodesRootPath,"cimnodes.cpp").}
   {.compile:joinPath(CImNodesRootPath,"imnodes/imnodes.cpp").}
-
-
