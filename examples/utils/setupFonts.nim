@@ -51,14 +51,16 @@ proc new_ImFontConfig(): ImFontConfig =
     result.PixelSnapH = false
     result.GlyphMaxAdvanceX = float.high
     result.RasterizerMultiply = 1.0
+    result.RasterizerDensity  = 1.0
     result.MergeMode = false
+    result.EllipsisChar = -1
 
 # Q: How can I load multiple fonts?
 # https://github.com/ocornut/imgui/blob/master/docs/FAQ.md#q-how-can-i-load-multiple-fonts
 #
 proc setupFonts*(): (bool,string,string) =
   ## return font first file name
-  let fontFullPath = "../utils/fonticon/fa6/fa-solid-900.ttf"
+  var fontFullPath = "../utils/fonticon/fa6/fa-solid-900.ttf"
   let io = igGetIO()
   #
   var config {.global.}  = new_ImFontConfig()
@@ -71,13 +73,13 @@ proc setupFonts*(): (bool,string,string) =
     io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, 11.point2px,
       addr config, addr ranges_icon_fonts[0]);
   else:
-    echo "Error!: Can't find Icon fonts"
+    echo "Error!: Can't find Icon fonts: " , fontFullPath
   #
   # Add font from 'fontTable'
   result =  (false,"Default","ProggyClean.ttf") #
   var seqFontNames: seq[(string,string)]
   for (fontName,fontTitle,point) in fontInfo.fontTable:
-    let fontFullPath = os.joinPath(fontInfo.osRootDir, fontInfo.fontDir, fontName)
+    fontFullPath = os.joinPath(fontInfo.osRootDir, fontInfo.fontDir, fontName)
     if os.fileExists(fontFullPath):
       seqFontNames.add (fontName,fontTitle)
       io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, point.point2px,
@@ -87,5 +89,3 @@ proc setupFonts*(): (bool,string,string) =
   if seqFontNames.len > 0:
     result = (true,seqFontNames[0][0].extractFilename ,seqFontNames[0][1])
   #
-
-

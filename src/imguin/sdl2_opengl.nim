@@ -25,7 +25,7 @@ when defined(useFuthark):
     path    CImPlotRootPath
     path    CImNodesRootPath
     #define "IMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
-    define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
+    #define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
     define "CIMGUI_DEFINE_ENUMS_AND_STRUCTS"
     define "IMNODES_NAMESPACE=imnodes"
     #
