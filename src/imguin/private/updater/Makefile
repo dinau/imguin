@@ -54,7 +54,7 @@ all:  clean wordReplacer$(EXE) \
 			$(IMGUIN_DIR)/sdl2_opengl_cimguiDefs.nim
 
 # First do manual update cimgui/cimplot/cimnodes and regeneration *defs.nim file
-gen:  clean glfw sdl
+gen:  clean wordReplacer$(EXE) glfw sdl
 glfw: cleanGlfw $(IMGUIN_DIR)/glfw_opengl_cimguiDefs.nim
 sdl:  cleanSdl  $(IMGUIN_DIR)/sdl2_opengl_cimguiDefs.nim
 

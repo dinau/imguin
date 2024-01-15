@@ -28,8 +28,7 @@
 [Dear Imgui](https://github.com/ocornut/imgui) wrapper using [CImGui](https://github.com/cimgui/cimgui) and [Futhark](https://github.com/PMunch/futhark) with Nim language.  
 Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.com/cimgui/cimplot) module.
 
-Latest version: ImGui/CImGui: v1.89.9Dock 
-Added: ImNodes/CImNodes (2023/10)
+Latest ImGui/CImGui version: : **v1.90.1dock**
 
 **This project is under construction at this moment**
 
@@ -173,19 +172,19 @@ license: "MIT"
    ```sh
    pwd
    updater
-   make VER=1.89.9.6
+   make VER=1.89.9dock
    or
-   make CIMGUI=1.89.9.6
+   make CIMGUI=1.89.9dock
    ```
 
 - Confirmed version
 
-  | Command                 | Date      | Windows10 | Debian<br> Bookworm |
-  | :---------------------- | :-------: | :---:     | :---:               |
-  | make VER=1.89.9.8       | 2023/12   | ok        | Unknown             |
-  | make VER=1.89.9.7       | 2023/10   | ok        | Unknown             |
-  | make VER=1.89.9.6       | 2023/10   | ok        | Unknown             |
-  | make VER=1.89.9.5       | 2023/10   | ok        | Unknown             |
+  | Command                 | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm |
+  | :---------------------- | ----------- | :-------: | :---:     | :---:               |
+  | make VER=1.90.1dock     | 1.90.1.0    | 2024/01   | ok        | NG                  |
+  | make VER=1.89.9dock     | 1.89.9.8    | 2023/12   | ok        | NG                  |
+
+  NG: Dosn't work well.
 
 
 ## Examples notice
@@ -212,6 +211,7 @@ license: "MIT"
 
 ---
 
+1. Added: ImNodes/CImNodes (2023/10)
 1. Easier compilation for SDL2 app.
 1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
 1. ~~Unfortunately ImGui 1.89.7 dosn't work well at this moment.(2023/07)~~ Done. (2023/08)
@@ -227,11 +227,11 @@ license: "MIT"
 ---
 
 Windows10 (main)
-- Nim Compiler Version 2.0.0 / 1.6.14
-- gcc.exe (Rev7, Built by MSYS2 project) 13.2.0
-- clang version 17.0.1
+- Nim Compiler Version 2.0.2 / 1.6.18
+- gcc.exe (Rev3, Built by MSYS2 project) 13.2.0
+- clang version 17.0.6
 - git version 2.41.0.windows.3
-- SDL2.dll: SDL-release-2.26.4-0-g07d0f51fa (MinGW)
+- SDL2.dll: 2.28.5
 - make: GNU Make 4.2.1
 - MSys2/MinGW tools
 

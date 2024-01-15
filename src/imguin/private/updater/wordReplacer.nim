@@ -285,9 +285,9 @@ for line in readFile(fname).split("\n"):
     let s1 = line.replace("Imgui","ImGui_")
     let s2 = s1.replace("Implot","ImPlot_")
     let s3 = s2.replace("flags","flags_")
-    strOut.add s3.multiReplace(replaceList) & "\n"
+    let s4 = s3.replace("flags_ ","flags ")
+    strOut.add s4.multiReplace(replaceList) & "\n"
   else:
     strOut.add line & "\n"
 
 writefile(fname,strOut)
-
