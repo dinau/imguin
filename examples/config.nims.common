@@ -7,9 +7,10 @@ switch "hint","XDeclaredButNotUsed:off"
 
 #switch "passC","-std=c++17"
 #
-switch "define", "release"
+when defined(windows):
+  switch "define", "release"
 #switch "define", "danger"
-switch "opt", "size"
+#switch "opt", "size"
 #
 #when (NimMajor, NimMinor, NimPatch) >= (1, 6, 8):
 #  switch "mm","orc"

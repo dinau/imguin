@@ -181,11 +181,13 @@ license: "MIT"
 
   | Command                 | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm |
   | :---------------------- | ----------- | :-------: | :---:     | :---:               |
-  | make VER=1.90.4dock     | 1.90.4.0    | 2024/02   | ok        | Unconfirmed         |
-  | make VER=1.90.1dock     | 1.90.1.0    | 2024/01   | ok        | NG                  |
+  | make VER=1.90.4dock     | 1.90.4.2    | 2024/02   | ok        | ok Notice(1)         |
+  | make VER=1.90.1dock     | 1.90.1.0    | 2024/01   | ok        | NG Notice(2)                 |
   | make VER=1.89.9dock     | 1.89.9.8    | 2023/12   | ok        | NG                  |
 
-  NG: Doesn't work well.
+  Notice(1) : Except imnodes and SDL2 example.  
+              Can be executed with debug mode compilation at this moment. TODO.  
+  Notice(2) NG: Doesn't work well.
 
 
 ## Examples notice
@@ -239,7 +241,7 @@ Windows10 (main)
 - MSys2/MinGW tools
 
 Debian 12 Bookworm
-- Nim Compiler Version 1.6.14
+- Nim Compiler Version 2.0.2
 - gcc (Debian 12.2.0-14) 12.2.0
 - git version 2.39.2
 - GNU Make 4.3
