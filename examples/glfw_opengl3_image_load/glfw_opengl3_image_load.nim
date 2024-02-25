@@ -24,7 +24,7 @@ const MainWinHeight = 800
 #  |:---------:|:--------:|:-------------------:||:-------:|:-----------:|:-------:| -----------
 #  |  false    | false    |     false           ||    -    |     -       |   -     |
 #  |  false    | true     |     false           ||    v    |     -       |   -     | (Default): Only docking
-#  |  true     | -        |     false           ||    v    |     -       |   v     | Doncking and outside of viewport
+#  |  true     | -        |     false           ||    v    |     -       |   v     | Docking and outside of viewport
 #  |    -      | -        |     true            ||    v    |     v       |   -     | Transparent Viewport and docking
 #  `-----------'----------'---------------------'`---------'-------------'---------'-------------
 var

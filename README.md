@@ -184,7 +184,7 @@ license: "MIT"
   | make VER=1.90.1dock     | 1.90.1.0    | 2024/01   | ok        | NG                  |
   | make VER=1.89.9dock     | 1.89.9.8    | 2023/12   | ok        | NG                  |
 
-  NG: Dosn't work well.
+  NG: Doesn't work well.
 
 
 ## Examples notice
