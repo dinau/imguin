@@ -28,7 +28,7 @@
 [Dear Imgui](https://github.com/ocornut/imgui) wrapper using [CImGui](https://github.com/cimgui/cimgui) and [Futhark](https://github.com/PMunch/futhark) with Nim language.  
 Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.com/cimgui/cimplot) module.
 
-Latest ImGui/CImGui version: : **v1.90.1dock**
+Latest ImGui/CImGui version: : **v1.90.4dock**
 
 **This project is under construction at this moment**
 
@@ -42,7 +42,7 @@ Latest ImGui/CImGui version: : **v1.90.1dock**
 
 ---
 
-- [Nim-1.6.14](https://nim-lang.org) or later (Windows10 or Debian Linux)
+- [Nim-2.0.2](https://nim-lang.org) or later (Windows10 or Debian Linux)
 - For Linux Debian 12 Bookworm,
 
   ```sh
@@ -181,6 +181,7 @@ license: "MIT"
 
   | Command                 | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm |
   | :---------------------- | ----------- | :-------: | :---:     | :---:               |
+  | make VER=1.90.4dock     | 1.90.4.0    | 2024/02   | ok        | Unconfirmed         |
   | make VER=1.90.1dock     | 1.90.1.0    | 2024/01   | ok        | NG                  |
   | make VER=1.89.9dock     | 1.89.9.8    | 2023/12   | ok        | NG                  |
 
@@ -226,9 +227,11 @@ license: "MIT"
 
 ---
 
+
 Windows10 (main)
-- Nim Compiler Version 2.0.2 / 1.6.18
-- gcc.exe (Rev3, Built by MSYS2 project) 13.2.0
+- Nim Compiler Version 2.0.2
+- gcc.exe (Rev3, Built by MSYS2 project) 13.2.0-2
+- binutils 2.41-3
 - clang version 17.0.6
 - git version 2.41.0.windows.3
 - SDL2.dll: 2.28.5
