@@ -23,7 +23,7 @@ CHECK_OUT = (cd ../cimgui; git checkout $(VER))
 endif
 CD_CIMGUI_DIR = cd ../cimgui
 
-CIMGUI_DEFS = cimguiDefs.nim
+#CIMGUI_DEFS = cimguiDefs.nim
 
 OPT += -d:useFuthark -d:futharkRebuild --maxLoopIterationsVM:50000000
 OPT += --hint:"User:off"
@@ -53,24 +53,34 @@ all:  clean wordReplacer$(EXE) \
 			$(IMGUIN_DIR)/glfw_opengl_cimguiDefs.nim \
 			$(IMGUIN_DIR)/sdl2_opengl_cimguiDefs.nim
 
-# First do manual update cimgui/cimplot/cimnodes and regeneration *defs.nim file
+# For manual update cimgui/cimplot/cimnodes and regeneration *defs.nim file
 gen:  clean wordReplacer$(EXE) glfw sdl
 glfw: cleanGlfw $(IMGUIN_DIR)/glfw_opengl_cimguiDefs.nim
 sdl:  cleanSdl  $(IMGUIN_DIR)/sdl2_opengl_cimguiDefs.nim
 
+#
+# Gen:: wordReplacer
+#
 wordReplacer$(EXE): wordReplacer.nim
 	nim c -d:release   $<
 
+#
+# Gen:: glfw_opengl_cimguiDefs.nim
+#
 $(IMGUIN_DIR)/glfw_opengl_cimguiDefs.nim:
 	nim c -f -c  $(OPT) --nimcache:.nimcache_$(notdir $@) $(IMGUIN_DIR)/glfw_opengl.nim
 	./wordReplacer$(EXE) $(notdir $@)
 	$(MV) $(notdir $@) $@
 
+#
+# Gen:: sdl2_opengl_cimguiDefs.nim
+#
 $(IMGUIN_DIR)/sdl2_opengl_cimguiDefs.nim:
 	nim c -f -c  $(OPT) --nimcache:.nimcache_$(notdir $@) $(IMGUIN_DIR)/sdl2_opengl.nim
 	./wordReplacer$(EXE) $(notdir $@)
 	$(MV) $(notdir $@) $@
 
+#
 cimgui_update:
 	@# Update git database by the recent changes
 	($(CD_CIMGUI_DIR); git checkout docking_inter )
@@ -79,6 +89,7 @@ cimgui_update:
 	$(CHECK_OUT)
 	($(CD_CIMGUI_DIR); git submodule update --init --recursive)
 
+#
 ifeq ($(OS),Windows_NT)
 cleanGlfw:
 	-$(CMD) rmdir /q /s .nimcache_glfw_opengl_cimguiDefs.nim

@@ -30,9 +30,12 @@ Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.
 
 Latest ImGui/CImGui version: : **v1.90.4dock**
 
-**This project is under construction at this moment**
+Notice:  
+This project is experiment project to use Nim lang. ,ImGui ,ImPlot ,futhark and etc.  
+It may be better to use the mainstream project [nimgl/imgui](https://github.com/nimgl/imgui) (ImGui v1.85)  
+,updated project [nimgl-imgui](https://github.com/dinau/nimgl-imgui) (ImGui v1.89.9)
+,sub project [nim_implot](https://github.com/dinau/nim_implot) and test project [nimgl_test](https://github.com/dinau/nimgl_test).
 
-(Refer to similar project [nim_implot](https://github.com/dinau/nim_implot))
 
 ## Usage: Sample program and run
 
@@ -233,6 +236,7 @@ license: "MIT"
 Windows10 (main)
 - Nim Compiler Version 2.0.2
 - gcc.exe (Rev3, Built by MSYS2 project) 13.2.0-2
+- gcc-libs 13.2.0-2
 - binutils 2.41-3
 - clang version 17.0.6
 - git version 2.41.0.windows.3

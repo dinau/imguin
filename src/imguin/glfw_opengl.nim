@@ -14,7 +14,7 @@ const ImguiRootPath    = joinPath(CImguiRootPath,"imgui")
 #const ImguiBackendsPath= joinPath(CImguiRootPath,"imgui","backends")
 
 
-when defined(useFuthark):
+when defined(useFuthark): # Generate header files with Futhark.
   import futhark
   importc:
     syspath ClangIncludePath
@@ -38,17 +38,19 @@ when defined(useFuthark):
     # Output
     outputPath "glfw_opengl_cimguiDefs.nim"
 
-else:
+else: # Use generated header files in programs.
   {.push discardable,hint[XDeclaredButNotUsed]:off.}
   include "glfw_opengl_cimguiDefs.nim"
   {.pop.}
 
   # for glfw3
-  # Use GLFW of glfw-4.0.0 package
-  #{.passC:"-I" & joinPath(staticExec("nimble path glfw").strip,"glfw","private","glfw","include").}
+  if false:
+    # Use GLFW of glfw-4.0.0 package
+    {.passC:"-I" & joinPath(staticExec("nimble path glfw").strip,"glfw","private","glfw","include").}
+  else:
+    # Use GLFW of nimgl package
+    {.passC:"-I" & joinPath(staticExec("nimble path nimgl").strip,"nimgl","private","glfw","include").}
+    {.compile:joinPath(ImguiRootPath,"backends","imgui_impl_glfw.cpp").}
   #
-  # Use GLFW of nimgl package
-  {.passC:"-I" & joinPath(staticExec("nimble path nimgl").strip,"nimgl","private","glfw","include").}
-  {.compile:joinPath(ImguiRootPath,"backends","imgui_impl_glfw.cpp").}
   #
   include "sourceFiles.nim"

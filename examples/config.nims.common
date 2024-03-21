@@ -9,8 +9,8 @@ switch "hint","XDeclaredButNotUsed:off"
 #
 when defined(windows):
   switch "define", "release"
-#switch "define", "danger"
-#switch "opt", "size"
+  #switch "define", "danger"
+  #switch "opt", "size"
 #
 #when (NimMajor, NimMinor, NimPatch) >= (1, 6, 8):
 #  switch "mm","orc"

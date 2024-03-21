@@ -1,6 +1,6 @@
 ##  imgui で日本語が「?」になる場合の対処
 ##  https://qiita.com/benikabocha/items/a25571c1b059eaf952de
-##  上記ページ内のファイルをNim言語に変換してのまま利用しています m(__)m
+##  上記ページ内のファイルをNim言語に変換してそのまま利用しています m(__)m
 ##
 
 var glyphRangesJapanese*: array[0..8252,uint16] = [0x0020'u16, 0x007E, 0x00A2, 0x00A3,
