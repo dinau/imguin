@@ -25,8 +25,6 @@
 
 # ImGuin
 
-[Dear Imgui](https://github.com/ocornut/imgui) wrapper using [CImGui](https://github.com/cimgui/cimgui) and [Futhark](https://github.com/PMunch/futhark) with Nim language.  
-Included [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.com/cimgui/cimplot) module.
 
 Latest ImGui/CImGui version: : **v1.90.4dock**
 
@@ -144,13 +142,13 @@ Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#ins
     nimble install --passL:"-L/usr/lib/llvm-16/lib" futhark
     ```
 
-Important Notice: Confirm Futhark version is **v0.12.0** at this time. (2023/10)
+Important Notice: Confirm Futhark version is **v0.12.5** at this time. (2024/03)
 
 ```sh
 nimble dump futhark
 
 name: "futhark"
-version: "0.12.0"
+version: "0.12.5"
 author: "PMunch"
 desc: "A package which uses libclang to parse C headers into Nim files for easy interop"
 license: "MIT"
@@ -238,7 +236,7 @@ Windows10 (main)
 - gcc.exe (Rev3, Built by MSYS2 project) 13.2.0-2
 - gcc-libs 13.2.0-2
 - binutils 2.41-3
-- clang version 17.0.6
+- clang version 18.1.1
 - git version 2.41.0.windows.3
 - SDL2.dll: 2.28.5
 - make: GNU Make 4.2.1

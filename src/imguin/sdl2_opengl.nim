@@ -8,7 +8,7 @@ proc currentSourceDir(): string {.compileTime.} =
 const
   MinGwPath = "c:/drvDx/msys32/mingw32" # for windows10
   #ClangIncludePath = MinGwPath & "/opt/llvm-15/lib/clang/15.0.7/include"
-  ClangIncludePath = "c:/drvDx/msys32/mingw32/lib/clang/17/include"
+  ClangIncludePath = "c:/drvDx/msys32/mingw32/lib/clang/18/include"
 
 # Set root path of ImGui/CImGui
 const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui")
