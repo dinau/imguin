@@ -27,6 +27,7 @@ CD_CIMGUI_DIR = cd ../cimgui
 
 OPT += -d:useFuthark -d:futharkRebuild --maxLoopIterationsVM:50000000
 OPT += --hint:"User:off"
+OPT += -d:nodeclguards
 
 NIMCACHE = .nimcache
 

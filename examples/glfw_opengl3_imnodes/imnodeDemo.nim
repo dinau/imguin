@@ -132,7 +132,7 @@ proc load*(this: var SaveLoadEditor) =
   #// Load the internal imnodes state
   imNodes_LoadCurrentEditorStateFromIniFile("save_load.ini")
   #// Load our editor state into memory
-  var f: File
+  var f: syncio.File
   try:
     f = open("save_load.bytes", fmRead)
   except IOError:
@@ -167,4 +167,3 @@ proc NodeEditorShow*() = obj.show()
 proc NodeEditorShutdown*() =
   imNodes_PopAttributeFlag()
   obj.save()
-
