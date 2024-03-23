@@ -12,7 +12,7 @@ skipDirs      = @["examples","src/img","src/imguin/private/updater"]
 
 requires "nim >= 1.6.10"
 requires "nimgl >= 1.3.2"
-#requires "futhark >= 0.12.0"
+#requires "futhark >= 0.12.5"
 requires "sdl2_nim"
 requires "tinydialogs"
 requires "stb_image"

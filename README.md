@@ -29,8 +29,8 @@
 Latest ImGui/CImGui version: : **v1.90.4dock**
 
 Notice:  
-This project is experiment project to use Nim lang. ,ImGui ,ImPlot ,futhark and etc.  
-It may be better to use the mainstream project [nimgl/imgui](https://github.com/nimgl/imgui) (ImGui v1.85)  
+This project is my experiment project to use Nim language, ImGui, ImPlot, futhark and etc.  
+It may be better to use the **mainstream** project [nimgl/imgui](https://github.com/nimgl/imgui) (ImGui v1.85)  
 ,updated project [nimgl-imgui](https://github.com/dinau/nimgl-imgui) (ImGui v1.89.9)
 ,sub project [nim_implot](https://github.com/dinau/nim_implot) and test project [nimgl_test](https://github.com/dinau/nimgl_test).
 
@@ -117,7 +117,7 @@ Showing ImGui demo with ImPlot demo.
 
 ![alt](src/img/imnodes-demo.png)  
 
-####  My test app movie
+####  My test app movie using imguin
 
 [![Sample movie,Youtube](src/img/fontx2v-1.0-alpha-2023-04-small.png)](https://youtu.be/Ea0t7b9Kmq4)
 
@@ -134,6 +134,8 @@ Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#ins
    ```sh
    nimble install --passL:"-Lc:\llvm\lib" futhark
    ```
+
+   It must be exist **libclang.a** file in the library path ("c:\llbm\lib").
 
 1. Linux Debian 12 Bookworm
 

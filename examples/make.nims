@@ -6,11 +6,12 @@ var projDirs = @[
 "glfw_opengl3_implot",
 "glfw_opengl3_nimgl_imguin_jp",
 "glfw_opengl3_imnodes",
-"fontx2v",
 ]
 
 if hostOS == "windows":
   projDirs.add "sdl2_opengl3"
+
+projDirs.add "fontx2v"
 
 #-------------
 # compileProj
@@ -19,7 +20,10 @@ proc compileProj(cmd:string) =
   for dir in projDirs:
     if dir.dirExists:
       withDir(dir):
-        exec("make $#" % [cmd])
+        try:
+          exec("make $#" % [cmd])
+        except OSError:
+          discard
 
 #------
 # main
