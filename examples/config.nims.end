@@ -1,13 +1,16 @@
 # Set compiler options
-
 case TC
   of "vcc" , "clang_cl":
     switch "define","lto"
+  of "zigcc":
+    discard
   else:
     if "" == findExe(TC): # GCC is default compiler if TC dosn't exist on the PATH
+      echo "#### Set to cc = ",TC
       TC = "gcc"
     if "" == findExe(TC): # if gcc dosn't exist, try clang
       TC = "clang"
+      echo "#### Set to cc = ",TC
 
 # Reduce code size further
 when false:
@@ -31,14 +34,23 @@ switch "nimcache", ".nimcache"
 case TC
   of "gcc":
     commonOpt()
-  of "clang":
+  of "clang", "zigcc":
     #commonOpt()
     discard
 
 when LTO: # These options let link time slow while reducing code size.
   switch "define", "lto"
 
-switch "cc", TC
+if TC == "zigcc":
+  switch "cc","clang"
+  var ext = ""
+  when defined(windows):
+    ext = ".bat"
+  switch "clang.exe","zigcc.bat" #& ext
+  switch "clang.linkerexe","zigcc.bat" #& ext
+  switch "passL","-lgcc_s "
+else:
+  switch "cc", TC
 
 echo ""
 echo "#### [ ", TC, " ] Compiler ####"

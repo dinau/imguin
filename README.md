@@ -135,7 +135,7 @@ Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#ins
    nimble install --passL:"-Lc:\llvm\lib" futhark
    ```
 
-   It must be exist **libclang.a** file in the library path ("c:\llbm\lib").
+   It must exist **libclang.a** file in the library path (e.g. "c:\llvm\lib").
 
 1. Linux Debian 12 Bookworm
 
@@ -184,12 +184,11 @@ license: "MIT"
 
   | Command                 | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm |
   | :---------------------- | ----------- | :-------: | :---:     | :---:               |
-  | make VER=1.90.4dock     | 1.90.4.2    | 2024/02   | ok        | ok Notice(1)         |
-  | make VER=1.90.1dock     | 1.90.1.0    | 2024/01   | ok        | NG Notice(2)                 |
+  | make VER=1.90.4dock     | 1.90.4.2    | 2024/02   | ok        | ok Notice(1)        |
+  | make VER=1.90.1dock     | 1.90.1.0    | 2024/01   | ok        | NG Notice(2)        |
   | make VER=1.89.9dock     | 1.89.9.8    | 2023/12   | ok        | NG                  |
 
-  Notice(1) : Except imnodes and SDL2 example.  
-              Can be executed with debug mode compilation at this moment. TODO.  
+  Notice(1) : Except imnodes and SDL2 example.
   Notice(2) NG: Doesn't work well.
 
 

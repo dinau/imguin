@@ -20,10 +20,14 @@ proc compileProj(cmd:string) =
   for dir in projDirs:
     if dir.dirExists:
       withDir(dir):
-        try:
+        if false:
+          try:
+            exec("make $#" % [cmd])
+          except OSError:
+            discard
+        else:
           exec("make $#" % [cmd])
-        except OSError:
-          discard
+
 
 #------
 # main

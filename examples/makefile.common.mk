@@ -1,10 +1,11 @@
 TARGET = $(notdir $(CURDIR))
+
 ifeq ($(OS),Windows_NT)
 	EXE = .exe
 endif
 TARGET_EXE = $(TARGET)$(EXE)
 
-.PHONY: clean run dll ver info build
+.PHONY: clean run dll ver info build upx dpx
 
 OPT += -d:strip
 OPT += -o:$(TARGET_EXE)
@@ -13,17 +14,19 @@ OPT += -o:$(TARGET_EXE)
 
 all: build dll
 
+SRC_MAIN ?= $(TARGET)
+
 build:
-	nim c $(OPT) $(IMOPT) $(TARGET)
+	nim cpp $(OPT) $(IMOPT) $(SRC_MAIN)
 
 clean:
 	@-rm -fr .nimcache
-	@-rm $(TARGET_EXE)
+	@-rm -f $(TARGET_EXE)
 	@# Visual studio artifacts
-	@-rm $(TARGET).exp
-	@-rm $(TARGET).lib
-	@-rm $(TARGET).ilk
-	@-rm $(TARGET).pdb
+	@-rm -f $(TARGET).exp
+	@-rm -f $(TARGET).lib
+	@-rm -f $(TARGET).ilk
+	@-rm -f $(TARGET).pdb
 
 run: all
 	@#nimble run --verbose
@@ -51,3 +54,8 @@ ver:
 	-@rg -ie "version\s+=.+" $(TARGET).nimble
 	@echo [version.nims]
 	-@rg -ie "\d\.\d\.\d" version.nims
+
+upx:
+	upx --lzma $(TARGET_EXE)
+dpx:
+	upx -d $(TARGET_EXE)
