@@ -7,6 +7,7 @@ import stb_image/read as stbi
 import ../utils/loadImage
 
 include ../utils/setupFonts
+include ./res/resource
 include imguin/simple
 
 
