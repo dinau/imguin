@@ -234,18 +234,18 @@ license: "MIT"
 
 Windows10 (main)
 - Nim Compiler Version 2.0.2
-- gcc.exe (Rev3, Built by MSYS2 project) 13.2.0-2
+- **gcc.exe (Rev3, Built by MSYS2 project) 13.2.0-2**
 - gcc-libs 13.2.0-2
-- binutils 2.41-3
+- **binutils 2.41-3**
 - clang version 18.1.1
 - git version 2.41.0.windows.3
-- SDL2.dll: 2.28.5
+- SDL2.dll: 2.30.2
 - make: GNU Make 4.2.1
 - MSys2/MinGW tools
 
 Debian 12 Bookworm
 - Nim Compiler Version 2.0.2
-- gcc (Debian 12.2.0-14) 12.2.0
+- **gcc (Debian 12.2.0-14) 12.2.0**
 - git version 2.39.2
 - GNU Make 4.3
 - SDL2 ver.2.26.5

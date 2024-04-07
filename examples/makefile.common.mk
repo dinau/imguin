@@ -1,5 +1,7 @@
 TARGET = $(notdir $(CURDIR))
 
+#MAKEFLAGS += --no-print-directory
+
 ifeq ($(OS),Windows_NT)
 	EXE = .exe
 endif

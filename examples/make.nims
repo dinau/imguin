@@ -17,16 +17,19 @@ projDirs.add "fontx2v"
 # compileProj
 #-------------
 proc compileProj(cmd:string) =
+  var options = ""
+  #options =  join([options,"--no-print-directory"]," ")
+
   for dir in projDirs:
     if dir.dirExists:
       withDir(dir):
         if false:
           try:
-            exec("make $#" % [cmd])
+            exec("make $# $#" % [options,cmd])
           except OSError:
             discard
         else:
-          exec("make $#" % [cmd])
+          exec("make $# $#" % [options,cmd])
 
 
 #------
