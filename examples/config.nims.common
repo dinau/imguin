@@ -11,9 +11,8 @@ when defined(windows):
   switch "define", "release"
   #switch "define", "danger"
   #switch "opt", "size"
-#
-#when (NimMajor, NimMinor, NimPatch) >= (1, 6, 8):
-#  switch "mm","orc"
+else: # Linux
+  discard # TODO: Debug mode compilation at this time.
 
 #const LTO = true # further reudce code size
 const LTO = false

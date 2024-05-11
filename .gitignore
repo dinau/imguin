@@ -1,7 +1,9 @@
-xx/
-myImguiApp/
 examples/fontx2v/
-premake/
+examples/bugtest/
+examples/im_libs/
+.hgignore
+*.stop
+*.pdf
 #*.ini
 build-*
 org.html

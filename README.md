@@ -12,7 +12,7 @@
       - [glfw_opengl3_nimgl_imguin_jp](#glfw_opengl3_nimgl_imguin_jp)
       - [glfw_opengl3_implot](#glfw_opengl3_implot)
       - [glfw_opengl3_imnodes](#glfw_opengl3_imnodes)
-      - [My test app movie](#my-test-app-movie)
+      - [My test app movie using imguin](#my-test-app-movie-using-imguin)
   - [Update to latest Dear ImGui and CImGui](#update-to-latest-dear-imgui-and-cimgui)
     - [Prerequisite](#prerequisite)
     - [Update ImGui/CImGui](#update-imguicimgui)
@@ -20,13 +20,14 @@
   - [TODO](#todo)
   - [My tools version](#my-tools-version)
   - [Other link](#other-link)
+  - [Similar project](#similar-project)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # ImGuin
 
 
-Latest ImGui/CImGui version: : **v1.90.4dock**
+Latest ImGui/CImGui version: : **v1.90.6dock** (2024/05)
 
 Notice:  
 This project is my experiment project to use Nim language, ImGui, ImPlot, futhark and etc.  
@@ -184,6 +185,7 @@ license: "MIT"
 
   | Command                 | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm |
   | :---------------------- | ----------- | :-------: | :---:     | :---:               |
+  | make VER=1.90.6dock     | 1.90.6.0    | 2024/05   | ok        | NG Notice(2)                |
   | make VER=1.90.4dock     | 1.90.4.2    | 2024/02   | ok        | ok Notice(1)        |
   | make VER=1.90.1dock     | 1.90.1.0    | 2024/01   | ok        | NG Notice(2)        |
   | make VER=1.89.9dock     | 1.89.9.8    | 2023/12   | ok        | NG                  |
@@ -233,18 +235,18 @@ license: "MIT"
 
 
 Windows10 (main)
-- Nim Compiler Version 2.0.2
+- Nim Compiler Version 2.0.4
 - **gcc.exe (Rev3, Built by MSYS2 project) 13.2.0-2**
 - gcc-libs 13.2.0-2
 - **binutils 2.41-3**
-- clang version 18.1.1
+- clang version 18.1.4
 - git version 2.41.0.windows.3
-- SDL2.dll: 2.30.2
+- SDL2.dll: 2.30.3
 - make: GNU Make 4.2.1
 - MSys2/MinGW tools
 
 Debian 12 Bookworm
-- Nim Compiler Version 2.0.2
+- Nim Compiler Version 2.0.4
 - **gcc (Debian 12.2.0-14) 12.2.0**
 - git version 2.39.2
 - GNU Make 4.3
@@ -273,3 +275,13 @@ Debian 11 Bullseye (Obsoleted)
 - Graphical
   - [Immediate Mode Plotting](https://github.com/epezent/implot)
      ![alt](https://raw.githubusercontent.com/wiki/epezent/implot/screenshots3/stem.gif)
+
+## Similar project
+
+---
+
+[LuaJITImGui](https://github.com/dinau/luajitimgui)
+
+[nimgl_test](https://github.com/dinau/nimgl_test)
+
+[nim_implot](https://github.com/dinau/nim_implot)
