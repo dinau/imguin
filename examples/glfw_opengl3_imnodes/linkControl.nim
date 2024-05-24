@@ -1,3 +1,5 @@
+# switch "app","gui"
+
 #---------------------------------------
 # Select static link or shared/dll link
 #---------------------------------------
@@ -29,8 +31,11 @@ else: # shared/dll
     switch "passL","-lglfw"
 
 when STATIC_LINK_CC: # gcc static link
-  if TC == "vcc":
-    discard
-  else:
-    switch "passC", "-static"
-    switch "passL", "-static"
+  case TC
+    of "vcc":
+      discard
+    of "clang","zigcc":
+      switch "passC", "-static"
+    else:
+      switch "passC", "-static"
+      switch "passL", "-static "

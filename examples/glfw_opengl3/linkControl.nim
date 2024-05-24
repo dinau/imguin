@@ -36,7 +36,6 @@ when STATIC_LINK_CC: # gcc static link
       discard
     of "clang","zigcc":
       switch "passC", "-static"
-      discard
     else:
       switch "passC", "-static"
       switch "passL", "-static "

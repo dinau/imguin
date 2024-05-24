@@ -154,6 +154,8 @@ proc main() =
       igText(s.cstring)
 
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
+      s = "Input result:" & sBuf
+      igText(s.cstring)
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)

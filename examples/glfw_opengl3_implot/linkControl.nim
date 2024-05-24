@@ -1,3 +1,4 @@
+# switch "app","gui"
 
 #---------------------------------------
 # Select static link or shared/dll link
@@ -20,7 +21,9 @@ when STATIC_LINK_GLFW: # GLFW static link
   switch "define","glfwStaticLib"
 else: # shared/dll
   when defined(windows):
-    if TC != "vcc":
+    if TC == "vcc":
+      discard
+    else:
       switch "passL","-lglfw3"
       switch "define", "glfwDLL"
       #switch "define","cimguiDLL"
@@ -28,8 +31,11 @@ else: # shared/dll
     switch "passL","-lglfw"
 
 when STATIC_LINK_CC: # gcc static link
-  if TC == "vcc":
-    discard
-  else:
-    switch "passC", "-static"
-    switch "passL", "-static"
+  case TC
+    of "vcc":
+      discard
+    of "clang","zigcc":
+      switch "passC", "-static"
+    else:
+      switch "passC", "-static"
+      switch "passL", "-static "

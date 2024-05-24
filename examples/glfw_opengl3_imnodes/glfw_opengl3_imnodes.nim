@@ -37,9 +37,9 @@ block:
   if fViewport:
     fDocking = true
 
-#--------------------
-# Forward definition
-#--------------------
+#---------------------
+# Forward definitions
+#---------------------
 proc winMain(hWin: glfw.GLFWWindow)
 
 #------
@@ -141,6 +141,8 @@ proc winMain(hWin: glfw.GLFWWindow) =
       s = "OpenGL v" & ($cast[cstring](glGetString(GL_VERSION))).split[0]
       igText(s.cstring)
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
+      s = "Input result:" & sBuf
+      igText(s.cstring)
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.0f, "%.3f", 0)
@@ -177,10 +179,10 @@ proc winMain(hWin: glfw.GLFWWindow) =
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
 
     if 0 != (pio.ConfigFlags and ImGui_ConfigFlags_ViewportsEnable.cint):
-        var backup_current_window = glfwGetCurrentContext()
-        igUpdatePlatformWindows()
-        igRenderPlatformWindowsDefault(nil, nil)
-        backup_current_window.makeContextCurrent()
+      var backup_current_window = glfwGetCurrentContext()
+      igUpdatePlatformWindows()
+      igRenderPlatformWindowsDefault(nil, nil)
+      backup_current_window.makeContextCurrent()
 
     hwin.swapBuffers()
     if not showFirstWindow and not showDemoWindow and not showAnotherWindow:

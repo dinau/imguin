@@ -186,6 +186,8 @@ proc firstWindow() =
   igText(s.cstring)
   igText("これは日本語表示テスト")
   igInputTextWithHint("テキスト入力", "ここに日本語を入力", sBuf)
+  s = "入力結果:" & sBuf
+  igText(s.cstring)
   igCheckbox("デモ・ウインドウ表示", showDemoWindow.addr)
   igSliderFloat("浮動小数", somefloat.addr, 0.0f, 1.0f, "%3f", 0)
   igColorEdit3("背景色変更", clearColor.array3, ImGuiColorEditFlags_None.ImGuiColorEditFlags)

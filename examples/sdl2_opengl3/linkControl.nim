@@ -17,8 +17,11 @@ else: # for Linux
   const STATIC_LINK_CC = false
 
 when STATIC_LINK_CC: # gcc static link
-  if TC == "vcc":
-    discard
-  else:
-    switch "passC", "-static"
-    switch "passL", "-static"
+  case TC
+    of "vcc":
+      discard
+    of "clang","zigcc":
+      switch "passC", "-static"
+    else:
+      switch "passC", "-static"
+      switch "passL", "-static"

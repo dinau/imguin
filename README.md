@@ -218,8 +218,8 @@ license: "MIT"
 
 ---
 
-1. Added: ImNodes/CImNodes (2023/10)
 1. Easier compilation for SDL2 app.
+1. ~~Added: ImNodes/CImNodes~~ (2023/10)Done
 1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
 1. ~~Unfortunately ImGui 1.89.7 dosn't work well at this moment.(2023/07)~~ Done. (2023/08)
 1. ~~Whether can it do `nimble install imguin` ?~~ [Done (2023/09) (#Issue 13)](https://github.com/dinau/imguin/issues/13)
@@ -285,3 +285,5 @@ Debian 11 Bullseye (Obsoleted)
 [nimgl_test](https://github.com/dinau/nimgl_test)
 
 [nim_implot](https://github.com/dinau/nim_implot)
+
+[DearPyGui for 32bit WinodwsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)
