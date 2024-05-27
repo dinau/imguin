@@ -7,20 +7,19 @@ import stb_image/read as stbi
 #---------------------
 # loadTextureFromFile
 #---------------------
-proc loadTextureFromFile*(filename: string, outTexture: var GLuint, out_width: var int, out_height: var int): bool =
+proc loadTextureFromFile*(filename: string, outTexture: var GLuint, outWidth: var int, outHeight: var int): bool =
   var
-    image_width, image_height, channels: int
-    image_data = stbi.load(filename, image_width, image_height, channels, stbi.RGBA)
+    channels: int
+    image_data = stbi.load(filename, outWidth, outHeight, channels, stbi.RGBA)
+
   # Create a OpenGL texture identifier
-  var image_texture: GLuint
-  glGenTextures(1, addr image_texture)
-  glBindTexture(GL_TEXTURE_2D, image_texture)
+  glGenTextures(1, addr outTexture)
+  glBindTexture(GL_TEXTURE_2D, outTexture)
   # Setup filtering parameters for display
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR.GLint)
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR.GLint)
   # This is required on WebGL for non power-of-two textures
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE.GLint)
-  # Same
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE.GLint)
 
   # Upload pixels into texture
@@ -29,11 +28,8 @@ proc loadTextureFromFile*(filename: string, outTexture: var GLuint, out_width: v
   glPixelStorei(GL_UNPACK_ROW_LENGTH, 0)
   #endif
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA.GLint
-    , image_width.GLSizei, image_height.GLsizei
+    , outWidth.GLSizei, outHeight.GLsizei
     , 0, GL_RGBA, GL_UNSIGNED_BYTE, image_data[0].addr)
-  outTexture = image_texture
-  out_width = image_width
-  out_height = image_height
   return true
 
 #------------------

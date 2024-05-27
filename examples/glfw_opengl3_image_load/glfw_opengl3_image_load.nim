@@ -71,7 +71,7 @@ proc main() =
   #---------------------
   # Load title bar icon
   #---------------------
-  const IconName = "icon.png"
+  var IconName = os.joinPath(os.getAppDir(),"icon.png")
   if IconName.fileExists:
     var
       w, h: int
@@ -82,11 +82,12 @@ proc main() =
                      , pixels: cast[ptr cuchar](pixels[0].addr))
     glfw.setWindowIcon(glfwWin, 1, img.addr)
   else:
+    echo "Not found: ",IconName
     glfw.setWindowIcon(glfwWin, 0, nil)
   #
   doAssert glInit() # OpenGL init
 
-  # setup ImGui
+  # Setup ImGui
   let context = igCreateContext(nil)
   defer: context.igDestroyContext()
   if fDocking:
@@ -133,7 +134,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
     textureId: GLuint
     textureWidth = 0
     textureHeight = 0
-  const ImageName = "fuji-400.jpg"
+  var ImageName = os.joinPath(os.getAppDir(),"fuji-400.jpg")
   if ImageName.fileExists:
     if not loadTextureFromFile(ImageName, textureId, textureWidth,textureHeight):
       textureId = 0.GLuint

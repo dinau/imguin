@@ -6,12 +6,12 @@ var projDirs = @[
 "glfw_opengl3_implot",
 "glfw_opengl3_nimgl_imguin_jp",
 "glfw_opengl3_imnodes",
+"glfw_opengl3_image_save",
+"fontx2v",
 ]
 
 if hostOS == "windows":
   projDirs.add "sdl2_opengl3"
-
-projDirs.add "fontx2v"
 
 #-------------
 # compileProj
@@ -29,8 +29,8 @@ proc compileProj(cmd:string) =
           except OSError:
             discard
         else:
+          #echo("[$#] make $# $#" % [dir,options,cmd])
           exec("make $# $#" % [options,cmd])
-
 
 #------
 # main
