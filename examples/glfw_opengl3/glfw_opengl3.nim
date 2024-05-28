@@ -1,4 +1,4 @@
-import std/[strutils]
+import std/[strutils, math]
 import nimgl/[opengl,glfw]
 
 import imguin/[glfw_opengl]
@@ -6,6 +6,9 @@ import imguin/lang/imgui_ja_gryph_ranges
 
 include ../utils/setupFonts
 include imguin/simple
+
+when defined(windows):
+  import tinydialogs
 
 const MainWinWidth = 1024
 const MainWinHeight = 800
@@ -95,7 +98,9 @@ proc winMain(hWin: glfw.GLFWWindow) =
     fval = 0.5f
     counter = 0
     sBuf = newString(200)
-  var clearColor:ccolor
+    sFnameSelected{.global.}:string
+    clearColor:ccolor
+
   if TransparentViewport:
     clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
   else:
@@ -136,6 +141,21 @@ proc winMain(hWin: glfw.GLFWWindow) =
       igSliderFloat("Float", addr fval, 0.0f, 1.0f, "%.3f", 0)
       igColorEdit3("Background color", clearColor.array3, 0.ImGuiColorEditFlags)
 
+      # Show file open dialog
+      when defined(windows):
+        if igButton("Open file", ImVec2(x: 0, y: 0)):
+           sFnameSelected = openFileDialog("File open dialog", getCurrentDir() / "\0", ["*.nim", "*.nims"], "Text file")
+        igSameLine(0.0f, -1.0f)
+        # ヒント表示
+        if igIsItemHovered(Imgui_HoveredFlagsDelayShort.cint) and igBeginTooltip():
+          igText("[Open file]")
+          const ary = [0.6f, 0.1f, 1.0f, 0.5f, 0.92f, 0.1f, 0.2f]
+          igPlotLines("Curve", ary, overlayText = "Overlay string")
+          igText("Sin(time) = %.2f", sin(igGetTime()));
+          igEndTooltip();
+        let (_,fname,ext) = sFnameSelected.splitFile()
+        igText("Selected file = %s", (fname & ext).cstring)
+      # Counter up
       if igButton("Button", ImVec2(x: 0.0f, y: 0.0f)):
         inc counter
       igSameLine(0.0f, -1.0f)
