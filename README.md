@@ -28,7 +28,7 @@
 # ImGuin
 
 
-Latest ImGui/CImGui version: : **v1.90.6dock** (2024/05)
+Latest ImGui/CImGui version: : **v1.90.7dock** (2024/05)
 
 Notice:  
 This project is my experiment project to use Nim language, ImGui, ImPlot, futhark and etc.  
@@ -75,7 +75,7 @@ nimble install https://github.com/dinau/imguin
 1. First clone this project,
 
    ```sh
-   git clone --recursive https://github.com/dinau/imguin
+   git clone https://github.com/dinau/imguin
    ```
 
 1. Sample program is here, [examples](examples).
@@ -167,6 +167,14 @@ license: "MIT"
 
 ---
 
+- Update ImGui/CImGui sources
+
+   ```sh
+   pwd
+   imguin
+   git submodule update --init --recursive
+   ```
+
 - Update to latest definition files uisng [Futhark](https://github.com/PMunch/futhark),
 
    ```sh
@@ -190,7 +198,8 @@ license: "MIT"
 
   | Command                 | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm |
   | :---------------------- | ----------- | :-------: | :---:     | :---:               |
-  | make VER=1.90.6dock     | 1.90.6.0    | 2024/05   | ok        | NG Notice(2)                |
+  | make VER=1.90.7dock     | 1.90.7.0    | 2024/05   | ok        | NG Notice(2)                |
+  | make VER=1.90.6dock     | 1.90.6.1    | 2024/05   | ok        | NG Notice(2)                |
   | make VER=1.90.4dock     | 1.90.4.2    | 2024/02   | ok        | ok Notice(1)        |
   | make VER=1.90.1dock     | 1.90.1.0    | 2024/01   | ok        | NG Notice(2)        |
   | make VER=1.89.9dock     | 1.89.9.8    | 2023/12   | ok        | NG                  |
