@@ -960,11 +960,7 @@ type
 type
   structimplotaxiscolor* {.incompleteStruct.} = object
 type
-  structglfwwindow* {.incompleteStruct.} = object
-type
   structimguiinputtextdeactivatedata* {.incompleteStruct.} = object
-type
-  structglfwmonitor* {.incompleteStruct.} = object
 type
   structimguidocknodesettings* {.incompleteStruct.} = object
 type
@@ -3362,8 +3358,6 @@ type
     Isenabled*: Imu8
     Isstretch*: Imu8
 
-  Glfwwindow* = structglfwwindow ## Generated based on C:\00nim-d-imgui\00imguins\imguin\src\imguin\private\cimgui/generator/output/cimgui_impl.h:3:27
-  Glfwmonitor* = structglfwmonitor ## Generated based on C:\00nim-d-imgui\00imguins\imguin\src\imguin\private\cimgui/generator/output/cimgui_impl.h:4:28
   tm* = structtm             ## Generated based on C:\00nim-d-imgui\00imguins\imguin\src\imguin\private\cimplot/cimplot.h:11:19
   structtm* {.pure, inheritable, bycopy.} = object
     tmsec*: cint             ## Generated based on C:/drvDx/msys32/mingw32/include/time.h:100:10
@@ -7072,56 +7066,6 @@ proc Imvectorimwcharinit*(p: ptr Imvectorimwchar): void {.cdecl,
     importc: "ImVector_ImWchar_Init".}
 proc Imvectorimwcharuninit*(p: ptr Imvectorimwchar): void {.cdecl,
     importc: "ImVector_ImWchar_UnInit".}
-proc Imguiimplglfwinitforopengl*(window: ptr Glfwwindow; installcallbacks: bool): bool {.
-    cdecl, importc: "ImGui_ImplGlfw_InitForOpenGL".}
-proc Imguiimplglfwinitforvulkan*(window: ptr Glfwwindow; installcallbacks: bool): bool {.
-    cdecl, importc: "ImGui_ImplGlfw_InitForVulkan".}
-proc Imguiimplglfwinitforother*(window: ptr Glfwwindow; installcallbacks: bool): bool {.
-    cdecl, importc: "ImGui_ImplGlfw_InitForOther".}
-proc Imguiimplglfwshutdown*(): void {.cdecl, importc: "ImGui_ImplGlfw_Shutdown".}
-proc Imguiimplglfwnewframe*(): void {.cdecl, importc: "ImGui_ImplGlfw_NewFrame".}
-proc Imguiimplglfwinstallcallbacks*(window: ptr Glfwwindow): void {.cdecl,
-    importc: "ImGui_ImplGlfw_InstallCallbacks".}
-proc Imguiimplglfwrestorecallbacks*(window: ptr Glfwwindow): void {.cdecl,
-    importc: "ImGui_ImplGlfw_RestoreCallbacks".}
-proc Imguiimplglfwsetcallbackschainforallwindows*(chainforallwindows: bool): void {.
-    cdecl, importc: "ImGui_ImplGlfw_SetCallbacksChainForAllWindows".}
-proc Imguiimplglfwwindowfocuscallback*(window: ptr Glfwwindow; focused: cint): void {.
-    cdecl, importc: "ImGui_ImplGlfw_WindowFocusCallback".}
-proc Imguiimplglfwcursorentercallback*(window: ptr Glfwwindow; entered: cint): void {.
-    cdecl, importc: "ImGui_ImplGlfw_CursorEnterCallback".}
-proc Imguiimplglfwcursorposcallback*(window: ptr Glfwwindow; x: cdouble;
-                                     y: cdouble): void {.cdecl,
-    importc: "ImGui_ImplGlfw_CursorPosCallback".}
-proc Imguiimplglfwmousebuttoncallback*(window: ptr Glfwwindow; button: cint;
-                                       action: cint; mods: cint): void {.cdecl,
-    importc: "ImGui_ImplGlfw_MouseButtonCallback".}
-proc Imguiimplglfwscrollcallback*(window: ptr Glfwwindow; xoffset: cdouble;
-                                  yoffset: cdouble): void {.cdecl,
-    importc: "ImGui_ImplGlfw_ScrollCallback".}
-proc Imguiimplglfwkeycallback*(window: ptr Glfwwindow; key: cint;
-                               scancode: cint; action: cint; mods: cint): void {.
-    cdecl, importc: "ImGui_ImplGlfw_KeyCallback".}
-proc Imguiimplglfwcharcallback*(window: ptr Glfwwindow; c: cuint): void {.cdecl,
-    importc: "ImGui_ImplGlfw_CharCallback".}
-proc Imguiimplglfwmonitorcallback*(monitor: ptr Glfwmonitor; event: cint): void {.
-    cdecl, importc: "ImGui_ImplGlfw_MonitorCallback".}
-proc Imguiimplopengl3init*(glslversion: cstring): bool {.cdecl,
-    importc: "ImGui_ImplOpenGL3_Init".}
-proc Imguiimplopengl3shutdown*(): void {.cdecl,
-    importc: "ImGui_ImplOpenGL3_Shutdown".}
-proc Imguiimplopengl3newframe*(): void {.cdecl,
-    importc: "ImGui_ImplOpenGL3_NewFrame".}
-proc Imguiimplopengl3renderdrawdata*(drawdata: ptr Imdrawdata): void {.cdecl,
-    importc: "ImGui_ImplOpenGL3_RenderDrawData".}
-proc Imguiimplopengl3createfontstexture*(): bool {.cdecl,
-    importc: "ImGui_ImplOpenGL3_CreateFontsTexture".}
-proc Imguiimplopengl3destroyfontstexture*(): void {.cdecl,
-    importc: "ImGui_ImplOpenGL3_DestroyFontsTexture".}
-proc Imguiimplopengl3createdeviceobjects*(): bool {.cdecl,
-    importc: "ImGui_ImplOpenGL3_CreateDeviceObjects".}
-proc Imguiimplopengl3destroydeviceobjects*(): void {.cdecl,
-    importc: "ImGui_ImplOpenGL3_DestroyDeviceObjects".}
 var Gimplot* {.importc: "GImPlot".}: ptr Implotcontext
 proc Implotpointimplotpointnil*(): ptr Implotpoint {.cdecl,
     importc: "ImPlotPoint_ImPlotPoint_Nil".}

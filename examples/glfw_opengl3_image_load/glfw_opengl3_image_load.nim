@@ -99,7 +99,7 @@ proc main() =
 
   # GLFW + OpenGL
   const glsl_version = "#version 130" # GL 3.0 + GLSL 130
-  doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr glfw_opengl.GlfwWindow]( glfwwin), true)
+  doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr GLFWwindow](glfwwin), true)
   defer: ImGui_ImplGlfw_Shutdown()
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
   defer: ImGui_ImplOpenGL3_Shutdown()
