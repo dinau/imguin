@@ -7,10 +7,10 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        nim: [ '1.6.14', 'devel' ]
+        nim: [ '1.6.20', 'devel' ]
     name: Nim ${{ matrix.nim }} compilation
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
       - name: Setup nim
@@ -24,5 +24,3 @@ jobs:
          #platform: x86
       #- run: pacman -S mingw-w64-x86_64-SDL2
       - run: make
-
-
