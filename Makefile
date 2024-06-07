@@ -3,7 +3,7 @@
 all: build example
 
 build:
-	nimble build -y
+	-nimble build -y
 
 example:
 	make -C examples
