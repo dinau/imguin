@@ -3,7 +3,8 @@
 all: build example
 
 build:
-	nimble test -y
+	nimble refresh -y
+	nimble install -y
 
 example:
 	make -C examples
