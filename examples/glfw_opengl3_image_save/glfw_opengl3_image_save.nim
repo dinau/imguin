@@ -83,18 +83,7 @@ proc main() =
   # Load title bar icon
   #---------------------
   var IconName = os.joinPath(os.getAppDir(),"icon.png")
-  if IconName.fileExists:
-    var
-      w, h: int
-      channels: int
-      pixels: seq[byte]
-    pixels = stbi.load(IconName, w, h, channels, stbi.RGBA)
-    var img = GLFWImage(width: w.int32, height: h.int32
-                     , pixels: cast[ptr cuchar](pixels[0].addr))
-    glfw.setWindowIcon(glfwWin, 1, img.addr)
-  else:
-    echo "Not found: ",IconName
-    glfw.setWindowIcon(glfwWin, 0, nil)
+  LoadTileBarIcon(glfwWin, IconName)
   #
   doAssert glInit() # OpenGL init
 
@@ -192,14 +181,16 @@ proc winMain(hWin: glfw.GLFWWindow) =
       igPushStyleColorVec4(ImGuiCol_ButtonHovered.ImGuiCol, ImVec4(x: 0.8, y: 0.8, z:0.0, w: 1.0))
       igPushStyleColorVec4(ImGuiCol_ButtonActive.ImGuiCol,  ImVec4(x: 0.9, y: 0.9, z:0.0, w: 1.0))
       igPushStyleColorVec4(ImGuiCol_Text.ImGuiCol,          ImVec4(x: 0.0, y: 0.0, z:0.0, w: 1.0))
+
       # Image save button
       imageExt = imageFormatTbl[cbItemIndex].ext
       svName = fmt"{SaveImageName}_{counter:05}{imageExt}"
       if igButton("Save Image", ImVec2(x: 0.0f, y: 0.0f)):
-        let wSize = igGetMainViewport().Worksize
-        saveImage(svName,0, 0, wSize.x.int, wSize.y.int, 3) # --- Save Image !
+        let wkSize = igGetMainViewport().Worksize
+        saveImage(svName,0, 0, wkSize.x.int, wkSize.y.int, 3) # --- Save Image !
       igPopStyleColor(4)
       igPopID()
+
       #-- Show tooltip help
       setTooltip("Save to \"$#\"" % [svName])
       counter.inc

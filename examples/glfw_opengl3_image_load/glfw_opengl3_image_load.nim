@@ -3,7 +3,6 @@ import nimgl/[opengl,glfw]
 
 import imguin/[glfw_opengl]
 import imguin/lang/imgui_ja_gryph_ranges
-import stb_image/read as stbi
 import ../utils/loadImage
 
 include ../utils/setupFonts
@@ -72,18 +71,7 @@ proc main() =
   # Load title bar icon
   #---------------------
   var IconName = os.joinPath(os.getAppDir(),"icon.png")
-  if IconName.fileExists:
-    var
-      w, h: int
-      channels: int
-      pixels: seq[byte]
-    pixels = stbi.load(IconName, w, h, channels, stbi.RGBA)
-    var img = GLFWImage(width: w.int32, height: h.int32
-                     , pixels: cast[ptr cuchar](pixels[0].addr))
-    glfw.setWindowIcon(glfwWin, 1, img.addr)
-  else:
-    echo "Not found: ",IconName
-    glfw.setWindowIcon(glfwWin, 0, nil)
+  LoadTileBarIcon(glfwWin, IconName)
   #
   doAssert glInit() # OpenGL init
 

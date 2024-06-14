@@ -34,23 +34,22 @@ switch "nimcache", ".nimcache"
 case TC
   of "gcc":
     commonOpt()
-  of "clang", "zigcc":
-    #commonOpt()
-    discard
+    switch "cc",TC
+  of "clang":
+    switch "cc.exe","clang"
+    switch "cc.linkerexe","clang"
+    switch "cc",TC
+  of "zigcc":
+    switch "cc","clang"
+    var ext = ""
+    when defined(windows):
+      ext = ".bat"
+    switch "clang.exe","zigcc.bat" #& ext
+    switch "clang.linkerexe","zigcc.bat" #& ext
+    switch "passL","-lgcc_s "
 
 when LTO: # These options let link time slow while reducing code size.
   switch "define", "lto"
-
-if TC == "zigcc":
-  switch "cc","clang"
-  var ext = ""
-  when defined(windows):
-    ext = ".bat"
-  switch "clang.exe","zigcc.bat" #& ext
-  switch "clang.linkerexe","zigcc.bat" #& ext
-  switch "passL","-lgcc_s "
-else:
-  switch "cc", TC
 
 echo ""
 echo "#### [ ", TC, " ] Compiler ####"

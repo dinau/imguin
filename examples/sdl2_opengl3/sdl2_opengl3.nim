@@ -65,7 +65,7 @@ proc main() =
   else:
     flags = WINDOW_SHOWN or WINDOW_OPENGL or WINDOW_RESIZABLE
 
-  var window = sdl.createWindow( "Hello", 30, 30, 1024, 800, flags)
+  var window = sdl.createWindow( "Hello", 30, 30, MainWinWidth, MainWinHeight, flags)
   if isNil window:
     echo "Fail to create window: ", sdl.getError()
     quit -1

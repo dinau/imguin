@@ -28,7 +28,7 @@
 # ImGuin
 
 
-Latest ImGui/CImGui version: : **v1.90.7dock** (2024/05)
+Latest ImGui/CImGui version: : **v1.90.8dock** (2024/06)
 
 Notice:  
 This project is my experiment project to use Nim language, ImGui, ImPlot, futhark and etc.  
@@ -83,7 +83,7 @@ For instance [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim),
 
    ```sh
    cd imguin/examples/glfw_opengl3
-   make
+   make  # or make run
    ```
 
    After build, run `./glfw_opengl3(.exe)`
@@ -198,8 +198,9 @@ license: "MIT"
 
   | Command                 | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm |
   | :---------------------- | ----------- | :-------: | :---:     | :---:               |
-  | make VER=1.90.7dock     | 1.90.7.0    | 2024/05   | ok        | NG Notice(2)                |
-  | make VER=1.90.6dock     | 1.90.6.1    | 2024/05   | ok        | NG Notice(2)                |
+  | make VER=1.90.8dock     | 1.90.8.0    | 2024/06   | ok        | -                   |
+  | make VER=1.90.7dock     | 1.90.7.0    | 2024/05   | ok        | NG Notice(2)        |
+  | make VER=1.90.6dock     | 1.90.6.1    | 2024/05   | ok        | NG Notice(2)        |
   | make VER=1.90.4dock     | 1.90.4.2    | 2024/02   | ok        | ok Notice(1)        |
   | make VER=1.90.1dock     | 1.90.1.0    | 2024/01   | ok        | NG Notice(2)        |
   | make VER=1.89.9dock     | 1.89.9.8    | 2023/12   | ok        | NG                  |
@@ -294,10 +295,9 @@ Debian 11 Bullseye (Obsoleted)
 
 ---
 
-[LuaJITImGui](https://github.com/dinau/luajitimgui)
-
-[nimgl_test](https://github.com/dinau/nimgl_test)
-
-[nim_implot](https://github.com/dinau/nim_implot)
-
-[DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)
+- Dear ImGui
+  - [LuaJITImGui](https://github.com/dinau/luajitimgui) (LuaJIT)
+  - [nimgl_test](https://github.com/dinau/nimgl_test) (Nim)
+  - [nim_implot](https://github.com/dinau/nim_implot) (Nim)
+  - [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32) (Python)
+  - [Dear Bindings Build](https://github.com/dinau/dear_bindings_build) (C) (Zig)
