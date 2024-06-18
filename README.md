@@ -198,7 +198,8 @@ license: "MIT"
 
   | Command                 | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm |
   | :---------------------- | ----------- | :-------: | :---:     | :---:               |
-  | make VER=1.90.8dock     | 1.90.8.0    | 2024/06   | ok        | -                   |
+  | make VER=1.90.8dock     | 1.90.8.1    | 2024/06   | ok        | Unknown             |
+  | make VER=1.90.8dock     | 1.90.8.0    | 2024/06   | ok        | Unknown             |
   | make VER=1.90.7dock     | 1.90.7.0    | 2024/05   | ok        | NG Notice(2)        |
   | make VER=1.90.6dock     | 1.90.6.1    | 2024/05   | ok        | NG Notice(2)        |
   | make VER=1.90.4dock     | 1.90.4.2    | 2024/02   | ok        | ok Notice(1)        |
@@ -250,7 +251,7 @@ license: "MIT"
 
 
 Windows10 (main)
-- Nim Compiler Version 2.0.4
+- Nim Compiler Version 2.0.6
 - **gcc.exe (Rev3, Built by MSYS2 project) 13.2.0-2**
 - gcc-libs 13.2.0-2
 - **binutils 2.41-3**
@@ -296,8 +297,10 @@ Debian 11 Bullseye (Obsoleted)
 ---
 
 - Dear ImGui
-  - [LuaJITImGui](https://github.com/dinau/luajitimgui) (LuaJIT)
-  - [nimgl_test](https://github.com/dinau/nimgl_test) (Nim)
-  - [nim_implot](https://github.com/dinau/nim_implot) (Nim)
-  - [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32) (Python)
-  - [Dear Bindings Build](https://github.com/dinau/dear_bindings_build) (C) (Zig)
+
+  | Language             | Project                                                                                                                                         |
+  | -------------------: | :----------------------------------------------------------------:                                                                              |
+  | Nim                  | [Imguin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
+  | Lua                  | [LuaJITImGui](https://github.com/dinau/luajitimgui)                                                                                             |
+  | Zig, C               | [Dear Bindings Build](https://github.com/dinau/dear_bindings_build)                                                                             |
+  | Python               | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |

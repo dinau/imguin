@@ -53,7 +53,7 @@ proc new_ImFontConfig(): ImFontConfig =
     result.RasterizerMultiply = 1.0
     result.RasterizerDensity  = 1.0
     result.MergeMode = false
-    result.EllipsisChar = -1
+    result.EllipsisChar = cast[ImWchar](-1)
 
 # Q: How can I load multiple fonts?
 # https://github.com/ocornut/imgui/blob/master/docs/FAQ.md#q-how-can-i-load-multiple-fonts
