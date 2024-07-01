@@ -20,8 +20,8 @@ const ImguiRootPath       = joinPath(CImguiRootPath,"imgui")
 #type
 #  structglfwwindow* {.incompleteStruct.} = object
 #  structglfwmonitor* {.incompleteStruct.} = object
-#  Glfwwindow* = structglfwwindow ## Generated based on C:\00nim-d-imgui\00imguins\imguin\src\imguin\private\cimgui/generator/output/cimgui_impl.h:3:27
-#  Glfwmonitor* = structglfwmonitor ## Generated based on C:\00nim-d-imgui\00imguins\imguin\src\imguin\private\cimgui/generator/output/cimgui_impl.h:4:28
+#  Glfwwindow* = structglfwwindow ## Generated based on cimgui_impl.h:3:27
+#  Glfwmonitor* = structglfwmonitor ## Generated based on cimgui_impl.h:4:28
 
 proc ImGui_implGlfw_initForOpenGL*(window: ptr Glfwwindow; installcallbacks: bool): bool {.  cdecl, importc: "ImGui_ImplGlfw_InitForOpenGL".}
 proc ImGui_implGlfw_initforVulkan*(window: ptr Glfwwindow; installcallbacks: bool): bool {.  cdecl, importc: "ImGui_ImplGlfw_InitForVulkan".}

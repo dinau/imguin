@@ -1,4 +1,4 @@
-# This file exsists for only compatibility purpos.
+# This file exsists for only compatibility purpose.
 
 import cimgui, impl_opengl, impl_sdl2
 export cimgui, impl_opengl, impl_sdl2

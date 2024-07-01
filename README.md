@@ -28,7 +28,7 @@
 # ImGuin
 
 
-Latest ImGui/CImGui version: : **v1.90.8dock** (2024/06)
+Updated to latest ImGui/CImGui version: : **v1.90.9dock** (2024/07)
 
 Notice:  
 This project is my experiment project to use Nim language, ImGui, ImPlot, futhark and etc.  
@@ -150,13 +150,13 @@ Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#ins
     nimble install --passL:"-L/usr/lib/llvm-16/lib" futhark
     ```
 
-Important Notice: Confirm Futhark version is **v0.12.5** at this time. (2024/03)
+Important Notice: Confirm Futhark version is **v0.13.2** at this time. (2024/06)
 
 ```sh
 nimble dump futhark
 
 name: "futhark"
-version: "0.12.5"
+version: "0.13.2"
 author: "PMunch"
 desc: "A package which uses libclang to parse C headers into Nim files for easy interop"
 license: "MIT"
@@ -196,15 +196,16 @@ license: "MIT"
 
 - Confirmed version
 
-  | Command                 | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm |
-  | :---------------------- | ----------- | :-------: | :---:     | :---:               |
-  | make VER=1.90.8dock     | 1.90.8.1    | 2024/06   | ok        | Unknown             |
-  | make VER=1.90.8dock     | 1.90.8.0    | 2024/06   | ok        | Unknown             |
-  | make VER=1.90.7dock     | 1.90.7.0    | 2024/05   | ok        | NG Notice(2)        |
-  | make VER=1.90.6dock     | 1.90.6.1    | 2024/05   | ok        | NG Notice(2)        |
-  | make VER=1.90.4dock     | 1.90.4.2    | 2024/02   | ok        | ok Notice(1)        |
-  | make VER=1.90.1dock     | 1.90.1.0    | 2024/01   | ok        | NG Notice(2)        |
-  | make VER=1.89.9dock     | 1.89.9.8    | 2023/12   | ok        | NG                  |
+  | Command             | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm |
+  | :-----------------  | ---------   | :-------: | :---:     | :---:               |
+  | make VER=1.90.9dock | 1.90.9.0    | 2024/07   | ok        | Unknown             |
+  | make VER=1.90.8dock | 1.90.8.1    | 2024/06   | ok        | Unknown             |
+  | make VER=1.90.8dock | 1.90.8.0    | 2024/06   | ok        | Unknown             |
+  | make VER=1.90.7dock | 1.90.7.0    | 2024/05   | ok        | NG Notice(2)        |
+  | make VER=1.90.6dock | 1.90.6.1    | 2024/05   | ok        | NG Notice(2)        |
+  | make VER=1.90.4dock | 1.90.4.2    | 2024/02   | ok        | ok Notice(1)        |
+  | make VER=1.90.1dock | 1.90.1.0    | 2024/01   | ok        | NG Notice(2)        |
+  | make VER=1.89.9dock | 1.89.9.8    | 2023/12   | ok        | NG                  |
 
   Notice(1) : Except imnodes and SDL2 example.
   Notice(2) NG: Doesn't work well.
@@ -249,16 +250,15 @@ license: "MIT"
 
 ---
 
-
 Windows10 (main)
 - Nim Compiler Version 2.0.6
 - **gcc.exe (Rev3, Built by MSYS2 project) 13.2.0-2**
 - gcc-libs 13.2.0-2
 - **binutils 2.41-3**
-- clang version 18.1.4
-- git version 2.41.0.windows.3
+- Clang version 18.1.6
+- git version 2.45.2.windows.3
 - SDL2.dll: 2.30.3
-- make: GNU Make 4.2.1
+- make: GNU Make 4.3
 - MSys2/MinGW tools
 
 Debian 12 Bookworm
@@ -267,13 +267,6 @@ Debian 12 Bookworm
 - git version 2.39.2
 - GNU Make 4.3
 - SDL2 ver.2.26.5
-
-Debian 11 Bullseye (Obsoleted)
-   ~~Debian clang version 11.0.1-2
-   gcc (Debian 10.2.1-6) 10.2.1 20210110
-   git version 2.30.2
-   Nim Compiler Version 1.6.12
-   SDL2 ver.2.0.14~~
 
 ## Other link
 
@@ -298,9 +291,10 @@ Debian 11 Bullseye (Obsoleted)
 
 - Dear ImGui
 
-  | Language             | Project                                                                                                                                         |
-  | -------------------: | :----------------------------------------------------------------:                                                                              |
-  | Nim                  | [Imguin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
-  | Lua                  | [LuaJITImGui](https://github.com/dinau/luajitimgui)                                                                                             |
-  | Zig, C               | [Dear Bindings Build](https://github.com/dinau/dear_bindings_build)                                                                             |
-  | Python               | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |
+  | Language             | Binding             | Project                                                                                                                                         |
+  | -------------------: | :---                | :----------------------------------------------------------------:                                                                              |
+  | Nim                  | CImGui/CImPlot      | [Imguin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
+  | Lua                  | CImGui/CImPlot etc. | [LuaJITImGui](https://github.com/dinau/luajitimgui)                                                                                             |
+  | Zig, C               | Dear bindings       | [Dear Bindings Build](https://github.com/dinau/dear_bindings_build)                                                                             |
+  | Zig                  | CImGui/CImPlot      | [ImguinZ](https://github.com/dinau/imguinz)                                                                                                     |
+  | Python               | ImGui direct        | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |

@@ -50,7 +50,7 @@ IMGUIN_DIR = ../../../imguin
 .PHONY: $(IMGUIN_DIR)/impl_glfw_def.nim
 .PHONY: $(IMGUIN_DIR)/impl_opengl_def.nim
 
-all:  clean wordReplacer$(EXE) \
+all:  clean \
 			cimgui_update \
 			$(IMGUIN_DIR)/$(CIMGUI_DEFS).nim
 
@@ -115,3 +115,15 @@ clean:
 	-$(RM) -fr .nimcache_*
 	-$(RM) -fr .nimcache
 endif
+
+#------------------
+# install Futhark
+#------------------
+.PHONY: installfuthark
+LIB_CLANG = "-Lc:/drvdx/msys32/mingw32/lib"
+installfuthark:
+	-nimble uninstall futhark
+	nimble install --passL:$(LIB_CLANG) futhark -y
+#
+#
+#

@@ -31,15 +31,15 @@ type
   structsdlwindow* {.incompleteStruct.} = object
   structsdlrenderer* {.incompleteStruct.} = object
   structsdlgamecontroller* {.incompleteStruct.} = object
-  internalsdlgamecontroller* = structsdlgamecontroller ## Generated based on C:\00nim-d-imgui\00imguins\imguin\src\imguin\private\cimgui/generator/output/cimgui_impl.h:50:36
+  internalsdlgamecontroller* = structsdlgamecontroller ## Generated based on cimgui_impl.h:50:36
   enumimguiimplsdl2gamepadmode* {.size: sizeof(cuint).} = enum
     ImGui_implsdl2GamePadModeAutofirst = 0, ImGui_implsdl2GamePadModeAutoAll = 1,
     ImGui_implsdl2GamePadModemanual = 2
-  Imguiimplsdl2gamepadmode* = enumimguiimplsdl2gamepadmode ## Generated based on C:\00nim-d-imgui\00imguins\imguin\src\imguin\private\cimgui/generator/output/cimgui_impl.h:55:125
+  Imguiimplsdl2gamepadmode* = enumimguiimplsdl2gamepadmode ## Generated based on cimgui_impl.h:55:125
   unionsdlevent* {.incompleteStruct.} = object
-  Sdlrenderer* = structsdlrenderer ## Generated based on C:\00nim-d-imgui\00imguins\imguin\src\imguin\private\cimgui/generator/output/cimgui_impl.h:49:29
-  Sdlwindow* = structsdlwindow ## Generated based on C:\00nim-d-imgui\00imguins\imguin\src\imguin\private\cimgui/generator/output/cimgui_impl.h:48:27
-  Sdlevent* = unionsdlevent  ## Generated based on C:\00nim-d-imgui\00imguins\imguin\src\imguin\private\cimgui/generator/output/cimgui_impl.h:54:25
+  Sdlrenderer* = structsdlrenderer ## Generated based on cimgui_impl.h:49:29
+  Sdlwindow* = structsdlwindow ## Generated based on cimgui_impl.h:48:27
+  Sdlevent* = unionsdlevent  ## Generated based on cimgui_impl.h:54:25
 
 {.push discardable.}
 proc ImGui_impl_sdl2_Initforopengl*(window: ptr Sdlwindow; sdlglcontext: pointer): bool {.  cdecl, importc: "ImGui_ImplSDL2_InitForOpenGL".}
