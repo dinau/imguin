@@ -20,9 +20,10 @@ jobs:
         with:
           submodules: 'recursive'
       - name: Setup nim
-        uses: jiro4989/setup-nim-action@v1
+        uses: jiro4989/setup-nim-action@v2
         with:
           nim-version: ${{ matrix.nim }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       #- name: Set up MinGW
       #  uses: egor-tensin/setup-mingw@v2
       #  with:
