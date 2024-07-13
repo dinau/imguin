@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.90.9.1"
+version       = "1.90.9.2"
 author        = "dinau"
 description   = "Imguin: ImGui / ImPlot / ImNodes wrapper using Futhark"
 license       = "MIT"
@@ -10,9 +10,9 @@ skipDirs      = @["examples","src/img","src/imguin/private/updater"]
 
 # Dependencies
 
-requires "nim >= 1.6.10"
+requires "nim >= 1.6.20"
 requires "nimgl >= 1.3.2"
-#requires "futhark >= 0.12.5"
+#requires "futhark >= 0.13.2"
 requires "sdl2_nim"
 requires "tinydialogs"
 requires "stb_image"

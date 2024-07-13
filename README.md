@@ -64,6 +64,7 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 ---
 
 ```sh
+nimble uninstall imguin  # Remove old version if exists. 
 nimble install https://github.com/dinau/imguin
 ```
 
@@ -166,46 +167,57 @@ license: "MIT"
 ### Update ImGui/CImGui
 
 ---
-
-- Update ImGui/CImGui sources
+- Compose development folders  
+Fist move to your working folder you like, then
 
    ```sh
-   pwd
-   imguin
-   git submodule update --init --recursive
+   mkdir imguin_dev
+   cd imguin_dev
    ```
 
-- Update to latest definition files uisng [Futhark](https://github.com/PMunch/futhark),
+- Clone ImGui/CImGui etc. sources at once forever  
+
+   ```sh
+   make clonelibs
+   ```
+
+   Cloned libraries to under `../libs/` folder, then  
+   checkout with git, arbitrary version you like at the each library folder.
+
+- Update to the definition for Nim uisng [Futhark](https://github.com/PMunch/futhark),
 
    ```sh
    pwd
-   imguin
+   imguin_dev/imguin
    cd src/imguin/private/updater
    make
    ```
 
-- Update/Downgrade to the version specified tag for example,
+- Install updated files
+Properly edit version info etc in imguin_dev/imguin/imguin.nimble,then
 
    ```sh
    pwd
-   updater
-   make VER=1.89.9dock
-   or
-   make CIMGUI=1.89.9dock
+   imguin_dev/imguin
+   nimble uninstall imguin  # Remove old version if exists. 
+   nimble install 
    ```
+
+   That's all.
+
 
 - Confirmed version
 
-  | Command             | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm |
-  | :-----------------  | ---------   | :-------: | :---:     | :---:               |
-  | make VER=1.90.9dock | 1.90.9.0    | 2024/07   | ok        | Unknown             |
-  | make VER=1.90.8dock | 1.90.8.1    | 2024/06   | ok        | Unknown             |
-  | make VER=1.90.8dock | 1.90.8.0    | 2024/06   | ok        | Unknown             |
-  | make VER=1.90.7dock | 1.90.7.0    | 2024/05   | ok        | NG Notice(2)        |
-  | make VER=1.90.6dock | 1.90.6.1    | 2024/05   | ok        | NG Notice(2)        |
-  | make VER=1.90.4dock | 1.90.4.2    | 2024/02   | ok        | ok Notice(1)        |
-  | make VER=1.90.1dock | 1.90.1.0    | 2024/01   | ok        | NG Notice(2)        |
-  | make VER=1.89.9dock | 1.89.9.8    | 2023/12   | ok        | NG                  |
+  | ImGui/CImGui Ver.  | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm |
+  | :----------------- | ---------   | :-------: | :---:     | :---:               |
+  | 1.90.9dock         | 1.90.9.2    | 2024/07   | ok        | Unknown             |
+  | 1.90.8dock         | 1.90.8.1    | 2024/06   | ok        | Unknown             |
+  | 1.90.8dock         | 1.90.8.0    | 2024/06   | ok        | Unknown             |
+  | 1.90.7dock         | 1.90.7.0    | 2024/05   | ok        | NG Notice(2)        |
+  | 1.90.6dock         | 1.90.6.1    | 2024/05   | ok        | NG Notice(2)        |
+  | 1.90.4dock         | 1.90.4.2    | 2024/02   | ok        | ok Notice(1)        |
+  | 1.90.1dock         | 1.90.1.0    | 2024/01   | ok        | NG Notice(2)        |
+  | 1.89.9dock         | 1.89.9.8    | 2023/12   | ok        | NG                  |
 
   Notice(1) : Except imnodes and SDL2 example.
   Notice(2) NG: Doesn't work well.
@@ -251,11 +263,11 @@ license: "MIT"
 ---
 
 Windows10 (main)
-- Nim Compiler Version 2.0.6
+- Nim Compiler Version 2.0.8
 - **gcc.exe (Rev3, Built by MSYS2 project) 13.2.0-2**
 - gcc-libs 13.2.0-2
 - **binutils 2.41-3**
-- Clang version 18.1.6
+- Clang version 18.1.8
 - git version 2.45.2.windows.3
 - SDL2.dll: 2.30.3
 - make: GNU Make 4.3
