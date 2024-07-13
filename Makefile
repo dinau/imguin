@@ -1,7 +1,11 @@
-.PHONY: example clean build
+# This file is just for package development purpose.
+#
+.PHONY: example clean install
 
-all: example
+all: install example
 
+install:
+	nimble install
 
 example:
 	make -C examples
@@ -40,7 +44,6 @@ copylibs: imgui implot imnodes
 	cp -f $(EXT_LIB_DIR)/cimnodes/imnodes/LICENSE.md     $(TARGET_DIR)/cimnodes/imnodes/
 	cp -f $(EXT_LIB_DIR)/cimnodes/imnodes/*.cpp          $(TARGET_DIR)/cimnodes/imnodes/
 	cp -f $(EXT_LIB_DIR)/cimnodes/imnodes/*.h            $(TARGET_DIR)/cimnodes/imnodes/
-
 
 imgui:
 	-mkdir -p $(TARGET_DIR)/cimgui/$@
