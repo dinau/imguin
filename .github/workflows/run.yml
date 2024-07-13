@@ -13,14 +13,14 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        nim: [ '2.0.6', 'devel' ]
+        nim: [ '2.0.6' ]
     name: Nim ${{ matrix.nim }} compilation
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
       - name: Setup nim
-        uses: jiro4989/setup-nim-action@v2
+        uses: jiro4989/setup-nim-action@v1
         with:
           nim-version: ${{ matrix.nim }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
