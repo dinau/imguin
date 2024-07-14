@@ -1,3 +1,3 @@
 @echo off
-echo zig cc %*
+rem echo zig cc %*
 zig cc %*

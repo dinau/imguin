@@ -11,7 +11,7 @@ TARGET_EXE = $(TARGET)$(EXE)
 
 OPT += -d:strip
 OPT += -o:$(TARGET_EXE)
-#OPT += --listcmd
+#OPT += --listCmd
 #OPT += --verbosity:2
 
 all: build dll
@@ -19,7 +19,7 @@ all: build dll
 SRC_MAIN ?= $(TARGET)
 
 build:
-	nim cpp $(OPT) $(IMOPT) $(SRC_MAIN)
+	nim c $(OPT) $(IMOPT) $(SRC_MAIN)
 
 clean:
 	@-rm -fr .nimcache

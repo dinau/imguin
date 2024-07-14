@@ -210,7 +210,7 @@ Properly edit version info etc in imguin_dev/imguin/imguin.nimble,then
 
   | ImGui/CImGui Ver.  | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm |
   | :----------------- | ---------   | :-------: | :---:     | :---:               |
-  | 1.90.9dock         | 1.90.9.2    | 2024/07   | ok        | Unknown             |
+  | 1.90.9dock         | 1.90.9.3    | 2024/07   | ok        | Unknown             |
   | 1.90.8dock         | 1.90.8.1    | 2024/06   | ok        | Unknown             |
   | 1.90.8dock         | 1.90.8.0    | 2024/06   | ok        | Unknown             |
   | 1.90.7dock         | 1.90.7.0    | 2024/05   | ok        | NG Notice(2)        |

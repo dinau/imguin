@@ -1,4 +1,4 @@
-#switch "path","../../src"
+switch "path","../../src"
 switch "hint","User:off"
 switch "hint","Name:off"
 switch "hint","XDeclaredButNotUsed:off"
@@ -20,10 +20,9 @@ const LTO = false
 #include "version.nims"
 
 # Select compiler
-var TC = "gcc"
-#var TC = "clang"
-#var TC = "clang_cl"
-#var TC = "vcc"
-#var TC = "tcc"
-#var TC = "env"
-#var TC = "zigcc"
+var TC = "gcc"         # ok
+#var TC = "clang"       # ok
+#var TC = "clang_cl"    # NG
+#var TC = "vcc"         # ok
+#var TC = "env"         # ?
+#var TC = "zigcc"       # ok zig 0.12.0 except SDL2 example

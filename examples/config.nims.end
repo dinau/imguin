@@ -39,7 +39,7 @@ case TC
     switch "cc.exe","clang"
     switch "cc.linkerexe","clang"
     switch "cc",TC
-  of "zigcc":
+  of "zigcc": # Only Windows
     switch "cc","clang"
     var ext = ""
     when defined(windows):
@@ -47,6 +47,10 @@ case TC
     switch "clang.exe","zigcc.bat" #& ext
     switch "clang.linkerexe","zigcc.bat" #& ext
     switch "passL","-lgcc_s "
+  of "vcc":
+    switch "cc",TC
+    switch "passL","/Zc:strictStrings-" # Eliminates C2440 error at C++. Notice: TODO
+    switch "passC","/MP"
 
 when LTO: # These options let link time slow while reducing code size.
   switch "define", "lto"

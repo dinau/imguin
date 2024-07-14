@@ -12,7 +12,7 @@ when defined(windows):
   import tinydialogs
 
 const MainWinWidth = 1024
-const MainWinHeight = 800
+const MainWinHeight = 804
 
 #--------------
 # Configration

@@ -11,6 +11,7 @@ when defined(windows):
     switch "passL","d3d9.lib kernel32.lib user32.lib gdi32.lib winspool.lib"
     switch "passL","comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib"
     switch "passL","uuid.lib odbc32.lib odbccp32.lib"
+    switch "passL","imm32.lib"
   else:
     switch "passL","-lgdi32 -limm32 -lcomdlg32 -luser32 -lshell32"
 else: # for Linux

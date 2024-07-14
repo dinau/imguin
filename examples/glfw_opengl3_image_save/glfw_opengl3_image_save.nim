@@ -3,12 +3,12 @@ import nimgl/[opengl,glfw]
 
 import imguin/[glfw_opengl]
 import imguin/lang/imgui_ja_gryph_ranges
-import stb_image/read as stbi
 import ../utils/loadImage
 import saveImage
 
 include ../utils/setupFonts
-include ./res/resource
+when not defined(vcc):   # imguinVcc.res TODO WIP
+  include ./res/resource
 include imguin/simple
 
 
