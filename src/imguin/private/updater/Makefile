@@ -24,7 +24,7 @@ endif
 
 IMGUIN_DIR = ../../../imguin
 
-.PHONY: wordReplacer$(EXE) gen cimgui glfw opengl
+.PHONY: wordReplacer$(EXE) gen cimgui copylibs
 .PHONY: $(IMGUIN_DIR)/$(CIMGUI_DEFS).nim
 
 all: gen

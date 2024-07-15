@@ -46,6 +46,7 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 ---
 
 - [Nim-2.0.2](https://nim-lang.org) or later (Windows10 or Debian Linux)
+- MSys/MinGW command line tools (Unix tools), make, cp, ...etc
 - For Linux Debian 12 Bookworm,
 
   ```sh
@@ -67,7 +68,6 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 nimble uninstall imguin  # Remove old version if exists. 
 nimble install https://github.com/dinau/imguin
 ```
-
 
 ### Build examples
 
@@ -135,6 +135,7 @@ Showing ImGui demo with ImPlot demo.
 ---
 
 1. [Git](https://git-scm.com/) installed.
+1. MSys/MinGW command line tools (Unix tools), make, cp, ...etc
 1. Windows10 or later
 Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
 
@@ -167,61 +168,71 @@ license: "MIT"
 ### Update ImGui/CImGui
 
 ---
-- Compose development folders  
+1. Compose development folders  
 Fist move to your working folder you like, then
 
    ```sh
    mkdir imguin_dev
    cd imguin_dev
+   git clone https://github.com/dinau/imguin
+   cd imguin
    ```
 
-- Clone ImGui/CImGui etc. sources at once forever  
+1. Clone ImGui/CImGui etc. sources at once forever  
 
    ```sh
+   pwd
+   imguin
    make clonelibs
    ```
 
-   Cloned libraries to under `../libs/` folder, then  
-   checkout with git, arbitrary version you like at the each library folder.
+   Cloned libraries to under `../libs/` folder.
 
-- Update to the definition for Nim uisng [Futhark](https://github.com/PMunch/futhark),
+1.
+   Checkout with git, arbitrary version you like at the each library folder.
+
+1. Update the definition file of CImGui for Nim uisng [Futhark](https://github.com/PMunch/futhark),  
 
    ```sh
    pwd
-   imguin_dev/imguin
-   cd src/imguin/private/updater
-   make
+   imguin
+   make gen
    ```
 
-- Install updated files
-Properly edit version info etc in imguin_dev/imguin/imguin.nimble,then
+1. Install updated files  
+Properly edit version info etc in `imguin.nimble` file, then
 
    ```sh
    pwd
-   imguin_dev/imguin
-   nimble uninstall imguin  # Remove old version if exists. 
+   imguin
+   nimble uninstall imguin  # Remove old version if it exists. 
    nimble install 
    ```
 
-   That's all.
+   That's all.  
+   Repeat from `3.` if you'd like to update to a new version.
 
 
-- Confirmed version
+- Confirmed version__
 
-  | ImGui/CImGui Ver.  | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm |
-  | :----------------- | ---------   | :-------: | :---:     | :---:               |
-  | 1.90.9dock         | 1.90.9.3    | 2024/07   | ok        | Unknown             |
-  | 1.90.8dock         | 1.90.8.1    | 2024/06   | ok        | Unknown             |
-  | 1.90.8dock         | 1.90.8.0    | 2024/06   | ok        | Unknown             |
-  | 1.90.7dock         | 1.90.7.0    | 2024/05   | ok        | NG Notice(2)        |
-  | 1.90.6dock         | 1.90.6.1    | 2024/05   | ok        | NG Notice(2)        |
-  | 1.90.4dock         | 1.90.4.2    | 2024/02   | ok        | ok Notice(1)        |
-  | 1.90.1dock         | 1.90.1.0    | 2024/01   | ok        | NG Notice(2)        |
-  | 1.89.9dock         | 1.89.9.8    | 2023/12   | ok        | NG                  |
+  | ImGui/CImGui Ver.  | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm (1) |
+  | :----------------- | ---------   | :-------: | :---:     | :---:                   |
+  | 1.90.9dock         | 1.90.9.4    | 2024/07   | ok        | NG (5)                  |
+  | 1.90.9dock         | 1.90.9.3    | 2024/07   | ok        | NG (5)                  |
+  | 1.90.8dock         | 1.90.8.1    | 2024/06   | ok        | NG (5)                  |
+  | 1.90.8dock         | 1.90.8.0    | 2024/06   | ok        | NG (5)                  |
+  | 1.90.7dock         | 1.90.7.0    | 2024/05   | ok        | NG (5)                  |
+  | 1.90.6dock         | 1.90.6.1    | 2024/05   | ok        | NG (5)                  |
+  | 1.90.4dock         | 1.90.4.3    | 2024/04   | ok        | NG (5)                  |
+  | 1.90.4dock         | 1.90.4.2    | 2024/02   | ok        | OK (4)                  |
+  | 1.90.1dock         | 1.90.1.0    | 2024/01   | ok        | NG/OK(1)(3)(4)          |
+  | 1.89.9dock         | 1.89.9.8    | 2023/12   | ok        | NG/OK(1)(3)(4)          |
 
-  Notice(1) : Except imnodes and SDL2 example.
-  Notice(2) NG: Doesn't work well.
-
+  Notice(1): Except imnodes and SDL2 example.
+  Notice(2): Doesn't work well.
+  Notice(3): Works well only if it is compiled debug mode.
+  Notice(4): Use nim-2.0.2
+  Notice(5): I don't know why can't be compiled on Lunux.
 
 ## Examples notice
 
