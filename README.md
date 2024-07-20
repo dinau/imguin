@@ -169,7 +169,7 @@ license: "MIT"
 
 ---
 1. Compose development folders  
-Fist move to your working folder you like, then
+First move to your working folder you like, then
 
    ```sh
    mkdir imguin_dev
@@ -186,12 +186,11 @@ Fist move to your working folder you like, then
    make clonelibs
    ```
 
-   Cloned libraries to under `../libs/` folder.
-
+   Cloned libraries to under `../libs/` folder.  
 1.
-   Checkout with git, arbitrary version you like at the each library folder.
+   Checkout arbitrary version you like with git at the each library folder.
 
-1. Update the definition file of CImGui for Nim uisng [Futhark](https://github.com/PMunch/futhark),  
+1. Update [the definition file](src/imguin/cimgui_defs.nim) uisng [Futhark](https://github.com/PMunch/futhark),  
 
    ```sh
    pwd
@@ -200,7 +199,7 @@ Fist move to your working folder you like, then
    ```
 
 1. Install updated files  
-Properly edit version info etc in `imguin.nimble` file, then
+Properly edit the version info etc in `imguin.nimble` file, then
 
    ```sh
    pwd
@@ -210,10 +209,10 @@ Properly edit version info etc in `imguin.nimble` file, then
    ```
 
    That's all.  
-   Repeat from `3.` if you'd like to update to a new version.
+   Repeat from `3.` if you'd like to update or downgrade to other version.
 
 
-- Confirmed version__
+- Confirmed version
 
   | ImGui/CImGui Ver.  | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm (1) |
   | :----------------- | ---------   | :-------: | :---:     | :---:                   |
@@ -224,15 +223,25 @@ Properly edit version info etc in `imguin.nimble` file, then
   | 1.90.7dock         | 1.90.7.0    | 2024/05   | ok        | NG (5)                  |
   | 1.90.6dock         | 1.90.6.1    | 2024/05   | ok        | NG (5)                  |
   | 1.90.4dock         | 1.90.4.3    | 2024/04   | ok        | NG (5)                  |
+  | -                  | -           | -         | -         | -                       |
   | 1.90.4dock         | 1.90.4.2    | 2024/02   | ok        | OK (4)                  |
   | 1.90.1dock         | 1.90.1.0    | 2024/01   | ok        | NG/OK(1)(3)(4)          |
   | 1.89.9dock         | 1.89.9.8    | 2023/12   | ok        | NG/OK(1)(3)(4)          |
 
-  Notice(1): Except imnodes and SDL2 example.
-  Notice(2): Doesn't work well.
-  Notice(3): Works well only if it is compiled debug mode.
-  Notice(4): Use nim-2.0.2
-  Notice(5): I don't know why can't be compiled on Lunux.
+  Notice(1): Except imnodes and SDL2 example.  
+  Notice(2): Doesn't work well.  
+  Notice(3): Works well only if it is compiled debug mode.  
+  Notice(4): Use nim-2.0.2  
+  Notice(5): I don't know why can't be compiled on Lunux.  
+
+
+## Selection compiler
+
+---
+
+You might use another C/C++ compiler,  
+`Clnag, vcc(Visual Studio C/C++) , zig cc`  
+changing variable `TC` in [examples/config.nims.common](examples/config.nims.common).
 
 ## Examples notice
 
@@ -274,20 +283,21 @@ Properly edit version info etc in `imguin.nimble` file, then
 ---
 
 Windows10 (main)
-- Nim Compiler Version 2.0.8
-- **gcc.exe (Rev3, Built by MSYS2 project) 13.2.0-2**
-- gcc-libs 13.2.0-2
-- **binutils 2.41-3**
+- **Nim Compiler Version 2.0.8**
+- **Gcc.exe (Rev3, Built by MSYS2 project) 14.1.0**
+- Gcc.exe (MinGW-W64...) 11.1.0 (Nim offical)
 - Clang version 18.1.8
 - git version 2.45.2.windows.3
 - SDL2.dll: 2.30.3
-- make: GNU Make 4.3
+- make: GNU Make 4.4.1
 - MSys2/MinGW tools
+- Microsoft Visual Studio C/C++ 2019
+- Zig: 0.12.0
 
 Debian 12 Bookworm
 - Nim Compiler Version 2.0.4
-- **gcc (Debian 12.2.0-14) 12.2.0**
-- git version 2.39.2
+- **Gcc (Debian 12.2.0-14) 12.2.0**
+- Git version 2.39.2
 - GNU Make 4.3
 - SDL2 ver.2.26.5
 
