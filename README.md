@@ -285,7 +285,7 @@ changing variable `TC` in [examples/config.nims.common](examples/config.nims.com
 Windows10 (main)
 - **Nim Compiler Version 2.0.8**
 - **Gcc.exe (Rev3, Built by MSYS2 project) 14.1.0**
-- Gcc.exe (MinGW-W64...) 11.1.0 (Nim offical)
+- ~~Gcc.exe (MinGW-W64...) 11.1.0 (Nim offical)~~
 - Clang version 18.1.8
 - git version 2.45.2.windows.3
 - SDL2.dll: 2.30.3
