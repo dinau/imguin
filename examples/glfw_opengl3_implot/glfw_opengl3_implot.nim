@@ -3,9 +3,11 @@ import std/[random,sugar,strutils]
 import nimgl/[opengl,glfw]
 import imguin/[glfw_opengl]
 import imguin/lang/imgui_ja_gryph_ranges
+import implotFuncs
 
 include ../utils/setupFonts
 include imguin/simple
+
 
 const MainWinWidth = 1024
 const MainWinHeight = 800
@@ -40,11 +42,6 @@ block:
 #---------------------
 proc winMain(hWin: glfw.GLFWWindow)
 
-#-----------
-# templates
-#-----------
-template ptz(val:untyped): untyped =
-  val[0].addr
 
 #--------------
 # imPlotWindow
@@ -65,22 +62,9 @@ proc imPlotWindow(fshow:var bool) =
     #
     if ImPlotBeginPlot("My Plot",ImVec2(x:0.0f,y:0.0f),0.ImplotFlags):
       defer: ImPlotEndPlot()
-      #
-      ImPlotPlotBars_S32PtrInt("My Bar Plot"
-                              ,bar_data.ptz
-                              ,bar_data.len.cint
-                              ,0.67.cdouble # bar_size
-                              ,0.0.cdouble  # shift
-                              ,0.ImPlotFlags
-                              ,0.cint # offset
-                              ,sizeof(Ims32).cint) # stride
-      ImPlotPlotLine_S32PtrS32Ptr("My Line Plot"
-                              , x_data.ptz
-                              , y_data.ptz
-                              , xdata.len.cint
-                              ,0.ImPlotFlags
-                              ,0.cint # offset
-                              ,sizeof(Ims32).cint) # stride
+      # See ./implotFuncs.nim
+      ImPlotPlotBars("My Bar Plot",bar_data.ptz ,bar_data.len.cint)
+      ImPlotPlotLine("My Line Plot", x_data.ptz ,y_data.ptz, xdata.len.cint)
 
 #------
 # main
@@ -237,53 +221,3 @@ proc winMain(hWin: glfw.GLFWWindow) =
 # main
 #------
 main()
-
-#[
-CIMGUI_API void ImPlot_PlotLine_S32PtrS32Ptr(const char* label_id
-                      ,const ImS32* xs
-                      ,const ImS32* ys
-                      ,int count
-                      ,ImPlotLineFlags flags
-                      ,int offset
-                      ,int stride);
-IMPLOT_TMP void PlotLine(const char* label_id
-                      , const T* xs
-                      , const T* ys
-                      , int count
-                      , ImPlotLineFlags flags=0
-                      , int offset=0
-                      , int stride=sizeof(T));
-
-IMPLOT_TMP void PlotLine(const char* label_id
-                      , const T* values
-                      , int count
-                      , double xscale=1
-                      , double xstart=0
-                      , ImPlotLineFlags flags=0
-                      , int offset=0
-                      , int stride=sizeof(T));
-
-// Plots a bar graph. Vertical by default. #bar_size and #shift are in plot units.
-IMPLOT_TMP void PlotBars(const char* label_id
-                       , const T* values
-                       , int count
-                       , double bar_size=0.67
-                       , double shift=0
-                       , ImPlotBarsFlags flags=0
-                       , int offset=0
-                       , int stride=sizeof(T));
-IMPLOT_TMP void PlotBars(const char* label_id
-                       , const T* xs
-                       , const T* ys
-                       , int count
-                       , double bar_size
-                       , ImPlotBarsFlags flags=0
-                       , int offset=0
-                       , int stride=sizeof(T));
-IMPLOT_API void PlotBarsG(const char* label_id
-                        , ImPlotGetter getter
-                        , void* data
-                        , int count
-                        , double bar_size
-                        , ImPlotBarsFlags flags=0);
-]#

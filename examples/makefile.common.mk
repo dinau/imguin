@@ -61,3 +61,8 @@ upx:
 	upx --lzma $(TARGET_EXE)
 dpx:
 	upx -d $(TARGET_EXE)
+
+.PHONY: gen
+
+gen:
+	nim c -r  ../utils/genImPlotFuncs.nim

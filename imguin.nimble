@@ -10,7 +10,7 @@ skipDirs      = @["examples","src/img","src/imguin/private/updater"]
 
 # Dependencies
 
-requires "nim >= 1.6.20"
+requires "nim >= 2.0.2"
 requires "nimgl >= 1.3.2"
 #requires "futhark >= 0.13.2"
 requires "sdl2_nim"

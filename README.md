@@ -17,6 +17,7 @@
   - [Update to latest Dear ImGui and CImGui](#update-to-latest-dear-imgui-and-cimgui)
     - [Prerequisite](#prerequisite)
     - [Update ImGui/CImGui](#update-imguicimgui)
+  - [Selection backend compiler](#selection-backend-compiler)
   - [Examples notice](#examples-notice)
   - [TODO](#todo)
   - [My tools version](#my-tools-version)
@@ -30,8 +31,9 @@
 
 Updated to latest ImGui/CImGui version: : **v1.90.9dock** (2024/07)
 
-Notice:  
 This project is my experiment project to use Nim language, ImGui, ImPlot, futhark and etc.  
+
+Notice:  
 It may be better to use the **mainstream** project [nimgl/imgui](https://github.com/nimgl/imgui) (ImGui v1.85)  
 ,updated project [nimgl-imgui](https://github.com/dinau/nimgl-imgui) (ImGui v1.89.9)
 ,sub project [nim_implot](https://github.com/dinau/nim_implot) and test project [nimgl_test](https://github.com/dinau/nimgl_test).
@@ -46,7 +48,7 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 ---
 
 - [Nim-2.0.2](https://nim-lang.org) or later (Windows10 or Debian Linux)
-- MSys/MinGW command line tools (Unix tools), make, cp, ...etc
+- MSys/MinGW command line tools (Unix tools), make, cp, rm, ...etc
 - For Linux Debian 12 Bookworm,
 
   ```sh
@@ -135,7 +137,7 @@ Showing ImGui demo with ImPlot demo.
 ---
 
 1. [Git](https://git-scm.com/) installed.
-1. MSys/MinGW command line tools (Unix tools), make, cp, ...etc
+1. MSys/MinGW command line tools (Unix tools), make, cp, rm, ...etc
 1. Windows10 or later
 Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
 
@@ -188,9 +190,9 @@ First move to your working folder you like, then
 
    Cloned libraries to under `../libs/` folder.  
 1.
-   Checkout arbitrary version you like with git at the each library folder.
+   Checkout arbitrary version you like with git at the each library(../libs/CImGui, ../libs/CImPlot, ...) folder.
 
-1. Update [the definition file](src/imguin/cimgui_defs.nim) uisng [Futhark](https://github.com/PMunch/futhark),  
+1. Generate [the definition file](src/imguin/cimgui_defs.nim) uisng [Futhark](https://github.com/PMunch/futhark),  
 
    ```sh
    pwd
@@ -235,13 +237,13 @@ Properly edit the version info etc in `imguin.nimble` file, then
   Notice(5): I don't know why can't be compiled on Lunux.  
 
 
-## Selection compiler
+## Selection backend compiler
 
 ---
 
-You might use another C/C++ compiler,  
-`Clnag, vcc(Visual Studio C/C++) , zig cc`  
-changing variable `TC` in [examples/config.nims.common](examples/config.nims.common).
+You might be able to use another C/C++ compiler,  
+`Clang, vcc(Visual Studio C/C++) , zig cc`  
+by changing variable `TC` in [examples/config.nims.common](examples/config.nims.common).
 
 ## Examples notice
 
