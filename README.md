@@ -29,7 +29,7 @@
 # ImGuin
 
 
-Updated to latest ImGui/CImGui version: : **v1.90.9dock** (2024/07)
+Updated to latest ImGui/CImGui version: : **v1.91.0dock** (2024/08)
 
 This project is my experiment project to use Nim language, ImGui, ImPlot, futhark and etc.  
 
@@ -190,7 +190,10 @@ First move to your working folder you like, then
 
    Cloned libraries to under `../libs/` folder.  
 1.
-   Checkout arbitrary version you like with git at the each library(../libs/CImGui, ../libs/CImPlot, ...) folder.
+   Checkout arbitrary version you like with git command at the each library folder,  
+   ../libs/cimgui  
+   ../libs/cimplot  
+   ../libs/cimnodes  
 
 1. Generate [the definition file](src/imguin/cimgui_defs.nim) uisng [Futhark](https://github.com/PMunch/futhark),  
 
@@ -218,6 +221,7 @@ Properly edit the version info etc in `imguin.nimble` file, then
 
   | ImGui/CImGui Ver.  | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm (1) |
   | :----------------- | ---------   | :-------: | :---:     | :---:                   |
+  | 1.91.0dock         | 1.91.0.0    | 2024/08   | ok        | No checked              |
   | 1.90.9dock         | 1.90.9.4    | 2024/07   | ok        | NG (5)                  |
   | 1.90.9dock         | 1.90.9.3    | 2024/07   | ok        | NG (5)                  |
   | 1.90.8dock         | 1.90.8.1    | 2024/06   | ok        | NG (5)                  |
@@ -326,10 +330,10 @@ Debian 12 Bookworm
 
 - Dear ImGui
 
-  | Language             | Binding             | Project                                                                                                                                         |
-  | -------------------: | :---                | :----------------------------------------------------------------:                                                                              |
-  | Nim                  | CImGui/CImPlot      | [Imguin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
-  | Lua                  | CImGui/CImPlot etc. | [LuaJITImGui](https://github.com/dinau/luajitimgui)                                                                                             |
-  | Zig, C               | Dear bindings       | [Dear Bindings Build](https://github.com/dinau/dear_bindings_build)                                                                             |
-  | Zig                  | CImGui/CImPlot      | [ImguinZ](https://github.com/dinau/imguinz)                                                                                                     |
-  | Python               | ImGui direct        | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |
+| Language             | Binding             | Project                                                                                                                                         |
+| -------------------: | :---                | :----------------------------------------------------------------:                                                                              |
+| **Nim**              | CImGui/CImPlot      | [ImGuin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
+| **Lua**              | CImGui/CImPlot etc. | [LuaJITImGui](https://github.com/dinau/luajitimgui)                                                                                             |
+| **Zig**, C lang.     | Dear bindings       | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build)                                                                             |
+| **Zig**              | CImGui/CImPlot      | [ImGuinZ](https://github.com/dinau/imguinz)                                                                                                     |
+| **Python**           | ImGui direct        | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |

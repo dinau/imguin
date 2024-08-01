@@ -2,7 +2,7 @@
 #
 .PHONY: example clean install updater gen
 
-all: install example
+all: example
 
 install:
 	nimble install
@@ -17,7 +17,7 @@ EXT_LIB_DIR = ../libs
 TARGET_DIR = src/imguin/private
 
 updater:
-	$(MAKE) -C $(TARGET_DIR)/updater
+	$(MAKE) -C $(TARGET_DIR)/$@
 
 gen: updater copylibs
 

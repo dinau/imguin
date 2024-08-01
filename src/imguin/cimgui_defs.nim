@@ -29,6 +29,11 @@ type
     ImGui_ChildFlags_AutoResizeY = 32, ImGui_ChildFlags_AlwaysAutoResize = 64,
     ImGui_ChildFlags_FrameStyle = 128, ImGui_ChildFlags_NavFlattened = 256
 type
+  enum_ImGuiItemFlags_private* {.size: sizeof(cuint).} = enum
+    ImGui_ItemFlags_None = 0, ImGui_ItemFlags_NoTabStop = 1,
+    ImGui_ItemFlags_NoNav = 2, ImGui_ItemFlags_NoNavDefaultFocus = 4,
+    ImGui_ItemFlags_ButtonRepeat = 8, ImGui_ItemFlags_AutoClosePopups = 16
+type
   enum_ImGuiInputTextFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_InputTextFlags_None = 0, ImGui_InputTextFlags_CharsDecimal = 1,
     ImGui_InputTextFlags_CharsHexadecimal = 2,
@@ -82,10 +87,11 @@ const
   ImGuiPopupFlags_MouseButtonDefault_private* = enum_ImGuiPopupFlags_private.ImGuiPopupFlags_MouseButtonRight
 type
   enum_ImGuiSelectableFlags_private* {.size: sizeof(cuint).} = enum
-    ImGui_SelectableFlags_None = 0, ImGui_SelectableFlags_DontClosePopups = 1,
+    ImGui_SelectableFlags_None = 0, ImGui_SelectableFlags_NoAutoClosePopups = 1,
     ImGui_SelectableFlags_SpanAllColumns = 2,
     ImGui_SelectableFlags_AllowDoubleClick = 4,
-    ImGui_SelectableFlags_Disabled = 8, ImGui_SelectableFlags_AllowOverlap = 16
+    ImGui_SelectableFlags_Disabled = 8, ImGui_SelectableFlags_AllowOverlap = 16,
+    ImGui_SelectableFlags_Highlight = 32
 type
   enum_ImGuiComboFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_ComboFlags_None = 0, ImGui_ComboFlags_PopupAlignLeft = 1,
@@ -163,7 +169,7 @@ type
     ImGui_DataType_S8 = 0, ImGui_DataType_U8 = 1, ImGui_DataType_S16 = 2,
     ImGui_DataType_U16 = 3, ImGui_DataType_S32 = 4, ImGui_DataType_U32 = 5,
     ImGui_DataType_S64 = 6, ImGui_DataType_U64 = 7, ImGui_DataType_Float = 8,
-    ImGui_DataType_Double = 9, ImGui_DataType_COUNT = 10
+    ImGui_DataType_Double = 9, ImGui_DataType_Bool = 10, ImGui_DataType_COUNT = 11
 type
   enum_ImGuiDir* {.size: sizeof(cint).} = enum
     ImGuiDir_None = -1, ImGuiDir_Left = 0, ImGuiDir_Right = 1, ImGuiDir_Up = 2,
@@ -299,10 +305,10 @@ type
     ImGui_Col_PlotHistogramHovered = 45, ImGui_Col_TableHeaderBg = 46,
     ImGui_Col_TableBorderStrong = 47, ImGui_Col_TableBorderLight = 48,
     ImGui_Col_TableRowBg = 49, ImGui_Col_TableRowBgAlt = 50,
-    ImGui_Col_TextSelectedBg = 51, ImGui_Col_DragDropTarget = 52,
-    ImGui_Col_NavHighlight = 53, ImGui_Col_NavWindowingHighlight = 54,
-    ImGui_Col_NavWindowingDimBg = 55, ImGui_Col_ModalWindowDimBg = 56,
-    ImGui_Col_COUNT = 57
+    ImGui_Col_TextLink = 51, ImGui_Col_TextSelectedBg = 52,
+    ImGui_Col_DragDropTarget = 53, ImGui_Col_NavHighlight = 54,
+    ImGui_Col_NavWindowingHighlight = 55, ImGui_Col_NavWindowingDimBg = 56,
+    ImGui_Col_ModalWindowDimBg = 57, ImGui_Col_COUNT = 58
 type
   enum_ImGuiStyleVar_private* {.size: sizeof(cuint).} = enum
     ImGui_StyleVar_Alpha = 0, ImGui_StyleVar_DisabledAlpha = 1,
@@ -317,14 +323,14 @@ type
     ImGui_StyleVar_ScrollbarSize = 18, ImGui_StyleVar_ScrollbarRounding = 19,
     ImGui_StyleVar_GrabMinSize = 20, ImGui_StyleVar_GrabRounding = 21,
     ImGui_StyleVar_TabRounding = 22, ImGui_StyleVar_TabBorderSize = 23,
-    ImGui_StyleVar_TabBarBorderSize = 24,
-    ImGui_StyleVar_TableAngledHeadersAngle = 25,
-    ImGui_StyleVar_TableAngledHeadersTextAlign = 26,
-    ImGui_StyleVar_ButtonTextAlign = 27, ImGui_StyleVar_SelectableTextAlign = 28,
-    ImGui_StyleVar_SeparatorTextBorderSize = 29,
-    ImGui_StyleVar_SeparatorTextAlign = 30,
-    ImGui_StyleVar_SeparatorTextPadding = 31,
-    ImGui_StyleVar_DockingSeparatorSize = 32, ImGui_StyleVar_COUNT = 33
+    ImGui_StyleVar_TabBarBorderSize = 24, ImGui_StyleVar_TabBarOverlineSize = 25,
+    ImGui_StyleVar_TableAngledHeadersAngle = 26,
+    ImGui_StyleVar_TableAngledHeadersTextAlign = 27,
+    ImGui_StyleVar_ButtonTextAlign = 28, ImGui_StyleVar_SelectableTextAlign = 29,
+    ImGui_StyleVar_SeparatorTextBorderSize = 30,
+    ImGui_StyleVar_SeparatorTextAlign = 31,
+    ImGui_StyleVar_SeparatorTextPadding = 32,
+    ImGui_StyleVar_DockingSeparatorSize = 33, ImGui_StyleVar_COUNT = 34
 type
   enum_ImGuiButtonFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_ButtonFlags_None = 0, ImGui_ButtonFlags_MouseButtonLeft = 1,
@@ -442,6 +448,28 @@ type
     ImGui_TableBgTarget_None = 0, ImGui_TableBgTarget_RowBg0 = 1,
     ImGui_TableBgTarget_RowBg1 = 2, ImGui_TableBgTarget_CellBg = 3
 type
+  enum_ImGuiMultiSelectFlags_private* {.size: sizeof(cuint).} = enum
+    ImGui_MultiSelectFlags_None = 0, ImGui_MultiSelectFlags_SingleSelect = 1,
+    ImGui_MultiSelectFlags_NoSelectAll = 2,
+    ImGui_MultiSelectFlags_NoRangeSelect = 4,
+    ImGui_MultiSelectFlags_NoAutoSelect = 8,
+    ImGui_MultiSelectFlags_NoAutoClear = 16,
+    ImGui_MultiSelectFlags_NoAutoClearOnReselect = 32,
+    ImGui_MultiSelectFlags_BoxSelect1d = 64,
+    ImGui_MultiSelectFlags_BoxSelect2d = 128,
+    ImGui_MultiSelectFlags_BoxSelectNoScroll = 256,
+    ImGui_MultiSelectFlags_ClearOnEscape = 512,
+    ImGui_MultiSelectFlags_ClearOnClickVoid = 1024,
+    ImGui_MultiSelectFlags_ScopeWindow = 2048,
+    ImGui_MultiSelectFlags_ScopeRect = 4096,
+    ImGui_MultiSelectFlags_SelectOnClick = 8192,
+    ImGui_MultiSelectFlags_SelectOnClickRelease = 16384,
+    ImGui_MultiSelectFlags_NavWrapX = 65536
+type
+  enum_ImGuiSelectionRequestType* {.size: sizeof(cuint).} = enum
+    ImGui_SelectionRequestType_None = 0, ImGui_SelectionRequestType_SetAll = 1,
+    ImGui_SelectionRequestType_SetRange = 2
+type
   enum_ImDrawFlags_private* {.size: sizeof(cuint).} = enum
     ImDrawFlags_None = 0, ImDrawFlags_Closed = 1,
     ImDrawFlags_RoundCornersTopLeft = 16, ImDrawFlags_RoundCornersTopRight = 32,
@@ -475,17 +503,15 @@ type
     ImGui_ViewportFlags_IsMinimized = 4096, ImGui_ViewportFlags_IsFocused = 8192
 type
   enum_ImGuiDataTypePrivate_private* {.size: sizeof(cuint).} = enum
-    ImGui_DataType_String = 11, ImGui_DataType_Pointer = 12, ImGui_DataType_ID = 13
+    ImGui_DataType_String = 12, ImGui_DataType_Pointer = 13, ImGui_DataType_ID = 14
 type
-  enum_ImGuiItemFlags_private* {.size: sizeof(cuint).} = enum
-    ImGui_ItemFlags_None = 0, ImGui_ItemFlags_NoTabStop = 1,
-    ImGui_ItemFlags_ButtonRepeat = 2, ImGui_ItemFlags_Disabled = 4,
-    ImGui_ItemFlags_NoNav = 8, ImGui_ItemFlags_NoNavDefaultFocus = 16,
-    ImGui_ItemFlags_SelectableDontClosePopup = 32,
-    ImGui_ItemFlags_MixedValue = 64, ImGui_ItemFlags_ReadOnly = 128,
-    ImGui_ItemFlags_NoWindowHoverableCheck = 256,
-    ImGui_ItemFlags_AllowOverlap = 512, ImGui_ItemFlags_Inputable = 1024,
-    ImGui_ItemFlags_HasSelectionUserData = 2048
+  enum_ImGuiItemFlagsPrivate_private* {.size: sizeof(cuint).} = enum
+    ImGui_ItemFlags_Default_private = 16, ImGui_ItemFlags_Disabled = 1024,
+    ImGui_ItemFlags_ReadOnly = 2048, ImGui_ItemFlags_MixedValue = 4096,
+    ImGui_ItemFlags_NoWindowHoverableCheck = 8192,
+    ImGui_ItemFlags_AllowOverlap = 16384, ImGui_ItemFlags_Inputable = 1048576,
+    ImGui_ItemFlags_HasSelectionUserData = 2097152,
+    ImGui_ItemFlags_IsMultiSelect = 4194304
 type
   enum_ImGuiItemStatusFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_ItemStatusFlags_None = 0, ImGui_ItemStatusFlags_HoveredRect = 1,
@@ -547,8 +573,8 @@ type
     ImGui_SelectableFlags_NoSetKeyOwner = 134217728
 type
   enum_ImGuiTreeNodeFlagsPrivate_private* {.size: sizeof(cuint).} = enum
-    ImGui_TreeNodeFlags_ClipLabelForTrailingButton = 1048576,
-    ImGui_TreeNodeFlags_UpsideDownArrow = 2097152
+    ImGui_TreeNodeFlags_ClipLabelForTrailingButton = 268435456,
+    ImGui_TreeNodeFlags_UpsideDownArrow = 536870912
 type
   enum_ImGuiSeparatorFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_SeparatorFlags_None = 0, ImGui_SeparatorFlags_Horizontal = 1,
@@ -602,7 +628,8 @@ type
   enum_ImGuiNextItemDataFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_NextItemDataFlags_None = 0, ImGui_NextItemDataFlags_HasWidth = 1,
     ImGui_NextItemDataFlags_HasOpen = 2, ImGui_NextItemDataFlags_HasShortcut = 4,
-    ImGui_NextItemDataFlags_HasRefVal = 8
+    ImGui_NextItemDataFlags_HasRefVal = 8,
+    ImGui_NextItemDataFlags_HasStorageID = 16
 type
   enum_ImGuiPopupPositionPolicy* {.size: sizeof(cuint).} = enum
     ImGui_PopupPositionPolicy_Default = 0, ImGui_PopupPositionPolicy_ComboBox = 1,
@@ -734,8 +761,9 @@ type
     ImGui_LocKey_TableSizeAllFit = 2, ImGui_LocKey_TableSizeAllDefault = 3,
     ImGui_LocKey_TableResetOrder = 4, ImGui_LocKey_WindowingMainMenuBar = 5,
     ImGui_LocKey_WindowingPopup = 6, ImGui_LocKey_WindowingUntitled = 7,
-    ImGui_LocKey_DockingHideTabBar = 8, ImGui_LocKey_DockingHoldShiftToDock = 9,
-    ImGui_LocKey_DockingDragToUndockOrMoveNode = 10, ImGui_LocKey_COUNT = 11
+    ImGui_LocKey_CopyLink = 8, ImGui_LocKey_DockingHideTabBar = 9,
+    ImGui_LocKey_DockingHoldShiftToDock = 10,
+    ImGui_LocKey_DockingDragToUndockOrMoveNode = 11, ImGui_LocKey_COUNT = 12
 type
   enum_ImGuiDebugLogFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_DebugLogFlags_None = 0, ImGui_DebugLogFlags_EventActiveId = 1,
@@ -1019,11 +1047,11 @@ type
 type
   ImDrawChannel* = struct_ImDrawChannel ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:44:30
   struct_ImDrawChannel* {.pure, inheritable, bycopy.} = object
-    internal_CmdBuffer*: ImVector_ImDrawCmd ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1220:8
+    internal_CmdBuffer*: ImVector_ImDrawCmd ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1308:8
     internal_IdxBuffer*: ImVector_ImDrawIdx
   ImDrawCmd* = struct_ImDrawCmd ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:45:26
   struct_ImDrawCmd* {.pure, inheritable, bycopy.} = object
-    ClipRect*: ImVec4        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1193:8
+    ClipRect*: ImVec4        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1281:8
     TextureId*: ImTextureID
     VtxOffset*: cuint
     IdxOffset*: cuint
@@ -1032,7 +1060,7 @@ type
     UserCallbackData*: pointer
   ImDrawData* = struct_ImDrawData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:46:27
   struct_ImDrawData* {.pure, inheritable, bycopy.} = object
-    Valid*: bool             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1284:8
+    Valid*: bool             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1372:8
     CmdListsCount*: cint
     TotalIdxCount*: cint
     TotalVtxCount*: cint
@@ -1043,7 +1071,7 @@ type
     OwnerViewport*: ptr ImGuiViewport
   ImDrawList* = struct_ImDrawList ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:47:27
   struct_ImDrawList* {.pure, inheritable, bycopy.} = object
-    CmdBuffer*: ImVector_ImDrawCmd ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1264:8
+    CmdBuffer*: ImVector_ImDrawCmd ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1352:8
     IdxBuffer*: ImVector_ImDrawIdx
     VtxBuffer*: ImVector_ImDrawVert
     Flags*: ImDrawListFlags
@@ -1060,9 +1088,10 @@ type
     internal_OwnerName*: cstring
   ImDrawListSharedData* = struct_ImDrawListSharedData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:48:37
   struct_ImDrawListSharedData* {.pure, inheritable, bycopy.} = object
-    TexUvWhitePixel*: ImVec2 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1624:8
+    TexUvWhitePixel*: ImVec2 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1714:8
     Font*: ptr ImFont
     FontSize*: cfloat
+    FontScale*: cfloat
     CurveTessellationTol*: cfloat
     CircleSegmentMaxError*: cfloat
     ClipRectFullscreen*: ImVec4
@@ -1074,17 +1103,17 @@ type
     TexUvLines*: ptr ImVec4
   ImDrawListSplitter* = struct_ImDrawListSplitter ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:49:35
   struct_ImDrawListSplitter* {.pure, inheritable, bycopy.} = object
-    internal_Current*: cint  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1227:8
+    internal_Current*: cint  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1315:8
     internal_Count*: cint
     internal_Channels*: ImVector_ImDrawChannel
   ImDrawVert* = struct_ImDrawVert ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:50:27
   struct_ImDrawVert* {.pure, inheritable, bycopy.} = object
-    pos*: ImVec2             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1203:8
+    pos*: ImVec2             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1291:8
     uv*: ImVec2
     col*: ImU32
   ImFont* = struct_ImFont    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:51:23
   struct_ImFont* {.pure, inheritable, bycopy.} = object
-    IndexAdvanceX*: ImVector_float ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1385:8
+    IndexAdvanceX*: ImVector_float ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1473:8
     FallbackAdvanceX*: cfloat
     FontSize*: cfloat
     IndexLookup*: ImVector_ImWchar
@@ -1106,7 +1135,7 @@ type
     Used4kPagesMap*: array[2'i64, ImU8]
   ImFontAtlas* = struct_ImFontAtlas ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:52:28
   struct_ImFontAtlas* {.pure, inheritable, bycopy.} = object
-    Flags*: ImFontAtlasFlags ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1356:8
+    Flags*: ImFontAtlasFlags ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1444:8
     TexID*: ImTextureID
     TexDesiredWidth*: cint
     TexGlyphPadding*: cint
@@ -1130,10 +1159,10 @@ type
     PackIdLines*: cint
   ImFontBuilderIO* = struct_ImFontBuilderIO ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:53:32
   struct_ImFontBuilderIO* {.pure, inheritable, bycopy.} = object
-    FontBuilder_Build*: proc (a0: ptr ImFontAtlas): bool {.cdecl.} ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3324:8
+    FontBuilder_Build*: proc (a0: ptr ImFontAtlas): bool {.cdecl.} ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3475:8
   ImFontConfig* = struct_ImFontConfig ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:54:29
   struct_ImFontConfig* {.pure, inheritable, bycopy.} = object
-    FontData*: pointer       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1296:8
+    FontData*: pointer       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1384:8
     FontDataSize*: cint
     FontDataOwnedByAtlas*: bool
     FontNo*: cint
@@ -1155,7 +1184,7 @@ type
     DstFont*: ptr ImFont
   ImFontGlyph* = struct_ImFontGlyph ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:55:28
   struct_ImFontGlyph* {.pure, inheritable, bycopy.} = object
-    Colored* {.bitsize: 1'i64.}: cuint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1319:8
+    Colored* {.bitsize: 1'i64.}: cuint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1407:8
     Visible* {.bitsize: 1'i64.}: cuint
     Codepoint* {.bitsize: 30'i64.}: cuint
     AdvanceX*: cfloat
@@ -1169,13 +1198,13 @@ type
     V1*: cfloat
   ImFontGlyphRangesBuilder* = struct_ImFontGlyphRangesBuilder ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:56:41
   struct_ImFontGlyphRangesBuilder* {.pure, inheritable, bycopy.} = object
-    UsedChars*: ImVector_ImU32 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1330:8
+    UsedChars*: ImVector_ImU32 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1418:8
   ImColor* = struct_ImColor  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:57:24
   struct_ImColor* {.pure, inheritable, bycopy.} = object
-    Value*: ImVec4           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1188:8
+    Value*: ImVec4           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1219:8
   ImGuiContext* = struct_ImGuiContext ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimnodes/cimnodes.h:10:29
   struct_ImGuiContext* {.pure, inheritable, bycopy.} = object
-    Initialized*: bool       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2566:8
+    Initialized*: bool       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2711:8
     FontAtlasOwnedByContext*: bool
     IO*: ImGuiIO
     PlatformIO*: ImGuiPlatformIO
@@ -1185,6 +1214,7 @@ type
     Font*: ptr ImFont
     FontSize*: cfloat
     FontBaseSize*: cfloat
+    FontScale*: cfloat
     CurrentDpiScale*: cfloat
     DrawListSharedData*: ImDrawListSharedData
     Time*: cdouble
@@ -1276,7 +1306,7 @@ type
     GroupStack*: ImVector_ImGuiGroupData
     OpenPopupStack*: ImVector_ImGuiPopupData
     BeginPopupStack*: ImVector_ImGuiPopupData
-    NavTreeNodeStack*: ImVector_ImGuiNavTreeNodeData
+    TreeNodeStack*: ImVector_ImGuiTreeNodeStackData
     Viewports*: ImVector_ImGuiViewportPPtr
     CurrentViewport*: ptr ImGuiViewportP
     MouseViewport*: ptr ImGuiViewportP
@@ -1377,6 +1407,11 @@ type
     TabBars*: ImPool_ImGuiTabBar
     CurrentTabBarStack*: ImVector_ImGuiPtrOrIndex
     ShrinkWidthBuffer*: ImVector_ImGuiShrinkWidthItem
+    BoxSelectState*: ImGuiBoxSelectState
+    CurrentMultiSelect*: ptr ImGuiMultiSelectTempData
+    MultiSelectTempDataStacked*: cint
+    MultiSelectTempData*: ImVector_ImGuiMultiSelectTempData
+    MultiSelectStorage*: ImPool_ImGuiMultiSelectState
     HoverItemDelayId*: ImGuiID
     HoverItemDelayIdPreviousFrame*: ImGuiID
     HoverItemDelayTimer*: cfloat
@@ -1433,7 +1468,7 @@ type
     SettingsTables*: ImChunkStream_ImGuiTableSettings
     Hooks*: ImVector_ImGuiContextHook
     HookIdNext*: ImGuiID
-    LocalizationTable*: array[11'i64, cstring]
+    LocalizationTable*: array[12'i64, cstring]
     LogEnabled*: bool
     LogType*: ImGuiLogType
     LogFile*: ImFileHandle
@@ -1474,7 +1509,7 @@ type
     TempKeychordName*: array[64'i64, cschar]
   ImGuiIO* = struct_ImGuiIO  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:59:24
   struct_ImGuiIO* {.pure, inheritable, bycopy.} = object
-    ConfigFlags*: ImGuiConfigFlags ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:992:8
+    ConfigFlags*: ImGuiConfigFlags ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1019:8
     BackendFlags*: ImGuiBackendFlags
     DisplaySize*: ImVec2
     DeltaTime*: cfloat
@@ -1497,6 +1532,7 @@ type
     ConfigViewportsNoDefaultParent*: bool
     MouseDrawCursor*: bool
     ConfigMacOSXBehaviors*: bool
+    ConfigNavSwapGamepadButtons*: bool
     ConfigInputTrickleEventQueue*: bool
     ConfigInputTextCursorBlink*: bool
     ConfigInputTextEnterKeepActive*: bool
@@ -1522,8 +1558,11 @@ type
     GetClipboardTextFn*: proc (a0: pointer): cstring {.cdecl.}
     SetClipboardTextFn*: proc (a0: pointer; a1: cstring): void {.cdecl.}
     ClipboardUserData*: pointer
-    SetPlatformImeDataFn*: proc (a0: ptr ImGuiViewport;
-                                 a1: ptr ImGuiPlatformImeData): void {.cdecl.}
+    PlatformOpenInShellFn*: proc (a0: ptr ImGuiContext; a1: cstring): bool {.
+        cdecl.}
+    PlatformOpenInShellUserData*: pointer
+    PlatformSetImeDataFn*: proc (a0: ptr ImGuiContext; a1: ptr ImGuiViewport;
+                                 a2: ptr ImGuiPlatformImeData): void {.cdecl.}
     PlatformLocaleDecimalPoint*: ImWchar
     WantCaptureMouse*: bool
     WantCaptureKeyboard*: bool
@@ -1577,7 +1616,7 @@ type
     InputQueueCharacters*: ImVector_ImWchar
   ImGuiInputTextCallbackData* = struct_ImGuiInputTextCallbackData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:60:43
   struct_ImGuiInputTextCallbackData* {.pure, inheritable, bycopy.} = object
-    Ctx*: ptr ImGuiContext   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1095:8
+    Ctx*: ptr ImGuiContext   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1125:8
     EventFlag*: ImGuiInputTextFlags
     Flags*: ImGuiInputTextFlags
     UserData*: pointer
@@ -1592,25 +1631,34 @@ type
     SelectionEnd*: cint
   ImGuiKeyData* = struct_ImGuiKeyData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:61:29
   struct_ImGuiKeyData* {.pure, inheritable, bycopy.} = object
-    Down*: bool              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:983:8
+    Down*: bool              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1010:8
     DownDuration*: cfloat
     DownDurationPrev*: cfloat
     AnalogValue*: cfloat
   ImGuiListClipper* = struct_ImGuiListClipper ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:62:33
   struct_ImGuiListClipper* {.pure, inheritable, bycopy.} = object
-    Ctx*: ptr ImGuiContext   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1178:8
+    Ctx*: ptr ImGuiContext   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1208:8
     DisplayStart*: cint
     DisplayEnd*: cint
     ItemsCount*: cint
     ItemsHeight*: cfloat
     StartPosY*: cfloat
+    StartSeekOffsetY*: cdouble
     TempData*: pointer
-  ImGuiOnceUponAFrame* = struct_ImGuiOnceUponAFrame ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:63:36
+  ImGuiMultiSelectIO* = struct_ImGuiMultiSelectIO ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:63:35
+  struct_ImGuiMultiSelectIO* {.pure, inheritable, bycopy.} = object
+    Requests*: ImVector_ImGuiSelectionRequest ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1244:8
+    RangeSrcItem*: ImGuiSelectionUserData
+    NavIdItem*: ImGuiSelectionUserData
+    NavIdSelected*: bool
+    RangeSrcReset*: bool
+    ItemsCount*: cint
+  ImGuiOnceUponAFrame* = struct_ImGuiOnceUponAFrame ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:64:36
   struct_ImGuiOnceUponAFrame* {.pure, inheritable, bycopy.} = object
-    RefFrame*: cint          ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1141:8
-  ImGuiPayload* = struct_ImGuiPayload ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:64:29
+    RefFrame*: cint          ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1171:8
+  ImGuiPayload* = struct_ImGuiPayload ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:65:29
   struct_ImGuiPayload* {.pure, inheritable, bycopy.} = object
-    Data*: pointer           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1130:8
+    Data*: pointer           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1160:8
     DataSize*: cint
     SourceId*: ImGuiID
     SourceParentId*: ImGuiID
@@ -1618,9 +1666,9 @@ type
     DataType*: array[33'i64, cschar]
     Preview*: bool
     Delivery*: bool
-  ImGuiPlatformIO* = struct_ImGuiPlatformIO ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:65:32
+  ImGuiPlatformIO* = struct_ImGuiPlatformIO ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:66:32
   struct_ImGuiPlatformIO* {.pure, inheritable, bycopy.} = object
-    Platform_CreateWindow*: proc (a0: ptr ImGuiViewport): void {.cdecl.} ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1448:8
+    Platform_CreateWindow*: proc (a0: ptr ImGuiViewport): void {.cdecl.} ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1536:8
     Platform_DestroyWindow*: proc (a0: ptr ImGuiViewport): void {.cdecl.}
     Platform_ShowWindow*: proc (a0: ptr ImGuiViewport): void {.cdecl.}
     Platform_SetWindowPos*: proc (a0: ptr ImGuiViewport; a1: ImVec2): void {.
@@ -1655,39 +1703,60 @@ type
         cdecl.}
     Monitors*: ImVector_ImGuiPlatformMonitor
     Viewports*: ImVector_ImGuiViewportPtr
-  ImGuiPlatformMonitor* = struct_ImGuiPlatformMonitor ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:66:37
+  ImGuiPlatformMonitor* = struct_ImGuiPlatformMonitor ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:67:37
   struct_ImGuiPlatformMonitor* {.pure, inheritable, bycopy.} = object
-    MainPos*: ImVec2         ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1476:8
+    MainPos*: ImVec2         ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1564:8
     MainSize*: ImVec2
     WorkPos*: ImVec2
     WorkSize*: ImVec2
     DpiScale*: cfloat
     PlatformHandle*: pointer
-  ImGuiPlatformImeData* = struct_ImGuiPlatformImeData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:67:37
+  ImGuiPlatformImeData* = struct_ImGuiPlatformImeData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:68:37
   struct_ImGuiPlatformImeData* {.pure, inheritable, bycopy.} = object
-    WantVisible*: bool       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1483:8
+    WantVisible*: bool       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1571:8
     InputPos*: ImVec2
     InputLineHeight*: cfloat
-  ImGuiSizeCallbackData* = struct_ImGuiSizeCallbackData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:68:38
+  ImGuiSelectionBasicStorage* = struct_ImGuiSelectionBasicStorage ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:69:43
+  struct_ImGuiSelectionBasicStorage* {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1266:8
+    PreserveOrder*: bool
+    UserData*: pointer
+    AdapterIndexToStorageId*: proc (a0: ptr ImGuiSelectionBasicStorage; a1: cint): ImGuiID {.
+        cdecl.}
+    internal_SelectionOrder*: cint
+    internal_Storage*: ImGuiStorage
+  ImGuiSelectionExternalStorage* = struct_ImGuiSelectionExternalStorage ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:70:46
+  struct_ImGuiSelectionExternalStorage* {.pure, inheritable, bycopy.} = object
+    UserData*: pointer       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1275:8
+    AdapterSetItemSelected*: proc (a0: ptr ImGuiSelectionExternalStorage;
+                                   a1: cint; a2: bool): void {.cdecl.}
+  ImGuiSelectionRequest* = struct_ImGuiSelectionRequest ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:71:38
+  struct_ImGuiSelectionRequest* {.pure, inheritable, bycopy.} = object
+    Type*: ImGuiSelectionRequestType ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1258:8
+    Selected*: bool
+    RangeDirection*: ImS8
+    RangeFirstItem*: ImGuiSelectionUserData
+    RangeLastItem*: ImGuiSelectionUserData
+  ImGuiSizeCallbackData* = struct_ImGuiSizeCallbackData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:72:38
   struct_ImGuiSizeCallbackData* {.pure, inheritable, bycopy.} = object
-    UserData*: pointer       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1111:8
+    UserData*: pointer       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1141:8
     Pos*: ImVec2
     CurrentSize*: ImVec2
     DesiredSize*: ImVec2
-  ImGuiStorage* = struct_ImGuiStorage ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:69:29
+  ImGuiStorage* = struct_ImGuiStorage ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:73:29
   struct_ImGuiStorage* {.pure, inheritable, bycopy.} = object
-    Data*: ImVector_ImGuiStoragePair ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1174:8
-  ImGuiStoragePair* = struct_ImGuiStoragePair ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:70:33
+    Data*: ImVector_ImGuiStoragePair ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1204:8
+  ImGuiStoragePair* = struct_ImGuiStoragePair ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:74:33
   struct_ImGuiStoragePair_anon0_t* {.union, bycopy.} = object
     val_i*: cint
     val_f*: cfloat
     val_p*: pointer
   struct_ImGuiStoragePair* {.pure, inheritable, bycopy.} = object
-    key*: ImGuiID            ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1167:8
+    key*: ImGuiID            ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1197:8
     anon0*: struct_ImGuiStoragePair_anon0_t
-  ImGuiStyle* = struct_ImGuiStyle ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:71:27
+  ImGuiStyle* = struct_ImGuiStyle ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:75:27
   struct_ImGuiStyle* {.pure, inheritable, bycopy.} = object
-    Alpha*: cfloat           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:927:8
+    Alpha*: cfloat           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:953:8
     DisabledAlpha*: cfloat
     WindowPadding*: ImVec2
     WindowRounding*: cfloat
@@ -1717,6 +1786,7 @@ type
     TabBorderSize*: cfloat
     TabMinWidthForCloseButton*: cfloat
     TabBarBorderSize*: cfloat
+    TabBarOverlineSize*: cfloat
     TableAngledHeadersAngle*: cfloat
     TableAngledHeadersTextAlign*: ImVec2
     ColorButtonPosition*: ImGuiDir
@@ -1734,34 +1804,34 @@ type
     AntiAliasedFill*: bool
     CurveTessellationTol*: cfloat
     CircleTessellationMaxError*: cfloat
-    Colors*: array[57'i64, ImVec4]
+    Colors*: array[58'i64, ImVec4]
     HoverStationaryDelay*: cfloat
     HoverDelayShort*: cfloat
     HoverDelayNormal*: cfloat
     HoverFlagsForTooltipMouse*: ImGuiHoveredFlags
     HoverFlagsForTooltipNav*: ImGuiHoveredFlags
-  ImGuiTableSortSpecs* = struct_ImGuiTableSortSpecs ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:72:36
+  ImGuiTableSortSpecs* = struct_ImGuiTableSortSpecs ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:76:36
   struct_ImGuiTableSortSpecs* {.pure, inheritable, bycopy.} = object
-    Specs*: ptr ImGuiTableColumnSortSpecs ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:914:8
+    Specs*: ptr ImGuiTableColumnSortSpecs ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:940:8
     SpecsCount*: cint
     SpecsDirty*: bool
-  ImGuiTableColumnSortSpecs* = struct_ImGuiTableColumnSortSpecs ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:73:42
+  ImGuiTableColumnSortSpecs* = struct_ImGuiTableColumnSortSpecs ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:77:42
   struct_ImGuiTableColumnSortSpecs* {.pure, inheritable, bycopy.} = object
-    ColumnUserID*: ImGuiID   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:920:8
+    ColumnUserID*: ImGuiID   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:946:8
     ColumnIndex*: ImS16
     SortOrder*: ImS16
     SortDirection*: ImGuiSortDirection
-  ImGuiTextBuffer* = struct_ImGuiTextBuffer ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:74:32
+  ImGuiTextBuffer* = struct_ImGuiTextBuffer ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:78:32
   struct_ImGuiTextBuffer* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_char      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1163:8
-  ImGuiTextFilter* = struct_ImGuiTextFilter ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:75:32
+    Buf*: ImVector_char      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1193:8
+  ImGuiTextFilter* = struct_ImGuiTextFilter ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:79:32
   struct_ImGuiTextFilter* {.pure, inheritable, bycopy.} = object
-    InputBuf*: array[256'i64, cschar] ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1154:8
+    InputBuf*: array[256'i64, cschar] ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1184:8
     Filters*: ImVector_ImGuiTextRange
     CountGrep*: cint
-  ImGuiViewport* = struct_ImGuiViewport ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:76:30
+  ImGuiViewport* = struct_ImGuiViewport ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:80:30
   struct_ImGuiViewport* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1424:8
+    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1512:8
     Flags*: ImGuiViewportFlags
     Pos*: ImVec2
     Size*: ImVec2
@@ -1778,9 +1848,9 @@ type
     PlatformRequestMove*: bool
     PlatformRequestResize*: bool
     PlatformRequestClose*: bool
-  ImGuiWindowClass* = struct_ImGuiWindowClass ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:77:33
+  ImGuiWindowClass* = struct_ImGuiWindowClass ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:81:33
   struct_ImGuiWindowClass* {.pure, inheritable, bycopy.} = object
-    ClassId*: ImGuiID        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1118:8
+    ClassId*: ImGuiID        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1148:8
     ParentViewportId*: ImGuiID
     FocusRouteParentWindowId*: ImGuiID
     ViewportFlagsOverrideSet*: ImGuiViewportFlags
@@ -1789,49 +1859,66 @@ type
     DockNodeFlagsOverrideSet*: ImGuiDockNodeFlags
     DockingAlwaysTabBar*: bool
     DockingAllowUnclassed*: bool
-  ImBitVector* = struct_ImBitVector ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:78:28
+  ImBitVector* = struct_ImBitVector ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:82:28
   struct_ImBitVector* {.pure, inheritable, bycopy.} = object
-    Storage*: ImVector_ImU32 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1611:8
-  ImRect* = struct_ImRect    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:79:23
+    Storage*: ImVector_ImU32 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1701:8
+  ImRect* = struct_ImRect    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:83:23
   struct_ImRect* {.pure, inheritable, bycopy.} = object
-    Min*: ImVec2             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1605:8
+    Min*: ImVec2             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1695:8
     Max*: ImVec2
-  ImDrawDataBuilder* = struct_ImDrawDataBuilder ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:80:34
+  ImDrawDataBuilder* = struct_ImDrawDataBuilder ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:84:34
   struct_ImDrawDataBuilder* {.pure, inheritable, bycopy.} = object
-    Layers*: array[2'i64, ptr ImVector_ImDrawListPtr] ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1639:8
+    Layers*: array[2'i64, ptr ImVector_ImDrawListPtr] ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1730:8
     LayerData1*: ImVector_ImDrawListPtr
-  ImGuiColorMod* = struct_ImGuiColorMod ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:81:30
+  ImGuiBoxSelectState* = struct_ImGuiBoxSelectState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:85:36
+  struct_ImGuiBoxSelectState* {.pure, inheritable, bycopy.} = object
+    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2353:8
+    IsActive*: bool
+    IsStarting*: bool
+    IsStartedFromVoid*: bool
+    IsStartedSetNavIdOnce*: bool
+    RequestClear*: bool
+    KeyMods*: ImGuiKeyChord
+    StartPosRel*: ImVec2
+    EndPosRel*: ImVec2
+    ScrollAccum*: ImVec2
+    Window*: ptr ImGuiWindow
+    UnclipMode*: bool
+    UnclipRect*: ImRect
+    BoxSelectRectPrev*: ImRect
+    BoxSelectRectCurr*: ImRect
+  ImGuiColorMod* = struct_ImGuiColorMod ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:86:30
   struct_ImGuiColorMod* {.pure, inheritable, bycopy.} = object
-    Col*: ImGuiCol           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1788:8
+    Col*: ImGuiCol           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1875:8
     BackupValue*: ImVec4
-  ImGuiContextHook* = struct_ImGuiContextHook ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:82:33
+  ImGuiContextHook* = struct_ImGuiContextHook ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:87:33
   struct_ImGuiContextHook* {.pure, inheritable, bycopy.} = object
-    HookId*: ImGuiID         ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2510:8
+    HookId*: ImGuiID         ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2649:8
     Type*: ImGuiContextHookType
     Owner*: ImGuiID
     Callback*: ImGuiContextHookCallback
     UserData*: pointer
-  ImGuiDataVarInfo* = struct_ImGuiDataVarInfo ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:83:33
+  ImGuiDataVarInfo* = struct_ImGuiDataVarInfo ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:88:33
   struct_ImGuiDataVarInfo* {.pure, inheritable, bycopy.} = object
-    Type*: ImGuiDataType     ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1644:8
+    Type*: ImGuiDataType     ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1735:8
     Count*: ImU32
     Offset*: ImU32
-  ImGuiDataTypeInfo* = struct_ImGuiDataTypeInfo ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:84:34
+  ImGuiDataTypeInfo* = struct_ImGuiDataTypeInfo ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:89:34
   struct_ImGuiDataTypeInfo* {.pure, inheritable, bycopy.} = object
-    Size*: csize_t           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1655:8
+    Size*: csize_t           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1746:8
     Name*: cstring
     PrintFmt*: cstring
     ScanFmt*: cstring
-  ImGuiDockContext* = struct_ImGuiDockContext ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:85:33
+  ImGuiDockContext* = struct_ImGuiDockContext ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:90:33
   struct_ImGuiDockContext* {.pure, inheritable, bycopy.} = object
-    Nodes*: ImGuiStorage     ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2360:8
+    Nodes*: ImGuiStorage     ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2498:8
     Requests*: ImVector_ImGuiDockRequest
     NodesSettings*: ImVector_ImGuiDockNodeSettings
     WantFullRebuild*: bool
-  ImGuiDockRequest* = struct_ImGuiDockRequest ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:86:33
-  ImGuiDockNode* = struct_ImGuiDockNode ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:87:30
+  ImGuiDockRequest* = struct_ImGuiDockRequest ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:91:33
+  ImGuiDockNode* = struct_ImGuiDockNode ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:92:30
   struct_ImGuiDockNode* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2296:8
+    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2434:8
     SharedFlags*: ImGuiDockNodeFlags
     LocalFlags*: ImGuiDockNodeFlags
     LocalFlagsInWindows*: ImGuiDockNodeFlags
@@ -1873,10 +1960,10 @@ type
     WantMouseMove* {.bitsize: 1'i64.}: bool
     WantHiddenTabBarUpdate* {.bitsize: 1'i64.}: bool
     WantHiddenTabBarToggle* {.bitsize: 1'i64.}: bool
-  ImGuiDockNodeSettings* = struct_ImGuiDockNodeSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:88:38
-  ImGuiGroupData* = struct_ImGuiGroupData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:89:31
+  ImGuiDockNodeSettings* = struct_ImGuiDockNodeSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:93:38
+  ImGuiGroupData* = struct_ImGuiGroupData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:94:31
   struct_ImGuiGroupData* {.pure, inheritable, bycopy.} = object
-    WindowID*: ImGuiID       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1808:8
+    WindowID*: ImGuiID       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1895:8
     BackupCursorPos*: ImVec2
     BackupCursorMaxPos*: ImVec2
     BackupCursorPosPrevLine*: ImVec2
@@ -1889,9 +1976,9 @@ type
     BackupHoveredIdIsAlive*: bool
     BackupIsSameLine*: bool
     EmitItem*: bool
-  ImGuiInputTextState* = struct_ImGuiInputTextState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:90:36
+  ImGuiInputTextState* = struct_ImGuiInputTextState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:95:36
   struct_ImGuiInputTextState* {.pure, inheritable, bycopy.} = object
-    Ctx*: ptr ImGuiContext   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1841:8
+    Ctx*: ptr ImGuiContext   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1928:8
     ID*: ImGuiID
     CurLenW*: cint
     CurLenA*: cint
@@ -1910,10 +1997,10 @@ type
     ReloadUserBuf*: bool
     ReloadSelectionStart*: cint
     ReloadSelectionEnd*: cint
-  ImGuiInputTextDeactivateData* = struct_ImGuiInputTextDeactivateData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:91:45
-  ImGuiLastItemData* = struct_ImGuiLastItemData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:92:34
+  ImGuiInputTextDeactivateData* = struct_ImGuiInputTextDeactivateData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:96:45
+  ImGuiLastItemData* = struct_ImGuiLastItemData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:97:34
   struct_ImGuiLastItemData* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1929:8
+    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2018:8
     InFlags*: ImGuiItemFlags
     StatusFlags*: ImGuiItemStatusFlags
     Rect*: ImRect
@@ -1921,13 +2008,13 @@ type
     DisplayRect*: ImRect
     ClipRect*: ImRect
     Shortcut*: ImGuiKeyChord
-  ImGuiLocEntry* = struct_ImGuiLocEntry ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:93:30
+  ImGuiLocEntry* = struct_ImGuiLocEntry ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:98:30
   struct_ImGuiLocEntry* {.pure, inheritable, bycopy.} = object
-    Key*: ImGuiLocKey        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2434:8
+    Key*: ImGuiLocKey        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2573:8
     Text*: cstring
-  ImGuiMenuColumns* = struct_ImGuiMenuColumns ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:94:33
+  ImGuiMenuColumns* = struct_ImGuiMenuColumns ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:99:33
   struct_ImGuiMenuColumns* {.pure, inheritable, bycopy.} = object
-    TotalWidth*: ImU32       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1824:8
+    TotalWidth*: ImU32       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1911:8
     NextTotalWidth*: ImU32
     Spacing*: ImU16
     OffsetIcon*: ImU16
@@ -1935,9 +2022,37 @@ type
     OffsetShortcut*: ImU16
     OffsetMark*: ImU16
     Widths*: array[4'i64, ImU16]
-  ImGuiNavItemData* = struct_ImGuiNavItemData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:95:33
+  ImGuiMultiSelectState* = struct_ImGuiMultiSelectState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:100:38
+  struct_ImGuiMultiSelectState* {.pure, inheritable, bycopy.} = object
+    Window*: ptr ImGuiWindow ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2390:8
+    ID*: ImGuiID
+    LastFrameActive*: cint
+    LastSelectionSize*: cint
+    RangeSelected*: ImS8
+    NavIdSelected*: ImS8
+    RangeSrcItem*: ImGuiSelectionUserData
+    NavIdItem*: ImGuiSelectionUserData
+  ImGuiMultiSelectTempData* = struct_ImGuiMultiSelectTempData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:101:41
+  struct_ImGuiMultiSelectTempData* {.pure, inheritable, bycopy.} = object
+    IO*: ImGuiMultiSelectIO  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2371:8
+    Storage*: ptr ImGuiMultiSelectState
+    FocusScopeId*: ImGuiID
+    Flags*: ImGuiMultiSelectFlags
+    ScopeRectMin*: ImVec2
+    BackupCursorMaxPos*: ImVec2
+    LastSubmittedItem*: ImGuiSelectionUserData
+    BoxSelectId*: ImGuiID
+    KeyMods*: ImGuiKeyChord
+    LoopRequestSetAll*: ImS8
+    IsEndIO*: bool
+    IsFocused*: bool
+    IsKeyboardSetRange*: bool
+    NavIdPassedBy*: bool
+    RangeSrcPassedBy*: bool
+    RangeDstPassedBy*: bool
+  ImGuiNavItemData* = struct_ImGuiNavItemData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:102:33
   struct_ImGuiNavItemData* {.pure, inheritable, bycopy.} = object
-    Window*: ptr ImGuiWindow ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2187:8
+    Window*: ptr ImGuiWindow ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2277:8
     ID*: ImGuiID
     FocusScopeId*: ImGuiID
     RectRel*: ImRect
@@ -1946,14 +2061,9 @@ type
     DistCenter*: cfloat
     DistAxial*: cfloat
     SelectionUserData*: ImGuiSelectionUserData
-  ImGuiNavTreeNodeData* = struct_ImGuiNavTreeNodeData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:96:37
-  struct_ImGuiNavTreeNodeData* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1940:8
-    InFlags*: ImGuiItemFlags
-    NavRect*: ImRect
-  ImGuiMetricsConfig* = struct_ImGuiMetricsConfig ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:97:35
+  ImGuiMetricsConfig* = struct_ImGuiMetricsConfig ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:103:35
   struct_ImGuiMetricsConfig* {.pure, inheritable, bycopy.} = object
-    ShowDebugLog*: bool      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2470:8
+    ShowDebugLog*: bool      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2609:8
     ShowIDStackTool*: bool
     ShowWindowsRects*: bool
     ShowWindowsBeginOrder*: bool
@@ -1967,9 +2077,9 @@ type
     ShowTablesRectsType*: cint
     HighlightMonitorIdx*: cint
     HighlightViewportID*: ImGuiID
-  ImGuiNextWindowData* = struct_ImGuiNextWindowData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:98:36
+  ImGuiNextWindowData* = struct_ImGuiNextWindowData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:104:36
   struct_ImGuiNextWindowData* {.pure, inheritable, bycopy.} = object
-    Flags*: ImGuiNextWindowDataFlags ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1884:8
+    Flags*: ImGuiNextWindowDataFlags ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1971:8
     PosCond*: ImGuiCond
     SizeCond*: ImGuiCond
     CollapsedCond*: ImGuiCond
@@ -1991,10 +2101,11 @@ type
     WindowClass*: ImGuiWindowClass
     MenuBarOffsetMinVal*: ImVec2
     RefreshFlagsVal*: ImGuiWindowRefreshFlags
-  ImGuiNextItemData* = struct_ImGuiNextItemData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:99:34
+  ImGuiNextItemData* = struct_ImGuiNextItemData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:105:34
   struct_ImGuiNextItemData* {.pure, inheritable, bycopy.} = object
-    Flags*: ImGuiNextItemDataFlags ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1917:8
+    Flags*: ImGuiNextItemDataFlags ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2004:8
     ItemFlags*: ImGuiItemFlags
+    FocusScopeId*: ImGuiID
     SelectionUserData*: ImGuiSelectionUserData
     Width*: cfloat
     Shortcut*: ImGuiKeyChord
@@ -2002,15 +2113,16 @@ type
     OpenVal*: bool
     OpenCond*: ImU8
     RefVal*: ImGuiDataTypeStorage
-  ImGuiOldColumnData* = struct_ImGuiOldColumnData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:100:35
+    StorageId*: ImGuiID
+  ImGuiOldColumnData* = struct_ImGuiOldColumnData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:106:35
   struct_ImGuiOldColumnData* {.pure, inheritable, bycopy.} = object
-    OffsetNorm*: cfloat      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2236:8
+    OffsetNorm*: cfloat      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2326:8
     OffsetNormBeforeResize*: cfloat
     Flags*: ImGuiOldColumnFlags
     ClipRect*: ImRect
-  ImGuiOldColumns* = struct_ImGuiOldColumns ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:101:32
+  ImGuiOldColumns* = struct_ImGuiOldColumns ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:107:32
   struct_ImGuiOldColumns* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2245:8
+    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2335:8
     Flags*: ImGuiOldColumnFlags
     IsFirstFrame*: bool
     IsBeingResized*: bool
@@ -2027,9 +2139,9 @@ type
     HostBackupParentWorkRect*: ImRect
     Columns*: ImVector_ImGuiOldColumnData
     Splitter*: ImDrawListSplitter
-  ImGuiPopupData* = struct_ImGuiPopupData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:102:31
+  ImGuiPopupData* = struct_ImGuiPopupData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:108:31
   struct_ImGuiPopupData* {.pure, inheritable, bycopy.} = object
-    PopupId*: ImGuiID        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1984:8
+    PopupId*: ImGuiID        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2074:8
     Window*: ptr ImGuiWindow
     RestoreNavWindow*: ptr ImGuiWindow
     ParentNavLayer*: cint
@@ -2037,9 +2149,9 @@ type
     OpenParentId*: ImGuiID
     OpenPopupPos*: ImVec2
     OpenMousePos*: ImVec2
-  ImGuiSettingsHandler* = struct_ImGuiSettingsHandler ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:103:37
+  ImGuiSettingsHandler* = struct_ImGuiSettingsHandler ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:109:37
   struct_ImGuiSettingsHandler* {.pure, inheritable, bycopy.} = object
-    TypeName*: cstring       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2408:8
+    TypeName*: cstring       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2546:8
     TypeHash*: ImGuiID
     ClearAllFn*: proc (a0: ptr ImGuiContext; a1: ptr ImGuiSettingsHandler): void {.
         cdecl.}
@@ -2054,9 +2166,9 @@ type
     WriteAllFn*: proc (a0: ptr ImGuiContext; a1: ptr ImGuiSettingsHandler;
                        a2: ptr ImGuiTextBuffer): void {.cdecl.}
     UserData*: pointer
-  ImGuiStackSizes* = struct_ImGuiStackSizes ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:104:32
+  ImGuiStackSizes* = struct_ImGuiStackSizes ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:110:32
   struct_ImGuiStackSizes* {.pure, inheritable, bycopy.} = object
-    SizeOfIDStack*: cshort   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1946:8
+    SizeOfIDStack*: cshort   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2036:8
     SizeOfColorStack*: cshort
     SizeOfStyleVarStack*: cshort
     SizeOfFontStack*: cshort
@@ -2065,16 +2177,16 @@ type
     SizeOfItemFlagsStack*: cshort
     SizeOfBeginPopupStack*: cshort
     SizeOfDisabledStack*: cshort
-  ImGuiStyleMod* = struct_ImGuiStyleMod ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:105:30
+  ImGuiStyleMod* = struct_ImGuiStyleMod ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:111:30
   struct_ImGuiStyleMod_anon0_t* {.union, bycopy.} = object
     BackupInt*: array[2'i64, cint]
     BackupFloat*: array[2'i64, cfloat]
   struct_ImGuiStyleMod* {.pure, inheritable, bycopy.} = object
-    VarIdx*: ImGuiStyleVar   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1793:8
+    VarIdx*: ImGuiStyleVar   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1880:8
     anon0*: struct_ImGuiStyleMod_anon0_t
-  ImGuiTabBar* = struct_ImGuiTabBar ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:106:28
+  ImGuiTabBar* = struct_ImGuiTabBar ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:112:28
   struct_ImGuiTabBar* {.pure, inheritable, bycopy.} = object
-    Tabs*: ImVector_ImGuiTabItem ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3055:8
+    Tabs*: ImVector_ImGuiTabItem ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3206:8
     Flags*: ImGuiTabBarFlags
     ID*: ImGuiID
     SelectedTabId*: ImGuiID
@@ -2107,9 +2219,9 @@ type
     FramePadding*: ImVec2
     BackupCursorPos*: ImVec2
     TabsNames*: ImGuiTextBuffer
-  ImGuiTabItem* = struct_ImGuiTabItem ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:107:29
+  ImGuiTabItem* = struct_ImGuiTabItem ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:113:29
   struct_ImGuiTabItem* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3037:8
+    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3188:8
     Flags*: ImGuiTabItemFlags
     Window*: ptr ImGuiWindow
     LastFrameVisible*: cint
@@ -2122,9 +2234,9 @@ type
     BeginOrder*: ImS16
     IndexDuringLayout*: ImS16
     WantClose*: bool
-  ImGuiTable* = struct_ImGuiTable ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:108:27
+  ImGuiTable* = struct_ImGuiTable ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:114:27
   struct_ImGuiTable* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3169:8
+    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3320:8
     Flags*: ImGuiTableFlags
     RawData*: pointer
     TempData*: ptr ImGuiTableTempData
@@ -2236,15 +2348,15 @@ type
     HasScrollbarYPrev*: bool
     MemoryCompacted*: bool
     HostSkipItems*: bool
-  ImGuiTableHeaderData* = struct_ImGuiTableHeaderData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:109:37
+  ImGuiTableHeaderData* = struct_ImGuiTableHeaderData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:115:37
   struct_ImGuiTableHeaderData* {.pure, inheritable, bycopy.} = object
-    Index*: ImGuiTableColumnIdx ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3143:8
+    Index*: ImGuiTableColumnIdx ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3294:8
     TextColor*: ImU32
     BgColor0*: ImU32
     BgColor1*: ImU32
-  ImGuiTableColumn* = struct_ImGuiTableColumn ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:110:33
+  ImGuiTableColumn* = struct_ImGuiTableColumn ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:116:33
   struct_ImGuiTableColumn* {.pure, inheritable, bycopy.} = object
-    Flags*: ImGuiTableColumnFlags ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3093:8
+    Flags*: ImGuiTableColumnFlags ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3244:8
     WidthGiven*: cfloat
     MinX*: cfloat
     MaxX*: cfloat
@@ -2285,17 +2397,17 @@ type
     SortDirectionsAvailCount*: ImU8
     SortDirectionsAvailMask*: ImU8
     SortDirectionsAvailList*: ImU8
-  ImGuiTableInstanceData* = struct_ImGuiTableInstanceData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:111:39
+  ImGuiTableInstanceData* = struct_ImGuiTableInstanceData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:117:39
   struct_ImGuiTableInstanceData* {.pure, inheritable, bycopy.} = object
-    TableInstanceID*: ImGuiID ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3150:8
+    TableInstanceID*: ImGuiID ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3301:8
     LastOuterHeight*: cfloat
     LastTopHeadersRowHeight*: cfloat
     LastFrozenHeight*: cfloat
     HoveredRowLast*: cint
     HoveredRowNext*: cint
-  ImGuiTableTempData* = struct_ImGuiTableTempData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:112:35
+  ImGuiTableTempData* = struct_ImGuiTableTempData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:118:35
   struct_ImGuiTableTempData* {.pure, inheritable, bycopy.} = object
-    TableIndex*: cint        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3286:8
+    TableIndex*: cint        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3437:8
     LastTimeActive*: cfloat
     AngledHeadersExtraWidth*: cfloat
     AngledHeadersRequests*: ImVector_ImGuiTableHeaderData
@@ -2309,34 +2421,40 @@ type
     HostBackupColumnsOffset*: ImVec1
     HostBackupItemWidth*: cfloat
     HostBackupItemWidthStackSize*: cint
-  ImGuiTableSettings* = struct_ImGuiTableSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:113:35
+  ImGuiTableSettings* = struct_ImGuiTableSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:119:35
   struct_ImGuiTableSettings* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3315:8
+    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3466:8
     SaveFlags*: ImGuiTableFlags
     RefScale*: cfloat
     ColumnsCount*: ImGuiTableColumnIdx
     ColumnsCountMax*: ImGuiTableColumnIdx
     WantApply*: bool
-  ImGuiTableColumnsSettings* = struct_ImGuiTableColumnsSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:114:42
-  ImGuiTypingSelectState* = struct_ImGuiTypingSelectState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:115:39
+  ImGuiTableColumnsSettings* = struct_ImGuiTableColumnsSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:120:42
+  ImGuiTreeNodeStackData* = struct_ImGuiTreeNodeStackData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:121:39
+  struct_ImGuiTreeNodeStackData* {.pure, inheritable, bycopy.} = object
+    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2029:8
+    TreeFlags*: ImGuiTreeNodeFlags
+    InFlags*: ImGuiItemFlags
+    NavRect*: ImRect
+  ImGuiTypingSelectState* = struct_ImGuiTypingSelectState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:122:39
   struct_ImGuiTypingSelectState* {.pure, inheritable, bycopy.} = object
-    Request*: ImGuiTypingSelectRequest ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2219:8
+    Request*: ImGuiTypingSelectRequest ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2309:8
     SearchBuffer*: array[64'i64, cschar]
     FocusScope*: ImGuiID
     LastRequestFrame*: cint
     LastRequestTime*: cfloat
     SingleCharModeLock*: bool
-  ImGuiTypingSelectRequest* = struct_ImGuiTypingSelectRequest ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:116:41
+  ImGuiTypingSelectRequest* = struct_ImGuiTypingSelectRequest ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:123:41
   struct_ImGuiTypingSelectRequest* {.pure, inheritable, bycopy.} = object
-    Flags*: ImGuiTypingSelectFlags ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2210:8
+    Flags*: ImGuiTypingSelectFlags ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2300:8
     SearchBufferLen*: cint
     SearchBuffer*: cstring
     SelectRequest*: bool
     SingleCharMode*: bool
     SingleCharSize*: ImS8
-  ImGuiWindow* = struct_ImGuiWindow ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:117:28
+  ImGuiWindow* = struct_ImGuiWindow ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:124:28
   struct_ImGuiWindow* {.pure, inheritable, bycopy.} = object
-    Ctx*: ptr ImGuiContext   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2906:8
+    Ctx*: ptr ImGuiContext   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3057:8
     Name*: cstring
     ID*: ImGuiID
     Flags*: ImGuiWindowFlags
@@ -2460,12 +2578,12 @@ type
     DockId*: ImGuiID
     DockTabItemStatusFlags*: ImGuiItemStatusFlags
     DockTabItemRect*: ImRect
-  ImGuiWindowDockStyle* = struct_ImGuiWindowDockStyle ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:118:37
+  ImGuiWindowDockStyle* = struct_ImGuiWindowDockStyle ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:125:37
   struct_ImGuiWindowDockStyle* {.pure, inheritable, bycopy.} = object
-    Colors*: array[8'i64, ImU32] ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2352:8
-  ImGuiWindowTempData* = struct_ImGuiWindowTempData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:119:36
+    Colors*: array[8'i64, ImU32] ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2490:8
+  ImGuiWindowTempData* = struct_ImGuiWindowTempData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:126:36
   struct_ImGuiWindowTempData* {.pure, inheritable, bycopy.} = object
-    CursorPos*: ImVec2       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2864:8
+    CursorPos*: ImVec2       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3015:8
     CursorPosPrevLine*: ImVec2
     CursorStartPos*: ImVec2
     CursorMaxPos*: ImVec2
@@ -2490,7 +2608,7 @@ type
     MenuBarOffset*: ImVec2
     MenuColumns*: ImGuiMenuColumns
     TreeDepth*: cint
-    TreeJumpToParentOnPopMask*: ImU32
+    TreeHasStackDataDepthMask*: ImU32
     ChildWindows*: ImVector_ImGuiWindowPtr
     StateStorage*: ptr ImGuiStorage
     CurrentColumns*: ptr ImGuiOldColumns
@@ -2502,9 +2620,9 @@ type
     TextWrapPos*: cfloat
     ItemWidthStack*: ImVector_float
     TextWrapPosStack*: ImVector_float
-  ImGuiWindowSettings* = struct_ImGuiWindowSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:120:36
+  ImGuiWindowSettings* = struct_ImGuiWindowSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:127:36
   struct_ImGuiWindowSettings* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2393:8
+    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2531:8
     Pos*: ImVec2ih
     Size*: ImVec2ih
     ViewportPos*: ImVec2ih
@@ -2517,186 +2635,197 @@ type
     WantApply*: bool
     WantDelete*: bool
   struct_ImVector_const_charPtr* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:121:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:128:16
     Capacity*: cint
     Data*: ptr cstring
-  ImVector_const_charPtr* = struct_ImVector_const_charPtr ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:121:82
-  ImGuiID* = cuint           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:123:22
-  ImS8* = cschar             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:124:21
-  ImU8* = uint8              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:125:23
-  ImS16* = cshort            ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:126:22
-  ImU16* = cushort           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:127:24
-  ImS32* = cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:128:20
-  ImU32* = cuint             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:129:22
-  ImS64* = clonglong         ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:130:26
-  ImU64* = culonglong        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:131:28
-  ImGuiCol* = cint           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:166:13
-  ImGuiCond* = cint          ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:167:13
-  ImGuiDataType* = cint      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:168:13
-  ImGuiMouseButton* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:169:13
-  ImGuiMouseCursor* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:170:13
-  ImGuiStyleVar* = cint      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:171:13
-  ImGuiTableBgTarget* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:172:13
-  ImDrawFlags* = cint        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:173:13
-  ImDrawListFlags* = cint    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:174:13
-  ImFontAtlasFlags* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:175:13
-  ImGuiBackendFlags* = cint  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:176:13
-  ImGuiButtonFlags* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:177:13
-  ImGuiChildFlags* = cint    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:178:13
-  ImGuiColorEditFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:179:13
-  ImGuiConfigFlags* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:180:13
-  ImGuiComboFlags* = cint    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:181:13
-  ImGuiDockNodeFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:182:13
-  ImGuiDragDropFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:183:13
-  ImGuiFocusedFlags* = cint  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:184:13
-  ImGuiHoveredFlags* = cint  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:185:13
-  ImGuiInputFlags* = cint    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:186:13
-  ImGuiInputTextFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:187:13
-  ImGuiKeyChord* = cint      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:188:13
-  ImGuiPopupFlags* = cint    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:189:13
-  ImGuiSelectableFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:190:13
-  ImGuiSliderFlags* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:191:13
-  ImGuiTabBarFlags* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:192:13
-  ImGuiTabItemFlags* = cint  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:193:13
-  ImGuiTableFlags* = cint    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:194:13
-  ImGuiTableColumnFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:195:13
-  ImGuiTableRowFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:196:13
-  ImGuiTreeNodeFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:197:13
-  ImGuiViewportFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:198:13
-  ImGuiWindowFlags* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:199:13
-  ImTextureID* = pointer     ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:200:15
-  ImDrawIdx* = cushort       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:201:24
-  ImWchar32* = cuint         ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:202:22
-  ImWchar16* = cushort       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:203:24
-  ImWchar* = ImWchar16       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:204:19
+  ImVector_const_charPtr* = struct_ImVector_const_charPtr ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:128:82
+  ImGuiID* = cuint           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:130:22
+  ImS8* = cschar             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:131:21
+  ImU8* = uint8              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:132:23
+  ImS16* = cshort            ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:133:22
+  ImU16* = cushort           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:134:24
+  ImS32* = cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:135:20
+  ImU32* = cuint             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:136:22
+  ImS64* = clonglong         ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:137:26
+  ImU64* = culonglong        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:138:28
+  ImGuiCol* = cint           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:177:13
+  ImGuiCond* = cint          ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:178:13
+  ImGuiDataType* = cint      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:179:13
+  ImGuiMouseButton* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:180:13
+  ImGuiMouseCursor* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:181:13
+  ImGuiStyleVar* = cint      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:182:13
+  ImGuiTableBgTarget* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:183:13
+  ImDrawFlags* = cint        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:184:13
+  ImDrawListFlags* = cint    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:185:13
+  ImFontAtlasFlags* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:186:13
+  ImGuiBackendFlags* = cint  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:187:13
+  ImGuiButtonFlags* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:188:13
+  ImGuiChildFlags* = cint    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:189:13
+  ImGuiColorEditFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:190:13
+  ImGuiConfigFlags* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:191:13
+  ImGuiComboFlags* = cint    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:192:13
+  ImGuiDockNodeFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:193:13
+  ImGuiDragDropFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:194:13
+  ImGuiFocusedFlags* = cint  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:195:13
+  ImGuiHoveredFlags* = cint  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:196:13
+  ImGuiInputFlags* = cint    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:197:13
+  ImGuiInputTextFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:198:13
+  ImGuiItemFlags* = cint     ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:199:13
+  ImGuiKeyChord* = cint      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:200:13
+  ImGuiPopupFlags* = cint    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:201:13
+  ImGuiMultiSelectFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:202:13
+  ImGuiSelectableFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:203:13
+  ImGuiSliderFlags* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:204:13
+  ImGuiTabBarFlags* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:205:13
+  ImGuiTabItemFlags* = cint  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:206:13
+  ImGuiTableFlags* = cint    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:207:13
+  ImGuiTableColumnFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:208:13
+  ImGuiTableRowFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:209:13
+  ImGuiTreeNodeFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:210:13
+  ImGuiViewportFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:211:13
+  ImGuiWindowFlags* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:212:13
+  ImTextureID* = pointer     ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:213:15
+  ImDrawIdx* = cushort       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:214:24
+  ImWchar32* = cuint         ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:215:22
+  ImWchar16* = cushort       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:216:24
+  ImWchar* = ImWchar16       ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:217:19
+  ImGuiSelectionUserData* = ImS64 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:218:15
   ImGuiInputTextCallback* = proc (a0: ptr ImGuiInputTextCallbackData): cint {.
-      cdecl.}                ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:205:15
-  ImGuiSizeCallback* = proc (a0: ptr ImGuiSizeCallbackData): void {.cdecl.} ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:206:16
-  ImGuiMemAllocFunc* = proc (a0: csize_t; a1: pointer): pointer {.cdecl.} ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:207:17
-  ImGuiMemFreeFunc* = proc (a0: pointer; a1: pointer): void {.cdecl.} ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:208:16
+      cdecl.}                ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:219:15
+  ImGuiSizeCallback* = proc (a0: ptr ImGuiSizeCallbackData): void {.cdecl.} ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:220:16
+  ImGuiMemAllocFunc* = proc (a0: csize_t; a1: pointer): pointer {.cdecl.} ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:221:17
+  ImGuiMemFreeFunc* = proc (a0: pointer; a1: pointer): void {.cdecl.} ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:222:16
   ImVec2* = struct_ImVec2    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimnodes/cimnodes.h:11:23
   struct_ImVec2* {.pure, inheritable, bycopy.} = object
-    x*: cfloat               ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:210:8
+    x*: cfloat               ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:224:8
     y*: cfloat
-  ImVec4* = struct_ImVec4    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:214:23
+  ImVec4* = struct_ImVec4    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:228:23
   struct_ImVec4* {.pure, inheritable, bycopy.} = object
-    x*: cfloat               ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:215:8
+    x*: cfloat               ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:229:8
     y*: cfloat
     z*: cfloat
     w*: cfloat
-  ImGuiWindowFlags_private* = enum_ImGuiWindowFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:250:2
-  ImGuiChildFlags_private* = enum_ImGuiChildFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:262:2
-  ImGuiInputTextFlags_private* = enum_ImGuiInputTextFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:288:2
-  ImGuiTreeNodeFlags_private* = enum_ImGuiTreeNodeFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:308:2
-  ImGuiPopupFlags_private* = enum_ImGuiPopupFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:322:2
-  ImGuiSelectableFlags_private* = enum_ImGuiSelectableFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:330:2
-  ImGuiComboFlags_private* = enum_ImGuiComboFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:342:2
-  ImGuiTabBarFlags_private* = enum_ImGuiTabBarFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:356:2
-  ImGuiTabItemFlags_private* = enum_ImGuiTabItemFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:368:2
-  ImGuiFocusedFlags_private* = enum_ImGuiFocusedFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:377:2
-  ImGuiHoveredFlags_private* = enum_ImGuiHoveredFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:400:2
-  ImGuiDockNodeFlags_private* = enum_ImGuiDockNodeFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:410:2
-  ImGuiDragDropFlags_private* = enum_ImGuiDragDropFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:425:2
-  ImGuiDataType_private* = enum_ImGuiDataType_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:438:2
-  ImGuiDir* = enum_ImGuiDir  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:446:2
-  ImGuiSortDirection* = enum_ImGuiSortDirection ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:451:2
-  ImGuiKey* = enum_ImGuiKey  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:620:2
-  ImGuiInputFlags_private* = enum_ImGuiInputFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:633:2
-  ImGuiConfigFlags_private* = enum_ImGuiConfigFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:649:2
-  ImGuiBackendFlags_private* = enum_ImGuiBackendFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:659:2
-  ImGuiCol_private* = enum_ImGuiCol_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:719:2
-  ImGuiStyleVar_private* = enum_ImGuiStyleVar_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:755:2
-  ImGuiButtonFlags_private* = enum_ImGuiButtonFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:762:2
-  ImGuiColorEditFlags_private* = enum_ImGuiColorEditFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:793:2
-  ImGuiSliderFlags_private* = enum_ImGuiSliderFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:802:2
-  ImGuiMouseButton_private* = enum_ImGuiMouseButton_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:808:2
-  ImGuiMouseCursor_private* = enum_ImGuiMouseCursor_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:821:2
-  ImGuiMouseSource* = enum_ImGuiMouseSource ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:827:2
-  ImGuiCond_private* = enum_ImGuiCond_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:834:2
-  ImGuiTableFlags_private* = enum_ImGuiTableFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:873:2
-  ImGuiTableColumnFlags_private* = enum_ImGuiTableColumnFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:903:2
-  ImGuiTableRowFlags_private* = enum_ImGuiTableRowFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:907:2
-  ImGuiTableBgTarget_private* = enum_ImGuiTableBgTarget_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:913:2
+  ImGuiWindowFlags_private* = enum_ImGuiWindowFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:264:2
+  ImGuiChildFlags_private* = enum_ImGuiChildFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:276:2
+  ImGuiItemFlags_private* = enum_ImGuiItemFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:284:2
+  ImGuiInputTextFlags_private* = enum_ImGuiInputTextFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:310:2
+  ImGuiTreeNodeFlags_private* = enum_ImGuiTreeNodeFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:330:2
+  ImGuiPopupFlags_private* = enum_ImGuiPopupFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:344:2
+  ImGuiSelectableFlags_private* = enum_ImGuiSelectableFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:353:2
+  ImGuiComboFlags_private* = enum_ImGuiComboFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:365:2
+  ImGuiTabBarFlags_private* = enum_ImGuiTabBarFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:379:2
+  ImGuiTabItemFlags_private* = enum_ImGuiTabItemFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:391:2
+  ImGuiFocusedFlags_private* = enum_ImGuiFocusedFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:400:2
+  ImGuiHoveredFlags_private* = enum_ImGuiHoveredFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:423:2
+  ImGuiDockNodeFlags_private* = enum_ImGuiDockNodeFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:433:2
+  ImGuiDragDropFlags_private* = enum_ImGuiDragDropFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:448:2
+  ImGuiDataType_private* = enum_ImGuiDataType_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:462:2
+  ImGuiDir* = enum_ImGuiDir  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:470:2
+  ImGuiSortDirection* = enum_ImGuiSortDirection ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:475:2
+  ImGuiKey* = enum_ImGuiKey  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:644:2
+  ImGuiInputFlags_private* = enum_ImGuiInputFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:657:2
+  ImGuiConfigFlags_private* = enum_ImGuiConfigFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:673:2
+  ImGuiBackendFlags_private* = enum_ImGuiBackendFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:683:2
+  ImGuiCol_private* = enum_ImGuiCol_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:744:2
+  ImGuiStyleVar_private* = enum_ImGuiStyleVar_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:781:2
+  ImGuiButtonFlags_private* = enum_ImGuiButtonFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:788:2
+  ImGuiColorEditFlags_private* = enum_ImGuiColorEditFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:819:2
+  ImGuiSliderFlags_private* = enum_ImGuiSliderFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:828:2
+  ImGuiMouseButton_private* = enum_ImGuiMouseButton_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:834:2
+  ImGuiMouseCursor_private* = enum_ImGuiMouseCursor_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:847:2
+  ImGuiMouseSource* = enum_ImGuiMouseSource ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:853:2
+  ImGuiCond_private* = enum_ImGuiCond_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:860:2
+  ImGuiTableFlags_private* = enum_ImGuiTableFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:899:2
+  ImGuiTableColumnFlags_private* = enum_ImGuiTableColumnFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:929:2
+  ImGuiTableRowFlags_private* = enum_ImGuiTableRowFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:933:2
+  ImGuiTableBgTarget_private* = enum_ImGuiTableBgTarget_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:939:2
   struct_ImVector_ImWchar* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:990:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1017:16
     Capacity*: cint
     Data*: ptr ImWchar
-  ImVector_ImWchar* = struct_ImVector_ImWchar ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:990:72
+  ImVector_ImWchar* = struct_ImVector_ImWchar ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1017:72
   struct_ImGuiTextRange* {.pure, inheritable, bycopy.} = object
-    b*: cstring              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1145:8
+    b*: cstring              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1175:8
     e*: cstring
-  ImGuiTextRange* = struct_ImGuiTextRange ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1160:31
+  ImGuiTextRange* = struct_ImGuiTextRange ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1190:31
   struct_ImVector_ImGuiTextRange* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1152:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1182:16
     Capacity*: cint
     Data*: ptr ImGuiTextRange
-  ImVector_ImGuiTextRange* = struct_ImVector_ImGuiTextRange ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1152:86
+  ImVector_ImGuiTextRange* = struct_ImVector_ImGuiTextRange ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1182:86
   struct_ImVector_char* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1161:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1191:16
     Capacity*: cint
     Data*: cstring
-  ImVector_char* = struct_ImVector_char ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1161:66
+  ImVector_char* = struct_ImVector_char ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1191:66
   struct_ImVector_ImGuiStoragePair* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1172:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1202:16
     Capacity*: cint
     Data*: ptr ImGuiStoragePair
-  ImVector_ImGuiStoragePair* = struct_ImVector_ImGuiStoragePair ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1172:90
-  ImDrawCallback* = proc (a0: ptr ImDrawList; a1: ptr ImDrawCmd): void {.cdecl.} ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1192:16
-  ImDrawCmdHeader* = struct_ImDrawCmdHeader ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1209:32
+  ImVector_ImGuiStoragePair* = struct_ImVector_ImGuiStoragePair ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1202:90
+  ImGuiMultiSelectFlags_private* = enum_ImGuiMultiSelectFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1241:2
+  struct_ImVector_ImGuiSelectionRequest* {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1242:16
+    Capacity*: cint
+    Data*: ptr ImGuiSelectionRequest
+  ImVector_ImGuiSelectionRequest* = struct_ImVector_ImGuiSelectionRequest ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1242:100
+  ImGuiSelectionRequestType* = enum_ImGuiSelectionRequestType ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1257:2
+  ImDrawCallback* = proc (a0: ptr ImDrawList; a1: ptr ImDrawCmd): void {.cdecl.} ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1280:16
+  ImDrawCmdHeader* = struct_ImDrawCmdHeader ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1297:32
   struct_ImDrawCmdHeader* {.pure, inheritable, bycopy.} = object
-    ClipRect*: ImVec4        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1210:8
+    ClipRect*: ImVec4        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1298:8
     TextureId*: ImTextureID
     VtxOffset*: cuint
   struct_ImVector_ImDrawCmd* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1216:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1304:16
     Capacity*: cint
     Data*: ptr ImDrawCmd
-  ImVector_ImDrawCmd* = struct_ImVector_ImDrawCmd ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1216:76
+  ImVector_ImDrawCmd* = struct_ImVector_ImDrawCmd ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1304:76
   struct_ImVector_ImDrawIdx* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1218:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1306:16
     Capacity*: cint
     Data*: ptr ImDrawIdx
-  ImVector_ImDrawIdx* = struct_ImVector_ImDrawIdx ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1218:76
+  ImVector_ImDrawIdx* = struct_ImVector_ImDrawIdx ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1306:76
   struct_ImVector_ImDrawChannel* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1225:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1313:16
     Capacity*: cint
     Data*: ptr ImDrawChannel
-  ImVector_ImDrawChannel* = struct_ImVector_ImDrawChannel ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1225:84
-  ImDrawFlags_private* = enum_ImDrawFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1248:2
-  ImDrawListFlags_private* = enum_ImDrawListFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1255:2
+  ImVector_ImDrawChannel* = struct_ImVector_ImDrawChannel ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1313:84
+  ImDrawFlags_private* = enum_ImDrawFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1336:2
+  ImDrawListFlags_private* = enum_ImDrawListFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1343:2
   struct_ImVector_ImDrawVert* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1256:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1344:16
     Capacity*: cint
     Data*: ptr ImDrawVert
-  ImVector_ImDrawVert* = struct_ImVector_ImDrawVert ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1256:78
+  ImVector_ImDrawVert* = struct_ImVector_ImDrawVert ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1344:78
   struct_ImVector_ImVec2* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1258:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1346:16
     Capacity*: cint
     Data*: ptr ImVec2
-  ImVector_ImVec2* = struct_ImVector_ImVec2 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1258:70
+  ImVector_ImVec2* = struct_ImVector_ImVec2 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1346:70
   struct_ImVector_ImVec4* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1260:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1348:16
     Capacity*: cint
     Data*: ptr ImVec4
-  ImVector_ImVec4* = struct_ImVector_ImVec4 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1260:70
+  ImVector_ImVec4* = struct_ImVector_ImVec4 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1348:70
   struct_ImVector_ImTextureID* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1262:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1350:16
     Capacity*: cint
     Data*: ptr ImTextureID
-  ImVector_ImTextureID* = struct_ImVector_ImTextureID ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1262:80
+  ImVector_ImTextureID* = struct_ImVector_ImTextureID ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1350:80
   struct_ImVector_ImDrawListPtr* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1282:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1370:16
     Capacity*: cint
     Data*: ptr ptr ImDrawList
-  ImVector_ImDrawListPtr* = struct_ImVector_ImDrawListPtr ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1282:82
+  ImVector_ImDrawListPtr* = struct_ImVector_ImDrawListPtr ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1370:82
   struct_ImVector_ImU32* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1328:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1416:16
     Capacity*: cint
     Data*: ptr ImU32
-  ImVector_ImU32* = struct_ImVector_ImU32 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1328:68
-  ImFontAtlasCustomRect* = struct_ImFontAtlasCustomRect ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1334:38
+  ImVector_ImU32* = struct_ImVector_ImU32 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1416:68
+  ImFontAtlasCustomRect* = struct_ImFontAtlasCustomRect ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1422:38
   struct_ImFontAtlasCustomRect* {.pure, inheritable, bycopy.} = object
-    Width*: cushort          ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1335:8
+    Width*: cushort          ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1423:8
     Height*: cushort
     X*: cushort
     Y*: cushort
@@ -2704,80 +2833,79 @@ type
     GlyphAdvanceX*: cfloat
     GlyphOffset*: ImVec2
     Font*: ptr ImFont
-  ImFontAtlasFlags_private* = enum_ImFontAtlasFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1349:2
+  ImFontAtlasFlags_private* = enum_ImFontAtlasFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1437:2
   struct_ImVector_ImFontPtr* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1350:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1438:16
     Capacity*: cint
     Data*: ptr ptr ImFont
-  ImVector_ImFontPtr* = struct_ImVector_ImFontPtr ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1350:74
+  ImVector_ImFontPtr* = struct_ImVector_ImFontPtr ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1438:74
   struct_ImVector_ImFontAtlasCustomRect* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1352:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1440:16
     Capacity*: cint
     Data*: ptr ImFontAtlasCustomRect
-  ImVector_ImFontAtlasCustomRect* = struct_ImVector_ImFontAtlasCustomRect ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1352:100
+  ImVector_ImFontAtlasCustomRect* = struct_ImVector_ImFontAtlasCustomRect ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1440:100
   struct_ImVector_ImFontConfig* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1354:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1442:16
     Capacity*: cint
     Data*: ptr ImFontConfig
-  ImVector_ImFontConfig* = struct_ImVector_ImFontConfig ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1354:82
+  ImVector_ImFontConfig* = struct_ImVector_ImFontConfig ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1442:82
   struct_ImVector_float* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1381:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1469:16
     Capacity*: cint
     Data*: ptr cfloat
-  ImVector_float* = struct_ImVector_float ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1381:68
+  ImVector_float* = struct_ImVector_float ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1469:68
   struct_ImVector_ImFontGlyph* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1383:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1471:16
     Capacity*: cint
     Data*: ptr ImFontGlyph
-  ImVector_ImFontGlyph* = struct_ImVector_ImFontGlyph ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1383:80
-  ImGuiViewportFlags_private* = enum_ImGuiViewportFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1423:2
+  ImVector_ImFontGlyph* = struct_ImVector_ImFontGlyph ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1471:80
+  ImGuiViewportFlags_private* = enum_ImGuiViewportFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1511:2
   struct_ImVector_ImGuiPlatformMonitor* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1444:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1532:16
     Capacity*: cint
     Data*: ptr ImGuiPlatformMonitor
-  ImVector_ImGuiPlatformMonitor* = struct_ImVector_ImGuiPlatformMonitor ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1444:98
+  ImVector_ImGuiPlatformMonitor* = struct_ImVector_ImGuiPlatformMonitor ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1532:98
   struct_ImVector_ImGuiViewportPtr* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1446:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1534:16
     Capacity*: cint
     Data*: ptr ptr ImGuiViewport
-  ImVector_ImGuiViewportPtr* = struct_ImVector_ImGuiViewportPtr ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1446:88
-  ImGuiDataAuthority* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1534:13
-  ImGuiLayoutType* = cint    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1535:13
-  ImGuiActivateFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1536:13
-  ImGuiDebugLogFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1537:13
-  ImGuiFocusRequestFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1538:13
-  ImGuiItemFlags* = cint     ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1539:13
-  ImGuiItemStatusFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1540:13
-  ImGuiOldColumnFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1541:13
-  ImGuiNavHighlightFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1542:13
-  ImGuiNavMoveFlags* = cint  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1543:13
-  ImGuiNextItemDataFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1544:13
-  ImGuiNextWindowDataFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1545:13
-  ImGuiScrollFlags* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1546:13
-  ImGuiSeparatorFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1547:13
-  ImGuiTextFlags* = cint     ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1548:13
-  ImGuiTooltipFlags* = cint  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1549:13
-  ImGuiTypingSelectFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1550:13
-  ImGuiWindowRefreshFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1551:13
+  ImVector_ImGuiViewportPtr* = struct_ImVector_ImGuiViewportPtr ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1534:88
+  ImGuiDataAuthority* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1625:13
+  ImGuiLayoutType* = cint    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1626:13
+  ImGuiActivateFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1627:13
+  ImGuiDebugLogFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1628:13
+  ImGuiFocusRequestFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1629:13
+  ImGuiItemStatusFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1630:13
+  ImGuiOldColumnFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1631:13
+  ImGuiNavHighlightFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1632:13
+  ImGuiNavMoveFlags* = cint  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1633:13
+  ImGuiNextItemDataFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1634:13
+  ImGuiNextWindowDataFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1635:13
+  ImGuiScrollFlags* = cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1636:13
+  ImGuiSeparatorFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1637:13
+  ImGuiTextFlags* = cint     ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1638:13
+  ImGuiTooltipFlags* = cint  ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1639:13
+  ImGuiTypingSelectFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1640:13
+  ImGuiWindowRefreshFlags* = cint ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1641:13
   ImGuiErrorLogCallback* = proc (a0: pointer; a1: cstring): void {.cdecl,
-      varargs.}              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1552:16
-  StbUndoRecord* = struct_StbUndoRecord ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1554:30
+      varargs.}              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1642:16
+  StbUndoRecord* = struct_StbUndoRecord ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1644:30
   struct_StbUndoRecord* {.pure, inheritable, bycopy.} = object
-    where*: cint             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1555:8
+    where*: cint             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1645:8
     insert_length*: cint
     delete_length*: cint
     char_storage*: cint
-  StbUndoState* = struct_StbUndoState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1562:29
+  StbUndoState* = struct_StbUndoState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1652:29
   struct_StbUndoState* {.pure, inheritable, bycopy.} = object
-    undo_rec*: array[99'i64, StbUndoRecord] ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1563:8
+    undo_rec*: array[99'i64, StbUndoRecord] ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1653:8
     undo_char*: array[999'i64, ImWchar]
     undo_point*: cshort
     redo_point*: cshort
     undo_char_point*: cint
     redo_char_point*: cint
-  STB_TexteditState* = struct_STB_TexteditState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1570:34
+  STB_TexteditState* = struct_STB_TexteditState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1660:34
   struct_STB_TexteditState* {.pure, inheritable, bycopy.} = object
-    cursor*: cint            ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1571:8
+    cursor*: cint            ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1661:8
     select_start*: cint
     select_end*: cint
     insert_mode*: uint8
@@ -2791,124 +2919,123 @@ type
     padding3*: uint8
     preferred_x*: cfloat
     undostate*: StbUndoState
-  StbTexteditRow* = struct_StbTexteditRow ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1586:31
+  StbTexteditRow* = struct_StbTexteditRow ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1676:31
   struct_StbTexteditRow* {.pure, inheritable, bycopy.} = object
-    x0*: cfloat              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1587:8
+    x0*: cfloat              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1677:8
     x1*: cfloat
     baseline_y_delta*: cfloat
     ymin*: cfloat
     ymax*: cfloat
     num_chars*: cint
-  ImFileHandle* = ptr FILE   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1594:15
+  ImFileHandle* = ptr FILE   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1684:15
   FILE* = struct_iobuf       ## Generated based on C:/drvDx/msys32/mingw32/include/stdio.h:47:25
-  ImVec1* = struct_ImVec1    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1595:23
+  ImVec1* = struct_ImVec1    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1685:23
   struct_ImVec1* {.pure, inheritable, bycopy.} = object
-    x*: cfloat               ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1596:8
-  ImVec2ih* = struct_ImVec2ih ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1600:25
+    x*: cfloat               ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1686:8
+  ImVec2ih* = struct_ImVec2ih ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1690:25
   struct_ImVec2ih* {.pure, inheritable, bycopy.} = object
-    x*: cshort               ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1601:8
+    x*: cshort               ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1691:8
     y*: cshort
-  ImBitArrayPtr* = ptr ImU32 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1610:16
-  ImPoolIdx* = cint          ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1615:13
-  ImGuiTextIndex* = struct_ImGuiTextIndex ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1616:31
+  ImBitArrayPtr* = ptr ImU32 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1700:16
+  ImPoolIdx* = cint          ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1705:13
+  ImGuiTextIndex* = struct_ImGuiTextIndex ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1706:31
   struct_ImGuiTextIndex* {.pure, inheritable, bycopy.} = object
-    LineOffsets*: ImVector_int ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1619:8
+    LineOffsets*: ImVector_int ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1709:8
     EndOffset*: cint
   struct_ImVector_int* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1617:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1707:16
     Capacity*: cint
     Data*: ptr cint
-  ImVector_int* = struct_ImVector_int ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1617:64
-  ImGuiDataTypeStorage* = struct_ImGuiDataTypeStorage ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1650:37
+  ImVector_int* = struct_ImVector_int ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1707:64
+  ImGuiDataTypeStorage* = struct_ImGuiDataTypeStorage ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1741:37
   struct_ImGuiDataTypeStorage* {.pure, inheritable, bycopy.} = object
-    Data*: array[8'i64, ImU8] ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1651:8
-  ImGuiDataTypePrivate_private* = enum_ImGuiDataTypePrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1666:2
-  ImGuiItemFlags_private* = enum_ImGuiItemFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1681:2
-  ImGuiItemStatusFlags_private* = enum_ImGuiItemStatusFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1695:2
-  ImGuiHoveredFlagsPrivate_private* = enum_ImGuiHoveredFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1700:2
-  ImGuiInputTextFlagsPrivate_private* = enum_ImGuiInputTextFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1706:2
-  ImGuiButtonFlagsPrivate_private* = enum_ImGuiButtonFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1727:2
-  ImGuiComboFlagsPrivate_private* = enum_ImGuiComboFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1730:2
-  ImGuiSliderFlagsPrivate_private* = enum_ImGuiSliderFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1734:2
-  ImGuiSelectableFlagsPrivate_private* = enum_ImGuiSelectableFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1744:2
-  ImGuiTreeNodeFlagsPrivate_private* = enum_ImGuiTreeNodeFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1748:2
-  ImGuiSeparatorFlags_private* = enum_ImGuiSeparatorFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1754:2
-  ImGuiFocusRequestFlags_private* = enum_ImGuiFocusRequestFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1759:2
-  ImGuiTextFlags_private* = enum_ImGuiTextFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1763:2
-  ImGuiTooltipFlags_private* = enum_ImGuiTooltipFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1767:2
-  ImGuiLayoutType_private* = enum_ImGuiLayoutType_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1771:2
-  ImGuiLogType* = enum_ImGuiLogType ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1778:2
-  ImGuiAxis* = enum_ImGuiAxis ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1783:2
-  ImGuiPlotType* = enum_ImGuiPlotType ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1787:2
-  ImGuiComboPreviewData* = struct_ImGuiComboPreviewData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1798:38
+    Data*: array[8'i64, ImU8] ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1742:8
+  ImGuiDataTypePrivate_private* = enum_ImGuiDataTypePrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1757:2
+  ImGuiItemFlagsPrivate_private* = enum_ImGuiItemFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1768:2
+  ImGuiItemStatusFlags_private* = enum_ImGuiItemStatusFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1782:2
+  ImGuiHoveredFlagsPrivate_private* = enum_ImGuiHoveredFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1787:2
+  ImGuiInputTextFlagsPrivate_private* = enum_ImGuiInputTextFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1793:2
+  ImGuiButtonFlagsPrivate_private* = enum_ImGuiButtonFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1814:2
+  ImGuiComboFlagsPrivate_private* = enum_ImGuiComboFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1817:2
+  ImGuiSliderFlagsPrivate_private* = enum_ImGuiSliderFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1821:2
+  ImGuiSelectableFlagsPrivate_private* = enum_ImGuiSelectableFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1831:2
+  ImGuiTreeNodeFlagsPrivate_private* = enum_ImGuiTreeNodeFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1835:2
+  ImGuiSeparatorFlags_private* = enum_ImGuiSeparatorFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1841:2
+  ImGuiFocusRequestFlags_private* = enum_ImGuiFocusRequestFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1846:2
+  ImGuiTextFlags_private* = enum_ImGuiTextFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1850:2
+  ImGuiTooltipFlags_private* = enum_ImGuiTooltipFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1854:2
+  ImGuiLayoutType_private* = enum_ImGuiLayoutType_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1858:2
+  ImGuiLogType* = enum_ImGuiLogType ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1865:2
+  ImGuiAxis* = enum_ImGuiAxis ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1870:2
+  ImGuiPlotType* = enum_ImGuiPlotType ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1874:2
+  ImGuiComboPreviewData* = struct_ImGuiComboPreviewData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1885:38
   struct_ImGuiComboPreviewData* {.pure, inheritable, bycopy.} = object
-    PreviewRect*: ImRect     ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1799:8
+    PreviewRect*: ImRect     ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1886:8
     BackupCursorPos*: ImVec2
     BackupCursorMaxPos*: ImVec2
     BackupCursorPosPrevLine*: ImVec2
     BackupPrevLineTextBaseOffset*: cfloat
     BackupLayout*: ImGuiLayoutType
-  ImGuiInputTextDeactivatedState* = struct_ImGuiInputTextDeactivatedState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1835:47
+  ImGuiInputTextDeactivatedState* = struct_ImGuiInputTextDeactivatedState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1922:47
   struct_ImGuiInputTextDeactivatedState* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1836:8
+    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1923:8
     TextA*: ImVector_char
-  ImGuiWindowRefreshFlags_private* = enum_ImGuiWindowRefreshFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1867:2
-  ImGuiNextWindowDataFlags_private* = enum_ImGuiNextWindowDataFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1883:2
-  ImGuiSelectionUserData* = ImS64 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1909:15
-  ImGuiNextItemDataFlags_private* = enum_ImGuiNextItemDataFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1916:2
-  ImGuiWindowStackData* = struct_ImGuiWindowStackData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1958:37
+  ImGuiWindowRefreshFlags_private* = enum_ImGuiWindowRefreshFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1954:2
+  ImGuiNextWindowDataFlags_private* = enum_ImGuiNextWindowDataFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1970:2
+  ImGuiNextItemDataFlags_private* = enum_ImGuiNextItemDataFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2003:2
+  ImGuiWindowStackData* = struct_ImGuiWindowStackData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2048:37
   struct_ImGuiWindowStackData* {.pure, inheritable, bycopy.} = object
-    Window*: ptr ImGuiWindow ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1959:8
+    Window*: ptr ImGuiWindow ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2049:8
     ParentLastItemDataBackup*: ImGuiLastItemData
     StackSizesOnBegin*: ImGuiStackSizes
     DisabledOverrideReenable*: bool
-  ImGuiShrinkWidthItem* = struct_ImGuiShrinkWidthItem ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1966:37
+  ImGuiShrinkWidthItem* = struct_ImGuiShrinkWidthItem ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2056:37
   struct_ImGuiShrinkWidthItem* {.pure, inheritable, bycopy.} = object
-    Index*: cint             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1967:8
+    Index*: cint             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2057:8
     Width*: cfloat
     InitialWidth*: cfloat
-  ImGuiPtrOrIndex* = struct_ImGuiPtrOrIndex ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1973:32
+  ImGuiPtrOrIndex* = struct_ImGuiPtrOrIndex ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2063:32
   struct_ImGuiPtrOrIndex* {.pure, inheritable, bycopy.} = object
-    Ptr*: pointer            ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1974:8
+    Ptr*: pointer            ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2064:8
     Index*: cint
-  ImGuiPopupPositionPolicy* = enum_ImGuiPopupPositionPolicy ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1983:2
+  ImGuiPopupPositionPolicy* = enum_ImGuiPopupPositionPolicy ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2073:2
   struct_ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN* {.pure,
       inheritable, bycopy.} = object
-    Storage*: array[5'i64, ImU32] ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1995:16
-  ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN* = struct_ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1995:130
-  ImBitArrayForNamedKeys* = ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:1997:73
-  ImGuiInputEventType* = enum_ImGuiInputEventType ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2008:2
-  ImGuiInputSource* = enum_ImGuiInputSource ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2015:2
-  ImGuiInputEventMousePos* = struct_ImGuiInputEventMousePos ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2016:40
+    Storage*: array[5'i64, ImU32] ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2085:16
+  ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN* = struct_ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2085:130
+  ImBitArrayForNamedKeys* = ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2087:73
+  ImGuiInputEventType* = enum_ImGuiInputEventType ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2098:2
+  ImGuiInputSource* = enum_ImGuiInputSource ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2105:2
+  ImGuiInputEventMousePos* = struct_ImGuiInputEventMousePos ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2106:40
   struct_ImGuiInputEventMousePos* {.pure, inheritable, bycopy.} = object
-    PosX*: cfloat            ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2017:8
+    PosX*: cfloat            ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2107:8
     PosY*: cfloat
     MouseSource*: ImGuiMouseSource
-  ImGuiInputEventMouseWheel* = struct_ImGuiInputEventMouseWheel ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2020:42
+  ImGuiInputEventMouseWheel* = struct_ImGuiInputEventMouseWheel ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2110:42
   struct_ImGuiInputEventMouseWheel* {.pure, inheritable, bycopy.} = object
-    WheelX*: cfloat          ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2021:8
+    WheelX*: cfloat          ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2111:8
     WheelY*: cfloat
     MouseSource*: ImGuiMouseSource
-  ImGuiInputEventMouseButton* = struct_ImGuiInputEventMouseButton ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2024:43
+  ImGuiInputEventMouseButton* = struct_ImGuiInputEventMouseButton ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2114:43
   struct_ImGuiInputEventMouseButton* {.pure, inheritable, bycopy.} = object
-    Button*: cint            ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2025:8
+    Button*: cint            ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2115:8
     Down*: bool
     MouseSource*: ImGuiMouseSource
-  ImGuiInputEventMouseViewport* = struct_ImGuiInputEventMouseViewport ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2028:45
+  ImGuiInputEventMouseViewport* = struct_ImGuiInputEventMouseViewport ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2118:45
   struct_ImGuiInputEventMouseViewport* {.pure, inheritable, bycopy.} = object
-    HoveredViewportID*: ImGuiID ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2029:8
-  ImGuiInputEventKey* = struct_ImGuiInputEventKey ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2032:35
+    HoveredViewportID*: ImGuiID ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2119:8
+  ImGuiInputEventKey* = struct_ImGuiInputEventKey ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2122:35
   struct_ImGuiInputEventKey* {.pure, inheritable, bycopy.} = object
-    Key*: ImGuiKey           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2033:8
+    Key*: ImGuiKey           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2123:8
     Down*: bool
     AnalogValue*: cfloat
-  ImGuiInputEventText* = struct_ImGuiInputEventText ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2036:36
+  ImGuiInputEventText* = struct_ImGuiInputEventText ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2126:36
   struct_ImGuiInputEventText* {.pure, inheritable, bycopy.} = object
-    Char*: cuint             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2037:8
-  ImGuiInputEventAppFocused* = struct_ImGuiInputEventAppFocused ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2040:42
+    Char*: cuint             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2127:8
+  ImGuiInputEventAppFocused* = struct_ImGuiInputEventAppFocused ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2130:42
   struct_ImGuiInputEventAppFocused* {.pure, inheritable, bycopy.} = object
-    Focused*: bool           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2041:8
-  ImGuiInputEvent* = struct_ImGuiInputEvent ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2044:32
+    Focused*: bool           ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2131:8
+  ImGuiInputEvent* = struct_ImGuiInputEvent ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2134:32
   struct_ImGuiInputEvent_anon0_t* {.union, bycopy.} = object
     MousePos*: ImGuiInputEventMousePos
     MouseWheel*: ImGuiInputEventMouseWheel
@@ -2918,94 +3045,94 @@ type
     Text*: ImGuiInputEventText
     AppFocused*: ImGuiInputEventAppFocused
   struct_ImGuiInputEvent* {.pure, inheritable, bycopy.} = object
-    Type*: ImGuiInputEventType ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2045:8
+    Type*: ImGuiInputEventType ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2135:8
     Source*: ImGuiInputSource
     EventId*: ImU32
     anon0*: struct_ImGuiInputEvent_anon0_t
     AddedByTestEngine*: bool
-  ImGuiKeyRoutingIndex* = ImS16 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2062:15
-  ImGuiKeyRoutingData* = struct_ImGuiKeyRoutingData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2063:36
+  ImGuiKeyRoutingIndex* = ImS16 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2152:15
+  ImGuiKeyRoutingData* = struct_ImGuiKeyRoutingData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2153:36
   struct_ImGuiKeyRoutingData* {.pure, inheritable, bycopy.} = object
-    NextEntryIndex*: ImGuiKeyRoutingIndex ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2064:8
+    NextEntryIndex*: ImGuiKeyRoutingIndex ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2154:8
     Mods*: ImU16
     RoutingCurrScore*: ImU8
     RoutingNextScore*: ImU8
     RoutingCurr*: ImGuiID
     RoutingNext*: ImGuiID
-  ImGuiKeyRoutingTable* = struct_ImGuiKeyRoutingTable ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2073:37
+  ImGuiKeyRoutingTable* = struct_ImGuiKeyRoutingTable ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2163:37
   struct_ImGuiKeyRoutingTable* {.pure, inheritable, bycopy.} = object
-    Index*: array[154'i64, ImGuiKeyRoutingIndex] ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2076:8
+    Index*: array[154'i64, ImGuiKeyRoutingIndex] ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2166:8
     Entries*: ImVector_ImGuiKeyRoutingData
     EntriesNext*: ImVector_ImGuiKeyRoutingData
   struct_ImVector_ImGuiKeyRoutingData* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2074:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2164:16
     Capacity*: cint
     Data*: ptr ImGuiKeyRoutingData
-  ImVector_ImGuiKeyRoutingData* = struct_ImVector_ImGuiKeyRoutingData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2074:96
-  ImGuiKeyOwnerData* = struct_ImGuiKeyOwnerData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2082:34
+  ImVector_ImGuiKeyRoutingData* = struct_ImVector_ImGuiKeyRoutingData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2164:96
+  ImGuiKeyOwnerData* = struct_ImGuiKeyOwnerData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2172:34
   struct_ImGuiKeyOwnerData* {.pure, inheritable, bycopy.} = object
-    OwnerCurr*: ImGuiID      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2083:8
+    OwnerCurr*: ImGuiID      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2173:8
     OwnerNext*: ImGuiID
     LockThisFrame*: bool
     LockUntilRelease*: bool
-  ImGuiInputFlagsPrivate_private* = enum_ImGuiInputFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2115:2
-  ImGuiListClipperRange* = struct_ImGuiListClipperRange ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2116:38
+  ImGuiInputFlagsPrivate_private* = enum_ImGuiInputFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2205:2
+  ImGuiListClipperRange* = struct_ImGuiListClipperRange ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2206:38
   struct_ImGuiListClipperRange* {.pure, inheritable, bycopy.} = object
-    Min*: cint               ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2117:8
+    Min*: cint               ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2207:8
     Max*: cint
     PosToIndexConvert*: bool
     PosToIndexOffsetMin*: ImS8
     PosToIndexOffsetMax*: ImS8
-  ImGuiListClipperData* = struct_ImGuiListClipperData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2125:37
+  ImGuiListClipperData* = struct_ImGuiListClipperData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2215:37
   struct_ImGuiListClipperData* {.pure, inheritable, bycopy.} = object
-    ListClipper*: ptr ImGuiListClipper ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2128:8
+    ListClipper*: ptr ImGuiListClipper ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2218:8
     LossynessOffset*: cfloat
     StepNo*: cint
     ItemsFrozen*: cint
     Ranges*: ImVector_ImGuiListClipperRange
   struct_ImVector_ImGuiListClipperRange* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2126:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2216:16
     Capacity*: cint
     Data*: ptr ImGuiListClipperRange
-  ImVector_ImGuiListClipperRange* = struct_ImVector_ImGuiListClipperRange ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2126:100
-  ImGuiActivateFlags_private* = enum_ImGuiActivateFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2143:2
-  ImGuiScrollFlags_private* = enum_ImGuiScrollFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2155:2
-  ImGuiNavHighlightFlags_private* = enum_ImGuiNavHighlightFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2161:2
-  ImGuiNavMoveFlags_private* = enum_ImGuiNavMoveFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2181:2
-  ImGuiNavLayer* = enum_ImGuiNavLayer ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2186:2
-  ImGuiFocusScopeData* = struct_ImGuiFocusScopeData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2199:36
+  ImVector_ImGuiListClipperRange* = struct_ImVector_ImGuiListClipperRange ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2216:100
+  ImGuiActivateFlags_private* = enum_ImGuiActivateFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2233:2
+  ImGuiScrollFlags_private* = enum_ImGuiScrollFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2245:2
+  ImGuiNavHighlightFlags_private* = enum_ImGuiNavHighlightFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2251:2
+  ImGuiNavMoveFlags_private* = enum_ImGuiNavMoveFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2271:2
+  ImGuiNavLayer* = enum_ImGuiNavLayer ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2276:2
+  ImGuiFocusScopeData* = struct_ImGuiFocusScopeData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2289:36
   struct_ImGuiFocusScopeData* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2200:8
+    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2290:8
     WindowID*: ImGuiID
-  ImGuiTypingSelectFlags_private* = enum_ImGuiTypingSelectFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2209:2
-  ImGuiOldColumnFlags_private* = enum_ImGuiOldColumnFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2235:2
+  ImGuiTypingSelectFlags_private* = enum_ImGuiTypingSelectFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2299:2
+  ImGuiOldColumnFlags_private* = enum_ImGuiOldColumnFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2325:2
   struct_ImVector_ImGuiOldColumnData* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2243:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2333:16
     Capacity*: cint
     Data*: ptr ImGuiOldColumnData
-  ImVector_ImGuiOldColumnData* = struct_ImVector_ImGuiOldColumnData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2243:94
-  ImGuiDockNodeFlagsPrivate_private* = enum_ImGuiDockNodeFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2282:2
-  ImGuiDataAuthority_private* = enum_ImGuiDataAuthority_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2287:2
-  ImGuiDockNodeState* = enum_ImGuiDockNodeState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2293:2
+  ImVector_ImGuiOldColumnData* = struct_ImVector_ImGuiOldColumnData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2333:94
+  ImGuiDockNodeFlagsPrivate_private* = enum_ImGuiDockNodeFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2420:2
+  ImGuiDataAuthority_private* = enum_ImGuiDataAuthority_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2425:2
+  ImGuiDockNodeState* = enum_ImGuiDockNodeState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2431:2
   struct_ImVector_ImGuiWindowPtr* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2294:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2432:16
     Capacity*: cint
     Data*: ptr ptr ImGuiWindow
-  ImVector_ImGuiWindowPtr* = struct_ImVector_ImGuiWindowPtr ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2294:84
-  ImGuiWindowDockStyleCol* = enum_ImGuiWindowDockStyleCol ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2351:2
+  ImVector_ImGuiWindowPtr* = struct_ImVector_ImGuiWindowPtr ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2432:84
+  ImGuiWindowDockStyleCol* = enum_ImGuiWindowDockStyleCol ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2489:2
   struct_ImVector_ImGuiDockRequest* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2356:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2494:16
     Capacity*: cint
     Data*: ptr ImGuiDockRequest
-  ImVector_ImGuiDockRequest* = struct_ImVector_ImGuiDockRequest ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2356:90
+  ImVector_ImGuiDockRequest* = struct_ImVector_ImGuiDockRequest ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2494:90
   struct_ImVector_ImGuiDockNodeSettings* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2358:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2496:16
     Capacity*: cint
     Data*: ptr ImGuiDockNodeSettings
-  ImVector_ImGuiDockNodeSettings* = struct_ImVector_ImGuiDockNodeSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2358:100
-  ImGuiViewportP* = struct_ImGuiViewportP ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2367:31
+  ImVector_ImGuiDockNodeSettings* = struct_ImVector_ImGuiDockNodeSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2496:100
+  ImGuiViewportP* = struct_ImGuiViewportP ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2505:31
   struct_ImGuiViewportP* {.pure, inheritable, bycopy.} = object
-    internal_ImGuiViewport*: ImGuiViewport ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2368:8
+    internal_ImGuiViewport*: ImGuiViewport ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2506:8
     Window*: ptr ImGuiWindow
     Idx*: cint
     LastFrameActive*: cint
@@ -3027,208 +3154,224 @@ type
     WorkOffsetMax*: ImVec2
     BuildWorkOffsetMin*: ImVec2
     BuildWorkOffsetMax*: ImVec2
-  ImGuiLocKey* = enum_ImGuiLocKey ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2433:2
-  ImGuiDebugLogFlags_private* = enum_ImGuiDebugLogFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2454:2
-  ImGuiDebugAllocEntry* = struct_ImGuiDebugAllocEntry ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2455:37
+  ImGuiLocKey* = enum_ImGuiLocKey ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2572:2
+  ImGuiDebugLogFlags_private* = enum_ImGuiDebugLogFlags_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2593:2
+  ImGuiDebugAllocEntry* = struct_ImGuiDebugAllocEntry ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2594:37
   struct_ImGuiDebugAllocEntry* {.pure, inheritable, bycopy.} = object
-    FrameCount*: cint        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2456:8
+    FrameCount*: cint        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2595:8
     AllocCount*: ImS16
     FreeCount*: ImS16
-  ImGuiDebugAllocInfo* = struct_ImGuiDebugAllocInfo ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2462:36
+  ImGuiDebugAllocInfo* = struct_ImGuiDebugAllocInfo ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2601:36
   struct_ImGuiDebugAllocInfo* {.pure, inheritable, bycopy.} = object
-    TotalAllocCount*: cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2463:8
+    TotalAllocCount*: cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2602:8
     TotalFreeCount*: cint
     LastEntriesIdx*: ImS16
     LastEntriesBuf*: array[6'i64, ImGuiDebugAllocEntry]
-  ImGuiStackLevelInfo* = struct_ImGuiStackLevelInfo ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2487:36
+  ImGuiStackLevelInfo* = struct_ImGuiStackLevelInfo ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2626:36
   struct_ImGuiStackLevelInfo* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2488:8
+    ID*: ImGuiID             ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2627:8
     QueryFrameCount*: ImS8
     QuerySuccess*: bool
     DataType*: ImGuiDataType
     Desc*: array[57'i64, cschar]
-  ImGuiIDStackTool* = struct_ImGuiIDStackTool ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2496:33
+  ImGuiIDStackTool* = struct_ImGuiIDStackTool ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2635:33
   struct_ImGuiIDStackTool* {.pure, inheritable, bycopy.} = object
-    LastActiveFrame*: cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2499:8
+    LastActiveFrame*: cint   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2638:8
     StackLevel*: cint
     QueryId*: ImGuiID
     Results*: ImVector_ImGuiStackLevelInfo
     CopyToClipboardOnCtrlC*: bool
     CopyToClipboardLastTime*: cfloat
   struct_ImVector_ImGuiStackLevelInfo* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2497:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2636:16
     Capacity*: cint
     Data*: ptr ImGuiStackLevelInfo
-  ImVector_ImGuiStackLevelInfo* = struct_ImVector_ImGuiStackLevelInfo ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2497:96
+  ImVector_ImGuiStackLevelInfo* = struct_ImVector_ImGuiStackLevelInfo ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2636:96
   ImGuiContextHookCallback* = proc (a0: ptr ImGuiContext;
-                                    a1: ptr ImGuiContextHook): void {.cdecl.} ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2508:16
-  ImGuiContextHookType* = enum_ImGuiContextHookType ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2509:288
+                                    a1: ptr ImGuiContextHook): void {.cdecl.} ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2647:16
+  ImGuiContextHookType* = enum_ImGuiContextHookType ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2648:288
   struct_ImVector_ImGuiInputEvent* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2518:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2657:16
     Capacity*: cint
     Data*: ptr ImGuiInputEvent
-  ImVector_ImGuiInputEvent* = struct_ImVector_ImGuiInputEvent ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2518:88
+  ImVector_ImGuiInputEvent* = struct_ImVector_ImGuiInputEvent ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2657:88
   struct_ImVector_ImGuiWindowStackData* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2520:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2659:16
     Capacity*: cint
     Data*: ptr ImGuiWindowStackData
-  ImVector_ImGuiWindowStackData* = struct_ImVector_ImGuiWindowStackData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2520:98
+  ImVector_ImGuiWindowStackData* = struct_ImVector_ImGuiWindowStackData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2659:98
   struct_ImVector_ImGuiColorMod* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2522:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2661:16
     Capacity*: cint
     Data*: ptr ImGuiColorMod
-  ImVector_ImGuiColorMod* = struct_ImVector_ImGuiColorMod ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2522:84
+  ImVector_ImGuiColorMod* = struct_ImVector_ImGuiColorMod ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2661:84
   struct_ImVector_ImGuiStyleMod* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2524:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2663:16
     Capacity*: cint
     Data*: ptr ImGuiStyleMod
-  ImVector_ImGuiStyleMod* = struct_ImVector_ImGuiStyleMod ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2524:84
+  ImVector_ImGuiStyleMod* = struct_ImVector_ImGuiStyleMod ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2663:84
   struct_ImVector_ImGuiFocusScopeData* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2526:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2665:16
     Capacity*: cint
     Data*: ptr ImGuiFocusScopeData
-  ImVector_ImGuiFocusScopeData* = struct_ImVector_ImGuiFocusScopeData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2526:96
+  ImVector_ImGuiFocusScopeData* = struct_ImVector_ImGuiFocusScopeData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2665:96
   struct_ImVector_ImGuiItemFlags* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2528:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2667:16
     Capacity*: cint
     Data*: ptr ImGuiItemFlags
-  ImVector_ImGuiItemFlags* = struct_ImVector_ImGuiItemFlags ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2528:86
+  ImVector_ImGuiItemFlags* = struct_ImVector_ImGuiItemFlags ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2667:86
   struct_ImVector_ImGuiGroupData* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2530:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2669:16
     Capacity*: cint
     Data*: ptr ImGuiGroupData
-  ImVector_ImGuiGroupData* = struct_ImVector_ImGuiGroupData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2530:86
+  ImVector_ImGuiGroupData* = struct_ImVector_ImGuiGroupData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2669:86
   struct_ImVector_ImGuiPopupData* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2532:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2671:16
     Capacity*: cint
     Data*: ptr ImGuiPopupData
-  ImVector_ImGuiPopupData* = struct_ImVector_ImGuiPopupData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2532:86
-  struct_ImVector_ImGuiNavTreeNodeData* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2534:16
+  ImVector_ImGuiPopupData* = struct_ImVector_ImGuiPopupData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2671:86
+  struct_ImVector_ImGuiTreeNodeStackData* {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2673:16
     Capacity*: cint
-    Data*: ptr ImGuiNavTreeNodeData
-  ImVector_ImGuiNavTreeNodeData* = struct_ImVector_ImGuiNavTreeNodeData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2534:98
+    Data*: ptr ImGuiTreeNodeStackData
+  ImVector_ImGuiTreeNodeStackData* = struct_ImVector_ImGuiTreeNodeStackData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2673:102
   struct_ImVector_ImGuiViewportPPtr* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2536:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2675:16
     Capacity*: cint
     Data*: ptr ptr ImGuiViewportP
-  ImVector_ImGuiViewportPPtr* = struct_ImVector_ImGuiViewportPPtr ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2536:90
+  ImVector_ImGuiViewportPPtr* = struct_ImVector_ImGuiViewportPPtr ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2675:90
   struct_ImVector_unsigned_char* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2538:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2677:16
     Capacity*: cint
     Data*: ptr uint8
-  ImVector_unsigned_char* = struct_ImVector_unsigned_char ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2538:84
+  ImVector_unsigned_char* = struct_ImVector_unsigned_char ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2677:84
   struct_ImVector_ImGuiListClipperData* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2540:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2679:16
     Capacity*: cint
     Data*: ptr ImGuiListClipperData
-  ImVector_ImGuiListClipperData* = struct_ImVector_ImGuiListClipperData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2540:98
+  ImVector_ImGuiListClipperData* = struct_ImVector_ImGuiListClipperData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2679:98
   struct_ImVector_ImGuiTableTempData* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2542:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2681:16
     Capacity*: cint
     Data*: ptr ImGuiTableTempData
-  ImVector_ImGuiTableTempData* = struct_ImVector_ImGuiTableTempData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2542:94
+  ImVector_ImGuiTableTempData* = struct_ImVector_ImGuiTableTempData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2681:94
   struct_ImVector_ImGuiTable* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2544:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2683:16
     Capacity*: cint
     Data*: ptr ImGuiTable
-  ImVector_ImGuiTable* = struct_ImVector_ImGuiTable ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2544:78
+  ImVector_ImGuiTable* = struct_ImVector_ImGuiTable ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2683:78
   struct_ImPool_ImGuiTable* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_ImGuiTable ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2546:16
+    Buf*: ImVector_ImGuiTable ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2685:16
     Map*: ImGuiStorage
     FreeIdx*: ImPoolIdx
     AliveCount*: ImPoolIdx
-  ImPool_ImGuiTable* = struct_ImPool_ImGuiTable ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2546:117
+  ImPool_ImGuiTable* = struct_ImPool_ImGuiTable ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2685:117
   struct_ImVector_ImGuiTabBar* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2548:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2687:16
     Capacity*: cint
     Data*: ptr ImGuiTabBar
-  ImVector_ImGuiTabBar* = struct_ImVector_ImGuiTabBar ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2548:80
+  ImVector_ImGuiTabBar* = struct_ImVector_ImGuiTabBar ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2687:80
   struct_ImPool_ImGuiTabBar* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_ImGuiTabBar ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2550:16
+    Buf*: ImVector_ImGuiTabBar ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2689:16
     Map*: ImGuiStorage
     FreeIdx*: ImPoolIdx
     AliveCount*: ImPoolIdx
-  ImPool_ImGuiTabBar* = struct_ImPool_ImGuiTabBar ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2550:119
+  ImPool_ImGuiTabBar* = struct_ImPool_ImGuiTabBar ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2689:119
   struct_ImVector_ImGuiPtrOrIndex* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2552:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2691:16
     Capacity*: cint
     Data*: ptr ImGuiPtrOrIndex
-  ImVector_ImGuiPtrOrIndex* = struct_ImVector_ImGuiPtrOrIndex ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2552:88
+  ImVector_ImGuiPtrOrIndex* = struct_ImVector_ImGuiPtrOrIndex ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2691:88
   struct_ImVector_ImGuiShrinkWidthItem* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2554:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2693:16
     Capacity*: cint
     Data*: ptr ImGuiShrinkWidthItem
-  ImVector_ImGuiShrinkWidthItem* = struct_ImVector_ImGuiShrinkWidthItem ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2554:98
+  ImVector_ImGuiShrinkWidthItem* = struct_ImVector_ImGuiShrinkWidthItem ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2693:98
+  struct_ImVector_ImGuiMultiSelectTempData* {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2695:16
+    Capacity*: cint
+    Data*: ptr ImGuiMultiSelectTempData
+  ImVector_ImGuiMultiSelectTempData* = struct_ImVector_ImGuiMultiSelectTempData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2695:106
+  struct_ImVector_ImGuiMultiSelectState* {.pure, inheritable, bycopy.} = object
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2697:16
+    Capacity*: cint
+    Data*: ptr ImGuiMultiSelectState
+  ImVector_ImGuiMultiSelectState* = struct_ImVector_ImGuiMultiSelectState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2697:100
+  struct_ImPool_ImGuiMultiSelectState* {.pure, inheritable, bycopy.} = object
+    Buf*: ImVector_ImGuiMultiSelectState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2699:16
+    Map*: ImGuiStorage
+    FreeIdx*: ImPoolIdx
+    AliveCount*: ImPoolIdx
+  ImPool_ImGuiMultiSelectState* = struct_ImPool_ImGuiMultiSelectState ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2699:139
   struct_ImVector_ImGuiID* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2556:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2701:16
     Capacity*: cint
     Data*: ptr ImGuiID
-  ImVector_ImGuiID* = struct_ImVector_ImGuiID ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2556:72
+  ImVector_ImGuiID* = struct_ImVector_ImGuiID ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2701:72
   struct_ImVector_ImGuiSettingsHandler* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2558:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2703:16
     Capacity*: cint
     Data*: ptr ImGuiSettingsHandler
-  ImVector_ImGuiSettingsHandler* = struct_ImVector_ImGuiSettingsHandler ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2558:98
+  ImVector_ImGuiSettingsHandler* = struct_ImVector_ImGuiSettingsHandler ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2703:98
   struct_ImChunkStream_ImGuiWindowSettings* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_char      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2560:16
-  ImChunkStream_ImGuiWindowSettings* = struct_ImChunkStream_ImGuiWindowSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2560:71
+    Buf*: ImVector_char      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2705:16
+  ImChunkStream_ImGuiWindowSettings* = struct_ImChunkStream_ImGuiWindowSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2705:71
   struct_ImChunkStream_ImGuiTableSettings* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_char      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2562:16
-  ImChunkStream_ImGuiTableSettings* = struct_ImChunkStream_ImGuiTableSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2562:70
+    Buf*: ImVector_char      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2707:16
+  ImChunkStream_ImGuiTableSettings* = struct_ImChunkStream_ImGuiTableSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2707:70
   struct_ImVector_ImGuiContextHook* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2564:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2709:16
     Capacity*: cint
     Data*: ptr ImGuiContextHook
-  ImVector_ImGuiContextHook* = struct_ImVector_ImGuiContextHook ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2564:90
+  ImVector_ImGuiContextHook* = struct_ImVector_ImGuiContextHook ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2709:90
   struct_ImVector_ImGuiOldColumns* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2904:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3055:16
     Capacity*: cint
     Data*: ptr ImGuiOldColumns
-  ImVector_ImGuiOldColumns* = struct_ImVector_ImGuiOldColumns ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:2904:88
-  ImGuiTabBarFlagsPrivate_private* = enum_ImGuiTabBarFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3030:2
-  ImGuiTabItemFlagsPrivate_private* = enum_ImGuiTabItemFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3036:2
+  ImVector_ImGuiOldColumns* = struct_ImVector_ImGuiOldColumns ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3055:88
+  ImGuiTabBarFlagsPrivate_private* = enum_ImGuiTabBarFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3181:2
+  ImGuiTabItemFlagsPrivate_private* = enum_ImGuiTabItemFlagsPrivate_private ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3187:2
   struct_ImVector_ImGuiTabItem* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3053:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3204:16
     Capacity*: cint
     Data*: ptr ImGuiTabItem
-  ImVector_ImGuiTabItem* = struct_ImVector_ImGuiTabItem ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3053:82
-  ImGuiTableColumnIdx* = ImS16 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3091:15
-  ImGuiTableDrawChannelIdx* = ImU16 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3092:15
-  ImGuiTableCellData* = struct_ImGuiTableCellData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3137:35
+  ImVector_ImGuiTabItem* = struct_ImVector_ImGuiTabItem ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3204:82
+  ImGuiTableColumnIdx* = ImS16 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3242:15
+  ImGuiTableDrawChannelIdx* = ImU16 ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3243:15
+  ImGuiTableCellData* = struct_ImGuiTableCellData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3288:35
   struct_ImGuiTableCellData* {.pure, inheritable, bycopy.} = object
-    BgColor*: ImU32          ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3138:8
+    BgColor*: ImU32          ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3289:8
     Column*: ImGuiTableColumnIdx
   struct_ImSpan_ImGuiTableColumn* {.pure, inheritable, bycopy.} = object
-    Data*: ptr ImGuiTableColumn ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3159:16
+    Data*: ptr ImGuiTableColumn ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3310:16
     DataEnd*: ptr ImGuiTableColumn
-  ImSpan_ImGuiTableColumn* = struct_ImSpan_ImGuiTableColumn ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3159:92
+  ImSpan_ImGuiTableColumn* = struct_ImSpan_ImGuiTableColumn ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3310:92
   struct_ImSpan_ImGuiTableColumnIdx* {.pure, inheritable, bycopy.} = object
-    Data*: ptr ImGuiTableColumnIdx ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3161:16
+    Data*: ptr ImGuiTableColumnIdx ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3312:16
     DataEnd*: ptr ImGuiTableColumnIdx
-  ImSpan_ImGuiTableColumnIdx* = struct_ImSpan_ImGuiTableColumnIdx ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3161:101
+  ImSpan_ImGuiTableColumnIdx* = struct_ImSpan_ImGuiTableColumnIdx ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3312:101
   struct_ImSpan_ImGuiTableCellData* {.pure, inheritable, bycopy.} = object
-    Data*: ptr ImGuiTableCellData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3163:16
+    Data*: ptr ImGuiTableCellData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3314:16
     DataEnd*: ptr ImGuiTableCellData
-  ImSpan_ImGuiTableCellData* = struct_ImSpan_ImGuiTableCellData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3163:98
+  ImSpan_ImGuiTableCellData* = struct_ImSpan_ImGuiTableCellData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3314:98
   struct_ImVector_ImGuiTableInstanceData* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3165:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3316:16
     Capacity*: cint
     Data*: ptr ImGuiTableInstanceData
-  ImVector_ImGuiTableInstanceData* = struct_ImVector_ImGuiTableInstanceData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3165:102
+  ImVector_ImGuiTableInstanceData* = struct_ImVector_ImGuiTableInstanceData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3316:102
   struct_ImVector_ImGuiTableColumnSortSpecs* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3167:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3318:16
     Capacity*: cint
     Data*: ptr ImGuiTableColumnSortSpecs
-  ImVector_ImGuiTableColumnSortSpecs* = struct_ImVector_ImGuiTableColumnSortSpecs ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3167:108
+  ImVector_ImGuiTableColumnSortSpecs* = struct_ImVector_ImGuiTableColumnSortSpecs ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3318:108
   struct_ImVector_ImGuiTableHeaderData* {.pure, inheritable, bycopy.} = object
-    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3284:16
+    Size*: cint              ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3435:16
     Capacity*: cint
     Data*: ptr ImGuiTableHeaderData
-  ImVector_ImGuiTableHeaderData* = struct_ImVector_ImGuiTableHeaderData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3284:98
-  ImGuiTableColumnSettings* = struct_ImGuiTableColumnSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3303:41
+  ImVector_ImGuiTableHeaderData* = struct_ImVector_ImGuiTableHeaderData ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3435:98
+  ImGuiTableColumnSettings* = struct_ImGuiTableColumnSettings ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3454:41
   struct_ImGuiTableColumnSettings* {.pure, inheritable, bycopy.} = object
-    WidthOrWeight*: cfloat   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3304:8
+    WidthOrWeight*: cfloat   ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3455:8
     UserID*: ImGuiID
     Index*: ImGuiTableColumnIdx
     DisplayOrder*: ImGuiTableColumnIdx
@@ -3848,9 +3991,9 @@ else:
     let EXTERN* = extern     ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:28:13
 when 1 is static:
   const
-    IMGUI_HAS_DOCK* = 1      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3328:9
+    IMGUI_HAS_DOCK* = 1      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3479:9
 else:
-  let IMGUI_HAS_DOCK* = 1    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3328:9
+  let IMGUI_HAS_DOCK* = 1    ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimgui/cimgui.h:3479:9
 var GImGui* {.importc: "GImGui".}: ptr ImGuiContext
 proc ImVec2_ImVec2_Nil*(): ptr ImVec2 {.cdecl, importc: "ImVec2_ImVec2_Nil".}
 proc ImVec2_destroy*(self: ptr ImVec2): void {.cdecl, importc: "ImVec2_destroy".}
@@ -3962,14 +4105,6 @@ proc igSetWindowCollapsed_Str*(name: cstring; collapsed: bool; cond: ImGuiCond):
     cdecl, importc: "igSetWindowCollapsed_Str".}
 proc igSetWindowFocus_Str*(name: cstring): void {.cdecl,
     importc: "igSetWindowFocus_Str".}
-proc igGetContentRegionAvail*(pOut: ptr ImVec2): void {.cdecl,
-    importc: "igGetContentRegionAvail".}
-proc igGetContentRegionMax*(pOut: ptr ImVec2): void {.cdecl,
-    importc: "igGetContentRegionMax".}
-proc igGetWindowContentRegionMin*(pOut: ptr ImVec2): void {.cdecl,
-    importc: "igGetWindowContentRegionMin".}
-proc igGetWindowContentRegionMax*(pOut: ptr ImVec2): void {.cdecl,
-    importc: "igGetWindowContentRegionMax".}
 proc igGetScrollX*(): cfloat {.cdecl, importc: "igGetScrollX".}
 proc igGetScrollY*(): cfloat {.cdecl, importc: "igGetScrollY".}
 proc igSetScrollX_Float*(scroll_x: cfloat): void {.cdecl,
@@ -3998,11 +4133,9 @@ proc igPushStyleVar_Float*(idx: ImGuiStyleVar; val: cfloat): void {.cdecl,
 proc igPushStyleVar_Vec2*(idx: ImGuiStyleVar; val: ImVec2): void {.cdecl,
     importc: "igPushStyleVar_Vec2".}
 proc igPopStyleVar*(count: cint): void {.cdecl, importc: "igPopStyleVar".}
-proc igPushTabStop*(tab_stop: bool): void {.cdecl, importc: "igPushTabStop".}
-proc igPopTabStop*(): void {.cdecl, importc: "igPopTabStop".}
-proc igPushButtonRepeat*(repeat: bool): void {.cdecl,
-    importc: "igPushButtonRepeat".}
-proc igPopButtonRepeat*(): void {.cdecl, importc: "igPopButtonRepeat".}
+proc igPushItemFlag*(option: ImGuiItemFlags; enabled: bool): void {.cdecl,
+    importc: "igPushItemFlag".}
+proc igPopItemFlag*(): void {.cdecl, importc: "igPopItemFlag".}
 proc igPushItemWidth*(item_width: cfloat): void {.cdecl,
     importc: "igPushItemWidth".}
 proc igPopItemWidth*(): void {.cdecl, importc: "igPopItemWidth".}
@@ -4028,6 +4161,8 @@ proc igGetCursorScreenPos*(pOut: ptr ImVec2): void {.cdecl,
     importc: "igGetCursorScreenPos".}
 proc igSetCursorScreenPos*(pos: ImVec2): void {.cdecl,
     importc: "igSetCursorScreenPos".}
+proc igGetContentRegionAvail*(pOut: ptr ImVec2): void {.cdecl,
+    importc: "igGetContentRegionAvail".}
 proc igGetCursorPos*(pOut: ptr ImVec2): void {.cdecl, importc: "igGetCursorPos".}
 proc igGetCursorPosX*(): cfloat {.cdecl, importc: "igGetCursorPosX".}
 proc igGetCursorPosY*(): cfloat {.cdecl, importc: "igGetCursorPosY".}
@@ -4064,6 +4199,7 @@ proc igGetID_Str*(str_id: cstring): ImGuiID {.cdecl, importc: "igGetID_Str".}
 proc igGetID_StrStr*(str_id_begin: cstring; str_id_end: cstring): ImGuiID {.
     cdecl, importc: "igGetID_StrStr".}
 proc igGetID_Ptr*(ptr_id: pointer): ImGuiID {.cdecl, importc: "igGetID_Ptr".}
+proc igGetID_Int*(int_id: cint): ImGuiID {.cdecl, importc: "igGetID_Int".}
 proc igTextUnformatted*(text: cstring; text_end: cstring): void {.cdecl,
     importc: "igTextUnformatted".}
 proc igText*(fmt: cstring): void {.cdecl, varargs, importc: "igText".}
@@ -4108,6 +4244,9 @@ proc igRadioButton_IntPtr*(label: cstring; v: ptr cint; v_button: cint): bool {.
 proc igProgressBar*(fraction: cfloat; size_arg: ImVec2; overlay: cstring): void {.
     cdecl, importc: "igProgressBar".}
 proc igBullet*(): void {.cdecl, importc: "igBullet".}
+proc igTextLink*(label: cstring): bool {.cdecl, importc: "igTextLink".}
+proc igTextLinkOpenURL*(label: cstring; url: cstring): void {.cdecl,
+    importc: "igTextLinkOpenURL".}
 proc igImage*(user_texture_id: ImTextureID; image_size: ImVec2; uv0: ImVec2;
               uv1: ImVec2; tint_col: ImVec4; border_col: ImVec4): void {.cdecl,
     importc: "igImage".}
@@ -4319,12 +4458,23 @@ proc igCollapsingHeader_BoolPtr*(label: cstring; p_visible: ptr bool;
     importc: "igCollapsingHeader_BoolPtr".}
 proc igSetNextItemOpen*(is_open: bool; cond: ImGuiCond): void {.cdecl,
     importc: "igSetNextItemOpen".}
+proc igSetNextItemStorageID*(storage_id: ImGuiID): void {.cdecl,
+    importc: "igSetNextItemStorageID".}
 proc igSelectable_Bool*(label: cstring; selected: bool;
                         flags: ImGuiSelectableFlags; size: ImVec2): bool {.
     cdecl, importc: "igSelectable_Bool".}
 proc igSelectable_BoolPtr*(label: cstring; p_selected: ptr bool;
                            flags: ImGuiSelectableFlags; size: ImVec2): bool {.
     cdecl, importc: "igSelectable_BoolPtr".}
+proc igBeginMultiSelect*(flags: ImGuiMultiSelectFlags; selection_size: cint;
+                         items_count: cint): ptr ImGuiMultiSelectIO {.cdecl,
+    importc: "igBeginMultiSelect".}
+proc igEndMultiSelect*(): ptr ImGuiMultiSelectIO {.cdecl,
+    importc: "igEndMultiSelect".}
+proc igSetNextItemSelectionUserData*(selection_user_data: ImGuiSelectionUserData): void {.
+    cdecl, importc: "igSetNextItemSelectionUserData".}
+proc igIsItemToggledSelection*(): bool {.cdecl,
+    importc: "igIsItemToggledSelection".}
 proc igBeginListBox*(label: cstring; size: ImVec2): bool {.cdecl,
     importc: "igBeginListBox".}
 proc igEndListBox*(): void {.cdecl, importc: "igEndListBox".}
@@ -4582,6 +4732,8 @@ proc igShortcut_Nil*(key_chord: ImGuiKeyChord; flags: ImGuiInputFlags): bool {.
     cdecl, importc: "igShortcut_Nil".}
 proc igSetNextItemShortcut*(key_chord: ImGuiKeyChord; flags: ImGuiInputFlags): void {.
     cdecl, importc: "igSetNextItemShortcut".}
+proc igSetItemKeyOwner_Nil*(key: ImGuiKey): void {.cdecl,
+    importc: "igSetItemKeyOwner_Nil".}
 proc igIsMouseDown_Nil*(button: ImGuiMouseButton): bool {.cdecl,
     importc: "igIsMouseDown_Nil".}
 proc igIsMouseClicked_Bool*(button: ImGuiMouseButton; repeat: bool): bool {.
@@ -4633,6 +4785,8 @@ proc igDebugCheckVersionAndDataLayout*(version_str: cstring; sz_io: csize_t;
                                        sz_vec4: csize_t; sz_drawvert: csize_t;
                                        sz_drawidx: csize_t): bool {.cdecl,
     importc: "igDebugCheckVersionAndDataLayout".}
+proc igDebugLog*(fmt: cstring): void {.cdecl, varargs, importc: "igDebugLog".}
+proc igDebugLogV*(fmt: cstring): void {.cdecl, varargs, importc: "igDebugLogV".}
 proc igSetAllocatorFunctions*(alloc_func: ImGuiMemAllocFunc;
                               free_func: ImGuiMemFreeFunc; user_data: pointer): void {.
     cdecl, importc: "igSetAllocatorFunctions".}
@@ -4860,6 +5014,9 @@ proc ImGuiListClipper_IncludeItemByIndex*(self: ptr ImGuiListClipper;
 proc ImGuiListClipper_IncludeItemsByIndex*(self: ptr ImGuiListClipper;
     item_begin: cint; item_end: cint): void {.cdecl,
     importc: "ImGuiListClipper_IncludeItemsByIndex".}
+proc ImGuiListClipper_SeekCursorForItem*(self: ptr ImGuiListClipper;
+    item_index: cint): void {.cdecl,
+                              importc: "ImGuiListClipper_SeekCursorForItem".}
 proc ImColor_ImColor_Nil*(): ptr ImColor {.cdecl, importc: "ImColor_ImColor_Nil".}
 proc ImColor_destroy*(self: ptr ImColor): void {.cdecl,
     importc: "ImColor_destroy".}
@@ -4875,6 +5032,38 @@ proc ImColor_SetHSV*(self: ptr ImColor; h: cfloat; s: cfloat; v: cfloat;
                      a: cfloat): void {.cdecl, importc: "ImColor_SetHSV".}
 proc ImColor_HSV*(pOut: ptr ImColor; h: cfloat; s: cfloat; v: cfloat; a: cfloat): void {.
     cdecl, importc: "ImColor_HSV".}
+proc ImGuiSelectionBasicStorage_ImGuiSelectionBasicStorage*(): ptr ImGuiSelectionBasicStorage {.
+    cdecl, importc: "ImGuiSelectionBasicStorage_ImGuiSelectionBasicStorage".}
+proc ImGuiSelectionBasicStorage_destroy*(self: ptr ImGuiSelectionBasicStorage): void {.
+    cdecl, importc: "ImGuiSelectionBasicStorage_destroy".}
+proc ImGuiSelectionBasicStorage_ApplyRequests*(
+    self: ptr ImGuiSelectionBasicStorage; ms_io: ptr ImGuiMultiSelectIO): void {.
+    cdecl, importc: "ImGuiSelectionBasicStorage_ApplyRequests".}
+proc ImGuiSelectionBasicStorage_Contains*(self: ptr ImGuiSelectionBasicStorage;
+    id: ImGuiID): bool {.cdecl, importc: "ImGuiSelectionBasicStorage_Contains".}
+proc ImGuiSelectionBasicStorage_Clear*(self: ptr ImGuiSelectionBasicStorage): void {.
+    cdecl, importc: "ImGuiSelectionBasicStorage_Clear".}
+proc ImGuiSelectionBasicStorage_Swap*(self: ptr ImGuiSelectionBasicStorage;
+                                      r: ptr ImGuiSelectionBasicStorage): void {.
+    cdecl, importc: "ImGuiSelectionBasicStorage_Swap".}
+proc ImGuiSelectionBasicStorage_SetItemSelected*(
+    self: ptr ImGuiSelectionBasicStorage; id: ImGuiID; selected: bool): void {.
+    cdecl, importc: "ImGuiSelectionBasicStorage_SetItemSelected".}
+proc ImGuiSelectionBasicStorage_GetNextSelectedItem*(
+    self: ptr ImGuiSelectionBasicStorage; opaque_it: ptr pointer;
+    out_id: ptr ImGuiID): bool {.cdecl, importc: "ImGuiSelectionBasicStorage_GetNextSelectedItem".}
+proc ImGuiSelectionBasicStorage_GetStorageIdFromIndex*(
+    self: ptr ImGuiSelectionBasicStorage; idx: cint): ImGuiID {.cdecl,
+    importc: "ImGuiSelectionBasicStorage_GetStorageIdFromIndex".}
+proc ImGuiSelectionExternalStorage_ImGuiSelectionExternalStorage*(): ptr ImGuiSelectionExternalStorage {.
+    cdecl,
+    importc: "ImGuiSelectionExternalStorage_ImGuiSelectionExternalStorage".}
+proc ImGuiSelectionExternalStorage_destroy*(
+    self: ptr ImGuiSelectionExternalStorage): void {.cdecl,
+    importc: "ImGuiSelectionExternalStorage_destroy".}
+proc ImGuiSelectionExternalStorage_ApplyRequests*(
+    self: ptr ImGuiSelectionExternalStorage; ms_io: ptr ImGuiMultiSelectIO): void {.
+    cdecl, importc: "ImGuiSelectionExternalStorage_ApplyRequests".}
 proc ImDrawCmd_ImDrawCmd*(): ptr ImDrawCmd {.cdecl,
     importc: "ImDrawCmd_ImDrawCmd".}
 proc ImDrawCmd_destroy*(self: ptr ImDrawCmd): void {.cdecl,
@@ -5344,6 +5533,7 @@ proc igImStrbolW*(buf_mid_line: ptr ImWchar; buf_begin: ptr ImWchar): ptr ImWcha
 proc igImToUpper*(c: cschar): cschar {.cdecl, importc: "igImToUpper".}
 proc igImCharIsBlankA*(c: cschar): bool {.cdecl, importc: "igImCharIsBlankA".}
 proc igImCharIsBlankW*(c: cuint): bool {.cdecl, importc: "igImCharIsBlankW".}
+proc igImCharIsXdigitA*(c: cschar): bool {.cdecl, importc: "igImCharIsXdigitA".}
 proc igImFormatString*(buf: cstring; buf_size: csize_t; fmt: cstring): cint {.
     cdecl, varargs, importc: "igImFormatString".}
 proc igImFormatStringV*(buf: cstring; buf_size: csize_t; fmt: cstring): cint {.
@@ -5448,6 +5638,9 @@ proc igImRotate*(pOut: ptr ImVec2; v: ImVec2; cos_a: cfloat; sin_a: cfloat): voi
     cdecl, importc: "igImRotate".}
 proc igImLinearSweep*(current: cfloat; target: cfloat; speed: cfloat): cfloat {.
     cdecl, importc: "igImLinearSweep".}
+proc igImLinearRemapClamp*(s0: cfloat; s1: cfloat; d0: cfloat; d1: cfloat;
+                           x: cfloat): cfloat {.cdecl,
+    importc: "igImLinearRemapClamp".}
 proc igImMul*(pOut: ptr ImVec2; lhs: ImVec2; rhs: ImVec2): void {.cdecl,
     importc: "igImMul".}
 proc igImIsFloatAboveGuaranteedIntegerPrecision*(f: cfloat): bool {.cdecl,
@@ -5760,6 +5953,22 @@ proc ImGuiOldColumns_ImGuiOldColumns*(): ptr ImGuiOldColumns {.cdecl,
     importc: "ImGuiOldColumns_ImGuiOldColumns".}
 proc ImGuiOldColumns_destroy*(self: ptr ImGuiOldColumns): void {.cdecl,
     importc: "ImGuiOldColumns_destroy".}
+proc ImGuiBoxSelectState_ImGuiBoxSelectState*(): ptr ImGuiBoxSelectState {.
+    cdecl, importc: "ImGuiBoxSelectState_ImGuiBoxSelectState".}
+proc ImGuiBoxSelectState_destroy*(self: ptr ImGuiBoxSelectState): void {.cdecl,
+    importc: "ImGuiBoxSelectState_destroy".}
+proc ImGuiMultiSelectTempData_ImGuiMultiSelectTempData*(): ptr ImGuiMultiSelectTempData {.
+    cdecl, importc: "ImGuiMultiSelectTempData_ImGuiMultiSelectTempData".}
+proc ImGuiMultiSelectTempData_destroy*(self: ptr ImGuiMultiSelectTempData): void {.
+    cdecl, importc: "ImGuiMultiSelectTempData_destroy".}
+proc ImGuiMultiSelectTempData_Clear*(self: ptr ImGuiMultiSelectTempData): void {.
+    cdecl, importc: "ImGuiMultiSelectTempData_Clear".}
+proc ImGuiMultiSelectTempData_ClearIO*(self: ptr ImGuiMultiSelectTempData): void {.
+    cdecl, importc: "ImGuiMultiSelectTempData_ClearIO".}
+proc ImGuiMultiSelectState_ImGuiMultiSelectState*(): ptr ImGuiMultiSelectState {.
+    cdecl, importc: "ImGuiMultiSelectState_ImGuiMultiSelectState".}
+proc ImGuiMultiSelectState_destroy*(self: ptr ImGuiMultiSelectState): void {.
+    cdecl, importc: "ImGuiMultiSelectState_destroy".}
 proc ImGuiDockNode_ImGuiDockNode*(id: ImGuiID): ptr ImGuiDockNode {.cdecl,
     importc: "ImGuiDockNode_ImGuiDockNode".}
 proc ImGuiDockNode_destroy*(self: ptr ImGuiDockNode): void {.cdecl,
@@ -5949,6 +6158,8 @@ proc igWindowRectRelToAbs*(pOut: ptr ImRect; window: ptr ImGuiWindow; r: ImRect)
     cdecl, importc: "igWindowRectRelToAbs".}
 proc igWindowPosRelToAbs*(pOut: ptr ImVec2; window: ptr ImGuiWindow; p: ImVec2): void {.
     cdecl, importc: "igWindowPosRelToAbs".}
+proc igWindowPosAbsToRel*(pOut: ptr ImVec2; window: ptr ImGuiWindow; p: ImVec2): void {.
+    cdecl, importc: "igWindowPosAbsToRel".}
 proc igFocusWindow*(window: ptr ImGuiWindow; flags: ImGuiFocusRequestFlags): void {.
     cdecl, importc: "igFocusWindow".}
 proc igFocusTopMostWindowUnderOne*(under_this_window: ptr ImGuiWindow;
@@ -6106,16 +6317,9 @@ proc igCalcWrapWidthForPos*(pos: ImVec2; wrap_pos_x: cfloat): cfloat {.cdecl,
     importc: "igCalcWrapWidthForPos".}
 proc igPushMultiItemsWidths*(components: cint; width_full: cfloat): void {.
     cdecl, importc: "igPushMultiItemsWidths".}
-proc igIsItemToggledSelection*(): bool {.cdecl,
-    importc: "igIsItemToggledSelection".}
-proc igGetContentRegionMaxAbs*(pOut: ptr ImVec2): void {.cdecl,
-    importc: "igGetContentRegionMaxAbs".}
 proc igShrinkWidths*(items: ptr ImGuiShrinkWidthItem; count: cint;
                      width_excess: cfloat): void {.cdecl,
     importc: "igShrinkWidths".}
-proc igPushItemFlag*(option: ImGuiItemFlags; enabled: bool): void {.cdecl,
-    importc: "igPushItemFlag".}
-proc igPopItemFlag*(): void {.cdecl, importc: "igPopItemFlag".}
 proc igGetStyleVarInfo*(idx: ImGuiStyleVar): ptr ImGuiDataVarInfo {.cdecl,
     importc: "igGetStyleVarInfo".}
 proc igBeginDisabledOverrideReenable*(): void {.cdecl,
@@ -6197,7 +6401,7 @@ proc igNavMoveRequestForward*(move_dir: ImGuiDir; clip_dir: ImGuiDir;
 proc igNavMoveRequestResolveWithLastItem*(result: ptr ImGuiNavItemData): void {.
     cdecl, importc: "igNavMoveRequestResolveWithLastItem".}
 proc igNavMoveRequestResolveWithPastTreeNode*(result: ptr ImGuiNavItemData;
-    tree_node_data: ptr ImGuiNavTreeNodeData): void {.cdecl,
+    tree_node_data: ptr ImGuiTreeNodeStackData): void {.cdecl,
     importc: "igNavMoveRequestResolveWithPastTreeNode".}
 proc igNavMoveRequestCancel*(): void {.cdecl, importc: "igNavMoveRequestCancel".}
 proc igNavMoveRequestApplyResult*(): void {.cdecl,
@@ -6270,8 +6474,8 @@ proc igSetKeyOwner*(key: ImGuiKey; owner_id: ImGuiID; flags: ImGuiInputFlags): v
 proc igSetKeyOwnersForKeyChord*(key: ImGuiKeyChord; owner_id: ImGuiID;
                                 flags: ImGuiInputFlags): void {.cdecl,
     importc: "igSetKeyOwnersForKeyChord".}
-proc igSetItemKeyOwner*(key: ImGuiKey; flags: ImGuiInputFlags): void {.cdecl,
-    importc: "igSetItemKeyOwner".}
+proc igSetItemKeyOwner_InputFlags*(key: ImGuiKey; flags: ImGuiInputFlags): void {.
+    cdecl, importc: "igSetItemKeyOwner_InputFlags".}
 proc igTestKeyOwner*(key: ImGuiKey; owner_id: ImGuiID): bool {.cdecl,
     importc: "igTestKeyOwner".}
 proc igGetKeyOwnerData*(ctx: ptr ImGuiContext; key: ImGuiKey): ptr ImGuiKeyOwnerData {.
@@ -6437,6 +6641,28 @@ proc igTypingSelectFindBestLeadingMatch*(req: ptr ImGuiTypingSelectRequest;
     get_item_name_func: proc (a0: pointer; a1: cint): cstring {.cdecl.};
     user_data: pointer): cint {.cdecl,
                                 importc: "igTypingSelectFindBestLeadingMatch".}
+proc igBeginBoxSelect*(scope_rect: ImRect; window: ptr ImGuiWindow;
+                       box_select_id: ImGuiID; ms_flags: ImGuiMultiSelectFlags): bool {.
+    cdecl, importc: "igBeginBoxSelect".}
+proc igEndBoxSelect*(scope_rect: ImRect; ms_flags: ImGuiMultiSelectFlags): void {.
+    cdecl, importc: "igEndBoxSelect".}
+proc igMultiSelectItemHeader*(id: ImGuiID; p_selected: ptr bool;
+                              p_button_flags: ptr ImGuiButtonFlags): void {.
+    cdecl, importc: "igMultiSelectItemHeader".}
+proc igMultiSelectItemFooter*(id: ImGuiID; p_selected: ptr bool;
+                              p_pressed: ptr bool): void {.cdecl,
+    importc: "igMultiSelectItemFooter".}
+proc igMultiSelectAddSetAll*(ms: ptr ImGuiMultiSelectTempData; selected: bool): void {.
+    cdecl, importc: "igMultiSelectAddSetAll".}
+proc igMultiSelectAddSetRange*(ms: ptr ImGuiMultiSelectTempData; selected: bool;
+                               range_dir: cint;
+                               first_item: ImGuiSelectionUserData;
+                               last_item: ImGuiSelectionUserData): void {.cdecl,
+    importc: "igMultiSelectAddSetRange".}
+proc igGetBoxSelectState*(id: ImGuiID): ptr ImGuiBoxSelectState {.cdecl,
+    importc: "igGetBoxSelectState".}
+proc igGetMultiSelectState*(id: ImGuiID): ptr ImGuiMultiSelectState {.cdecl,
+    importc: "igGetMultiSelectState".}
 proc igSetWindowClipRectBeforeSetChannel*(window: ptr ImGuiWindow;
     clip_rect: ImRect): void {.cdecl,
                                importc: "igSetWindowClipRectBeforeSetChannel".}
@@ -6743,12 +6969,12 @@ proc igTreeNodeBehavior*(id: ImGuiID; flags: ImGuiTreeNodeFlags; label: cstring;
     importc: "igTreeNodeBehavior".}
 proc igTreePushOverrideID*(id: ImGuiID): void {.cdecl,
     importc: "igTreePushOverrideID".}
-proc igTreeNodeSetOpen*(id: ImGuiID; open: bool): void {.cdecl,
+proc igTreeNodeGetOpen*(storage_id: ImGuiID): bool {.cdecl,
+    importc: "igTreeNodeGetOpen".}
+proc igTreeNodeSetOpen*(storage_id: ImGuiID; open: bool): void {.cdecl,
     importc: "igTreeNodeSetOpen".}
-proc igTreeNodeUpdateNextOpen*(id: ImGuiID; flags: ImGuiTreeNodeFlags): bool {.
+proc igTreeNodeUpdateNextOpen*(storage_id: ImGuiID; flags: ImGuiTreeNodeFlags): bool {.
     cdecl, importc: "igTreeNodeUpdateNextOpen".}
-proc igSetNextItemSelectionUserData*(selection_user_data: ImGuiSelectionUserData): void {.
-    cdecl, importc: "igSetNextItemSelectionUserData".}
 proc igDataTypeGetInfo*(data_type: ImGuiDataType): ptr ImGuiDataTypeInfo {.
     cdecl, importc: "igDataTypeGetInfo".}
 proc igDataTypeFormatString*(buf: cstring; buf_size: cint;
@@ -6815,8 +7041,6 @@ proc igGcCompactTransientWindowBuffers*(window: ptr ImGuiWindow): void {.cdecl,
     importc: "igGcCompactTransientWindowBuffers".}
 proc igGcAwakeTransientWindowBuffers*(window: ptr ImGuiWindow): void {.cdecl,
     importc: "igGcAwakeTransientWindowBuffers".}
-proc igDebugLog*(fmt: cstring): void {.cdecl, varargs, importc: "igDebugLog".}
-proc igDebugLogV*(fmt: cstring): void {.cdecl, varargs, importc: "igDebugLogV".}
 proc igDebugAllocHook*(info: ptr ImGuiDebugAllocInfo; frame_count: cint;
                        ptr_arg: pointer; size: csize_t): void {.cdecl,
     importc: "igDebugAllocHook".}
@@ -6880,6 +7104,8 @@ proc igDebugNodeInputTextState*(state: ptr ImGuiInputTextState): void {.cdecl,
     importc: "igDebugNodeInputTextState".}
 proc igDebugNodeTypingSelectState*(state: ptr ImGuiTypingSelectState): void {.
     cdecl, importc: "igDebugNodeTypingSelectState".}
+proc igDebugNodeMultiSelectState*(state: ptr ImGuiMultiSelectState): void {.
+    cdecl, importc: "igDebugNodeMultiSelectState".}
 proc igDebugNodeWindow*(window: ptr ImGuiWindow; label: cstring): void {.cdecl,
     importc: "igDebugNodeWindow".}
 proc igDebugNodeWindowSettings*(settings: ptr ImGuiWindowSettings): void {.
@@ -6892,6 +7118,9 @@ proc igDebugNodeWindowsListByBeginStackParent*(windows: ptr ptr ImGuiWindow;
     importc: "igDebugNodeWindowsListByBeginStackParent".}
 proc igDebugNodeViewport*(viewport: ptr ImGuiViewportP): void {.cdecl,
     importc: "igDebugNodeViewport".}
+proc igDebugNodePlatformMonitor*(monitor: ptr ImGuiPlatformMonitor;
+                                 label: cstring; idx: cint): void {.cdecl,
+    importc: "igDebugNodePlatformMonitor".}
 proc igDebugRenderKeyboardPreview*(draw_list: ptr ImDrawList): void {.cdecl,
     importc: "igDebugRenderKeyboardPreview".}
 proc igDebugRenderViewportThumbnail*(draw_list: ptr ImDrawList;
