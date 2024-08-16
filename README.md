@@ -13,6 +13,7 @@
       - [glfw_opengl3_nimgl_imguin_jp](#glfw_opengl3_nimgl_imguin_jp)
       - [glfw_opengl3_implot](#glfw_opengl3_implot)
       - [glfw_opengl3_imnodes](#glfw_opengl3_imnodes)
+      - [glfw_opengl3_imguizmo](#glfw_opengl3_imguizmo)
       - [My test app movie using imguin](#my-test-app-movie-using-imguin)
   - [Update to latest Dear ImGui and CImGui](#update-to-latest-dear-imgui-and-cimgui)
     - [Prerequisite](#prerequisite)
@@ -23,6 +24,7 @@
   - [My tools version](#my-tools-version)
   - [Other link](#other-link)
   - [Similar project](#similar-project)
+  - [Star History](#star-history)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -33,7 +35,7 @@ Updated to latest ImGui/CImGui version: : **v1.91.0dock** (2024/08)
 
 This project is my experiment project to use Nim language, ImGui, ImPlot, futhark and etc.  
 
-Notice:  
+- Notice  
 It may be better to use the **mainstream** project [nimgl/imgui](https://github.com/nimgl/imgui) (ImGui v1.85)  
 ,updated project [nimgl-imgui](https://github.com/dinau/nimgl-imgui) (ImGui v1.89.9)
 ,sub project [nim_implot](https://github.com/dinau/nim_implot) and test project [nimgl_test](https://github.com/dinau/nimgl_test).
@@ -48,7 +50,7 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 ---
 
 - [Nim-2.0.2](https://nim-lang.org) or later (Windows10 or Debian Linux)
-- MSys/MinGW command line tools (Unix tools), make, cp, rm, ...etc
+- MSys/MinGW command line tools (Unix tools), make, cp, rm, git, ...etc
 - For Linux Debian 12 Bookworm,
 
   ```sh
@@ -125,6 +127,10 @@ Showing ImGui demo with ImPlot demo.
 #### [glfw_opengl3_imnodes](examples/glfw_opengl3_imnodes)
 
 ![alt](src/img/imnodes-demo.png)  
+
+#### [glfw_opengl3_imguizmo](examples/glfw_opengl3_imguizmo)
+
+![alt](src/img/imguizmo.png)  
 
 ####  My test app movie using imguin
 
@@ -219,20 +225,21 @@ Properly edit the version info etc in `imguin.nimble` file, then
 
 - Confirmed version
 
-  | ImGui/CImGui Ver.  | imguin Ver. | Date      | Windows10 | Debian<br> Bookworm (1) |
-  | :----------------- | ---------   | :-------: | :---:     | :---:                   |
-  | 1.91.0dock         | 1.91.0.0    | 2024/08   | ok        | No checked              |
-  | 1.90.9dock         | 1.90.9.4    | 2024/07   | ok        | NG (5)                  |
-  | 1.90.9dock         | 1.90.9.3    | 2024/07   | ok        | NG (5)                  |
-  | 1.90.8dock         | 1.90.8.1    | 2024/06   | ok        | NG (5)                  |
-  | 1.90.8dock         | 1.90.8.0    | 2024/06   | ok        | NG (5)                  |
-  | 1.90.7dock         | 1.90.7.0    | 2024/05   | ok        | NG (5)                  |
-  | 1.90.6dock         | 1.90.6.1    | 2024/05   | ok        | NG (5)                  |
-  | 1.90.4dock         | 1.90.4.3    | 2024/04   | ok        | NG (5)                  |
-  | -                  | -           | -         | -         | -                       |
-  | 1.90.4dock         | 1.90.4.2    | 2024/02   | ok        | OK (4)                  |
-  | 1.90.1dock         | 1.90.1.0    | 2024/01   | ok        | NG/OK(1)(3)(4)          |
-  | 1.89.9dock         | 1.89.9.8    | 2023/12   | ok        | NG/OK(1)(3)(4)          |
+  | ImGui/CImGui Ver. | ImguiN Ver. | Date    | Windows10 | Debian<br> Bookworm (1) |
+  | :--------------:  | ---------   | :----:  | :---:     | :---:                   |
+  | 1.91.0dock        | 1.91.0.1    | 2024/08 | ok        | No checked              |
+  | ↑                | 1.91.0.0    | 2024/08 | ok        | No checked              |
+  | 1.90.9dock        | 1.90.9.4    | 2024/07 | ok        | NG (5)                  |
+  | ↑                | 1.90.9.3    | 2024/07 | ok        | NG (5)                  |
+  | 1.90.8dock        | 1.90.8.1    | 2024/06 | ok        | NG (5)                  |
+  | ↑                | 1.90.8.0    | 2024/06 | ok        | NG (5)                  |
+  | 1.90.7dock        | 1.90.7.0    | 2024/05 | ok        | NG (5)                  |
+  | 1.90.6dock        | 1.90.6.1    | 2024/05 | ok        | NG (5)                  |
+  | 1.90.4dock        | 1.90.4.3    | 2024/04 | ok        | NG (5)                  |
+  | -                 | -           | -       | -         | -                       |
+  | ↑                | 1.90.4.2    | 2024/02 | ok        | OK (4)                  |
+  | 1.90.1dock        | 1.90.1.0    | 2024/01 | ok        | NG/OK(1)(3)(4)          |
+  | 1.89.9dock        | 1.89.9.8    | 2023/12 | ok        | NG/OK(1)(3)(4)          |
 
   Notice(1): Except imnodes and SDL2 example.  
   Notice(2): Doesn't work well.  
@@ -298,7 +305,7 @@ Windows10 (main)
 - make: GNU Make 4.4.1
 - MSys2/MinGW tools
 - Microsoft Visual Studio C/C++ 2019
-- Zig: 0.12.0
+- Zig: 0.12.0 (clang version 17.0.6)
 
 Debian 12 Bookworm
 - Nim Compiler Version 2.0.4
@@ -337,3 +344,7 @@ Debian 12 Bookworm
 | **Zig**, C lang.     | Dear bindings       | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build)                                                                             |
 | **Zig**              | CImGui/CImPlot      | [ImGuinZ](https://github.com/dinau/imguinz)                                                                                                     |
 | **Python**           | ImGui direct        | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=dinau/imguin&type=Date)](https://star-history.com/#dinau/imguin&Date)

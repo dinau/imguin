@@ -1029,6 +1029,22 @@ type
     ImNodesMiniMapLocation_BottomRight = 1, ImNodesMiniMapLocation_TopLeft = 2,
     ImNodesMiniMapLocation_TopRight = 3
 type
+  enum_OPERATION* {.size: sizeof(cuint).} = enum
+    TRANSLATE_X = 1, TRANSLATE_Y = 2, TRANSLATE_Z = 4, TRANSLATE = 7,
+    ROTATE_X = 8, ROTATE_Y = 16, ROTATE_Z = 32, ROTATE_SCREEN = 64,
+    ROTATE = 120, SCALE_X = 128, SCALE_Y = 256, SCALE_Z = 512, SCALE = 896,
+    BOUNDS = 1024, SCALE_XU = 2048, SCALE_YU = 4096, SCALE_ZU = 8192,
+    SCALEU = 14336, UNIVERSAL = 14463
+type
+  enum_MODE* {.size: sizeof(cuint).} = enum
+    LOCAL = 0, WORLD = 1
+type
+  enum_COLOR* {.size: sizeof(cuint).} = enum
+    DIRECTION_X = 0, DIRECTION_Y = 1, DIRECTION_Z = 2, PLANE_X = 3, PLANE_Y = 4,
+    PLANE_Z = 5, SELECTION = 6, INACTIVE = 7, TRANSLATION_LINE = 8,
+    SCALE_LINE = 9, ROTATION_USING_BORDER = 10, ROTATION_USING_FILL = 11,
+    HATCHED_AXIS_LINES = 12, TEXT = 13, TEXT_SHADOW = 14, COUNT = 15
+type
   struct_ImGuiTableColumnsSettings* = object
 type
   struct_ImPlotAxisColor* = object
@@ -3970,6 +3986,20 @@ type
   ImNodesMiniMapNodeHoveringCallback* = proc (a0: cint; a1: pointer): void {.
       cdecl.}                ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimnodes/cimnodes.h:151:16
   ImNodesMiniMapNodeHoveringCallbackUserData* = pointer ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimnodes/cimnodes.h:152:15
+  OPERATION* = enum_OPERATION ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimguizmo/cimguizmo.h:30:5
+  MODE* = enum_MODE          ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimguizmo/cimguizmo.h:34:5
+  COLOR* = enum_COLOR        ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimguizmo/cimguizmo.h:52:5
+  Style* = struct_Style      ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimguizmo/cimguizmo.h:53:22
+  struct_Style* {.pure, inheritable, bycopy.} = object
+    TranslationLineThickness*: cfloat ## Generated based on C:\000imguin_dev\imguin\src\imguin\private\cimguizmo/cimguizmo.h:54:8
+    TranslationLineArrowSize*: cfloat
+    RotationLineThickness*: cfloat
+    RotationOuterLineThickness*: cfloat
+    ScaleLineThickness*: cfloat
+    ScaleLineCircleSize*: cfloat
+    HatchedAxisLineThickness*: cfloat
+    CenterCircleSize*: cfloat
+    Colors*: array[15'i64, ImVec4]
   struct_iobuf* {.pure, inheritable, bycopy.} = object
     internal_ptr*: cstring   ## Generated based on C:/drvDx/msys32/mingw32/include/stdio.h:33:10
     internal_cnt*: cint
@@ -9641,3 +9671,62 @@ proc imnodes_LoadEditorStateFromIniFile*(editor: ptr ImNodesEditorContext;
     file_name: cstring): void {.cdecl,
                                 importc: "imnodes_LoadEditorStateFromIniFile".}
 proc getIOKeyCtrlPtr*(): ptr bool {.cdecl, importc: "getIOKeyCtrlPtr".}
+proc ImGuizmo_SetDrawlist*(drawlist: ptr ImDrawList): void {.cdecl,
+    importc: "ImGuizmo_SetDrawlist".}
+proc ImGuizmo_BeginFrame*(): void {.cdecl, importc: "ImGuizmo_BeginFrame".}
+proc ImGuizmo_SetImGuiContext*(ctx: ptr ImGuiContext): void {.cdecl,
+    importc: "ImGuizmo_SetImGuiContext".}
+proc ImGuizmo_IsOver_Nil*(): bool {.cdecl, importc: "ImGuizmo_IsOver_Nil".}
+proc ImGuizmo_IsUsing*(): bool {.cdecl, importc: "ImGuizmo_IsUsing".}
+proc ImGuizmo_IsUsingAny*(): bool {.cdecl, importc: "ImGuizmo_IsUsingAny".}
+proc ImGuizmo_Enable*(enable: bool): void {.cdecl, importc: "ImGuizmo_Enable".}
+proc ImGuizmo_DecomposeMatrixToComponents*(matrix: ptr cfloat;
+    translation: ptr cfloat; rotation: ptr cfloat; scale: ptr cfloat): void {.
+    cdecl, importc: "ImGuizmo_DecomposeMatrixToComponents".}
+proc ImGuizmo_RecomposeMatrixFromComponents*(translation: ptr cfloat;
+    rotation: ptr cfloat; scale: ptr cfloat; matrix: ptr cfloat): void {.cdecl,
+    importc: "ImGuizmo_RecomposeMatrixFromComponents".}
+proc ImGuizmo_SetRect*(x: cfloat; y: cfloat; width: cfloat; height: cfloat): void {.
+    cdecl, importc: "ImGuizmo_SetRect".}
+proc ImGuizmo_SetOrthographic*(isOrthographic: bool): void {.cdecl,
+    importc: "ImGuizmo_SetOrthographic".}
+proc ImGuizmo_DrawCubes*(view: ptr cfloat; projection: ptr cfloat;
+                         matrices: ptr cfloat; matrixCount: cint): void {.cdecl,
+    importc: "ImGuizmo_DrawCubes".}
+proc ImGuizmo_DrawGrid*(view: ptr cfloat; projection: ptr cfloat;
+                        matrix: ptr cfloat; gridSize: cfloat): void {.cdecl,
+    importc: "ImGuizmo_DrawGrid".}
+proc ImGuizmo_Manipulate*(view: ptr cfloat;
+                    projection: ptr cfloat;
+                    operation: OPERATION;
+                    mode: MODE;
+                    matrix:      ptr cfloat;
+                    deltaMatrix: ptr cfloat;
+                    snap:        ptr cfloat;
+                    localBounds: ptr cfloat;
+                    boundsSnap:  ptr cfloat): bool {.
+    cdecl, importc: "ImGuizmo_Manipulate".}
+proc ImGuizmo_ViewManipulate_Float*(view: ptr cfloat; length: cfloat;
+                                    position: ImVec2; size: ImVec2;
+                                    backgroundColor: ImU32): void {.cdecl,
+    importc: "ImGuizmo_ViewManipulate_Float".}
+proc ImGuizmo_ViewManipulate_FloatPtr*(view: ptr cfloat; projection: ptr cfloat;
+                                       operation: OPERATION; mode: MODE;
+                                       matrix: ptr cfloat; length: cfloat;
+                                       position: ImVec2; size: ImVec2;
+                                       backgroundColor: ImU32): void {.cdecl,
+    importc: "ImGuizmo_ViewManipulate_FloatPtr".}
+proc ImGuizmo_SetID*(id: cint): void {.cdecl, importc: "ImGuizmo_SetID".}
+proc ImGuizmo_IsOver_OPERATION*(op: OPERATION): bool {.cdecl,
+    importc: "ImGuizmo_IsOver_OPERATION".}
+proc ImGuizmo_SetGizmoSizeClipSpace*(value: cfloat): void {.cdecl,
+    importc: "ImGuizmo_SetGizmoSizeClipSpace".}
+proc ImGuizmo_AllowAxisFlip*(value: bool): void {.cdecl,
+    importc: "ImGuizmo_AllowAxisFlip".}
+proc ImGuizmo_SetAxisLimit*(value: cfloat): void {.cdecl,
+    importc: "ImGuizmo_SetAxisLimit".}
+proc ImGuizmo_SetPlaneLimit*(value: cfloat): void {.cdecl,
+    importc: "ImGuizmo_SetPlaneLimit".}
+proc Style_Style*(): ptr Style {.cdecl, importc: "Style_Style".}
+proc Style_destroy*(self: ptr Style): void {.cdecl, importc: "Style_destroy".}
+proc ImGuizmo_GetStyle*(): ptr Style {.cdecl, importc: "ImGuizmo_GetStyle".}

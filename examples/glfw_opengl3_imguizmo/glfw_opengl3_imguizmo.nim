@@ -1,18 +1,13 @@
-import std/[strutils, math]
 import nimgl/[opengl,glfw]
 
 import imguin/[glfw_opengl]
-
 import imguin/lang/imgui_ja_gryph_ranges
 
 include ../utils/setupFonts
 include imguin/simple
 
-when defined(windows):
-  import tinydialogs
-
-const MainWinWidth = 1024
-const MainWinHeight = 804
+const MainWinWidth = 800
+const MainWinHeight = 600
 
 #--------------
 # Configration
@@ -29,7 +24,7 @@ const MainWinHeight = 804
 #  |    -      | -        |     true            ||    v    |     v       |   -     | Transparent Viewport and docking
 #  `-----------'----------'---------------------'`---------'-------------'---------'-------------
 var
- fDocking = true
+ fDocking = false
  fViewport = false
  TransparentViewport = false
  #
@@ -73,8 +68,8 @@ proc main() =
   # setup ImGui
   let context = igCreateContext(nil)
   defer: context.igDestroyContext()
-  var pio = igGetIO()
   if fDocking:
+    var pio = igGetIO()
     pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_DockingEnable.cint
     if fViewport:
       pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_ViewportsEnable.cint
@@ -86,12 +81,6 @@ proc main() =
   defer: ImGui_ImplGlfw_Shutdown()
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
   defer: ImGui_ImplOpenGL3_Shutdown()
-
-  # Set ini filename
-  pio.IniFileName = "xxx.ini"
-
-
-
   glfwWin.winMain()
 
 #---------
@@ -99,19 +88,12 @@ proc main() =
 #---------
 proc winMain(hWin: glfw.GLFWWindow) =
   var
-    showDemoWindow = true
-    showAnotherWindow = false
-    showFirstWindow = true
-    fval = 0.5f
-    counter = 0
-    sBuf = newString(200)
-    sFnameSelected{.global.}:string
     clearColor:ccolor
 
   if TransparentViewport:
     clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
   else:
-    clearColor = ccolor(elm:(x:0.25f, y:0.65f, z:0.85f, w:1.0f))
+    clearColor = ccolor(elm:(x:0.07f, y:0.26f, z:0.75f, w:1.0f))
 
   igStyleColorsClassic(nil)
 
@@ -129,63 +111,50 @@ proc winMain(hWin: glfw.GLFWWindow) =
     ImGui_ImplGlfw_NewFrame()
     igNewFrame()
 
-    if showDemoWindow:
-      igShowDemoWindow(addr showDemoWindow)
+    # Show gizmo demo
+    # Converted from:
+    #   https://github.com/sonoro1234/LuaJIT-ImGui/blob/255583dcc45c3eb041ab690c1d42f143247e014b/examples/imGuizmo_sample.lua
+    var zmoOP{.global.} = TRANSLATE.cint
+    var zmoMODE{.global.} = LOCAL.cint
+    var zmobounds{.global.} = [ -0.5.cfloat, -0.5, -0.5, 0.5, 0.5, 0.5]
+    var Mident{.global.} = [1.cfloat,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]
+    var MVmo{.global.}   = [1.cfloat,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,-7,1]
+    var MPmo{.global.}   = [2.3787.cfloat, 0, 0, 0,
+                            0 ,3.1716 ,0 , 0,
+                            0 ,0 ,-1.0002 ,-1,
+                            0 ,0 ,-0.2 ,0]
+    var MOmo{.global.} = [1.cfloat,0,0,0, 0,1,0,0, 0,0,1,0, 0.5,0.5,0.5,1]
 
-    # show a simple window that we created ourselves.
-    if showFirstWindow:
-      igBegin("Nim: Dear ImGui test with Futhark", addr showFirstWindow, 0)
+    if igBegin("zmo", nil, 0): # TODO: Crash if this window is minimized.
       defer: igEnd()
-      var s = "GLFW v" & $glfwGetVersionString()
-      igText(s.cstring)
-      s = "OpenGL v" & ($cast[cstring](glGetString(GL_VERSION))).split[0]
-      igText(s.cstring)
-      igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
-      s = "Input result:" & sBuf
-      igText(s.cstring)
-      igCheckbox("Demo window", addr showDemoWindow)
-      igCheckbox("Another window", addr showAnotherWindow)
-      igSliderFloat("Float", addr fval, 0.0f, 1.0f, "%.3f", 0)
-      igColorEdit3("Background color", clearColor.array3, 0.ImGuiColorEditFlags)
+      igRadioButton_IntPtr("trans".cstring,  addr zmoOP,   TRANSLATE.cint); igSameLine(0.0, -1.0)
+      igRadioButton_IntPtr("rot".cstring,    addr zmoOP,   ROTATE.cint);    igSameLine(0.0, -1.0)
+      igRadioButton_IntPtr("scale".cstring,  addr zmoOP,   SCALE.cint);     igSameLine(0.0, -1.0)
+      igRadioButton_IntPtr("bounds".cstring, addr zmoOP,   BOUNDS.cint);
+      igRadioButton_IntPtr("local".cstring,  addr zmoMODE, LOCAL.cint);     igSameLine(0.0, -1.0)
+      igRadioButton_IntPtr("world".cstring,  addr zmoMODE, WORLD.cint);
 
-      # Show file open dialog
-      when defined(windows):
-        if igButton("Open file", ImVec2(x: 0, y: 0)):
-           sFnameSelected = openFileDialog("File open dialog", getCurrentDir() / "\0", ["*.nim", "*.nims"], "Text file")
-        igSameLine(0.0f, -1.0f)
-        # ヒント表示
-        if igIsItemHovered(Imgui_HoveredFlagsDelayShort.cint) and igBeginTooltip():
-          igText("[Open file]")
-          const ary = [0.6f, 0.1f, 1.0f, 0.5f, 0.92f, 0.1f, 0.2f]
-          igPlotLines("Curve", ary, overlayText = "Overlay string")
-          igText("Sin(time) = %.2f", sin(igGetTime()));
-          igEndTooltip();
-        let (_,fname,ext) = sFnameSelected.splitFile()
-        igText("Selected file = %s", (fname & ext).cstring)
-      # Counter up
-      if igButton("Button", ImVec2(x: 0.0f, y: 0.0f)):
-        inc counter
-      igSameLine(0.0f, -1.0f)
-      igText("counter = %d", counter)
-      igText("Application average %.3f ms/frame (%.1f FPS)".cstring, (1000.0f / igGetIO().Framerate.float).cfloat, igGetIO().Framerate)
-      igSeparatorText(ICON_FA_WRENCH & " Icon font test ")
-      igText(ICON_FA_TRASH_CAN & " Trash")
-      igText(ICON_FA_MAGNIFYING_GLASS_PLUS &
-        " " & ICON_FA_POWER_OFF &
-        " " & ICON_FA_MICROPHONE &
-        " " & ICON_FA_MICROCHIP &
-        " " & ICON_FA_VOLUME_HIGH &
-        " " & ICON_FA_SCISSORS &
-        " " & ICON_FA_SCREWDRIVER_WRENCH &
-        " " & ICON_FA_BLOG)
-
-    # show further samll window
-    if showAnotherWindow:
-      igBegin("imgui Another Window", addr showAnotherWindow, 0)
-      igText("Hello from imgui")
-      if igButton("Close me", ImVec2(x: 0.0f, y: 0.0f)):
-        showAnotherWindow = false
-      igEnd()
+    block:
+      ImGuizmo_BeginFrame()
+      ImGuizmo_SetRect(0,0,pio.DisplaySize.x, pio.DisplaySize.y)
+      #ImGuizmo_SetRect(0,0,800, 600)
+      ImGuizmo_SetOrthographic(false)
+      ImGuizmo_DrawGrid(  addr MVmo[0], addr MPmo[0], addr Mident[0], 10)
+      ImGuizmo_DrawCubes( addr MVmo[0], addr MPmo[0], addr MOmo[0]  , 1)
+      ImGuizmo_Manipulate(addr MVmo[0]
+                         ,addr MPmo[0]
+                         ,zmoOP.OPERATION
+                         ,zmoMODE.MODE
+                         ,addr MOmo[0]
+                         ,nil
+                         ,nil
+                         ,if zmoOP == BOUNDS.cint: addr zmobounds[0] else: nil
+                         ,nil)
+      ImGuizmo_ViewManipulate_Float(addr MVmo[0]  # view
+                           ,7                     # length
+                           ,ImVec2(x: 0,y: 0)     # position
+                           ,ImVec2(x: 128,y: 128) # size
+                           ,0x11_01_01_01)        # background color
 
     # render
     igRender()
@@ -200,10 +169,29 @@ proc winMain(hWin: glfw.GLFWWindow) =
       backup_current_window.makeContextCurrent()
 
     hWin.swapBuffers()
-    if not showFirstWindow and not showDemoWindow and not showAnotherWindow:
-      hwin.setWindowShouldClose(true) # End program
 
 #------
 # main
 #------
 main()
+
+
+
+#ImGuizmo_Manipulate(const float* view
+#                   ,const float* projection
+#                   ,OPERATION operation
+#                   ,MODE mode
+#                   ,float* matrix
+#                   ,float* deltaMatrix
+#                   ,const float* snap
+#                   ,const float* localBounds
+#                   ,const float* boundsSnap);
+#IMGUI_API bool Manipulate(const float* view
+#                   , const float* projection
+#                   , OPERATION operation
+#                   , MODE mode
+#                   , float* matrix
+#                   , float* deltaMatrix = NULL
+#                   , const float* snap = NULL
+#                   , const float* localBounds = NULL
+#                   , const float* boundsSnap = NULL);

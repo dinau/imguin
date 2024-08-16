@@ -7,6 +7,7 @@ var projDirs = @[
 "glfw_opengl3_implot",
 "glfw_opengl3_nimgl_imguin_jp",
 "glfw_opengl3_imnodes",
+"glfw_opengl3_imguizmo",
 "fontx2v",
 ]
 

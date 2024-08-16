@@ -1,7 +1,9 @@
 ImageSaved_*.*
 examples/fontx2v/
+examples/glfw_dx11/
 examples/bugtest/
 examples/im_libs/
+examples/inputtest/
 .hgignore
 *.stop
 *.pdf

@@ -9,10 +9,10 @@ proc currentSourceDir(): string {.compileTime.} =
 #const ClangIncludePath = "c:/llvm/lib/clang/17/include"
 const ClangIncludePath = "c:/drvDx/msys32/mingw32/lib/clang/18/include"
 # Set root path of ImGui/CImGui
-const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui")
-const CImPlotRootPath  = joinPath(currentSourceDir(),"private/cimplot")
-const CImNodesRootPath = joinPath(currentSourceDir(),"private/cimnodes")
-const ImguiRootPath    = joinPath(CImguiRootPath,"imgui")
+const CImguiRootPath    = joinPath(currentSourceDir(),"private/cimgui")
+const CImPlotRootPath   = joinPath(currentSourceDir(),"private/cimplot")
+const CImNodesRootPath  = joinPath(currentSourceDir(),"private/cimnodes")
+const CImGuizmoRootPath = joinPath(currentSourceDir(),"private/cimguizmo")
 
 #--- Futhark start
 when defined(useFuthark): # Generate header files with Futhark.
@@ -22,6 +22,7 @@ when defined(useFuthark): # Generate header files with Futhark.
     path    CImguiRootPath
     path    CImPlotRootPath
     path    CImNodesRootPath
+    path    CImGuizmoRootPath
     #define "IMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
     #define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
     define "CIMGUI_DEFINE_ENUMS_AND_STRUCTS"
@@ -33,6 +34,7 @@ when defined(useFuthark): # Generate header files with Futhark.
     define "ImDrawIdx=\"unsigned int\""
     #
     "cimnodes.h"
+    "cimguizmo.h"
     # Output
     outputPath CIMGUI_DEFS_FILE
 #--- Futahrk end
@@ -66,16 +68,17 @@ else: # Use generated header by Futark in your programs.
   else: # Linux
     {.passC:""" -DIMGUI_IMPL_API="extern \"C\""  """.}
 #
+  const ImguiRootPath     = joinPath(CImguiRootPath,"imgui")
+
   {.passC:"-I" & CImguiRootPath.}
   {.passC:"-I" & ImguiRootPath.}
-  {.compile:joinPath(CImguiRootPath,"cimgui.cpp").}
 
-  when true:
-    {.compile:joinPath(ImguiRootPath,"imgui.cpp").}
-    {.compile:joinPath(ImguiRootPath,"imgui_demo.cpp").}
-    {.compile:joinPath(ImguiRootPath,"imgui_draw.cpp").}
-    {.compile:joinPath(ImguiRootPath,"imgui_tables.cpp").}
-    {.compile:joinPath(ImguiRootPath,"imgui_widgets.cpp").}
+  {.compile:joinPath(CImguiRootPath,"cimgui.cpp").}
+  {.compile:joinPath(ImguiRootPath,"imgui.cpp").}
+  {.compile:joinPath(ImguiRootPath,"imgui_demo.cpp").}
+  {.compile:joinPath(ImguiRootPath,"imgui_draw.cpp").}
+  {.compile:joinPath(ImguiRootPath,"imgui_tables.cpp").}
+  {.compile:joinPath(ImguiRootPath,"imgui_widgets.cpp").}
 
   when defined(ImPlotEnable):
     {.passC:"-I" & CImPlotRootPath.}
@@ -89,3 +92,12 @@ else: # Use generated header by Futark in your programs.
     {.passC:"-I" & CImNodesRootPath.}
     {.compile:joinPath(CImNodesRootPath,"cimnodes.cpp").}
     {.compile:joinPath(CImNodesRootPath,"imnodes/imnodes.cpp").}
+
+  when defined(ImGuizmoEnable):
+    {.passC:"-I" &     CImGuizmoRootPath.}
+    {.compile:joinPath(CImGuizmoRootPath,"cimguizmo.cpp").}
+    {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/GraphEditor.cpp").}
+    {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/ImCurveEdit.cpp").}
+    {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/ImGradient.cpp").}
+    {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/ImGuizmo.cpp").}
+    {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/ImSequencer.cpp").}

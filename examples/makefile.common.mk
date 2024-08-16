@@ -7,7 +7,7 @@ ifeq ($(OS),Windows_NT)
 endif
 TARGET_EXE = $(TARGET)$(EXE)
 
-.PHONY: clean run dll ver info build upx dpx
+.PHONY: clean run dll ver info build upx uupx
 
 OPT += -d:strip
 OPT += -o:$(TARGET_EXE)
@@ -59,7 +59,7 @@ ver:
 
 upx:
 	upx --lzma $(TARGET_EXE)
-dpx:
+uupx:
 	upx -d $(TARGET_EXE)
 
 .PHONY: gen
