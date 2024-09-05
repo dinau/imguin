@@ -26,8 +26,8 @@ proc saveImage*(fname:string, xs, ys, imageWidth, imageHeight:int, comp:int = RG
   #// 読み取るOpneGLのバッファを指定 GL_FRONT:フロントバッファ　GL_BACK:バックバッファ
   glReadBuffer( GL_BACK )
   #// OpenGLで画面に描画されている内容をバッファに格納
-  glReadPixels( xs, ys,                  # 読み取る領域の左下隅のx,y座標 //0 or getCurrentWidth() - 1
-                imageWidth, imageHeight, # 読み取る領域
+  glReadPixels( xs.GLint, ys.GLint,                  # 読み取る領域の左下隅のx,y座標 //0 or getCurrentWidth() - 1
+                imageWidth.GLsizei, imageHeight.GLsizei, # 読み取る領域
                 GL_RGB,                  # it means GL_BGR,  //取得したい色情報の形式
                 GL_UNSIGNED_BYTE,        # 読み取ったデータを保存する配列の型
                 texBuffer[0].addr        # ビットマップのピクセルデータ（実際にはバイト配列）へのポインタ

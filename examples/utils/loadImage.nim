@@ -1,7 +1,8 @@
 # Install packages
+# nimble stb_image nimgl
 import os
 import nimgl/[opengl,glfw]
-import stb_nim/stb_image
+import stb_image/read as stbi
 
 #---------------------
 # loadTextureFromFile
@@ -9,7 +10,7 @@ import stb_nim/stb_image
 proc loadTextureFromFile*(filename: string, outTexture: var GLuint, outWidth: var int, outHeight: var int): bool =
   var
     channels: int
-    image_data = stbi_load(filename.cstring, outWidth.addr, outHeight.addr, channels.addr, STBI_rgb_alpha)
+    image_data = stbi.load(filename, outWidth, outHeight, channels, stbi.RGBA)
 
   # Create a OpenGL texture identifier
   glGenTextures(1, addr outTexture)
@@ -39,9 +40,10 @@ proc LoadTileBarIcon*(window:GLFWwindow,iconName:string) =
     var
       w, h: int
       channels: int
-    let pixels = stbi_load(iconName.cstring, w.addr, h.addr, channels.addr, STBI_rgb_alpha)
-    let img = GLFWImage(width: w.int32, height: h.int32
-                     , pixels: cast[ptr cuchar](pixels))
+      pixels: seq[byte]
+    pixels = stbi.load(iconName, w, h, channels, stbi.RGBA)
+    var img = GLFWImage(width: w.int32, height: h.int32
+                     , pixels: cast[ptr cuchar](pixels[0].addr))
     glfw.setWindowIcon(window, 1, img.addr)
   else:
     echo "Not found: ",iconName

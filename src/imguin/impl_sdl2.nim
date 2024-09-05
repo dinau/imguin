@@ -6,7 +6,7 @@ proc currentSourceDir(): string {.compileTime.} =
 # Definitions of abusolute path
 
 const
-  MinGwPath = "c:/drvDx/msys32/mingw32" # for windows10
+  MinGwPath = "c:/drvdx/msys64/mingw64" # for windows10 or later
 
 # Set root path of ImGui/CImGui
 const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui")

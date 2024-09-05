@@ -8323,101 +8323,103 @@ proc ImPlot_PlotHeatmap_U64Ptr*(label_id: cstring; values: ptr ImU64;
     importc: "ImPlot_PlotHeatmap_U64Ptr".}
 proc ImPlot_PlotHistogram_FloatPtr*(label_id: cstring; values: ptr cfloat;
                                     count: cint; bins: cint; bar_scale: cdouble;
-                                    range: ImPlotRange;
+                                    range_arg: ImPlotRange;
                                     flags: ImPlotHistogramFlags): cdouble {.
     cdecl, importc: "ImPlot_PlotHistogram_FloatPtr".}
 proc ImPlot_PlotHistogram_doublePtr*(label_id: cstring; values: ptr cdouble;
                                      count: cint; bins: cint;
-                                     bar_scale: cdouble; range: ImPlotRange;
+                                     bar_scale: cdouble; range_arg: ImPlotRange;
                                      flags: ImPlotHistogramFlags): cdouble {.
     cdecl, importc: "ImPlot_PlotHistogram_doublePtr".}
 proc ImPlot_PlotHistogram_S8Ptr*(label_id: cstring; values: cstring;
                                  count: cint; bins: cint; bar_scale: cdouble;
-                                 range: ImPlotRange; flags: ImPlotHistogramFlags): cdouble {.
-    cdecl, importc: "ImPlot_PlotHistogram_S8Ptr".}
+                                 range_arg: ImPlotRange;
+                                 flags: ImPlotHistogramFlags): cdouble {.cdecl,
+    importc: "ImPlot_PlotHistogram_S8Ptr".}
 proc ImPlot_PlotHistogram_U8Ptr*(label_id: cstring; values: ptr ImU8;
                                  count: cint; bins: cint; bar_scale: cdouble;
-                                 range: ImPlotRange; flags: ImPlotHistogramFlags): cdouble {.
-    cdecl, importc: "ImPlot_PlotHistogram_U8Ptr".}
+                                 range_arg: ImPlotRange;
+                                 flags: ImPlotHistogramFlags): cdouble {.cdecl,
+    importc: "ImPlot_PlotHistogram_U8Ptr".}
 proc ImPlot_PlotHistogram_S16Ptr*(label_id: cstring; values: ptr ImS16;
                                   count: cint; bins: cint; bar_scale: cdouble;
-                                  range: ImPlotRange;
+                                  range_arg: ImPlotRange;
                                   flags: ImPlotHistogramFlags): cdouble {.cdecl,
     importc: "ImPlot_PlotHistogram_S16Ptr".}
 proc ImPlot_PlotHistogram_U16Ptr*(label_id: cstring; values: ptr ImU16;
                                   count: cint; bins: cint; bar_scale: cdouble;
-                                  range: ImPlotRange;
+                                  range_arg: ImPlotRange;
                                   flags: ImPlotHistogramFlags): cdouble {.cdecl,
     importc: "ImPlot_PlotHistogram_U16Ptr".}
 proc ImPlot_PlotHistogram_S32Ptr*(label_id: cstring; values: ptr ImS32;
                                   count: cint; bins: cint; bar_scale: cdouble;
-                                  range: ImPlotRange;
+                                  range_arg: ImPlotRange;
                                   flags: ImPlotHistogramFlags): cdouble {.cdecl,
     importc: "ImPlot_PlotHistogram_S32Ptr".}
 proc ImPlot_PlotHistogram_U32Ptr*(label_id: cstring; values: ptr ImU32;
                                   count: cint; bins: cint; bar_scale: cdouble;
-                                  range: ImPlotRange;
+                                  range_arg: ImPlotRange;
                                   flags: ImPlotHistogramFlags): cdouble {.cdecl,
     importc: "ImPlot_PlotHistogram_U32Ptr".}
 proc ImPlot_PlotHistogram_S64Ptr*(label_id: cstring; values: ptr ImS64;
                                   count: cint; bins: cint; bar_scale: cdouble;
-                                  range: ImPlotRange;
+                                  range_arg: ImPlotRange;
                                   flags: ImPlotHistogramFlags): cdouble {.cdecl,
     importc: "ImPlot_PlotHistogram_S64Ptr".}
 proc ImPlot_PlotHistogram_U64Ptr*(label_id: cstring; values: ptr ImU64;
                                   count: cint; bins: cint; bar_scale: cdouble;
-                                  range: ImPlotRange;
+                                  range_arg: ImPlotRange;
                                   flags: ImPlotHistogramFlags): cdouble {.cdecl,
     importc: "ImPlot_PlotHistogram_U64Ptr".}
 proc ImPlot_PlotHistogram2D_FloatPtr*(label_id: cstring; xs: ptr cfloat;
                                       ys: ptr cfloat; count: cint; x_bins: cint;
-                                      y_bins: cint; range: ImPlotRect;
+                                      y_bins: cint; range_arg: ImPlotRect;
                                       flags: ImPlotHistogramFlags): cdouble {.
     cdecl, importc: "ImPlot_PlotHistogram2D_FloatPtr".}
 proc ImPlot_PlotHistogram2D_doublePtr*(label_id: cstring; xs: ptr cdouble;
                                        ys: ptr cdouble; count: cint;
                                        x_bins: cint; y_bins: cint;
-                                       range: ImPlotRect;
+                                       range_arg: ImPlotRect;
                                        flags: ImPlotHistogramFlags): cdouble {.
     cdecl, importc: "ImPlot_PlotHistogram2D_doublePtr".}
 proc ImPlot_PlotHistogram2D_S8Ptr*(label_id: cstring; xs: cstring; ys: cstring;
                                    count: cint; x_bins: cint; y_bins: cint;
-                                   range: ImPlotRect;
+                                   range_arg: ImPlotRect;
                                    flags: ImPlotHistogramFlags): cdouble {.
     cdecl, importc: "ImPlot_PlotHistogram2D_S8Ptr".}
 proc ImPlot_PlotHistogram2D_U8Ptr*(label_id: cstring; xs: ptr ImU8;
                                    ys: ptr ImU8; count: cint; x_bins: cint;
-                                   y_bins: cint; range: ImPlotRect;
+                                   y_bins: cint; range_arg: ImPlotRect;
                                    flags: ImPlotHistogramFlags): cdouble {.
     cdecl, importc: "ImPlot_PlotHistogram2D_U8Ptr".}
 proc ImPlot_PlotHistogram2D_S16Ptr*(label_id: cstring; xs: ptr ImS16;
                                     ys: ptr ImS16; count: cint; x_bins: cint;
-                                    y_bins: cint; range: ImPlotRect;
+                                    y_bins: cint; range_arg: ImPlotRect;
                                     flags: ImPlotHistogramFlags): cdouble {.
     cdecl, importc: "ImPlot_PlotHistogram2D_S16Ptr".}
 proc ImPlot_PlotHistogram2D_U16Ptr*(label_id: cstring; xs: ptr ImU16;
                                     ys: ptr ImU16; count: cint; x_bins: cint;
-                                    y_bins: cint; range: ImPlotRect;
+                                    y_bins: cint; range_arg: ImPlotRect;
                                     flags: ImPlotHistogramFlags): cdouble {.
     cdecl, importc: "ImPlot_PlotHistogram2D_U16Ptr".}
 proc ImPlot_PlotHistogram2D_S32Ptr*(label_id: cstring; xs: ptr ImS32;
                                     ys: ptr ImS32; count: cint; x_bins: cint;
-                                    y_bins: cint; range: ImPlotRect;
+                                    y_bins: cint; range_arg: ImPlotRect;
                                     flags: ImPlotHistogramFlags): cdouble {.
     cdecl, importc: "ImPlot_PlotHistogram2D_S32Ptr".}
 proc ImPlot_PlotHistogram2D_U32Ptr*(label_id: cstring; xs: ptr ImU32;
                                     ys: ptr ImU32; count: cint; x_bins: cint;
-                                    y_bins: cint; range: ImPlotRect;
+                                    y_bins: cint; range_arg: ImPlotRect;
                                     flags: ImPlotHistogramFlags): cdouble {.
     cdecl, importc: "ImPlot_PlotHistogram2D_U32Ptr".}
 proc ImPlot_PlotHistogram2D_S64Ptr*(label_id: cstring; xs: ptr ImS64;
                                     ys: ptr ImS64; count: cint; x_bins: cint;
-                                    y_bins: cint; range: ImPlotRect;
+                                    y_bins: cint; range_arg: ImPlotRect;
                                     flags: ImPlotHistogramFlags): cdouble {.
     cdecl, importc: "ImPlot_PlotHistogram2D_S64Ptr".}
 proc ImPlot_PlotHistogram2D_U64Ptr*(label_id: cstring; xs: ptr ImU64;
                                     ys: ptr ImU64; count: cint; x_bins: cint;
-                                    y_bins: cint; range: ImPlotRect;
+                                    y_bins: cint; range_arg: ImPlotRect;
                                     flags: ImPlotHistogramFlags): cdouble {.
     cdecl, importc: "ImPlot_PlotHistogram2D_U64Ptr".}
 proc ImPlot_PlotDigital_FloatPtr*(label_id: cstring; xs: ptr cfloat;
@@ -9059,7 +9061,7 @@ proc ImPlotAxis_SetMax*(self: ptr ImPlotAxis; internal_max: cdouble; force: bool
     cdecl, importc: "ImPlotAxis_SetMax".}
 proc ImPlotAxis_SetRange_double*(self: ptr ImPlotAxis; v1: cdouble; v2: cdouble): void {.
     cdecl, importc: "ImPlotAxis_SetRange_double".}
-proc ImPlotAxis_SetRange_PlotRange*(self: ptr ImPlotAxis; range: ImPlotRange): void {.
+proc ImPlotAxis_SetRange_PlotRange*(self: ptr ImPlotAxis; range_arg: ImPlotRange): void {.
     cdecl, importc: "ImPlotAxis_SetRange_PlotRange".}
 proc ImPlotAxis_SetAspect*(self: ptr ImPlotAxis; unit_per_pix: cdouble): void {.
     cdecl, importc: "ImPlotAxis_SetAspect".}
@@ -9374,43 +9376,43 @@ proc ImPlot_FillRange_Vector_U64_Ptr*(buffer: ptr ImVector_ImU64; n: cint;
                                       vmin: ImU64; vmax: ImU64): void {.cdecl,
     importc: "ImPlot_FillRange_Vector_U64_Ptr".}
 proc ImPlot_CalculateBins_FloatPtr*(values: ptr cfloat; count: cint;
-                                    meth: ImPlotBin; range: ImPlotRange;
+                                    meth: ImPlotBin; range_arg: ImPlotRange;
                                     bins_out: ptr cint; width_out: ptr cdouble): void {.
     cdecl, importc: "ImPlot_CalculateBins_FloatPtr".}
 proc ImPlot_CalculateBins_doublePtr*(values: ptr cdouble; count: cint;
-                                     meth: ImPlotBin; range: ImPlotRange;
+                                     meth: ImPlotBin; range_arg: ImPlotRange;
                                      bins_out: ptr cint; width_out: ptr cdouble): void {.
     cdecl, importc: "ImPlot_CalculateBins_doublePtr".}
 proc ImPlot_CalculateBins_S8Ptr*(values: cstring; count: cint; meth: ImPlotBin;
-                                 range: ImPlotRange; bins_out: ptr cint;
+                                 range_arg: ImPlotRange; bins_out: ptr cint;
                                  width_out: ptr cdouble): void {.cdecl,
     importc: "ImPlot_CalculateBins_S8Ptr".}
 proc ImPlot_CalculateBins_U8Ptr*(values: ptr ImU8; count: cint; meth: ImPlotBin;
-                                 range: ImPlotRange; bins_out: ptr cint;
+                                 range_arg: ImPlotRange; bins_out: ptr cint;
                                  width_out: ptr cdouble): void {.cdecl,
     importc: "ImPlot_CalculateBins_U8Ptr".}
 proc ImPlot_CalculateBins_S16Ptr*(values: ptr ImS16; count: cint;
-                                  meth: ImPlotBin; range: ImPlotRange;
+                                  meth: ImPlotBin; range_arg: ImPlotRange;
                                   bins_out: ptr cint; width_out: ptr cdouble): void {.
     cdecl, importc: "ImPlot_CalculateBins_S16Ptr".}
 proc ImPlot_CalculateBins_U16Ptr*(values: ptr ImU16; count: cint;
-                                  meth: ImPlotBin; range: ImPlotRange;
+                                  meth: ImPlotBin; range_arg: ImPlotRange;
                                   bins_out: ptr cint; width_out: ptr cdouble): void {.
     cdecl, importc: "ImPlot_CalculateBins_U16Ptr".}
 proc ImPlot_CalculateBins_S32Ptr*(values: ptr ImS32; count: cint;
-                                  meth: ImPlotBin; range: ImPlotRange;
+                                  meth: ImPlotBin; range_arg: ImPlotRange;
                                   bins_out: ptr cint; width_out: ptr cdouble): void {.
     cdecl, importc: "ImPlot_CalculateBins_S32Ptr".}
 proc ImPlot_CalculateBins_U32Ptr*(values: ptr ImU32; count: cint;
-                                  meth: ImPlotBin; range: ImPlotRange;
+                                  meth: ImPlotBin; range_arg: ImPlotRange;
                                   bins_out: ptr cint; width_out: ptr cdouble): void {.
     cdecl, importc: "ImPlot_CalculateBins_U32Ptr".}
 proc ImPlot_CalculateBins_S64Ptr*(values: ptr ImS64; count: cint;
-                                  meth: ImPlotBin; range: ImPlotRange;
+                                  meth: ImPlotBin; range_arg: ImPlotRange;
                                   bins_out: ptr cint; width_out: ptr cdouble): void {.
     cdecl, importc: "ImPlot_CalculateBins_S64Ptr".}
 proc ImPlot_CalculateBins_U64Ptr*(values: ptr ImU64; count: cint;
-                                  meth: ImPlotBin; range: ImPlotRange;
+                                  meth: ImPlotBin; range_arg: ImPlotRange;
                                   bins_out: ptr cint; width_out: ptr cdouble): void {.
     cdecl, importc: "ImPlot_CalculateBins_U64Ptr".}
 proc ImPlot_IsLeapYear*(year: cint): bool {.cdecl, importc: "ImPlot_IsLeapYear".}
@@ -9474,19 +9476,19 @@ proc ImPlot_Formatter_Logit*(value: cdouble; buff: cstring; size: cint;
 proc ImPlot_Formatter_Time*(noname1: cdouble; buff: cstring; size: cint;
                             data: pointer): cint {.cdecl,
     importc: "ImPlot_Formatter_Time".}
-proc ImPlot_Locator_Default*(ticker: ptr ImPlotTicker; range: ImPlotRange;
+proc ImPlot_Locator_Default*(ticker: ptr ImPlotTicker; range_arg: ImPlotRange;
                              pixels: cfloat; vertical: bool;
                              formatter: ImPlotFormatter; formatter_data: pointer): void {.
     cdecl, importc: "ImPlot_Locator_Default".}
-proc ImPlot_Locator_Time*(ticker: ptr ImPlotTicker; range: ImPlotRange;
+proc ImPlot_Locator_Time*(ticker: ptr ImPlotTicker; range_arg: ImPlotRange;
                           pixels: cfloat; vertical: bool;
                           formatter: ImPlotFormatter; formatter_data: pointer): void {.
     cdecl, importc: "ImPlot_Locator_Time".}
-proc ImPlot_Locator_Log10*(ticker: ptr ImPlotTicker; range: ImPlotRange;
+proc ImPlot_Locator_Log10*(ticker: ptr ImPlotTicker; range_arg: ImPlotRange;
                            pixels: cfloat; vertical: bool;
                            formatter: ImPlotFormatter; formatter_data: pointer): void {.
     cdecl, importc: "ImPlot_Locator_Log10".}
-proc ImPlot_Locator_SymLog*(ticker: ptr ImPlotTicker; range: ImPlotRange;
+proc ImPlot_Locator_SymLog*(ticker: ptr ImPlotTicker; range_arg: ImPlotRange;
                             pixels: cfloat; vertical: bool;
                             formatter: ImPlotFormatter; formatter_data: pointer): void {.
     cdecl, importc: "ImPlot_Locator_SymLog".}
@@ -9696,15 +9698,10 @@ proc ImGuizmo_DrawCubes*(view: ptr cfloat; projection: ptr cfloat;
 proc ImGuizmo_DrawGrid*(view: ptr cfloat; projection: ptr cfloat;
                         matrix: ptr cfloat; gridSize: cfloat): void {.cdecl,
     importc: "ImGuizmo_DrawGrid".}
-proc ImGuizmo_Manipulate*(view: ptr cfloat;
-                    projection: ptr cfloat;
-                    operation: OPERATION;
-                    mode: MODE;
-                    matrix:      ptr cfloat;
-                    deltaMatrix: ptr cfloat;
-                    snap:        ptr cfloat;
-                    localBounds: ptr cfloat;
-                    boundsSnap:  ptr cfloat): bool {.
+proc ImGuizmo_Manipulate*(view: ptr cfloat; projection: ptr cfloat;
+                          operation: OPERATION; mode: MODE; matrix: ptr cfloat;
+                          deltaMatrix: ptr cfloat; snap: ptr cfloat;
+                          localBounds: ptr cfloat; boundsSnap: ptr cfloat): bool {.
     cdecl, importc: "ImGuizmo_Manipulate".}
 proc ImGuizmo_ViewManipulate_Float*(view: ptr cfloat; length: cfloat;
                                     position: ImVec2; size: ImVec2;

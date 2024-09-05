@@ -13,7 +13,7 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        nim: [ '2.0.6' ]
+        nim: [ '2.0.8' ]
     name: Nim ${{ matrix.nim }} compilation
     steps:
       - uses: actions/checkout@v4
