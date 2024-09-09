@@ -88,9 +88,7 @@ proc main() =
   defer: ImGui_ImplOpenGL3_Shutdown()
 
   # Set ini filename
-  pio.IniFileName = "xxx.ini"
-
-
+  #pio.IniFileName = "myIniname.ini"
 
   glfwWin.winMain()
 

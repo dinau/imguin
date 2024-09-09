@@ -31,7 +31,7 @@
 # ImGuin
 
 
-Updated to latest ImGui/CImGui version: : **v1.91.0dock** (2024/08)
+Updated to latest ImGui/CImGui version: : **v1.91.1dock** (2024/09)
 
 This project is my experiment project to use Nim language, ImGui, ImPlot, futhark and etc.  
 
@@ -49,7 +49,7 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 
 ---
 
-- [Nim-2.0.2](https://nim-lang.org) or later (Windows10 or Debian Linux)
+- [Nim-2.0.2](https://nim-lang.org) or later (Windows10 or later /  Debian Linux)
 - MSys/MinGW command line tools (Unix tools), make, cp, rm, git, ...etc
 - For Linux Debian 12 Bookworm,
 
@@ -148,10 +148,10 @@ Showing ImGui demo with ImPlot demo.
 Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
 
    ```sh
-   nimble install --passL:"-Lc:\llvm\lib" futhark
+   nimble install futhark
    ```
 
-   It must exist **libclang.a** file in the library path (e.g. "c:\llvm\lib").
+   It must exist `libclang.a` file in the library path (e.g. in `c:\llvm\lib`).
 
 1. Linux Debian 12 Bookworm
 
@@ -160,13 +160,13 @@ Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#ins
     nimble install --passL:"-L/usr/lib/llvm-16/lib" futhark
     ```
 
-Important Notice: Confirm Futhark version is **v0.13.2** at this time. (2024/06)
+Important Notice: Confirm Futhark version is **v0.13.6** at this time. (2024/09)
 
 ```sh
 nimble dump futhark
 
 name: "futhark"
-version: "0.13.2"
+version: "0.13.6"
 author: "PMunch"
 desc: "A package which uses libclang to parse C headers into Nim files for easy interop"
 license: "MIT"
@@ -194,12 +194,14 @@ First move to your working folder you like, then
    make clonelibs
    ```
 
-   Cloned libraries to under `../libs/` folder.  
+   Cloned libraries are under `../libs/` folder.  
 1.
-   Checkout arbitrary version you like with git command at the each library folder,  
+   Checkout arbitrary version with git command at the each library folder,  
    ../libs/cimgui  
    ../libs/cimplot  
    ../libs/cimnodes  
+
+1. Specify your clang include path to  `ClangIncludePath` in `imguin/src/imguin/cimgui.nim`.
 
 1. Generate [the definition file](src/imguin/cimgui_defs.nim) uisng [Futhark](https://github.com/PMunch/futhark),  
 
@@ -225,10 +227,11 @@ Properly edit the version info etc in `imguin.nimble` file, then
 
 - Confirmed version
 
-  | ImGui/CImGui Ver. | ImguiN Ver. | Date    | Windows10 | Debian<br> Bookworm (1) |
+  | ImGui/CImGui Ver. | ImguiN Ver. | Date    | WindowsOS | Debian<br> Bookworm (1) |
   | :--------------:  | ---------   | :----:  | :---:     | :---:                   |
-  | 1.91.0dock        | 1.91.0.1    | 2024/08 | ok        | No checked              |
-  | ↑                | 1.91.0.0    | 2024/08 | ok        | No checked              |
+  | 1.91.1dock        | 1.91.1.0    | 2024/09 | ok        | Not checked             |
+  | 1.91.0dock        | 1.91.0.1    | 2024/08 | ok        | Not checked             |
+  | ↑                | 1.91.0.0    | 2024/08 | ok        | Not checked             |
   | 1.90.9dock        | 1.90.9.4    | 2024/07 | ok        | NG (5)                  |
   | ↑                | 1.90.9.3    | 2024/07 | ok        | NG (5)                  |
   | 1.90.8dock        | 1.90.8.1    | 2024/06 | ok        | NG (5)                  |
@@ -245,7 +248,7 @@ Properly edit the version info etc in `imguin.nimble` file, then
   Notice(2): Doesn't work well.  
   Notice(3): Works well only if it is compiled debug mode.  
   Notice(4): Use nim-2.0.2  
-  Notice(5): I don't know why can't be compiled on Lunux.  
+  Notice(5): I don't know why can't be compiled on Linux.  
 
 
 ## Selection backend compiler
@@ -295,17 +298,17 @@ by changing variable `TC` in [examples/config.nims.common](examples/config.nims.
 
 ---
 
-Windows10 (main)
+Windows11 (main)
 - **Nim Compiler Version 2.0.8**
-- **Gcc.exe (Rev3, Built by MSYS2 project) 14.1.0**
+- **Gcc.exe (Rev1, Built by MSYS2 project) 14.2.0**
 - ~~Gcc.exe (MinGW-W64...) 11.1.0 (Nim offical)~~
 - Clang version 18.1.8
-- git version 2.45.2.windows.3
-- SDL2.dll: 2.30.3
+- git version 2.46.0.windows.1
+- SDL2.dll: 2.30.7
 - make: GNU Make 4.4.1
 - MSys2/MinGW tools
-- Microsoft Visual Studio C/C++ 2019
-- Zig: 0.12.0 (clang version 17.0.6)
+- Microsoft Visual Studio C/C++ 2022
+- Zig: 0.14.0-dev (clang version 18.1.8)
 
 Debian 12 Bookworm
 - Nim Compiler Version 2.0.4

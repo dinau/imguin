@@ -25,10 +25,11 @@ jobs:
           nim-version: ${{ matrix.nim }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       #- name: Set up MinGW
-      #  uses: egor-tensin/setup-mingw@v2
+      #  uses: msys2/setup-msys2@v2
       #  with:
-      #    platform: x64
-         #platform: x86
-      #- run: pacman -S mingw-w64-x86_64-SDL2
+      #    msystem: mingw64
+      #    install: mingw-w64-x86_64-SDL2
+      - name: Windows evnvironment values
+        run: echo ${{ env.CONFIGRATION }}
       - run: make
       #
