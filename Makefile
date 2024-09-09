@@ -2,10 +2,11 @@
 #
 .PHONY: example clean install updater gen
 
-all: example
+all: install example
 
 install:
 	nimble install
+	nimble build
 
 example:
 	make -C examples
@@ -63,3 +64,27 @@ cimnodes:
 	git clone --recurse-submodules https://github.com/cimgui/cimnodes  ../libs/cimnodes
 cimguizmo:
 	git clone --recurse-submodules https://github.com/cimgui/cimguizmo ../libs/cimguizmo
+
+
+help:
+	@echo
+
+
+base:
+	(cd examples/glfw_opengl3; ./glfw_opengl3)
+load:
+	(cd examples/glfw_opengl3_image_load; ./glfw_opengl3_image_load)
+save:
+	(cd examples/glfw_opengl3_image_save; ./glfw_opengl3_image_save)
+guizmo:
+	(cd examples/glfw_opengl3_imguizmo; ./glfw_opengl3_imguizmo)
+nodes:
+	(cd examples/glfw_opengl3_imnodes; ./glfw_opengl3_imnodes)
+plot:
+	(cd examples/glfw_opengl3_implot; ./glfw_opengl3_implot)
+jp:
+	(cd examples/glfw_opengl3_nimgl_imguin_jp; ./glfw_opengl3_nimgl_imguin_jp)
+sdl:
+	(cd examples/sdl2_opengl3; ./sdl2_opengl3)
+fontx:
+	(cd examples/fontx2v; ./fontx2v)
