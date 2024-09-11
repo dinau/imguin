@@ -1,12 +1,12 @@
 # Package
 
-version       = "1.91.1.0"
+version       = "1.91.1.1"
 author        = "dinau"
 description   = "Imguin: ImGui / ImPlot / ImNodes wrapper using Futhark"
 license       = "MIT"
 srcDir        = "src"
 skipDirs      = @["examples","src/img","src/imguin/private/updater"]
-bin           = @["imguin"]
+#bin           = @["imguin"]
 
 
 # Dependencies
