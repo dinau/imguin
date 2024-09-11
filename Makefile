@@ -6,7 +6,7 @@ all: install example
 
 install:
 	nimble install
-	nimble build
+	#@-nimble build
 
 example:
 	make -C examples
