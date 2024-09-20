@@ -7,8 +7,9 @@ import ../utils/loadImage
 import saveImage
 
 include ../utils/setupFonts
-when not defined(vcc):   # imguinVcc.res TODO WIP
-  include ./res/resource
+when defined(windows):
+  when not defined(vcc):   # imguinVcc.res TODO WIP
+    include ./res/resource
 include imguin/simple
 
 
@@ -71,6 +72,7 @@ proc main() =
   glfwWindowHint(GLFWOpenglProfile, GLFW_OPENGL_CORE_PROFILE)
   glfwWindowHint(GLFWResizable, GLFW_TRUE)
   #
+  glfwWindowHint(GLFWVisible, GLFW_FALSE)
   var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight)
   if glfwWin.isNil:
     quit(-1)
@@ -82,7 +84,7 @@ proc main() =
   #---------------------
   # Load title bar icon
   #---------------------
-  var IconName = os.joinPath(os.getAppDir(),"icon.png")
+  var IconName = os.joinPath(os.getAppDir(),"res/img/n.png")
   LoadTileBarIcon(glfwWin, IconName)
   #
   doAssert glInit() # OpenGL init
@@ -116,7 +118,9 @@ proc winMain(hWin: glfw.GLFWWindow) =
     fval = 0.5f
     counter = 0
     sBuf = newString(200)
-  var clearColor:ccolor
+    clearColor:ccolor
+    showWindowReq = true # Avoid flickering screen at startup. TODO?
+
   if TransparentViewport:
     clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
   else:
@@ -258,6 +262,11 @@ proc winMain(hWin: glfw.GLFWWindow) =
     hWin.swapBuffers()
     if not showFirstWindow and not showDemoWindow and not showAnotherWindow:
       hwin.setWindowShouldClose(true) # End program
+
+    once: # Avoid flickering screen at startup.
+      hWin.showWindow()
+
+    #### end while
 
 #---------------
 #--- setTooltip

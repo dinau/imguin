@@ -55,6 +55,7 @@ proc main() =
   glfwWindowHint(GLFWOpenglProfile, GLFW_OPENGL_CORE_PROFILE)
   glfwWindowHint(GLFWResizable, GLFW_TRUE)
   #
+  glfwWindowHint(GLFWVisible, GLFW_FALSE)
   var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight)
   if glfwWin.isNil:
     quit(-1)
@@ -65,7 +66,7 @@ proc main() =
 
   doAssert glInit() # OpenGL init
 
-  # setup ImGui
+  # Setup ImGui
   let context = igCreateContext(nil)
   defer: context.igDestroyContext()
   if fDocking:
@@ -89,6 +90,7 @@ proc main() =
 proc winMain(hWin: glfw.GLFWWindow) =
   var
     clearColor:ccolor
+    showWindowReq = true # Avoid flickering screen at startup. TODO?
 
   if TransparentViewport:
     clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
@@ -169,6 +171,11 @@ proc winMain(hWin: glfw.GLFWWindow) =
       backup_current_window.makeContextCurrent()
 
     hWin.swapBuffers()
+
+    once: # Avoid flickering screen at startup.
+      hWin.showWindow()
+
+    #### end while
 
 #------
 # main

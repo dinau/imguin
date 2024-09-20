@@ -1,4 +1,4 @@
-# switch "app","gui"
+switch "app","gui" # dismiss background Window
 
 #---------------------------------------
 # Select static link or shared/dll link
@@ -14,8 +14,8 @@ when defined(windows):
   else:
     switch "passL","-lgdi32 -limm32 -lcomdlg32 -luser32 -lshell32"
 else: # for Linux
-  const STATIC_LINK_GLFW = false
-  const STATIC_LINK_CC= false
+  const STATIC_LINK_GLFW = true
+  const STATIC_LINK_CC= true
 
 #
 when STATIC_LINK_GLFW: # GLFW static link
@@ -35,8 +35,6 @@ when STATIC_LINK_CC: # gcc static link
   case TC
     of "vcc":
       discard
-    of "clang","zigcc":
-      switch "passC", "-static"
     else:
       switch "passC", "-static"
       switch "passL", "-static "

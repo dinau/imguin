@@ -4,8 +4,12 @@ import nimgl/[opengl,glfw]
 import imguin/[glfw_opengl]
 import imguin/lang/imgui_ja_gryph_ranges
 import implotFuncs
+import ../utils/loadImage
 
 include ../utils/setupFonts
+when defined(windows):
+  when not defined(vcc):   # imguinVcc.res TODO WIP
+    include ./res/resource
 include imguin/simple
 
 
@@ -82,6 +86,7 @@ proc main() =
   glfwWindowHint(GLFWOpenglProfile, GLFW_OPENGL_CORE_PROFILE)
   glfwWindowHint(GLFWResizable, GLFW_TRUE)
   #
+  glfwWindowHint(GLFWVisible, GLFW_FALSE)
   var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight)
   if glfwWin.isNil:
     quit(-1)
@@ -90,9 +95,15 @@ proc main() =
 
   glfwSwapInterval(1) # Enable vsync
 
+  #---------------------
+  # Load title bar icon
+  #---------------------
+  var IconName = os.joinPath(os.getAppDir(),"res/img/n.png")
+  LoadTileBarIcon(glfwWin, IconName)
+  #
   doAssert glInit() # OpenGL init
 
-  # setup ImGui
+  # Setup ImGui
   let context = igCreateContext(nil)
   defer: context.igDestroyContext()
 
@@ -127,7 +138,8 @@ proc winMain(hWin: glfw.GLFWWindow) =
     fval = 0.5f
     counter = 0
     sBuf = newString(200)
-  var clearColor:ccolor
+    showWindowReq = true # Avoid flickering screen at startup. TODO?
+    clearColor:ccolor
   if TransparentViewport:
     clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
   else:
@@ -216,6 +228,11 @@ proc winMain(hWin: glfw.GLFWWindow) =
     if not showFirstWindow and not showDemoWindow and not showAnotherWindow and
        not showImPlotWindow:
       hwin.setWindowShouldClose(true) # End program
+
+    once: # Avoid flickering screen at startup.
+      hWin.showWindow()
+
+    #### end while
 
 #------
 # main

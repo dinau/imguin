@@ -6,6 +6,8 @@ import imguin/lang/imgui_ja_gryph_ranges
 
 include ../utils/setupFonts
 include imguin/simple
+when defined(windows):
+  include ./res/resource
 
 const MainWinWidth = 1024
 const MainWinHeight = 800
@@ -59,11 +61,8 @@ proc main() =
   var current: DisplayMode
   discard sdl.getCurrentDisplayMode(0, addr current)
 
-  var flags:cuint
-  if TransparentViewport:
-    flags = WINDOW_HIDDEN or WINDOW_OPENGL or WINDOW_RESIZABLE
-  else:
-    flags = WINDOW_SHOWN or WINDOW_OPENGL or WINDOW_RESIZABLE
+  # Initialy window is hidden.  See: showWindowReq
+  var flags:cuint = WINDOW_HIDDEN or WINDOW_OPENGL or WINDOW_RESIZABLE
 
   var window = sdl.createWindow( "Hello", 30, 30, MainWinWidth, MainWinHeight, flags)
   if isNil window:
@@ -80,7 +79,7 @@ proc main() =
     sdl.log("opengl version: ", glGetString(GL_VERSION))
     quit "Error initialising OpenGL"
 
-  # setup imgui
+  # Setup imgui
   igCreateContext(nil)
   defer: igDestroyContext(nil)
 
@@ -91,7 +90,7 @@ proc main() =
       pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_ViewportsEnable.cint
       pio.ConfigViewports_NoAutomerge = true
 
-  var glsl_version: cstring = "#version 150" # OpenGL 3.2
+  var glsl_version: cstring = "#version 330" # OpenGL 3.3
   doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SdlWindow](window) , addr glsl_version)
   defer: ImGui_ImplSDL2_Shutdown()
 
@@ -109,7 +108,8 @@ proc main() =
     counter = 0
     xQuit: bool
     sBuf = newString(200)
-  var clearColor:ccolor
+    clearColor:ccolor
+    showWindowReq = true # Avoid flickering screen at startup. TODO?
   if TransparentViewport:
     clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
   else:
@@ -209,6 +209,11 @@ proc main() =
     sdl.glSwapWindow(window)
     if not showFirstWindow and not showDemoWindow and not showAnotherWindow:
       xQuit = true
+
+    once: # Avoid flickering screen at startup.
+      window.showWindow()
+
+    ### end while
 
   sdl.quit()
 

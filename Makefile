@@ -1,4 +1,4 @@
-# This file is just for package development purpose.
+# This file is just for the purpose of package development.
 #
 .PHONY: example clean install updater gen
 

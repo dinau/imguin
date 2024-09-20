@@ -8,11 +8,9 @@ var projDirs = @[
 "glfw_opengl3_nimgl_imguin_jp",
 "glfw_opengl3_imnodes",
 "glfw_opengl3_imguizmo",
+"sdl2_opengl3",
 "fontx2v",
 ]
-
-if hostOS == "windows":
-  projDirs.add "sdl2_opengl3"
 
 #-------------
 # compileProj

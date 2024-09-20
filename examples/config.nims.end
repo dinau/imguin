@@ -44,8 +44,8 @@ case TC
     var ext = ""
     when defined(windows):
       ext = ".bat"
-    switch "clang.exe","zigcc.bat" #& ext
-    switch "clang.linkerexe","zigcc.bat" #& ext
+    switch "clang.exe","../zigcc.bat" #& ext
+    switch "clang.linkerexe","../zigcc.bat" #& ext
     switch "passL","-lgcc_s "
   of "vcc":
     switch "cc",TC

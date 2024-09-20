@@ -4,15 +4,17 @@ import nimgl/[opengl,glfw]
 import imguin/[glfw_opengl]
 
 import imguin/lang/imgui_ja_gryph_ranges
+import ../utils/loadImage
 
 include ../utils/setupFonts
 include imguin/simple
 
 when defined(windows):
+  include ./res/resource
   import tinydialogs
 
 const MainWinWidth = 1024
-const MainWinHeight = 804
+const MainWinHeight = 800
 
 #--------------
 # Configration
@@ -60,6 +62,7 @@ proc main() =
   glfwWindowHint(GLFWOpenglProfile, GLFW_OPENGL_CORE_PROFILE)
   glfwWindowHint(GLFWResizable, GLFW_TRUE)
   #
+  glfwWindowHint(GLFWVisible, GLFW_FALSE)
   var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight)
   if glfwWin.isNil:
     quit(-1)
@@ -68,13 +71,19 @@ proc main() =
 
   glfwSwapInterval(1) # Enable vsync
 
+  #---------------------
+  # Load title bar icon
+  #---------------------
+  var IconName = os.joinPath(os.getAppDir(),"res/img/n.png")
+  LoadTileBarIcon(glfwWin, IconName)
+  #
   doAssert glInit() # OpenGL init
 
-  # setup ImGui
+  # Setup ImGui
   let context = igCreateContext(nil)
   defer: context.igDestroyContext()
-  var pio = igGetIO()
   if fDocking:
+    var pio = igGetIO()
     pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_DockingEnable.cint
     if fViewport:
       pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_ViewportsEnable.cint
@@ -151,7 +160,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
         if igButton("Open file", ImVec2(x: 0, y: 0)):
            sFnameSelected = openFileDialog("File open dialog", getCurrentDir() / "\0", ["*.nim", "*.nims"], "Text file")
         igSameLine(0.0f, -1.0f)
-        # ヒント表示
+        # Show hint
         if igIsItemHovered(Imgui_HoveredFlagsDelayShort.cint) and igBeginTooltip():
           igText("[Open file]")
           const ary = [0.6f, 0.1f, 1.0f, 0.5f, 0.92f, 0.1f, 0.2f]
@@ -165,7 +174,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
         inc counter
       igSameLine(0.0f, -1.0f)
       igText("counter = %d", counter)
-      igText("Application average %.3f ms/frame (%.1f FPS)".cstring, (1000.0f / igGetIO().Framerate.float).cfloat, igGetIO().Framerate)
+      igText("Application average %.3f ms/frame (%.1f FPS)".cstring, (1000.0f / igGetIO().Framerate).cfloat, igGetIO().Framerate.cfloat)
       igSeparatorText(ICON_FA_WRENCH & " Icon font test ")
       igText(ICON_FA_TRASH_CAN & " Trash")
       igText(ICON_FA_MAGNIFYING_GLASS_PLUS &
@@ -201,6 +210,10 @@ proc winMain(hWin: glfw.GLFWWindow) =
     if not showFirstWindow and not showDemoWindow and not showAnotherWindow:
       hwin.setWindowShouldClose(true) # End program
 
+    once: # Avoid flickering screen at startup.
+      hWin.showWindow()
+
+    #### end while
 #------
 # main
 #------

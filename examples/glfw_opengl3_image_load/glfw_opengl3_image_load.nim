@@ -6,7 +6,9 @@ import imguin/lang/imgui_ja_gryph_ranges
 import ../utils/loadImage
 
 include ../utils/setupFonts
-include ./res/resource
+when defined(windows):
+  when not defined(vcc):   # imguinVcc.res TODO WIP
+    include ./res/resource
 include imguin/simple
 
 
@@ -59,6 +61,7 @@ proc main() =
   glfwWindowHint(GLFWOpenglProfile, GLFW_OPENGL_CORE_PROFILE)
   glfwWindowHint(GLFWResizable, GLFW_TRUE)
   #
+  glfwWindowHint(GLFWVisible, GLFW_FALSE)
   var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight)
   if glfwWin.isNil:
     quit(-1)
@@ -70,7 +73,7 @@ proc main() =
   #---------------------
   # Load title bar icon
   #---------------------
-  var IconName = os.joinPath(os.getAppDir(),"icon.png")
+  var IconName = os.joinPath(os.getAppDir(),"res/img/n.png")
   LoadTileBarIcon(glfwWin, IconName)
   #
   doAssert glInit() # OpenGL init
@@ -104,13 +107,15 @@ proc winMain(hWin: glfw.GLFWWindow) =
     fval = 0.5f
     counter = 0
     sBuf = newString(200)
-  var clearColor:ccolor
+    clearColor:ccolor
+
   if TransparentViewport:
     clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
   else:
     clearColor = ccolor(elm:(x:0.25f, y:0.65f, z:0.85f, w:1.0f))
 
   igStyleColorsClassic(nil)
+  #igStyleColorsDark(nil)
 
   # Add multibytes font
   var (fExistMultibytesFonts ,sActiveFontName, sActiveFontTitle) = setupFonts()
@@ -164,7 +169,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
         inc counter
       igSameLine(0.0f, -1.0f)
       igText("counter = %d", counter)
-      igText("Application average %.3f ms/frame (%.1f FPS)".cstring, (1000.0f / igGetIO().Framerate).cfloat, (igGetIO().Framerate).cfloat)
+      igText("Application average %.3f ms/frame (%.1f FPS)".cstring, (1000.0f / igGetIO().Framerate).cfloat, igGetIO().Framerate.cfloat)
       igSeparatorText(ICON_FA_WRENCH & " Icon font test ")
       igText(ICON_FA_TRASH_CAN & " Trash")
       igText(ICON_FA_MAGNIFYING_GLASS_PLUS &
@@ -213,6 +218,10 @@ proc winMain(hWin: glfw.GLFWWindow) =
     if not showFirstWindow and not showDemoWindow and not showAnotherWindow:
       hwin.setWindowShouldClose(true) # End program
 
+    once: # Avoid flickering screen at startup.
+      hWin.showWindow()
+
+    #### end while
 #------
 # main
 #------

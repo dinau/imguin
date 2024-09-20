@@ -51,7 +51,7 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 
 - [Nim-2.0.2](https://nim-lang.org) or later (Windows10 or later /  Debian Linux)
 - MSys/MinGW command line tools (Unix tools), make, cp, rm, git, ...etc
-- For Linux Debian 12 Bookworm,
+- For Linux Debian 12 Bookworm, Linux Mint
 
   ```sh
   $ sudo apt install xorg-dev libopengl-dev libgl1-mesa-dev
@@ -227,28 +227,30 @@ Properly edit the version info etc in `imguin.nimble` file, then
 
 - Confirmed version
 
-  | ImGui/CImGui Ver. | ImguiN Ver. | Date    | WindowsOS | Debian<br> Bookworm (1) |
-  | :--------------:  | ---------   | :----:  | :---:     | :---:                   |
-  | 1.91.1dock        | 1.91.1.0    | 2024/09 | ok        | Not checked             |
-  | 1.91.0dock        | 1.91.0.1    | 2024/08 | ok        | Not checked             |
-  | ↑                | 1.91.0.0    | 2024/08 | ok        | Not checked             |
-  | 1.90.9dock        | 1.90.9.4    | 2024/07 | ok        | NG (5)                  |
-  | ↑                | 1.90.9.3    | 2024/07 | ok        | NG (5)                  |
-  | 1.90.8dock        | 1.90.8.1    | 2024/06 | ok        | NG (5)                  |
-  | ↑                | 1.90.8.0    | 2024/06 | ok        | NG (5)                  |
-  | 1.90.7dock        | 1.90.7.0    | 2024/05 | ok        | NG (5)                  |
-  | 1.90.6dock        | 1.90.6.1    | 2024/05 | ok        | NG (5)                  |
-  | 1.90.4dock        | 1.90.4.3    | 2024/04 | ok        | NG (5)                  |
-  | -                 | -           | -       | -         | -                       |
-  | ↑                | 1.90.4.2    | 2024/02 | ok        | OK (4)                  |
-  | 1.90.1dock        | 1.90.1.0    | 2024/01 | ok        | NG/OK(1)(3)(4)          |
-  | 1.89.9dock        | 1.89.9.8    | 2023/12 | ok        | NG/OK(1)(3)(4)          |
+  | ImGui/CImGui Ver. | ImGuin Ver. | Date    | WindowsOS | Linux Mint | Debian<br> Bookworm (1) |
+  | :--------------:  | ---------   | :----:  | :---:     | :---:      | :---:                   |
+  | 1.91.1dock        | 1.91.1.2    | 2024/09 | ok        | OK (6)     | Not checked             |
+  | 1.91.1dock        | 1.91.1.1    | 2024/09 | ok        | -          | Not checked             |
+  | 1.91.0dock        | 1.91.0.1    | 2024/08 | ok        | -          | Not checked             |
+  | ↑                | 1.91.0.0    | 2024/08 | ok        | -          | Not checked             |
+  | 1.90.9dock        | 1.90.9.4    | 2024/07 | ok        | -          | NG (5)                  |
+  | ↑                | 1.90.9.3    | 2024/07 | ok        | -          | NG (5)                  |
+  | 1.90.8dock        | 1.90.8.1    | 2024/06 | ok        | -          | NG (5)                  |
+  | ↑                | 1.90.8.0    | 2024/06 | ok        | -          | NG (5)                  |
+  | 1.90.7dock        | 1.90.7.0    | 2024/05 | ok        | -          | NG (5)                  |
+  | 1.90.6dock        | 1.90.6.1    | 2024/05 | ok        | -          | NG (5)                  |
+  | 1.90.4dock        | 1.90.4.3    | 2024/04 | ok        | -          | NG (5)                  |
+  | -                 | -           | -       | -         | -          | -                       |
+  | ↑                | 1.90.4.2    | 2024/02 | ok        | -          | OK (4)                  |
+  | 1.90.1dock        | 1.90.1.0    | 2024/01 | ok        | -          | NG/OK(1)(3)(4)          |
+  | 1.89.9dock        | 1.89.9.8    | 2023/12 | ok        | -          | NG/OK(1)(3)(4)          |
 
-  Notice(1): Except imnodes and SDL2 example.  
-  Notice(2): Doesn't work well.  
-  Notice(3): Works well only if it is compiled debug mode.  
-  Notice(4): Use nim-2.0.2  
-  Notice(5): I don't know why can't be compiled on Linux.  
+  (1): Except imnodes and SDL2 example.  
+  (2): Doesn't work well.  
+  (3): Works well only if it is compiled debug mode.  
+  (4): Use nim-2.0.2  
+  (5): I don't know why can't be compiled on Linux.  
+  (6): OK: Except ImNodes example
 
 
 ## Selection backend compiler
@@ -259,37 +261,17 @@ You might be able to use another C/C++ compiler,
 `Clang, vcc(Visual Studio C/C++) , zig cc`  
 by changing variable `TC` in [examples/config.nims.common](examples/config.nims.common).
 
-## Examples notice
-
----
-- [examples/sdl2_opengl3](examples/sdl2_opengl3)
-   1. If you are on Windows OS **32bit**, you should get `SDL2.dll` for instance from [release-2.26.4](https://github.com/libsdl-org/SDL/releases/tag/release-2.26.4).
-      1. Unzip [SDL2-2.26.4-win32-x86.zip](https://github.com/libsdl-org/SDL/releases/download/release-2.26.4/SDL2-2.26.4-win32-x86.zip)
-      1. Copy SDL2.dll to [examples/sdl2_opengl3](examples/sdl2_opengl3) folder.
-   1. On Windows OS, it needs dev tool to compile SDL2 app,
-      [SDL2-devel-2.26.4-mingw.zip](https://github.com/libsdl-org/SDL/releases/download/release-2.26.4/SDL2-devel-2.26.4-mingw.zip)
-      for instance "SDL.h","-lSDL2.dll" etc
-      and change `src/imguin/sdl2_opengl.nim`
-
-      ```nim
-      {.passC:"-Id:/msys32/mingw32/include/SDL2".}
-      {.passL:"-Ld:/msys32/mingw32/lib -lSDL2.dll".}
-      ```
-
-      you need to properly change the above folder name depending on your settings.
-      See [src/imguin/sdl2_opengl.nim](src/imguin/sdl2_opengl.nim)
-
 ## TODO
 
 ---
 
-1. Easier compilation for SDL2 app.
-1. ~~Added: ImNodes/CImNodes~~ (2023/10)Done
-1. Whether can it use `cimgui.dll` ? (Now it can only be static link)
+1. ~~Whether can it use `cimgui.dll` ? (Now it can only be static link)~~ Done. Only be static link.
+1. ~~Easier compilation for SDL2 app~~. (2024/09) Done.
+1. ~~Added: ImNodes/CImNodes~~ (2023/10) Done
 1. ~~Unfortunately ImGui 1.89.7 dosn't work well at this moment.(2023/07)~~ Done. (2023/08)
 1. ~~Whether can it do `nimble install imguin` ?~~ [Done (2023/09) (#Issue 13)](https://github.com/dinau/imguin/issues/13)
 1. ~~Add Font Awesome (Icon Font) demo.~~  Done (2023/04).
-1. ~~Can it compile with MSVC (--cc:vcc) ?~~ Done. Except SDL2 demo. (2023/03)
+1. ~~Can it compile with MSVC (--cc:vcc) ?~~ Done. Except SDL2 demo. (2023/03), TODO (2024/09)
 1. ~~Can it compile with Clang (--cc:clang) ?~~ Done. (2023/03)
 1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](examples/sdl2_opengl3) (2023/03)
 - First step is done. (2023/03)
@@ -300,22 +282,23 @@ by changing variable `TC` in [examples/config.nims.common](examples/config.nims.
 
 Windows11 (main)
 - **Nim Compiler Version 2.0.8**
-- **Gcc.exe (Rev1, Built by MSYS2 project) 14.2.0**
-- ~~Gcc.exe (MinGW-W64...) 11.1.0 (Nim offical)~~
+- **gcc (Rev1, Built by MSYS2 project) 14.2.0**
+- ~~gcc (MinGW-W64...) 11.1.0 (Nim offical)~~
 - Clang version 18.1.8
 - git version 2.46.0.windows.1
 - SDL2.dll: 2.30.7
 - make: GNU Make 4.4.1
 - MSys2/MinGW tools
 - Microsoft Visual Studio C/C++ 2022
-- Zig: 0.14.0-dev (clang version 18.1.8)
+- Zig: 0.14.0-dev... (clang version 18.1.8)
 
-Debian 12 Bookworm
-- Nim Compiler Version 2.0.4
-- **Gcc (Debian 12.2.0-14) 12.2.0**
-- Git version 2.39.2
-- GNU Make 4.3
-- SDL2 ver.2.26.5
+Lnux Mint 22
+- **Nim Compiler Version 2.0.8**
+- gcc 13.2.0
+- SDL2: 2.30.0
+- make: GNU Make 4.3
+- git version 2.43.0
+
 
 ## Other link
 

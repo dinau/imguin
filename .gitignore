@@ -1,4 +1,5 @@
 ImageSaved_*.*
+examples/sdl2_opengl3_alt/
 examples/fontx2v/
 examples/glfw_dx11/
 examples/bugtest/
@@ -46,12 +47,12 @@ dll/
 
 # Libraries
 *.lib
-*.a
+#*.a
 *.la
 *.lo
 
 # Shared objects (inc. Windows DLLs)
-*.dll
+#*.dll
 *.so
 *.so.*
 *.dylib

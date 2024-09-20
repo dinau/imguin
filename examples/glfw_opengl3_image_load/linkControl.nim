@@ -1,4 +1,4 @@
-# switch "app","gui"
+switch "app","gui"  # dismiss background Window
 
 #---------------------------------------
 # Select static link or shared/dll link
@@ -35,8 +35,6 @@ when STATIC_LINK_CC: # gcc static link
   case TC
     of "vcc":
       discard
-    of "clang","zigcc":
-      switch "passC", "-static"
     else:
       switch "passC", "-static"
       switch "passL", "-static "

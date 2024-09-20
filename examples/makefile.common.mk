@@ -20,6 +20,7 @@ SRC_MAIN ?= $(TARGET)
 
 build:
 	nim c $(OPT) $(IMOPT) $(SRC_MAIN)
+	-$(AFTER_BUILD1)
 
 clean:
 	@-rm -fr .nimcache

@@ -9,9 +9,13 @@ import std/[strutils, math]
 import nimgl/[opengl, glfw]
 import imguin/[glfw_opengl]
 import imguin/lang/imgui_ja_gryph_ranges
+import ../utils/loadImage
 
 include ../utils/setupFonts
 include imguin/simple
+when defined(windows):
+  when not defined(vcc):   # imguinVcc.res TODO WIP
+    include ./res/resource
 
 when defined(windows):
   import tinydialogs
@@ -79,6 +83,7 @@ proc main() =
   glfwWindowHint(GLFWOpenglProfile, GLFW_OPENGL_CORE_PROFILE)
   glfwWindowHint(GLFWResizable, GLFW_TRUE)
   #
+  glfwWindowHint(GLFWVisible, GLFW_FALSE)
   var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight)
   if glfwWin.isNil:
     quit(-1)
@@ -86,6 +91,13 @@ proc main() =
   defer: glfwWin.destroyWindow()
 
   glfwSwapInterval(1) # Enable vsync
+
+  #---------------------
+  # Load title bar icon
+  #---------------------
+  var IconName = os.joinPath(os.getAppDir(),"res/img/jp.png")
+  LoadTileBarIcon(glfwWin, IconName)
+  #
 
   doAssert glInit() # OpenGL init
 
@@ -113,6 +125,9 @@ proc main() =
 # winMain    メイン
 #---------
 proc winMain(hWin: glfw.GLFWWindow) =
+  var
+    showWindowReq = true # Avoid flickering screen at startup. TODO?
+
   if TransparentViewport:
     clearColor = ccolor(elm: (x: 0f, y: 0f, z: 0f, w: 0.0f)) # Transparent
   else:
@@ -161,6 +176,11 @@ proc winMain(hWin: glfw.GLFWWindow) =
     hWin.swapBuffers()
     if not showFirstWindow and not showDemoWindow:
       hwin.setWindowShouldClose(true) # End program
+
+    once: # Avoid flickering screen at startup.
+      hWin.showWindow()
+
+    #### end while
 
 #-------------
 # firstWindow    画面左のWindowを描画
