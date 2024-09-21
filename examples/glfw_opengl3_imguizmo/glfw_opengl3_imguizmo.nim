@@ -90,7 +90,7 @@ proc main() =
 proc winMain(hWin: glfw.GLFWWindow) =
   var
     clearColor:ccolor
-    showWindowReq = true # Avoid flickering screen at startup. TODO?
+    showWindowDelay = 1 # TODO
 
   if TransparentViewport:
     clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
@@ -172,8 +172,11 @@ proc winMain(hWin: glfw.GLFWWindow) =
 
     hWin.swapBuffers()
 
-    once: # Avoid flickering screen at startup.
-      hWin.showWindow()
+    if showWindowDelay > 0:
+      dec showWindowDelay
+    else:
+      once: # Avoid flickering screen at startup.
+        hWin.showWindow()
 
     #### end while
 

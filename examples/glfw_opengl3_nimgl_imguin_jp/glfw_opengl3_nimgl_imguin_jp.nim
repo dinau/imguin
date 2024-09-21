@@ -57,6 +57,7 @@ var
   showDemoWindow = true # デモ表示 可否
   showFirstWindow = true
   clearColor: ccolor
+  showWindowDelay = 1 # TODO
   fExistMultibytesFonts: bool
   sActiveFontName, sActiveFontTitle: string
 
@@ -177,8 +178,11 @@ proc winMain(hWin: glfw.GLFWWindow) =
     if not showFirstWindow and not showDemoWindow:
       hwin.setWindowShouldClose(true) # End program
 
-    once: # Avoid flickering screen at startup.
-      hWin.showWindow()
+    if showWindowDelay > 0:
+      dec showWindowDelay
+    else:
+      once: # Avoid flickering screen at startup.
+        hWin.showWindow()
 
     #### end while
 

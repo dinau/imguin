@@ -61,7 +61,7 @@ proc main() =
   var current: DisplayMode
   discard sdl.getCurrentDisplayMode(0, addr current)
 
-  # Initialy window is hidden.  See: showWindowReq
+  # Initialy main window is hidden.  See: showWindowDelay
   var flags:cuint = WINDOW_HIDDEN or WINDOW_OPENGL or WINDOW_RESIZABLE
 
   var window = sdl.createWindow( "Hello", 30, 30, MainWinWidth, MainWinHeight, flags)
@@ -109,7 +109,8 @@ proc main() =
     xQuit: bool
     sBuf = newString(200)
     clearColor:ccolor
-    showWindowReq = true # Avoid flickering screen at startup. TODO?
+    showWindowDelay = 1 # TODO
+
   if TransparentViewport:
     clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
   else:
@@ -210,8 +211,11 @@ proc main() =
     if not showFirstWindow and not showDemoWindow and not showAnotherWindow:
       xQuit = true
 
-    once: # Avoid flickering screen at startup.
-      window.showWindow()
+    if showWindowDelay > 0:
+      dec showWindowDelay
+    else:
+      once: # Avoid flickering screen at startup.
+        window.showWindow()
 
     ### end while
 
