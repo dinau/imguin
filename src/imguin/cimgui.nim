@@ -6,8 +6,11 @@ proc currentSourceDir(): string {.compileTime.} =
   result = currentSourcePath().replace("\\", "/")
   result = result[0 ..< result.rfind("/")]
 
+#--- To specify the place that has "stdbool.h"
+const ClangIncludePath = "c:/drvDx/msys64/ucrt64/lib/clang/18/include"
+#const ClangIncludePath = "c:/drvDx/msys64/mingw64/lib/clang/18/include"
 #const ClangIncludePath = "c:/llvm/lib/clang/17/include"
-const ClangIncludePath = "c:/drvDx/msys64/mingw64/lib/clang/18/include"
+
 # Set root path of ImGui/CImGui
 const CImguiRootPath    = joinPath(currentSourceDir(),"private/cimgui")
 const CImPlotRootPath   = joinPath(currentSourceDir(),"private/cimplot")

@@ -2,7 +2,7 @@
 #
 .PHONY: example clean install updater gen
 
-all: install example
+all: example
 
 install:
 	nimble install

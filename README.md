@@ -19,19 +19,20 @@
     - [Prerequisite](#prerequisite)
     - [Update ImGui/CImGui](#update-imguicimgui)
   - [Selection backend compiler](#selection-backend-compiler)
-  - [Examples notice](#examples-notice)
   - [TODO](#todo)
+  - [Compressing binary file](#compressing-binary-file)
   - [My tools version](#my-tools-version)
   - [Other link](#other-link)
   - [Similar project](#similar-project)
   - [Star History](#star-history)
+  - [test](#test)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # ImGuin
 
 
-Updated to latest ImGui/CImGui version: : **v1.91.1dock** (2024/09)
+Updated to latest ImGui/CImGui version: : **v1.91.2dock** (2024/10)
 
 This project is my experiment project to use Nim language, ImGui, ImPlot, futhark and etc.  
 
@@ -50,7 +51,7 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 ---
 
 - [Nim-2.0.2](https://nim-lang.org) or later (Windows10 or later /  Debian Linux)
-- MSys/MinGW command line tools (Unix tools), make, cp, rm, git, ...etc
+- MSys2/MinGW command line tools (Unix tools), make, cp, rm, git, ...etc
 - For Linux Debian 12 Bookworm, Linux Mint
 
   ```sh
@@ -69,7 +70,7 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 ---
 
 ```sh
-nimble uninstall imguin  # Remove old version if exists. 
+nimble uninstall imguin  # Remove old versions if exist. 
 nimble install https://github.com/dinau/imguin
 ```
 
@@ -143,7 +144,7 @@ Showing ImGui demo with ImPlot demo.
 ---
 
 1. [Git](https://git-scm.com/) installed.
-1. MSys/MinGW command line tools (Unix tools), make, cp, rm, ...etc
+1. MSys2/MinGW command line tools (Unix tools), make, cp, rm, ...etc
 1. Windows10 or later
 Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
 
@@ -194,14 +195,15 @@ First move to your working folder you like, then
    make clonelibs
    ```
 
-   Cloned libraries are under `../libs/` folder.  
-1.
-   Checkout arbitrary version with git command at the each library folder,  
+   Cloned libraries are under `../libs/` folder
+1. **Recursively** update the sources using git `Pull` or `fetch` command in the each library folder,  
    ../libs/cimgui  
-   ../libs/cimplot  
+   ../libs/imguizmo  
    ../libs/cimnodes  
+   ../libs/cimplot  
+1.  Checkout arbitrary version with git command in the respective folder
 
-1. Specify your clang include path to  `ClangIncludePath` in `imguin/src/imguin/cimgui.nim`.
+1. Specify your `Clang` include path to  `ClangIncludePath` in `imguin/src/imguin/cimgui.nim`.
 
 1. Generate [the definition file](src/imguin/cimgui_defs.nim) uisng [Futhark](https://github.com/PMunch/futhark),  
 
@@ -217,7 +219,7 @@ Properly edit the version info etc in `imguin.nimble` file, then
    ```sh
    pwd
    imguin
-   nimble uninstall imguin  # Remove old version if it exists. 
+   nimble uninstall imguin  # Remove old versions if it exist. 
    nimble install 
    ```
 
@@ -227,23 +229,24 @@ Properly edit the version info etc in `imguin.nimble` file, then
 
 - Confirmed version
 
-  | ImGui/CImGui Ver. | ImGuin Ver. | Date    | WindowsOS | Linux Mint | Debian<br> Bookworm (1) |
-  | :--------------:  | ---------   | :----:  | :---:     | :---:      | :---:                   |
-  | 1.91.1dock        | 1.91.1.2    | 2024/09 | ok        | OK (6)     | Not checked             |
-  | 1.91.1dock        | 1.91.1.1    | 2024/09 | ok        | -          | Not checked             |
-  | 1.91.0dock        | 1.91.0.1    | 2024/08 | ok        | -          | Not checked             |
-  | ↑                | 1.91.0.0    | 2024/08 | ok        | -          | Not checked             |
-  | 1.90.9dock        | 1.90.9.4    | 2024/07 | ok        | -          | NG (5)                  |
-  | ↑                | 1.90.9.3    | 2024/07 | ok        | -          | NG (5)                  |
-  | 1.90.8dock        | 1.90.8.1    | 2024/06 | ok        | -          | NG (5)                  |
-  | ↑                | 1.90.8.0    | 2024/06 | ok        | -          | NG (5)                  |
-  | 1.90.7dock        | 1.90.7.0    | 2024/05 | ok        | -          | NG (5)                  |
-  | 1.90.6dock        | 1.90.6.1    | 2024/05 | ok        | -          | NG (5)                  |
-  | 1.90.4dock        | 1.90.4.3    | 2024/04 | ok        | -          | NG (5)                  |
-  | -                 | -           | -       | -         | -          | -                       |
-  | ↑                | 1.90.4.2    | 2024/02 | ok        | -          | OK (4)                  |
-  | 1.90.1dock        | 1.90.1.0    | 2024/01 | ok        | -          | NG/OK(1)(3)(4)          |
-  | 1.89.9dock        | 1.89.9.8    | 2023/12 | ok        | -          | NG/OK(1)(3)(4)          |
+  | ImGui/CImGui Ver. | ImGuin Ver. | Date    | WindowsOS | Linux Mint  | Debian<br> Bookworm (1) |
+  | :--------------:  | ---------   | :----:  | :---:     | :---:       | :---:                   |
+  | 1.91.2dock        | 1.91.2.0    | 2024/10 | ok        | Not checked | Not checked             |
+  | 1.91.1dock        | 1.91.1.2    | 2024/09 | ok        | OK (6)      | Not checked             |
+  | 1.91.1dock        | 1.91.1.1    | 2024/09 | ok        | -           | Not checked             |
+  | 1.91.0dock        | 1.91.0.1    | 2024/08 | ok        | -           | Not checked             |
+  | ↑                | 1.91.0.0    | 2024/08 | ok        | -           | Not checked             |
+  | 1.90.9dock        | 1.90.9.4    | 2024/07 | ok        | -           | NG (5)                  |
+  | ↑                | 1.90.9.3    | 2024/07 | ok        | -           | NG (5)                  |
+  | 1.90.8dock        | 1.90.8.1    | 2024/06 | ok        | -           | NG (5)                  |
+  | ↑                | 1.90.8.0    | 2024/06 | ok        | -           | NG (5)                  |
+  | 1.90.7dock        | 1.90.7.0    | 2024/05 | ok        | -           | NG (5)                  |
+  | 1.90.6dock        | 1.90.6.1    | 2024/05 | ok        | -           | NG (5)                  |
+  | 1.90.4dock        | 1.90.4.3    | 2024/04 | ok        | -           | NG (5)                  |
+  | -                 | -           | -       | -         | -           | -                       |
+  | ↑                | 1.90.4.2    | 2024/02 | ok        | -           | OK (4)                  |
+  | 1.90.1dock        | 1.90.1.0    | 2024/01 | ok        | -           | NG/OK(1)(3)(4)          |
+  | 1.89.9dock        | 1.89.9.8    | 2023/12 | ok        | -           | NG/OK(1)(3)(4)          |
 
   (1): Except imnodes and SDL2 example.  
   (2): Doesn't work well.  
@@ -265,7 +268,7 @@ by changing variable `TC` in [examples/config.nims.common](examples/config.nims.
 
 ---
 
-1. ~~Whether can it use `cimgui.dll` ? (Now it can only be static link)~~ Done. Only be static link.
+1. ~~Whether can it use `cimgui.dll` ? (Now it can only be static link)~~ Closed. Only be static link.
 1. ~~Easier compilation for SDL2 app~~. (2024/09) Done.
 1. ~~Added: ImNodes/CImNodes~~ (2023/10) Done
 1. ~~Unfortunately ImGui 1.89.7 dosn't work well at this moment.(2023/07)~~ Done. (2023/08)
@@ -276,21 +279,73 @@ by changing variable `TC` in [examples/config.nims.common](examples/config.nims.
 1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](examples/sdl2_opengl3) (2023/03)
 - First step is done. (2023/03)
 
+## Compressing binary file
+
+---
+
+Install `UPX` with MSys console on WindowsOS,
+
+
+```sh
+pacman -S mingw-w64-ucrt-x86_64-upx
+```
+
+For instance,
+
+```sh
+pwd
+examples
+cd glfw_opengl3_implot
+make upx
+```
+
+```sh
+                       Ultimate Packer for eXecutables
+                          Copyright (C) 1996 - 2024
+UPX 4.2.4       Markus Oberhumer, Laszlo Molnar & John Reiser    May 9th 2024
+
+        File size         Ratio      Format      Name
+   --------------------   ------   -----------   -----------
+   7117824 ->   1217024   17.10%    win64/pe     glfw_opengl3_implot.exe      
+```
+
+Decompressing,
+
+```sh
+make dupx
+```
+
+Result in,
+
+|                         |          Gcc + UPX :  Gcc |      Clang + UPX : Clang | MSVC(vcc) + UPX : MSVC    |
+|------------------------:|--------------------------:|-------------------------:|--------------------------:|
+|        glfw_opengl3.exe |          804 KB : 2360 KB |         720 KB : 2200 KB | 742 KB : 2070 KB          |
+| glfw_opengl3_implot.exe | **1220 KB** : **7120 KB** | **940KB**  : **4200 KB** | **945 KB**  : **3810 KB** |
+
+Gcc: v14.2.0, Clang: v18.1.8, MSVC: 2022
+
 ## My tools version
 
 ---
 
 Windows11 (main)
-- **Nim Compiler Version 2.0.8**
-- **gcc (Rev1, Built by MSYS2 project) 14.2.0**
-- ~~gcc (MinGW-W64...) 11.1.0 (Nim offical)~~
+- **Nim Compiler Version 2.2.0**
+- **Gcc (Rev1, Built by MSYS2 project) 14.2.0**
+
+   ```sh
+   pacman -S mingw-w64-ucrt-x86_64-gcc
+   ```
+
 - Clang version 18.1.8
+
+   ```sh
+   pacman -S mingw-w64-ucrt-x86_64-clang
+   ```
+- Visual Studio C++/C 2022
 - git version 2.46.0.windows.1
 - SDL2.dll: 2.30.7
-- make: GNU Make 4.4.1
+- Make: GNU Make 4.4.1
 - MSys2/MinGW tools
-- Microsoft Visual Studio C/C++ 2022
-- Zig: 0.14.0-dev... (clang version 18.1.8)
 
 Lnux Mint 22
 - **Nim Compiler Version 2.0.8**
@@ -332,5 +387,7 @@ Lnux Mint 22
 | **Python**           | ImGui direct        | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |
 
 ## Star History
+
+--- 
 
 [![Star History Chart](https://api.star-history.com/svg?repos=dinau/imguin&type=Date)](https://star-history.com/#dinau/imguin&Date)

@@ -24,6 +24,6 @@ const LTO = false
 # Select compiler
 var TC = "gcc"         # ok
 #var TC = "clang"       # ok
-#var TC = "vcc"         # NG TODO
+#var TC = "vcc"         # ok
 #var TC = "env"         # ?
 #var TC = "zigcc"       # NG zig 0.14.0-dev TODO

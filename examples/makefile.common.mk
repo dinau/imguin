@@ -58,9 +58,9 @@ ver:
 	@echo [version.nims]
 	-@rg -ie "\d\.\d\.\d" version.nims
 
-upx:
+upx: all
 	upx --lzma $(TARGET_EXE)
-uupx:
+dupx:
 	upx -d $(TARGET_EXE)
 
 .PHONY: gen
