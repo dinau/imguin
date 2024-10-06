@@ -19,6 +19,7 @@ all: build dll
 SRC_MAIN ?= $(TARGET)
 
 build:
+	$(PRE_CMD1)
 	nim c $(OPT) $(IMOPT) $(SRC_MAIN)
 	-$(AFTER_BUILD1)
 

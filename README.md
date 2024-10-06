@@ -8,6 +8,7 @@
     - [Build examples](#build-examples)
     - [Screen shot (examples)](#screen-shot-examples)
       - [glfw_opengl3](#glfw_opengl3)
+      - [glfw_opengl3_iconfont_viewer](#glfw_opengl3_iconfont_viewer)
       - [glfw_opengl3_image_load](#glfw_opengl3_image_load)
       - [glfw_opengl3_image_save](#glfw_opengl3_image_save)
       - [glfw_opengl3_nimgl_imguin_jp](#glfw_opengl3_nimgl_imguin_jp)
@@ -25,7 +26,6 @@
   - [Other link](#other-link)
   - [Similar project](#similar-project)
   - [Star History](#star-history)
-  - [test](#test)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -50,7 +50,7 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 
 ---
 
-- [Nim-2.0.2](https://nim-lang.org) or later (Windows10 or later /  Debian Linux)
+- [Nim-2.0.4](https://nim-lang.org) or later (Windows10 or later /  Debian Linux)
 - MSys2/MinGW command line tools (Unix tools), make, cp, rm, git, ...etc
 - For Linux Debian 12 Bookworm, Linux Mint
 
@@ -105,6 +105,10 @@ These screen shots are on Windows10.
 #### [glfw_opengl3](examples/glfw_opengl3)  
 
 ![alt](src/img/screenshot1.png)
+
+#### [glfw_opengl3_iconfont_viewer](examples/glfw_opengl3_iconfont_viewer)  
+
+![alt](src/img/iconFontViewer.png)
 
 #### [glfw_opengl3_image_load](examples/glfw_opengl3_image_load)  
 
