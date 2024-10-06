@@ -32,7 +32,7 @@
 # ImGuin
 
 
-Updated to latest ImGui/CImGui version: : **v1.91.2dock** (2024/10)
+Updated to latest ImGui/CImGui version: : **v1.91.3dock** (2024/10)
 
 This project is my experiment project to use Nim language, ImGui, ImPlot, futhark and etc.  
 
@@ -231,6 +231,7 @@ Properly edit the version info etc in `imguin.nimble` file, then
 
   | ImGui/CImGui Ver. | ImGuin Ver. | Date    | WindowsOS | Linux Mint  | Debian<br> Bookworm (1) |
   | :--------------:  | ---------   | :----:  | :---:     | :---:       | :---:                   |
+  | 1.91.3dock        | 1.91.3.0    | 2024/10 | ok        | Not checked | Not checked             |
   | 1.91.2dock        | 1.91.2.0    | 2024/10 | ok        | Not checked | Not checked             |
   | 1.91.1dock        | 1.91.1.2    | 2024/09 | ok        | OK (6)      | Not checked             |
   | 1.91.1dock        | 1.91.1.1    | 2024/09 | ok        | -           | Not checked             |

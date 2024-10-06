@@ -1,3 +1,6 @@
+# windres.exe is included bintuils package
+# pacman -S mingw-w64-ucrt-x86_64-binutils
+
 all: res
 
 png:

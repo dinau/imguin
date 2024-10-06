@@ -146,9 +146,16 @@ proc winMain(hWin: glfw.GLFWWindow) =
       igBegin("Nim: Dear ImGui test with Futhark", addr showFirstWindow, 0)
       defer: igEnd()
       var s = "GLFW v" & $glfwGetVersionString()
+      s = ICON_FA_COMMENT & " " & s
       igText(s.cstring)
       s = "OpenGL v" & ($cast[cstring](glGetString(GL_VERSION))).split[0]
+      s = ICON_FA_COMMENT_SMS & " " & s
       igText(s.cstring)
+      igText(ICON_FA_COMMENT_DOTS & " Dear ImGui");  igSameLine(0, -1.0)
+      igText(igGetVersion())
+      igText(ICON_FA_COMMENT_MEDICAL & " Nim-");  igSameLine(0, 0)
+      igText(NimVersion);
+
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
       s = "Input result:" & sBuf
       igText(s.cstring)
