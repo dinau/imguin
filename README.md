@@ -16,16 +16,15 @@
       - [glfw_opengl3_imnodes](#glfw_opengl3_imnodes)
       - [glfw_opengl3_imguizmo](#glfw_opengl3_imguizmo)
       - [My test app movie using imguin](#my-test-app-movie-using-imguin)
-  - [Update to latest Dear ImGui and CImGui](#update-to-latest-dear-imgui-and-cimgui)
+  - [Update / Downgrade Dear ImGui and CImGui](#update--downgrade-dear-imgui-and-cimgui)
     - [Prerequisite](#prerequisite)
-    - [Update ImGui/CImGui](#update-imguicimgui)
+    - [Update / Downgrade  ImGui/CImGui](#update--downgrade--imguicimgui)
   - [Selection backend compiler](#selection-backend-compiler)
   - [TODO](#todo)
   - [Compressing binary file](#compressing-binary-file)
   - [My tools version](#my-tools-version)
   - [Other link](#other-link)
   - [Similar project](#similar-project)
-  - [Star History](#star-history)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -141,14 +140,14 @@ Showing ImGui demo with ImPlot demo.
 
 [![Sample movie,Youtube](src/img/fontx2v-1.0-alpha-2023-04-small.png)](https://youtu.be/Ea0t7b9Kmq4)
 
-## Update to latest Dear ImGui and CImGui
+## Update / Downgrade Dear ImGui and CImGui
 
 ### Prerequisite
 
 ---
 
 1. [Git](https://git-scm.com/) installed.
-1. MSys2/MinGW command line tools (Unix tools), make, cp, rm, ...etc
+1. Installed MSys2/MinGW command line tools (Unix tools), make, cp, rm, ...etc
 1. Windows10 or later
 Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
 
@@ -178,7 +177,7 @@ license: "MIT"
 ...
 ```
 
-### Update ImGui/CImGui
+### Update / Downgrade  ImGui/CImGui
 
 ---
 1. Compose development folders  
@@ -202,7 +201,7 @@ First move to your working folder you like, then
    Cloned libraries are under `../libs/` folder
 1. **Recursively** update the sources using git `Pull` or `fetch` command in the each library folder,  
    ../libs/cimgui  
-   ../libs/imguizmo  
+   ../libs/cimguizmo  
    ../libs/cimnodes  
    ../libs/cimplot  
 1.  Checkout arbitrary version with git command in the respective folder
@@ -233,25 +232,26 @@ Properly edit the version info etc in `imguin.nimble` file, then
 
 - Confirmed version
 
-  | ImGui/CImGui Ver. | ImGuin Ver. | Date    | WindowsOS | Linux Mint  | Debian<br> Bookworm (1) |
-  | :--------------:  | ---------   | :----:  | :---:     | :---:       | :---:                   |
-  | 1.91.3dock        | 1.91.3.0    | 2024/10 | ok        | Not checked | Not checked             |
-  | 1.91.2dock        | 1.91.2.0    | 2024/10 | ok        | Not checked | Not checked             |
-  | 1.91.1dock        | 1.91.1.2    | 2024/09 | ok        | OK (6)      | Not checked             |
-  | 1.91.1dock        | 1.91.1.1    | 2024/09 | ok        | -           | Not checked             |
-  | 1.91.0dock        | 1.91.0.1    | 2024/08 | ok        | -           | Not checked             |
-  | ↑                | 1.91.0.0    | 2024/08 | ok        | -           | Not checked             |
-  | 1.90.9dock        | 1.90.9.4    | 2024/07 | ok        | -           | NG (5)                  |
-  | ↑                | 1.90.9.3    | 2024/07 | ok        | -           | NG (5)                  |
-  | 1.90.8dock        | 1.90.8.1    | 2024/06 | ok        | -           | NG (5)                  |
-  | ↑                | 1.90.8.0    | 2024/06 | ok        | -           | NG (5)                  |
-  | 1.90.7dock        | 1.90.7.0    | 2024/05 | ok        | -           | NG (5)                  |
-  | 1.90.6dock        | 1.90.6.1    | 2024/05 | ok        | -           | NG (5)                  |
-  | 1.90.4dock        | 1.90.4.3    | 2024/04 | ok        | -           | NG (5)                  |
-  | -                 | -           | -       | -         | -           | -                       |
-  | ↑                | 1.90.4.2    | 2024/02 | ok        | -           | OK (4)                  |
-  | 1.90.1dock        | 1.90.1.0    | 2024/01 | ok        | -           | NG/OK(1)(3)(4)          |
-  | 1.89.9dock        | 1.89.9.8    | 2023/12 | ok        | -           | NG/OK(1)(3)(4)          |
+  | ImGui/CImGui Ver. | ImGuin Ver. | Date    | WindowsOS | Linux Mint | Debian<br> Bookworm (1) |
+  | :--------------:  | ---------   | :----:  | :---:     | :---:      | :---:                   |
+  | 1.91.3dock        | 1.91.3.1    | 2024/10 | ok        | (7)        | NA                      |
+  | ↑                | 1.91.3.0    | 2024/10 | ok        | (7)        | NA                      |
+  | 1.91.2dock        | 1.91.2.0    | 2024/10 | ok        | (7)        | NA                      |
+  | 1.91.1dock        | 1.91.1.2    | 2024/09 | ok        | (6)        | NA                      |
+  | 1.91.1dock        | 1.91.1.1    | 2024/09 | ok        | -          | NA                      |
+  | 1.91.0dock        | 1.91.0.1    | 2024/08 | ok        | -          | (7)                     |
+  | ↑                | 1.91.0.0    | 2024/08 | ok        | -          | (7)                     |
+  | 1.90.9dock        | 1.90.9.4    | 2024/07 | ok        | -          | NG (5)                  |
+  | ↑                | 1.90.9.3    | 2024/07 | ok        | -          | NG (5)                  |
+  | 1.90.8dock        | 1.90.8.1    | 2024/06 | ok        | -          | NG (5)                  |
+  | ↑                | 1.90.8.0    | 2024/06 | ok        | -          | NG (5)                  |
+  | 1.90.7dock        | 1.90.7.0    | 2024/05 | ok        | -          | NG (5)                  |
+  | 1.90.6dock        | 1.90.6.1    | 2024/05 | ok        | -          | NG (5)                  |
+  | 1.90.4dock        | 1.90.4.3    | 2024/04 | ok        | -          | NG (5)                  |
+  | -                 | -           | -       | -         | -          | -                       |
+  | ↑                | 1.90.4.2    | 2024/02 | ok        | -          | OK (4)                  |
+  | 1.90.1dock        | 1.90.1.0    | 2024/01 | ok        | -          | NG/OK(1)(3)(4)          |
+  | 1.89.9dock        | 1.89.9.8    | 2023/12 | ok        | -          | NG/OK(1)(3)(4)          |
 
   (1): Except imnodes and SDL2 example.  
   (2): Doesn't work well.  
@@ -259,6 +259,7 @@ Properly edit the version info etc in `imguin.nimble` file, then
   (4): Use nim-2.0.2  
   (5): I don't know why can't be compiled on Linux.  
   (6): OK: Except ImNodes example
+  (7): Not checked at this moment.
 
 
 ## Selection backend compiler
@@ -391,8 +392,5 @@ Lnux Mint 22
 | **Zig**              | CImGui/CImPlot      | [ImGuinZ](https://github.com/dinau/imguinz)                                                                                                     |
 | **Python**           | ImGui direct        | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |
 
-## Star History
-
---- 
 
 [![Star History Chart](https://api.star-history.com/svg?repos=dinau/imguin&type=Date)](https://star-history.com/#dinau/imguin&Date)

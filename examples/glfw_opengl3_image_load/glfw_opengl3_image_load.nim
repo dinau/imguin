@@ -1,9 +1,10 @@
 import std/[strutils]
+#import std/[strformat]
 import nimgl/[opengl,glfw]
 
 import imguin/[glfw_opengl]
 import imguin/lang/imgui_ja_gryph_ranges
-import ../utils/loadImage
+import ../utils/[utils,loadImage]
 
 include ../utils/setupFonts
 when defined(windows):
@@ -62,7 +63,7 @@ proc main() =
   glfwWindowHint(GLFWResizable, GLFW_TRUE)
   #
   glfwWindowHint(GLFWVisible, GLFW_FALSE)
-  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight)
+  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight, "Image load test")
   if glfwWin.isNil:
     quit(-1)
   glfwWin.makeContextCurrent()
@@ -131,10 +132,13 @@ proc winMain(hWin: glfw.GLFWWindow) =
   var ImageName = os.joinPath(os.getAppDir(),"fuji-400.jpg")
   if ImageName.fileExists:
     if not loadTextureFromFile(ImageName, textureId, textureWidth,textureHeight):
-      textureId = 0.GLuint
       echo "Error!: Image load error:  ", ImageName
   else:
     echo "Error!: Image file not found  error:  ", ImageName
+  defer: glDeleteTextures(1, addr textureID)
+
+  var zoomTextureID: GLuint # Must be == 0 at first
+  defer: glDeleteTextures(1, addr zoomTextureID)
 
   var pio = igGetIO()
 
@@ -200,8 +204,15 @@ proc winMain(hWin: glfw.GLFWWindow) =
         uv1 = Imvec2(x: 1, y: 1)
         tint_col = ImVec4(x: 1, y: 1, z: 1, w: 1)
         border_col = ImVec4(x: 0, y: 0, z: 0, w: 0)
-      igSetNextWindowSize(size,ImGui_CondAlways.ImGuiCond)
+      var
+        imageBoxPosTop:ImVec2
+        imageBoxPosEnd:ImVec2
+      igGetCursorScreenPos(addr imageBoxPosTop) # Get absolute pos.
       igImage(cast[pointer](textureId), size, uv0, uv1, tint_col, border_col);
+      igGetCursorScreenPos(addr imageBoxPosEnd) # Get absolute pos.
+      #
+      if igIsItemHovered(ImGui_HoveredFlags_DelayNone.ImGuiHoveredFlags):
+        zoomGlass(zoomTextureID, textureWidth, imageBoxPosTop, imageBoxPosEnd)
 
     # render
     igRender()

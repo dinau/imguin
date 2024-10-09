@@ -1,10 +1,11 @@
-import std/[strutils, math, pegs]
+import std/[strutils, pegs]
+#import std/[strformat]
 import nimgl/[opengl,glfw]
 
 import imguin/[glfw_opengl]
 
 import imguin/lang/imgui_ja_gryph_ranges
-import ../utils/loadImage
+import ../utils/[utils, loadImage]
 import ./iconFontsTblDef
 
 include ../utils/setupFonts
@@ -21,7 +22,6 @@ const MainWinHeight = 800
 #--------------------
 # Forward definitions
 #--------------------
-proc setTooltip(str:string)
 
 #--------------
 # Configration
@@ -114,7 +114,7 @@ proc main() =
 proc winMain(hWin: glfw.GLFWWindow) =
   var
     showDemoWindow = true
-    showAnotherWindow = false
+    showIconFontViewWindow = true
     showFirstWindow = true
     fval = 0.5f
     counter = 0
@@ -134,6 +134,8 @@ proc winMain(hWin: glfw.GLFWWindow) =
   discard setupFonts()
 
   var pio = igGetIO()
+  var listBoxTextureID: GLuint # Must be == 0 at first
+  defer: glDeleteTextures(1, addr listBoxTextureID)
 
   # main loop
   while not hWin.windowShouldClose:
@@ -164,23 +166,44 @@ proc winMain(hWin: glfw.GLFWWindow) =
 
       igText("Application average %.3f ms/frame (%.1f FPS)".cstring, (1000.0f / igGetIO().Framerate).cfloat, igGetIO().Framerate.cfloat)
       igNewline()
+
+    if showIconFontViewWindow:
+      igBegin("Icon Font Viewer", addr showIconFontViewWindow, 0)
+      defer: igEnd()
+      igSeparatorText(cstring(ICON_FA_FONT_AWESOME & " Icon font view: " & $iconFontsTbl.len & " icons"))
       #
-      igSeparatorText(ICON_FA_FONT_AWESOME & " Icon font view: " & $iconFontsTbl.len & " icons")
-      var item_current{.global.} = 1.cint
-      igText("No.[%4d]", item_current)
+      const listBoxWidth = 320.int             # The value must be 2^n
+      var item_current{.global.} = 0.cint
+      block:
+        igText("No.[%4d]", item_current);     igSameLine(0,-1.0)
+        sBuf = $iconFontsTbl[item_current]
+        if igButton(ICON_FA_COPY & " Copy to", ImVec2(x: 0, y: 0)):
+          if sBuf =~ peg"@' '{'ICON'.+}":
+            igSetClipboardText(matches[0].cstring)
+        # Show tooltip help
+        setTooltip("Clipboard")
+
+      # Show ListBox header
+      igSetNextItemWidth(listBoxWidth.float)
       igInputText("##".cstring, sBuf.cstring, sBuf.len.csize_t, ImGui_TextFlags_None.ImGuiInputTextFlags,nil,nil)
-      igSameLine(0,-1.0)
-      sBuf = $iconFontsTbl[item_current]
-      if igButton(ICON_FA_COPY, ImVec2(x: 0, y: 0)):
-        if sBuf =~ peg"@' '{'ICON'.+}":
-          igSetClipboardText(matches[0].cstring)
-      #-- Show tooltip help
-      setTooltip("Copy to clipboard")
+
+      # Show ListBox main
+      var
+        listBoxPosTop:ImVec2
+        listBoxPosEnd:ImVec2
       igNewline()
+      igGetCursorScreenPos(addr listBoxPosTop) # Get absolute pos.
+      igSetNextItemWidth(listBoxWidth.float)
       igListBox_Str_arr("##".cstring
                         , addr item_current
                         , cast[ptr UncheckedArray[cstring]](addr iconFontsTbl[0])
                         , iconFontsTbl.len.cint, 34)
+      igGetCursorScreenPos(addr listBoxPosEnd) # Get absolute pos.
+
+      # Show magnifying glass (Zoom in Toolchip)
+      if igIsItemHovered(ImGui_HoveredFlags_DelayNone.ImGuiHoveredFlags):
+        if (pio.MousePos.x - listBoxPosTop.x ) < 50:
+          zoomGlass(listBoxTextureID, listBoxWidth, listBoxPosTop, listBoxPosEnd )
 
     # render
     igRender()
@@ -195,7 +218,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
       backup_current_window.makeContextCurrent()
 
     hWin.swapBuffers()
-    if not showFirstWindow and not showDemoWindow and not showAnotherWindow:
+    if not showFirstWindow and not showDemoWindow and not showIconFontViewWindow:
       hwin.setWindowShouldClose(true) # End program
 
     if showWindowDelay > 0:
@@ -206,14 +229,6 @@ proc winMain(hWin: glfw.GLFWWindow) =
 
     #### end while
 
-#---------------
-#--- setTooltip
-#---------------
-proc setTooltip(str:string) =
-  if igIsItemHovered(Imgui_HoveredFlags_DelayNormal.ImguiHoveredFlags):
-    if igBeginTooltip():
-      igText(str)
-      igEndTooltip()
 
 #------
 # main
