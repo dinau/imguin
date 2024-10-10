@@ -66,4 +66,5 @@ when defined(windows):
       switch "passL","-limm32"
 
 else: # for Linux
-  const STATIC_LINK_CC = false
+  discard
+  #const STATIC_LINK_CC = false

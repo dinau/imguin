@@ -52,7 +52,7 @@ imnodes:
 	-mkdir -p $(TARGET_DIR)/c$@/$@
 
 imguizmo:
-	-mkdir -p $(TARGET_DIR)/c$@/$@
+	-mkdir -p $(TARGET_DIR)/c$@/ImGuizmo
 
 libs:
 	-mkdir -p ../$@
