@@ -354,7 +354,7 @@ Windows11 (main)
 - MSys2/MinGW tools
 
 Lnux Mint 22
-- **Nim Compiler Version 2.0.8**
+- **Nim Compiler Version 2.2.0**
 - gcc 13.2.0
 - SDL2: 2.30.0
 - make: GNU Make 4.3
