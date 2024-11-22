@@ -9,9 +9,9 @@ switch "hint","XDeclaredButNotUsed:off"
 
 when defined(windows):
   switch "define", "release"
-  discard
   #switch "define", "danger"
   #switch "opt", "size"
+  discard
 else: # Linux
   switch "define", "release"
   discard

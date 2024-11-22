@@ -3,6 +3,7 @@ import sdl2_nim/sdl
 
 import imguin/[glad/gl,sdl2_opengl]
 import imguin/lang/imgui_ja_gryph_ranges
+import ../utils/[loadImage,utils]
 
 include ../utils/setupFonts
 include imguin/simple
@@ -41,29 +42,25 @@ block:
 # main
 #------
 proc main() =
-  if sdl.init(sdl.InitVideo) != 0:
+  if sdl.init(sdl.InitVideo or sdl.InitTimer or sdl.InitGameController) != 0:
     echo "ERROR: Can't initialize SDL: ", sdl.getError()
     quit -1
+  defer: sdl.quit()
   discard sdl.glSetAttribute(GLattr.GL_CONTEXT_FLAGS, 0)
   discard sdl.glSetAttribute(GLattr.GL_CONTEXT_PROFILE_MASK, GL_CONTEXT_PROFILE_CORE)
   discard sdl.glSetAttribute(GLattr.GL_CONTEXT_MAJOR_VERSION, 3)
   discard sdl.glSetAttribute(GLattr.GL_CONTEXT_MINOR_VERSION, 3)
 
-  discard sdl.setHint(HINT_RENDER_DRIVER, "opengl")
-  discard sdl.glSetAttribute(GLattr.GL_DEPTH_SIZE, 24)
-  discard sdl.glSetAttribute(GLattr.GL_STENCIL_SIZE, 8)
-  discard sdl.glSetAttribute(GLattr.GL_DOUBLEBUFFER, 1)
-
   # Basic IME support. App needs to call 'SDL_SetHint(SDL_HINT_IME_SHOW_UI, "1");'
   # before SDL_CreateWindow()!.
-  discard sdl.setHint("SDL_IME_SHOW_UI", "1") # SDL2: must be v2.0.18 or later
+  discard sdl.setHint("SDL_HINT_IME_SHOW_UI", "1") # SDL2: must be v2.0.18 or later
 
-  var current: DisplayMode
-  discard sdl.getCurrentDisplayMode(0, addr current)
+  discard sdl.glSetAttribute(GLattr.GL_DOUBLEBUFFER, 1)
+  discard sdl.glSetAttribute(GLattr.GL_DEPTH_SIZE, 24)
+  discard sdl.glSetAttribute(GLattr.GL_STENCIL_SIZE, 8)
 
   # Initialy main window is hidden.  See: showWindowDelay
-  var flags:cuint = WINDOW_HIDDEN or WINDOW_OPENGL or WINDOW_RESIZABLE
-
+  var flags:cuint = WINDOW_HIDDEN or WINDOW_OPENGL or WINDOW_RESIZABLE or WINDOW_ALLOW_HIGHDPI
   var window = sdl.createWindow( "Hello", 30, 30, MainWinWidth, MainWinHeight, flags)
   if isNil window:
     echo "Fail to create window: ", sdl.getError()
@@ -72,6 +69,8 @@ proc main() =
 
   var gl_context = glCreateContext(window)
   defer:sdl.glDeleteContext(gl_context)
+
+  discard glMakeCurrent(window, gl_context);
 
   discard glSetSwapInterval(1)
 
@@ -91,7 +90,7 @@ proc main() =
       pio.ConfigViewports_NoAutomerge = true
 
   var glsl_version: cstring = "#version 330" # OpenGL 3.3
-  doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SdlWindow](window) , addr glsl_version)
+  doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SdlWindow](window) , gl_context)
   defer: ImGui_ImplSDL2_Shutdown()
 
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
@@ -118,6 +117,25 @@ proc main() =
 
   # Add multibyte font
   discard setupFonts()
+
+  #-------------
+  # Load image
+  #-------------
+  var
+    textureId: GLuint
+    textureWidth = 0
+    textureHeight = 0
+  var ImageName = os.joinPath(os.getAppDir(),"fuji-400.jpg")
+  if ImageName.fileExists:
+   if not loadTextureFromFile(ImageName, textureId, textureWidth,textureHeight):
+     echo "Error!: Image load error:  ", ImageName
+     discard
+  else:
+    echo "Error!: Image file not found  error:  ", ImageName
+  defer: glDeleteTextures(1, addr textureID)
+
+  var zoomTextureID: GLuint # Must be == 0 at first
+  defer: glDeleteTextures(1, addr zoomTextureID)
 
   #-----------
   # Main loop
@@ -190,11 +208,29 @@ proc main() =
         showAnotherWindow = false
       igEnd()
 
-    #--------
+    # Show image load window
+    if igBegin("Image load test", nil, 0):
+      defer: igEnd()
+      # Load image
+      let
+        size = ImVec2(x: textureWidth.cfloat, y: textureHeight.cfloat)
+        uv0 = Imvec2(x: 0, y: 0)
+        uv1 = Imvec2(x: 1, y: 1)
+        tint_col = ImVec4(x: 1, y: 1, z: 1, w: 1)
+        border_col = ImVec4(x: 0, y: 0, z: 0, w: 0)
+      var
+        imageBoxPosTop:ImVec2
+        imageBoxPosEnd:ImVec2
+      igGetCursorScreenPos(addr imageBoxPosTop) # Get absolute pos.
+      igImage(cast[ImTextureID](textureId), size, uv0, uv1, tint_col, border_col);
+      igGetCursorScreenPos(addr imageBoxPosEnd) # Get absolute pos.
+      #
+      if igIsItemHovered(ImGui_HoveredFlags_DelayNone.ImGuiHoveredFlags):
+        zoomGlass(zoomTextureID, textureWidth, imageBoxPosTop, imageBoxPosEnd)
+
     # render
     #--------
     igRender()
-    discard sdl.glMakeCurrent(window, gl_context)
     glViewport(0, 0, (pio.DisplaySize.x).GLsizei, (pio.DisplaySize.y).GLsizei)
     glClearColor(clearColor.elm.x, clearColor.elm.y, clearColor.elm.z, clearColor.elm.w)
     glClear(GL_COLOR_BUFFER_BIT)
@@ -218,8 +254,6 @@ proc main() =
         window.showWindow()
 
     ### end while
-
-  sdl.quit()
 
 #------
 # main

@@ -4,7 +4,7 @@ import nimgl/[opengl,glfw]
 import imguin/[glfw_opengl]
 import imguin/lang/imgui_ja_gryph_ranges
 import ../utils/[utils, loadImage]
-import saveImage
+import ../utils/saveImage
 
 include ../utils/setupFonts
 when defined(windows):

@@ -9,7 +9,7 @@
     - [Screen shot (examples)](#screen-shot-examples)
       - [glfw_opengl3](#glfw_opengl3)
       - [glfw_opengl3_iconfont_viewer](#glfw_opengl3_iconfont_viewer)
-      - [glfw_opengl3_image_load](#glfw_opengl3_image_load)
+      - [glfw_opengl3_image_load / sdl2_opengl3](#glfw_opengl3_image_load--sdl2_opengl3)
       - [glfw_opengl3_image_save](#glfw_opengl3_image_save)
       - [glfw_opengl3_nimgl_imguin_jp](#glfw_opengl3_nimgl_imguin_jp)
       - [glfw_opengl3_implot](#glfw_opengl3_implot)
@@ -24,7 +24,8 @@
   - [Compressing binary file](#compressing-binary-file)
   - [My tools version](#my-tools-version)
   - [Other link](#other-link)
-  - [Similar project](#similar-project)
+      - [Similar project ImGui / CImGui](#similar-project-imgui--cimgui)
+      - [SDL Game tutorial Platfromer](#sdl-game-tutorial-platfromer)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -51,7 +52,7 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 
 - [Nim-2.0.4](https://nim-lang.org) or later (Windows10 or later /  Debian Linux)
 - MSys2/MinGW command line tools (Unix tools), make, cp, rm, git, ...etc
-- For Linux Debian 12 Bookworm, Linux Mint
+- For Linux Debian 12 Bookworm, Linux Mint 22
 
   ```sh
   $ sudo apt install xorg-dev libopengl-dev libgl1-mesa-dev
@@ -69,7 +70,7 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 ---
 
 ```sh
-nimble uninstall imguin  # Remove old versions if exist. 
+nimble uninstall imguin  # Remove old versions if exists. 
 nimble install https://github.com/dinau/imguin
 ```
 
@@ -103,42 +104,51 @@ These screen shots are on Windows10.
 
 #### [glfw_opengl3](examples/glfw_opengl3)  
 
-![alt](src/img/screenshot1.png)
+Basic example with icon fonts
+
+![alt](https://github.com/dinau/imguin/raw/main/src/img/screenshot1.png)
 
 #### [glfw_opengl3_iconfont_viewer](examples/glfw_opengl3_iconfont_viewer)  
 
-![alt](src/img/iconFontViewer.png)
+Icon font viewer and magnifying glass
 
-#### [glfw_opengl3_image_load](examples/glfw_opengl3_image_load)  
+![alt](https://github.com/dinau/imguin/raw/main/src/img/iconFontViewer.png)
 
-![alt](src/img/image_load.png)
+#### [glfw_opengl3_image_load](examples/glfw_opengl3_image_load) / [sdl2_opengl3](examples/sdl2_opengl3)  
+
+Image load and magnifying glass
+
+![alt](https://github.com/dinau/imguin/raw/main/src/img/image_load.png)
 
 #### [glfw_opengl3_image_save](examples/glfw_opengl3_image_save)  
 
-![alt](src/img/image_save.png)
+Image load / save  and magnifying glass  
+It can save a screen shot as jpg, bmp, png or tga file.
+
+![alt](https://github.com/dinau/imguin/raw/main/src/img/image_save.png)
 
 #### [glfw_opengl3_nimgl_imguin_jp](examples/glfw_opengl3_nimgl_imguin_jp)
 
 Showing UTF-8 label text and input text with my local country language.  
-![alt](src/img/screenshot2.png)
+![alt](https://github.com/dinau/imguin/raw/main/src/img/screenshot2.png)
 
 #### [glfw_opengl3_implot](examples/glfw_opengl3_implot)
 
 Showing ImGui demo with ImPlot demo.  
-![alt](src/img/implot1.png)  
-![alt](src/img/screenshot3.png)
+![alt](https://github.com/dinau/imguin/raw/main/src/img/implot1.png)  
+![alt](https://github.com/dinau/imguin/raw/main/src/img/screenshot3.png)
 
 #### [glfw_opengl3_imnodes](examples/glfw_opengl3_imnodes)
 
-![alt](src/img/imnodes-demo.png)  
+![alt](https://github.com/dinau/imguin/raw/main/src/img/imnodes-demo.png)  
 
 #### [glfw_opengl3_imguizmo](examples/glfw_opengl3_imguizmo)
 
-![alt](src/img/imguizmo.png)  
+![alt](https://github.com/dinau/imguin/raw/main/src/img/imguizmo.png)  
 
 ####  My test app movie using imguin
 
-[![Sample movie,Youtube](src/img/fontx2v-1.0-alpha-2023-04-small.png)](https://youtu.be/Ea0t7b9Kmq4)
+[![Sample movie,Youtube](https://github.com/dinau/imguin/raw/main/src/img/fontx2v-1.0-alpha-2023-04-small.png)](https://youtu.be/Ea0t7b9Kmq4)
 
 ## Update / Downgrade Dear ImGui and CImGui
 
@@ -222,7 +232,7 @@ Properly edit the version info etc in `imguin.nimble` file, then
    ```sh
    pwd
    imguin
-   nimble uninstall imguin  # Remove old versions if it exist. 
+   nimble uninstall imguin  # Remove old versions if it exists. 
    nimble install 
    ```
 
@@ -232,34 +242,34 @@ Properly edit the version info etc in `imguin.nimble` file, then
 
 - Confirmed version
 
-  | ImGui/CImGui Ver. | ImGuin Ver. | Date    | WindowsOS | Linux Mint | Debian<br> Bookworm (1) |
-  | :--------------:  | ---------   | :----:  | :---:     | :---:      | :---:                   |
-  | 1.91.4dock        | 1.91.4.0    | 2024/10 | OK        | OK         | -                       |
-  | 1.91.3dock        | 1.91.3.1    | 2024/10 | OK        | (7)        | -                       |
-  | ↑                | 1.91.3.0    | 2024/10 | OK        | (7)        | -                       |
-  | 1.91.2dock        | 1.91.2.0    | 2024/10 | OK        | (7)        | -                       |
-  | 1.91.1dock        | 1.91.1.2    | 2024/09 | OK        | (6)        | -                       |
-  | 1.91.1dock        | 1.91.1.1    | 2024/09 | OK        | -          | -                       |
-  | 1.91.0dock        | 1.91.0.1    | 2024/08 | OK        | -          | (7)                     |
-  | ↑                | 1.91.0.0    | 2024/08 | OK        | -          | (7)                     |
-  | 1.90.9dock        | 1.90.9.4    | 2024/07 | OK        | -          | NG (5)                  |
-  | ↑                | 1.90.9.3    | 2024/07 | OK        | -          | NG (5)                  |
-  | 1.90.8dock        | 1.90.8.1    | 2024/06 | OK        | -          | NG (5)                  |
-  | ↑                | 1.90.8.0    | 2024/06 | OK        | -          | NG (5)                  |
-  | 1.90.7dock        | 1.90.7.0    | 2024/05 | OK        | -          | NG (5)                  |
-  | 1.90.6dock        | 1.90.6.1    | 2024/05 | OK        | -          | NG (5)                  |
-  | 1.90.4dock        | 1.90.4.3    | 2024/04 | OK        | -          | NG (5)                  |
-  | -                 | -           | -       | -         | -          | -                       |
-  | ↑                | 1.90.4.2    | 2024/02 | OK        | -          | OK (4)                  |
-  | 1.90.1dock        | 1.90.1.0    | 2024/01 | OK        | -          | NG/OK(1)(3)(4)          |
-  | 1.89.9dock        | 1.89.9.8    | 2023/12 | OK        | -          | NG/OK(1)(3)(4)          |
+  | ImGui/CImGui Ver. | ImGuin Ver. | Date    | WindowsOS | Linux Mint 22 | Debian<br> Bookworm (1) |
+  | :--------------:  | ---------   | :----:  | :---:     | :---:         | :---:                   |
+  | 1.91.4dock        | 1.91.4.0    | 2024/10 | OK        | OK            | -                       |
+  | 1.91.3dock        | 1.91.3.1    | 2024/10 | OK        | (7)           | -                       |
+  | ↑                | 1.91.3.0    | 2024/10 | OK        | (7)           | -                       |
+  | 1.91.2dock        | 1.91.2.0    | 2024/10 | OK        | (7)           | -                       |
+  | 1.91.1dock        | 1.91.1.2    | 2024/09 | OK        | (6)           | -                       |
+  | 1.91.1dock        | 1.91.1.1    | 2024/09 | OK        | -             | -                       |
+  | 1.91.0dock        | 1.91.0.1    | 2024/08 | OK        | -             | (7)                     |
+  | ↑                | 1.91.0.0    | 2024/08 | OK        | -             | (7)                     |
+  | 1.90.9dock        | 1.90.9.4    | 2024/07 | OK        | -             | NG (5)                  |
+  | ↑                | 1.90.9.3    | 2024/07 | OK        | -             | NG (5)                  |
+  | 1.90.8dock        | 1.90.8.1    | 2024/06 | OK        | -             | NG (5)                  |
+  | ↑                | 1.90.8.0    | 2024/06 | OK        | -             | NG (5)                  |
+  | 1.90.7dock        | 1.90.7.0    | 2024/05 | OK        | -             | NG (5)                  |
+  | 1.90.6dock        | 1.90.6.1    | 2024/05 | OK        | -             | NG (5)                  |
+  | 1.90.4dock        | 1.90.4.3    | 2024/04 | OK        | -             | NG (5)                  |
+  | -                 | -           | -       | -         | -             | -                       |
+  | ↑                | 1.90.4.2    | 2024/02 | OK        | -             | OK (4)                  |
+  | 1.90.1dock        | 1.90.1.0    | 2024/01 | OK        | -             | NG/OK(1)(3)(4)          |
+  | 1.89.9dock        | 1.89.9.8    | 2023/12 | OK        | -             | NG/OK(1)(3)(4)          |
 
   (1): Except imnodes and SDL2 example.  
   (2): Doesn't work well.  
   (3): Works well only if it is compiled debug mode.  
   (4): Use nim-2.0.2  
   (5): I don't know why can't be compiled on Linux.  
-  (6): OK: Except ImNodes example
+  (6): OK: Except ImNodes example  
   (7): Not checked at this moment.
 
 
@@ -297,7 +307,7 @@ Install `UPX` with MSys console on WindowsOS,
 pacman -S mingw-w64-ucrt-x86_64-upx
 ```
 
-For instance,
+For compression exe file,
 
 ```sh
 pwd
@@ -324,12 +334,12 @@ make dupx
 
 Result in,
 
-|                         |          Gcc + UPX :  Gcc |      Clang + UPX : Clang | MSVC(vcc) + UPX : MSVC    |
+|                         |          GCC + UPX :  GCC |      Clang + UPX : Clang | MSVC(vcc) + UPX : MSVC    |
 |------------------------:|--------------------------:|-------------------------:|--------------------------:|
 |        glfw_opengl3.exe |          804 KB : 2360 KB |         720 KB : 2200 KB | 742 KB : 2070 KB          |
 | glfw_opengl3_implot.exe | **1220 KB** : **7120 KB** | **940KB**  : **4200 KB** | **945 KB**  : **3810 KB** |
 
-Gcc: v14.2.0, Clang: v18.1.8, MSVC: 2022
+GCC: v14.2.0, Clang: v18.1.8, MSVC: 2022
 
 ## My tools version
 
@@ -337,7 +347,7 @@ Gcc: v14.2.0, Clang: v18.1.8, MSVC: 2022
 
 Windows11 (main)
 - **Nim Compiler Version 2.2.0**
-- **Gcc (Rev1, Built by MSYS2 project) 14.2.0**
+- **GCC (Rev1, Built by MSYS2 project) 14.2.0**
 
    ```sh
    pacman -S mingw-w64-ucrt-x86_64-gcc
@@ -354,7 +364,7 @@ Windows11 (main)
 - Make: GNU Make 4.4.1
 - MSys2/MinGW tools
 
-Lnux Mint 22
+Linux Mint 22
 - **Nim Compiler Version 2.2.0**
 - gcc 13.2.0
 - SDL2: 2.30.0
@@ -379,19 +389,30 @@ Lnux Mint 22
   - [Immediate Mode Plotting](https://github.com/epezent/implot)
      ![alt](https://raw.githubusercontent.com/wiki/epezent/implot/screenshots3/stem.gif)
 
-## Similar project
+
+#### Similar project ImGui / CImGui
 
 ---
 
-- Dear ImGui
+| Language             |          | Project                                                                                                                                         |
+| -------------------: | :---:    | :----------------------------------------------------------------:                                                                              |
+| **Nim**              | Compiler | [ImGuin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
+| **Lua**              | Script   | [LuaJITImGui](https://github.com/dinau/luajitImGui)                                                                                             |
+| **Zig**, C lang.     | Compiler | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build)                                                                             |
+| **Zig**              | Compiler | [ImGuinZ](https://github.com/dinau/imguinz)                                                                                                     |
+| **NeLua**            | Compiler | [NeLuaImGui](https://github.com/dinau/neluaImGui)                                                                                               |
+| **Python**           | Script   | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |
 
-| Language             | Binding             | Project                                                                                                                                         |
-| -------------------: | :---                | :----------------------------------------------------------------:                                                                              |
-| **Nim**              | CImGui/CImPlot      | [ImGuin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
-| **Lua**              | CImGui/CImPlot etc. | [LuaJITImGui](https://github.com/dinau/luajitimgui)                                                                                             |
-| **Zig**, C lang.     | Dear bindings       | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build)                                                                             |
-| **Zig**              | CImGui/CImPlot      | [ImGuinZ](https://github.com/dinau/imguinz)                                                                                                     |
-| **Python**           | ImGui direct        | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |
+#### SDL Game tutorial Platfromer
 
+---
+
+![ald](https://github.com/dinau/nelua-platformer/raw/main/img/game.png)
+
+| Language             |          | Project                                                            |
+| -------------------: | :---:    | :----------------------------------------------------------------: |
+| **Nim**              | Compiler | [Nim-Platformer](https://github.com/dinau/nim-platformer)          |
+| **LuaJIT**           | Script   | [LuaJIT-Platformer](https://github.com/dinau/luajit-platformer)    |
+| **Nelua**            | Compiler | [NeLua-Platformer](https://github.com/dinau/nelua-platformer)      |
 
 [![Star History Chart](https://api.star-history.com/svg?repos=dinau/imguin&type=Date)](https://star-history.com/#dinau/imguin&Date)

@@ -44,19 +44,6 @@ else: # For Debian/Ubuntu/Mint
 # Refered to  https://github.com/nimgl/nimgl/discussions/42
 # ranges array should be global (we need to keep it alive during the application lifetime)
 # because 'addFontFromFileTTF' does not copy its values, and it needs a pointer
-#proc new_ImFontConfig(): ImFontConfig =
-#    #[Custom constructor with default params taken from imgui.h]#
-#    result.FontDataOwnedByAtlas = true
-#    result.FontNo = 0
-#    result.OversampleH = 3
-#    result.OversampleV = 1
-#    result.PixelSnapH = false
-#    result.GlyphMaxAdvanceX = float.high
-#    result.RasterizerMultiply = 1.0
-#    result.RasterizerDensity  = 1.0
-#    result.MergeMode = false
-#    result.EllipsisChar = cast[ImWchar](-1)
-
 # Q: How can I load multiple fonts?
 # https://github.com/ocornut/imgui/blob/master/docs/FAQ.md#q-how-can-i-load-multiple-fonts
 #

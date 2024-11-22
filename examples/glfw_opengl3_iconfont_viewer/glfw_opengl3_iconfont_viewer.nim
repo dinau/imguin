@@ -180,8 +180,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
         if igButton(ICON_FA_COPY & " Copy to", ImVec2(x: 0, y: 0)):
           if sBuf =~ peg"@' '{'ICON'.+}":
             igSetClipboardText(matches[0].cstring)
-        # Show tooltip help
-        setTooltip("Clipboard")
+        setTooltip("Clipboard") # Show tooltip help
 
       # Show ListBox header
       igSetNextItemWidth(listBoxWidth.float)
