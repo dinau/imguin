@@ -26,6 +26,7 @@
   - [Other link](#other-link)
       - [Similar project ImGui / CImGui](#similar-project-imgui--cimgui)
       - [SDL Game tutorial Platfromer](#sdl-game-tutorial-platfromer)
+      - [Other link2](#other-link2)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -50,9 +51,10 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 
 ---
 
-- [Nim-2.0.4](https://nim-lang.org) or later (Windows10 or later /  Debian Linux)
+- [Nim-2.0.4](https://nim-lang.org)
+- Windows10 or later
+- Linux Mint 22 (or Ubuntu / Debian families ?)
 - MSys2/MinGW command line tools (Unix tools), make, cp, rm, git, ...etc
-- For Linux Debian 12 Bookworm, Linux Mint 22
 
   ```sh
   $ sudo apt install xorg-dev libopengl-dev libgl1-mesa-dev
@@ -249,17 +251,7 @@ Properly edit the version info etc in `imguin.nimble` file, then
   | ↑                | 1.91.3.0    | 2024/10 | OK        | (7)           | -                       |
   | 1.91.2dock        | 1.91.2.0    | 2024/10 | OK        | (7)           | -                       |
   | 1.91.1dock        | 1.91.1.2    | 2024/09 | OK        | (6)           | -                       |
-  | 1.91.1dock        | 1.91.1.1    | 2024/09 | OK        | -             | -                       |
-  | 1.91.0dock        | 1.91.0.1    | 2024/08 | OK        | -             | (7)                     |
   | ↑                | 1.91.0.0    | 2024/08 | OK        | -             | (7)                     |
-  | 1.90.9dock        | 1.90.9.4    | 2024/07 | OK        | -             | NG (5)                  |
-  | ↑                | 1.90.9.3    | 2024/07 | OK        | -             | NG (5)                  |
-  | 1.90.8dock        | 1.90.8.1    | 2024/06 | OK        | -             | NG (5)                  |
-  | ↑                | 1.90.8.0    | 2024/06 | OK        | -             | NG (5)                  |
-  | 1.90.7dock        | 1.90.7.0    | 2024/05 | OK        | -             | NG (5)                  |
-  | 1.90.6dock        | 1.90.6.1    | 2024/05 | OK        | -             | NG (5)                  |
-  | 1.90.4dock        | 1.90.4.3    | 2024/04 | OK        | -             | NG (5)                  |
-  | -                 | -           | -       | -         | -             | -                       |
   | ↑                | 1.90.4.2    | 2024/02 | OK        | -             | OK (4)                  |
   | 1.90.1dock        | 1.90.1.0    | 2024/01 | OK        | -             | NG/OK(1)(3)(4)          |
   | 1.89.9dock        | 1.89.9.8    | 2023/12 | OK        | -             | NG/OK(1)(3)(4)          |
@@ -407,12 +399,19 @@ Linux Mint 22
 
 ---
 
-![ald](https://github.com/dinau/nelua-platformer/raw/main/img/game.png)
+![ald](https://github.com/dinau/nelua-platformer/raw/main/img/platformer-nelua-sdl2.gif)
 
-| Language             |          | Project                                                            |
-| -------------------: | :---:    | :----------------------------------------------------------------: |
-| **Nim**              | Compiler | [Nim-Platformer](https://github.com/dinau/nim-platformer)          |
-| **LuaJIT**           | Script   | [LuaJIT-Platformer](https://github.com/dinau/luajit-platformer)    |
-| **Nelua**            | Compiler | [NeLua-Platformer](https://github.com/dinau/nelua-platformer)      |
+| Language             |          | Project                                                                                                  |
+| -------------------: | :---:    | :----------------------------------------------------------------:                                       |
+| **Nim**              | Compiler | [Nim-Platformer](https://github.com/dinau/nim-platformer)/ [sdl3_nim](https://github.com/dinau/sdl3_nim) |
+| **LuaJIT**           | Script   | [LuaJIT-Platformer](https://github.com/dinau/luajit-platformer)                                          |
+| **Nelua**            | Compiler | [NeLua-Platformer](https://github.com/dinau/nelua-platformer)                                            |
+| **Zig**              | Compiler | [Zig-Platformer](https://github.com/dinau/zig-platformer)                                                |
 
-[![Star History Chart](https://api.star-history.com/svg?repos=dinau/imguin&type=Date)](https://star-history.com/#dinau/imguin&Date)
+
+#### Other link2
+
+---
+
+- https://github.com/SpartanJ/SOIL2  
+SOIL2 is a tiny C library used primarily for uploading textures into OpenGL. 
