@@ -111,7 +111,6 @@ proc save*(this: var SaveLoadEditor) =
   imnodes_SaveCurrentEditorStateToIniFile("save_load.ini");
   #// Dump our editor state as bytes into a file
   var f = open("save_load.bytes", fmWrite)
-  defer: f.close
   var fout = newFileStream(f)
   defer: fout.close()
   #// copy the node vector to file
@@ -138,27 +137,31 @@ proc load*(this: var SaveLoadEditor) =
   except IOError:
     #echo "save_load.bytes: not found !"
     return
-  defer: f.close
   var fin = newFileStream(f)
   defer: fin.close()
   #// copy nodes into memory
-  this.nodes.newSeq(fin.readInt32()) # this.nodes.resize(num_nodes)
+  if sizeof(int) == 4:                 # Select cpu 64bit or 32bit
+    this.nodes.newSeq(fin.readInt32()) # this.nodes.resize(num_nodes)
+  else:
+    this.nodes.newSeq(fin.readInt64()) # this.nodes.resize(num_nodes)
   for nd in this.nodes.mitems:
     fin.read(nd)
   #// copy links into memory
-  this.links.newSeq(fin.readInt32()) #links_.resize(num_links)
+  if sizeof(int) == 4:                 # Select cpu 64bit or 32bit
+    this.links.newSeq(fin.readInt32()) # links_.resize(num_links)
+  else:
+    this.links.newSeq(fin.readInt64()) # links_.resize(num_links)
   for nd in this.links.mitems:
     fin.read(nd)
   #// copy current_id into memory
-  this.current_id = fin.readInt32()
+  this.current_id = fin.readInt32() # current_id: cint is int32
 
 #----------------------
 # NodeEditorInitialize
 #----------------------
 var obj: SaveLoadEditor
 proc NodeEditorInitialize*() =
-  # TODO ?
-  #imNodes_GetIO().LinkDetachWithModifierClick.Modifier[] = igGetIO().KeyCtrl
+  imNodes_GetIO().LinkDetachWithModifierClick.Modifier = getIOKeyCtrlPtr()
   imNodes_PushAttributeFlag(ImNodesAttributeFlags_EnableLinkDetachWithDragClick.ImNodesAttributeFlags)
   obj.load()
 
