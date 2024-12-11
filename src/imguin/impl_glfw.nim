@@ -6,13 +6,13 @@ proc currentSourceDir(): string {.compileTime.} =
   result = currentSourcePath().replace("\\", "/")
   result = result[0 ..< result.rfind("/")]
 
-const CImguiRootPath      = joinpath(currentSourceDir() ,"private/cimgui")
-const ImguiRootPath       = joinPath(CImguiRootPath,"imgui")
+const CImguiRootPath      = joinpath(currentSourceDir() ,"private/cimgui").replace("\\", "/")
+const ImguiRootPath       = joinPath(CImguiRootPath,"imgui").replace("\\", "/")
 {.passC:"-I" & CImguiRootPath.}
 {.passC:"-I" & ImguiRootPath.}
 #
 {.passC:"-DCIMGUI_USE_OPENGL3".}
-{.compile:joinPath(ImguiRootPath,"backends","imgui_impl_glfw.cpp").}
+{.compile:joinPath(ImguiRootPath,"backends","imgui_impl_glfw.cpp").replace("\\", "/").}
 
 #--------------
 # Public procs
