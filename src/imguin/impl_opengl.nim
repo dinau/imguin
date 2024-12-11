@@ -4,14 +4,14 @@ proc currentSourceDir(): string {.compileTime.} =
   result = result[0 ..< result.rfind("/")]
 
 # Set source paths
-const CImguiRootPath  = joinpath(currentSourceDir() ,"private/cimgui")
-const ImguiRootPath   = joinPath(CImguiRootPath,"imgui")
+const CImguiRootPath  = joinpath(currentSourceDir() ,"private/cimgui").replace("\\", "/")
+const ImguiRootPath   = joinPath(CImguiRootPath,"imgui").replace("\\", "/")
 
 {.passC:"-I" & CImguiRootPath.}
 {.passC:"-I" & ImguiRootPath.}
 #
 {.passC:"-DCIMGUI_USE_OPENGL3".}
-{.compile:joinPath(ImguiRootPath,"backends","imgui_impl_opengl3.cpp").}
+{.compile:joinPath(ImguiRootPath,"backends","imgui_impl_opengl3.cpp").replace("\\", "/").}
 
 import cimgui
 {.push discardable.}
