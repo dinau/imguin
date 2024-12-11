@@ -50,10 +50,10 @@ else: # Use generated header by Futark in your programs.
   # for glfw3
   if false:
     # Use GLFW of glfw-4.0.0 package
-    {.passC:"-I" & joinPath(staticExec("nimble path glfw").strip,"glfw","private","glfw","include").}
+    {.passC:"-I" & joinPath(staticExec("nimble path glfw").strip,"glfw","private","glfw","include").replace("\\", "/").}
   else:
     # Use GLFW of nimgl package
-    {.passC:"-I" & joinPath(staticExec("nimble path nimgl").strip,"nimgl","private","glfw","include").}
+    {.passC:"-I" & joinPath(staticExec("nimble path nimgl").strip,"nimgl","private","glfw","include").replace("\\", "/").}
   #
   #
   # for ImGui
@@ -71,7 +71,7 @@ else: # Use generated header by Futark in your programs.
   else: # Linux
     {.passC:""" -DIMGUI_IMPL_API="extern \"C\""  """.}
 #
-  const ImguiRootPath     = joinPath(CImguiRootPath,"imgui")
+  const ImguiRootPath     = joinPath(CImguiRootPath,"imgui").replace("\\", "/")
 
   {.passC:"-I" & CImguiRootPath.}
   {.passC:"-I" & ImguiRootPath.}
