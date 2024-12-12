@@ -16,6 +16,7 @@ const CImguiRootPath    = joinPath(currentSourceDir(),"private/cimgui").replace(
 const CImPlotRootPath   = joinPath(currentSourceDir(),"private/cimplot").replace("\\", "/")
 const CImNodesRootPath  = joinPath(currentSourceDir(),"private/cimnodes").replace("\\", "/")
 const CImGuizmoRootPath = joinPath(currentSourceDir(),"private/cimguizmo").replace("\\", "/")
+const CImKnobsRootPath = joinPath(currentSourceDir(),"private/cimgui-knobs").replace("\\", "/")
 
 #--- Futhark start
 when defined(useFuthark): # Generate header files with Futhark.
@@ -26,6 +27,7 @@ when defined(useFuthark): # Generate header files with Futhark.
     path    CImPlotRootPath
     path    CImNodesRootPath
     path    CImGuizmoRootPath
+    path    CImKnobsRootPath
     #define "IMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
     #define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
     define "CIMGUI_DEFINE_ENUMS_AND_STRUCTS"
@@ -38,6 +40,7 @@ when defined(useFuthark): # Generate header files with Futhark.
     #
     "cimnodes.h"
     "cimguizmo.h"
+    "cimgui-knobs.h"
     # Output
     outputPath CIMGUI_DEFS_FILE
 #--- Futahrk end
@@ -104,3 +107,8 @@ else: # Use generated header by Futark in your programs.
     {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/ImGradient.cpp").replace("\\", "/").}
     {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/ImGuizmo.cpp").replace("\\", "/").}
     {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/ImSequencer.cpp").replace("\\", "/").}
+
+  when defined(ImKnobsEnable):
+    {.passC:"-I" & CImKnobsRootPath.}
+    {.compile:joinPath(CImKnobsRootPath,"cimgui-knobs.c").replace("\\", "/").}
+    {.compile:joinPath(CImKnobsRootPath,"imgui-knobs.cpp").replace("\\", "/").}
