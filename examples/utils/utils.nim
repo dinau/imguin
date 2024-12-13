@@ -16,8 +16,7 @@ proc setTooltip*(str:string, delay=Imgui_HoveredFlags_DelayNormal.ImguiHoveredFl
 proc zoomGlass*(textureID:var uint32, itemWidth:int, itemPosTop, itemPosEnd:ImVec2) =
   # itemPosTop and itemPosEnd are absolute position in main window.
   if igBeginItemTooltip():
-    defer:
-      igEndTooltip()
+    defer: igEndTooltip()
     let itemHeight = itemPosEnd.y.int - itemPosTop.y.int
     let my_tex_w = itemWidth.float
     let my_tex_h = itemHeight.float

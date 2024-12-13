@@ -56,7 +56,7 @@ proc main() =
   glfwWindowHint(GLFWResizable, GLFW_TRUE)
   #
   glfwWindowHint(GLFWVisible, GLFW_FALSE)
-  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight)
+  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight, "ImGuizmo")
   if glfwWin.isNil:
     quit(-1)
   glfwWin.makeContextCurrent()
@@ -126,8 +126,8 @@ proc winMain(hWin: glfw.GLFWWindow) =
                             0 ,0 ,-1.0002 ,-1,
                             0 ,0 ,-0.2 ,0]
     var MOmo{.global.} = [1.cfloat,0,0,0, 0,1,0,0, 0,0,1,0, 0.5,0.5,0.5,1]
-
-    if igBegin("zmo", nil, 0): # TODO: Crash if this window is minimized.
+    block:
+      igBegin("zmo", nil, 0)
       defer: igEnd()
       igRadioButton_IntPtr("trans".cstring,  addr zmoOP,   TRANSLATE.cint); igSameLine(0.0, -1.0)
       igRadioButton_IntPtr("rot".cstring,    addr zmoOP,   ROTATE.cint);    igSameLine(0.0, -1.0)

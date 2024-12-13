@@ -85,7 +85,7 @@ proc main() =
   glfwWindowHint(GLFWResizable, GLFW_TRUE)
   #
   glfwWindowHint(GLFWVisible, GLFW_FALSE)
-  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight)
+  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight, "Show CJK font")
   if glfwWin.isNil:
     quit(-1)
   glfwWin.makeContextCurrent()

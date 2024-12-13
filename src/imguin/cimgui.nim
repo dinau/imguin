@@ -7,7 +7,7 @@ proc currentSourceDir(): string {.compileTime.} =
   result = result[0 ..< result.rfind("/")]
 
 #--- To specify the place that has "stdbool.h"
-const ClangIncludePath = "c:/drvDx/msys64/ucrt64/lib/clang/18/include"
+const ClangIncludePath = "c:/drvDx/msys64/ucrt64/lib/clang/19/include"
 #const ClangIncludePath = "c:/drvDx/msys64/mingw64/lib/clang/18/include"
 #const ClangIncludePath = "c:/llvm/lib/clang/17/include"
 
@@ -110,5 +110,5 @@ else: # Use generated header by Futark in your programs.
 
   when defined(ImKnobsEnable):
     {.passC:"-I" & CImKnobsRootPath.}
-    {.compile:joinPath(CImKnobsRootPath,"cimgui-knobs.c").replace("\\", "/").}
+    {.compile:joinPath(CImKnobsRootPath,"cimgui-knobs.cpp").replace("\\", "/").}
     {.compile:joinPath(CImKnobsRootPath,"imgui-knobs.cpp").replace("\\", "/").}

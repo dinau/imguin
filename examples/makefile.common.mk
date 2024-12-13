@@ -7,12 +7,13 @@ ifeq ($(OS),Windows_NT)
 endif
 TARGET_EXE = $(TARGET)$(EXE)
 
-.PHONY: clean run dll ver info build upx uupx
+.PHONY: clean run dll ver info build upx dupx
 
 OPT += -d:strip
 OPT += -o:$(TARGET_EXE)
 #OPT += --listCmd
 #OPT += --verbosity:2
+OPT += --passL:-lstdc++
 
 all: build dll
 
@@ -21,6 +22,11 @@ SRC_MAIN ?= $(TARGET)
 build:
 	$(PRE_CMD1)
 	nim c $(OPT) $(IMOPT) $(SRC_MAIN)
+	-$(AFTER_BUILD1)
+
+win:
+	$(PRE_CMD1)
+	nim c $(OPT) $(IMOPT) -d:mingw --passL:-lstdc++ $(SRC_MAIN)
 	-$(AFTER_BUILD1)
 
 clean:

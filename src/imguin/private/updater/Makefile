@@ -24,13 +24,13 @@ endif
 
 IMGUIN_DIR = ../../../imguin
 
-.PHONY: wordReplacer$(EXE) gen cimgui copylibs
+.PHONY: wordReplacer$(EXE) gen cimgui copylibs delComments$(EXE)
 .PHONY: $(IMGUIN_DIR)/$(CIMGUI_DEFS).nim
 
 all: gen
 
 # For manual update cimgui/cimplot/cimnodes and regeneration *defs.nim file
-gen:    clean wordReplacer$(EXE) cimgui
+gen:    clean wordReplacer$(EXE) delComments$(EXE) cimgui
 cimgui: $(IMGUIN_DIR)/$(CIMGUI_DEFS).nim
 
 #--------------------
@@ -39,12 +39,19 @@ cimgui: $(IMGUIN_DIR)/$(CIMGUI_DEFS).nim
 wordReplacer$(EXE): wordReplacer.nim
 	nim c -d:release   $<
 
+#-------------------
+# Gen:: delComments
+#-------------------
+delComments$(EXE): delComments.nim
+	nim c -d:release   $<
+
 #--------------------------
 # Gen:: $(CIMGUI_DEFS).nim
 #--------------------------
 $(IMGUIN_DIR)/$(CIMGUI_DEFS).nim:
 	nim c -f -c  $(OPT) --nimcache:.nimcache_$(notdir $@) $(IMGUIN_DIR)/cimgui.nim
 	./wordReplacer$(EXE) $(notdir $@)
+	./delComments$(EXE) $(notdir $@)
 	$(MV) $(notdir $@) $@
 
 #-------

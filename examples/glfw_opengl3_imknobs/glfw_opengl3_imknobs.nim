@@ -1,17 +1,18 @@
-import std/[random,sugar,strutils]
-
+import std/[strutils]
 import nimgl/[opengl,glfw]
+
 import imguin/[glfw_opengl]
+
 import imguin/lang/imgui_ja_gryph_ranges
-import implotFuncs
 import ../utils/loadImage
 
 include ../utils/setupFonts
+include imguin/simple
+
 when defined(windows):
   when not defined(vcc):   # imguinVcc.res TODO WIP
     include ./res/resource
-include imguin/simple
-
+  import tinydialogs
 
 const MainWinWidth = 1024
 const MainWinHeight = 800
@@ -46,29 +47,6 @@ block:
 #---------------------
 proc winMain(hWin: glfw.GLFWWindow)
 
-
-#--------------
-# imPlotWindow
-#--------------
-proc imPlotWindow(fshow:var bool) =
-  var
-    bar_data{.global.}:seq[Ims32]
-    x_data  {.global.}:seq[Ims32]
-    y_data  {.global.}:seq[Ims32]
-  once: # This needs when set up compilation option to --mm:arc,--mm:orc and use nim-2.0.0 later,
-        # workaround {.global.} pragma issue.
-    bar_data= collect(for i in 0..10: rand(100).Ims32)
-    x_data  = collect(for i in 0..10: i.Ims32)
-    y_data  = collect(for i in 0..10: (i * i).Ims32)
-  block:
-    igBegin("Plot Window", addr fshow, 0)
-    defer: igEnd()
-    if ImPlotBeginPlot("My Plot",ImVec2(x:0.0f,y:0.0f),0.ImplotFlags):
-      defer: ImPlotEndPlot()
-      # See ./implotFuncs.nim
-      ImPlotPlotBars("My Bar Plot",bar_data.ptz ,bar_data.len.cint)
-      ImPlotPlotLine("My Line Plot", x_data.ptz ,y_data.ptz, xdata.len.cint)
-
 #------
 # main
 #------
@@ -86,7 +64,7 @@ proc main() =
   glfwWindowHint(GLFWResizable, GLFW_TRUE)
   #
   glfwWindowHint(GLFWVisible, GLFW_FALSE)
-  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight, "ImPlot demo")
+  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight, "ImGui-Knobs")
   if glfwWin.isNil:
     quit(-1)
   glfwWin.makeContextCurrent()
@@ -105,11 +83,6 @@ proc main() =
   # Setup ImGui
   let context = igCreateContext(nil)
   defer: context.igDestroyContext()
-
-  # setup ImPlot
-  var imPlotContext = ImPlotCreateContext()
-  defer: ImPlotDestroyContext(imPlotContext)
-
   if fDocking:
     var pio = igGetIO()
     pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_DockingEnable.cint
@@ -123,6 +96,10 @@ proc main() =
   defer: ImGui_ImplGlfw_Shutdown()
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
   defer: ImGui_ImplOpenGL3_Shutdown()
+
+  # Set ini filename
+  #pio.IniFileName = "myIniname.ini"
+
   glfwWin.winMain()
 
 #---------
@@ -131,12 +108,12 @@ proc main() =
 proc winMain(hWin: glfw.GLFWWindow) =
   var
     showDemoWindow = true
-    showAnotherWindow = false
-    showImPlotWindow = true
+    showKnobsWindow = true
     showFirstWindow = true
     fval = 0.5f
     counter = 0
     sBuf = newString(200)
+    sFnameSelected{.global.}:string
     clearColor:ccolor
     showWindowDelay = 1 # TODO
 
@@ -145,18 +122,16 @@ proc winMain(hWin: glfw.GLFWWindow) =
   else:
     clearColor = ccolor(elm:(x:0.25f, y:0.65f, z:0.85f, w:1.0f))
 
-  igStyleColorsClassic(nil)
+  #igStyleColorsClassic(nil)
+  igStyleColorsDark(nil)
 
   # Add multibytes font
   discard setupFonts()
 
-  # for ImPlot
-  discard initRand()
-
   var pio = igGetIO()
 
   # main loop
-  while not hwin.windowShouldClose:
+  while not hWin.windowShouldClose:
     glfwPollEvents()
 
     # start imgui frame
@@ -166,54 +141,127 @@ proc winMain(hWin: glfw.GLFWWindow) =
 
     if showDemoWindow:
       igShowDemoWindow(addr showDemoWindow)
-      ImplotShowDemoWindow(addr showDemoWindow)
 
-    # show a simple window that we created ourselves.
+    #----------------------
+    # show a simple window          that we created ourselves.
+    #----------------------
     if showFirstWindow:
       igBegin("Nim: Dear ImGui test with Futhark", addr showFirstWindow, 0)
       defer: igEnd()
       var s = "GLFW v" & $glfwGetVersionString()
+      s = ICON_FA_COMMENT & " " & s
       igText(s.cstring)
       s = "OpenGL v" & ($cast[cstring](glGetString(GL_VERSION))).split[0]
+      s = ICON_FA_COMMENT_SMS & " " & s
       igText(s.cstring)
-      igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
-      s = "Input result:" & sBuf
-      igText(s.cstring)
-      igCheckbox("Demo window", addr showDemoWindow)
-      igCheckbox("Another window", addr showAnotherWindow)
-      igSliderFloat("Float", addr fval, 0.0f, 1.0f, "%.3f", 0)
-      igColorEdit3("Background color", clearColor.array3, 0.ImGuiColorEditFlags)
+      igText(ICON_FA_COMMENT_DOTS & " Dear ImGui");  igSameLine(0, -1.0)
+      igText(igGetVersion())
+      igText(ICON_FA_COMMENT_MEDICAL & " Nim-");  igSameLine(0, 0)
+      igText(NimVersion);
 
-      if igButton("Button", ImVec2(x: 0.0f, y: 0.0f)):
-        inc counter
-      igSameLine(0.0f, -1.0f)
-      igText("counter = %d", counter)
-      igText("Application average %.3f ms/frame (%.1f FPS)".cstring, (1000.0f / igGetIO().Framerate.float).cfloat, igGetIO().Framerate)
-      igSeparatorText(ICON_FA_WRENCH & " Icon font test ")
-      igText(ICON_FA_TRASH_CAN & " Trash")
-      igText(ICON_FA_MAGNIFYING_GLASS_PLUS &
-        " " & ICON_FA_POWER_OFF &
-        " " & ICON_FA_MICROPHONE &
-        " " & ICON_FA_MICROCHIP &
-        " " & ICON_FA_VOLUME_HIGH &
-        " " & ICON_FA_SCISSORS &
-        " " & ICON_FA_SCREWDRIVER_WRENCH &
-        " " & ICON_FA_BLOG)
+    #-----------------------
+    # Show ImGui-Knobs demo
+    #-----------------------
+    var val1 {.global.}: cfloat = 0.25
+    var val2 {.global.}: cfloat = 0.65
+    var val3 {.global.}: cfloat = 0.85
+    var val4 {.global.}: cfloat = 1.0
 
-    # show further samll window
-    if showAnotherWindow:
-      igBegin("imgui Another Window", addr showAnotherWindow, 0)
-      igText("Hello from imgui")
-      if igButton("Close me", ImVec2(x: 0.0f, y: 0.0f)):
-        showAnotherWindow = false
-      igEnd()
+    if showKnobsWindow:
+      igBegin("ImGui-knobs / CImGui-Knobs Demo", addr showKnobsWindow, 0)
+      defer: igEnd()
 
-    # ImPlot test
-    if showImPlotWindow:
-      imPlotWindow(showImPlotWindow)
+      if IgKnobEx("Gain", addr val1, 0.0, 1.0, 0.01, "%.1fdB" ,IgKnobVariant_Tick.IgKnobVariant
+                        ,0 # size
+                        , cast[IgKnobFlags](0)
+                        ,10 # steps
+                        ,-1 # angle_min
+                        ,-1 # angle_max
+                       ):
+        # value was changed
+        discard
+
+      igSameLine(0, -1.0)
+      if IgKnobEx("Mix", addr val2, 0.0, 1.0, 0.01, "%.1f" , IgKnobVariant_Stepped.IgKnobVariant
+                       ,0 # size
+                       , cast[IgKnobFlags](0)
+                       ,10 # steps
+                       ,-1 # angle_min
+                       ,-1 # angle_max
+                      ):
+        #value was changed
+        discard
+      # Double click to reset
+      if igIsItemActive() and igIsMouseDoubleClicked_Nil(0):
+        val2 = 0
+
+      igSameLine(0, -1.0)
+
+      # Custom colors
+      igPushStyleColor_Vec4(ImGuiCol_ButtonActive.ImGuiCol,  ImVec4(x: 255, y: 0, z: 0, w:0.7))
+      igPushStyleColor_Vec4(ImGuiCol_ButtonHovered.ImGuiCol, ImVec4(x: 255, y: 0, z: 0, w:1))
+      igPushStyleColor_Vec4(ImGuiCol_Button.ImGuiCol,        ImVec4(x:   0, y: 255, z: 0, w: 1))
+      #// Push/PopStyleColor() for each colors used (namely ImGuiCol_ButtonActive and ImGuiCol_ButtonHovered for primary and ImGuiCol_Framebg for Track)
+      if IgKnobEx("Pitch", addr val3, 0.0, 1.0, 0.01, "%.1f" , IgKnobVariant_WiperOnly.IgKnobVariant
+                         ,0 # size
+                         , cast[IgKnobFlags](0)
+                         ,10 # steps
+                         ,-1 # angle_min
+                         ,-1 # angle_max
+                        ):
+        # value was changed
+        discard
+
+      igPopStyleColor(3)
+      igSameLine(0,-1.0)
+
+      # Custom min/max angle
+      if IgKnobEx("Dry", addr val4, 0.0, 1.0, 0.01, "%.1f" , IgKnobVariant_Stepped.IgKnobVariant
+                          , 0  # Size
+                          , cast[IgKnobFlags](0)
+                          , 10 # steps
+                          , 1.570796  # angle_min
+                          , 3.141592  # angle_max
+                    ):
+          # value was changed
+          discard
+      igSameLine(0,-1.0)
+
+      # Int value
+      var val5{.global.}: cint = 1
+      if IgKnobInt("Wet",  addr val5, 1, 10, 0.1, "%i", IgKnobVariant_Stepped.IgKnobVariant
+                 , 0 # size
+                 , cast[IgKnobFlags](0)
+                 , 10 # steps
+                 , -1 # angel_min
+                 , -1 # angel_max
+                 ):
+        #value was changed
+        discard
+      igSameLine(0,-1.0)
+
+      # Vertical drag only
+      var val6{.global.}: cfloat = 1
+      if IgKnobEx("Vertical", addr val6, 0.0, 10, 0.1, "%.1f", IgKnobVariant_Space.IgKnobVariant
+               , 0
+               , IgKnobFlags_DragVertical.IgKnobFlags
+               , 10 # steps
+               , -1 # angel_min
+               , -1 # angel_max
+               ):
+        #value was changed
+        discard
+
 
     # render
     igRender()
+
+    if true:
+      clearColor.elm.x = val1
+      clearColor.elm.y = val2
+      clearColor.elm.z = val3
+      clearColor.elm.w = val4
+
     glClearColor(clearColor.elm.x, clearColor.elm.y, clearColor.elm.z, clearColor.elm.w)
     glClear(GL_COLOR_BUFFER_BIT)
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
@@ -224,9 +272,8 @@ proc winMain(hWin: glfw.GLFWWindow) =
       igRenderPlatformWindowsDefault(nil, nil)
       backup_current_window.makeContextCurrent()
 
-    hwin.swapBuffers()
-    if not showFirstWindow and not showDemoWindow and not showAnotherWindow and
-       not showImPlotWindow:
+    hWin.swapBuffers()
+    if not showFirstWindow and not showDemoWindow and not showKnobsWindow:
       hwin.setWindowShouldClose(true) # End program
 
     if showWindowDelay > 0:
@@ -236,7 +283,6 @@ proc winMain(hWin: glfw.GLFWWindow) =
         hWin.showWindow()
 
     #### end while
-
 #------
 # main
 #------

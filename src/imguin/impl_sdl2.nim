@@ -9,7 +9,7 @@ const
   MinGwPath = "c:/drvdx/msys64/mingw64" # for windows10 or later
 
 # Set root path of ImGui/CImGui
-const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui")
+const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui").replace("\\", "/")
 
 # It needs SDL2 dev tool at this moment.
 when defined(windows):
@@ -24,8 +24,8 @@ else: # for linux Debian 11 Bullseye or later
   {.passC:"-I/usr/include/SDL2".}
   {.passL:"-lSDL2".}
 #
-const ImguiRootPath    = joinPath(CImguiRootPath,"imgui")
-{.compile:joinPath(ImguiRootPath,"backends/imgui_impl_sdl2.cpp").}
+const ImguiRootPath    = joinPath(CImguiRootPath,"imgui").replace("\\", "/")
+{.compile:joinPath(ImguiRootPath,"backends/imgui_impl_sdl2.cpp").replace("\\", "/").}
 
 type
   structsdlwindow* {.incompleteStruct.} = object

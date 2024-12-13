@@ -61,7 +61,7 @@ proc main() =
 
   # Initialy main window is hidden.  See: showWindowDelay
   var flags:cuint = WINDOW_HIDDEN or WINDOW_OPENGL or WINDOW_RESIZABLE or WINDOW_ALLOW_HIGHDPI
-  var window = sdl.createWindow( "Hello", 30, 30, MainWinWidth, MainWinHeight, flags)
+  var window = sdl.createWindow( "SDL2 demo", 30, 30, MainWinWidth, MainWinHeight, flags)
   if isNil window:
     echo "Fail to create window: ", sdl.getError()
     quit -1
@@ -209,7 +209,8 @@ proc main() =
       igEnd()
 
     # Show image load window
-    if igBegin("Image load test", nil, 0):
+    block:
+      igBegin("Image load test", nil, 0)
       defer: igEnd()
       # Load image
       let

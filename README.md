@@ -8,6 +8,7 @@
     - [Build examples](#build-examples)
     - [Screen shot (examples)](#screen-shot-examples)
       - [glfw_opengl3](#glfw_opengl3)
+      - [glfw_opengl3_imknobs](#glfw_opengl3_imknobs)
       - [glfw_opengl3_iconfont_viewer](#glfw_opengl3_iconfont_viewer)
       - [glfw_opengl3_image_load / sdl2_opengl3](#glfw_opengl3_image_load--sdl2_opengl3)
       - [glfw_opengl3_image_save](#glfw_opengl3_image_save)
@@ -16,6 +17,7 @@
       - [glfw_opengl3_imnodes](#glfw_opengl3_imnodes)
       - [glfw_opengl3_imguizmo](#glfw_opengl3_imguizmo)
       - [My test app movie using imguin](#my-test-app-movie-using-imguin)
+  - [Cross compilation Windows binary(\*.exe) on Linux OS](#cross-compilation-windows-binary%5Cexe-on-linux-os)
   - [Update / Downgrade Dear ImGui and CImGui](#update--downgrade-dear-imgui-and-cimgui)
     - [Prerequisite](#prerequisite)
     - [Update / Downgrade  ImGui/CImGui](#update--downgrade--imguicimgui)
@@ -106,11 +108,23 @@ These screen shots are on Windows10.
 
 #### [glfw_opengl3](examples/glfw_opengl3)  
 
+---
+
 Basic example with icon fonts
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/screenshot1.png)
 
+#### [glfw_opengl3_imknobs](examples/glfw_opengl3_imknobs)
+
+---
+
+[https://github.com/altschuler/imgui-knobs](https://github.com/altschuler/imgui-knobs)
+
+![alt](src/img/imgui_knobs.png)
+
 #### [glfw_opengl3_iconfont_viewer](examples/glfw_opengl3_iconfont_viewer)  
+
+---
 
 Icon font viewer and magnifying glass
 
@@ -118,11 +132,15 @@ Icon font viewer and magnifying glass
 
 #### [glfw_opengl3_image_load](examples/glfw_opengl3_image_load) / [sdl2_opengl3](examples/sdl2_opengl3)  
 
+---
+
 Image load and magnifying glass
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/image_load.png)
 
 #### [glfw_opengl3_image_save](examples/glfw_opengl3_image_save)  
+
+---
 
 Image load / save  and magnifying glass  
 It can save a screen shot as jpg, bmp, png or tga file.
@@ -131,10 +149,14 @@ It can save a screen shot as jpg, bmp, png or tga file.
 
 #### [glfw_opengl3_nimgl_imguin_jp](examples/glfw_opengl3_nimgl_imguin_jp)
 
+---
+
 Showing UTF-8 label text and input text with my local country language.  
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/screenshot2.png)
 
 #### [glfw_opengl3_implot](examples/glfw_opengl3_implot)
+
+---
 
 Showing ImGui demo with ImPlot demo.  
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/implot1.png)  
@@ -142,15 +164,36 @@ Showing ImGui demo with ImPlot demo.
 
 #### [glfw_opengl3_imnodes](examples/glfw_opengl3_imnodes)
 
+---
+
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/imnodes-demo.png)  
 
 #### [glfw_opengl3_imguizmo](examples/glfw_opengl3_imguizmo)
+
+---
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/imguizmo.png)  
 
 ####  My test app movie using imguin
 
+---
+
 [![Sample movie,Youtube](https://github.com/dinau/imguin/raw/main/src/img/fontx2v-1.0-alpha-2023-04-small.png)](https://youtu.be/Ea0t7b9Kmq4)
+
+## Cross compilation Windows binary(\*.exe) on Linux OS
+
+---
+
+For example on Linux Mint 22 and so on,
+
+```sh
+pwd
+examples
+cd glfw_opengl3
+make win
+```
+
+`glfw_opengl3.exe` will be generated in current folder.
 
 ## Update / Downgrade Dear ImGui and CImGui
 
@@ -246,13 +289,12 @@ Properly edit the version info etc in `imguin.nimble` file, then
 
   | ImGui/CImGui Ver. | ImGuin Ver. | Date    | WindowsOS | Linux Mint 22 | Debian<br> Bookworm (1) |
   | :--------------:  | ---------   | :----:  | :---:     | :---:         | :---:                   |
-  | 1.91.4dock        | 1.91.4.0    | 2024/10 | OK        | OK            | -                       |
+  | 1.91.4dock        | 1.91.4.1    | 2024/12 | OK        | OK            | -                       |
   | 1.91.3dock        | 1.91.3.1    | 2024/10 | OK        | (7)           | -                       |
-  | ↑                | 1.91.3.0    | 2024/10 | OK        | (7)           | -                       |
   | 1.91.2dock        | 1.91.2.0    | 2024/10 | OK        | (7)           | -                       |
   | 1.91.1dock        | 1.91.1.2    | 2024/09 | OK        | (6)           | -                       |
-  | ↑                | 1.91.0.0    | 2024/08 | OK        | -             | (7)                     |
-  | ↑                | 1.90.4.2    | 2024/02 | OK        | -             | OK (4)                  |
+  | 1.91.0dock        | 1.91.0.0    | 2024/08 | OK        | -             | (7)                     |
+  | 1.90.4dock        | 1.90.4.2    | 2024/02 | OK        | -             | OK (4)                  |
   | 1.90.1dock        | 1.90.1.0    | 2024/01 | OK        | -             | NG/OK(1)(3)(4)          |
   | 1.89.9dock        | 1.89.9.8    | 2023/12 | OK        | -             | NG/OK(1)(3)(4)          |
 
@@ -345,7 +387,7 @@ Windows11 (main)
    pacman -S mingw-w64-ucrt-x86_64-gcc
    ```
 
-- Clang version 18.1.8
+- Clang version 19.1.4
 
    ```sh
    pacman -S mingw-w64-ucrt-x86_64-clang

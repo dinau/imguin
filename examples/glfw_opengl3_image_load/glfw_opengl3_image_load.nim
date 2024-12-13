@@ -195,7 +195,8 @@ proc winMain(hWin: glfw.GLFWWindow) =
       igEnd()
 
     # Show image load window
-    if igBegin("Image load test", nil, 0):
+    block:
+      igBegin("Image load test", nil, 0)
       defer: igEnd()
       # Load image
       let
