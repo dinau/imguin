@@ -53,7 +53,7 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 
 ---
 
-- [Nim-2.0.4](https://nim-lang.org)
+- [Nim-2.0.4](https://nim-lang.org) or later
 - Windows10 or later
 - Linux Mint 22 (or Ubuntu / Debian families ?)
 - MSys2/MinGW command line tools (Unix tools), make, cp, rm, git, ...etc
@@ -96,7 +96,9 @@ For instance [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim),
    make  # or make run
    ```
 
-   After build, run `./glfw_opengl3(.exe)`
+   After build, run `./glfw_opengl3(.exe)`  
+   Compiation option depends on `./config.nims`.
+
 
 1. For selecting static link or dynamic link ,read this [examples/README.md](examples/README.md).
 
@@ -114,13 +116,49 @@ Basic example with icon fonts
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/screenshot1.png)
 
+- Build
+
+   ```sh
+   pwd
+   examples/glfw_opengl3
+   ```
+
+   ```sh
+   make        # or make run
+   ```
+   
+   or 
+
+   ```sh
+   nim c glfw_opengl3.nim    # or  nim c -r glfw_opengl3.nim   or   nim r glfw_opengl3.nim 
+   ```
+
+
+
 #### [glfw_opengl3_imknobs](examples/glfw_opengl3_imknobs)
 
 ---
 
-[https://github.com/altschuler/imgui-knobs](https://github.com/altschuler/imgui-knobs)
+[https://github.com/altschuler/imgui-knobs](https://github.com/altschuler/imgui-knobs)  
 
 ![alt](src/img/imgui_knobs.png)
+
+- Build
+
+   ```sh
+   pwd
+   examples/glfw_opengl3_imknobs
+   ```
+
+   ```sh
+   make 
+   ```
+
+   or 
+
+   ```sh
+   nim c -d:ImKnobsEnable --warning:HoleEnumConv:off glfw_opengl3_imknobs.nim  
+   ```
 
 #### [glfw_opengl3_iconfont_viewer](examples/glfw_opengl3_iconfont_viewer)  
 
@@ -130,6 +168,23 @@ Icon font viewer and magnifying glass
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/iconFontViewer.png)
 
+- Build
+
+   ```sh
+   pwd
+   examples/iconFontViewer
+   ```
+
+   ```sh
+   make 
+   ```
+
+   or 
+
+   ```sh
+   nim c iconFontViewer.nim  
+   ```
+
 #### [glfw_opengl3_image_load](examples/glfw_opengl3_image_load) / [sdl2_opengl3](examples/sdl2_opengl3)  
 
 ---
@@ -137,6 +192,40 @@ Icon font viewer and magnifying glass
 Image load and magnifying glass
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/image_load.png)
+
+- Build
+
+   ```sh
+   pwd
+   examples/glfw_opengl3_image_load
+   ```
+
+   ```sh
+   make 
+   ```
+
+   or 
+
+   ```sh
+   nim c glfw_opengl3_image_load.nim  
+   ```
+
+- Build sdl2
+
+   ```sh
+   pwd
+   examples/sdl2_opengl3
+   ```
+
+   ```sh
+   make 
+   ```
+
+   or 
+
+   ```sh
+   nim c -d:SDL sdl2_opengl3.nim  
+   ```
 
 #### [glfw_opengl3_image_save](examples/glfw_opengl3_image_save)  
 
@@ -147,12 +236,46 @@ It can save a screen shot as jpg, bmp, png or tga file.
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/image_save.png)
 
-#### [glfw_opengl3_nimgl_imguin_jp](examples/glfw_opengl3_nimgl_imguin_jp)
+- Build
+
+   ```sh
+   pwd
+   examples/glfw_opengl3_image_save
+   ```
+
+   ```sh
+   make        # or make run
+   ```
+   
+   or 
+
+   ```sh
+   nim c glfw_opengl3_image_save.nim
+   ```
+
+#### [glfw_opengl3_nimgl_imguin_jp](examples/glfw_opengl3_jp)
 
 ---
 
-Showing UTF-8 label text and input text with my local country language.  
+Showing UTF-8 text and input text with a local country language.  
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/screenshot2.png)
+
+- Build
+
+   ```sh
+   pwd
+   examples/glfw_opengl3_jp
+   ```
+
+   ```sh
+   make        # or make run
+   ```
+   
+   or 
+
+   ```sh
+   nim c glfw_opengl3_jp.nim
+   ```
 
 #### [glfw_opengl3_implot](examples/glfw_opengl3_implot)
 
@@ -160,19 +283,67 @@ Showing UTF-8 label text and input text with my local country language.
 
 Showing ImGui demo with ImPlot demo.  
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/implot1.png)  
-![alt](https://github.com/dinau/imguin/raw/main/src/img/screenshot3.png)
+
+- Build
+
+   ```sh
+   pwd
+   examples/glfw_opengl3_implot
+   ```
+
+   ```sh
+   make        # or make run
+   ```
+   
+   or 
+
+   ```sh
+   nim c -d:ImPlotEnable glfw_opengl3_implot.nim
+   ```
 
 #### [glfw_opengl3_imnodes](examples/glfw_opengl3_imnodes)
 
 ---
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/imnodes-demo.png)  
+- Build
+
+   ```sh
+   pwd
+   examples/glfw_opengl3_imnodes
+   ```
+
+   ```sh
+   make        # or make run
+   ```
+   
+   or 
+
+   ```sh
+   nim c -d:ImNodesEnable glfw_opengl3_imnodes.nim
+   ```
 
 #### [glfw_opengl3_imguizmo](examples/glfw_opengl3_imguizmo)
 
 ---
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/imguizmo.png)  
+- Build
+
+   ```sh
+   pwd
+   examples/glfw_opengl3_imguizmo
+   ```
+
+   ```sh
+   make        # or make run
+   ```
+   
+   or 
+
+   ```sh
+   nim c -d:ImGuizmoEnable glfw_opengl3_imguizmo.nim
+   ```
 
 ####  My test app movie using imguin
 
@@ -180,9 +351,13 @@ Showing ImGui demo with ImPlot demo.
 
 [![Sample movie,Youtube](https://github.com/dinau/imguin/raw/main/src/img/fontx2v-1.0-alpha-2023-04-small.png)](https://youtu.be/Ea0t7b9Kmq4)
 
-## Cross compilation Windows binary(\*.exe) on Linux OS
+## Cross compilation: Generating Windows application binary(\*.exe) on Linux OS
 
 ---
+
+See:  
+[Cross compilation to Windows, linker error (unrecognized option '-z'](https://forum.nim-lang.org/t/11302#73838)  
+https://nim-lang.org/docs/nimc.html#crossminuscompilation-for-windows
 
 For example on Linux Mint 22 and so on,
 
@@ -190,8 +365,23 @@ For example on Linux Mint 22 and so on,
 pwd
 examples
 cd glfw_opengl3
-make win
 ```
+
+```sh
+make win  
+```
+
+or
+
+```sh
+nim c -d:mingw glfw_opengl3
+```
+or 
+
+```sh
+nim c --os:windows glfw_opengl3
+```
+
 
 `glfw_opengl3.exe` will be generated in current folder.
 
@@ -338,7 +528,7 @@ Install `UPX` with MSys console on WindowsOS,
 
 
 ```sh
-pacman -S mingw-w64-ucrt-x86_64-upx
+pacman -S mingw-w64-x86_64-upx
 ```
 
 For compression exe file,
@@ -384,13 +574,13 @@ Windows11 (main)
 - **GCC (Rev1, Built by MSYS2 project) 14.2.0**
 
    ```sh
-   pacman -S mingw-w64-ucrt-x86_64-gcc
+   pacman -S mingw-w64-x86_64-gcc
    ```
 
 - Clang version 19.1.4
 
    ```sh
-   pacman -S mingw-w64-ucrt-x86_64-clang
+   pacman -S mingw-w64-x86_64-clang
    ```
 - Visual Studio C++/C 2022
 - git version 2.46.0.windows.1
