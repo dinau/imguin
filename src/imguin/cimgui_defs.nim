@@ -52,12 +52,13 @@ type
     ImGui_InputTextFlags_DisplayEmptyRefVal = 16384,
     ImGui_InputTextFlags_NoHorizontalScroll = 32768,
     ImGui_InputTextFlags_NoUndoRedo = 65536,
-    ImGui_InputTextFlags_CallbackCompletion = 131072,
-    ImGui_InputTextFlags_CallbackHistory = 262144,
-    ImGui_InputTextFlags_CallbackAlways = 524288,
-    ImGui_InputTextFlags_CallbackCharFilter = 1048576,
-    ImGui_InputTextFlags_CallbackResize = 2097152,
-    ImGui_InputTextFlags_CallbackEdit = 4194304
+    ImGui_InputTextFlags_ElideLeft = 131072,
+    ImGui_InputTextFlags_CallbackCompletion = 262144,
+    ImGui_InputTextFlags_CallbackHistory = 524288,
+    ImGui_InputTextFlags_CallbackAlways = 1048576,
+    ImGui_InputTextFlags_CallbackCharFilter = 2097152,
+    ImGui_InputTextFlags_CallbackResize = 4194304,
+    ImGui_InputTextFlags_CallbackEdit = 8388608
 type
   enum_ImGuiTreeNodeFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_TreeNodeFlags_None = 0, ImGui_TreeNodeFlags_Selected = 1,
@@ -181,37 +182,37 @@ type
     ImGui_SortDirection_Descending = 2
 type
   enum_ImGuiKey* {.size: sizeof(cuint).} = enum
-    ImGui_Key_None = 0, ImGui_Key_NamedKey_COUNT = 154, ImGui_Key_Tab = 512,
-    ImGui_Key_LeftArrow = 513, ImGui_Key_RightArrow = 514, ImGui_Key_UpArrow = 515,
-    ImGui_Key_DownArrow = 516, ImGui_Key_PageUp = 517, ImGui_Key_PageDown = 518,
-    ImGui_Key_Home = 519, ImGui_Key_End = 520, ImGui_Key_Insert = 521,
-    ImGui_Key_Delete = 522, ImGui_Key_Backspace = 523, ImGui_Key_Space = 524,
-    ImGui_Key_Enter = 525, ImGui_Key_Escape = 526, ImGui_Key_LeftCtrl = 527,
-    ImGui_Key_LeftShift = 528, ImGui_Key_LeftAlt = 529, ImGui_Key_LeftSuper = 530,
-    ImGui_Key_RightCtrl = 531, ImGui_Key_RightShift = 532,
-    ImGui_Key_RightAlt = 533, ImGui_Key_RightSuper = 534, ImGui_Key_Menu = 535,
-    ImGui_Key_0 = 536, ImGui_Key_1 = 537, ImGui_Key_2 = 538, ImGui_Key_3 = 539,
-    ImGui_Key_4 = 540, ImGui_Key_5 = 541, ImGui_Key_6 = 542, ImGui_Key_7 = 543,
-    ImGui_Key_8 = 544, ImGui_Key_9 = 545, ImGui_Key_A = 546, ImGui_Key_B = 547,
-    ImGui_Key_C = 548, ImGui_Key_D = 549, ImGui_Key_E = 550, ImGui_Key_F = 551,
-    ImGui_Key_G = 552, ImGui_Key_H = 553, ImGui_Key_I = 554, ImGui_Key_J = 555,
-    ImGui_Key_K = 556, ImGui_Key_L = 557, ImGui_Key_M = 558, ImGui_Key_N = 559,
-    ImGui_Key_O = 560, ImGui_Key_P = 561, ImGui_Key_Q = 562, ImGui_Key_R = 563,
-    ImGui_Key_S = 564, ImGui_Key_T = 565, ImGui_Key_U = 566, ImGui_Key_V = 567,
-    ImGui_Key_W = 568, ImGui_Key_X = 569, ImGui_Key_Y = 570, ImGui_Key_Z = 571,
-    ImGui_Key_F1 = 572, ImGui_Key_F2 = 573, ImGui_Key_F3 = 574, ImGui_Key_F4 = 575,
-    ImGui_Key_F5 = 576, ImGui_Key_F6 = 577, ImGui_Key_F7 = 578, ImGui_Key_F8 = 579,
-    ImGui_Key_F9 = 580, ImGui_Key_F10 = 581, ImGui_Key_F11 = 582,
-    ImGui_Key_F12 = 583, ImGui_Key_F13 = 584, ImGui_Key_F14 = 585,
-    ImGui_Key_F15 = 586, ImGui_Key_F16 = 587, ImGui_Key_F17 = 588,
-    ImGui_Key_F18 = 589, ImGui_Key_F19 = 590, ImGui_Key_F20 = 591,
-    ImGui_Key_F21 = 592, ImGui_Key_F22 = 593, ImGui_Key_F23 = 594,
-    ImGui_Key_F24 = 595, ImGui_Key_Apostrophe = 596, ImGui_Key_Comma = 597,
-    ImGui_Key_Minus = 598, ImGui_Key_Period = 599, ImGui_Key_Slash = 600,
-    ImGui_Key_Semicolon = 601, ImGui_Key_Equal = 602, ImGui_Key_LeftBracket = 603,
-    ImGui_Key_Backslash = 604, ImGui_Key_RightBracket = 605,
-    ImGui_Key_GraveAccent = 606, ImGui_Key_CapsLock = 607,
-    ImGui_Key_ScrollLock = 608, ImGui_Key_NumLock = 609,
+    ImGui_Key_None = 0, ImGui_Key_NamedKey_COUNT = 154,
+    ImGui_Key_NamedKey_BEGIN = 512, ImGui_Key_LeftArrow = 513,
+    ImGui_Key_RightArrow = 514, ImGui_Key_UpArrow = 515, ImGui_Key_DownArrow = 516,
+    ImGui_Key_PageUp = 517, ImGui_Key_PageDown = 518, ImGui_Key_Home = 519,
+    ImGui_Key_End = 520, ImGui_Key_Insert = 521, ImGui_Key_Delete = 522,
+    ImGui_Key_Backspace = 523, ImGui_Key_Space = 524, ImGui_Key_Enter = 525,
+    ImGui_Key_Escape = 526, ImGui_Key_LeftCtrl = 527, ImGui_Key_LeftShift = 528,
+    ImGui_Key_LeftAlt = 529, ImGui_Key_LeftSuper = 530, ImGui_Key_RightCtrl = 531,
+    ImGui_Key_RightShift = 532, ImGui_Key_RightAlt = 533,
+    ImGui_Key_RightSuper = 534, ImGui_Key_Menu = 535, ImGui_Key_0 = 536,
+    ImGui_Key_1 = 537, ImGui_Key_2 = 538, ImGui_Key_3 = 539, ImGui_Key_4 = 540,
+    ImGui_Key_5 = 541, ImGui_Key_6 = 542, ImGui_Key_7 = 543, ImGui_Key_8 = 544,
+    ImGui_Key_9 = 545, ImGui_Key_A = 546, ImGui_Key_B = 547, ImGui_Key_C = 548,
+    ImGui_Key_D = 549, ImGui_Key_E = 550, ImGui_Key_F = 551, ImGui_Key_G = 552,
+    ImGui_Key_H = 553, ImGui_Key_I = 554, ImGui_Key_J = 555, ImGui_Key_K = 556,
+    ImGui_Key_L = 557, ImGui_Key_M = 558, ImGui_Key_N = 559, ImGui_Key_O = 560,
+    ImGui_Key_P = 561, ImGui_Key_Q = 562, ImGui_Key_R = 563, ImGui_Key_S = 564,
+    ImGui_Key_T = 565, ImGui_Key_U = 566, ImGui_Key_V = 567, ImGui_Key_W = 568,
+    ImGui_Key_X = 569, ImGui_Key_Y = 570, ImGui_Key_Z = 571, ImGui_Key_F1 = 572,
+    ImGui_Key_F2 = 573, ImGui_Key_F3 = 574, ImGui_Key_F4 = 575, ImGui_Key_F5 = 576,
+    ImGui_Key_F6 = 577, ImGui_Key_F7 = 578, ImGui_Key_F8 = 579, ImGui_Key_F9 = 580,
+    ImGui_Key_F10 = 581, ImGui_Key_F11 = 582, ImGui_Key_F12 = 583,
+    ImGui_Key_F13 = 584, ImGui_Key_F14 = 585, ImGui_Key_F15 = 586,
+    ImGui_Key_F16 = 587, ImGui_Key_F17 = 588, ImGui_Key_F18 = 589,
+    ImGui_Key_F19 = 590, ImGui_Key_F20 = 591, ImGui_Key_F21 = 592,
+    ImGui_Key_F22 = 593, ImGui_Key_F23 = 594, ImGui_Key_F24 = 595,
+    ImGui_Key_Apostrophe = 596, ImGui_Key_Comma = 597, ImGui_Key_Minus = 598,
+    ImGui_Key_Period = 599, ImGui_Key_Slash = 600, ImGui_Key_Semicolon = 601,
+    ImGui_Key_Equal = 602, ImGui_Key_LeftBracket = 603, ImGui_Key_Backslash = 604,
+    ImGui_Key_RightBracket = 605, ImGui_Key_GraveAccent = 606,
+    ImGui_Key_CapsLock = 607, ImGui_Key_ScrollLock = 608, ImGui_Key_NumLock = 609,
     ImGui_Key_PrintScreen = 610, ImGui_Key_Pause = 611, ImGui_Key_Keypad0 = 612,
     ImGui_Key_Keypad1 = 613, ImGui_Key_Keypad2 = 614, ImGui_Key_Keypad3 = 615,
     ImGui_Key_Keypad4 = 616, ImGui_Key_Keypad5 = 617, ImGui_Key_Keypad6 = 618,
@@ -237,19 +238,13 @@ type
     ImGui_Key_MouseX1 = 658, ImGui_Key_MouseX2 = 659, ImGui_Key_MouseWheelX = 660,
     ImGui_Key_MouseWheelY = 661, ImGui_Key_ReservedForModCtrl = 662,
     ImGui_Key_ReservedForModShift = 663, ImGui_Key_ReservedForModAlt = 664,
-    ImGui_Key_ReservedForModSuper = 665, ImGui_Key_COUNT = 666,
+    ImGui_Key_ReservedForModSuper = 665, ImGui_Key_NamedKey_END = 666,
     ImGui_Mod_Ctrl = 4096, ImGui_Mod_Shift = 8192, ImGui_Mod_Alt = 16384,
     ImGui_Mod_Super = 32768, ImGui_Mod_Mask_private = 61440
 const
+  ImGuiKey_Tab* = enum_ImGuiKey.ImGuiKey_NamedKey_BEGIN
+const
   ImGuiMod_None* = enum_ImGuiKey.ImGuiKey_None
-const
-  ImGuiKey_NamedKey_BEGIN* = enum_ImGuiKey.ImGuiKey_Tab
-const
-  ImGuiKey_NamedKey_END* = enum_ImGuiKey.ImGuiKey_COUNT
-const
-  ImGuiKey_KeysData_SIZE* = enum_ImGuiKey.ImGuiKey_NamedKey_COUNT
-const
-  ImGuiKey_KeysData_OFFSET* = enum_ImGuiKey.ImGuiKey_Tab
 type
   enum_ImGuiInputFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_InputFlags_None = 0, ImGui_InputFlags_Repeat = 1,
@@ -595,9 +590,10 @@ type
   enum_ImGuiLayoutType_private* {.size: sizeof(cuint).} = enum
     ImGui_LayoutType_Horizontal = 0, ImGui_LayoutType_Vertical = 1
 type
-  enum_ImGuiLogType* {.size: sizeof(cuint).} = enum
-    ImGui_LogType_None = 0, ImGui_LogType_TTY = 1, ImGui_LogType_File = 2,
-    ImGui_LogType_Buffer = 3, ImGui_LogType_Clipboard = 4
+  enum_ImGuiLogFlags_private* {.size: sizeof(cuint).} = enum
+    ImGui_LogFlags_None = 0, ImGui_LogFlags_OutputTTY = 1,
+    ImGui_LogFlags_OutputFile = 2, ImGui_LogFlags_OutputBuffer = 4,
+    ImGui_LogFlags_OutputClipboard = 8, ImGui_LogFlags_OutputMask_private = 15
 type
   enum_ImGuiAxis* {.size: sizeof(cint).} = enum
     ImGuiAxis_None = -1, ImGuiAxis_X = 0, ImGuiAxis_Y = 1
@@ -773,10 +769,11 @@ type
     ImGui_DebugLogFlags_EventPopup = 8, ImGui_DebugLogFlags_EventNav = 16,
     ImGui_DebugLogFlags_EventClipper = 32,
     ImGui_DebugLogFlags_EventSelection = 64, ImGui_DebugLogFlags_EventIO = 128,
-    ImGui_DebugLogFlags_EventInputRouting = 256,
-    ImGui_DebugLogFlags_EventDocking = 512,
-    ImGui_DebugLogFlags_EventViewport = 1024,
-    ImGui_DebugLogFlags_EventMask_private = 2047,
+    ImGui_DebugLogFlags_EventFont = 256,
+    ImGui_DebugLogFlags_EventInputRouting = 512,
+    ImGui_DebugLogFlags_EventDocking = 1024,
+    ImGui_DebugLogFlags_EventViewport = 2048,
+    ImGui_DebugLogFlags_EventMask_private = 4095,
     ImGui_DebugLogFlags_OutputToTTY = 1048576,
     ImGui_DebugLogFlags_OutputToTestEngine = 2097152
 type
@@ -1123,6 +1120,7 @@ type
   ImDrawListSharedData* = struct_ImDrawListSharedData 
   struct_ImDrawListSharedData* {.pure, inheritable, bycopy.} = object
     TexUvWhitePixel*: ImVec2 
+    TexUvLines*: ptr ImVec4
     Font*: ptr ImFont
     FontSize*: cfloat
     FontScale*: cfloat
@@ -1134,7 +1132,6 @@ type
     ArcFastVtx*: array[48'i64, ImVec2]
     ArcFastRadiusCutoff*: cfloat
     CircleSegmentCounts*: array[64'i64, ImU8]
-    TexUvLines*: ptr ImVec4
   ImDrawListSplitter* = struct_ImDrawListSplitter 
   struct_ImDrawListSplitter* {.pure, inheritable, bycopy.} = object
     internal_Current*: cint  
@@ -1156,9 +1153,9 @@ type
     ContainerAtlas*: ptr ImFontAtlas
     ConfigData*: ptr ImFontConfig
     ConfigDataCount*: cshort
-    FallbackChar*: ImWchar
-    EllipsisChar*: ImWchar
     EllipsisCharCount*: cshort
+    EllipsisChar*: ImWchar
+    FallbackChar*: ImWchar
     EllipsisWidth*: cfloat
     EllipsisCharStep*: cfloat
     DirtyLookupTables*: bool
@@ -1507,7 +1504,8 @@ type
     HookIdNext*: ImGuiID
     LocalizationTable*: array[13'i64, cstring]
     LogEnabled*: bool
-    LogType*: ImGuiLogType
+    LogFlags*: ImGuiLogFlags
+    LogWindow*: ptr ImGuiWindow
     LogFile*: ImFileHandle
     LogBuffer*: ImGuiTextBuffer
     LogNextPrefix*: cstring
@@ -1591,6 +1589,7 @@ type
     ConfigDragClickToInputText*: bool
     ConfigWindowsResizeFromEdges*: bool
     ConfigWindowsMoveFromTitleBarOnly*: bool
+    ConfigWindowsCopyContentsWithCtrlC*: bool
     ConfigScrollbarScrollByPage*: bool
     ConfigMemoryCompactTimer*: cfloat
     MouseDoubleClickTime*: cfloat
@@ -1659,8 +1658,6 @@ type
     PenPressure*: cfloat
     AppFocusLost*: bool
     AppAcceptingEvents*: bool
-    BackendUsingLegacyKeyArrays*: ImS8
-    BackendUsingLegacyNavInputArray*: bool
     InputQueueSurrogate*: ImWchar16
     InputQueueCharacters*: ImVector_ImWchar
   ImGuiInputTextCallbackData* = struct_ImGuiInputTextCallbackData 
@@ -2057,11 +2054,11 @@ type
     Ctx*: ptr ImGuiContext   
     Stb*: ptr ImStbTexteditState
     ID*: ImGuiID
-    CurLenA*: cint
+    TextLen*: cint
     TextA*: ImVector_char
-    InitialTextA*: ImVector_char
+    TextToRevertTo*: ImVector_char
     CallbackTextBackup*: ImVector_char
-    BufCapacityA*: cint
+    BufCapacity*: cint
     Scroll*: ImVec2
     CursorAnim*: cfloat
     CursorFollow*: bool
@@ -2896,11 +2893,12 @@ type
   ImVector_ImU32* = struct_ImVector_ImU32 
   ImFontAtlasCustomRect* = struct_ImFontAtlasCustomRect 
   struct_ImFontAtlasCustomRect* {.pure, inheritable, bycopy.} = object
-    Width*: cushort          
-    Height*: cushort
-    X*: cushort
+    X*: cushort              
     Y*: cushort
-    GlyphID*: cuint
+    Width*: cushort
+    Height*: cushort
+    GlyphID* {.bitsize: 31'i64.}: cuint
+    GlyphColored* {.bitsize: 1'i64.}: cuint
     GlyphAdvanceX*: cfloat
     GlyphOffset*: ImVec2
     Font*: ptr ImFont
@@ -2948,6 +2946,7 @@ type
   ImGuiFocusRequestFlags* = cint 
   ImGuiItemStatusFlags* = cint 
   ImGuiOldColumnFlags* = cint 
+  ImGuiLogFlags* = cint      
   ImGuiNavRenderCursorFlags* = cint 
   ImGuiNavMoveFlags* = cint  
   ImGuiNextItemDataFlags* = cint 
@@ -2996,7 +2995,7 @@ type
   ImGuiTextFlags_private* = enum_ImGuiTextFlags_private 
   ImGuiTooltipFlags_private* = enum_ImGuiTooltipFlags_private 
   ImGuiLayoutType_private* = enum_ImGuiLayoutType_private 
-  ImGuiLogType* = enum_ImGuiLogType 
+  ImGuiLogFlags_private* = enum_ImGuiLogFlags_private 
   ImGuiAxis* = enum_ImGuiAxis 
   ImGuiPlotType* = enum_ImGuiPlotType 
   ImGuiComboPreviewData* = struct_ImGuiComboPreviewData 
@@ -4033,6 +4032,11 @@ else:
       EXTERN* = extern       
   else:
     let EXTERN* = extern     
+when 65535 is static:
+  const
+    IM_UNICODE_CODEPOINT_MAX* = 65535 
+else:
+  let IM_UNICODE_CODEPOINT_MAX* = 65535 
 when 1 is static:
   const
     IMGUI_HAS_DOCK* = 1      
@@ -6155,6 +6159,10 @@ proc ImGuiTableSettings_destroy*(self: ptr ImGuiTableSettings): void {.cdecl,
     importc: "ImGuiTableSettings_destroy".}
 proc ImGuiTableSettings_GetColumnSettings*(self: ptr ImGuiTableSettings): ptr ImGuiTableColumnSettings {.
     cdecl, importc: "ImGuiTableSettings_GetColumnSettings".}
+proc igGetIOEx*(ctx: ptr ImGuiContext): ptr ImGuiIO {.cdecl,
+    importc: "igGetIOEx".}
+proc igGetPlatformIOEx*(ctx: ptr ImGuiContext): ptr ImGuiPlatformIO {.cdecl,
+    importc: "igGetPlatformIOEx".}
 proc igGetCurrentWindowRead*(): ptr ImGuiWindow {.cdecl,
     importc: "igGetCurrentWindowRead".}
 proc igGetCurrentWindow*(): ptr ImGuiWindow {.cdecl,
@@ -6374,7 +6382,7 @@ proc igBeginDisabledOverrideReenable*(): void {.cdecl,
     importc: "igBeginDisabledOverrideReenable".}
 proc igEndDisabledOverrideReenable*(): void {.cdecl,
     importc: "igEndDisabledOverrideReenable".}
-proc igLogBegin*(type_arg: ImGuiLogType; auto_open_depth: cint): void {.cdecl,
+proc igLogBegin*(flags: ImGuiLogFlags; auto_open_depth: cint): void {.cdecl,
     importc: "igLogBegin".}
 proc igLogToBuffer*(auto_open_depth: cint): void {.cdecl,
     importc: "igLogToBuffer".}
@@ -6966,10 +6974,10 @@ proc igButtonEx*(label: cstring; size_arg: ImVec2; flags: ImGuiButtonFlags): boo
 proc igArrowButtonEx*(str_id: cstring; dir: ImGuiDir; size_arg: ImVec2;
                       flags: ImGuiButtonFlags): bool {.cdecl,
     importc: "igArrowButtonEx".}
-proc igImageButtonEx*(id: ImGuiID; texture_id: ImTextureID; image_size: ImVec2;
-                      uv0: ImVec2; uv1: ImVec2; bg_col: ImVec4;
-                      tint_col: ImVec4; flags: ImGuiButtonFlags): bool {.cdecl,
-    importc: "igImageButtonEx".}
+proc igImageButtonEx*(id: ImGuiID; user_texture_id: ImTextureID;
+                      image_size: ImVec2; uv0: ImVec2; uv1: ImVec2;
+                      bg_col: ImVec4; tint_col: ImVec4; flags: ImGuiButtonFlags): bool {.
+    cdecl, importc: "igImageButtonEx".}
 proc igSeparatorEx*(flags: ImGuiSeparatorFlags; thickness: cfloat): void {.
     cdecl, importc: "igSeparatorEx".}
 proc igSeparatorTextEx*(id: ImGuiID; label: cstring; label_end: cstring;
@@ -6988,7 +6996,8 @@ proc igCollapseButton*(id: ImGuiID; pos: ImVec2; dock_node: ptr ImGuiDockNode): 
 proc igScrollbar*(axis: ImGuiAxis): void {.cdecl, importc: "igScrollbar".}
 proc igScrollbarEx*(bb: ImRect; id: ImGuiID; axis: ImGuiAxis;
                     p_scroll_v: ptr ImS64; avail_v: ImS64; contents_v: ImS64;
-                    flags: ImDrawFlags): bool {.cdecl, importc: "igScrollbarEx".}
+                    draw_rounding_flags: ImDrawFlags): bool {.cdecl,
+    importc: "igScrollbarEx".}
 proc igGetWindowScrollbarRect*(pOut: ptr ImRect; window: ptr ImGuiWindow;
                                axis: ImGuiAxis): void {.cdecl,
     importc: "igGetWindowScrollbarRect".}
@@ -9710,6 +9719,10 @@ proc ImGuizmo_SetImGuiContext*(ctx: ptr ImGuiContext): void {.cdecl,
     importc: "ImGuizmo_SetImGuiContext".}
 proc ImGuizmo_IsOver_Nil*(): bool {.cdecl, importc: "ImGuizmo_IsOver_Nil".}
 proc ImGuizmo_IsUsing*(): bool {.cdecl, importc: "ImGuizmo_IsUsing".}
+proc ImGuizmo_IsUsingViewManipulate*(): bool {.cdecl,
+    importc: "ImGuizmo_IsUsingViewManipulate".}
+proc ImGuizmo_IsViewManipulateHovered*(): bool {.cdecl,
+    importc: "ImGuizmo_IsViewManipulateHovered".}
 proc ImGuizmo_IsUsingAny*(): bool {.cdecl, importc: "ImGuizmo_IsUsingAny".}
 proc ImGuizmo_Enable*(enable: bool): void {.cdecl, importc: "ImGuizmo_Enable".}
 proc ImGuizmo_DecomposeMatrixToComponents*(matrix: ptr cfloat;
@@ -9743,7 +9756,24 @@ proc ImGuizmo_ViewManipulate_FloatPtr*(view: ptr cfloat; projection: ptr cfloat;
                                        position: ImVec2; size: ImVec2;
                                        backgroundColor: ImU32): void {.cdecl,
     importc: "ImGuizmo_ViewManipulate_FloatPtr".}
+proc ImGuizmo_SetAlternativeWindow*(window: ptr ImGuiWindow): void {.cdecl,
+    importc: "ImGuizmo_SetAlternativeWindow".}
 proc ImGuizmo_SetID*(id: cint): void {.cdecl, importc: "ImGuizmo_SetID".}
+proc ImGuizmo_PushID_Str*(str_id: cstring): void {.cdecl,
+    importc: "ImGuizmo_PushID_Str".}
+proc ImGuizmo_PushID_StrStr*(str_id_begin: cstring; str_id_end: cstring): void {.
+    cdecl, importc: "ImGuizmo_PushID_StrStr".}
+proc ImGuizmo_PushID_Ptr*(ptr_id: pointer): void {.cdecl,
+    importc: "ImGuizmo_PushID_Ptr".}
+proc ImGuizmo_PushID_Int*(int_id: cint): void {.cdecl,
+    importc: "ImGuizmo_PushID_Int".}
+proc ImGuizmo_PopID*(): void {.cdecl, importc: "ImGuizmo_PopID".}
+proc ImGuizmo_GetID_Str*(str_id: cstring): ImGuiID {.cdecl,
+    importc: "ImGuizmo_GetID_Str".}
+proc ImGuizmo_GetID_StrStr*(str_id_begin: cstring; str_id_end: cstring): ImGuiID {.
+    cdecl, importc: "ImGuizmo_GetID_StrStr".}
+proc ImGuizmo_GetID_Ptr*(ptr_id: pointer): ImGuiID {.cdecl,
+    importc: "ImGuizmo_GetID_Ptr".}
 proc ImGuizmo_IsOver_OPERATION*(op: OPERATION): bool {.cdecl,
     importc: "ImGuizmo_IsOver_OPERATION".}
 proc ImGuizmo_SetGizmoSizeClipSpace*(value: cfloat): void {.cdecl,
@@ -9752,8 +9782,12 @@ proc ImGuizmo_AllowAxisFlip*(value: bool): void {.cdecl,
     importc: "ImGuizmo_AllowAxisFlip".}
 proc ImGuizmo_SetAxisLimit*(value: cfloat): void {.cdecl,
     importc: "ImGuizmo_SetAxisLimit".}
+proc ImGuizmo_SetAxisMask*(x: bool; y: bool; z: bool): void {.cdecl,
+    importc: "ImGuizmo_SetAxisMask".}
 proc ImGuizmo_SetPlaneLimit*(value: cfloat): void {.cdecl,
     importc: "ImGuizmo_SetPlaneLimit".}
+proc ImGuizmo_IsOver_FloatPtr*(position: ptr cfloat; pixelRadius: cfloat): bool {.
+    cdecl, importc: "ImGuizmo_IsOver_FloatPtr".}
 proc Style_Style*(): ptr Style {.cdecl, importc: "Style_Style".}
 proc Style_destroy*(self: ptr Style): void {.cdecl, importc: "Style_destroy".}
 proc ImGuizmo_GetStyle*(): ptr Style {.cdecl, importc: "ImGuizmo_GetStyle".}

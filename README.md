@@ -17,7 +17,7 @@
       - [glfw_opengl3_imnodes](#glfw_opengl3_imnodes)
       - [glfw_opengl3_imguizmo](#glfw_opengl3_imguizmo)
       - [My test app movie using imguin](#my-test-app-movie-using-imguin)
-  - [Cross compilation Windows binary(\*.exe) on Linux OS](#cross-compilation-windows-binary%5Cexe-on-linux-os)
+  - [Cross compilation: Generating Windows application binary(\*.exe) on Linux OS](#cross-compilation-generating-windows-application-binary%5Cexe-on-linux-os)
   - [Update / Downgrade Dear ImGui and CImGui](#update--downgrade-dear-imgui-and-cimgui)
     - [Prerequisite](#prerequisite)
     - [Update / Downgrade  ImGui/CImGui](#update--downgrade--imguicimgui)
@@ -35,7 +35,7 @@
 # ImGuin
 
 
-Updated to latest ImGui/CImGui version: : **v1.91.4dock** (2024/10)
+Updated to latest ImGui/CImGui version: : **v1.91.6dock** (2024/12)
 
 This project is my experiment project to use Nim language, ImGui, ImPlot, futhark and etc.  
 
@@ -53,10 +53,10 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 
 ---
 
-- [Nim-2.0.4](https://nim-lang.org) or later
+- [Nim-2.0.12](https://nim-lang.org) or later
 - Windows10 or later
+- [MSys2/MinGW](https://www.msys2.org/) command line tools (Unix tools), make, cp, rm, git, ...etc
 - Linux Mint 22 (or Ubuntu / Debian families ?)
-- MSys2/MinGW command line tools (Unix tools), make, cp, rm, git, ...etc
 
   ```sh
   $ sudo apt install xorg-dev libopengl-dev libgl1-mesa-dev
@@ -97,7 +97,7 @@ For instance [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim),
    ```
 
    After build, run `./glfw_opengl3(.exe)`  
-   Compiation option depends on `./config.nims`.
+   Compiation options depend on `./config.nims` and `./Makefile`.
 
 
 1. For selecting static link or dynamic link ,read this [examples/README.md](examples/README.md).
@@ -140,6 +140,10 @@ Basic example with icon fonts
 ---
 
 [https://github.com/altschuler/imgui-knobs](https://github.com/altschuler/imgui-knobs)  
+
+
+[cimgui-knobs](src/imguin/private/cimgui-knobs) sources have been contributed from [system64MC](https://github.com/system64MC) / [PR](https://github.com/dinau/imguin/commits?author=system64MC) . Thank you.
+
 
 ![alt](src/img/imgui_knobs.png)
 
@@ -210,7 +214,7 @@ Image load and magnifying glass
    nim c glfw_opengl3_image_load.nim  
    ```
 
-- Build sdl2
+- Build sdl2 version
 
    ```sh
    pwd
@@ -383,7 +387,7 @@ nim c --os:windows glfw_opengl3
 ```
 
 
-`glfw_opengl3.exe` will be generated in current folder.
+`glfw_opengl3.exe` will be generated in the current folder.
 
 ## Update / Downgrade Dear ImGui and CImGui
 
@@ -479,7 +483,9 @@ Properly edit the version info etc in `imguin.nimble` file, then
 
   | ImGui/CImGui Ver. | ImGuin Ver. | Date    | WindowsOS | Linux Mint 22 | Debian<br> Bookworm (1) |
   | :--------------:  | ---------   | :----:  | :---:     | :---:         | :---:                   |
-  | 1.91.4dock        | 1.91.4.1    | 2024/12 | OK        | OK            | -                       |
+  | 1.91.6dock        | 1.91.6.0    | 2024/12 | OK        | OK            | -                       |
+  | 1.91.5dock        | -           | -       | -         | -             | -                       |
+  | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK        | OK            | -                       |
   | 1.91.3dock        | 1.91.3.1    | 2024/10 | OK        | (7)           | -                       |
   | 1.91.2dock        | 1.91.2.0    | 2024/10 | OK        | (7)           | -                       |
   | 1.91.1dock        | 1.91.1.2    | 2024/09 | OK        | (6)           | -                       |
@@ -574,13 +580,13 @@ Windows11 (main)
 - **GCC (Rev1, Built by MSYS2 project) 14.2.0**
 
    ```sh
-   pacman -S mingw-w64-x86_64-gcc
+   pacman -S mingw-w64-ucrt-x86_64-gcc
    ```
 
 - Clang version 19.1.4
 
    ```sh
-   pacman -S mingw-w64-x86_64-clang
+   pacman -S mingw-w64-ucrt-x86_64-clang
    ```
 - Visual Studio C++/C 2022
 - git version 2.46.0.windows.1
