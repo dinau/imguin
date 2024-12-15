@@ -24,14 +24,19 @@ endif
 
 IMGUIN_DIR = ../../../imguin
 
-.PHONY: wordReplacer$(EXE) gen cimgui copylibs delComments$(EXE)
+.PHONY: wordReplacer$(EXE) gen cimgui copylibs delComments$(EXE) makehash
 .PHONY: $(IMGUIN_DIR)/$(CIMGUI_DEFS).nim
 
 all: gen
 
 # For manual update cimgui/cimplot/cimnodes and regeneration *defs.nim file
-gen:    clean wordReplacer$(EXE) delComments$(EXE) cimgui
+gen:    clean wordReplacer$(EXE) delComments$(EXE) cimgui makehash
 cimgui: $(IMGUIN_DIR)/$(CIMGUI_DEFS).nim
+
+makehash:
+	$(MAKE) -C ../libs_hash savehash
+
+
 
 #--------------------
 # Gen:: wordReplacer
