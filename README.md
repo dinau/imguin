@@ -6,6 +6,7 @@
     - [Prerequisites](#prerequisites)
     - [Install](#install)
     - [Build examples](#build-examples)
+    - [Available libraries list](#available-libraries-list)
     - [Screen shot (examples)](#screen-shot-examples)
       - [glfw_opengl3](#glfw_opengl3)
       - [glfw_opengl3_imknobs](#glfw_opengl3_imknobs)
@@ -114,8 +115,8 @@ For instance [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim),
 | v | ImGuizmo/ CImGuizmo                                                                                                 |
 | v | ImGui-Knobs/ CImGui-Knobs                                                                                           |
 | = | =                                                                                                                   | =              |
-| - | ImGuiFileOpenDialog / [CImGuiFileOpenDialog](https://github.com/dinau/CImGuiFileOpenDialog)                         | Comming soon ? |
-| - | [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE) | 2025 ?             |
+| - | ImGuiFileDialog / [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog)                                     | Comming soon ? |
+| - | [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE) | 2025 ?         |
 
 
 
