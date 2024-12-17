@@ -102,6 +102,27 @@ For instance [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim),
 
 1. For selecting static link or dynamic link ,read this [examples/README.md](examples/README.md).
 
+### Available libraries list
+
+---
+
+|   | Library name                                                                                                        |                |
+|---|---------------------------------------------------------------------------------------------------------------------|----------------|
+| v | ImGui / CImGui                                                                                                      | Base library   |
+| v | ImPlot / CImPlot                                                                                                    |
+| v | ImNodes/ CImNodes                                                                                                   |
+| v | ImGuizmo/ CImGuizmo                                                                                                 |
+| v | ImGui-Knobs/ CImGui-Knobs                                                                                           |
+| = | =                                                                                                                   | =              |
+| - | ImGuiFileOpenDialog / [CImGuiFileOpenDialog](https://github.com/dinau/CImGuiFileOpenDialog)                         | Comming soon ? |
+| - | [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE) | 2025 ?             |
+
+
+
+
+
+
+
 ### Screen shot (examples)
 
 ---
@@ -142,7 +163,7 @@ Basic example with icon fonts
 [https://github.com/altschuler/imgui-knobs](https://github.com/altschuler/imgui-knobs)  
 
 
-[cimgui-knobs](src/imguin/private/cimgui-knobs) sources have been contributed from [system64MC](https://github.com/system64MC) / [PR](https://github.com/dinau/imguin/commits?author=system64MC) . Thank you.
+[cimgui-knobs](src/imguin/private/cimgui-knobs) sources have been contributed from [system64MC](https://github.com/system64MC) / [PR](https://github.com/dinau/imguin/commits?author=system64MC) (2024/12).  Thank you.
 
 
 ![alt](src/img/imgui_knobs.png)
