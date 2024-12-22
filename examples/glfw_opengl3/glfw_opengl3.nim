@@ -1,3 +1,6 @@
+# Compiling:
+# nim c glfw_opengl3
+
 import std/[strutils, math]
 import nimgl/[opengl,glfw]
 

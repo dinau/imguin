@@ -1,7 +1,9 @@
-#####
+import imguin/[cimgui]
+
 when false:
   type ccolor* = object
     x,y,z,w: cfloat
+
   proc array3(self:ccolor): array[3,cfloat] =
     result = cast[array[3,cfloat]]([self.x,self.y,self.z])
 
@@ -52,7 +54,7 @@ proc igPlotLines*[T](label:string,arry:openArray[T],size:int= arry.len
                              ,stride.cint)        # stride
 
 when defined(ImKnobsEnable):
-  proc IgKnobEx(label: cstring; p_value: ptr cfloat; v_min: cfloat; v_max: cfloat; speed: cfloat; format: cstring; variant: IgKnobVariant; size: cfloat; flags: IgKnobFlags; steps: cint; angle_min: cfloat; angle_max: cfloat): bool =
+  proc IgKnobEx*(label: cstring; p_value: ptr cfloat; v_min: cfloat; v_max: cfloat; speed: cfloat; format: cstring; variant: IgKnobVariant; size: cfloat; flags: IgKnobFlags; steps: cint; angle_min: cfloat; angle_max: cfloat): bool =
     return IgKnobFloat(label, p_value, v_min, v_max, speed, format, variant
                         ,size
                         ,flags

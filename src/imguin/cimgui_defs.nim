@@ -1055,6 +1055,33 @@ type
     IgKnobVariant_WiperOnly = 8, IgKnobVariant_WiperDot = 16,
     IgKnobVariant_Stepped = 32, IgKnobVariant_Space = 64
 type
+  enum_IGFD_FileStyleFlags_private* {.size: sizeof(cuint).} = enum
+    IGFD_FileStyle_None = 0, IGFD_FileStyleByTypeFile = 1,
+    IGFD_FileStyleByTypeDir = 2, IGFD_FileStyleByTypeLink = 4,
+    IGFD_FileStyleByExtention = 8, IGFD_FileStyleByFullName = 16,
+    IGFD_FileStyleByContainedInFullName = 32
+type
+  enum_ImGuiFileDialogFlags_private* {.size: sizeof(cuint).} = enum
+    ImGui_FileDialogFlags_None = 0, ImGui_FileDialogFlags_ConfirmOverwrite = 1,
+    ImGui_FileDialogFlags_DontShowHiddenFiles = 2,
+    ImGui_FileDialogFlags_DisableCreateDirectoryButton = 4,
+    ImGui_FileDialogFlags_HideColumnType = 8,
+    ImGui_FileDialogFlags_HideColumnSize = 16,
+    ImGui_FileDialogFlags_HideColumnDate = 32,
+    ImGui_FileDialogFlags_NoDialog = 64,
+    ImGui_FileDialogFlags_ReadOnlyFileNameField = 128,
+    ImGui_FileDialogFlags_CaseInsensitiveExtentionFiltering = 256,
+    ImGui_FileDialogFlags_Modal = 512, ImGui_FileDialogFlags_Default = 521,
+    ImGui_FileDialogFlags_DisableThumbnailMode = 1024,
+    ImGui_FileDialogFlags_DisablePlaceMode = 2048,
+    ImGui_FileDialogFlags_DisableQuickPathSelection = 4096,
+    ImGui_FileDialogFlags_ShowDevicesButton = 8192,
+    ImGui_FileDialogFlags_NaturalSorting = 16384
+type
+  enum_IGFD_ResultMode_private* {.size: sizeof(cuint).} = enum
+    IGFD_ResultMode_AddIfNoFileExt = 0, IGFD_ResultMode_OverwriteFileExt = 1,
+    IGFD_ResultMode_KeepInputFile = 2
+type
   extern* = object
 type
   struct_ImGuiDockRequest* = object
@@ -1066,6 +1093,8 @@ type
   struct_ImGuiInputTextDeactivateData* = object
 type
   struct_ImGuiDockNodeSettings* = object
+type
+  struct_ImGuiFileDialog* = object
 type
   struct_ImPlotAxisColor* = object
 type
@@ -4020,6 +4049,28 @@ type
   IgKnobColorSet* = struct_IgKnobColorSet 
   IgKnobFlags* = enum_IgKnobFlags 
   IgKnobVariant* = enum_IgKnobVariant 
+  IGFD_FileStyleFlags* = cint 
+  ImGuiFileDialogFlags* = cint 
+  IGFD_ResultMode* = cint    
+  ImGuiFileDialog* = struct_ImGuiFileDialog 
+  IGFD_Selection_Pair* = struct_IGFD_Selection_Pair 
+  struct_IGFD_Selection_Pair* {.pure, inheritable, bycopy.} = object
+    fileName*: cstring       
+    filePathName*: cstring
+  IGFD_Selection* = struct_IGFD_Selection 
+  struct_IGFD_Selection* {.pure, inheritable, bycopy.} = object
+    table*: ptr IGFD_Selection_Pair 
+    count*: csize_t
+  IGFD_PaneFun* = proc (a0: cstring; a1: pointer; a2: ptr bool): void {.cdecl.} 
+  struct_IGFD_FileDialog_Config* {.pure, inheritable, bycopy.} = object
+    path*: cstring           
+    fileName*: cstring
+    filePathName*: cstring
+    countSelectionMax*: int32
+    userDatas*: pointer
+    sidePane*: IGFD_PaneFun
+    sidePaneWidth*: cfloat
+    flags*: ImGuiFileDialogFlags
   struct_iobuf* {.pure, inheritable, bycopy.} = object
     internal_Placeholder*: pointer 
   compiler_time64_t* = clonglong 
@@ -4042,6 +4093,16 @@ when 1 is static:
     IMGUI_HAS_DOCK* = 1      
 else:
   let IMGUI_HAS_DOCK* = 1    
+when "v0.6.8" is static:
+  const
+    IGFD_VERSION* = "v0.6.8" 
+else:
+  let IGFD_VERSION* = "v0.6.8" 
+when "1.90.5 WIP" is static:
+  const
+    IGFD_IMGUI_SUPPORTED_VERSION* = "1.90.5 WIP" 
+else:
+  let IGFD_IMGUI_SUPPORTED_VERSION* = "1.90.5 WIP" 
 var GImGui* {.importc: "GImGui".}: ptr ImGuiContext
 proc ImVec2_ImVec2_Nil*(): ptr ImVec2 {.cdecl, importc: "ImVec2_ImVec2_Nil".}
 proc ImVec2_destroy*(self: ptr ImVec2): void {.cdecl, importc: "ImVec2_destroy".}
@@ -9801,4 +9862,72 @@ proc IgKnobInt*(label: cstring; p_value: ptr cint; v_min: cint; v_max: cint;
                 size: cfloat; flags: IgKnobFlags; steps: cint;
                 angle_min: cfloat; angle_max: cfloat): bool {.cdecl,
     importc: "IgKnobInt".}
+proc IGFD_FileDialog_Config_Get*(): struct_IGFD_FileDialog_Config {.cdecl,
+    importc: "IGFD_FileDialog_Config_Get".}
+proc IGFD_Selection_Pair_Get*(): IGFD_Selection_Pair {.cdecl,
+    importc: "IGFD_Selection_Pair_Get".}
+proc IGFD_Selection_Pair_DestroyContent*(
+    vSelection_Pair: ptr IGFD_Selection_Pair): void {.cdecl,
+    importc: "IGFD_Selection_Pair_DestroyContent".}
+proc IGFD_Selection_Get*(): IGFD_Selection {.cdecl,
+    importc: "IGFD_Selection_Get".}
+proc IGFD_Selection_DestroyContent*(vSelection: ptr IGFD_Selection): void {.
+    cdecl, importc: "IGFD_Selection_DestroyContent".}
+proc IGFD_Create*(): ptr ImGuiFileDialog {.cdecl, importc: "IGFD_Create".}
+proc IGFD_Destroy*(vContextPtr: ptr ImGuiFileDialog): void {.cdecl,
+    importc: "IGFD_Destroy".}
+proc IGFD_OpenDialog*(vContextPtr: ptr ImGuiFileDialog; vKey: cstring;
+                      vTitle: cstring; vFilters: cstring;
+                      vConfig: struct_IGFD_FileDialog_Config): void {.cdecl,
+    importc: "IGFD_OpenDialog".}
+proc IGFD_DisplayDialog*(vContextPtr: ptr ImGuiFileDialog; vKey: cstring;
+                         vFlags: ImGuiWindowFlags; vMinSize: ImVec2;
+                         vMaxSize: ImVec2): bool {.cdecl,
+    importc: "IGFD_DisplayDialog".}
+proc IGFD_CloseDialog*(vContextPtr: ptr ImGuiFileDialog): void {.cdecl,
+    importc: "IGFD_CloseDialog".}
+proc IGFD_IsOk*(vContextPtr: ptr ImGuiFileDialog): bool {.cdecl,
+    importc: "IGFD_IsOk".}
+proc IGFD_WasKeyOpenedThisFrame*(vContextPtr: ptr ImGuiFileDialog; vKey: cstring): bool {.
+    cdecl, importc: "IGFD_WasKeyOpenedThisFrame".}
+proc IGFD_WasOpenedThisFrame*(vContextPtr: ptr ImGuiFileDialog): bool {.cdecl,
+    importc: "IGFD_WasOpenedThisFrame".}
+proc IGFD_IsKeyOpened*(vContextPtr: ptr ImGuiFileDialog;
+                       vCurrentOpenedKey: cstring): bool {.cdecl,
+    importc: "IGFD_IsKeyOpened".}
+proc IGFD_IsOpened*(vContextPtr: ptr ImGuiFileDialog): bool {.cdecl,
+    importc: "IGFD_IsOpened".}
+proc IGFD_GetSelection*(vContextPtr: ptr ImGuiFileDialog; vMode: IGFD_ResultMode): IGFD_Selection {.
+    cdecl, importc: "IGFD_GetSelection".}
+proc IGFD_GetFilePathName*(vContextPtr: ptr ImGuiFileDialog;
+                           vMode: IGFD_ResultMode): cstring {.cdecl,
+    importc: "IGFD_GetFilePathName".}
+proc IGFD_GetCurrentFileName*(vContextPtr: ptr ImGuiFileDialog;
+                              vMode: IGFD_ResultMode): cstring {.cdecl,
+    importc: "IGFD_GetCurrentFileName".}
+proc IGFD_GetCurrentPath*(vContextPtr: ptr ImGuiFileDialog): cstring {.cdecl,
+    importc: "IGFD_GetCurrentPath".}
+proc IGFD_GetCurrentFilter*(vContextPtr: ptr ImGuiFileDialog): cstring {.cdecl,
+    importc: "IGFD_GetCurrentFilter".}
+proc IGFD_GetUserDatas*(vContextPtr: ptr ImGuiFileDialog): pointer {.cdecl,
+    importc: "IGFD_GetUserDatas".}
+proc IGFD_SetFileStyle*(vContextPtr: ptr ImGuiFileDialog;
+                        vFileStyleFlags: IGFD_FileStyleFlags; vFilter: cstring;
+                        vColor: ImVec4; vIconText: cstring; vFont: ptr ImFont): void {.
+    cdecl, importc: "IGFD_SetFileStyle".}
+proc IGFD_SetFileStyle2*(vContextPtr: ptr ImGuiFileDialog;
+                         vFileStyleFlags: IGFD_FileStyleFlags; vFilter: cstring;
+                         vR: cfloat; vG: cfloat; vB: cfloat; vA: cfloat;
+                         vIconText: cstring; vFont: ptr ImFont): void {.cdecl,
+    importc: "IGFD_SetFileStyle2".}
+proc IGFD_GetFileStyle*(vContextPtr: ptr ImGuiFileDialog;
+                        vFileStyleFlags: IGFD_FileStyleFlags; vFilter: cstring;
+                        vOutColor: ptr ImVec4; vOutIconText: ptr cstring;
+                        vOutFont: ptr ptr ImFont): bool {.cdecl,
+    importc: "IGFD_GetFileStyle".}
+proc IGFD_ClearFilesStyle*(vContextPtr: ptr ImGuiFileDialog): void {.cdecl,
+    importc: "IGFD_ClearFilesStyle".}
+proc SetLocales*(vContextPtr: ptr ImGuiFileDialog; vCategory: cint;
+                 vBeginLocale: cstring; vEndLocale: cstring): void {.cdecl,
+    importc: "SetLocales".}
 

@@ -128,9 +128,9 @@ proc save*(this: var SaveLoadEditor) =
 # load
 #------
 proc load*(this: var SaveLoadEditor) =
-  #// Load the internal imnodes state
+  # Load the internal imnodes state
   imNodes_LoadCurrentEditorStateFromIniFile("save_load.ini")
-  #// Load our editor state into memory
+  # Load our editor state into memory
   var f: syncio.File
   try:
     f = open("save_load.bytes", fmRead)
@@ -139,21 +139,19 @@ proc load*(this: var SaveLoadEditor) =
     return
   var fin = newFileStream(f)
   defer: fin.close()
-  #// copy nodes into memory
-  if sizeof(int) == 4:                 # Select cpu 64bit or 32bit
-    this.nodes.newSeq(fin.readInt32()) # this.nodes.resize(num_nodes)
-  else:
-    this.nodes.newSeq(fin.readInt64()) # this.nodes.resize(num_nodes)
+  # copy nodes into memory
+  var szNodes: typeof(this.nodes.len)
+  fin.read(szNodes)
+  this.nodes.newSeq(szNodes) # this.nodes.resize(num_nodes)
   for nd in this.nodes.mitems:
     fin.read(nd)
-  #// copy links into memory
-  if sizeof(int) == 4:                 # Select cpu 64bit or 32bit
-    this.links.newSeq(fin.readInt32()) # links_.resize(num_links)
-  else:
-    this.links.newSeq(fin.readInt64()) # links_.resize(num_links)
+  # copy links into memory
+  var szLinks: typeof(this.links.len)
+  fin.read(szLinks)
+  this.links.newSeq(szLinks) # links_.resize(num_links)
   for nd in this.links.mitems:
     fin.read(nd)
-  #// copy current_id into memory
+  # copy current_id into memory
   this.current_id = fin.readInt32() # current_id: cint is int32
 
 #----------------------

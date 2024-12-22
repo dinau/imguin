@@ -34,7 +34,7 @@ gen:    clean wordReplacer$(EXE) delComments$(EXE) cimgui makehash
 cimgui: $(IMGUIN_DIR)/$(CIMGUI_DEFS).nim
 
 makehash:
-	$(MAKE) -C ../libs_hash savehash
+	@$(MAKE) -C ../libs_hash savehash
 
 
 

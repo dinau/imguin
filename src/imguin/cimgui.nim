@@ -12,11 +12,13 @@ const ClangIncludePath = "c:/drvDx/msys64/ucrt64/lib/clang/19/include"
 #const ClangIncludePath = "c:/llvm/lib/clang/17/include"
 
 # Set root path of ImGui/CImGui
-const CImguiRootPath    = joinPath(currentSourceDir(),"private/cimgui").replace("\\", "/")
-const CImPlotRootPath   = joinPath(currentSourceDir(),"private/cimplot").replace("\\", "/")
-const CImNodesRootPath  = joinPath(currentSourceDir(),"private/cimnodes").replace("\\", "/")
-const CImGuizmoRootPath = joinPath(currentSourceDir(),"private/cimguizmo").replace("\\", "/")
-const CImKnobsRootPath = joinPath(currentSourceDir(),"private/cimgui-knobs").replace("\\", "/")
+const CImguiRootPath       = joinPath(currentSourceDir(),"private/cimgui").replace("\\", "/")
+const CImPlotRootPath      = joinPath(currentSourceDir(),"private/cimplot").replace("\\", "/")
+const CImNodesRootPath     = joinPath(currentSourceDir(),"private/cimnodes").replace("\\", "/")
+const CImGuizmoRootPath    = joinPath(currentSourceDir(),"private/cimguizmo").replace("\\", "/")
+const CImKnobsRootPath     = joinPath(currentSourceDir(),"private/cimgui-knobs").replace("\\", "/")
+const CImGuiFileDialogPath = joinPath(currentSourceDir(),"private/CImGuiFileDialog/libs/ImGuiFileDialog").replace("\\", "/")
+const IconFontPath         = joinPath(currentSourceDir(),"../../examples/utils/fonticon").replace("\\", "/")
 
 #--- Futhark start
 when defined(useFuthark): # Generate header files with Futhark.
@@ -28,6 +30,8 @@ when defined(useFuthark): # Generate header files with Futhark.
     path    CImNodesRootPath
     path    CImGuizmoRootPath
     path    CImKnobsRootPath
+    path    CImGuiFileDialogPath
+    path    IconFontPath
     #define "IMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
     #define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
     define "CIMGUI_DEFINE_ENUMS_AND_STRUCTS"
@@ -41,12 +45,13 @@ when defined(useFuthark): # Generate header files with Futhark.
     "cimnodes.h"
     "cimguizmo.h"
     "cimgui-knobs.h"
+    "ImGuiFileDialog.h"
     # Output
     outputPath CIMGUI_DEFS_FILE
 #--- Futahrk end
 
 else: # Use generated header by Futark in your programs.
-  {.push discardable,hint[XDeclaredButNotUsed]:off.}
+  {.push discardable,hint[XDeclaredButNotUsed]:on.}
   include "cimgui_defs.nim"
   {.pop.}
 
@@ -112,3 +117,7 @@ else: # Use generated header by Futark in your programs.
     {.passC:"-I" & CImKnobsRootPath.}
     {.compile:joinPath(CImKnobsRootPath,"cimgui-knobs.cpp").replace("\\", "/").}
     {.compile:joinPath(CImKnobsRootPath,"imgui-knobs.cpp").replace("\\", "/").}
+
+  when defined(ImGuiFileDialogEnable):
+    {.passC:"-I" & CImGuiFileDialogPath.}
+    {.compile:joinPath(CImGuiFileDialogPath,"ImGuiFileDialog.cpp").replace("\\", "/").}

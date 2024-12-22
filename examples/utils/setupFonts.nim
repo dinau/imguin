@@ -1,5 +1,10 @@
 import std/[os]
-include ./fonticon/IconsFontAwesome6
+import imguin/cimgui
+import imguin/lang/imgui_ja_gryph_ranges
+import ../utils/fonticon/IconsFontAwesome6
+export IconsFontAwesome6
+
+let IconfontFullPath = "../utils/fonticon/fa6/fa-solid-900.ttf"
 
 #--------------
 # point2px
@@ -23,21 +28,21 @@ when defined(windows):
        osRootDir: os.getEnv("windir") # get OS root
        ,fontDir: "fonts"
        ,fontTable: @[ # 以下全て有効にすると起動が遅くなる orz
-         ("meiryo.ttc","メイリオ",14.0)
-        #,("segoeui.ttf","Seoge UI",14.0)
-        # ,("YuGothM.ttc","遊ゴシック M",11.0)
-        # ,("meiryob.ttc","メイリオ B",14.0)
-        # ,("msgothic.ttc","MS ゴシック",11.0)
-        # ,("myricam.ttc","MyricaM",11.0)
+         ("meiryo.ttc","メイリオ",14.5)
+        ,("segoeui.ttf","Seoge UI",14.0) # English region standard font
+        ,("YuGothM.ttc","遊ゴシック M",11.0)
+        ,("meiryob.ttc","メイリオ B",14.0)
+        ,("msgothic.ttc","MS ゴシック",11.0)
+        ,("myricam.ttc","MyricaM",11.0)
          ])
 else: # For Debian/Ubuntu/Mint
   const fontInfo = TFontInfo(
         osRootDir: "/"
        ,fontDir: "usr/share/fonts"
        ,fontTable: @[
-          ("opentype/ipafont-gothic/ipag.ttf","IPAゴシック",12.0)        # Debian
-         ,("opentype/ipafont-gothic/ipam.ttf","IPAゴシック M",12.0)      # Debian
-         ,("opentype/noto/NotoSansCJK-Regular.ttc","Noto Sans CJK",12.0) # Linux Mint
+          ("opentype/ipafont-gothic/ipag.ttf","IPAゴシック",14.0)        # Debian
+         ,("opentype/ipafont-gothic/ipam.ttf","IPAゴシック M",14.0)      # Debian
+         ,("opentype/noto/NotoSansCJK-Regular.ttc","Noto Sans CJK",14.0) # Linux Mint
         ])
 
 # Add Icon font
@@ -46,40 +51,49 @@ else: # For Debian/Ubuntu/Mint
 # because 'addFontFromFileTTF' does not copy its values, and it needs a pointer
 # Q: How can I load multiple fonts?
 # https://github.com/ocornut/imgui/blob/master/docs/FAQ.md#q-how-can-i-load-multiple-fonts
-#
+
+proc new_ImFontConfig(): ImFontConfig =
+    #[Custom constructor with default params taken from imgui.h]#
+    result.FontDataOwnedByAtlas = true
+    result.FontNo = 0
+    result.OversampleH = 3
+    result.OversampleV = 1
+    result.PixelSnapH = false
+    result.GlyphMaxAdvanceX = float.high
+    result.RasterizerMultiply = 1.0
+    result.RasterizerDensity  = 1.0
+    result.MergeMode = false
+    result.EllipsisChar = cast[ImWchar](-1)
+
 proc setupFonts*(): (bool,string,string) =
-  ## return font first file name
-  var fontFullPath = "../utils/fonticon/fa6/fa-solid-900.ttf"
-  let io = igGetIO()
+  let pio = igGetIO()
   #
-  var config {.global.}  = ImFontconfig_ImFontConfig()
-  config.MergeMode = true
-  #
-  # Register default font
-  #
-  io.Fonts.ImFontAtlas_AddFontDefault(nil)
-  #
-  # Add Icon font
-  #
-  var ranges_icon_fonts {.global.} = [ICON_MIN_FA.uint16,  ICON_MAX_FA.uint16, 0]
-  if os.fileExists(fontFullPath):
-    io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, 11.point2px,
-      config, addr ranges_icon_fonts[0]);
-  else:
-    echo "Error!: Can't find Icon fonts: " , fontFullPath
-  #
-  # Add font from 'fontTable'
-  #
+  #var config {.global.}  = ImFontconfig_ImFontConfig()
+  var config {.global.}  = new_ImFontConfig()
+
+  #--------------------------
+  # Register first base font
+  #--------------------------
   result =  (false,"Default","ProggyClean.ttf") #
   var seqFontNames: seq[(string,string)]
   for (fontName,fontTitle,point) in fontInfo.fontTable:
-    fontFullPath = os.joinPath(fontInfo.osRootDir, fontInfo.fontDir, fontName)
+    let fontFullPath = os.joinPath(fontInfo.osRootDir, fontInfo.fontDir, fontName)
     if os.fileExists(fontFullPath):
       seqFontNames.add (fontName,fontTitle)
-      io.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, point.point2px,
-          config, cast[ptr ImWchar](addr glyphRangesJapanese));
+      pio.Fonts.ImFontAtlas_AddFontFromFileTTF(fontFullPath.cstring, point.point2px, addr config, cast[ptr ImWchar](addr glyphRangesJapanese));
       echo "Added: ",fontFullPath
-
+      break
   if seqFontNames.len > 0:
     result = (true,seqFontNames[0][0].extractFilename ,seqFontNames[0][1])
-  #
+  else:
+    pio.Fonts.ImFontAtlas_AddFontDefault(nil)
+
+  #-----------------
+  # Merge Icon font
+  #-----------------
+  config.MergeMode = true
+  var ranges_icon_fonts {.global.} = [ICON_MIN_FA.uint16,  ICON_MAX_FA.uint16, 0]
+  if os.fileExists(IconfontFullPath):
+    pio.Fonts.ImFontAtlas_AddFontFromFileTTF(IconfontFullPath.cstring, 11.point2px, addr config, addr ranges_icon_fonts[0]);
+  else:
+    echo "Error!: Can't find Icon fonts: " , IconfontFullPath

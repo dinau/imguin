@@ -1,117 +1,28 @@
-import nimgl/[opengl,glfw]
+# Compiling:
+# nim c -d:ImGuizmoEnable glfw_opengl3_imguizmo
 
-import imguin/[glfw_opengl]
-import imguin/lang/imgui_ja_gryph_ranges
-
-include ../utils/setupFonts
-include imguin/simple
+import ../utils/appImGui
 
 const MainWinWidth = 800
 const MainWinHeight = 600
-
-#--------------
-# Configration
-#--------------
-
-#  .--------------------------------------------..---------.-----------------------.------------
-#  |         Combination of flags               ||         |     Viewport          |
-#  |--------------------------------------------||---------|-----------------------|------------
-#  | fViewport | fDocking | TransparentViewport || Docking | Transparent | Outside | Description
-#  |:---------:|:--------:|:-------------------:||:-------:|:-----------:|:-------:| -----------
-#  |  false    | false    |     false           ||    -    |     -       |   -     |
-#  |  false    | true     |     false           ||    v    |     -       |   -     | (Default): Only docking
-#  |  true     | -        |     false           ||    v    |     -       |   v     | Docking and outside of viewport
-#  |    -      | -        |     true            ||    v    |     v       |   -     | Transparent Viewport and docking
-#  `-----------'----------'---------------------'`---------'-------------'---------'-------------
-var
- fDocking = false
- fViewport = false
- TransparentViewport = false
- #
-block:
-  if TransparentViewport:
-    fViewport = true
-  if fViewport:
-    fDocking = true
-
-#---------------------
-# Forward definitions
-#---------------------
-proc winMain(hWin: glfw.GLFWWindow)
 
 #------
 # main
 #------
 proc main() =
-  doAssert glfwInit()
-  defer: glfwTerminate()
+  var win = createImGui(MainWinWidth, MainWinHeight, title="ImGuizmo Demo")
+  defer: destroyImGui(win)
 
-  if TransparentViewport:
-    glfwWindowHint(GLFWVisible, GLFW_FALSE)
+  win.setClearColor(ccolor(elm:(x:0.07f, y:0.26f, z:0.75f, w:1.0f)))
 
-  glfwWindowHint(GLFWContextVersionMajor, 3)
-  glfwWindowHint(GLFWContextVersionMinor, 3)
-  glfwWindowHint(GLFWOpenglForwardCompat, GLFW_TRUE)
-  glfwWindowHint(GLFWOpenglProfile, GLFW_OPENGL_CORE_PROFILE)
-  glfwWindowHint(GLFWResizable, GLFW_TRUE)
-  #
-  glfwWindowHint(GLFWVisible, GLFW_FALSE)
-  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight, "ImGuizmo")
-  if glfwWin.isNil:
-    quit(-1)
-  glfwWin.makeContextCurrent()
-  defer: glfwWin.destroyWindow()
+  let pio = igGetIO()
 
-  glfwSwapInterval(1) # Enable vsync
-
-  doAssert glInit() # OpenGL init
-
-  # Setup ImGui
-  let context = igCreateContext(nil)
-  defer: context.igDestroyContext()
-  if fDocking:
-    var pio = igGetIO()
-    pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_DockingEnable.cint
-    if fViewport:
-      pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_ViewportsEnable.cint
-      pio.ConfigViewports_NoAutomerge = true
-
-  # GLFW + OpenGL
-  const glsl_version = "#version 130" # GL 3.0 + GLSL 130
-  doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr GLFWwindow](glfwwin), true)
-  defer: ImGui_ImplGlfw_Shutdown()
-  doAssert ImGui_ImplOpenGL3_Init(glsl_version)
-  defer: ImGui_ImplOpenGL3_Shutdown()
-  glfwWin.winMain()
-
-#---------
-# winMain
-#---------
-proc winMain(hWin: glfw.GLFWWindow) =
-  var
-    clearColor:ccolor
-    showWindowDelay = 1 # TODO
-
-  if TransparentViewport:
-    clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
-  else:
-    clearColor = ccolor(elm:(x:0.07f, y:0.26f, z:0.75f, w:1.0f))
-
-  igStyleColorsClassic(nil)
-
-  # Add multibytes font
-  discard setupFonts()
-
-  var pio = igGetIO()
-
+  #-----------
   # main loop
-  while not hWin.windowShouldClose:
+  #-----------
+  while not win.handle.windowShouldClose:
     glfwPollEvents()
-
-    # start imgui frame
-    ImGui_ImplOpenGL3_NewFrame()
-    ImGui_ImplGlfw_NewFrame()
-    igNewFrame()
+    newFrame()
 
     # Show gizmo demo
     # Converted from:
@@ -157,51 +68,11 @@ proc winMain(hWin: glfw.GLFWWindow) =
                            ,ImVec2(x: 0,y: 0)     # position
                            ,ImVec2(x: 128,y: 128) # size
                            ,0x11_01_01_01)        # background color
-
-    # render
-    igRender()
-    glClearColor(clearColor.elm.x, clearColor.elm.y, clearColor.elm.z, clearColor.elm.w)
-    glClear(GL_COLOR_BUFFER_BIT)
-    ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
-
-    if 0 != (pio.ConfigFlags and ImGui_ConfigFlags_ViewportsEnable.cint):
-      var backup_current_window = glfwGetCurrentContext()
-      igUpdatePlatformWindows()
-      igRenderPlatformWindowsDefault(nil, nil)
-      backup_current_window.makeContextCurrent()
-
-    hWin.swapBuffers()
-
-    if showWindowDelay > 0:
-      dec showWindowDelay
-    else:
-      once: # Avoid flickering screen at startup.
-        hWin.showWindow()
-
-    #### end while
+    #
+    render(win)
+  #### end while
 
 #------
 # main
 #------
 main()
-
-
-
-#ImGuizmo_Manipulate(const float* view
-#                   ,const float* projection
-#                   ,OPERATION operation
-#                   ,MODE mode
-#                   ,float* matrix
-#                   ,float* deltaMatrix
-#                   ,const float* snap
-#                   ,const float* localBounds
-#                   ,const float* boundsSnap);
-#IMGUI_API bool Manipulate(const float* view
-#                   , const float* projection
-#                   , OPERATION operation
-#                   , MODE mode
-#                   , float* matrix
-#                   , float* deltaMatrix = NULL
-#                   , const float* snap = NULL
-#                   , const float* localBounds = NULL
-#                   , const float* boundsSnap = NULL);

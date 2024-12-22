@@ -10,10 +10,11 @@
     - [Screen shot (examples)](#screen-shot-examples)
       - [glfw_opengl3](#glfw_opengl3)
       - [glfw_opengl3_imknobs](#glfw_opengl3_imknobs)
+      - [glfw_opengl3_filedialog](#glfw_opengl3_filedialog)
       - [glfw_opengl3_iconfont_viewer](#glfw_opengl3_iconfont_viewer)
       - [glfw_opengl3_image_load / sdl2_opengl3](#glfw_opengl3_image_load--sdl2_opengl3)
       - [glfw_opengl3_image_save](#glfw_opengl3_image_save)
-      - [glfw_opengl3_nimgl_imguin_jp](#glfw_opengl3_nimgl_imguin_jp)
+      - [glfw_opengl3_jp](#glfw_opengl3_jp)
       - [glfw_opengl3_implot](#glfw_opengl3_implot)
       - [glfw_opengl3_imnodes](#glfw_opengl3_imnodes)
       - [glfw_opengl3_imguizmo](#glfw_opengl3_imguizmo)
@@ -55,8 +56,8 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 ---
 
 - [Nim-2.0.12](https://nim-lang.org) or later
-- Windows10 or later
-- [MSys2/MinGW](https://www.msys2.org/) command line tools (Unix tools), make, cp, rm, git, ...etc
+- Windows10 or later  
+[MSys2/MinGW](https://www.msys2.org/) command line tools (Unix tools), make, cp, rm, git, ...etc
 - Linux Mint 22 (or Ubuntu / Debian families ?)
 
   ```sh
@@ -107,22 +108,16 @@ For instance [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim),
 
 ---
 
-|   | Library name                                                                                                        |                |
-|---|---------------------------------------------------------------------------------------------------------------------|----------------|
-| v | ImGui / CImGui                                                                                                      | Base library   |
-| v | ImPlot / CImPlot                                                                                                    |
-| v | ImNodes/ CImNodes                                                                                                   |
-| v | ImGuizmo/ CImGuizmo                                                                                                 |
-| v | ImGui-Knobs/ CImGui-Knobs                                                                                           |
-| = | =                                                                                                                   | =              |
-| - | ImGuiFileDialog / [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog)                                     | Comming soon ? |
-| - | [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE) | 2025 ?         |
-
-
-
-
-
-
+|     | Library name                                                                                                        |              |
+|-----|---------------------------------------------------------------------------------------------------------------------|--------------|
+| v   | ImGui / CImGui                                                                                                      | Base library |
+| v   | ImPlot / CImPlot                                                                                                    |
+| v   | ImNodes/ CImNodes                                                                                                   |
+| v   | ImGuizmo/ CImGuizmo                                                                                                 |
+| v   | ImGui-Knobs/ CImGui-Knobs                                                                                           |
+| ... | ...                                                                                                                 | ...          |
+| -   | ImGuiFileDialog / [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog)                                     | Windows      |
+| -   | [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE) | 2025 ?       |
 
 ### Screen shot (examples)
 
@@ -184,6 +179,31 @@ Basic example with icon fonts
 
    ```sh
    nim c -d:ImKnobsEnable --warning:HoleEnumConv:off glfw_opengl3_imknobs.nim  
+   ```
+
+#### [glfw_opengl3_filedialog](examples/glfw_opengl3_filedialog)
+
+---
+
+[ImGuiFileDialog](https://github.com/aiekick/ImGuiFileDialog) / [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog)   
+
+![alt](src/img/filedialog.png)
+
+- Build
+
+   ```sh
+   pwd
+   examples/glfw_opengl3_filedialog
+   ```
+
+   ```sh
+   make 
+   ```
+
+   or 
+
+   ```sh
+   nim c -d:ImGuiFileDialogEnable  glfw_opengl3_filedialog.nim  
    ```
 
 #### [glfw_opengl3_iconfont_viewer](examples/glfw_opengl3_iconfont_viewer)  
@@ -258,7 +278,7 @@ Image load and magnifying glass
 ---
 
 Image load / save  and magnifying glass  
-It can save a screen shot as jpg, bmp, png or tga file.
+It can save a screen shot as [ jpg, bmp, png or tga ] file.
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/image_save.png)
 
@@ -279,7 +299,7 @@ It can save a screen shot as jpg, bmp, png or tga file.
    nim c glfw_opengl3_image_save.nim
    ```
 
-#### [glfw_opengl3_nimgl_imguin_jp](examples/glfw_opengl3_jp)
+#### [glfw_opengl3_jp](examples/glfw_opengl3_jp)
 
 ---
 

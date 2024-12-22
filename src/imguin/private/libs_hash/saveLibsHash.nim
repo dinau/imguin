@@ -7,6 +7,7 @@ LIBS_DIR & "cimgui",
 LIBS_DIR & "cimguizmo",
 LIBS_DIR & "cimnodes",
 LIBS_DIR & "cimplot",
+LIBS_DIR & "CImGuiFileDialog",
 ]
 
 var sOut = """

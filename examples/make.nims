@@ -2,6 +2,8 @@ import std/[os,strutils]
 
 var projDirs = @[
 "glfw_opengl3",
+"glfw_opengl3_base",
+"glfw_opengl3_filedialog",
 "glfw_opengl3_imknobs",
 "glfw_opengl3_iconfont_viewer",
 "glfw_opengl3_image_load",
@@ -11,6 +13,7 @@ var projDirs = @[
 "glfw_opengl3_imnodes",
 "glfw_opengl3_imguizmo",
 "sdl2_opengl3",
+#"sdl3_opengl3",
 "fontx2v",
 ]
 

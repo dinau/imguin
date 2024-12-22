@@ -1,122 +1,29 @@
-import std/[strutils]
-import sdl2_nim/sdl
+# Compiling:
+# nim c -d:SDL sdl2_opengl3
 
-import imguin/[glad/gl,sdl2_opengl]
-import imguin/lang/imgui_ja_gryph_ranges
-import ../utils/[loadImage,utils]
+import std/[os]
+import ../utils/appImGuiSdl2
 
-include ../utils/setupFonts
-include imguin/simple
 when defined(windows):
   include ./res/resource
 
 const MainWinWidth = 1024
-const MainWinHeight = 800
-
-#--------------
-# Configration
-#--------------
-
-#  .--------------------------------------------..---------.-----------------------.------------
-#  |         Combination of flags               ||         |     Viewport          |
-#  |--------------------------------------------||---------|-----------------------|------------
-#  | fViewport | fDocking | TransparentViewport || Docking | Transparent | Outside | Description
-#  |:---------:|:--------:|:-------------------:||:-------:|:-----------:|:-------:| -----------
-#  |  false    | false    |     false           ||    -    |     -       |   -     |
-#  |  false    | true     |     false           ||    v    |     -       |   -     | (Default): Only docking
-#  |  true     | -        |     false           ||    v    |     -       |   v     | Docking and outside of viewport
-#  |    -      | -        |     true            ||    v    |     v       |   -     | Transparent Viewport and docking
-#  `-----------'----------'---------------------'`---------'-------------'---------'-------------
-var
- fDocking = true
- fViewport = false
- TransparentViewport = false
- #
-block:
-  if TransparentViewport:
-    fViewport = true
-  if fViewport:
-    fDocking = true
+const MainWinHeight = 900
 
 #------
 # main
 #------
 proc main() =
-  if sdl.init(sdl.InitVideo or sdl.InitTimer or sdl.InitGameController) != 0:
-    echo "ERROR: Can't initialize SDL: ", sdl.getError()
-    quit -1
-  defer: sdl.quit()
-  discard sdl.glSetAttribute(GLattr.GL_CONTEXT_FLAGS, 0)
-  discard sdl.glSetAttribute(GLattr.GL_CONTEXT_PROFILE_MASK, GL_CONTEXT_PROFILE_CORE)
-  discard sdl.glSetAttribute(GLattr.GL_CONTEXT_MAJOR_VERSION, 3)
-  discard sdl.glSetAttribute(GLattr.GL_CONTEXT_MINOR_VERSION, 3)
-
-  # Basic IME support. App needs to call 'SDL_SetHint(SDL_HINT_IME_SHOW_UI, "1");'
-  # before SDL_CreateWindow()!.
-  discard sdl.setHint("SDL_HINT_IME_SHOW_UI", "1") # SDL2: must be v2.0.18 or later
-
-  discard sdl.glSetAttribute(GLattr.GL_DOUBLEBUFFER, 1)
-  discard sdl.glSetAttribute(GLattr.GL_DEPTH_SIZE, 24)
-  discard sdl.glSetAttribute(GLattr.GL_STENCIL_SIZE, 8)
-
-  # Initialy main window is hidden.  See: showWindowDelay
-  var flags:cuint = WINDOW_HIDDEN or WINDOW_OPENGL or WINDOW_RESIZABLE or WINDOW_ALLOW_HIGHDPI
-  var window = sdl.createWindow( "SDL2 demo", 30, 30, MainWinWidth, MainWinHeight, flags)
-  if isNil window:
-    echo "Fail to create window: ", sdl.getError()
-    quit -1
-  defer:sdl.destroyWindow(window)
-
-  var gl_context = glCreateContext(window)
-  defer:sdl.glDeleteContext(gl_context)
-
-  discard glMakeCurrent(window, gl_context);
-
-  discard glSetSwapInterval(1)
-
-  if not gladLoadGL(glGetProcAddress):
-    sdl.log("opengl version: ", glGetString(GL_VERSION))
-    quit "Error initialising OpenGL"
-
-  # Setup imgui
-  igCreateContext(nil)
-  defer: igDestroyContext(nil)
-
-  var pio = sdl2_opengl.igGetIO()
-  if fDocking:
-    pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_DockingEnable.cint
-    if fViewport:
-      pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_ViewportsEnable.cint
-      pio.ConfigViewports_NoAutomerge = true
-
-  var glsl_version: cstring = "#version 330" # OpenGL 3.3
-  doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SdlWindow](window) , gl_context)
-  defer: ImGui_ImplSDL2_Shutdown()
-
-  doAssert ImGui_ImplOpenGL3_Init(glsl_version)
-  defer: ImGui_ImplOpenGL3_Shutdown()
-
-  #igStyleColorsDark(nil)
-  igStyleColorsClassic(nil)
+  var win = createImGui(MainWinWidth, MainWinHeight)
+  defer: destroyImGui(win)
 
   var
     showDemoWindow = true
     showFirstWindow = true
-    showAnotherWindow = false
     fval = 0.5f
     counter = 0
     xQuit: bool
     sBuf = newString(200)
-    clearColor:ccolor
-    showWindowDelay = 1 # TODO
-
-  if TransparentViewport:
-    clearColor = ccolor(elm:(x:0f, y:0f, z:0f, w:0.0f)) # Transparent
-  else:
-    clearColor = ccolor(elm:(x:0.25f, y:0.65f, z:0.85f, w:1.0f))
-
-  # Add multibyte font
-  discard setupFonts()
 
   #-------------
   # Load image
@@ -137,6 +44,8 @@ proc main() =
   var zoomTextureID: GLuint # Must be == 0 at first
   defer: glDeleteTextures(1, addr zoomTextureID)
 
+  let pio = igGetIO()
+
   #-----------
   # Main loop
   #-----------
@@ -148,13 +57,10 @@ proc main() =
         xQuit = true
       if event.kind == WINDOWEVENT and event.window.event ==
           WINDOWEVENT_CLOSE and
-        event.window.windowID == sdl.getWindowID(window):
+        event.window.windowID == sdl.getWindowID(win.handle):
         xQuit = true
 
-    # start imgui frame
-    ImGui_ImplOpenGL3_NewFrame()
-    ImGui_ImplSdl2_NewFrame()
-    igNewFrame()
+    newFrame()
 
     if showDemoWindow:
       igShowDemoWindow(addr showDemoWindow)
@@ -165,27 +71,22 @@ proc main() =
     if showFirstWindow:
       igBegin("Nim: Dear ImGui test with Futhark", showFirstWindow.addr, 0)
       defer: igEnd()
-      var ver:sdl.Version
-      sdl.getVersion(ver.addr)
-      var s = "SDL2 v$#.$#.$#" % [$ver.major.int,$ver.minor.int,$ver.patch.int]
-      igText(s.cstring)
-      s = "OpenGL v" & ($cast[cstring](glGetString(GL_VERSION))).split[0]
-      igText(s.cstring)
+
+      igText((ICON_FA_COMMENT & " " & getFrontendVersionString()).cstring)
+      igText((ICON_FA_COMMENT_SMS & " " & getBackendVersionString()).cstring)
 
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
-      s = "Input result:" & sBuf
+      var s = "Input result:" & sBuf
       igText(s.cstring)
       igCheckbox("Demo window", addr showDemoWindow)
-      igCheckbox("Another window", addr showAnotherWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)
-      igColorEdit3("clear color", clearColor.array3, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
+      igColorEdit3("clear color", win.clearColor.array3, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
 
       if igButton("Button", ImVec2(x: 0.0f, y: 0.0f)):
         inc counter
       igSameLine(0.0f, -1.0f)
       igText("counter = %d", counter)
-      igText("Application average %.3f ms/frame (%.1f FPS)",
-             1000.0f / pio.Framerate.float, pio.Framerate)
+      igText("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / pio.Framerate.float, pio.Framerate)
       #
       igSeparatorText(ICON_FA_WRENCH & " Icon font test ")
       igText(ICON_FA_TRASH_CAN & " Trash")
@@ -197,16 +98,6 @@ proc main() =
         " " & ICON_FA_SCISSORS &
         " " & ICON_FA_SCREWDRIVER_WRENCH &
         " " & ICON_FA_BLOG)
-
-    #-------------------
-    # showAnotherWindow
-    #-------------------
-    if showAnotherWindow:
-      igBegin("imgui Another Window", addr showAnotherWindow, 0)
-      igText("Hello from imgui")
-      if igButton("Close me", ImVec2(x: 0.0f, y: 0.0f)):
-        showAnotherWindow = false
-      igEnd()
 
     # Show image load window
     block:
@@ -229,32 +120,14 @@ proc main() =
       if igIsItemHovered(ImGui_HoveredFlags_DelayNone.ImGuiHoveredFlags):
         zoomGlass(zoomTextureID, textureWidth, imageBoxPosTop, imageBoxPosEnd)
 
+    #--------
     # render
     #--------
-    igRender()
-    glViewport(0, 0, (pio.DisplaySize.x).GLsizei, (pio.DisplaySize.y).GLsizei)
-    glClearColor(clearColor.elm.x, clearColor.elm.y, clearColor.elm.z, clearColor.elm.w)
-    glClear(GL_COLOR_BUFFER_BIT)
-    ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
-
-    if 0 != (pio.ConfigFlags and ImGui_ConfigFlags_ViewportsEnable.cint):
-      var backup_current_window = sdl.glGetCurrentWindow()
-      var backup_current_context = sdl.glGetCurrentContext()
-      igUpdatePlatformWindows()
-      igRenderPlatformWindowsDefault(nil, nil)
-      discard sdl.glmakeCurrent(backup_current_window,backup_current_context)
-
-    sdl.glSwapWindow(window)
-    if not showFirstWindow and not showDemoWindow and not showAnotherWindow:
+    render(win)
+    if not showFirstWindow and not showDemoWindow :
       xQuit = true
 
-    if showWindowDelay > 0:
-      dec showWindowDelay
-    else:
-      once: # Avoid flickering screen at startup.
-        window.showWindow()
-
-    ### end while
+  ### end while
 
 #------
 # main
