@@ -27,9 +27,9 @@ when defined(windows):
   const fontInfo = TFontInfo(
        osRootDir: os.getEnv("windir") # get OS root
        ,fontDir: "fonts"
-       ,fontTable: @[ # 以下全て有効にすると起動が遅くなる orz
+       ,fontTable: @[ #
          ("meiryo.ttc","メイリオ",14.5)
-        ,("segoeui.ttf","Seoge UI",14.0) # English region standard font
+        ,("segoeui.ttf","Seoge UI",14.4) # English region standard font
         ,("YuGothM.ttc","遊ゴシック M",11.0)
         ,("meiryob.ttc","メイリオ B",14.0)
         ,("msgothic.ttc","MS ゴシック",11.0)
@@ -43,6 +43,7 @@ else: # For Debian/Ubuntu/Mint
           ("opentype/ipafont-gothic/ipag.ttf","IPAゴシック",14.0)        # Debian
          ,("opentype/ipafont-gothic/ipam.ttf","IPAゴシック M",14.0)      # Debian
          ,("opentype/noto/NotoSansCJK-Regular.ttc","Noto Sans CJK",14.0) # Linux Mint
+         ,("truetype/liberation/LiberationMono-Regular.ttf","LiberationMono",13.0) # Ubuntu english
         ])
 
 # Add Icon font
@@ -72,7 +73,7 @@ proc setupFonts*(): (bool,string,string) =
   var config {.global.}  = new_ImFontConfig()
 
   #--------------------------
-  # Register first base font
+  # Load first base font
   #--------------------------
   result =  (false,"Default","ProggyClean.ttf") #
   var seqFontNames: seq[(string,string)]

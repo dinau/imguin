@@ -21,7 +21,7 @@ proc setFileStyle*(cfd: ptr ImGuiFileDialog)
 proc main() =
   var win = createImGui(MainWinWidth, MainWinHeight, title="FileDialog demo")
   defer: destroyImGui(win)
-  var theme = Theme.classic
+  let theme = Theme.classic
   setTheme(theme)
 
   var

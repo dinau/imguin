@@ -104,7 +104,7 @@ For instance [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim),
 
 1. For selecting static link or dynamic link ,read this [examples/README.md](examples/README.md).
 
-### Available libraries list
+### Available libraries 
 
 ---
 
@@ -115,9 +115,9 @@ For instance [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim),
 | v   | ImNodes/ CImNodes                                                                                                   |
 | v   | ImGuizmo/ CImGuizmo                                                                                                 |
 | v   | ImGui-Knobs/ CImGui-Knobs                                                                                           |
+| v   | ImGuiFileDialog / [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog)                                     | Windows      |
 | ... | ...                                                                                                                 | ...          |
-| -   | ImGuiFileDialog / [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog)                                     | Windows      |
-| -   | [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE) | 2025 ?       |
+| x   | [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE) | 2025 ?       |
 
 ### Screen shot (examples)
 
@@ -138,12 +138,9 @@ Basic example with icon fonts
    ```sh
    pwd
    examples/glfw_opengl3
-   ```
-
-   ```sh
    make        # or make run
    ```
-   
+
    or 
 
    ```sh
@@ -169,12 +166,8 @@ Basic example with icon fonts
    ```sh
    pwd
    examples/glfw_opengl3_imknobs
-   ```
-
-   ```sh
    make 
    ```
-
    or 
 
    ```sh
@@ -194,9 +187,6 @@ Basic example with icon fonts
    ```sh
    pwd
    examples/glfw_opengl3_filedialog
-   ```
-
-   ```sh
    make 
    ```
 
@@ -219,9 +209,6 @@ Icon font viewer and magnifying glass
    ```sh
    pwd
    examples/iconFontViewer
-   ```
-
-   ```sh
    make 
    ```
 
@@ -244,9 +231,6 @@ Image load and magnifying glass
    ```sh
    pwd
    examples/glfw_opengl3_image_load
-   ```
-
-   ```sh
    make 
    ```
 
@@ -261,9 +245,6 @@ Image load and magnifying glass
    ```sh
    pwd
    examples/sdl2_opengl3
-   ```
-
-   ```sh
    make 
    ```
 
@@ -287,9 +268,6 @@ It can save a screen shot as [ jpg, bmp, png or tga ] file.
    ```sh
    pwd
    examples/glfw_opengl3_image_save
-   ```
-
-   ```sh
    make        # or make run
    ```
    
@@ -311,9 +289,6 @@ Showing UTF-8 text and input text with a local country language.
    ```sh
    pwd
    examples/glfw_opengl3_jp
-   ```
-
-   ```sh
    make        # or make run
    ```
    
@@ -335,9 +310,6 @@ Showing ImGui demo with ImPlot demo.
    ```sh
    pwd
    examples/glfw_opengl3_implot
-   ```
-
-   ```sh
    make        # or make run
    ```
    
@@ -357,9 +329,6 @@ Showing ImGui demo with ImPlot demo.
    ```sh
    pwd
    examples/glfw_opengl3_imnodes
-   ```
-
-   ```sh
    make        # or make run
    ```
    
@@ -379,9 +348,6 @@ Showing ImGui demo with ImPlot demo.
    ```sh
    pwd
    examples/glfw_opengl3_imguizmo
-   ```
-
-   ```sh
    make        # or make run
    ```
    
@@ -525,7 +491,7 @@ Properly edit the version info etc in `imguin.nimble` file, then
 
   | ImGui/CImGui Ver. | ImGuin Ver. | Date    | WindowsOS | Linux Mint 22 | Debian<br> Bookworm (1) |
   | :--------------:  | ---------   | :----:  | :---:     | :---:         | :---:                   |
-  | 1.91.6dock        | 1.91.6.0    | 2024/12 | OK        | OK            | -                       |
+  | 1.91.6dock        | 1.91.6.2    | 2024/12 | OK        | OK            | -                       |
   | 1.91.5dock        | -           | -       | -         | -             | -                       |
   | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK        | OK            | -                       |
   | 1.91.3dock        | 1.91.3.1    | 2024/10 | OK        | (7)           | -                       |
