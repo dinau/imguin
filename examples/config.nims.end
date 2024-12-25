@@ -39,13 +39,14 @@ case TC
     switch "cc.exe","clang"
     switch "cc.linkerexe","clang"
     switch "cc",TC
-  of "zigcc": # Only Windows
+  of "zigcc":
+    # First do: nimble install zigcc
     switch "cc","clang"
     var ext = ""
     when defined(windows):
-      ext = ".bat"
-    switch "clang.exe","../zigcc.bat" #& ext
-    switch "clang.linkerexe","../zigcc.bat" #& ext
+      ext = ".cmd"
+    switch "clang.exe","zigcc" & ext
+    switch "clang.linkerexe","zigcpp" & ext
     switch "passL","-lgcc_s "
   of "vcc":
     switch "cc",TC

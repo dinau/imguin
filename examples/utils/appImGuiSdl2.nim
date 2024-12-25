@@ -120,7 +120,7 @@ proc createImGui*(w,h: cint, imnodes:bool = false, implot:bool = false, title:st
 
   # GLFW + OpenGL
   const glsl_version = "#version 330"  # OpenGL 3.3
-  doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SdlWindow](window) , result.glContext)
+  doAssert ImGui_ImplSdl2_InitForOpenGL(cast[ptr SDL_Window](window) , result.glContext)
   doAssert ImGui_ImplOpenGL3_Init(glsl_version)
 
   if TransparentViewport:

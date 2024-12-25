@@ -1,7 +1,6 @@
 *.zip
 ImageSaved_*.*
 examples/utils/sdl3/
-examples/sdl3_opengl3/
 examples/glfw_opengl3_b/
 examples/fontx2v/
 examples/glfw_dx11/

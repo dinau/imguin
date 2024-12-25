@@ -1,16 +1,15 @@
 # Compiling:
 # nim c glfw_opengl3
 
-import std/[strutils, math]
+import std/[os, strutils, math]
 import nimgl/[opengl,glfw]
 
 import imguin/[glfw_opengl]
 
-import imguin/lang/imgui_ja_gryph_ranges
 import ../utils/loadImage
 
-include ../utils/setupFonts
-include imguin/simple
+import ../utils/setupFonts
+import imguin/simple
 
 when defined(windows):
   when not defined(vcc):   # imguinVcc.res TODO WIP
@@ -78,7 +77,7 @@ proc main() =
   #---------------------
   # Load title bar icon
   #---------------------
-  var IconName = os.joinPath(os.getAppDir(),"res/img/n.png")
+  var IconName = joinPath(os.getAppDir(),"res/img/n.png")
   LoadTileBarIcon(glfwWin, IconName)
   #
   doAssert glInit() # OpenGL init

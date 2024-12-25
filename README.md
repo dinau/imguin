@@ -6,13 +6,13 @@
     - [Prerequisites](#prerequisites)
     - [Install](#install)
     - [Build examples](#build-examples)
-    - [Available libraries list](#available-libraries-list)
+    - [Available libraries](#available-libraries)
     - [Screen shot (examples)](#screen-shot-examples)
       - [glfw_opengl3](#glfw_opengl3)
       - [glfw_opengl3_imknobs](#glfw_opengl3_imknobs)
       - [glfw_opengl3_filedialog](#glfw_opengl3_filedialog)
       - [glfw_opengl3_iconfont_viewer](#glfw_opengl3_iconfont_viewer)
-      - [glfw_opengl3_image_load / sdl2_opengl3](#glfw_opengl3_image_load--sdl2_opengl3)
+      - [glfw_opengl3_image_load / sdl2_opengl3  / sdl3_opengl3](#glfw_opengl3_image_load--sdl2_opengl3---sdl3_opengl3)
       - [glfw_opengl3_image_save](#glfw_opengl3_image_save)
       - [glfw_opengl3_jp](#glfw_opengl3_jp)
       - [glfw_opengl3_implot](#glfw_opengl3_implot)
@@ -55,7 +55,7 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 
 ---
 
-- [Nim-2.0.12](https://nim-lang.org) or later
+- [Nim-2.0.14](https://nim-lang.org) or later
 - Windows10 or later  
 [MSys2/MinGW](https://www.msys2.org/) command line tools (Unix tools), make, cp, rm, git, ...etc
 - Linux Mint 22 (or Ubuntu / Debian families ?)
@@ -218,7 +218,7 @@ Icon font viewer and magnifying glass
    nim c iconFontViewer.nim  
    ```
 
-#### [glfw_opengl3_image_load](examples/glfw_opengl3_image_load) / [sdl2_opengl3](examples/sdl2_opengl3)  
+#### [glfw_opengl3_image_load](examples/glfw_opengl3_image_load) / [sdl2_opengl3](examples/sdl2_opengl3)  / [sdl3_opengl3](examples/sdl3_opengl3) 
 
 ---
 
@@ -252,6 +252,21 @@ Image load and magnifying glass
 
    ```sh
    nim c -d:SDL sdl2_opengl3.nim  
+   ```
+
+- Build sdl3 version  
+Only windows OS at this moment and WIP.
+
+   ```sh
+   pwd
+   examples/sdl3_opengl3
+   make 
+   ```
+
+   or 
+
+   ```sh
+   nim c -d:SDL sdl3_opengl3.nim  
    ```
 
 #### [glfw_opengl3_image_save](examples/glfw_opengl3_image_save)  
@@ -491,7 +506,7 @@ Properly edit the version info etc in `imguin.nimble` file, then
 
   | ImGui/CImGui Ver. | ImGuin Ver. | Date    | WindowsOS | Linux Mint 22 | Debian<br> Bookworm (1) |
   | :--------------:  | ---------   | :----:  | :---:     | :---:         | :---:                   |
-  | 1.91.6dock        | 1.91.6.2    | 2024/12 | OK        | OK            | -                       |
+  | 1.91.6dock        | 1.91.6.3    | 2024/12 | OK        | OK            | -                       |
   | 1.91.5dock        | -           | -       | -         | -             | -                       |
   | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK        | OK            | -                       |
   | 1.91.3dock        | 1.91.3.1    | 2024/10 | OK        | (7)           | -                       |
@@ -591,7 +606,7 @@ Windows11 (main)
    pacman -S mingw-w64-ucrt-x86_64-gcc
    ```
 
-- Clang version 19.1.4
+- Clang version 19.1.6
 
    ```sh
    pacman -S mingw-w64-ucrt-x86_64-clang

@@ -13,6 +13,7 @@ const ClangIncludePath = "c:/drvDx/msys64/ucrt64/lib/clang/19/include"
 
 # Set root path of ImGui/CImGui
 const CImguiRootPath       = joinPath(currentSourceDir(),"private/cimgui").replace("\\", "/")
+#const CImguiGenePath       = joinPath(currentSourceDir(),"private/cimgui/generator/output").replace("\\", "/")
 const CImPlotRootPath      = joinPath(currentSourceDir(),"private/cimplot").replace("\\", "/")
 const CImNodesRootPath     = joinPath(currentSourceDir(),"private/cimnodes").replace("\\", "/")
 const CImGuizmoRootPath    = joinPath(currentSourceDir(),"private/cimguizmo").replace("\\", "/")
@@ -26,6 +27,7 @@ when defined(useFuthark): # Generate header files with Futhark.
   importc:
     syspath ClangIncludePath
     path    CImguiRootPath
+    #path    CImguiGenePath
     path    CImPlotRootPath
     path    CImNodesRootPath
     path    CImGuizmoRootPath
@@ -46,6 +48,8 @@ when defined(useFuthark): # Generate header files with Futhark.
     "cimguizmo.h"
     "cimgui-knobs.h"
     "ImGuiFileDialog.h"
+    #define "CIMGUI_USE_SDL3"
+    #"cimgui_impl.h"
     # Output
     outputPath CIMGUI_DEFS_FILE
 #--- Futahrk end

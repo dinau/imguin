@@ -35,21 +35,21 @@ type
   enumimguiimplsdl2gamepadmode* {.size: sizeof(cuint).} = enum
     ImGui_implsdl2GamePadModeAutofirst = 0, ImGui_implsdl2GamePadModeAutoAll = 1,
     ImGui_implsdl2GamePadModemanual = 2
-  Imguiimplsdl2gamepadmode* = enumimguiimplsdl2gamepadmode ## Generated based on cimgui_impl.h:55:125
+  ImGui_ImplSDL2_Gamepadmode* = enumimguiimplsdl2gamepadmode ## Generated based on cimgui_impl.h:55:125
   unionsdlevent* {.incompleteStruct.} = object
-  Sdlrenderer* = structsdlrenderer ## Generated based on cimgui_impl.h:49:29
-  Sdlwindow* = structsdlwindow ## Generated based on cimgui_impl.h:48:27
-  Sdlevent* = unionsdlevent  ## Generated based on cimgui_impl.h:54:25
+  SDL_Renderer* = structsdlrenderer ## Generated based on cimgui_impl.h:49:29
+  SDL_Window* = structsdlwindow ## Generated based on cimgui_impl.h:48:27
+  SDL_Event* = unionsdlevent  ## Generated based on cimgui_impl.h:54:25
 
 {.push discardable.}
-proc ImGui_impl_sdl2_Initforopengl*(window: ptr Sdlwindow; sdlglcontext: pointer): bool {.  cdecl, importc: "ImGui_ImplSDL2_InitForOpenGL".}
-proc ImGui_impl_sdl2_Initforvulkan*(window: ptr Sdlwindow): bool {.cdecl, importc: "ImGui_ImplSDL2_InitForVulkan".}
-proc ImGui_impl_sdl2_Initford3d*(window: ptr Sdlwindow): bool {.cdecl, importc: "ImGui_ImplSDL2_InitForD3D".}
-proc ImGui_impl_sdl2_Initformetal*(window: ptr Sdlwindow): bool {.cdecl, importc: "ImGui_ImplSDL2_InitForMetal".}
-proc ImGui_impl_sdl2_Initforsdlrenderer*(window: ptr Sdlwindow; renderer: ptr Sdlrenderer): bool {.cdecl, importc: "ImGui_ImplSDL2_InitForSDLRenderer".}
-proc ImGui_impl_sdl2_Initforother*(window: ptr Sdlwindow): bool {.cdecl, importc: "ImGui_ImplSDL2_InitForOther".}
-proc ImGui_impl_sdl2_Shutdown*(): void {.cdecl, importc: "ImGui_ImplSDL2_Shutdown".}
-proc ImGui_impl_sdl2_Newframe*(): void {.cdecl, importc: "ImGui_ImplSDL2_NewFrame".}
-proc ImGui_impl_sdl2_Processevent*(event: ptr Sdlevent): bool {.cdecl, importc: "ImGui_ImplSDL2_ProcessEvent".}
-proc ImGui_impl_sdl2_Setgamepadmode*(mode: Imguiimplsdl2gamepadmode; manualgamepadsarray: ptr ptr structsdlgamecontroller; manualgamepadscount: cint): void {.cdecl, importc: "ImGui_ImplSDL2_SetGamepadMode".}
+proc ImGui_ImplSDL2_InitForOpenGL*(window: ptr SDL_Window; sdlglcontext: pointer): bool {.  cdecl, importc: "ImGui_ImplSDL2_InitForOpenGL".}
+proc ImGui_ImplSDL2_InitForVulkan*(window: ptr SDL_Window): bool {.cdecl, importc: "ImGui_ImplSDL2_InitForVulkan".}
+proc ImGui_ImplSDL2_InitForD3d*(window: ptr SDL_Window): bool {.cdecl, importc: "ImGui_ImplSDL2_InitForD3D".}
+proc ImGui_ImplSDL2_InitForMetal*(window: ptr SDL_Window): bool {.cdecl, importc: "ImGui_ImplSDL2_InitForMetal".}
+proc ImGui_ImplSDL2_InitForSdlrenderer*(window: ptr SDL_Window; renderer: ptr SDL_Renderer): bool {.cdecl, importc: "ImGui_ImplSDL2_InitForSDLRenderer".}
+proc ImGui_ImplSDL2_InitForOther*(window: ptr SDL_Window): bool {.cdecl, importc: "ImGui_ImplSDL2_InitForOther".}
+proc ImGui_ImplSDL2_ShutDown*(): void {.cdecl, importc: "ImGui_ImplSDL2_Shutdown".}
+proc ImGui_ImplSDL2_NewFrame*(): void {.cdecl, importc: "ImGui_ImplSDL2_NewFrame".}
+proc ImGui_ImplSDL2_ProcessEvent*(event: ptr SDL_Event): bool {.cdecl, importc: "ImGui_ImplSDL2_ProcessEvent".}
+proc ImGui_ImplSDL2_SetGamepadMode*(mode: ImGui_ImplSDL2_GamepadMode; manualgamepadsarray: ptr ptr structsdlgamecontroller; manualgamepadscount: cint): void {.cdecl, importc: "ImGui_ImplSDL2_SetGamepadMode".}
 {.pop.}
