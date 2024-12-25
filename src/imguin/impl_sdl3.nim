@@ -9,9 +9,14 @@ proc currentSourceDir(): string {.compileTime.} =
 const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui").replace("\\", "/")
 
 # Specify SDL3 C lang. header files
+const sdl3LibPath = joinPath(staticExec("nimble path sdl3_nim").strip,"private","SDL3-3.1.6","x86_64-w64-mingw32","lib").replace("\\", "/")
 {.passC:"-I" & joinPath(staticExec("nimble path sdl3_nim").strip,"private","SDL3-3.1.6","x86_64-w64-mingw32","include").replace("\\", "/").}
-{.passL:"-L" & joinPath(staticExec("nimble path sdl3_nim").strip,"private","SDL3-3.1.6","x86_64-w64-mingw32","lib").replace("\\", "/").}
-{.passL:"-lSDL3.dll".}
+{.passL:"-L" & sdl3LibPath.}
+when defined(vcc): # Fail: TODO
+  {.passC:"libSDL3.dll.a".}
+  {.passL:"/LIBPATH:" & sdl3LibPath.}
+else:
+  {.passL:"-lSDL3.dll".}
 
 const ImguiRootPath    = joinPath(CImguiRootPath,"imgui").replace("\\", "/")
 {.compile:joinPath(ImguiRootPath,"backends/imgui_impl_sdl3.cpp").replace("\\", "/").}

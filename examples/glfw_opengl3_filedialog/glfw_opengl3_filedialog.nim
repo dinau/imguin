@@ -15,6 +15,13 @@ const MainWinHeight = 800
 # Forward definitions
 proc setFileStyle*(cfd: ptr ImGuiFileDialog)
 
+template copyToString(sName:string, pName:cstring) =
+  if not isNil pName:
+    defer: free(pName)
+    var sz = pName.len
+    sName = newString(sz)
+    copyMem(addr sName[0], pName, sz)
+
 #------
 # main
 #------
@@ -28,6 +35,11 @@ proc main() =
     showDemoWindow = false
     sFnameSelected{.global.}:string
 
+  var
+    sFilePathName:string
+    sFileDirPath:string
+    sFilter:string
+    sDatas:string
   #------------------------------
   # Create FileDialog object
   #------------------------------
@@ -79,24 +91,18 @@ proc main() =
       if IGFD_DisplayDialog(cfd, "filedlg".cstring, ImGuiWindowFlags_NoCollapse.ImGuiWindowFlags, minSize, maxSize):
         defer: IGFD_CloseDialog(cfd)
         if IGFD_IsOk(cfd) : # result ok
-          let cfilePathName = IGFD_GetFilePathName(cfd, IGFD_ResultMode_AddIfNoFileExt.IGFD_ResultMode)
-          if not isNil cfilePathName:
-            defer: free(cfilePathName)
-          echo "GetFilePathName : $#\n" % $cfilePathName
-          sFnameSelected = $cfilePathName
-          let cfileDirPath = IGFD_GetCurrentPath(cfd)
-          if not isNil cfileDirPath:
-            defer: free(cfiledirPath)
-          echo "GetCurrentDirPath : $#\n" % $cfileDirPath
-          let cfilter = IGFD_GetCurrentFilter(cfd)
-          if not isNil cfilter:
-            defer: free(cfilter)
-          echo "GetCurrentFilter : $#\n" % $cfilter
+          var cstr:cstring
+          cstr = IGFD_GetFilePathName(cfd, IGFD_ResultMode_AddIfNoFileExt.IGFD_ResultMode)
+          copyToString(sFilePathName, cstr)
+          cstr = IGFD_GetCurrentPath(cfd)
+          copyToString(sFileDirPath, cstr)
+          cstr = IGFD_GetCurrentFilter(cfd)
+          copyToString(sFilter, cstr)
           # here convert from string because a string was passed as a userDatas, but it can be what you want
-          let cdatas = IGFD_GetUserDatas(cfd)
-          if not isNil cdatas:
-            echo "GetUserDatas : $#\n" % $(cast[cstring](cdatas))
-
+          let pDatas = IGFD_GetUserDatas(cfd)
+          if not isNil pDatas:
+            cstr = cast[cstring](pDatas)
+            copyToString(sDatas, cstr)
           # TODO
           #let csel = IGFD_GetSelection(cfd, IGFD_ResultMode_KeepInputFile.IGFD_ResultMode) # multi selection
           #defer: IGFD_Selection_DestroyContent(&csel)
@@ -104,9 +110,12 @@ proc main() =
           # for i in 0..<csel.count:
           #   echo "($#) FileName $# => path $#\n" % [$i, $csel.table[i].fileName, $csel.table[i].filePathName]
         setTheme(theme)
-      #End DisplayDialog
+      # end DisplayDialog
 
-      igText("Selected file = %s", sFnameSelected.cstring)
+      igText("Selected file = %s", sFilePathName.cstring)
+      igText("Dir = %s", sFileDirPath.cstring)
+      igText("Filter = %s", sFilter.cstring)
+      igText("Datas = %s", sDatas.cstring)
 
     block:
       igBegin("Nim: Dear ImGui test with Futhark", nil, 0)

@@ -26,5 +26,5 @@ var TC = "gcc"         # ok
 #var TC = "clang"       # ok
 #var TC = "vcc"         # ok
 #var TC = "env"         # ?
-#var TC = "zigcc"        # zig 0.14.0-dev :
+#var TC = "zigcc"        # zig  0.14.0-dev.2367+aa7d13846
                         # NG glfw_opengl3_filedialog,imnodes,knobs ...

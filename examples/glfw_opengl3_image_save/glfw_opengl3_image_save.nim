@@ -43,11 +43,7 @@ proc main() =
     textureWidth = 0
     textureHeight = 0
   var ImageName = os.joinPath(os.getAppDir(),"himeji-400.jpg")
-  if ImageName.fileExists:
-    if not loadTextureFromFile(ImageName, textureId, textureWidth,textureHeight):
-      echo "Error!: Image load error:  ", ImageName
-  else:
-    echo "Error!: Image file not found  error:  ", ImageName
+  loadTextureFromFile(ImageName, textureId, textureWidth,textureHeight)
   defer: glDeleteTextures(1, addr textureID)
 
   var zoomTextureID: GLuint # Must be == 0 at first
@@ -81,7 +77,7 @@ proc main() =
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.0f, "%.3f", 0)
-      igColorEdit3("Background color", win.clearColor.array3, 0.ImGuiColorEditFlags)
+      igColorEdit3("Background color", win.ini.clearColor.array3, 0.ImGuiColorEditFlags)
 
       #-- Save button for capturing window image
       igPushIDInt(0)

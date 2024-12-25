@@ -506,7 +506,7 @@ Properly edit the version info etc in `imguin.nimble` file, then
 
   | ImGui/CImGui Ver. | ImGuin Ver. | Date    | WindowsOS | Linux Mint 22 | Debian<br> Bookworm (1) |
   | :--------------:  | ---------   | :----:  | :---:     | :---:         | :---:                   |
-  | 1.91.6dock        | 1.91.6.3    | 2024/12 | OK        | OK            | -                       |
+  | 1.91.6dock        | 1.91.6.4    | 2024/12 | OK        | OK            | -                       |
   | 1.91.5dock        | -           | -       | -         | -             | -                       |
   | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK        | OK            | -                       |
   | 1.91.3dock        | 1.91.3.1    | 2024/10 | OK        | (7)           | -                       |
@@ -676,3 +676,16 @@ Linux Mint 22
 
 - https://github.com/SpartanJ/SOIL2  
 SOIL2 is a tiny C library used primarily for uploading textures into OpenGL. 
+
+
+#### Memo
+
+---
+
+```sh
+error: assignment to 'char **' from incompatible pointer type 'const char * const*' [-Wincompatible-pointer-types]
+```
+
+```nim
+type ConstCstring {.importc: const char *.} = cstring
+```

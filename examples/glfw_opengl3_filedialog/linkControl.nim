@@ -1,4 +1,4 @@
-#switch "app","gui" # dismiss background Window
+switch "app","gui" # dismiss background Window
 
 #---------------------------------------
 # Select static link or shared/dll link

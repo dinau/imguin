@@ -80,7 +80,7 @@ proc main() =
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.0f, "%.3f", 0)
-      igColorEdit3("Background color", win.clearColor.array3, 0.ImGuiColorEditFlags)
+      igColorEdit3("Background color", win.ini.clearColor.array3, 0.ImGuiColorEditFlags)
 
       if igButton("Button", ImVec2(x: 0.0f, y: 0.0f)):
         inc counter

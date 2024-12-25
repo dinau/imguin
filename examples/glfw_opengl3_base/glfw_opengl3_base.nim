@@ -55,7 +55,7 @@ proc main() =
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.0f, "%.3f", 0)
-      igColorEdit3("Background color", win.clearColor.array3, 0.ImGuiColorEditFlags)
+      igColorEdit3("Background color", win.ini.clearColor.array3, 0.ImGuiColorEditFlags)
 
       # Show file open dialog
       when defined(windows):

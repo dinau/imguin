@@ -2,8 +2,6 @@
 case TC
   of "vcc" , "clang_cl":
     switch "define","lto"
-  of "zigcc":
-    discard
   else:
     if "" == findExe(TC): # GCC is default compiler if TC dosn't exist on the PATH
       echo "#### Set to cc = ",TC
@@ -45,9 +43,10 @@ case TC
     var ext = ""
     when defined(windows):
       ext = ".cmd"
+      switch "passL","-Wl,--subsystem,windows"
     switch "clang.exe","zigcc" & ext
     switch "clang.linkerexe","zigcpp" & ext
-    switch "passL","-lgcc_s "
+    switch "passL","-lgcc_s"
   of "vcc":
     switch "cc",TC
     switch "passL","/Zc:strictStrings-" # Eliminates C2440 error at C++. Notice: TODO

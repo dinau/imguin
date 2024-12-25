@@ -102,7 +102,10 @@ proc loadTextureFromBuffer*(textureID: var uint32, xs, ys, imageWidth, imageHeig
 #---------------------
 # loadTextureFromFile
 #---------------------
-proc loadTextureFromFile*(filename: string, outTexture: var GLuint, outWidth: var int, outHeight: var int): bool =
+proc loadTextureFromFile*(filename: string, outTexture: var GLuint, outWidth: var int, outHeight: var int): bool {.discardable.} =
+  if not filename.fileExists:
+    echo "Error!: Image file not found  error:  ", filename
+    return false
   var
     channels: int
     image_data = stbi.load(filename, outWidth, outHeight, channels, stbi.RGBA)
@@ -144,68 +147,3 @@ when not defined(SDL):
     else:
       echo "Not found: ",iconName
       glfw.setWindowIcon(window, 0, nil)
-
-
-  #--------------
-  # Test program     Run as: nim r loadImage.nim
-  #--------------
-  when isMainModule:
-    import std/[strutils,os]
-    import nimgl/[glfw]
-    const ImageName = "../glfw_opengl3_image_load/fuji-400.jpg"
-    if not fileExists(ImageName):
-      echo "Error!: Image file not found: ", ImageName
-      quit 1
-    proc main() =
-      var
-        image_width, image_height: int
-        image_texture: GLuint
-        glfwWin: GLFWWindow
-
-      doAssert glfwInit()
-      defer: glfwTerminate()
-      glfwWindowHint(GLFWContextVersionMajor, 3)
-      glfwWindowHint(GLFWContextVersionMinor, 3)
-      glfwWindowHint(GLFWOpenglForwardCompat, GLFW_TRUE)
-      glfwWindowHint(GLFWOpenglProfile, GLFW_OPENGL_CORE_PROFILE)
-      glfwWindowHint(GLFWResizable, GLFW_FALSE)
-      glfwWindowHint(GLFWVisible, GLFW_FALSE)
-      # OpenGL init
-
-      const windowWidth = 500
-      glfwWin = glfwCreateWindow(windowWidth, 200, "If you see brown window and title bar icon, it is OK")
-      if glfwWin.isNil:
-        quit(-1)
-      glfwWin.makeContextCurrent()
-      defer: glfwWin.destroyWindow()
-      #
-      doAssert glInit()
-      #---------------------
-      # Load image
-      #---------------------
-      let ret = loadTextureFromFile(ImageName, image_texture, image_width, image_height)
-      if ret:
-        echo "Load ok [ $# ]:  width: $#  height: $#" % [ImageName, $image_width, $image_height]
-      else:
-        echo "Error: ", Imagename
-        quit 1
-      setWindowSize(glfwWin, windowWidth, image_height.int32)
-      showWindow(glfwWin)
-      glfwSwapInterval(1) # Enable vsync
-
-      #---------------------
-      # Load title bar icon
-      #---------------------
-      var IconName = os.joinPath(os.getAppDir(),"../glfw_opengl3/res/img/n.png")
-      LoadTileBarIcon(glfwWin, IconName)
-
-      while not glfwWin.windowShouldClose:
-        glfwPollEvents()
-        # render
-        glClearColor(0.5f, 0.3f, 0.2f, 1f)
-        glClear(GL_COLOR_BUFFER_BIT)
-        glfwWin.swapBuffers()
-    #------
-    # main
-    #------
-    main()
