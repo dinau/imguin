@@ -19,7 +19,7 @@ jobs:
         with:
           submodules: 'recursive'
       - name: Install Nim Compiler
-        uses: jiro4989/setup-nim-action@v2
+      - uses: jiro4989/setup-nim-action@v2
         with:
           nim-version: '2.2.0'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
@@ -28,8 +28,6 @@ jobs:
       #  with:
       #    msystem: mingw64
       #    install: mingw-w64-x86_64-SDL2
-      - name: Windows evnvironment values
-      # run: echo ${{ env.CONFIGRATION }}
       - run: make install
         continue-on-error: true
       - run: make
