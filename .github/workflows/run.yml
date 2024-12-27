@@ -21,7 +21,7 @@ jobs:
       - name: Install Nim Compiler
         uses: jiro4989/setup-nim-action@v2
         with:
-          nim-version: '2.0.8'
+          nim-version: '2.2.0'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       #- name: Set up MinGW
       #  uses: msys2/setup-msys2@v2
