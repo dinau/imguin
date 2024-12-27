@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.91.6.4"
+version       = "1.91.6.5"
 author        = "dinau"
 description   = "Imguin: ImGui / ImPlot / ImNodes wrapper using Futhark"
 license       = "MIT"
@@ -18,7 +18,7 @@ requires "sdl2_nim == 2.0.14.3"
 requires "tinydialogs == 1.1.0"
 requires "stb_image == 2.5"
 requires "glfw == 3.4.0.4"
-reuqires "https://github.com/diau/sdl3_nim == 0.3.0"
+requires "https://github.com/dinau/sdl3_nim == 0.3.0"
 
 let TARGET = "imguin"
 let Opts =""
