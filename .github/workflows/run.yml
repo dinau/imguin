@@ -1,28 +1,27 @@
-name: Windows test
+name: Nim compilation
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - 'main'
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - 'main'
 
 jobs:
   build:
-    #runs-on: ubuntu-latest
     runs-on: windows-latest
-    #runs-on: windows-2019
-    strategy:
-      matrix:
-        nim: [ '2.0.8' ]
-    name: Nim ${{ matrix.nim }} compilation
+    #runs-on: ubuntu-latest
+    #
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           submodules: 'recursive'
-      - name: Setup nim
+      - name: Install Nim Compiler
         uses: jiro4989/setup-nim-action@v2
         with:
-          nim-version: ${{ matrix.nim }}
+          nim-version: '2.0.8'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       #- name: Set up MinGW
       #  uses: msys2/setup-msys2@v2
