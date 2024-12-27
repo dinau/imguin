@@ -17,5 +17,9 @@ jobs:
         with:
           nim-version: '2.2.0'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          sudo apt install xorg-dev libopengl-dev libgl1-mesa-dev
+          sudo apt install libglfw3 libglfw3-dev
+          sudo apt install libsdl2-dev
       - run: make install
       - run: make
