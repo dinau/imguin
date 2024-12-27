@@ -9,13 +9,15 @@ var projDirs = @[
 "glfw_opengl3_implot",
 "glfw_opengl3_jp",
 "sdl2_opengl3",
-"sdl3_opengl3",
 "glfw_opengl3_imknobs",
 "glfw_opengl3_imnodes",
 "glfw_opengl3_filedialog",
 "glfw_opengl3_imguizmo",
 "fontx2v",
 ]
+
+when defined(windows):
+  projDirs.add "sdl3_opengl3"
 
 #-------------
 # compileProj
