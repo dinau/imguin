@@ -29,7 +29,7 @@ jobs:
       #    msystem: mingw64
       #    install: mingw-w64-x86_64-SDL2
       - name: Windows evnvironment values
-        run: echo ${{ env.CONFIGRATION }}
+      # run: echo ${{ env.CONFIGRATION }}
       - run: make install
         continue-on-error: true
       - run: make
