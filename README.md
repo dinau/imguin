@@ -36,7 +36,8 @@
 
 # ImGuin
 
-![alt](https://github.com/dinau/imguin/actions/workflows/run.yml/badge.svg)
+![alt](https://github.com/dinau/imguin/actions/workflows/run.yml/badge.svg)  
+![alt](https://github.com/dinau/imguin/actions/workflows/linux.yml/badge.svg)
 
 Updated to latest ImGui/CImGui version: : **v1.91.6dock** (2024/12)
 
