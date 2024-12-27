@@ -11,24 +11,11 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    #runs-on: ubuntu-latest
-    #
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: 'recursive'
-      - name: Install Nim Compiler
+      - uses: actions/checkout@v4
       - uses: jiro4989/setup-nim-action@v2
         with:
           nim-version: '2.2.0'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      #- name: Set up MinGW
-      #  uses: msys2/setup-msys2@v2
-      #  with:
-      #    msystem: mingw64
-      #    install: mingw-w64-x86_64-SDL2
       - run: make install
-        continue-on-error: true
       - run: make
-      #
