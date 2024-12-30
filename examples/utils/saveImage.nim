@@ -9,25 +9,27 @@ import stb_image/write as stbiw
 #-------------
 # saveImage()
 #-------------
-proc saveImage*(fname:string, xs, ys, imageWidth, imageHeight:int, comp:int = RGB,quality:int = 90) =
+proc saveImage*(fname:string, xs, ys, width, height:int, comp:int = RGB,quality:int = 90) =
+  # Image size must be 2*n
+  let imageWidth = (width div 2) * 2
+  let imageHeight = (height div 2) * 2
   if not (comp == RGB):
     echo "Error!: Color component numbers must be 3 (RGB) at saveImage.nim"
     return
   if 1 > imageWidth or 1 > imageHeight :
     echo "Error!: Rect of save image is mismatch at saveImage.nim"
     return
+
   var
     texBuffer =  newSeq[GLuByte](imageWidth * imageHeight * comp)
     dataBuffer = newSeq[GLuByte](imageWidth * imageHeight * comp)
 
-  #// 読み取るOpneGLのバッファを指定 GL_FRONT:フロントバッファ GL_BACK:バックバッファ
   glReadBuffer( GL_BACK )
-  #// OpenGLで画面に描画されている内容をバッファに格納
-  glReadPixels( xs.GLint, ys.GLint,                  # 読み取る領域の左下隅のx,y座標 //0 or getCurrentWidth() - 1
-                imageWidth.GLsizei, imageHeight.GLsizei, # 読み取る領域
-                GL_RGB,                  # it means GL_BGR,  //取得したい色情報の形式
-                GL_UNSIGNED_BYTE,        # 読み取ったデータを保存する配列の型
-                texBuffer[0].addr        # ビットマップのピクセルデータ（実際にはバイト配列）へのポインタ
+  glReadPixels( xs.GLint, ys.GLint,
+                imageWidth.GLsizei, imageHeight.GLsizei,
+                GL_RGB,
+                GL_UNSIGNED_BYTE,
+                texBuffer[0].addr
                 )
 
   # 上下反転を補正する
