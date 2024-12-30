@@ -518,7 +518,7 @@ Properly edit the version info etc in `imguin.nimble` file, then
 
   | ImGui/CImGui Ver. | ImGuin Ver. | Date    | WindowsOS | Linux Mint 22 | Debian<br> Bookworm (1) |
   | :--------------:  | ---------   | :----:  | :---:     | :---:         | :---:                   |
-  | 1.91.6dock        | 1.91.6.6    | 2024/12 | OK        | OK            | -                       |
+  | 1.91.6dock        | 1.91.6.7    | 2024/12 | OK        | OK            | -                       |
   | 1.91.5dock        | -           | -       | -         | -             | -                       |
   | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK        | OK            | -                       |
   | 1.91.3dock        | 1.91.3.1    | 2024/10 | OK        | (7)           | -                       |
