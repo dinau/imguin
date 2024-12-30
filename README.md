@@ -7,6 +7,7 @@
     - [Install](#install)
     - [Build examples](#build-examples)
     - [Available libraries](#available-libraries)
+      - [Frontends and Backends](#frontends-and-backends)
     - [Screen shot (examples)](#screen-shot-examples)
       - [glfw_opengl3](#glfw_opengl3)
       - [glfw_opengl3_imknobs](#glfw_opengl3_imknobs)
@@ -31,13 +32,13 @@
       - [Similar project ImGui / CImGui](#similar-project-imgui--cimgui)
       - [SDL Game tutorial Platfromer](#sdl-game-tutorial-platfromer)
       - [Other link2](#other-link2)
+      - [Memo](#memo)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # ImGuin
 
-![alt](https://github.com/dinau/imguin/actions/workflows/run.yml/badge.svg)  
-![alt](https://github.com/dinau/imguin/actions/workflows/linux.yml/badge.svg)
+![alt](https://github.com/dinau/imguin/actions/workflows/run.yml/badge.svg)  ![alt](https://github.com/dinau/imguin/actions/workflows/linux.yml/badge.svg)
 
 Updated to latest ImGui/CImGui version: : **v1.91.6dock** (2024/12)
 
@@ -60,17 +61,15 @@ It may be better to use the **mainstream** project [nimgl/imgui](https://github.
 - [Nim-2.0.14](https://nim-lang.org) or later
 - Windows10 or later  
 [MSys2/MinGW](https://www.msys2.org/) command line tools (Unix tools), make, cp, rm, git, ...etc
-- Linux Mint 22 (or Ubuntu / Debian families ?)
+- Linux Mint 22 (or Ubuntu / Debian families )
+
+  ```sh
+  $ sudo apt install gcc g++ make git 
+  ```
 
   ```sh
   $ sudo apt install xorg-dev libopengl-dev libgl1-mesa-dev
-  ```
-
-  and for glfw3 and sdl2,
-
-  ```sh
-  $ sudo apt install libglfw3 libglfw3-dev
-  $ sudo apt install libsdl2-dev
+  $ sudo apt install libglfw3 libglfw3-dev libsdl2-dev
   ```
 
 ### Install
@@ -93,14 +92,14 @@ nimble install https://github.com/dinau/imguin
    ```
 
 1. Sample program is here, [examples](examples).
-For instance [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim),
+For instance [glfw_opengl3_base.nim](examples/glfw_opengl3_base/glfw_opengl3_base.nim),
 
    ```sh
-   cd imguin/examples/glfw_opengl3
+   cd imguin/examples/glfw_opengl3_base
    make  # or make run
    ```
 
-   After build, run `./glfw_opengl3(.exe)`  
+   After build, run `./glfw_opengl3_base(.exe)`  
    Compiation options depend on `./config.nims` and `./Makefile`.
 
 
@@ -110,16 +109,27 @@ For instance [glfw_opengl3.nim](examples/glfw_opengl3/glfw_opengl3.nim),
 
 ---
 
-|     | Library name                                                                                                        |              |
-|-----|---------------------------------------------------------------------------------------------------------------------|--------------|
-| v   | ImGui / CImGui                                                                                                      | Base library |
-| v   | ImPlot / CImPlot                                                                                                    |
-| v   | ImNodes/ CImNodes                                                                                                   |
-| v   | ImGuizmo/ CImGuizmo                                                                                                 |
-| v   | ImGui-Knobs/ CImGui-Knobs                                                                                           |
-| v   | ImGuiFileDialog / [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog)                                     | Windows      |
-| ... | ...                                                                                                                 | ...          |
-| x   | [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE) | 2025 ?       |
+|     | Library name                                                                                                                  |              |
+|-----|-------------------------------------------------------------------------------------------------------------------------------|--------------|
+| v   | [ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui)                                        | Base library |
+| v   | [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.com/cimgui/cimplot)                                    |              |
+| v   | [ImNodes](https://github.com/Nelarius/imnodes) / [CImNodes](https://github.com/cimgui/cimnodes)                               |              |
+| v   | [ImGuizmo](https://github.com/CedricGuillemet/ImGuizmo) / [CImGuizmo](https://github.com/cimgui/cimguizmo)                    |              |
+| v   | [ImGui-Knobs]([https://github.com/altschuler/imgui-knobs)/ [CImGui-Knobs](src/imguin/private/cimgui-knobs)                    |              |
+| v   | [ImGuiFileDialog](https://github.com/aiekick/ImGuiFileDialog) / [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog) |              |
+| ... | ...                                                                                                                           | ...          |
+| x   | [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE)           | 2025 ?       |
+
+####  Frontends and Backends 
+
+---
+
+   |                    | GLFW   | SDL2  | SDL3   |       |
+   | ---                | :----: | :---- | :----: | ---   |
+   | OpenGL3<br>backend | v      | v     | v      |       |
+   | SDL2<br>backend    | -      | ?     | -      | 2025? |
+   | SDL3<br>backend    | -      | -     | ?      | 2025? |
+
 
 ### Screen shot (examples)
 

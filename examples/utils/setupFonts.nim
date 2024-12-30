@@ -4,7 +4,7 @@ import imguin/lang/imgui_ja_gryph_ranges
 import ../utils/fonticon/IconsFontAwesome6
 export IconsFontAwesome6
 
-let IconfontFullPath = "../utils/fonticon/fa6/fa-solid-900.ttf"
+let IconfontFullPath = os.joinPath(os.getAppDir(),"../utils/fonticon/fa6/fa-solid-900.ttf")
 
 #--------------
 # point2px

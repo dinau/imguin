@@ -50,8 +50,7 @@ proc main() =
       igText("%s%s", ICON_FA_COMMENT_MEDICAL & " Nim-", NimVersion)
 
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
-      var s = "Input result:" & sBuf
-      igText(s.cstring)
+      igText(("Input result:" & sBuf).cstring)
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.0f, "%.3f", 0)

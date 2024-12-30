@@ -70,8 +70,7 @@ proc main() =
       igText((ICON_FA_COMMENT_SMS & " " & getBackendVersionString()).cstring)
 
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
-      var s = "Input result:" & sBuf
-      igText(s.cstring)
+      igText(("Input result:" & sBuf).cstring)
       igCheckbox("Demo window", addr showDemoWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)
       igColorEdit3("Background color", win.ini.clearColor.array3, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
@@ -110,10 +109,9 @@ proc main() =
       igGetCursorScreenPos(addr imageBoxPosTop) # Get absolute pos.
       igImage(cast[ImTextureID](textureId), size, uv0, uv1, tint_col, border_col);
       igGetCursorScreenPos(addr imageBoxPosEnd) # Get absolute pos.
-      when false: # TODO WIP
-        # Magnifiying glass
-        if igIsItemHovered(ImGui_HoveredFlags_DelayNone.ImGuiHoveredFlags):
-          zoomGlass(zoomTextureID, textureWidth, imageBoxPosTop, imageBoxPosEnd)
+      # Magnifiying glass
+      if igIsItemHovered(ImGui_HoveredFlags_DelayNone.ImGuiHoveredFlags):
+        zoomGlass(zoomTextureID, textureWidth, imageBoxPosTop, imageBoxPosEnd)
 
     #--------
     # render

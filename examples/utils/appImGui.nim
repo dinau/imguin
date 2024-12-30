@@ -25,6 +25,7 @@ type IniData = object
   clearColor*: ccolor
   startupPosX*, startupPosY*:cint
   viewportWidth*, viewportHeight*:cint
+  imageSaveFormatIndex*:int
 
 type Window* = object
   handle*: glfw.GLFWwindow
@@ -214,7 +215,7 @@ proc setClearColor*(win: var Window, col: ccolor) =
 #------
 proc free*(mem: pointer) {.importc,header:"<stdlib.h>".}
 
-# Sections (Cat.)
+# Sections
 const scWindow           = "Window"
 # [Window]
 const startupPosX      = "startupPosX"
@@ -225,6 +226,9 @@ const colBGx = "colBGx"
 const colBGy = "colBGy"
 const colBGz = "colBGz"
 const colBGw = "colBGw"
+# [Image]
+const scImage           = "Image"
+const imageSaveFormatIndex = "imageSaveFormatIndex"
 
 #---------
 # loadIni    --- Load ini
@@ -236,15 +240,19 @@ proc loadIni*(this: var Window) =
   #----------
   if fileExists(iniName):
     let cfg = loadConfig(iniName)
-    # Windows
+    # Window pos
     this.ini.startupPosX = cfg.getSectionValue(scWindow,startupPosX).parseInt.cint
     if 10 > this.ini.startupPosX: this.ini.startupPosX = 10
     this.ini.startupPosY = cfg.getSectionValue(scWindow,startupPosY).parseInt.cint
     if 10 > this.ini.startupPosY: this.ini.startupPosY = 10
+
+    # Window size
     this.ini.viewportWidth = cfg.getSectionValue(scWindow,viewportWidth).parseInt.cint
     if this.ini.viewportWidth < 100: this.ini.viewportWidth = 900
     this.ini.viewportHeight = cfg.getSectionValue(scWindow,viewportHeight).parseInt.cint
     if this.ini.viewportHeight < 100: this.ini.viewportHeight = 900
+
+    # Background color
     var fval:float
     discard parsefloat(cfg.getSectionValue(scWindow, colBGx, "0.25"), fval)
     this.ini.clearColor.elm.x = fval.cfloat
@@ -254,6 +262,10 @@ proc loadIni*(this: var Window) =
     this.ini.clearColor.elm.z = fval.cfloat
     discard parsefloat(cfg.getSectionValue(scWindow, colBGw, "1.00"), fval)
     this.ini.clearColor.elm.w = fval.cfloat
+
+    # Image format index
+    this.ini.imageSaveFormatIndex = cfg.getSectionValue(scImage,imageSaveFormatIndex).parseInt.cint
+
   #----------------
   # Set first defaults
   #----------------
@@ -261,6 +273,7 @@ proc loadIni*(this: var Window) =
     this.ini.startupPosX = 100
     this.ini.startupPosY = 200
     this.ini.clearColor = ccolor(elm:(x:0.25f, y:0.65f, z:0.85f, w:1.0f))
+    this.ini.imageSaveFormatIndex = 0
 
 #---------
 # saveIni   --- save iniFile
@@ -268,15 +281,24 @@ proc loadIni*(this: var Window) =
 proc saveIni*(this: var Window) =
   let iniName = getAppFilename().changeFileExt("ini")
   var ini = newConfig()
+  # Window pos
   getWindowPos(this.handle, addr this.ini.startupPosX,addr this.ini.startupPosY)
   ini.setSectionKey(scWindow,startupPosX,$this.ini.startupPosX)
   ini.setSectionKey(scWindow,startupPosY,$this.ini.startupPosY)
+
+  # Window size
   let ws = igGetMainViewPort().WorkSize
   ini.setSectionKey(scWindow, viewportWidth,$ws.x.cint)
   ini.setSectionKey(scWindow, viewportHeight,$ws.y.cint)
+
+  # Background color
   ini.setSectionKey(scWindow, colBGx, $this.ini.clearColor.elm.x)
   ini.setSectionKey(scWindow, colBGy, $this.ini.clearColor.elm.y)
   ini.setSectionKey(scWindow, colBGz, $this.ini.clearColor.elm.z)
   ini.setSectionKey(scWindow, colBGw, $this.ini.clearColor.elm.w)
+
+  # Image format index
+  ini.setSectionKey(scImage, imageSaveFormatIndex, $this.ini.imageSaveFormatIndex)
+
   # save ini file
   writeFile(iniName,$ini)

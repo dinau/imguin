@@ -4,6 +4,8 @@ TARGET = $(notdir $(CURDIR))
 
 ifeq ($(OS),Windows_NT)
 	EXE = .exe
+else
+	OPT += --passL:-lstdc++
 endif
 TARGET_EXE = $(TARGET)$(EXE)
 
@@ -13,7 +15,6 @@ OPT += -d:strip
 OPT += -o:$(TARGET_EXE)
 #OPT += --listCmd
 #OPT += --verbosity:2
-OPT += --passL:-lstdc++
 
 all: build dll
 

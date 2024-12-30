@@ -18,7 +18,6 @@ const SaveImageName = "ImageSaved"
 var
   imageExt:string
   imageFormatTbl = [(kind:"JPEG 90%",ext:".jpg"), ("PNG",".png"), ("BMP",".bmp"), ("TGA",".tga")]
-  cbItemIndex = 0
 
 #------
 # main
@@ -72,8 +71,7 @@ proc main() =
       igText("%s%s", ICON_FA_COMMENT_MEDICAL & " Nim-", NimVersion)
 
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
-      var s = "Input result:" & sBuf
-      igText(s.cstring)
+      igText(("Input result:" & sBuf).cstring)
       igCheckbox("Demo window", addr showDemoWindow)
       igCheckbox("Another window", addr showAnotherWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.0f, "%.3f", 0)
@@ -87,11 +85,11 @@ proc main() =
       igPushStyleColorVec4(ImGuiCol_Text.ImGuiCol,          ImVec4(x: 0.0, y: 0.0, z:0.0, w: 1.0))
 
       # Image save button
-      imageExt = imageFormatTbl[cbItemIndex].ext
+      imageExt = imageFormatTbl[win.ini.imageSaveFormatIndex].ext
       svName = fmt"{SaveImageName}_{counter:05}{imageExt}"
       if igButton("Save Image", ImVec2(x: 0.0f, y: 0.0f)):
         let wkSize = igGetMainViewport().Worksize
-        saveImage(svName,0, 0, wkSize.x.int, wkSize.y.int, 3) # --- Save Image !
+        saveImage(svName,0, 0, wkSize.x.int, wkSize.y.int) # --- Save Image !
       igPopStyleColor(4)
       igPopID()
 
@@ -103,14 +101,13 @@ proc main() =
 
       #-- ComboBox: Select save image format
       igSetNextItemWidth(100)
-      if igBeginCombo("##".cstring, imageFormatTbl[cbItemIndex].kind.cstring, 0):
+      if igBeginCombo("##".cstring, imageFormatTbl[win.ini.imageSaveFormatIndex].kind.cstring, 0):
         for n,val in imageFormatTbl:
-          var is_selected = (cbItemIndex == n)
+          var is_selected = (win.ini.imageSaveFormatIndex == n)
           if igSelectableBoolPtr(val.kind.cstring, is_selected.addr, 0, ImVec2(x: 0.0,y: 0.0)):
             if is_selected:
               igSetItemDefaultFocus()
-            cbItemIndex = n
-        #app.image.imageSaveFormatIndex = cbItemIndex
+            win.ini.imageSaveFormatIndex = n
         igEndCombo()
       setTooltip("Select image format")
 

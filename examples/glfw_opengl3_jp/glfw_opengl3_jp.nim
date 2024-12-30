@@ -64,14 +64,12 @@ proc firstWindow(win:Window) =
     igBegin("Window".cstring, showFirstWindow.addr, 0)
     defer: igEnd()
 
-    var s = "GLFW v" & $glfwGetVersionString()
-    igText(s.cstring)
-    s = "OpenGL v" & ($cast[cstring](glGetString(GL_VERSION))).split[0]
-    igText(s.cstring)
+    igText((ICON_FA_COMMENT & " " & getFrontendVersionString()).cstring)
+    igText((ICON_FA_COMMENT_SMS & " " & getBackendVersionString()).cstring)
+
     igText("これは日本語表示テスト")
     igInputTextWithHint("テキスト入力", "ここに日本語を入力", sBuf)
-    s = "入力結果:" & sBuf
-    igText(s.cstring)
+    igText(("入力結果:" & sBuf).cstring)
     igCheckbox("デモ・ウインドウ表示", showDemoWindow.addr)
     igSliderFloat("浮動小数", somefloat.addr, 0.0f, 1.0f, "%3f", 0)
     igColorEdit3("背景色変更", win.ini.clearColor.array3, ImGuiColorEditFlags_None.ImGuiColorEditFlags)

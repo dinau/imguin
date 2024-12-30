@@ -71,8 +71,7 @@ proc main() =
       igText((ICON_FA_COMMENT_SMS & " " & getBackendVersionString()).cstring)
 
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
-      var s = "Input result:" & sBuf
-      igText(s.cstring)
+      igText(("Input result:" & sBuf).cstring)
       igCheckbox("Demo window", addr showDemoWindow)
       igSliderFloat("Float", addr fval, 0.0f, 1.5f, "%.3f", 0)
       igColorEdit3("Bcakground color", win.ini.clearColor.array3, ImGuiColorEditFlags_None.ImGuiColorEditFlags)
