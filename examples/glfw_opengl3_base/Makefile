@@ -1,3 +1,0 @@
-
-include ../makefile.common.mk
-

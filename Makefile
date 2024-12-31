@@ -1,18 +1,22 @@
 # This file is just for the purpose of package development.
 #
+ifeq ($(OS),Windows_NT)
+	EXE = .exe
+else
+	OPT += --passL:-lstdc++
+endif
+#
 .PHONY: example clean install updater gen
 
-all: example
+all:
+	nimble make
 
 install:
 	nimble install
 	#@-nimble build
 
-example:
-	make -C examples
-
 clean:
-	make -C examples clean
+	rm tests/tglfw_opengl3$(EXE)
 
 EXT_LIB_DIR = ../libs
 TARGET_DIR = src/imguin/private

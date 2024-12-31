@@ -17,5 +17,4 @@ jobs:
         with:
           nim-version: '2.2.0'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - run: make install
-      - run: make
+      - run: nimble make
