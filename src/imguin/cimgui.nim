@@ -48,7 +48,8 @@ when defined(useFuthark): # Generate header files with Futhark.
     "cimguizmo.h"
     "cimgui-knobs.h"
     "ImGuiFileDialog.h"
-    #define "CIMGUI_USE_SDL3"
+    #define "CIMGUI_USE_SDLRENDERER2"
+    #define "CIMGUI_USE_SDLRENDERER3"
     #"cimgui_impl.h"
     # Output
     outputPath CIMGUI_DEFS_FILE

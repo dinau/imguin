@@ -1,4 +1,6 @@
 import std/[os,strutils]
+import sdl_baseType
+export sdl_baseType
 
 proc currentSourceDir(): string {.compileTime.} =
   result = currentSourcePath().replace("\\", "/")
@@ -27,19 +29,6 @@ else: # for linux Debian 11 Bullseye or later
 const ImguiRootPath    = joinPath(CImguiRootPath,"imgui").replace("\\", "/")
 {.compile:joinPath(ImguiRootPath,"backends/imgui_impl_sdl2.cpp").replace("\\", "/").}
 
-type
-  structsdlwindow* {.incompleteStruct.} = object
-  structsdlrenderer* {.incompleteStruct.} = object
-  structsdlgamecontroller* {.incompleteStruct.} = object
-  internalsdlgamecontroller* = structsdlgamecontroller ## Generated based on cimgui_impl.h:50:36
-  enumimguiimplsdl2gamepadmode* {.size: sizeof(cuint).} = enum
-    ImGui_implsdl2GamePadModeAutofirst = 0, ImGui_implsdl2GamePadModeAutoAll = 1,
-    ImGui_implsdl2GamePadModemanual = 2
-  ImGui_ImplSDL2_Gamepadmode* = enumimguiimplsdl2gamepadmode ## Generated based on cimgui_impl.h:55:125
-  unionsdlevent* {.incompleteStruct.} = object
-  SDL_Renderer* = structsdlrenderer ## Generated based on cimgui_impl.h:49:29
-  SDL_Window* = structsdlwindow ## Generated based on cimgui_impl.h:48:27
-  SDL_Event* = unionsdlevent  ## Generated based on cimgui_impl.h:54:25
 
 {.push discardable.}
 proc ImGui_ImplSDL2_InitForOpenGL*(window: ptr SDL_Window; sdlglcontext: pointer): bool {.  cdecl, importc: "ImGui_ImplSDL2_InitForOpenGL".}

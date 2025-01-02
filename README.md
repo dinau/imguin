@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [ImGuin](#imguin)
+  - [Screen shot](#screen-shot)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Available libraries](#available-libraries)
@@ -17,16 +18,23 @@
 
 ![alt](https://github.com/dinau/imguin/actions/workflows/run.yml/badge.svg)  ![alt](https://github.com/dinau/imguin/actions/workflows/linux.yml/badge.svg)
 
-Updated to latest ImGui/CImGui version: : **v1.91.6dock** (2024/12)
+Updated to latest ImGui / CImGui version: : **v1.91.6dock** (2024/12)
 
 This project is my experiment project to use ImGui, ImPlot, futhark and so on with Nim language.  
-See example project  [ImGuin_examples](https://github.com/dinau/imguin_examples)
 
 - Notice  
 It may be better to use the **mainstream** project [nimgl/imgui](https://github.com/nimgl/imgui) (ImGui v1.85)  
 ,updated project [nimgl-imgui](https://github.com/dinau/nimgl-imgui) (ImGui v1.89.9)
 ,sub project [nim_implot](https://github.com/dinau/nim_implot) and test project [nimgl_test](https://github.com/dinau/nimgl_test).
 
+
+#### Screen shot
+
+---
+
+See example project  [ImGuin_examples](https://github.com/dinau/imguin_examples)
+
+![alt](https://github.com/dinau/imguin/raw/main/src/img/sdl2_renderer.png)
 
 #### Prerequisites
 
@@ -52,9 +60,6 @@ nimble uninstall imguin  # Remove old versions if exists.
 nimble install https://github.com/dinau/imguin
 ```
 
-
-
-
 #### Available libraries 
 
 ---
@@ -74,11 +79,11 @@ nimble install https://github.com/dinau/imguin
 
 ---
 
-   |                    | GLFW   | SDL2  | SDL3   |       |
-   | ---                | :----: | :---- | :----: | ---   |
-   | OpenGL3<br>backend | v      | v     | v      |       |
-   | SDL2<br>backend    | -      | ?     | -      | 2025? |
-   | SDL3<br>backend    | -      | -     | ?      | 2025? |
+   |                     | GLFW   | SDL2  | SDL3   |            |
+   | ------------------- | :----: | :---- | :----: | ---        |
+   | OpenGL3<br>backend  | v      | v     | v      | Done.      |
+   | SDL2<br>backend     | -      | v     | -      | Done. 2025 |
+   | SDL3<br>backend     | -      | -     | WIP    |            |
 
 
 #### Update / Downgrade Dear ImGui and CImGui
@@ -165,18 +170,18 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
-   | 1.91.6dock        | 1.91.6.8    | 2024/12 | OK                      |
+   | 1.91.6dock        | 1.91.6.9    | 2025/01 | OK                      |
    | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK                      |
    | 1.91.3dock        | 1.91.3.1    | 2024/10 | ?                       |
    | 1.91.2dock        | 1.91.2.0    | 2024/10 | ?                       |
    | 1.91.1dock        | 1.91.1.2    | 2024/09 | Except ImNodes example  |
    | 1.91.0dock        | 1.91.0.0    | 2024/08 | ?                       |
    | 1.90.4dock        | 1.90.4.2    | 2024/02 | Use nim-2.0.2           |
-   | 1.89.9dock        | 1.89.9.8    | 2023/12 | OK (1)(2)            |
+   | 1.89.9dock        | 1.89.9.8    | 2023/12 | OK (1)(2)               |
 
   (1): Except imnodes and SDL2 example.  
   (2): Works well only if it is compiled debug mode.  
-  (3) Dedian12 Bookworm, Linux Mint 22 etc.
+  (3) Dedian12 Bookworm, Linux Mint 22 , Ubuntu familiy etc.
 
 #### TODO
 
