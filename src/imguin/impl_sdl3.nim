@@ -30,6 +30,7 @@ type
     ImGui_ImplSDL3_GamepadMode_Manual = 2
   ImGui_ImplSDL3_GamepadMode* = enum_ImGui_ImplSDL3_GamepadMode
 
+{.push discardable.}
 proc ImGui_ImplSDL3_InitForOpenGL*(window: ptr SDL_Window; sdl_gl_context: pointer): bool {.cdecl, importc: "ImGui_ImplSDL3_InitForOpenGL".}
 proc ImGui_ImplSDL3_InitForVulkan*(window: ptr SDL_Window): bool {.cdecl, importc: "ImGui_ImplSDL3_InitForVulkan".}
 proc ImGui_ImplSDL3_InitForD3D*(window: ptr SDL_Window): bool {.cdecl, importc: "ImGui_ImplSDL3_InitForD3D".}
@@ -40,3 +41,4 @@ proc ImGui_ImplSDL3_Shutdown*(): void {.cdecl, importc: "ImGui_ImplSDL3_Shutdown
 proc ImGui_ImplSDL3_NewFrame*(): void {.cdecl, importc: "ImGui_ImplSDL3_NewFrame".}
 proc ImGui_ImplSDL3_ProcessEvent*(event: ptr SDL_Event): bool {.cdecl, importc: "ImGui_ImplSDL3_ProcessEvent".}
 proc ImGui_ImplSDL3_SetGamepadMode*(mode: ImGui_ImplSDL3_GamepadMode; manual_gamepads_array: ptr ptr SDL_Gamepad; manual_gamepads_count: cint): void {.cdecl, importc: "ImGui_ImplSDL3_SetGamepadMode".}
+{.pop.}

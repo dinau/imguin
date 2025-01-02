@@ -24,8 +24,8 @@ This project is my experiment project to use ImGui, ImPlot, futhark and so on wi
 
 - Notice  
 It may be better to use the **mainstream** project [nimgl/imgui](https://github.com/nimgl/imgui) (ImGui v1.85)  
-,updated project [nimgl-imgui](https://github.com/dinau/nimgl-imgui) (ImGui v1.89.9)
-,sub project [nim_implot](https://github.com/dinau/nim_implot) and test project [nimgl_test](https://github.com/dinau/nimgl_test).
+,updated project [nimgl-imgui](https://github.com/dinau/nimgl-imgui) (ImGui v1.89.9)  ,sub project [nim_implot](https://github.com/dinau/nim_implot) and test project [nimgl_test](https://github.com/dinau/nimgl_test),  
+or [https://github.com/daniel-j/nimgl-imgui](https://github.com/daniel-j/nimgl-imgui) (ImGui v1.91.1)
 
 
 #### Screen shot
@@ -43,7 +43,7 @@ See example project  [ImGuin_examples](https://github.com/dinau/imguin_examples)
 - [Nim-2.0.14](https://nim-lang.org) or later
 - Windows10 or later  
 [MSys2/MinGW](https://www.msys2.org/) command line tools (Unix tools), make, cp, rm, git, ...etc
-- Ubuntu / Debian families 
+- Linux: Ubuntu / Debian families 
 
   ```sh
   $ sudo apt install gcc g++ make git 
@@ -83,7 +83,7 @@ nimble install https://github.com/dinau/imguin
    | ------------------- | :----: | :---- | :----: | ---        |
    | OpenGL3<br>backend  | v      | v     | v      | Done.      |
    | SDL2<br>backend     | -      | v     | -      | Done. 2025 |
-   | SDL3<br>backend     | -      | -     | WIP    |            |
+   | SDL3<br>backend     | -      | -     | v      | Done. 2025 |
 
 
 #### Update / Downgrade Dear ImGui and CImGui

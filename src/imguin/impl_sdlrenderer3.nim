@@ -23,10 +23,11 @@ else:
 const ImguiRootPath    = joinPath(CImguiRootPath,"imgui").replace("\\", "/")
 {.compile:joinPath(ImguiRootPath,"backends/imgui_impl_sdlrenderer3.cpp").replace("\\", "/").}
 type
-  structsdlrenderer {.incompleteStruct.} = object
-  SDL_Renderer = structsdlrenderer
-  ImDrawData  {.incompleteStruct.} = object
+  #struct_SDL_Renderer {.incompleteStruct.} = object
+  #SDL_Renderer = structsdlrenderer
+  ImDrawData*  {.incompleteStruct.} = object
 
+{.push discardable.}
 proc ImGui_ImplSDLRenderer3_Init*(renderer: ptr SDL_Renderer): bool {.cdecl, importc: "ImGui_ImplSDLRenderer3_Init".}
 proc ImGui_ImplSDLRenderer3_Shutdown*(): void {.cdecl, importc: "ImGui_ImplSDLRenderer3_Shutdown".}
 proc ImGui_ImplSDLRenderer3_NewFrame*(): void {.cdecl, importc: "ImGui_ImplSDLRenderer3_NewFrame".}
@@ -35,3 +36,4 @@ proc ImGui_ImplSDLRenderer3_CreateFontsTexture*(): bool {.cdecl, importc: "ImGui
 proc ImGui_ImplSDLRenderer3_DestroyFontsTexture*(): void {.cdecl, importc: "ImGui_ImplSDLRenderer3_DestroyFontsTexture".}
 proc ImGui_ImplSDLRenderer3_CreateDeviceObjects*(): bool {.cdecl, importc: "ImGui_ImplSDLRenderer3_CreateDeviceObjects".}
 proc ImGui_ImplSDLRenderer3_DestroyDeviceObjects*(): void {.cdecl, importc: "ImGui_ImplSDLRenderer3_DestroyDeviceObjects".}
+{.pop.}
