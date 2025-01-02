@@ -1,6 +1,6 @@
 import std/[os,strutils]
-import sdl_BaseType
-export sdl_BaseType
+import sdl_basetype
+export sdl_basetype
 
 proc currentSourceDir(): string {.compileTime.} =
   result = currentSourcePath().replace("\\", "/")
