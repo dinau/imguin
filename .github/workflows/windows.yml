@@ -1,4 +1,4 @@
-name: Linux OS(Ubuntu) compilation
+name: Windows OS compilation
 
 on:
   push:
@@ -9,18 +9,14 @@ on:
       - 'main'
 
 jobs:
-  build_linux:
-    runs-on: ubuntu-latest
+  build_windows:
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       - uses: jiro4989/setup-nim-action@v2
         with:
           nim-version: '2.2.0'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - run: |
-          sudo apt install xorg-dev libopengl-dev libgl1-mesa-dev
-          sudo apt install libglfw3 libglfw3-dev
-          sudo apt install libsdl2-dev
       - run: |
           nimble install
           nimble make
