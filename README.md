@@ -64,26 +64,28 @@ nimble install https://github.com/dinau/imguin
 
 ---
 
-|     | Library name                                                                                                                  |              |
-|-----|-------------------------------------------------------------------------------------------------------------------------------|--------------|
-| v   | [ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui)                                        | Base library |
-| v   | [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.com/cimgui/cimplot)                                    |              |
-| v   | [ImNodes](https://github.com/Nelarius/imnodes) / [CImNodes](https://github.com/cimgui/cimnodes)                               |              |
-| v   | [ImGuizmo](https://github.com/CedricGuillemet/ImGuizmo) / [CImGuizmo](https://github.com/cimgui/cimguizmo)                    |              |
-| v   | [ImGui-Knobs]([https://github.com/altschuler/imgui-knobs)/ [CImGui-Knobs](src/imguin/private/cimgui-knobs)                    |              |
-| v   | [ImGuiFileDialog](https://github.com/aiekick/ImGuiFileDialog) / [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog) |              |
-| ... | ...                                                                                                                           | ...          |
-| x   | [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE)           | 2025 ?       |
+| Library name / C lang wrapper                                                                                                                            |              |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| [x] [ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui)                                                               | Base library |
+| [x] [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.com/cimgui/cimplot)                                                           |              |
+| [x] [ImNodes](https://github.com/Nelarius/imnodes) / [CImNodes](https://github.com/cimgui/cimnodes)                                                      |              |
+| [x] [ImGuizmo](https://github.com/CedricGuillemet/ImGuizmo) / [CImGuizmo](https://github.com/cimgui/cimguizmo)                                           |              |
+| [x] [ImGui-Knobs](https://github.com/altschuler/imgui-knobs) / [CImGui-Knobs](https://github.com/dinau/imguin/tree/main/src/imguin/private/cimgui-knobs) |              |
+| [x] [ImGuiFileDialog](https://github.com/aiekick/ImGuiFileDialog) / [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog)                        |              |
+| [x] [ImGui_Toggle](https://github.com/cmdwtf/imgui_toggle) / [CimGui_Toggle](https://github.com/dinau/cimgui_toggle)                                     |              |
+| [ ] [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE)                                  |              |
+| [ ] [ImPlot3d](https://github.com/brenocq/implot3d) / [CImPlot3d](https://github.com/cimgui/cimplot3d)                                                   |              |
+| [ ] [ImGui_Markdown](https://github.com/enkisoftware/imgui_markdown)                                                                                     |              |
 
 ####  Frontends and Backends 
 
 ---
 
-   |                     | GLFW   | SDL2  | SDL3   |            |
-   | ------------------- | :----: | :---- | :----: | ---        |
-   | OpenGL3<br>backend  | v      | v     | v      | Done.      |
-   | SDL2<br>backend     | -      | v     | -      | Done. 2025 |
-   | SDL3<br>backend     | -      | -     | v      | Done. 2025 |
+   |                     | GLFW   | SDL2  | SDL3   |
+   | ------------------- | :----: | :---- | :----: |
+   | OpenGL3<br>backend  | [x] .  | [x] . | [x] .  |
+   | SDL2<br>backend     |        | [x] . |        |
+   | SDL3<br>backend     |        |       | [x] .  |
 
 
 #### Update / Downgrade Dear ImGui and CImGui
@@ -170,7 +172,7 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
-   | 1.91.6dock        | 1.91.6.10   | 2025/01 | OK                      |
+   | 1.91.6dock        | 1.91.6.11   | 2025/01 | OK                      |
    | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK                      |
    | 1.91.3dock        | 1.91.3.1    | 2024/10 | ?                       |
    | 1.91.2dock        | 1.91.2.0    | 2024/10 | ?                       |

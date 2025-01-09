@@ -73,3 +73,6 @@ when defined(ImKnobsEnable):
                         ,-1 # angle_min
                         ,-1 # angle_max
                         )
+
+proc igPushStyleColor*(idx: ImGuiCol; col: ImU32) = igPushStyleColor_U32(idx, col)
+proc igPushStyleColor*(idx: ImGuiCol; col: ImVec4) = igPushStyleColor_Vec4(idx, col)

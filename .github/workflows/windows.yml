@@ -1,4 +1,4 @@
-name: Windows OS compilation
+name: Windows OS Nim 2.2.0 compilation
 
 on:
   push:

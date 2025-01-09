@@ -217,17 +217,17 @@ typedef unsigned short ImDrawIdx;
 typedef unsigned int ImWchar32;
 typedef unsigned short ImWchar16;
 
-#ifdef IMGUI_USE_WCHAR32            
+#ifdef IMGUI_USE_WCHAR32
 typedef ImWchar32 ImWchar;
 #else
 typedef ImWchar16 ImWchar;
 #endif
 #ifdef IMGUI_USE_WCHAR32
-#define IM_UNICODE_CODEPOINT_MAX     0x10FFFF   
+#define IM_UNICODE_CODEPOINT_MAX     0x10FFFF
 #else
-#define IM_UNICODE_CODEPOINT_MAX     0xFFFF  
+#define IM_UNICODE_CODEPOINT_MAX     0xFFFF
 #endif
-	
+
 typedef ImS64 ImGuiSelectionUserData;
 typedef int (*ImGuiInputTextCallback)(ImGuiInputTextCallbackData* data);
 typedef void (*ImGuiSizeCallback)(ImGuiSizeCallbackData* data);
@@ -5045,7 +5045,3 @@ CIMGUI_API void ImGuiPlatformIO_Set_Platform_GetWindowSize(ImGuiPlatformIO* plat
 #endif
 
 #endif //CIMGUI_INCLUDED
-
-
-
-

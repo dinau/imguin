@@ -26,51 +26,57 @@ updater:
 
 gen: copylibs updater
 
-copylibs: imgui implot imnodes imguizmo ImGuiFileDialog
+copylibs: imgui implot imnodes imguizmo ImGuiFileDialog imgui_toggle
 
 imgui:
 	@echo [ CImGui ] copying...
 	@-mkdir -p $(TARGET_DIR)/c$@/$@
 	@-mkdir -p $(TARGET_DIR)/c$@/$@/backends
-	@cp -f $(EXT_LIB_DIR)/cimgui/{LICENSE,*.cpp,*.h}             		   $(TARGET_DIR)/cimgui/
-	@cp -f $(EXT_LIB_DIR)/cimgui/imgui/{LICENSE.txt,*.cpp,*.h}   		   $(TARGET_DIR)/cimgui/imgui/
-	@cp -f $(EXT_LIB_DIR)/cimgui/imgui/backends/{*.cpp,*.h}      		   $(TARGET_DIR)/cimgui/imgui/backends/
+	@cp -f $(EXT_LIB_DIR)/c$@/{LICENSE,*.cpp,*.h,README.md}        $(TARGET_DIR)/c$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/$@/{LICENSE.txt,*.cpp,*.h,docs/README.md} $(TARGET_DIR)/c$@/$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/$@/backends/{*.cpp,*.h}      	       $(TARGET_DIR)/c$@/$@/backends/
 
 implot:
 	@echo [ CImPlot ] copying...
 	@-mkdir -p $(TARGET_DIR)/c$@/$@
-	@cp -f $(EXT_LIB_DIR)/cimplot/{LICENSE,*.cpp,*.h}            		   $(TARGET_DIR)/cimplot/
-	@cp -f $(EXT_LIB_DIR)/cimplot/implot/{LICENSE,*.cpp,*.h}     		   $(TARGET_DIR)/cimplot/implot/
+	@cp -f $(EXT_LIB_DIR)/c$@/{LICENSE,*.cpp,*.h,README.md}    $(TARGET_DIR)/c$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/$@/{LICENSE,*.cpp,*.h,README.md} $(TARGET_DIR)/c$@/$@/
 
 imnodes:
 	@echo [ CImNodes ] copying...
 	@-mkdir -p $(TARGET_DIR)/c$@/$@
-	@cp -f $(EXT_LIB_DIR)/cimnodes/{README.md,*.cpp,*.h}         		   $(TARGET_DIR)/cimnodes/
-	@cp -f $(EXT_LIB_DIR)/cimnodes/imnodes/{LICENSE.md,*.cpp,*.h}       $(TARGET_DIR)/cimnodes/imnodes/
+	@cp -f $(EXT_LIB_DIR)/c$@/{README.md,*.cpp,*.h}               $(TARGET_DIR)/c$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/$@/{LICENSE.md,*.cpp,*.h,README.md} $(TARGET_DIR)/c$@/$@/
 
 imguizmo:
 	@echo [ CImGuizmo ] copying...
 	@-mkdir -p $(TARGET_DIR)/c$@/ImGuizmo
-	@cp -f $(EXT_LIB_DIR)/cimguizmo/{LICENSE,*.cpp,*.h}             	   $(TARGET_DIR)/cimguizmo/
-	@cp -f $(EXT_LIB_DIR)/cimguizmo/ImGuizmo/{LICENSE,*.cpp,*.h}        $(TARGET_DIR)/cimguizmo/ImGuizmo/
+	@cp -f $(EXT_LIB_DIR)/c$@/{LICENSE,*.cpp,*.h,README.md}          $(TARGET_DIR)/c$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/ImGuizmo/{LICENSE,*.cpp,*.h,README.md} $(TARGET_DIR)/c$@/ImGuizmo/
 
 ImGuiFileDialog:
 	@echo [ CImGuiFileDialog ] copying...
 	@-mkdir -p $(TARGET_DIR)/C$@/libs/ImGuiFileDialog/dirent
 	@-mkdir -p $(TARGET_DIR)/C$@/libs/ImGuiFileDialog/stb
-	@cp -f $(EXT_LIB_DIR)/CImGuiFileDialog/LICENSE             	       $(TARGET_DIR)/cimguifiledialog/
-	@cp -f $(EXT_LIB_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/{LICENSE,*.cpp,*.h}       $(TARGET_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/
-	@cp -f $(EXT_LIB_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/dirent/{LICENSE,*.h} $(TARGET_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/dirent/
-	@cp -f $(EXT_LIB_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/stb/{LICENSE,*.h}    $(TARGET_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/stb/
+	@cp -f $(EXT_LIB_DIR)/CImGuiFileDialog/{LICENSE,README.md} 	                               $(TARGET_DIR)/cimguifiledialog/
+	@cp -f $(EXT_LIB_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/{LICENSE,*.cpp,*.h,README.md}  $(TARGET_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/
+	@cp -f $(EXT_LIB_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/dirent/{LICENSE,*.h,README.md} $(TARGET_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/dirent/
+	@cp -f $(EXT_LIB_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/stb/{LICENSE,*.h,README.md}    $(TARGET_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/stb/
+
+imgui_toggle:
+	@echo [ cimgui_toggle ] copying...
+	@-mkdir -p $(TARGET_DIR)/c$@/libs/$@
+	@cp -f $(EXT_LIB_DIR)/c$@/{LICENSE,*.cpp,*.h,README.md}         $(TARGET_DIR)/c$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/libs/$@/{LICENSE,*.cpp,*.h,README.md} $(TARGET_DIR)/c$@/libs/$@/
 
 
 libs:
 	-mkdir -p ../$@
 
 
-.PHONY: cimgui cimplot cimnodes cimguizmo cimguifiledialog
+.PHONY: cimgui cimplot cimnodes cimguizmo cimguifiledialog cimgui_toggle
 
-clonelibs: cimgui cimplot cimnodes cimguizmo
+clonelibs: cimgui cimplot cimnodes cimguizmo cimgui_toggle
 
 cimgui:
 	git clone --recurse-submodules https://github.com/$@/$@      ../libs/$@
@@ -82,27 +88,8 @@ cimguizmo:
 	git clone --recurse-submodules https://github.com/cimgui/$@  ../libs/$@
 cimguifiledialog:
 	git clone --recurse-submodules https://github.com/dinau/CImGuiFileDialog  ../libs/CImGuiFileDialog
-
+cimgui_toggle:
+	git clone --recurse-submodules https://github.com/dinau/$@  ../libs/$@
 
 help:
-	@echo
-
-
-base:
-	(cd examples/glfw_opengl3; ./glfw_opengl3)
-load:
-	(cd examples/glfw_opengl3_image_load; ./glfw_opengl3_image_load)
-save:
-	(cd examples/glfw_opengl3_image_save; ./glfw_opengl3_image_save)
-guizmo:
-	(cd examples/glfw_opengl3_imguizmo; ./glfw_opengl3_imguizmo)
-nodes:
-	(cd examples/glfw_opengl3_imnodes; ./glfw_opengl3_imnodes)
-plot:
-	(cd examples/glfw_opengl3_implot; ./glfw_opengl3_implot)
-jp:
-	(cd examples/glfw_opengl3_nimgl_imguin_jp; ./glfw_opengl3_nimgl_imguin_jp)
-sdl:
-	(cd examples/sdl2_opengl3; ./sdl2_opengl3)
-fontx:
-	(cd examples/fontx2v; ./fontx2v)
+	@echo See. https://github.com/dinau/imguin

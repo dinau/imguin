@@ -19,6 +19,8 @@ const CImNodesRootPath     = joinPath(currentSourceDir(),"private/cimnodes").rep
 const CImGuizmoRootPath    = joinPath(currentSourceDir(),"private/cimguizmo").replace("\\", "/")
 const CImKnobsRootPath     = joinPath(currentSourceDir(),"private/cimgui-knobs").replace("\\", "/")
 const CImGuiFileDialogPath = joinPath(currentSourceDir(),"private/CImGuiFileDialog/libs/ImGuiFileDialog").replace("\\", "/")
+const CImGuiTogglePath     = joinPath(currentSourceDir(),"private/cimgui_toggle").replace("\\", "/")
+const ImGuiTogglePath      = joinPath(currentSourceDir(),"private/cimgui_toggle/libs/imgui_toggle").replace("\\", "/")
 const IconFontPath         = joinPath(currentSourceDir(),"../../examples/utils/fonticon").replace("\\", "/")
 
 #--- Futhark start
@@ -33,6 +35,7 @@ when defined(useFuthark): # Generate header files with Futhark.
     path    CImGuizmoRootPath
     path    CImKnobsRootPath
     path    CImGuiFileDialogPath
+    path    CImGuiTogglePath
     path    IconFontPath
     #define "IMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
     #define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
@@ -48,6 +51,11 @@ when defined(useFuthark): # Generate header files with Futhark.
     "cimguizmo.h"
     "cimgui-knobs.h"
     "ImGuiFileDialog.h"
+    #
+    "cimgui_toggle.h"
+    "cimgui_offset_rect.h"
+    "cimgui_toggle_palette.h"
+    "cimgui_toggle_presets.h"
     #define "CIMGUI_USE_SDLRENDERER2"
     #define "CIMGUI_USE_SDLRENDERER3"
     #"cimgui_impl.h"
@@ -96,20 +104,20 @@ else: # Use generated header by Futark in your programs.
   {.compile:joinPath(ImguiRootPath,"imgui_tables.cpp").replace("\\", "/").}
   {.compile:joinPath(ImguiRootPath,"imgui_widgets.cpp").replace("\\", "/").}
 
-  when defined(ImPlotEnable):
+  when defined(ImPlotEnable) or defined(ImPlot):
     {.passC:"-I" & CImPlotRootPath.}
     {.compile:joinPath(CImPlotRootPath,"cimplot.cpp").replace("\\", "/").}
     {.compile:joinPath(CImPlotRootPath,"implot/implot.cpp").replace("\\", "/").}
     {.compile:joinPath(CImPlotRootPath,"implot/implot_demo.cpp").replace("\\", "/").}
     {.compile:joinPath(CImPlotRootPath,"implot/implot_items.cpp").replace("\\", "/").}
 
-  when defined(ImNodesEnable):
+  when defined(ImNodesEnable) or defined(ImNodes) :
     {.passC:"-DIMNODES_NAMESPACE=imnodes".}
     {.passC:"-I" & CImNodesRootPath.}
     {.compile:joinPath(CImNodesRootPath,"cimnodes.cpp").replace("\\", "/").}
     {.compile:joinPath(CImNodesRootPath,"imnodes/imnodes.cpp").replace("\\", "/").}
 
-  when defined(ImGuizmoEnable):
+  when defined(ImGuizmoEnable) or defined(ImGuizmo):
     {.passC:"-I" & CImGuizmoRootPath.}
     {.compile:joinPath(CImGuizmoRootPath,"cimguizmo.cpp").replace("\\", "/").}
     {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/GraphEditor.cpp").replace("\\", "/").}
@@ -118,11 +126,24 @@ else: # Use generated header by Futark in your programs.
     {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/ImGuizmo.cpp").replace("\\", "/").}
     {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/ImSequencer.cpp").replace("\\", "/").}
 
-  when defined(ImKnobsEnable):
+  when defined(ImKnobsEnable) or defined(ImKnobs):
     {.passC:"-I" & CImKnobsRootPath.}
     {.compile:joinPath(CImKnobsRootPath,"cimgui-knobs.cpp").replace("\\", "/").}
     {.compile:joinPath(CImKnobsRootPath,"imgui-knobs.cpp").replace("\\", "/").}
 
-  when defined(ImGuiFileDialogEnable):
+  when defined(ImGuiFileDialogEnable) or defined(ImGuiFileDialog):
     {.passC:"-I" & CImGuiFileDialogPath.}
     {.compile:joinPath(CImGuiFileDialogPath,"ImGuiFileDialog.cpp").replace("\\", "/").}
+
+  when defined(ImGuiToggleEnable) or defined(ImGuiToggle) :
+    {.passC:"-I" & CImGuiTogglePath.}
+    {.passC:"-I" & ImGuiTogglePath.}
+    {.compile:joinPath(CImGuiTogglePath,"cimgui_toggle.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImGuiTogglePath,"cimgui_toggle_presets.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImGuiTogglePath,"cimgui_offset_rect.cpp").replace("\\", "/").}
+    #
+    {.compile:joinPath(ImGuiTogglePath,"imgui_toggle.cpp").replace("\\", "/").}
+    {.compile:joinPath(ImGuiTogglePath,"imgui_toggle_palette.cpp").replace("\\", "/").}
+    {.compile:joinPath(ImGuiTogglePath,"imgui_toggle_presets.cpp").replace("\\", "/").}
+    {.compile:joinPath(ImGuiTogglePath,"imgui_toggle_renderer.cpp").replace("\\", "/").}
+#

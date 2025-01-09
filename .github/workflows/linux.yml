@@ -1,4 +1,4 @@
-name: Linux OS(Ubuntu) compilation
+name: Linux OS(Ubuntu) Nim 2.2.0 compilation
 
 on:
   push:

@@ -26,6 +26,7 @@ UNAME_S := $(shell uname -s)
 
 CXXFLAGS = -std=c++11 -I$(IMGUI_DIR) -I../ -I$(IMGUI_DIR)/backends
 CXXFLAGS += -g -Wall -Wformat
+CXXFLAGS += -O1 -Wl,-s -MMD -MP
 LIBS =
 
 ##---------------------------------------------------------------------
@@ -52,9 +53,9 @@ endif
 
 ifeq ($(OS), Windows_NT)
 	ECHO_MESSAGE = "MinGW"
-	LIBS += -lgdi32 -lopengl32 -limm32 `pkg-config --static --libs sdl2`
+	LIBS += -lgdi32 -lopengl32 -limm32 $(shell pkg-config --static --libs sdl2)
 
-	CXXFLAGS += `pkg-config --cflags sdl2`
+	CXXFLAGS += $(shell pkg-config --cflags sdl2)
 	CFLAGS = $(CXXFLAGS)
 endif
 
@@ -78,4 +79,8 @@ $(EXE): $(OBJS)
 	$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
 
 clean:
-	rm -f $(EXE) $(OBJS)
+	@-rm -f $(EXE) $(OBJS)
+	@-rm *.d
+
+
+include $(wildcard *.d)
