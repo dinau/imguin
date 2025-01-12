@@ -15,7 +15,7 @@ skipDirs      = @["src/img"
 # Dependencies
 
 requires "nim >= 2.0.14"
-requires "https://github.com/dinau/sdl3_nim >= 0.6"
+requires "https://github.com/dinau/sdl3_nim == 0.6"
 requires "nimgl == 1.3.2"
 requires "sdl2_nim == 2.0.14.3"
 requires "stb_image == 2.5"
