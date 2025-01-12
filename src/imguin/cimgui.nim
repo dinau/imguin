@@ -15,6 +15,7 @@ const ClangIncludePath = "c:/drvDx/msys64/ucrt64/lib/clang/19/include"
 const CImguiRootPath       = joinPath(currentSourceDir(),"private/cimgui").replace("\\", "/")
 #const CImguiGenePath       = joinPath(currentSourceDir(),"private/cimgui/generator/output").replace("\\", "/")
 const CImPlotRootPath      = joinPath(currentSourceDir(),"private/cimplot").replace("\\", "/")
+const CImPlot3dRootPath    = joinPath(currentSourceDir(),"private/cimplot3d").replace("\\", "/")
 const CImNodesRootPath     = joinPath(currentSourceDir(),"private/cimnodes").replace("\\", "/")
 const CImGuizmoRootPath    = joinPath(currentSourceDir(),"private/cimguizmo").replace("\\", "/")
 const CImKnobsRootPath     = joinPath(currentSourceDir(),"private/cimgui-knobs").replace("\\", "/")
@@ -31,6 +32,7 @@ when defined(useFuthark): # Generate header files with Futhark.
     path    CImguiRootPath
     #path    CImguiGenePath
     path    CImPlotRootPath
+    path    CImPlotRoot3dPath
     path    CImNodesRootPath
     path    CImGuizmoRootPath
     path    CImKnobsRootPath
@@ -46,6 +48,7 @@ when defined(useFuthark): # Generate header files with Futhark.
     #
     "cimplot.h"
     define "ImDrawIdx=\"unsigned int\""
+    "cimplot3d.h"
     #
     "cimnodes.h"
     "cimguizmo.h"
@@ -104,12 +107,20 @@ else: # Use generated header by Futark in your programs.
   {.compile:joinPath(ImguiRootPath,"imgui_tables.cpp").replace("\\", "/").}
   {.compile:joinPath(ImguiRootPath,"imgui_widgets.cpp").replace("\\", "/").}
 
-  when defined(ImPlotEnable) or defined(ImPlot):
+  when defined(ImPlotEnable) or defined(ImPlot) or defined(ImPlot3DEnable) or defined(ImPlot3D) :
     {.passC:"-I" & CImPlotRootPath.}
     {.compile:joinPath(CImPlotRootPath,"cimplot.cpp").replace("\\", "/").}
     {.compile:joinPath(CImPlotRootPath,"implot/implot.cpp").replace("\\", "/").}
     {.compile:joinPath(CImPlotRootPath,"implot/implot_demo.cpp").replace("\\", "/").}
     {.compile:joinPath(CImPlotRootPath,"implot/implot_items.cpp").replace("\\", "/").}
+
+  when defined(ImPlot3DEnable) or defined(ImPlot3D) :
+    {.passC:"-I" & CImPlot3dRootPath.}
+    {.compile:joinPath(CImPlot3dRootPath,"cimplot3d.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImPlot3dRootPath,"implot3d/implot3d.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImPlot3dRootPath,"implot3d/implot3d_demo.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImPlot3dRootPath,"implot3d/implot3d_items.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImPlot3dRootPath,"implot3d/implot3d_meshes.cpp").replace("\\", "/").}
 
   when defined(ImNodesEnable) or defined(ImNodes) :
     {.passC:"-DIMNODES_NAMESPACE=imnodes".}

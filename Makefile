@@ -26,7 +26,7 @@ updater:
 
 gen: copylibs updater
 
-copylibs: imgui implot imnodes imguizmo ImGuiFileDialog imgui_toggle
+copylibs: imgui implot imnodes imguizmo ImGuiFileDialog imgui_toggle implot3d
 
 imgui:
 	@echo [ CImGui ] copying...
@@ -69,6 +69,13 @@ imgui_toggle:
 	@cp -f $(EXT_LIB_DIR)/c$@/{LICENSE,*.cpp,*.h,README.md}         $(TARGET_DIR)/c$@/
 	@cp -f $(EXT_LIB_DIR)/c$@/libs/$@/{LICENSE,*.cpp,*.h,README.md} $(TARGET_DIR)/c$@/libs/$@/
 
+implot3d:
+	@echo [ cimplot3d ] copying...
+	-mkdir -p $(TARGET_DIR)/c$@/$@
+	@cp -f $(EXT_LIB_DIR)/c$@/{*.cpp,*.h,README.md}         $(TARGET_DIR)/c$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/$@/{LICENSE,*.cpp,*.h,README.md} $(TARGET_DIR)/c$@/$@/
+
+
 
 libs:
 	-mkdir -p ../$@
@@ -90,6 +97,8 @@ cimguifiledialog:
 	git clone --recurse-submodules https://github.com/dinau/CImGuiFileDialog  ../libs/CImGuiFileDialog
 cimgui_toggle:
 	git clone --recurse-submodules https://github.com/dinau/$@  ../libs/$@
+cimplot3d:
+	git clone --recurse-submodules https://github.com/cimgui/$@  ../libs/$@
 
 help:
 	@echo See. https://github.com/dinau/imguin

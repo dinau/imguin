@@ -131,68 +131,68 @@ struct ImGuiToggleConfig {
 
 #else
 // The golden ratio.
-const float ImGuiToggleConstants_Phi = 1.6180339887498948482045f;
+static const float ImGuiToggleConstants_Phi = 1.6180339887498948482045f;
 
 // d = 2r
-const float ImGuiToggleConstants_DiameterToRadiusRatio = 0.5f;
+static const float ImGuiToggleConstants_DiameterToRadiusRatio = 0.5f;
 
 // Animation is disabled with a animation_duration of 0.
-const float ImGuiToggleConstants_AnimationDurationDisabled = 0.0f;
+static const float ImGuiToggleConstants_AnimationDurationDisabled = 0.0f;
 
 // The default animation duration, in seconds. (0.1f: 100 ms.)
-const float ImGuiToggleConstants_AnimationDurationDefault = 0.1f;
+static const float ImGuiToggleConstants_AnimationDurationDefault = 0.1f;
 
 // The lowest allowable value for animation duration. (0.0f: Disabled animation.)
-const float ImGuiToggleConstants_AnimationDurationMinimum = ImGuiToggleConstants_AnimationDurationDisabled;
+static const float ImGuiToggleConstants_AnimationDurationMinimum = ImGuiToggleConstants_AnimationDurationDisabled;
 
 // The default frame rounding value. (1.0f: Full rounding.)
-const float ImGuiToggleConstants_FrameRoundingDefault = 1.0f;
+static const float ImGuiToggleConstants_FrameRoundingDefault = 1.0f;
 
 // The minimum frame rounding value. (0.0f: Full rectangle.)
-const float ImGuiToggleConstants_FrameRoundingMinimum = 0.0f;
+static const float ImGuiToggleConstants_FrameRoundingMinimum = 0.0f;
 
 // The maximum frame rounding value. (1.0f: Full rounding.)
-const float ImGuiToggleConstants_FrameRoundingMaximum = 1.0f;
+static const float ImGuiToggleConstants_FrameRoundingMaximum = 1.0f;
 
 // The default knob rounding value. (1.0f: Full rounding.)
-const float ImGuiToggleConstants_KnobRoundingDefault = 1.0f;
+static const float ImGuiToggleConstants_KnobRoundingDefault = 1.0f;
 
 // The minimum knob rounding value. (0.0f: Full rectangle.)
-const float ImGuiToggleConstants_KnobRoundingMinimum = 0.0f;
+static const float ImGuiToggleConstants_KnobRoundingMinimum = 0.0f;
 
 // The maximum knob rounding value. (1.0f: Full rounding.)
-const float ImGuiToggleConstants_KnobRoundingMaximum = 1.0f;
+static const float ImGuiToggleConstants_KnobRoundingMaximum = 1.0f;
 
 // The default height to width ratio. (Phi: The golden ratio.)
-const float ImGuiToggleConstants_WidthRatioDefault = ImGuiToggleConstants_Phi;
+static const float ImGuiToggleConstants_WidthRatioDefault = ImGuiToggleConstants_Phi;
 
 // The minimum allowable width ratio. (1.0f: Toggle width==height, not very useful but interesting.)
 //const float ImGuiToggleConstants_WidthRatioMinimum = 1.0f;
 #define ImGuiToggleConstants_WidthRatioMinimum  1.0f
 
 // The maximum allowable width ratio. (10.0f: It starts to get silly quickly.)
-const float ImGuiToggleConstants_WidthRatioMaximum = 10.0f;
+static const float ImGuiToggleConstants_WidthRatioMaximum = 10.0f;
 
 // The default amount of pixels the knob should be inset into the toggle frame. (1.5f in each direction: Pleasing to the eye.)
 // const ImOffsetRect KnobInsetDefault = {1.5f,1.5f,1.5f,1.5f};
 
 // The minimum amount of pixels the knob should be negatively inset (outset) from the toggle frame. (-100.0f: Big overgrown toggle.)
-const float ImGuiToggleConstants_KnobInsetMinimum = -100.0f;
+static const float ImGuiToggleConstants_KnobInsetMinimum = -100.0f;
 
 // The maximum amount of pixels the knob should be inset into the toggle frame. (100.0f: Toggle likely invisible!)
-const float ImGuiToggleConstants_KnobInsetMaximum = 100.0f;
+static const float ImGuiToggleConstants_KnobInsetMaximum = 100.0f;
 
 // The default thickness for borders drawn on the toggle frame and knob.
-const float ImGuiToggleConstants_BorderThicknessDefault = 1.0f;
+static const float ImGuiToggleConstants_BorderThicknessDefault = 1.0f;
 
 // The default thickness for shadows drawn under the toggle frame and knob.
-const float ImGuiToggleConstants_ShadowThicknessDefault = 2.0f;
+static const float ImGuiToggleConstants_ShadowThicknessDefault = 2.0f;
 
 // The default a11y string used when the toggle is on.
-const char* const LabelA11yOnDefault = "1";
+static const char* const LabelA11yOnDefault = "1";
 
 // The default a11y string used when the toggle is off.
-const char* const LabelA11yOffDefault = "0";
+static const char* const LabelA11yOffDefault = "0";
 #endif
 
 

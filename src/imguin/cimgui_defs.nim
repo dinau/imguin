@@ -978,6 +978,104 @@ type
     ImPlot_TimeFmt_HrMinSMs = 6, ImPlot_TimeFmt_HrMinS = 7,
     ImPlot_TimeFmt_HrMin = 8, ImPlot_TimeFmt_Hr = 9
 type
+  enum_ImPlot3DFlags_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DFlags_None = 0, ImPlot3DFlags_NoTitle = 1,
+    ImPlot3DFlags_NoLegend = 2, ImPlot3DFlags_NoMouseText = 4,
+    ImPlot3DFlags_CanvasOnly = 7, ImPlot3DFlags_NoClip = 8,
+    ImPlot3DFlags_NoMenus = 16
+type
+  enum_ImPlot3DCond_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DCond_None = 0, ImPlot3DCond_Always = 1, ImPlot3DCond_Once = 2
+type
+  enum_ImPlot3DCol_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DCol_Line = 0, ImPlot3DCol_Fill = 1, ImPlot3DCol_MarkerOutline = 2,
+    ImPlot3DCol_MarkerFill = 3, ImPlot3DCol_TitleText = 4,
+    ImPlot3DCol_InlayText = 5, ImPlot3DCol_FrameBg = 6, ImPlot3DCol_PlotBg = 7,
+    ImPlot3DCol_PlotBorder = 8, ImPlot3DCol_LegendBg = 9,
+    ImPlot3DCol_LegendBorder = 10, ImPlot3DCol_LegendText = 11,
+    ImPlot3DCol_AxisText = 12, ImPlot3DCol_AxisGrid = 13,
+    ImPlot3DCol_AxisTick = 14, ImPlot3DCol_COUNT = 15
+type
+  enum_ImPlot3DStyleVar_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DStyleVar_LineWeight = 0, ImPlot3DStyleVar_Marker = 1,
+    ImPlot3DStyleVar_MarkerSize = 2, ImPlot3DStyleVar_MarkerWeight = 3,
+    ImPlot3DStyleVar_FillAlpha = 4, ImPlot3DStyleVar_PlotDefaultSize = 5,
+    ImPlot3DStyleVar_PlotMinSize = 6, ImPlot3DStyleVar_PlotPadding = 7,
+    ImPlot3DStyleVar_LabelPadding = 8, ImPlot3DStyleVar_LegendPadding = 9,
+    ImPlot3DStyleVar_LegendInnerPadding = 10,
+    ImPlot3DStyleVar_LegendSpacing = 11, ImPlot3DStyleVar_COUNT = 12
+type
+  enum_ImPlot3DMarker_private* {.size: sizeof(cint).} = enum
+    ImPlot3DMarker_None = -1, ImPlot3DMarker_Circle = 0,
+    ImPlot3DMarker_Square = 1, ImPlot3DMarker_Diamond = 2,
+    ImPlot3DMarker_Up = 3, ImPlot3DMarker_Down = 4, ImPlot3DMarker_Left = 5,
+    ImPlot3DMarker_Right = 6, ImPlot3DMarker_Cross = 7, ImPlot3DMarker_Plus = 8,
+    ImPlot3DMarker_Asterisk = 9, ImPlot3DMarker_COUNT = 10
+type
+  enum_ImPlot3DItemFlags_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DItemFlags_None = 0, ImPlot3DItemFlags_NoLegend = 1,
+    ImPlot3DItemFlags_NoFit = 2
+type
+  enum_ImPlot3DScatterFlags_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DScatterFlags_None = 0, ImPlot3DScatterFlags_NoLegend = 1,
+    ImPlot3DScatterFlags_NoFit = 2
+type
+  enum_ImPlot3DLineFlags_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DLineFlags_None = 0, ImPlot3DLineFlags_NoLegend = 1,
+    ImPlot3DLineFlags_NoFit = 2, ImPlot3DLineFlags_Segments = 1024,
+    ImPlot3DLineFlags_Loop = 2048, ImPlot3DLineFlags_SkipNaN = 4096
+type
+  enum_ImPlot3DTriangleFlags_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DTriangleFlags_None = 0, ImPlot3DTriangleFlags_NoLegend = 1,
+    ImPlot3DTriangleFlags_NoFit = 2
+type
+  enum_ImPlot3DQuadFlags_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DQuadFlags_None = 0, ImPlot3DQuadFlags_NoLegend = 1,
+    ImPlot3DQuadFlags_NoFit = 2
+type
+  enum_ImPlot3DSurfaceFlags_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DSurfaceFlags_None = 0, ImPlot3DSurfaceFlags_NoLegend = 1,
+    ImPlot3DSurfaceFlags_NoFit = 2
+type
+  enum_ImPlot3DMeshFlags_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DMeshFlags_None = 0, ImPlot3DMeshFlags_NoLegend = 1,
+    ImPlot3DMeshFlags_NoFit = 2
+type
+  enum_ImPlot3DLegendFlags_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DLegendFlags_None = 0, ImPlot3DLegendFlags_NoButtons = 1,
+    ImPlot3DLegendFlags_NoHighlightItem = 2, ImPlot3DLegendFlags_Horizontal = 4
+type
+  enum_ImPlot3DLocation_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DLocation_Center = 0, ImPlot3DLocation_North = 1,
+    ImPlot3DLocation_South = 2, ImPlot3DLocation_West = 4,
+    ImPlot3DLocation_NorthWest = 5, ImPlot3DLocation_SouthWest = 6,
+    ImPlot3DLocation_East = 8, ImPlot3DLocation_NorthEast = 9,
+    ImPlot3DLocation_SouthEast = 10
+type
+  enum_ImPlot3DAxisFlags_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DAxisFlags_None = 0, ImPlot3DAxisFlags_NoLabel = 1,
+    ImPlot3DAxisFlags_NoGridLines = 2, ImPlot3DAxisFlags_NoTickMarks = 4,
+    ImPlot3DAxisFlags_NoTickLabels = 8, ImPlot3DAxisFlags_NoDecorations = 11,
+    ImPlot3DAxisFlags_LockMin = 16, ImPlot3DAxisFlags_LockMax = 32,
+    ImPlot3DAxisFlags_Lock = 48, ImPlot3DAxisFlags_AutoFit = 64,
+    ImPlot3DAxisFlags_Invert = 128
+type
+  enum_ImAxis3D_private* {.size: sizeof(cuint).} = enum
+    ImAxis3D_X = 0, ImAxis3D_Y = 1, ImAxis3D_Z = 2, ImAxis3D_COUNT = 3
+type
+  enum_ImPlane3D_private* {.size: sizeof(cuint).} = enum
+    ImPlane3D_YZ = 0, ImPlane3D_XZ = 1, ImPlane3D_XY = 2, ImPlane3D_COUNT = 3
+type
+  enum_ImPlot3DColormap_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DColormap_Deep = 0, ImPlot3DColormap_Dark = 1,
+    ImPlot3DColormap_Pastel = 2, ImPlot3DColormap_Paired = 3,
+    ImPlot3DColormap_Viridis = 4, ImPlot3DColormap_Plasma = 5,
+    ImPlot3DColormap_Hot = 6, ImPlot3DColormap_Cool = 7,
+    ImPlot3DColormap_Pink = 8, ImPlot3DColormap_Jet = 9,
+    ImPlot3DColormap_Twilight = 10, ImPlot3DColormap_RdBu = 11,
+    ImPlot3DColormap_BrBG = 12, ImPlot3DColormap_PiYG = 13,
+    ImPlot3DColormap_Spectral = 14, ImPlot3DColormap_Greys = 15
+type
   enum_ImNodesCol_private* {.size: sizeof(cuint).} = enum
     ImNodesCol_NodeBackground = 0, ImNodesCol_NodeBackgroundHovered = 1,
     ImNodesCol_NodeBackgroundSelected = 2, ImNodesCol_NodeOutline = 3,
@@ -1107,6 +1205,8 @@ type
 type
   struct_ImGuiInputTextDeactivateData* = object
 type
+  struct_ImPlot3DContext* = object
+type
   struct_ImGuiDockNodeSettings* = object
 type
   struct_ImGuiFileDialog* = object
@@ -1117,13 +1217,13 @@ type
 type
   struct_STB_TexteditState* = object
 type
-  ImDrawChannel* = struct_ImDrawChannel
+  ImDrawChannel* = struct_ImDrawChannel 
   struct_ImDrawChannel* {.pure, inheritable, bycopy.} = object
-    internal_CmdBuffer*: ImVector_ImDrawCmd
+    internal_CmdBuffer*: ImVector_ImDrawCmd 
     internal_IdxBuffer*: ImVector_ImDrawIdx
-  ImDrawCmd* = struct_ImDrawCmd
+  ImDrawCmd* = struct_ImDrawCmd 
   struct_ImDrawCmd* {.pure, inheritable, bycopy.} = object
-    ClipRect*: ImVec4
+    ClipRect*: ImVec4        
     TextureId*: ImTextureID
     VtxOffset*: cuint
     IdxOffset*: cuint
@@ -1132,9 +1232,9 @@ type
     UserCallbackData*: pointer
     UserCallbackDataSize*: cint
     UserCallbackDataOffset*: cint
-  ImDrawData* = struct_ImDrawData
+  ImDrawData* = struct_ImDrawData 
   struct_ImDrawData* {.pure, inheritable, bycopy.} = object
-    Valid*: bool
+    Valid*: bool             
     CmdListsCount*: cint
     TotalIdxCount*: cint
     TotalVtxCount*: cint
@@ -1143,9 +1243,9 @@ type
     DisplaySize*: ImVec2
     FramebufferScale*: ImVec2
     OwnerViewport*: ptr ImGuiViewport
-  ImDrawList* = struct_ImDrawList
+  ImDrawList* = struct_ImDrawList 
   struct_ImDrawList* {.pure, inheritable, bycopy.} = object
-    CmdBuffer*: ImVector_ImDrawCmd
+    CmdBuffer*: ImVector_ImDrawCmd 
     IdxBuffer*: ImVector_ImDrawIdx
     VtxBuffer*: ImVector_ImDrawVert
     Flags*: ImDrawListFlags
@@ -1161,9 +1261,9 @@ type
     internal_CallbacksDataBuf*: ImVector_ImU8
     internal_FringeScale*: cfloat
     internal_OwnerName*: cstring
-  ImDrawListSharedData* = struct_ImDrawListSharedData
+  ImDrawListSharedData* = struct_ImDrawListSharedData 
   struct_ImDrawListSharedData* {.pure, inheritable, bycopy.} = object
-    TexUvWhitePixel*: ImVec2
+    TexUvWhitePixel*: ImVec2 
     TexUvLines*: ptr ImVec4
     Font*: ptr ImFont
     FontSize*: cfloat
@@ -1176,19 +1276,19 @@ type
     ArcFastVtx*: array[48'i64, ImVec2]
     ArcFastRadiusCutoff*: cfloat
     CircleSegmentCounts*: array[64'i64, ImU8]
-  ImDrawListSplitter* = struct_ImDrawListSplitter
+  ImDrawListSplitter* = struct_ImDrawListSplitter 
   struct_ImDrawListSplitter* {.pure, inheritable, bycopy.} = object
-    internal_Current*: cint
+    internal_Current*: cint  
     internal_Count*: cint
     internal_Channels*: ImVector_ImDrawChannel
-  ImDrawVert* = struct_ImDrawVert
+  ImDrawVert* = struct_ImDrawVert 
   struct_ImDrawVert* {.pure, inheritable, bycopy.} = object
-    pos*: ImVec2
+    pos*: ImVec2             
     uv*: ImVec2
     col*: ImU32
-  ImFont* = struct_ImFont
+  ImFont* = struct_ImFont    
   struct_ImFont* {.pure, inheritable, bycopy.} = object
-    IndexAdvanceX*: ImVector_float
+    IndexAdvanceX*: ImVector_float 
     FallbackAdvanceX*: cfloat
     FontSize*: cfloat
     IndexLookup*: ImVector_ImWchar
@@ -1208,9 +1308,9 @@ type
     Descent*: cfloat
     MetricsTotalSurface*: cint
     Used4kPagesMap*: array[2'i64, ImU8]
-  ImFontAtlas* = struct_ImFontAtlas
+  ImFontAtlas* = struct_ImFontAtlas 
   struct_ImFontAtlas* {.pure, inheritable, bycopy.} = object
-    Flags*: ImFontAtlasFlags
+    Flags*: ImFontAtlasFlags 
     TexID*: ImTextureID
     TexDesiredWidth*: cint
     TexGlyphPadding*: cint
@@ -1232,12 +1332,12 @@ type
     FontBuilderFlags*: cuint
     PackIdMouseCursors*: cint
     PackIdLines*: cint
-  ImFontBuilderIO* = struct_ImFontBuilderIO
+  ImFontBuilderIO* = struct_ImFontBuilderIO 
   struct_ImFontBuilderIO* {.pure, inheritable, bycopy.} = object
-    FontBuilder_Build*: proc (a0: ptr ImFontAtlas): bool {.cdecl.}
-  ImFontConfig* = struct_ImFontConfig
+    FontBuilder_Build*: proc (a0: ptr ImFontAtlas): bool {.cdecl.} 
+  ImFontConfig* = struct_ImFontConfig 
   struct_ImFontConfig* {.pure, inheritable, bycopy.} = object
-    FontData*: pointer
+    FontData*: pointer       
     FontDataSize*: cint
     FontDataOwnedByAtlas*: bool
     FontNo*: cint
@@ -1257,9 +1357,9 @@ type
     EllipsisChar*: ImWchar
     Name*: array[40'i64, cschar]
     DstFont*: ptr ImFont
-  ImFontGlyph* = struct_ImFontGlyph
+  ImFontGlyph* = struct_ImFontGlyph 
   struct_ImFontGlyph* {.pure, inheritable, bycopy.} = object
-    Colored* {.bitsize: 1'i64.}: cuint
+    Colored* {.bitsize: 1'i64.}: cuint 
     Visible* {.bitsize: 1'i64.}: cuint
     Codepoint* {.bitsize: 30'i64.}: cuint
     AdvanceX*: cfloat
@@ -1271,15 +1371,15 @@ type
     V0*: cfloat
     U1*: cfloat
     V1*: cfloat
-  ImFontGlyphRangesBuilder* = struct_ImFontGlyphRangesBuilder
+  ImFontGlyphRangesBuilder* = struct_ImFontGlyphRangesBuilder 
   struct_ImFontGlyphRangesBuilder* {.pure, inheritable, bycopy.} = object
-    UsedChars*: ImVector_ImU32
-  ImColor* = struct_ImColor
+    UsedChars*: ImVector_ImU32 
+  ImColor* = struct_ImColor  
   struct_ImColor* {.pure, inheritable, bycopy.} = object
-    Value*: ImVec4
-  ImGuiContext* = struct_ImGuiContext
+    Value*: ImVec4           
+  ImGuiContext* = struct_ImGuiContext 
   struct_ImGuiContext* {.pure, inheritable, bycopy.} = object
-    Initialized*: bool
+    Initialized*: bool       
     FontAtlasOwnedByContext*: bool
     IO*: ImGuiIO
     PlatformIO*: ImGuiPlatformIO
@@ -1595,9 +1695,9 @@ type
     WantTextInputNextFrame*: cint
     TempBuffer*: ImVector_char
     TempKeychordName*: array[64'i64, cschar]
-  ImGuiIO* = struct_ImGuiIO
+  ImGuiIO* = struct_ImGuiIO  
   struct_ImGuiIO* {.pure, inheritable, bycopy.} = object
-    ConfigFlags*: ImGuiConfigFlags
+    ConfigFlags*: ImGuiConfigFlags 
     BackendFlags*: ImGuiBackendFlags
     DisplaySize*: ImVec2
     DeltaTime*: cfloat
@@ -1704,9 +1804,9 @@ type
     AppAcceptingEvents*: bool
     InputQueueSurrogate*: ImWchar16
     InputQueueCharacters*: ImVector_ImWchar
-  ImGuiInputTextCallbackData* = struct_ImGuiInputTextCallbackData
+  ImGuiInputTextCallbackData* = struct_ImGuiInputTextCallbackData 
   struct_ImGuiInputTextCallbackData* {.pure, inheritable, bycopy.} = object
-    Ctx*: ptr ImGuiContext
+    Ctx*: ptr ImGuiContext   
     EventFlag*: ImGuiInputTextFlags
     Flags*: ImGuiInputTextFlags
     UserData*: pointer
@@ -1719,15 +1819,15 @@ type
     CursorPos*: cint
     SelectionStart*: cint
     SelectionEnd*: cint
-  ImGuiKeyData* = struct_ImGuiKeyData
+  ImGuiKeyData* = struct_ImGuiKeyData 
   struct_ImGuiKeyData* {.pure, inheritable, bycopy.} = object
-    Down*: bool
+    Down*: bool              
     DownDuration*: cfloat
     DownDurationPrev*: cfloat
     AnalogValue*: cfloat
-  ImGuiListClipper* = struct_ImGuiListClipper
+  ImGuiListClipper* = struct_ImGuiListClipper 
   struct_ImGuiListClipper* {.pure, inheritable, bycopy.} = object
-    Ctx*: ptr ImGuiContext
+    Ctx*: ptr ImGuiContext   
     DisplayStart*: cint
     DisplayEnd*: cint
     ItemsCount*: cint
@@ -1735,20 +1835,20 @@ type
     StartPosY*: cfloat
     StartSeekOffsetY*: cdouble
     TempData*: pointer
-  ImGuiMultiSelectIO* = struct_ImGuiMultiSelectIO
+  ImGuiMultiSelectIO* = struct_ImGuiMultiSelectIO 
   struct_ImGuiMultiSelectIO* {.pure, inheritable, bycopy.} = object
-    Requests*: ImVector_ImGuiSelectionRequest
+    Requests*: ImVector_ImGuiSelectionRequest 
     RangeSrcItem*: ImGuiSelectionUserData
     NavIdItem*: ImGuiSelectionUserData
     NavIdSelected*: bool
     RangeSrcReset*: bool
     ItemsCount*: cint
-  ImGuiOnceUponAFrame* = struct_ImGuiOnceUponAFrame
+  ImGuiOnceUponAFrame* = struct_ImGuiOnceUponAFrame 
   struct_ImGuiOnceUponAFrame* {.pure, inheritable, bycopy.} = object
-    RefFrame*: cint
-  ImGuiPayload* = struct_ImGuiPayload
+    RefFrame*: cint          
+  ImGuiPayload* = struct_ImGuiPayload 
   struct_ImGuiPayload* {.pure, inheritable, bycopy.} = object
-    Data*: pointer
+    Data*: pointer           
     DataSize*: cint
     SourceId*: ImGuiID
     SourceParentId*: ImGuiID
@@ -1756,9 +1856,9 @@ type
     DataType*: array[33'i64, cschar]
     Preview*: bool
     Delivery*: bool
-  ImGuiPlatformIO* = struct_ImGuiPlatformIO
+  ImGuiPlatformIO* = struct_ImGuiPlatformIO 
   struct_ImGuiPlatformIO* {.pure, inheritable, bycopy.} = object
-    Platform_GetClipboardTextFn*: proc (a0: ptr ImGuiContext): cstring {.cdecl.}
+    Platform_GetClipboardTextFn*: proc (a0: ptr ImGuiContext): cstring {.cdecl.} 
     Platform_SetClipboardTextFn*: proc (a0: ptr ImGuiContext; a1: cstring): void {.
         cdecl.}
     Platform_ClipboardUserData*: pointer
@@ -1807,60 +1907,60 @@ type
         cdecl.}
     Monitors*: ImVector_ImGuiPlatformMonitor
     Viewports*: ImVector_ImGuiViewportPtr
-  ImGuiPlatformImeData* = struct_ImGuiPlatformImeData
+  ImGuiPlatformImeData* = struct_ImGuiPlatformImeData 
   struct_ImGuiPlatformImeData* {.pure, inheritable, bycopy.} = object
-    WantVisible*: bool
+    WantVisible*: bool       
     InputPos*: ImVec2
     InputLineHeight*: cfloat
-  ImGuiPlatformMonitor* = struct_ImGuiPlatformMonitor
+  ImGuiPlatformMonitor* = struct_ImGuiPlatformMonitor 
   struct_ImGuiPlatformMonitor* {.pure, inheritable, bycopy.} = object
-    MainPos*: ImVec2
+    MainPos*: ImVec2         
     MainSize*: ImVec2
     WorkPos*: ImVec2
     WorkSize*: ImVec2
     DpiScale*: cfloat
     PlatformHandle*: pointer
-  ImGuiSelectionBasicStorage* = struct_ImGuiSelectionBasicStorage
+  ImGuiSelectionBasicStorage* = struct_ImGuiSelectionBasicStorage 
   struct_ImGuiSelectionBasicStorage* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     PreserveOrder*: bool
     UserData*: pointer
     AdapterIndexToStorageId*: proc (a0: ptr ImGuiSelectionBasicStorage; a1: cint): ImGuiID {.
         cdecl.}
     internal_SelectionOrder*: cint
     internal_Storage*: ImGuiStorage
-  ImGuiSelectionExternalStorage* = struct_ImGuiSelectionExternalStorage
+  ImGuiSelectionExternalStorage* = struct_ImGuiSelectionExternalStorage 
   struct_ImGuiSelectionExternalStorage* {.pure, inheritable, bycopy.} = object
-    UserData*: pointer
+    UserData*: pointer       
     AdapterSetItemSelected*: proc (a0: ptr ImGuiSelectionExternalStorage;
                                    a1: cint; a2: bool): void {.cdecl.}
-  ImGuiSelectionRequest* = struct_ImGuiSelectionRequest
+  ImGuiSelectionRequest* = struct_ImGuiSelectionRequest 
   struct_ImGuiSelectionRequest* {.pure, inheritable, bycopy.} = object
-    Type*: ImGuiSelectionRequestType
+    Type*: ImGuiSelectionRequestType 
     Selected*: bool
     RangeDirection*: ImS8
     RangeFirstItem*: ImGuiSelectionUserData
     RangeLastItem*: ImGuiSelectionUserData
-  ImGuiSizeCallbackData* = struct_ImGuiSizeCallbackData
+  ImGuiSizeCallbackData* = struct_ImGuiSizeCallbackData 
   struct_ImGuiSizeCallbackData* {.pure, inheritable, bycopy.} = object
-    UserData*: pointer
+    UserData*: pointer       
     Pos*: ImVec2
     CurrentSize*: ImVec2
     DesiredSize*: ImVec2
-  ImGuiStorage* = struct_ImGuiStorage
+  ImGuiStorage* = struct_ImGuiStorage 
   struct_ImGuiStorage* {.pure, inheritable, bycopy.} = object
-    Data*: ImVector_ImGuiStoragePair
-  ImGuiStoragePair* = struct_ImGuiStoragePair
+    Data*: ImVector_ImGuiStoragePair 
+  ImGuiStoragePair* = struct_ImGuiStoragePair 
   struct_ImGuiStoragePair_anon0_t* {.union, bycopy.} = object
     val_i*: cint
     val_f*: cfloat
     val_p*: pointer
   struct_ImGuiStoragePair* {.pure, inheritable, bycopy.} = object
-    key*: ImGuiID
+    key*: ImGuiID            
     anon0*: struct_ImGuiStoragePair_anon0_t
-  ImGuiStyle* = struct_ImGuiStyle
+  ImGuiStyle* = struct_ImGuiStyle 
   struct_ImGuiStyle* {.pure, inheritable, bycopy.} = object
-    Alpha*: cfloat
+    Alpha*: cfloat           
     DisabledAlpha*: cfloat
     WindowPadding*: ImVec2
     WindowRounding*: cfloat
@@ -1914,28 +2014,28 @@ type
     HoverDelayNormal*: cfloat
     HoverFlagsForTooltipMouse*: ImGuiHoveredFlags
     HoverFlagsForTooltipNav*: ImGuiHoveredFlags
-  ImGuiTableSortSpecs* = struct_ImGuiTableSortSpecs
+  ImGuiTableSortSpecs* = struct_ImGuiTableSortSpecs 
   struct_ImGuiTableSortSpecs* {.pure, inheritable, bycopy.} = object
-    Specs*: ptr ImGuiTableColumnSortSpecs
+    Specs*: ptr ImGuiTableColumnSortSpecs 
     SpecsCount*: cint
     SpecsDirty*: bool
-  ImGuiTableColumnSortSpecs* = struct_ImGuiTableColumnSortSpecs
+  ImGuiTableColumnSortSpecs* = struct_ImGuiTableColumnSortSpecs 
   struct_ImGuiTableColumnSortSpecs* {.pure, inheritable, bycopy.} = object
-    ColumnUserID*: ImGuiID
+    ColumnUserID*: ImGuiID   
     ColumnIndex*: ImS16
     SortOrder*: ImS16
     SortDirection*: ImGuiSortDirection
-  ImGuiTextBuffer* = struct_ImGuiTextBuffer
+  ImGuiTextBuffer* = struct_ImGuiTextBuffer 
   struct_ImGuiTextBuffer* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_char
-  ImGuiTextFilter* = struct_ImGuiTextFilter
+    Buf*: ImVector_char      
+  ImGuiTextFilter* = struct_ImGuiTextFilter 
   struct_ImGuiTextFilter* {.pure, inheritable, bycopy.} = object
-    InputBuf*: array[256'i64, cschar]
+    InputBuf*: array[256'i64, cschar] 
     Filters*: ImVector_ImGuiTextRange
     CountGrep*: cint
-  ImGuiViewport* = struct_ImGuiViewport
+  ImGuiViewport* = struct_ImGuiViewport 
   struct_ImGuiViewport* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     Flags*: ImGuiViewportFlags
     Pos*: ImVec2
     Size*: ImVec2
@@ -1952,9 +2052,9 @@ type
     PlatformRequestMove*: bool
     PlatformRequestResize*: bool
     PlatformRequestClose*: bool
-  ImGuiWindowClass* = struct_ImGuiWindowClass
+  ImGuiWindowClass* = struct_ImGuiWindowClass 
   struct_ImGuiWindowClass* {.pure, inheritable, bycopy.} = object
-    ClassId*: ImGuiID
+    ClassId*: ImGuiID        
     ParentViewportId*: ImGuiID
     FocusRouteParentWindowId*: ImGuiID
     ViewportFlagsOverrideSet*: ImGuiViewportFlags
@@ -1963,20 +2063,20 @@ type
     DockNodeFlagsOverrideSet*: ImGuiDockNodeFlags
     DockingAlwaysTabBar*: bool
     DockingAllowUnclassed*: bool
-  ImBitVector* = struct_ImBitVector
+  ImBitVector* = struct_ImBitVector 
   struct_ImBitVector* {.pure, inheritable, bycopy.} = object
-    Storage*: ImVector_ImU32
-  ImRect* = struct_ImRect
+    Storage*: ImVector_ImU32 
+  ImRect* = struct_ImRect    
   struct_ImRect* {.pure, inheritable, bycopy.} = object
-    Min*: ImVec2
+    Min*: ImVec2             
     Max*: ImVec2
-  ImDrawDataBuilder* = struct_ImDrawDataBuilder
+  ImDrawDataBuilder* = struct_ImDrawDataBuilder 
   struct_ImDrawDataBuilder* {.pure, inheritable, bycopy.} = object
-    Layers*: array[2'i64, ptr ImVector_ImDrawListPtr]
+    Layers*: array[2'i64, ptr ImVector_ImDrawListPtr] 
     LayerData1*: ImVector_ImDrawListPtr
-  ImGuiBoxSelectState* = struct_ImGuiBoxSelectState
+  ImGuiBoxSelectState* = struct_ImGuiBoxSelectState 
   struct_ImGuiBoxSelectState* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     IsActive*: bool
     IsStarting*: bool
     IsStartedFromVoid*: bool
@@ -1991,38 +2091,38 @@ type
     UnclipRect*: ImRect
     BoxSelectRectPrev*: ImRect
     BoxSelectRectCurr*: ImRect
-  ImGuiColorMod* = struct_ImGuiColorMod
+  ImGuiColorMod* = struct_ImGuiColorMod 
   struct_ImGuiColorMod* {.pure, inheritable, bycopy.} = object
-    Col*: ImGuiCol
+    Col*: ImGuiCol           
     BackupValue*: ImVec4
-  ImGuiContextHook* = struct_ImGuiContextHook
+  ImGuiContextHook* = struct_ImGuiContextHook 
   struct_ImGuiContextHook* {.pure, inheritable, bycopy.} = object
-    HookId*: ImGuiID
+    HookId*: ImGuiID         
     Type*: ImGuiContextHookType
     Owner*: ImGuiID
     Callback*: ImGuiContextHookCallback
     UserData*: pointer
-  ImGuiDataVarInfo* = struct_ImGuiDataVarInfo
+  ImGuiDataVarInfo* = struct_ImGuiDataVarInfo 
   struct_ImGuiDataVarInfo* {.pure, inheritable, bycopy.} = object
-    Type*: ImGuiDataType
+    Type*: ImGuiDataType     
     Count*: ImU32
     Offset*: ImU32
-  ImGuiDataTypeInfo* = struct_ImGuiDataTypeInfo
+  ImGuiDataTypeInfo* = struct_ImGuiDataTypeInfo 
   struct_ImGuiDataTypeInfo* {.pure, inheritable, bycopy.} = object
-    Size*: csize_t
+    Size*: csize_t           
     Name*: cstring
     PrintFmt*: cstring
     ScanFmt*: cstring
-  ImGuiDockContext* = struct_ImGuiDockContext
+  ImGuiDockContext* = struct_ImGuiDockContext 
   struct_ImGuiDockContext* {.pure, inheritable, bycopy.} = object
-    Nodes*: ImGuiStorage
+    Nodes*: ImGuiStorage     
     Requests*: ImVector_ImGuiDockRequest
     NodesSettings*: ImVector_ImGuiDockNodeSettings
     WantFullRebuild*: bool
-  ImGuiDockRequest* = struct_ImGuiDockRequest
-  ImGuiDockNode* = struct_ImGuiDockNode
+  ImGuiDockRequest* = struct_ImGuiDockRequest 
+  ImGuiDockNode* = struct_ImGuiDockNode 
   struct_ImGuiDockNode* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     SharedFlags*: ImGuiDockNodeFlags
     LocalFlags*: ImGuiDockNodeFlags
     LocalFlagsInWindows*: ImGuiDockNodeFlags
@@ -2064,10 +2164,10 @@ type
     WantMouseMove* {.bitsize: 1'i64.}: bool
     WantHiddenTabBarUpdate* {.bitsize: 1'i64.}: bool
     WantHiddenTabBarToggle* {.bitsize: 1'i64.}: bool
-  ImGuiDockNodeSettings* = struct_ImGuiDockNodeSettings
-  ImGuiErrorRecoveryState* = struct_ImGuiErrorRecoveryState
+  ImGuiDockNodeSettings* = struct_ImGuiDockNodeSettings 
+  ImGuiErrorRecoveryState* = struct_ImGuiErrorRecoveryState 
   struct_ImGuiErrorRecoveryState* {.pure, inheritable, bycopy.} = object
-    SizeOfWindowStack*: cshort
+    SizeOfWindowStack*: cshort 
     SizeOfIDStack*: cshort
     SizeOfTreeStack*: cshort
     SizeOfColorStack*: cshort
@@ -2078,9 +2178,9 @@ type
     SizeOfItemFlagsStack*: cshort
     SizeOfBeginPopupStack*: cshort
     SizeOfDisabledStack*: cshort
-  ImGuiGroupData* = struct_ImGuiGroupData
+  ImGuiGroupData* = struct_ImGuiGroupData 
   struct_ImGuiGroupData* {.pure, inheritable, bycopy.} = object
-    WindowID*: ImGuiID
+    WindowID*: ImGuiID       
     BackupCursorPos*: ImVec2
     BackupCursorMaxPos*: ImVec2
     BackupCursorPosPrevLine*: ImVec2
@@ -2093,9 +2193,9 @@ type
     BackupHoveredIdIsAlive*: bool
     BackupIsSameLine*: bool
     EmitItem*: bool
-  ImGuiInputTextState* = struct_ImGuiInputTextState
+  ImGuiInputTextState* = struct_ImGuiInputTextState 
   struct_ImGuiInputTextState* {.pure, inheritable, bycopy.} = object
-    Ctx*: ptr ImGuiContext
+    Ctx*: ptr ImGuiContext   
     Stb*: ptr ImStbTexteditState
     ID*: ImGuiID
     TextLen*: cint
@@ -2112,10 +2212,10 @@ type
     ReloadUserBuf*: bool
     ReloadSelectionStart*: cint
     ReloadSelectionEnd*: cint
-  ImGuiInputTextDeactivateData* = struct_ImGuiInputTextDeactivateData
-  ImGuiLastItemData* = struct_ImGuiLastItemData
+  ImGuiInputTextDeactivateData* = struct_ImGuiInputTextDeactivateData 
+  ImGuiLastItemData* = struct_ImGuiLastItemData 
   struct_ImGuiLastItemData* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     ItemFlags*: ImGuiItemFlags
     StatusFlags*: ImGuiItemStatusFlags
     Rect*: ImRect
@@ -2123,13 +2223,13 @@ type
     DisplayRect*: ImRect
     ClipRect*: ImRect
     Shortcut*: ImGuiKeyChord
-  ImGuiLocEntry* = struct_ImGuiLocEntry
+  ImGuiLocEntry* = struct_ImGuiLocEntry 
   struct_ImGuiLocEntry* {.pure, inheritable, bycopy.} = object
-    Key*: ImGuiLocKey
+    Key*: ImGuiLocKey        
     Text*: cstring
-  ImGuiMenuColumns* = struct_ImGuiMenuColumns
+  ImGuiMenuColumns* = struct_ImGuiMenuColumns 
   struct_ImGuiMenuColumns* {.pure, inheritable, bycopy.} = object
-    TotalWidth*: ImU32
+    TotalWidth*: ImU32       
     NextTotalWidth*: ImU32
     Spacing*: ImU16
     OffsetIcon*: ImU16
@@ -2137,9 +2237,9 @@ type
     OffsetShortcut*: ImU16
     OffsetMark*: ImU16
     Widths*: array[4'i64, ImU16]
-  ImGuiMultiSelectState* = struct_ImGuiMultiSelectState
+  ImGuiMultiSelectState* = struct_ImGuiMultiSelectState 
   struct_ImGuiMultiSelectState* {.pure, inheritable, bycopy.} = object
-    Window*: ptr ImGuiWindow
+    Window*: ptr ImGuiWindow 
     ID*: ImGuiID
     LastFrameActive*: cint
     LastSelectionSize*: cint
@@ -2147,9 +2247,9 @@ type
     NavIdSelected*: ImS8
     RangeSrcItem*: ImGuiSelectionUserData
     NavIdItem*: ImGuiSelectionUserData
-  ImGuiMultiSelectTempData* = struct_ImGuiMultiSelectTempData
+  ImGuiMultiSelectTempData* = struct_ImGuiMultiSelectTempData 
   struct_ImGuiMultiSelectTempData* {.pure, inheritable, bycopy.} = object
-    IO*: ImGuiMultiSelectIO
+    IO*: ImGuiMultiSelectIO  
     Storage*: ptr ImGuiMultiSelectState
     FocusScopeId*: ImGuiID
     Flags*: ImGuiMultiSelectFlags
@@ -2165,9 +2265,9 @@ type
     NavIdPassedBy*: bool
     RangeSrcPassedBy*: bool
     RangeDstPassedBy*: bool
-  ImGuiNavItemData* = struct_ImGuiNavItemData
+  ImGuiNavItemData* = struct_ImGuiNavItemData 
   struct_ImGuiNavItemData* {.pure, inheritable, bycopy.} = object
-    Window*: ptr ImGuiWindow
+    Window*: ptr ImGuiWindow 
     ID*: ImGuiID
     FocusScopeId*: ImGuiID
     RectRel*: ImRect
@@ -2176,9 +2276,9 @@ type
     DistCenter*: cfloat
     DistAxial*: cfloat
     SelectionUserData*: ImGuiSelectionUserData
-  ImGuiMetricsConfig* = struct_ImGuiMetricsConfig
+  ImGuiMetricsConfig* = struct_ImGuiMetricsConfig 
   struct_ImGuiMetricsConfig* {.pure, inheritable, bycopy.} = object
-    ShowDebugLog*: bool
+    ShowDebugLog*: bool      
     ShowIDStackTool*: bool
     ShowWindowsRects*: bool
     ShowWindowsBeginOrder*: bool
@@ -2192,9 +2292,9 @@ type
     ShowTablesRectsType*: cint
     HighlightMonitorIdx*: cint
     HighlightViewportID*: ImGuiID
-  ImGuiNextWindowData* = struct_ImGuiNextWindowData
+  ImGuiNextWindowData* = struct_ImGuiNextWindowData 
   struct_ImGuiNextWindowData* {.pure, inheritable, bycopy.} = object
-    Flags*: ImGuiNextWindowDataFlags
+    Flags*: ImGuiNextWindowDataFlags 
     PosCond*: ImGuiCond
     SizeCond*: ImGuiCond
     CollapsedCond*: ImGuiCond
@@ -2216,9 +2316,9 @@ type
     WindowClass*: ImGuiWindowClass
     MenuBarOffsetMinVal*: ImVec2
     RefreshFlagsVal*: ImGuiWindowRefreshFlags
-  ImGuiNextItemData* = struct_ImGuiNextItemData
+  ImGuiNextItemData* = struct_ImGuiNextItemData 
   struct_ImGuiNextItemData* {.pure, inheritable, bycopy.} = object
-    HasFlags*: ImGuiNextItemDataFlags
+    HasFlags*: ImGuiNextItemDataFlags 
     ItemFlags*: ImGuiItemFlags
     FocusScopeId*: ImGuiID
     SelectionUserData*: ImGuiSelectionUserData
@@ -2229,15 +2329,15 @@ type
     OpenCond*: ImU8
     RefVal*: ImGuiDataTypeStorage
     StorageId*: ImGuiID
-  ImGuiOldColumnData* = struct_ImGuiOldColumnData
+  ImGuiOldColumnData* = struct_ImGuiOldColumnData 
   struct_ImGuiOldColumnData* {.pure, inheritable, bycopy.} = object
-    OffsetNorm*: cfloat
+    OffsetNorm*: cfloat      
     OffsetNormBeforeResize*: cfloat
     Flags*: ImGuiOldColumnFlags
     ClipRect*: ImRect
-  ImGuiOldColumns* = struct_ImGuiOldColumns
+  ImGuiOldColumns* = struct_ImGuiOldColumns 
   struct_ImGuiOldColumns* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     Flags*: ImGuiOldColumnFlags
     IsFirstFrame*: bool
     IsBeingResized*: bool
@@ -2254,9 +2354,9 @@ type
     HostBackupParentWorkRect*: ImRect
     Columns*: ImVector_ImGuiOldColumnData
     Splitter*: ImDrawListSplitter
-  ImGuiPopupData* = struct_ImGuiPopupData
+  ImGuiPopupData* = struct_ImGuiPopupData 
   struct_ImGuiPopupData* {.pure, inheritable, bycopy.} = object
-    PopupId*: ImGuiID
+    PopupId*: ImGuiID        
     Window*: ptr ImGuiWindow
     RestoreNavWindow*: ptr ImGuiWindow
     ParentNavLayer*: cint
@@ -2264,9 +2364,9 @@ type
     OpenParentId*: ImGuiID
     OpenPopupPos*: ImVec2
     OpenMousePos*: ImVec2
-  ImGuiSettingsHandler* = struct_ImGuiSettingsHandler
+  ImGuiSettingsHandler* = struct_ImGuiSettingsHandler 
   struct_ImGuiSettingsHandler* {.pure, inheritable, bycopy.} = object
-    TypeName*: cstring
+    TypeName*: cstring       
     TypeHash*: ImGuiID
     ClearAllFn*: proc (a0: ptr ImGuiContext; a1: ptr ImGuiSettingsHandler): void {.
         cdecl.}
@@ -2281,16 +2381,16 @@ type
     WriteAllFn*: proc (a0: ptr ImGuiContext; a1: ptr ImGuiSettingsHandler;
                        a2: ptr ImGuiTextBuffer): void {.cdecl.}
     UserData*: pointer
-  ImGuiStyleMod* = struct_ImGuiStyleMod
+  ImGuiStyleMod* = struct_ImGuiStyleMod 
   struct_ImGuiStyleMod_anon0_t* {.union, bycopy.} = object
     BackupInt*: array[2'i64, cint]
     BackupFloat*: array[2'i64, cfloat]
   struct_ImGuiStyleMod* {.pure, inheritable, bycopy.} = object
-    VarIdx*: ImGuiStyleVar
+    VarIdx*: ImGuiStyleVar   
     anon0*: struct_ImGuiStyleMod_anon0_t
-  ImGuiTabBar* = struct_ImGuiTabBar
+  ImGuiTabBar* = struct_ImGuiTabBar 
   struct_ImGuiTabBar* {.pure, inheritable, bycopy.} = object
-    Window*: ptr ImGuiWindow
+    Window*: ptr ImGuiWindow 
     Tabs*: ImVector_ImGuiTabItem
     Flags*: ImGuiTabBarFlags
     ID*: ImGuiID
@@ -2324,9 +2424,9 @@ type
     FramePadding*: ImVec2
     BackupCursorPos*: ImVec2
     TabsNames*: ImGuiTextBuffer
-  ImGuiTabItem* = struct_ImGuiTabItem
+  ImGuiTabItem* = struct_ImGuiTabItem 
   struct_ImGuiTabItem* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     Flags*: ImGuiTabItemFlags
     Window*: ptr ImGuiWindow
     LastFrameVisible*: cint
@@ -2339,9 +2439,9 @@ type
     BeginOrder*: ImS16
     IndexDuringLayout*: ImS16
     WantClose*: bool
-  ImGuiTable* = struct_ImGuiTable
+  ImGuiTable* = struct_ImGuiTable 
   struct_ImGuiTable* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     Flags*: ImGuiTableFlags
     RawData*: pointer
     TempData*: ptr ImGuiTableTempData
@@ -2453,15 +2553,15 @@ type
     HasScrollbarYPrev*: bool
     MemoryCompacted*: bool
     HostSkipItems*: bool
-  ImGuiTableHeaderData* = struct_ImGuiTableHeaderData
+  ImGuiTableHeaderData* = struct_ImGuiTableHeaderData 
   struct_ImGuiTableHeaderData* {.pure, inheritable, bycopy.} = object
-    Index*: ImGuiTableColumnIdx
+    Index*: ImGuiTableColumnIdx 
     TextColor*: ImU32
     BgColor0*: ImU32
     BgColor1*: ImU32
-  ImGuiTableColumn* = struct_ImGuiTableColumn
+  ImGuiTableColumn* = struct_ImGuiTableColumn 
   struct_ImGuiTableColumn* {.pure, inheritable, bycopy.} = object
-    Flags*: ImGuiTableColumnFlags
+    Flags*: ImGuiTableColumnFlags 
     WidthGiven*: cfloat
     MinX*: cfloat
     MaxX*: cfloat
@@ -2503,17 +2603,17 @@ type
     SortDirectionsAvailCount* {.bitsize: 2'i64.}: ImU8
     SortDirectionsAvailMask* {.bitsize: 4'i64.}: ImU8
     SortDirectionsAvailList*: ImU8
-  ImGuiTableInstanceData* = struct_ImGuiTableInstanceData
+  ImGuiTableInstanceData* = struct_ImGuiTableInstanceData 
   struct_ImGuiTableInstanceData* {.pure, inheritable, bycopy.} = object
-    TableInstanceID*: ImGuiID
+    TableInstanceID*: ImGuiID 
     LastOuterHeight*: cfloat
     LastTopHeadersRowHeight*: cfloat
     LastFrozenHeight*: cfloat
     HoveredRowLast*: cint
     HoveredRowNext*: cint
-  ImGuiTableTempData* = struct_ImGuiTableTempData
+  ImGuiTableTempData* = struct_ImGuiTableTempData 
   struct_ImGuiTableTempData* {.pure, inheritable, bycopy.} = object
-    TableIndex*: cint
+    TableIndex*: cint        
     LastTimeActive*: cfloat
     AngledHeadersExtraWidth*: cfloat
     AngledHeadersRequests*: ImVector_ImGuiTableHeaderData
@@ -2527,40 +2627,40 @@ type
     HostBackupColumnsOffset*: ImVec1
     HostBackupItemWidth*: cfloat
     HostBackupItemWidthStackSize*: cint
-  ImGuiTableSettings* = struct_ImGuiTableSettings
+  ImGuiTableSettings* = struct_ImGuiTableSettings 
   struct_ImGuiTableSettings* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     SaveFlags*: ImGuiTableFlags
     RefScale*: cfloat
     ColumnsCount*: ImGuiTableColumnIdx
     ColumnsCountMax*: ImGuiTableColumnIdx
     WantApply*: bool
-  ImGuiTableColumnsSettings* = struct_ImGuiTableColumnsSettings
-  ImGuiTreeNodeStackData* = struct_ImGuiTreeNodeStackData
+  ImGuiTableColumnsSettings* = struct_ImGuiTableColumnsSettings 
+  ImGuiTreeNodeStackData* = struct_ImGuiTreeNodeStackData 
   struct_ImGuiTreeNodeStackData* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     TreeFlags*: ImGuiTreeNodeFlags
     ItemFlags*: ImGuiItemFlags
     NavRect*: ImRect
-  ImGuiTypingSelectState* = struct_ImGuiTypingSelectState
+  ImGuiTypingSelectState* = struct_ImGuiTypingSelectState 
   struct_ImGuiTypingSelectState* {.pure, inheritable, bycopy.} = object
-    Request*: ImGuiTypingSelectRequest
+    Request*: ImGuiTypingSelectRequest 
     SearchBuffer*: array[64'i64, cschar]
     FocusScope*: ImGuiID
     LastRequestFrame*: cint
     LastRequestTime*: cfloat
     SingleCharModeLock*: bool
-  ImGuiTypingSelectRequest* = struct_ImGuiTypingSelectRequest
+  ImGuiTypingSelectRequest* = struct_ImGuiTypingSelectRequest 
   struct_ImGuiTypingSelectRequest* {.pure, inheritable, bycopy.} = object
-    Flags*: ImGuiTypingSelectFlags
+    Flags*: ImGuiTypingSelectFlags 
     SearchBufferLen*: cint
     SearchBuffer*: cstring
     SelectRequest*: bool
     SingleCharMode*: bool
     SingleCharSize*: ImS8
-  ImGuiWindow* = struct_ImGuiWindow
+  ImGuiWindow* = struct_ImGuiWindow 
   struct_ImGuiWindow* {.pure, inheritable, bycopy.} = object
-    Ctx*: ptr ImGuiContext
+    Ctx*: ptr ImGuiContext   
     Name*: cstring
     ID*: ImGuiID
     Flags*: ImGuiWindowFlags
@@ -2684,12 +2784,12 @@ type
     DockId*: ImGuiID
     DockTabItemStatusFlags*: ImGuiItemStatusFlags
     DockTabItemRect*: ImRect
-  ImGuiWindowDockStyle* = struct_ImGuiWindowDockStyle
+  ImGuiWindowDockStyle* = struct_ImGuiWindowDockStyle 
   struct_ImGuiWindowDockStyle* {.pure, inheritable, bycopy.} = object
-    Colors*: array[8'i64, ImU32]
-  ImGuiWindowTempData* = struct_ImGuiWindowTempData
+    Colors*: array[8'i64, ImU32] 
+  ImGuiWindowTempData* = struct_ImGuiWindowTempData 
   struct_ImGuiWindowTempData* {.pure, inheritable, bycopy.} = object
-    CursorPos*: ImVec2
+    CursorPos*: ImVec2       
     CursorPosPrevLine*: ImVec2
     CursorStartPos*: ImVec2
     CursorMaxPos*: ImVec2
@@ -2726,9 +2826,9 @@ type
     TextWrapPos*: cfloat
     ItemWidthStack*: ImVector_float
     TextWrapPosStack*: ImVector_float
-  ImGuiWindowSettings* = struct_ImGuiWindowSettings
+  ImGuiWindowSettings* = struct_ImGuiWindowSettings 
   struct_ImGuiWindowSettings* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     Pos*: ImVec2ih
     Size*: ImVec2ih
     ViewportPos*: ImVec2ih
@@ -2740,204 +2840,204 @@ type
     IsChild*: bool
     WantApply*: bool
     WantDelete*: bool
-  STB_TexteditState* = struct_STB_TexteditState
+  STB_TexteditState* = struct_STB_TexteditState 
   struct_ImVector_const_charPtr* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr cstring
-  ImVector_const_charPtr* = struct_ImVector_const_charPtr
-  ImGuiID* = cuint
-  ImS8* = cschar
-  ImU8* = uint8
-  ImS16* = cshort
-  ImU16* = cushort
-  ImS32* = cint
-  ImU32* = cuint
-  ImS64* = clonglong
-  ImU64* = culonglong
-  ImGuiCol* = cint
-  ImGuiCond* = cint
-  ImGuiDataType* = cint
-  ImGuiMouseButton* = cint
-  ImGuiMouseCursor* = cint
-  ImGuiStyleVar* = cint
-  ImGuiTableBgTarget* = cint
-  ImDrawFlags* = cint
-  ImDrawListFlags* = cint
-  ImFontAtlasFlags* = cint
-  ImGuiBackendFlags* = cint
-  ImGuiButtonFlags* = cint
-  ImGuiChildFlags* = cint
-  ImGuiColorEditFlags* = cint
-  ImGuiConfigFlags* = cint
-  ImGuiComboFlags* = cint
-  ImGuiDockNodeFlags* = cint
-  ImGuiDragDropFlags* = cint
-  ImGuiFocusedFlags* = cint
-  ImGuiHoveredFlags* = cint
-  ImGuiInputFlags* = cint
-  ImGuiInputTextFlags* = cint
-  ImGuiItemFlags* = cint
-  ImGuiKeyChord* = cint
-  ImGuiPopupFlags* = cint
-  ImGuiMultiSelectFlags* = cint
-  ImGuiSelectableFlags* = cint
-  ImGuiSliderFlags* = cint
-  ImGuiTabBarFlags* = cint
-  ImGuiTabItemFlags* = cint
-  ImGuiTableFlags* = cint
-  ImGuiTableColumnFlags* = cint
-  ImGuiTableRowFlags* = cint
-  ImGuiTreeNodeFlags* = cint
-  ImGuiViewportFlags* = cint
-  ImGuiWindowFlags* = cint
-  ImTextureID* = ImU64
-  ImDrawIdx* = cushort
-  ImWchar32* = cuint
-  ImWchar16* = cushort
-  ImWchar* = ImWchar16
-  ImGuiSelectionUserData* = ImS64
+  ImVector_const_charPtr* = struct_ImVector_const_charPtr 
+  ImGuiID* = cuint           
+  ImS8* = cschar             
+  ImU8* = uint8              
+  ImS16* = cshort            
+  ImU16* = cushort           
+  ImS32* = cint              
+  ImU32* = cuint             
+  ImS64* = clonglong         
+  ImU64* = culonglong        
+  ImGuiCol* = cint           
+  ImGuiCond* = cint          
+  ImGuiDataType* = cint      
+  ImGuiMouseButton* = cint   
+  ImGuiMouseCursor* = cint   
+  ImGuiStyleVar* = cint      
+  ImGuiTableBgTarget* = cint 
+  ImDrawFlags* = cint        
+  ImDrawListFlags* = cint    
+  ImFontAtlasFlags* = cint   
+  ImGuiBackendFlags* = cint  
+  ImGuiButtonFlags* = cint   
+  ImGuiChildFlags* = cint    
+  ImGuiColorEditFlags* = cint 
+  ImGuiConfigFlags* = cint   
+  ImGuiComboFlags* = cint    
+  ImGuiDockNodeFlags* = cint 
+  ImGuiDragDropFlags* = cint 
+  ImGuiFocusedFlags* = cint  
+  ImGuiHoveredFlags* = cint  
+  ImGuiInputFlags* = cint    
+  ImGuiInputTextFlags* = cint 
+  ImGuiItemFlags* = cint     
+  ImGuiKeyChord* = cint      
+  ImGuiPopupFlags* = cint    
+  ImGuiMultiSelectFlags* = cint 
+  ImGuiSelectableFlags* = cint 
+  ImGuiSliderFlags* = cint   
+  ImGuiTabBarFlags* = cint   
+  ImGuiTabItemFlags* = cint  
+  ImGuiTableFlags* = cint    
+  ImGuiTableColumnFlags* = cint 
+  ImGuiTableRowFlags* = cint 
+  ImGuiTreeNodeFlags* = cint 
+  ImGuiViewportFlags* = cint 
+  ImGuiWindowFlags* = cint   
+  ImTextureID* = ImU64       
+  ImDrawIdx* = cushort       
+  ImWchar32* = cuint         
+  ImWchar16* = cushort       
+  ImWchar* = ImWchar16       
+  ImGuiSelectionUserData* = ImS64 
   ImGuiInputTextCallback* = proc (a0: ptr ImGuiInputTextCallbackData): cint {.
-      cdecl.}
-  ImGuiSizeCallback* = proc (a0: ptr ImGuiSizeCallbackData): void {.cdecl.}
-  ImGuiMemAllocFunc* = proc (a0: csize_t; a1: pointer): pointer {.cdecl.}
-  ImGuiMemFreeFunc* = proc (a0: pointer; a1: pointer): void {.cdecl.}
-  ImVec2* = struct_ImVec2
+      cdecl.}                
+  ImGuiSizeCallback* = proc (a0: ptr ImGuiSizeCallbackData): void {.cdecl.} 
+  ImGuiMemAllocFunc* = proc (a0: csize_t; a1: pointer): pointer {.cdecl.} 
+  ImGuiMemFreeFunc* = proc (a0: pointer; a1: pointer): void {.cdecl.} 
+  ImVec2* = struct_ImVec2    
   struct_ImVec2* {.pure, inheritable, bycopy.} = object
-    x*: cfloat
+    x*: cfloat               
     y*: cfloat
-  ImVec4* = struct_ImVec4
+  ImVec4* = struct_ImVec4    
   struct_ImVec4* {.pure, inheritable, bycopy.} = object
-    x*: cfloat
+    x*: cfloat               
     y*: cfloat
     z*: cfloat
     w*: cfloat
-  ImGuiWindowFlags_private* = enum_ImGuiWindowFlags_private
-  ImGuiChildFlags_private* = enum_ImGuiChildFlags_private
-  ImGuiItemFlags_private* = enum_ImGuiItemFlags_private
-  ImGuiInputTextFlags_private* = enum_ImGuiInputTextFlags_private
-  ImGuiTreeNodeFlags_private* = enum_ImGuiTreeNodeFlags_private
-  ImGuiPopupFlags_private* = enum_ImGuiPopupFlags_private
-  ImGuiSelectableFlags_private* = enum_ImGuiSelectableFlags_private
-  ImGuiComboFlags_private* = enum_ImGuiComboFlags_private
-  ImGuiTabBarFlags_private* = enum_ImGuiTabBarFlags_private
-  ImGuiTabItemFlags_private* = enum_ImGuiTabItemFlags_private
-  ImGuiFocusedFlags_private* = enum_ImGuiFocusedFlags_private
-  ImGuiHoveredFlags_private* = enum_ImGuiHoveredFlags_private
-  ImGuiDockNodeFlags_private* = enum_ImGuiDockNodeFlags_private
-  ImGuiDragDropFlags_private* = enum_ImGuiDragDropFlags_private
-  ImGuiDataType_private* = enum_ImGuiDataType_private
-  ImGuiDir* = enum_ImGuiDir
-  ImGuiSortDirection* = enum_ImGuiSortDirection
-  ImGuiKey* = enum_ImGuiKey
-  ImGuiInputFlags_private* = enum_ImGuiInputFlags_private
-  ImGuiConfigFlags_private* = enum_ImGuiConfigFlags_private
-  ImGuiBackendFlags_private* = enum_ImGuiBackendFlags_private
-  ImGuiCol_private* = enum_ImGuiCol_private
-  ImGuiStyleVar_private* = enum_ImGuiStyleVar_private
-  ImGuiButtonFlags_private* = enum_ImGuiButtonFlags_private
-  ImGuiColorEditFlags_private* = enum_ImGuiColorEditFlags_private
-  ImGuiSliderFlags_private* = enum_ImGuiSliderFlags_private
-  ImGuiMouseButton_private* = enum_ImGuiMouseButton_private
-  ImGuiMouseCursor_private* = enum_ImGuiMouseCursor_private
-  ImGuiMouseSource* = enum_ImGuiMouseSource
-  ImGuiCond_private* = enum_ImGuiCond_private
-  ImGuiTableFlags_private* = enum_ImGuiTableFlags_private
-  ImGuiTableColumnFlags_private* = enum_ImGuiTableColumnFlags_private
-  ImGuiTableRowFlags_private* = enum_ImGuiTableRowFlags_private
-  ImGuiTableBgTarget_private* = enum_ImGuiTableBgTarget_private
+  ImGuiWindowFlags_private* = enum_ImGuiWindowFlags_private 
+  ImGuiChildFlags_private* = enum_ImGuiChildFlags_private 
+  ImGuiItemFlags_private* = enum_ImGuiItemFlags_private 
+  ImGuiInputTextFlags_private* = enum_ImGuiInputTextFlags_private 
+  ImGuiTreeNodeFlags_private* = enum_ImGuiTreeNodeFlags_private 
+  ImGuiPopupFlags_private* = enum_ImGuiPopupFlags_private 
+  ImGuiSelectableFlags_private* = enum_ImGuiSelectableFlags_private 
+  ImGuiComboFlags_private* = enum_ImGuiComboFlags_private 
+  ImGuiTabBarFlags_private* = enum_ImGuiTabBarFlags_private 
+  ImGuiTabItemFlags_private* = enum_ImGuiTabItemFlags_private 
+  ImGuiFocusedFlags_private* = enum_ImGuiFocusedFlags_private 
+  ImGuiHoveredFlags_private* = enum_ImGuiHoveredFlags_private 
+  ImGuiDockNodeFlags_private* = enum_ImGuiDockNodeFlags_private 
+  ImGuiDragDropFlags_private* = enum_ImGuiDragDropFlags_private 
+  ImGuiDataType_private* = enum_ImGuiDataType_private 
+  ImGuiDir* = enum_ImGuiDir  
+  ImGuiSortDirection* = enum_ImGuiSortDirection 
+  ImGuiKey* = enum_ImGuiKey  
+  ImGuiInputFlags_private* = enum_ImGuiInputFlags_private 
+  ImGuiConfigFlags_private* = enum_ImGuiConfigFlags_private 
+  ImGuiBackendFlags_private* = enum_ImGuiBackendFlags_private 
+  ImGuiCol_private* = enum_ImGuiCol_private 
+  ImGuiStyleVar_private* = enum_ImGuiStyleVar_private 
+  ImGuiButtonFlags_private* = enum_ImGuiButtonFlags_private 
+  ImGuiColorEditFlags_private* = enum_ImGuiColorEditFlags_private 
+  ImGuiSliderFlags_private* = enum_ImGuiSliderFlags_private 
+  ImGuiMouseButton_private* = enum_ImGuiMouseButton_private 
+  ImGuiMouseCursor_private* = enum_ImGuiMouseCursor_private 
+  ImGuiMouseSource* = enum_ImGuiMouseSource 
+  ImGuiCond_private* = enum_ImGuiCond_private 
+  ImGuiTableFlags_private* = enum_ImGuiTableFlags_private 
+  ImGuiTableColumnFlags_private* = enum_ImGuiTableColumnFlags_private 
+  ImGuiTableRowFlags_private* = enum_ImGuiTableRowFlags_private 
+  ImGuiTableBgTarget_private* = enum_ImGuiTableBgTarget_private 
   struct_ImVector_ImWchar* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImWchar
-  ImVector_ImWchar* = struct_ImVector_ImWchar
+  ImVector_ImWchar* = struct_ImVector_ImWchar 
   struct_ImGuiTextRange* {.pure, inheritable, bycopy.} = object
-    b*: cstring
+    b*: cstring              
     e*: cstring
-  ImGuiTextRange* = struct_ImGuiTextRange
+  ImGuiTextRange* = struct_ImGuiTextRange 
   struct_ImVector_ImGuiTextRange* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiTextRange
-  ImVector_ImGuiTextRange* = struct_ImVector_ImGuiTextRange
+  ImVector_ImGuiTextRange* = struct_ImVector_ImGuiTextRange 
   struct_ImVector_char* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: cstring
-  ImVector_char* = struct_ImVector_char
+  ImVector_char* = struct_ImVector_char 
   struct_ImVector_ImGuiStoragePair* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiStoragePair
-  ImVector_ImGuiStoragePair* = struct_ImVector_ImGuiStoragePair
-  ImGuiMultiSelectFlags_private* = enum_ImGuiMultiSelectFlags_private
+  ImVector_ImGuiStoragePair* = struct_ImVector_ImGuiStoragePair 
+  ImGuiMultiSelectFlags_private* = enum_ImGuiMultiSelectFlags_private 
   struct_ImVector_ImGuiSelectionRequest* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiSelectionRequest
-  ImVector_ImGuiSelectionRequest* = struct_ImVector_ImGuiSelectionRequest
-  ImGuiSelectionRequestType* = enum_ImGuiSelectionRequestType
-  ImDrawCallback* = proc (a0: ptr ImDrawList; a1: ptr ImDrawCmd): void {.cdecl.}
-  ImDrawCmdHeader* = struct_ImDrawCmdHeader
+  ImVector_ImGuiSelectionRequest* = struct_ImVector_ImGuiSelectionRequest 
+  ImGuiSelectionRequestType* = enum_ImGuiSelectionRequestType 
+  ImDrawCallback* = proc (a0: ptr ImDrawList; a1: ptr ImDrawCmd): void {.cdecl.} 
+  ImDrawCmdHeader* = struct_ImDrawCmdHeader 
   struct_ImDrawCmdHeader* {.pure, inheritable, bycopy.} = object
-    ClipRect*: ImVec4
+    ClipRect*: ImVec4        
     TextureId*: ImTextureID
     VtxOffset*: cuint
   struct_ImVector_ImDrawCmd* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImDrawCmd
-  ImVector_ImDrawCmd* = struct_ImVector_ImDrawCmd
+  ImVector_ImDrawCmd* = struct_ImVector_ImDrawCmd 
   struct_ImVector_ImDrawIdx* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImDrawIdx
-  ImVector_ImDrawIdx* = struct_ImVector_ImDrawIdx
+  ImVector_ImDrawIdx* = struct_ImVector_ImDrawIdx 
   struct_ImVector_ImDrawChannel* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImDrawChannel
-  ImVector_ImDrawChannel* = struct_ImVector_ImDrawChannel
-  ImDrawFlags_private* = enum_ImDrawFlags_private
-  ImDrawListFlags_private* = enum_ImDrawListFlags_private
+  ImVector_ImDrawChannel* = struct_ImVector_ImDrawChannel 
+  ImDrawFlags_private* = enum_ImDrawFlags_private 
+  ImDrawListFlags_private* = enum_ImDrawListFlags_private 
   struct_ImVector_ImDrawVert* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImDrawVert
-  ImVector_ImDrawVert* = struct_ImVector_ImDrawVert
+  ImVector_ImDrawVert* = struct_ImVector_ImDrawVert 
   struct_ImVector_ImVec2* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImVec2
-  ImVector_ImVec2* = struct_ImVector_ImVec2
+  ImVector_ImVec2* = struct_ImVector_ImVec2 
   struct_ImVector_ImVec4* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImVec4
-  ImVector_ImVec4* = struct_ImVector_ImVec4
+  ImVector_ImVec4* = struct_ImVector_ImVec4 
   struct_ImVector_ImTextureID* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImTextureID
-  ImVector_ImTextureID* = struct_ImVector_ImTextureID
+  ImVector_ImTextureID* = struct_ImVector_ImTextureID 
   struct_ImVector_ImU8* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImU8
-  ImVector_ImU8* = struct_ImVector_ImU8
+  ImVector_ImU8* = struct_ImVector_ImU8 
   struct_ImVector_ImDrawListPtr* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ptr ImDrawList
-  ImVector_ImDrawListPtr* = struct_ImVector_ImDrawListPtr
+  ImVector_ImDrawListPtr* = struct_ImVector_ImDrawListPtr 
   struct_ImVector_ImU32* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImU32
-  ImVector_ImU32* = struct_ImVector_ImU32
-  ImFontAtlasCustomRect* = struct_ImFontAtlasCustomRect
+  ImVector_ImU32* = struct_ImVector_ImU32 
+  ImFontAtlasCustomRect* = struct_ImFontAtlasCustomRect 
   struct_ImFontAtlasCustomRect* {.pure, inheritable, bycopy.} = object
-    X*: cushort
+    X*: cushort              
     Y*: cushort
     Width*: cushort
     Height*: cushort
@@ -2946,171 +3046,171 @@ type
     GlyphAdvanceX*: cfloat
     GlyphOffset*: ImVec2
     Font*: ptr ImFont
-  ImFontAtlasFlags_private* = enum_ImFontAtlasFlags_private
+  ImFontAtlasFlags_private* = enum_ImFontAtlasFlags_private 
   struct_ImVector_ImFontPtr* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ptr ImFont
-  ImVector_ImFontPtr* = struct_ImVector_ImFontPtr
+  ImVector_ImFontPtr* = struct_ImVector_ImFontPtr 
   struct_ImVector_ImFontAtlasCustomRect* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImFontAtlasCustomRect
-  ImVector_ImFontAtlasCustomRect* = struct_ImVector_ImFontAtlasCustomRect
+  ImVector_ImFontAtlasCustomRect* = struct_ImVector_ImFontAtlasCustomRect 
   struct_ImVector_ImFontConfig* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImFontConfig
-  ImVector_ImFontConfig* = struct_ImVector_ImFontConfig
+  ImVector_ImFontConfig* = struct_ImVector_ImFontConfig 
   struct_ImVector_float* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr cfloat
-  ImVector_float* = struct_ImVector_float
+  ImVector_float* = struct_ImVector_float 
   struct_ImVector_ImFontGlyph* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImFontGlyph
-  ImVector_ImFontGlyph* = struct_ImVector_ImFontGlyph
-  ImGuiViewportFlags_private* = enum_ImGuiViewportFlags_private
+  ImVector_ImFontGlyph* = struct_ImVector_ImFontGlyph 
+  ImGuiViewportFlags_private* = enum_ImGuiViewportFlags_private 
   struct_ImVector_ImGuiPlatformMonitor* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiPlatformMonitor
-  ImVector_ImGuiPlatformMonitor* = struct_ImVector_ImGuiPlatformMonitor
+  ImVector_ImGuiPlatformMonitor* = struct_ImVector_ImGuiPlatformMonitor 
   struct_ImVector_ImGuiViewportPtr* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ptr ImGuiViewport
-  ImVector_ImGuiViewportPtr* = struct_ImVector_ImGuiViewportPtr
-  ImGuiDataAuthority* = cint
-  ImGuiLayoutType* = cint
-  ImGuiActivateFlags* = cint
-  ImGuiDebugLogFlags* = cint
-  ImGuiFocusRequestFlags* = cint
-  ImGuiItemStatusFlags* = cint
-  ImGuiOldColumnFlags* = cint
-  ImGuiLogFlags* = cint
-  ImGuiNavRenderCursorFlags* = cint
-  ImGuiNavMoveFlags* = cint
-  ImGuiNextItemDataFlags* = cint
-  ImGuiNextWindowDataFlags* = cint
-  ImGuiScrollFlags* = cint
-  ImGuiSeparatorFlags* = cint
-  ImGuiTextFlags* = cint
-  ImGuiTooltipFlags* = cint
-  ImGuiTypingSelectFlags* = cint
-  ImGuiWindowRefreshFlags* = cint
-  ImFileHandle* = ptr FILE
-  FILE* = struct_iobuf
-  ImVec1* = struct_ImVec1
+  ImVector_ImGuiViewportPtr* = struct_ImVector_ImGuiViewportPtr 
+  ImGuiDataAuthority* = cint 
+  ImGuiLayoutType* = cint    
+  ImGuiActivateFlags* = cint 
+  ImGuiDebugLogFlags* = cint 
+  ImGuiFocusRequestFlags* = cint 
+  ImGuiItemStatusFlags* = cint 
+  ImGuiOldColumnFlags* = cint 
+  ImGuiLogFlags* = cint      
+  ImGuiNavRenderCursorFlags* = cint 
+  ImGuiNavMoveFlags* = cint  
+  ImGuiNextItemDataFlags* = cint 
+  ImGuiNextWindowDataFlags* = cint 
+  ImGuiScrollFlags* = cint   
+  ImGuiSeparatorFlags* = cint 
+  ImGuiTextFlags* = cint     
+  ImGuiTooltipFlags* = cint  
+  ImGuiTypingSelectFlags* = cint 
+  ImGuiWindowRefreshFlags* = cint 
+  ImFileHandle* = ptr FILE   
+  FILE* = struct_iobuf       
+  ImVec1* = struct_ImVec1    
   struct_ImVec1* {.pure, inheritable, bycopy.} = object
-    x*: cfloat
-  ImVec2ih* = struct_ImVec2ih
+    x*: cfloat               
+  ImVec2ih* = struct_ImVec2ih 
   struct_ImVec2ih* {.pure, inheritable, bycopy.} = object
-    x*: cshort
+    x*: cshort               
     y*: cshort
-  ImBitArrayPtr* = ptr ImU32
-  ImPoolIdx* = cint
-  ImGuiTextIndex* = struct_ImGuiTextIndex
+  ImBitArrayPtr* = ptr ImU32 
+  ImPoolIdx* = cint          
+  ImGuiTextIndex* = struct_ImGuiTextIndex 
   struct_ImGuiTextIndex* {.pure, inheritable, bycopy.} = object
-    LineOffsets*: ImVector_int
+    LineOffsets*: ImVector_int 
     EndOffset*: cint
   struct_ImVector_int* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr cint
-  ImVector_int* = struct_ImVector_int
-  ImGuiDataTypeStorage* = struct_ImGuiDataTypeStorage
+  ImVector_int* = struct_ImVector_int 
+  ImGuiDataTypeStorage* = struct_ImGuiDataTypeStorage 
   struct_ImGuiDataTypeStorage* {.pure, inheritable, bycopy.} = object
-    Data*: array[8'i64, ImU8]
-  ImGuiDataTypePrivate_private* = enum_ImGuiDataTypePrivate_private
-  ImGuiItemFlagsPrivate_private* = enum_ImGuiItemFlagsPrivate_private
-  ImGuiItemStatusFlags_private* = enum_ImGuiItemStatusFlags_private
-  ImGuiHoveredFlagsPrivate_private* = enum_ImGuiHoveredFlagsPrivate_private
-  ImGuiInputTextFlagsPrivate_private* = enum_ImGuiInputTextFlagsPrivate_private
-  ImGuiButtonFlagsPrivate_private* = enum_ImGuiButtonFlagsPrivate_private
-  ImGuiComboFlagsPrivate_private* = enum_ImGuiComboFlagsPrivate_private
-  ImGuiSliderFlagsPrivate_private* = enum_ImGuiSliderFlagsPrivate_private
-  ImGuiSelectableFlagsPrivate_private* = enum_ImGuiSelectableFlagsPrivate_private
-  ImGuiTreeNodeFlagsPrivate_private* = enum_ImGuiTreeNodeFlagsPrivate_private
-  ImGuiSeparatorFlags_private* = enum_ImGuiSeparatorFlags_private
-  ImGuiFocusRequestFlags_private* = enum_ImGuiFocusRequestFlags_private
-  ImGuiTextFlags_private* = enum_ImGuiTextFlags_private
-  ImGuiTooltipFlags_private* = enum_ImGuiTooltipFlags_private
-  ImGuiLayoutType_private* = enum_ImGuiLayoutType_private
-  ImGuiLogFlags_private* = enum_ImGuiLogFlags_private
-  ImGuiAxis* = enum_ImGuiAxis
-  ImGuiPlotType* = enum_ImGuiPlotType
-  ImGuiComboPreviewData* = struct_ImGuiComboPreviewData
+    Data*: array[8'i64, ImU8] 
+  ImGuiDataTypePrivate_private* = enum_ImGuiDataTypePrivate_private 
+  ImGuiItemFlagsPrivate_private* = enum_ImGuiItemFlagsPrivate_private 
+  ImGuiItemStatusFlags_private* = enum_ImGuiItemStatusFlags_private 
+  ImGuiHoveredFlagsPrivate_private* = enum_ImGuiHoveredFlagsPrivate_private 
+  ImGuiInputTextFlagsPrivate_private* = enum_ImGuiInputTextFlagsPrivate_private 
+  ImGuiButtonFlagsPrivate_private* = enum_ImGuiButtonFlagsPrivate_private 
+  ImGuiComboFlagsPrivate_private* = enum_ImGuiComboFlagsPrivate_private 
+  ImGuiSliderFlagsPrivate_private* = enum_ImGuiSliderFlagsPrivate_private 
+  ImGuiSelectableFlagsPrivate_private* = enum_ImGuiSelectableFlagsPrivate_private 
+  ImGuiTreeNodeFlagsPrivate_private* = enum_ImGuiTreeNodeFlagsPrivate_private 
+  ImGuiSeparatorFlags_private* = enum_ImGuiSeparatorFlags_private 
+  ImGuiFocusRequestFlags_private* = enum_ImGuiFocusRequestFlags_private 
+  ImGuiTextFlags_private* = enum_ImGuiTextFlags_private 
+  ImGuiTooltipFlags_private* = enum_ImGuiTooltipFlags_private 
+  ImGuiLayoutType_private* = enum_ImGuiLayoutType_private 
+  ImGuiLogFlags_private* = enum_ImGuiLogFlags_private 
+  ImGuiAxis* = enum_ImGuiAxis 
+  ImGuiPlotType* = enum_ImGuiPlotType 
+  ImGuiComboPreviewData* = struct_ImGuiComboPreviewData 
   struct_ImGuiComboPreviewData* {.pure, inheritable, bycopy.} = object
-    PreviewRect*: ImRect
+    PreviewRect*: ImRect     
     BackupCursorPos*: ImVec2
     BackupCursorMaxPos*: ImVec2
     BackupCursorPosPrevLine*: ImVec2
     BackupPrevLineTextBaseOffset*: cfloat
     BackupLayout*: ImGuiLayoutType
-  ImGuiInputTextDeactivatedState* = struct_ImGuiInputTextDeactivatedState
+  ImGuiInputTextDeactivatedState* = struct_ImGuiInputTextDeactivatedState 
   struct_ImGuiInputTextDeactivatedState* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     TextA*: ImVector_char
-  ImStbTexteditState* = STB_TexteditState
-  ImGuiWindowRefreshFlags_private* = enum_ImGuiWindowRefreshFlags_private
-  ImGuiNextWindowDataFlags_private* = enum_ImGuiNextWindowDataFlags_private
-  ImGuiNextItemDataFlags_private* = enum_ImGuiNextItemDataFlags_private
-  ImGuiWindowStackData* = struct_ImGuiWindowStackData
+  ImStbTexteditState* = STB_TexteditState 
+  ImGuiWindowRefreshFlags_private* = enum_ImGuiWindowRefreshFlags_private 
+  ImGuiNextWindowDataFlags_private* = enum_ImGuiNextWindowDataFlags_private 
+  ImGuiNextItemDataFlags_private* = enum_ImGuiNextItemDataFlags_private 
+  ImGuiWindowStackData* = struct_ImGuiWindowStackData 
   struct_ImGuiWindowStackData* {.pure, inheritable, bycopy.} = object
-    Window*: ptr ImGuiWindow
+    Window*: ptr ImGuiWindow 
     ParentLastItemDataBackup*: ImGuiLastItemData
     StackSizesInBegin*: ImGuiErrorRecoveryState
     DisabledOverrideReenable*: bool
-  ImGuiShrinkWidthItem* = struct_ImGuiShrinkWidthItem
+  ImGuiShrinkWidthItem* = struct_ImGuiShrinkWidthItem 
   struct_ImGuiShrinkWidthItem* {.pure, inheritable, bycopy.} = object
-    Index*: cint
+    Index*: cint             
     Width*: cfloat
     InitialWidth*: cfloat
-  ImGuiPtrOrIndex* = struct_ImGuiPtrOrIndex
+  ImGuiPtrOrIndex* = struct_ImGuiPtrOrIndex 
   struct_ImGuiPtrOrIndex* {.pure, inheritable, bycopy.} = object
-    Ptr*: pointer
+    Ptr*: pointer            
     Index*: cint
-  ImGuiPopupPositionPolicy* = enum_ImGuiPopupPositionPolicy
+  ImGuiPopupPositionPolicy* = enum_ImGuiPopupPositionPolicy 
   struct_ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN* {.pure,
       inheritable, bycopy.} = object
-    Storage*: array[5'i64, ImU32]
-  ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN* = struct_ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN
-  ImBitArrayForNamedKeys* = ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN
-  ImGuiInputEventType* = enum_ImGuiInputEventType
-  ImGuiInputSource* = enum_ImGuiInputSource
-  ImGuiInputEventMousePos* = struct_ImGuiInputEventMousePos
+    Storage*: array[5'i64, ImU32] 
+  ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN* = struct_ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN 
+  ImBitArrayForNamedKeys* = ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN 
+  ImGuiInputEventType* = enum_ImGuiInputEventType 
+  ImGuiInputSource* = enum_ImGuiInputSource 
+  ImGuiInputEventMousePos* = struct_ImGuiInputEventMousePos 
   struct_ImGuiInputEventMousePos* {.pure, inheritable, bycopy.} = object
-    PosX*: cfloat
+    PosX*: cfloat            
     PosY*: cfloat
     MouseSource*: ImGuiMouseSource
-  ImGuiInputEventMouseWheel* = struct_ImGuiInputEventMouseWheel
+  ImGuiInputEventMouseWheel* = struct_ImGuiInputEventMouseWheel 
   struct_ImGuiInputEventMouseWheel* {.pure, inheritable, bycopy.} = object
-    WheelX*: cfloat
+    WheelX*: cfloat          
     WheelY*: cfloat
     MouseSource*: ImGuiMouseSource
-  ImGuiInputEventMouseButton* = struct_ImGuiInputEventMouseButton
+  ImGuiInputEventMouseButton* = struct_ImGuiInputEventMouseButton 
   struct_ImGuiInputEventMouseButton* {.pure, inheritable, bycopy.} = object
-    Button*: cint
+    Button*: cint            
     Down*: bool
     MouseSource*: ImGuiMouseSource
-  ImGuiInputEventMouseViewport* = struct_ImGuiInputEventMouseViewport
+  ImGuiInputEventMouseViewport* = struct_ImGuiInputEventMouseViewport 
   struct_ImGuiInputEventMouseViewport* {.pure, inheritable, bycopy.} = object
-    HoveredViewportID*: ImGuiID
-  ImGuiInputEventKey* = struct_ImGuiInputEventKey
+    HoveredViewportID*: ImGuiID 
+  ImGuiInputEventKey* = struct_ImGuiInputEventKey 
   struct_ImGuiInputEventKey* {.pure, inheritable, bycopy.} = object
-    Key*: ImGuiKey
+    Key*: ImGuiKey           
     Down*: bool
     AnalogValue*: cfloat
-  ImGuiInputEventText* = struct_ImGuiInputEventText
+  ImGuiInputEventText* = struct_ImGuiInputEventText 
   struct_ImGuiInputEventText* {.pure, inheritable, bycopy.} = object
-    Char*: cuint
-  ImGuiInputEventAppFocused* = struct_ImGuiInputEventAppFocused
+    Char*: cuint             
+  ImGuiInputEventAppFocused* = struct_ImGuiInputEventAppFocused 
   struct_ImGuiInputEventAppFocused* {.pure, inheritable, bycopy.} = object
-    Focused*: bool
-  ImGuiInputEvent* = struct_ImGuiInputEvent
+    Focused*: bool           
+  ImGuiInputEvent* = struct_ImGuiInputEvent 
   struct_ImGuiInputEvent_anon0_t* {.union, bycopy.} = object
     MousePos*: ImGuiInputEventMousePos
     MouseWheel*: ImGuiInputEventMouseWheel
@@ -3120,94 +3220,94 @@ type
     Text*: ImGuiInputEventText
     AppFocused*: ImGuiInputEventAppFocused
   struct_ImGuiInputEvent* {.pure, inheritable, bycopy.} = object
-    Type*: ImGuiInputEventType
+    Type*: ImGuiInputEventType 
     Source*: ImGuiInputSource
     EventId*: ImU32
     anon0*: struct_ImGuiInputEvent_anon0_t
     AddedByTestEngine*: bool
-  ImGuiKeyRoutingIndex* = ImS16
-  ImGuiKeyRoutingData* = struct_ImGuiKeyRoutingData
+  ImGuiKeyRoutingIndex* = ImS16 
+  ImGuiKeyRoutingData* = struct_ImGuiKeyRoutingData 
   struct_ImGuiKeyRoutingData* {.pure, inheritable, bycopy.} = object
-    NextEntryIndex*: ImGuiKeyRoutingIndex
+    NextEntryIndex*: ImGuiKeyRoutingIndex 
     Mods*: ImU16
     RoutingCurrScore*: ImU8
     RoutingNextScore*: ImU8
     RoutingCurr*: ImGuiID
     RoutingNext*: ImGuiID
-  ImGuiKeyRoutingTable* = struct_ImGuiKeyRoutingTable
+  ImGuiKeyRoutingTable* = struct_ImGuiKeyRoutingTable 
   struct_ImGuiKeyRoutingTable* {.pure, inheritable, bycopy.} = object
-    Index*: array[154'i64, ImGuiKeyRoutingIndex]
+    Index*: array[154'i64, ImGuiKeyRoutingIndex] 
     Entries*: ImVector_ImGuiKeyRoutingData
     EntriesNext*: ImVector_ImGuiKeyRoutingData
   struct_ImVector_ImGuiKeyRoutingData* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiKeyRoutingData
-  ImVector_ImGuiKeyRoutingData* = struct_ImVector_ImGuiKeyRoutingData
-  ImGuiKeyOwnerData* = struct_ImGuiKeyOwnerData
+  ImVector_ImGuiKeyRoutingData* = struct_ImVector_ImGuiKeyRoutingData 
+  ImGuiKeyOwnerData* = struct_ImGuiKeyOwnerData 
   struct_ImGuiKeyOwnerData* {.pure, inheritable, bycopy.} = object
-    OwnerCurr*: ImGuiID
+    OwnerCurr*: ImGuiID      
     OwnerNext*: ImGuiID
     LockThisFrame*: bool
     LockUntilRelease*: bool
-  ImGuiInputFlagsPrivate_private* = enum_ImGuiInputFlagsPrivate_private
-  ImGuiListClipperRange* = struct_ImGuiListClipperRange
+  ImGuiInputFlagsPrivate_private* = enum_ImGuiInputFlagsPrivate_private 
+  ImGuiListClipperRange* = struct_ImGuiListClipperRange 
   struct_ImGuiListClipperRange* {.pure, inheritable, bycopy.} = object
-    Min*: cint
+    Min*: cint               
     Max*: cint
     PosToIndexConvert*: bool
     PosToIndexOffsetMin*: ImS8
     PosToIndexOffsetMax*: ImS8
-  ImGuiListClipperData* = struct_ImGuiListClipperData
+  ImGuiListClipperData* = struct_ImGuiListClipperData 
   struct_ImGuiListClipperData* {.pure, inheritable, bycopy.} = object
-    ListClipper*: ptr ImGuiListClipper
+    ListClipper*: ptr ImGuiListClipper 
     LossynessOffset*: cfloat
     StepNo*: cint
     ItemsFrozen*: cint
     Ranges*: ImVector_ImGuiListClipperRange
   struct_ImVector_ImGuiListClipperRange* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiListClipperRange
-  ImVector_ImGuiListClipperRange* = struct_ImVector_ImGuiListClipperRange
-  ImGuiActivateFlags_private* = enum_ImGuiActivateFlags_private
-  ImGuiScrollFlags_private* = enum_ImGuiScrollFlags_private
-  ImGuiNavRenderCursorFlags_private* = enum_ImGuiNavRenderCursorFlags_private
-  ImGuiNavMoveFlags_private* = enum_ImGuiNavMoveFlags_private
-  ImGuiNavLayer* = enum_ImGuiNavLayer
-  ImGuiFocusScopeData* = struct_ImGuiFocusScopeData
+  ImVector_ImGuiListClipperRange* = struct_ImVector_ImGuiListClipperRange 
+  ImGuiActivateFlags_private* = enum_ImGuiActivateFlags_private 
+  ImGuiScrollFlags_private* = enum_ImGuiScrollFlags_private 
+  ImGuiNavRenderCursorFlags_private* = enum_ImGuiNavRenderCursorFlags_private 
+  ImGuiNavMoveFlags_private* = enum_ImGuiNavMoveFlags_private 
+  ImGuiNavLayer* = enum_ImGuiNavLayer 
+  ImGuiFocusScopeData* = struct_ImGuiFocusScopeData 
   struct_ImGuiFocusScopeData* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     WindowID*: ImGuiID
-  ImGuiTypingSelectFlags_private* = enum_ImGuiTypingSelectFlags_private
-  ImGuiOldColumnFlags_private* = enum_ImGuiOldColumnFlags_private
+  ImGuiTypingSelectFlags_private* = enum_ImGuiTypingSelectFlags_private 
+  ImGuiOldColumnFlags_private* = enum_ImGuiOldColumnFlags_private 
   struct_ImVector_ImGuiOldColumnData* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiOldColumnData
-  ImVector_ImGuiOldColumnData* = struct_ImVector_ImGuiOldColumnData
-  ImGuiDockNodeFlagsPrivate_private* = enum_ImGuiDockNodeFlagsPrivate_private
-  ImGuiDataAuthority_private* = enum_ImGuiDataAuthority_private
-  ImGuiDockNodeState* = enum_ImGuiDockNodeState
+  ImVector_ImGuiOldColumnData* = struct_ImVector_ImGuiOldColumnData 
+  ImGuiDockNodeFlagsPrivate_private* = enum_ImGuiDockNodeFlagsPrivate_private 
+  ImGuiDataAuthority_private* = enum_ImGuiDataAuthority_private 
+  ImGuiDockNodeState* = enum_ImGuiDockNodeState 
   struct_ImVector_ImGuiWindowPtr* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ptr ImGuiWindow
-  ImVector_ImGuiWindowPtr* = struct_ImVector_ImGuiWindowPtr
-  ImGuiWindowDockStyleCol* = enum_ImGuiWindowDockStyleCol
+  ImVector_ImGuiWindowPtr* = struct_ImVector_ImGuiWindowPtr 
+  ImGuiWindowDockStyleCol* = enum_ImGuiWindowDockStyleCol 
   struct_ImVector_ImGuiDockRequest* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiDockRequest
-  ImVector_ImGuiDockRequest* = struct_ImVector_ImGuiDockRequest
+  ImVector_ImGuiDockRequest* = struct_ImVector_ImGuiDockRequest 
   struct_ImVector_ImGuiDockNodeSettings* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiDockNodeSettings
-  ImVector_ImGuiDockNodeSettings* = struct_ImVector_ImGuiDockNodeSettings
-  ImGuiViewportP* = struct_ImGuiViewportP
+  ImVector_ImGuiDockNodeSettings* = struct_ImVector_ImGuiDockNodeSettings 
+  ImGuiViewportP* = struct_ImGuiViewportP 
   struct_ImGuiViewportP* {.pure, inheritable, bycopy.} = object
-    internal_ImGuiViewport*: ImGuiViewport
+    internal_ImGuiViewport*: ImGuiViewport 
     Window*: ptr ImGuiWindow
     Idx*: cint
     LastFrameActive*: cint
@@ -3230,226 +3330,226 @@ type
     WorkInsetMax*: ImVec2
     BuildWorkInsetMin*: ImVec2
     BuildWorkInsetMax*: ImVec2
-  ImGuiLocKey* = enum_ImGuiLocKey
+  ImGuiLocKey* = enum_ImGuiLocKey 
   ImGuiErrorCallback* = proc (a0: ptr ImGuiContext; a1: pointer; a2: cstring): void {.
-      cdecl.}
-  ImGuiDebugLogFlags_private* = enum_ImGuiDebugLogFlags_private
-  ImGuiDebugAllocEntry* = struct_ImGuiDebugAllocEntry
+      cdecl.}                
+  ImGuiDebugLogFlags_private* = enum_ImGuiDebugLogFlags_private 
+  ImGuiDebugAllocEntry* = struct_ImGuiDebugAllocEntry 
   struct_ImGuiDebugAllocEntry* {.pure, inheritable, bycopy.} = object
-    FrameCount*: cint
+    FrameCount*: cint        
     AllocCount*: ImS16
     FreeCount*: ImS16
-  ImGuiDebugAllocInfo* = struct_ImGuiDebugAllocInfo
+  ImGuiDebugAllocInfo* = struct_ImGuiDebugAllocInfo 
   struct_ImGuiDebugAllocInfo* {.pure, inheritable, bycopy.} = object
-    TotalAllocCount*: cint
+    TotalAllocCount*: cint   
     TotalFreeCount*: cint
     LastEntriesIdx*: ImS16
     LastEntriesBuf*: array[6'i64, ImGuiDebugAllocEntry]
-  ImGuiStackLevelInfo* = struct_ImGuiStackLevelInfo
+  ImGuiStackLevelInfo* = struct_ImGuiStackLevelInfo 
   struct_ImGuiStackLevelInfo* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     QueryFrameCount*: ImS8
     QuerySuccess*: bool
     DataType* {.bitsize: 8'i64.}: ImGuiDataType
     Desc*: array[57'i64, cschar]
-  ImGuiIDStackTool* = struct_ImGuiIDStackTool
+  ImGuiIDStackTool* = struct_ImGuiIDStackTool 
   struct_ImGuiIDStackTool* {.pure, inheritable, bycopy.} = object
-    LastActiveFrame*: cint
+    LastActiveFrame*: cint   
     StackLevel*: cint
     QueryId*: ImGuiID
     Results*: ImVector_ImGuiStackLevelInfo
     CopyToClipboardOnCtrlC*: bool
     CopyToClipboardLastTime*: cfloat
   struct_ImVector_ImGuiStackLevelInfo* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiStackLevelInfo
-  ImVector_ImGuiStackLevelInfo* = struct_ImVector_ImGuiStackLevelInfo
+  ImVector_ImGuiStackLevelInfo* = struct_ImVector_ImGuiStackLevelInfo 
   ImGuiContextHookCallback* = proc (a0: ptr ImGuiContext;
-                                    a1: ptr ImGuiContextHook): void {.cdecl.}
-  ImGuiContextHookType* = enum_ImGuiContextHookType
+                                    a1: ptr ImGuiContextHook): void {.cdecl.} 
+  ImGuiContextHookType* = enum_ImGuiContextHookType 
   struct_ImVector_ImGuiInputEvent* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiInputEvent
-  ImVector_ImGuiInputEvent* = struct_ImVector_ImGuiInputEvent
+  ImVector_ImGuiInputEvent* = struct_ImVector_ImGuiInputEvent 
   struct_ImVector_ImGuiWindowStackData* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiWindowStackData
-  ImVector_ImGuiWindowStackData* = struct_ImVector_ImGuiWindowStackData
+  ImVector_ImGuiWindowStackData* = struct_ImVector_ImGuiWindowStackData 
   struct_ImVector_ImGuiColorMod* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiColorMod
-  ImVector_ImGuiColorMod* = struct_ImVector_ImGuiColorMod
+  ImVector_ImGuiColorMod* = struct_ImVector_ImGuiColorMod 
   struct_ImVector_ImGuiStyleMod* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiStyleMod
-  ImVector_ImGuiStyleMod* = struct_ImVector_ImGuiStyleMod
+  ImVector_ImGuiStyleMod* = struct_ImVector_ImGuiStyleMod 
   struct_ImVector_ImGuiFocusScopeData* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiFocusScopeData
-  ImVector_ImGuiFocusScopeData* = struct_ImVector_ImGuiFocusScopeData
+  ImVector_ImGuiFocusScopeData* = struct_ImVector_ImGuiFocusScopeData 
   struct_ImVector_ImGuiItemFlags* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiItemFlags
-  ImVector_ImGuiItemFlags* = struct_ImVector_ImGuiItemFlags
+  ImVector_ImGuiItemFlags* = struct_ImVector_ImGuiItemFlags 
   struct_ImVector_ImGuiGroupData* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiGroupData
-  ImVector_ImGuiGroupData* = struct_ImVector_ImGuiGroupData
+  ImVector_ImGuiGroupData* = struct_ImVector_ImGuiGroupData 
   struct_ImVector_ImGuiPopupData* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiPopupData
-  ImVector_ImGuiPopupData* = struct_ImVector_ImGuiPopupData
+  ImVector_ImGuiPopupData* = struct_ImVector_ImGuiPopupData 
   struct_ImVector_ImGuiTreeNodeStackData* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiTreeNodeStackData
-  ImVector_ImGuiTreeNodeStackData* = struct_ImVector_ImGuiTreeNodeStackData
+  ImVector_ImGuiTreeNodeStackData* = struct_ImVector_ImGuiTreeNodeStackData 
   struct_ImVector_ImGuiViewportPPtr* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ptr ImGuiViewportP
-  ImVector_ImGuiViewportPPtr* = struct_ImVector_ImGuiViewportPPtr
+  ImVector_ImGuiViewportPPtr* = struct_ImVector_ImGuiViewportPPtr 
   struct_ImVector_unsigned_char* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr uint8
-  ImVector_unsigned_char* = struct_ImVector_unsigned_char
+  ImVector_unsigned_char* = struct_ImVector_unsigned_char 
   struct_ImVector_ImGuiListClipperData* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiListClipperData
-  ImVector_ImGuiListClipperData* = struct_ImVector_ImGuiListClipperData
+  ImVector_ImGuiListClipperData* = struct_ImVector_ImGuiListClipperData 
   struct_ImVector_ImGuiTableTempData* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiTableTempData
-  ImVector_ImGuiTableTempData* = struct_ImVector_ImGuiTableTempData
+  ImVector_ImGuiTableTempData* = struct_ImVector_ImGuiTableTempData 
   struct_ImVector_ImGuiTable* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiTable
-  ImVector_ImGuiTable* = struct_ImVector_ImGuiTable
+  ImVector_ImGuiTable* = struct_ImVector_ImGuiTable 
   struct_ImPool_ImGuiTable* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_ImGuiTable
+    Buf*: ImVector_ImGuiTable 
     Map*: ImGuiStorage
     FreeIdx*: ImPoolIdx
     AliveCount*: ImPoolIdx
-  ImPool_ImGuiTable* = struct_ImPool_ImGuiTable
+  ImPool_ImGuiTable* = struct_ImPool_ImGuiTable 
   struct_ImVector_ImGuiTabBar* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiTabBar
-  ImVector_ImGuiTabBar* = struct_ImVector_ImGuiTabBar
+  ImVector_ImGuiTabBar* = struct_ImVector_ImGuiTabBar 
   struct_ImPool_ImGuiTabBar* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_ImGuiTabBar
+    Buf*: ImVector_ImGuiTabBar 
     Map*: ImGuiStorage
     FreeIdx*: ImPoolIdx
     AliveCount*: ImPoolIdx
-  ImPool_ImGuiTabBar* = struct_ImPool_ImGuiTabBar
+  ImPool_ImGuiTabBar* = struct_ImPool_ImGuiTabBar 
   struct_ImVector_ImGuiPtrOrIndex* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiPtrOrIndex
-  ImVector_ImGuiPtrOrIndex* = struct_ImVector_ImGuiPtrOrIndex
+  ImVector_ImGuiPtrOrIndex* = struct_ImVector_ImGuiPtrOrIndex 
   struct_ImVector_ImGuiShrinkWidthItem* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiShrinkWidthItem
-  ImVector_ImGuiShrinkWidthItem* = struct_ImVector_ImGuiShrinkWidthItem
+  ImVector_ImGuiShrinkWidthItem* = struct_ImVector_ImGuiShrinkWidthItem 
   struct_ImVector_ImGuiMultiSelectTempData* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiMultiSelectTempData
-  ImVector_ImGuiMultiSelectTempData* = struct_ImVector_ImGuiMultiSelectTempData
+  ImVector_ImGuiMultiSelectTempData* = struct_ImVector_ImGuiMultiSelectTempData 
   struct_ImVector_ImGuiMultiSelectState* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiMultiSelectState
-  ImVector_ImGuiMultiSelectState* = struct_ImVector_ImGuiMultiSelectState
+  ImVector_ImGuiMultiSelectState* = struct_ImVector_ImGuiMultiSelectState 
   struct_ImPool_ImGuiMultiSelectState* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_ImGuiMultiSelectState
+    Buf*: ImVector_ImGuiMultiSelectState 
     Map*: ImGuiStorage
     FreeIdx*: ImPoolIdx
     AliveCount*: ImPoolIdx
-  ImPool_ImGuiMultiSelectState* = struct_ImPool_ImGuiMultiSelectState
+  ImPool_ImGuiMultiSelectState* = struct_ImPool_ImGuiMultiSelectState 
   struct_ImVector_ImGuiID* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiID
-  ImVector_ImGuiID* = struct_ImVector_ImGuiID
+  ImVector_ImGuiID* = struct_ImVector_ImGuiID 
   struct_ImVector_ImGuiSettingsHandler* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiSettingsHandler
-  ImVector_ImGuiSettingsHandler* = struct_ImVector_ImGuiSettingsHandler
+  ImVector_ImGuiSettingsHandler* = struct_ImVector_ImGuiSettingsHandler 
   struct_ImChunkStream_ImGuiWindowSettings* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_char
-  ImChunkStream_ImGuiWindowSettings* = struct_ImChunkStream_ImGuiWindowSettings
+    Buf*: ImVector_char      
+  ImChunkStream_ImGuiWindowSettings* = struct_ImChunkStream_ImGuiWindowSettings 
   struct_ImChunkStream_ImGuiTableSettings* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_char
-  ImChunkStream_ImGuiTableSettings* = struct_ImChunkStream_ImGuiTableSettings
+    Buf*: ImVector_char      
+  ImChunkStream_ImGuiTableSettings* = struct_ImChunkStream_ImGuiTableSettings 
   struct_ImVector_ImGuiContextHook* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiContextHook
-  ImVector_ImGuiContextHook* = struct_ImVector_ImGuiContextHook
+  ImVector_ImGuiContextHook* = struct_ImVector_ImGuiContextHook 
   struct_ImVector_ImGuiOldColumns* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiOldColumns
-  ImVector_ImGuiOldColumns* = struct_ImVector_ImGuiOldColumns
-  ImGuiTabBarFlagsPrivate_private* = enum_ImGuiTabBarFlagsPrivate_private
-  ImGuiTabItemFlagsPrivate_private* = enum_ImGuiTabItemFlagsPrivate_private
+  ImVector_ImGuiOldColumns* = struct_ImVector_ImGuiOldColumns 
+  ImGuiTabBarFlagsPrivate_private* = enum_ImGuiTabBarFlagsPrivate_private 
+  ImGuiTabItemFlagsPrivate_private* = enum_ImGuiTabItemFlagsPrivate_private 
   struct_ImVector_ImGuiTabItem* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiTabItem
-  ImVector_ImGuiTabItem* = struct_ImVector_ImGuiTabItem
-  ImGuiTableColumnIdx* = ImS16
-  ImGuiTableDrawChannelIdx* = ImU16
-  ImGuiTableCellData* = struct_ImGuiTableCellData
+  ImVector_ImGuiTabItem* = struct_ImVector_ImGuiTabItem 
+  ImGuiTableColumnIdx* = ImS16 
+  ImGuiTableDrawChannelIdx* = ImU16 
+  ImGuiTableCellData* = struct_ImGuiTableCellData 
   struct_ImGuiTableCellData* {.pure, inheritable, bycopy.} = object
-    BgColor*: ImU32
+    BgColor*: ImU32          
     Column*: ImGuiTableColumnIdx
   struct_ImSpan_ImGuiTableColumn* {.pure, inheritable, bycopy.} = object
-    Data*: ptr ImGuiTableColumn
+    Data*: ptr ImGuiTableColumn 
     DataEnd*: ptr ImGuiTableColumn
-  ImSpan_ImGuiTableColumn* = struct_ImSpan_ImGuiTableColumn
+  ImSpan_ImGuiTableColumn* = struct_ImSpan_ImGuiTableColumn 
   struct_ImSpan_ImGuiTableColumnIdx* {.pure, inheritable, bycopy.} = object
-    Data*: ptr ImGuiTableColumnIdx
+    Data*: ptr ImGuiTableColumnIdx 
     DataEnd*: ptr ImGuiTableColumnIdx
-  ImSpan_ImGuiTableColumnIdx* = struct_ImSpan_ImGuiTableColumnIdx
+  ImSpan_ImGuiTableColumnIdx* = struct_ImSpan_ImGuiTableColumnIdx 
   struct_ImSpan_ImGuiTableCellData* {.pure, inheritable, bycopy.} = object
-    Data*: ptr ImGuiTableCellData
+    Data*: ptr ImGuiTableCellData 
     DataEnd*: ptr ImGuiTableCellData
-  ImSpan_ImGuiTableCellData* = struct_ImSpan_ImGuiTableCellData
+  ImSpan_ImGuiTableCellData* = struct_ImSpan_ImGuiTableCellData 
   struct_ImVector_ImGuiTableInstanceData* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiTableInstanceData
-  ImVector_ImGuiTableInstanceData* = struct_ImVector_ImGuiTableInstanceData
+  ImVector_ImGuiTableInstanceData* = struct_ImVector_ImGuiTableInstanceData 
   struct_ImVector_ImGuiTableColumnSortSpecs* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiTableColumnSortSpecs
-  ImVector_ImGuiTableColumnSortSpecs* = struct_ImVector_ImGuiTableColumnSortSpecs
+  ImVector_ImGuiTableColumnSortSpecs* = struct_ImVector_ImGuiTableColumnSortSpecs 
   struct_ImVector_ImGuiTableHeaderData* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImGuiTableHeaderData
-  ImVector_ImGuiTableHeaderData* = struct_ImVector_ImGuiTableHeaderData
-  ImGuiTableColumnSettings* = struct_ImGuiTableColumnSettings
+  ImVector_ImGuiTableHeaderData* = struct_ImVector_ImGuiTableHeaderData 
+  ImGuiTableColumnSettings* = struct_ImGuiTableColumnSettings 
   struct_ImGuiTableColumnSettings* {.pure, inheritable, bycopy.} = object
-    WidthOrWeight*: cfloat
+    WidthOrWeight*: cfloat   
     UserID*: ImGuiID
     Index*: ImGuiTableColumnIdx
     DisplayOrder*: ImGuiTableColumnIdx
@@ -3457,9 +3557,9 @@ type
     SortDirection* {.bitsize: 2'i64.}: ImU8
     IsEnabled* {.bitsize: 1'i64.}: ImU8
     IsStretch* {.bitsize: 1'i64.}: ImU8
-  tm* = struct_tm
+  tm* = struct_tm            
   struct_tm* {.pure, inheritable, bycopy.} = object
-    tm_sec*: cint
+    tm_sec*: cint            
     tm_min*: cint
     tm_hour*: cint
     tm_mday*: cint
@@ -3468,9 +3568,9 @@ type
     tm_wday*: cint
     tm_yday*: cint
     tm_isdst*: cint
-  ImPlotContext* = struct_ImPlotContext
+  ImPlotContext* = struct_ImPlotContext 
   struct_ImPlotContext* {.pure, inheritable, bycopy.} = object
-    Plots*: ImPool_ImPlotPlot
+    Plots*: ImPool_ImPlotPlot 
     Subplots*: ImPool_ImPlotSubplot
     CurrentPlot*: ptr ImPlotPlot
     CurrentSubplot*: ptr ImPlotSubplot
@@ -3500,9 +3600,9 @@ type
     AlignmentData*: ImPool_ImPlotAlignmentData
     CurrentAlignmentH*: ptr ImPlotAlignmentData
     CurrentAlignmentV*: ptr ImPlotAlignmentData
-  ImPlotTick* = struct_ImPlotTick
+  ImPlotTick* = struct_ImPlotTick 
   struct_ImPlotTick* {.pure, inheritable, bycopy.} = object
-    PlotPos*: cdouble
+    PlotPos*: cdouble        
     PixelPos*: cfloat
     LabelSize*: ImVec2
     TextOffset*: cint
@@ -3510,9 +3610,9 @@ type
     ShowLabel*: bool
     Level*: cint
     Idx*: cint
-  ImPlotAxis* = struct_ImPlotAxis
+  ImPlotAxis* = struct_ImPlotAxis 
   struct_ImPlotAxis* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     Flags*: ImPlotAxisFlags
     PreviousFlags*: ImPlotAxisFlags
     Range*: ImPlotRange
@@ -3560,19 +3660,19 @@ type
     ShowDefaultTicks*: bool
     Hovered*: bool
     Held*: bool
-  ImPlotAxisColor* = struct_ImPlotAxisColor
-  ImPlotItem* = struct_ImPlotItem
+  ImPlotAxisColor* = struct_ImPlotAxisColor 
+  ImPlotItem* = struct_ImPlotItem 
   struct_ImPlotItem* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     Color*: ImU32
     LegendHoverRect*: ImRect
     NameOffset*: cint
     Show*: bool
     LegendHovered*: bool
     SeenThisFrame*: bool
-  ImPlotLegend* = struct_ImPlotLegend
+  ImPlotLegend* = struct_ImPlotLegend 
   struct_ImPlotLegend* {.pure, inheritable, bycopy.} = object
-    Flags*: ImPlotLegendFlags
+    Flags*: ImPlotLegendFlags 
     PreviousFlags*: ImPlotLegendFlags
     Location*: ImPlotLocation
     PreviousLocation*: ImPlotLocation
@@ -3584,9 +3684,9 @@ type
     Hovered*: bool
     Held*: bool
     CanGoInside*: bool
-  ImPlotPlot* = struct_ImPlotPlot
+  ImPlotPlot* = struct_ImPlotPlot 
   struct_ImPlotPlot* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     Flags*: ImPlotFlags
     PreviousFlags*: ImPlotFlags
     MouseTextLocation*: ImPlotLocation
@@ -3612,132 +3712,132 @@ type
     Selecting*: bool
     Selected*: bool
     ContextLocked*: bool
-  ImPlotNextPlotData* = struct_ImPlotNextPlotData
+  ImPlotNextPlotData* = struct_ImPlotNextPlotData 
   struct_ImPlotNextPlotData* {.pure, inheritable, bycopy.} = object
-    RangeCond*: array[6'i64, ImPlotCond]
+    RangeCond*: array[6'i64, ImPlotCond] 
     Range*: array[6'i64, ImPlotRange]
     HasRange*: array[6'i64, bool]
     Fit*: array[6'i64, bool]
     LinkedMin*: array[6'i64, ptr cdouble]
     LinkedMax*: array[6'i64, ptr cdouble]
-  ImPlotTicker* = struct_ImPlotTicker
+  ImPlotTicker* = struct_ImPlotTicker 
   struct_ImPlotTicker* {.pure, inheritable, bycopy.} = object
-    Ticks*: ImVector_ImPlotTick
+    Ticks*: ImVector_ImPlotTick 
     TextBuffer*: ImGuiTextBuffer
     MaxSize*: ImVec2
     LateSize*: ImVec2
     Levels*: cint
   struct_ImVector_ImS16* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImS16
-  ImVector_ImS16* = struct_ImVector_ImS16
+  ImVector_ImS16* = struct_ImVector_ImS16 
   struct_ImVector_ImS32* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImS32
-  ImVector_ImS32* = struct_ImVector_ImS32
+  ImVector_ImS32* = struct_ImVector_ImS32 
   struct_ImVector_ImS64* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImS64
-  ImVector_ImS64* = struct_ImVector_ImS64
+  ImVector_ImS64* = struct_ImVector_ImS64 
   struct_ImVector_ImS8* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: cstring
-  ImVector_ImS8* = struct_ImVector_ImS8
+  ImVector_ImS8* = struct_ImVector_ImS8 
   struct_ImVector_ImU16* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImU16
-  ImVector_ImU16* = struct_ImVector_ImU16
+  ImVector_ImU16* = struct_ImVector_ImU16 
   struct_ImVector_ImU64* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImU64
-  ImVector_ImU64* = struct_ImVector_ImU64
-  ImAxis* = cint
-  ImPlotFlags* = cint
-  ImPlotAxisFlags* = cint
-  ImPlotSubplotFlags* = cint
-  ImPlotLegendFlags* = cint
-  ImPlotMouseTextFlags* = cint
-  ImPlotDragToolFlags* = cint
-  ImPlotColormapScaleFlags* = cint
-  ImPlotItemFlags* = cint
-  ImPlotLineFlags* = cint
-  ImPlotScatterFlags* = cint
-  ImPlotStairsFlags* = cint
-  ImPlotShadedFlags* = cint
-  ImPlotBarsFlags* = cint
-  ImPlotBarGroupsFlags* = cint
-  ImPlotErrorBarsFlags* = cint
-  ImPlotStemsFlags* = cint
-  ImPlotInfLinesFlags* = cint
-  ImPlotPieChartFlags* = cint
-  ImPlotHeatmapFlags* = cint
-  ImPlotHistogramFlags* = cint
-  ImPlotDigitalFlags* = cint
-  ImPlotImageFlags* = cint
-  ImPlotTextFlags* = cint
-  ImPlotDummyFlags* = cint
-  ImPlotCond* = cint
-  ImPlotCol* = cint
-  ImPlotStyleVar* = cint
-  ImPlotScale* = cint
-  ImPlotMarker* = cint
-  ImPlotColormap* = cint
-  ImPlotLocation* = cint
-  ImPlotBin* = cint
-  ImAxis_private* = enum_ImAxis_private
-  ImPlotFlags_private* = enum_ImPlotFlags_private
-  ImPlotAxisFlags_private* = enum_ImPlotAxisFlags_private
-  ImPlotSubplotFlags_private* = enum_ImPlotSubplotFlags_private
-  ImPlotLegendFlags_private* = enum_ImPlotLegendFlags_private
-  ImPlotMouseTextFlags_private* = enum_ImPlotMouseTextFlags_private
-  ImPlotDragToolFlags_private* = enum_ImPlotDragToolFlags_private
-  ImPlotColormapScaleFlags_private* = enum_ImPlotColormapScaleFlags_private
-  ImPlotItemFlags_private* = enum_ImPlotItemFlags_private
-  ImPlotLineFlags_private* = enum_ImPlotLineFlags_private
-  ImPlotScatterFlags_private* = enum_ImPlotScatterFlags_private
-  ImPlotStairsFlags_private* = enum_ImPlotStairsFlags_private
-  ImPlotShadedFlags_private* = enum_ImPlotShadedFlags_private
-  ImPlotBarsFlags_private* = enum_ImPlotBarsFlags_private
-  ImPlotBarGroupsFlags_private* = enum_ImPlotBarGroupsFlags_private
-  ImPlotErrorBarsFlags_private* = enum_ImPlotErrorBarsFlags_private
-  ImPlotStemsFlags_private* = enum_ImPlotStemsFlags_private
-  ImPlotInfLinesFlags_private* = enum_ImPlotInfLinesFlags_private
-  ImPlotPieChartFlags_private* = enum_ImPlotPieChartFlags_private
-  ImPlotHeatmapFlags_private* = enum_ImPlotHeatmapFlags_private
-  ImPlotHistogramFlags_private* = enum_ImPlotHistogramFlags_private
-  ImPlotDigitalFlags_private* = enum_ImPlotDigitalFlags_private
-  ImPlotImageFlags_private* = enum_ImPlotImageFlags_private
-  ImPlotTextFlags_private* = enum_ImPlotTextFlags_private
-  ImPlotDummyFlags_private* = enum_ImPlotDummyFlags_private
-  ImPlotCond_private* = enum_ImPlotCond_private
-  ImPlotCol_private* = enum_ImPlotCol_private
-  ImPlotStyleVar_private* = enum_ImPlotStyleVar_private
-  ImPlotScale_private* = enum_ImPlotScale_private
-  ImPlotMarker_private* = enum_ImPlotMarker_private
-  ImPlotColormap_private* = enum_ImPlotColormap_private
-  ImPlotLocation_private* = enum_ImPlotLocation_private
-  ImPlotBin_private* = enum_ImPlotBin_private
-  ImPlotPoint* = struct_ImPlotPoint
+  ImVector_ImU64* = struct_ImVector_ImU64 
+  ImAxis* = cint             
+  ImPlotFlags* = cint        
+  ImPlotAxisFlags* = cint    
+  ImPlotSubplotFlags* = cint 
+  ImPlotLegendFlags* = cint  
+  ImPlotMouseTextFlags* = cint 
+  ImPlotDragToolFlags* = cint 
+  ImPlotColormapScaleFlags* = cint 
+  ImPlotItemFlags* = cint    
+  ImPlotLineFlags* = cint    
+  ImPlotScatterFlags* = cint 
+  ImPlotStairsFlags* = cint  
+  ImPlotShadedFlags* = cint  
+  ImPlotBarsFlags* = cint    
+  ImPlotBarGroupsFlags* = cint 
+  ImPlotErrorBarsFlags* = cint 
+  ImPlotStemsFlags* = cint   
+  ImPlotInfLinesFlags* = cint 
+  ImPlotPieChartFlags* = cint 
+  ImPlotHeatmapFlags* = cint 
+  ImPlotHistogramFlags* = cint 
+  ImPlotDigitalFlags* = cint 
+  ImPlotImageFlags* = cint   
+  ImPlotTextFlags* = cint    
+  ImPlotDummyFlags* = cint   
+  ImPlotCond* = cint         
+  ImPlotCol* = cint          
+  ImPlotStyleVar* = cint     
+  ImPlotScale* = cint        
+  ImPlotMarker* = cint       
+  ImPlotColormap* = cint     
+  ImPlotLocation* = cint     
+  ImPlotBin* = cint          
+  ImAxis_private* = enum_ImAxis_private 
+  ImPlotFlags_private* = enum_ImPlotFlags_private 
+  ImPlotAxisFlags_private* = enum_ImPlotAxisFlags_private 
+  ImPlotSubplotFlags_private* = enum_ImPlotSubplotFlags_private 
+  ImPlotLegendFlags_private* = enum_ImPlotLegendFlags_private 
+  ImPlotMouseTextFlags_private* = enum_ImPlotMouseTextFlags_private 
+  ImPlotDragToolFlags_private* = enum_ImPlotDragToolFlags_private 
+  ImPlotColormapScaleFlags_private* = enum_ImPlotColormapScaleFlags_private 
+  ImPlotItemFlags_private* = enum_ImPlotItemFlags_private 
+  ImPlotLineFlags_private* = enum_ImPlotLineFlags_private 
+  ImPlotScatterFlags_private* = enum_ImPlotScatterFlags_private 
+  ImPlotStairsFlags_private* = enum_ImPlotStairsFlags_private 
+  ImPlotShadedFlags_private* = enum_ImPlotShadedFlags_private 
+  ImPlotBarsFlags_private* = enum_ImPlotBarsFlags_private 
+  ImPlotBarGroupsFlags_private* = enum_ImPlotBarGroupsFlags_private 
+  ImPlotErrorBarsFlags_private* = enum_ImPlotErrorBarsFlags_private 
+  ImPlotStemsFlags_private* = enum_ImPlotStemsFlags_private 
+  ImPlotInfLinesFlags_private* = enum_ImPlotInfLinesFlags_private 
+  ImPlotPieChartFlags_private* = enum_ImPlotPieChartFlags_private 
+  ImPlotHeatmapFlags_private* = enum_ImPlotHeatmapFlags_private 
+  ImPlotHistogramFlags_private* = enum_ImPlotHistogramFlags_private 
+  ImPlotDigitalFlags_private* = enum_ImPlotDigitalFlags_private 
+  ImPlotImageFlags_private* = enum_ImPlotImageFlags_private 
+  ImPlotTextFlags_private* = enum_ImPlotTextFlags_private 
+  ImPlotDummyFlags_private* = enum_ImPlotDummyFlags_private 
+  ImPlotCond_private* = enum_ImPlotCond_private 
+  ImPlotCol_private* = enum_ImPlotCol_private 
+  ImPlotStyleVar_private* = enum_ImPlotStyleVar_private 
+  ImPlotScale_private* = enum_ImPlotScale_private 
+  ImPlotMarker_private* = enum_ImPlotMarker_private 
+  ImPlotColormap_private* = enum_ImPlotColormap_private 
+  ImPlotLocation_private* = enum_ImPlotLocation_private 
+  ImPlotBin_private* = enum_ImPlotBin_private 
+  ImPlotPoint* = struct_ImPlotPoint 
   struct_ImPlotPoint* {.pure, inheritable, bycopy.} = object
-    x*: cdouble
+    x*: cdouble              
     y*: cdouble
-  ImPlotRange* = struct_ImPlotRange
+  ImPlotRange* = struct_ImPlotRange 
   struct_ImPlotRange* {.pure, inheritable, bycopy.} = object
-    Min*: cdouble
+    Min*: cdouble            
     Max*: cdouble
-  ImPlotRect* = struct_ImPlotRect
+  ImPlotRect* = struct_ImPlotRect 
   struct_ImPlotRect* {.pure, inheritable, bycopy.} = object
-    X*: ImPlotRange
+    X*: ImPlotRange          
     Y*: ImPlotRange
-  ImPlotStyle* = struct_ImPlotStyle
+  ImPlotStyle* = struct_ImPlotStyle 
   struct_ImPlotStyle* {.pure, inheritable, bycopy.} = object
-    LineWeight*: cfloat
+    LineWeight*: cfloat      
     Marker*: cint
     MarkerSize*: cfloat
     MarkerWeight*: cfloat
@@ -3769,9 +3869,9 @@ type
     UseLocalTime*: bool
     UseISO8601*: bool
     Use24HourClock*: bool
-  ImPlotInputMap* = struct_ImPlotInputMap
+  ImPlotInputMap* = struct_ImPlotInputMap 
   struct_ImPlotInputMap* {.pure, inheritable, bycopy.} = object
-    Pan*: ImGuiMouseButton
+    Pan*: ImGuiMouseButton   
     PanMod*: cint
     Fit*: ImGuiMouseButton
     Select*: ImGuiMouseButton
@@ -3784,32 +3884,32 @@ type
     ZoomMod*: cint
     ZoomRate*: cfloat
   ImPlotFormatter* = proc (a0: cdouble; a1: cstring; a2: cint; a3: pointer): cint {.
-      cdecl.}
-  ImPlotGetter* = proc (a0: cint; a1: pointer): ImPlotPoint {.cdecl.}
-  ImPlotTransform* = proc (a0: cdouble; a1: pointer): cdouble {.cdecl.}
-  ImPlotTimeUnit* = cint
-  ImPlotDateFmt* = cint
-  ImPlotTimeFmt* = cint
-  ImPlotTimeUnit_private* = enum_ImPlotTimeUnit_private
-  ImPlotDateFmt_private* = enum_ImPlotDateFmt_private
-  ImPlotTimeFmt_private* = enum_ImPlotTimeFmt_private
+      cdecl.}                
+  ImPlotGetter* = proc (a0: cint; a1: pointer): ImPlotPoint {.cdecl.} 
+  ImPlotTransform* = proc (a0: cdouble; a1: pointer): cdouble {.cdecl.} 
+  ImPlotTimeUnit* = cint     
+  ImPlotDateFmt* = cint      
+  ImPlotTimeFmt* = cint      
+  ImPlotTimeUnit_private* = enum_ImPlotTimeUnit_private 
+  ImPlotDateFmt_private* = enum_ImPlotDateFmt_private 
+  ImPlotTimeFmt_private* = enum_ImPlotTimeFmt_private 
   ImPlotLocator* = proc (a0: ptr ImPlotTicker; a1: ImPlotRange; a2: cfloat;
                          a3: bool; a4: ImPlotFormatter; a5: pointer): void {.
-      cdecl.}
-  ImPlotDateTimeSpec* = struct_ImPlotDateTimeSpec
+      cdecl.}                
+  ImPlotDateTimeSpec* = struct_ImPlotDateTimeSpec 
   struct_ImPlotDateTimeSpec* {.pure, inheritable, bycopy.} = object
-    Date*: ImPlotDateFmt
+    Date*: ImPlotDateFmt     
     Time*: ImPlotTimeFmt
     UseISO8601*: bool
     Use24HourClock*: bool
-  ImPlotTime* = struct_ImPlotTime
+  ImPlotTime* = struct_ImPlotTime 
   struct_ImPlotTime* {.pure, inheritable, bycopy.} = object
-    S*: time_t
+    S*: time_t               
     Us*: cint
-  time_t* = compiler_time64_t
-  ImPlotColormapData* = struct_ImPlotColormapData
+  time_t* = compiler_time64_t 
+  ImPlotColormapData* = struct_ImPlotColormapData 
   struct_ImPlotColormapData* {.pure, inheritable, bycopy.} = object
-    Keys*: ImVector_ImU32
+    Keys*: ImVector_ImU32    
     KeyCounts*: ImVector_int
     KeyOffsets*: ImVector_int
     Tables*: ImVector_ImU32
@@ -3821,83 +3921,83 @@ type
     Map*: ImGuiStorage
     Count*: cint
   struct_ImVector_bool* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr bool
-  ImVector_bool* = struct_ImVector_bool
-  ImPlotPointError* = struct_ImPlotPointError
+  ImVector_bool* = struct_ImVector_bool 
+  ImPlotPointError* = struct_ImPlotPointError 
   struct_ImPlotPointError* {.pure, inheritable, bycopy.} = object
-    X*: cdouble
+    X*: cdouble              
     Y*: cdouble
     Neg*: cdouble
     Pos*: cdouble
-  ImPlotAnnotation* = struct_ImPlotAnnotation
+  ImPlotAnnotation* = struct_ImPlotAnnotation 
   struct_ImPlotAnnotation* {.pure, inheritable, bycopy.} = object
-    Pos*: ImVec2
+    Pos*: ImVec2             
     Offset*: ImVec2
     ColorBg*: ImU32
     ColorFg*: ImU32
     TextOffset*: cint
     Clamp*: bool
-  ImPlotAnnotationCollection* = struct_ImPlotAnnotationCollection
+  ImPlotAnnotationCollection* = struct_ImPlotAnnotationCollection 
   struct_ImPlotAnnotationCollection* {.pure, inheritable, bycopy.} = object
-    Annotations*: ImVector_ImPlotAnnotation
+    Annotations*: ImVector_ImPlotAnnotation 
     TextBuffer*: ImGuiTextBuffer
     Size*: cint
   struct_ImVector_ImPlotAnnotation* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImPlotAnnotation
-  ImVector_ImPlotAnnotation* = struct_ImVector_ImPlotAnnotation
-  ImPlotTag* = struct_ImPlotTag
+  ImVector_ImPlotAnnotation* = struct_ImVector_ImPlotAnnotation 
+  ImPlotTag* = struct_ImPlotTag 
   struct_ImPlotTag* {.pure, inheritable, bycopy.} = object
-    Axis*: ImAxis
+    Axis*: ImAxis            
     Value*: cdouble
     ColorBg*: ImU32
     ColorFg*: ImU32
     TextOffset*: cint
-  ImPlotTagCollection* = struct_ImPlotTagCollection
+  ImPlotTagCollection* = struct_ImPlotTagCollection 
   struct_ImPlotTagCollection* {.pure, inheritable, bycopy.} = object
-    Tags*: ImVector_ImPlotTag
+    Tags*: ImVector_ImPlotTag 
     TextBuffer*: ImGuiTextBuffer
     Size*: cint
   struct_ImVector_ImPlotTag* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImPlotTag
-  ImVector_ImPlotTag* = struct_ImVector_ImPlotTag
+  ImVector_ImPlotTag* = struct_ImVector_ImPlotTag 
   struct_ImVector_ImPlotTick* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImPlotTick
-  ImVector_ImPlotTick* = struct_ImVector_ImPlotTick
-  ImPlotAlignmentData* = struct_ImPlotAlignmentData
+  ImVector_ImPlotTick* = struct_ImVector_ImPlotTick 
+  ImPlotAlignmentData* = struct_ImPlotAlignmentData 
   struct_ImPlotAlignmentData* {.pure, inheritable, bycopy.} = object
-    Vertical*: bool
+    Vertical*: bool          
     PadA*: cfloat
     PadB*: cfloat
     PadAMax*: cfloat
     PadBMax*: cfloat
-  ImPlotItemGroup* = struct_ImPlotItemGroup
+  ImPlotItemGroup* = struct_ImPlotItemGroup 
   struct_ImPlotItemGroup* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     Legend*: ImPlotLegend
     ItemPool*: ImPool_ImPlotItem
     ColormapIdx*: cint
   struct_ImVector_ImPlotItem* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImPlotItem
-  ImVector_ImPlotItem* = struct_ImVector_ImPlotItem
+  ImVector_ImPlotItem* = struct_ImVector_ImPlotItem 
   struct_ImPool_ImPlotItem* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_ImPlotItem
+    Buf*: ImVector_ImPlotItem 
     Map*: ImGuiStorage
     FreeIdx*: ImPoolIdx
     AliveCount*: ImPoolIdx
-  ImPool_ImPlotItem* = struct_ImPool_ImPlotItem
-  ImPlotSubplot* = struct_ImPlotSubplot
+  ImPool_ImPlotItem* = struct_ImPool_ImPlotItem 
+  ImPlotSubplot* = struct_ImPlotSubplot 
   struct_ImPlotSubplot* {.pure, inheritable, bycopy.} = object
-    ID*: ImGuiID
+    ID*: ImGuiID             
     Flags*: ImPlotSubplotFlags
     PreviousFlags*: ImPlotSubplotFlags
     Items*: ImPlotItemGroup
@@ -3917,18 +4017,18 @@ type
     FrameHovered*: bool
     HasTitle*: bool
   struct_ImVector_ImPlotAlignmentData* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImPlotAlignmentData
-  ImVector_ImPlotAlignmentData* = struct_ImVector_ImPlotAlignmentData
+  ImVector_ImPlotAlignmentData* = struct_ImVector_ImPlotAlignmentData 
   struct_ImVector_ImPlotRange* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImPlotRange
-  ImVector_ImPlotRange* = struct_ImVector_ImPlotRange
-  ImPlotNextItemData* = struct_ImPlotNextItemData
+  ImVector_ImPlotRange* = struct_ImVector_ImPlotRange 
+  ImPlotNextItemData* = struct_ImPlotNextItemData 
   struct_ImPlotNextItemData* {.pure, inheritable, bycopy.} = object
-    Colors*: array[5'i64, ImVec4]
+    Colors*: array[5'i64, ImVec4] 
     LineWeight*: cfloat
     Marker*: ImPlotMarker
     MarkerSize*: cfloat
@@ -3946,83 +4046,165 @@ type
     Hidden*: bool
     HiddenCond*: ImPlotCond
   struct_ImVector_ImPlotPlot* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImPlotPlot
-  ImVector_ImPlotPlot* = struct_ImVector_ImPlotPlot
+  ImVector_ImPlotPlot* = struct_ImVector_ImPlotPlot 
   struct_ImPool_ImPlotPlot* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_ImPlotPlot
+    Buf*: ImVector_ImPlotPlot 
     Map*: ImGuiStorage
     FreeIdx*: ImPoolIdx
     AliveCount*: ImPoolIdx
-  ImPool_ImPlotPlot* = struct_ImPool_ImPlotPlot
+  ImPool_ImPlotPlot* = struct_ImPool_ImPlotPlot 
   struct_ImVector_ImPlotSubplot* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImPlotSubplot
-  ImVector_ImPlotSubplot* = struct_ImVector_ImPlotSubplot
+  ImVector_ImPlotSubplot* = struct_ImVector_ImPlotSubplot 
   struct_ImPool_ImPlotSubplot* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_ImPlotSubplot
+    Buf*: ImVector_ImPlotSubplot 
     Map*: ImGuiStorage
     FreeIdx*: ImPoolIdx
     AliveCount*: ImPoolIdx
-  ImPool_ImPlotSubplot* = struct_ImPool_ImPlotSubplot
+  ImPool_ImPlotSubplot* = struct_ImPool_ImPlotSubplot 
   struct_ImVector_ImPlotColormap* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr ImPlotColormap
-  ImVector_ImPlotColormap* = struct_ImVector_ImPlotColormap
+  ImVector_ImPlotColormap* = struct_ImVector_ImPlotColormap 
   struct_ImVector_double* {.pure, inheritable, bycopy.} = object
-    Size*: cint
+    Size*: cint              
     Capacity*: cint
     Data*: ptr cdouble
-  ImVector_double* = struct_ImVector_double
+  ImVector_double* = struct_ImVector_double 
   struct_ImPool_ImPlotAlignmentData* {.pure, inheritable, bycopy.} = object
-    Buf*: ImVector_ImPlotAlignmentData
+    Buf*: ImVector_ImPlotAlignmentData 
     Map*: ImGuiStorage
     FreeIdx*: ImPoolIdx
     AliveCount*: ImPoolIdx
-  ImPool_ImPlotAlignmentData* = struct_ImPool_ImPlotAlignmentData
-  Formatter_Time_Data* = struct_Formatter_Time_Data
+  ImPool_ImPlotAlignmentData* = struct_ImPool_ImPlotAlignmentData 
+  Formatter_Time_Data* = struct_Formatter_Time_Data 
   struct_Formatter_Time_Data* {.pure, inheritable, bycopy.} = object
-    Time*: ImPlotTime
+    Time*: ImPlotTime        
     Spec*: ImPlotDateTimeSpec
     UserFormatter*: ImPlotFormatter
     UserFormatterData*: pointer
   ImPlotPoint_getter* = proc (a0: pointer; a1: cint; a2: ptr ImPlotPoint): pointer {.
-      cdecl.}
-  ImNodesContext* = struct_ImNodesContext
-  ImNodesEditorContext* = struct_ImNodesEditorContext
-  ImNodesCol* = cint
-  ImNodesStyleVar* = cint
-  ImNodesStyleFlags* = cint
-  ImNodesPinShape* = cint
-  ImNodesAttributeFlags* = cint
-  ImNodesMiniMapLocation* = cint
-  ImNodesCol_private* = enum_ImNodesCol_private
-  ImNodesStyleVar_private* = enum_ImNodesStyleVar_private
-  ImNodesStyleFlags_private* = enum_ImNodesStyleFlags_private
-  ImNodesPinShape_private* = enum_ImNodesPinShape_private
-  ImNodesAttributeFlags_private* = enum_ImNodesAttributeFlags_private
-  ImNodesIO* = struct_ImNodesIO
+      cdecl.}                
+  ImPlot3DContext* = struct_ImPlot3DContext 
+  ImPlot3DStyle* = struct_ImPlot3DStyle 
+  struct_ImPlot3DStyle* {.pure, inheritable, bycopy.} = object
+    LineWeight*: cfloat      
+    Marker*: cint
+    MarkerSize*: cfloat
+    MarkerWeight*: cfloat
+    FillAlpha*: cfloat
+    PlotDefaultSize*: ImVec2
+    PlotMinSize*: ImVec2
+    PlotPadding*: ImVec2
+    LabelPadding*: ImVec2
+    LegendPadding*: ImVec2
+    LegendInnerPadding*: ImVec2
+    LegendSpacing*: ImVec2
+    Colors*: array[15'i64, ImVec4]
+    Colormap*: ImPlot3DColormap
+  ImPlot3DPoint* = struct_ImPlot3DPoint 
+  struct_ImPlot3DPoint* {.pure, inheritable, bycopy.} = object
+    x*: cfloat               
+    y*: cfloat
+    z*: cfloat
+  ImPlot3DRay* = struct_ImPlot3DRay 
+  struct_ImPlot3DRay* {.pure, inheritable, bycopy.} = object
+    Origin*: ImPlot3DPoint   
+    Direction*: ImPlot3DPoint
+  ImPlot3DPlane* = struct_ImPlot3DPlane 
+  struct_ImPlot3DPlane* {.pure, inheritable, bycopy.} = object
+    Point*: ImPlot3DPoint    
+    Normal*: ImPlot3DPoint
+  ImPlot3DBox* = struct_ImPlot3DBox 
+  struct_ImPlot3DBox* {.pure, inheritable, bycopy.} = object
+    Min*: ImPlot3DPoint      
+    Max*: ImPlot3DPoint
+  ImPlot3DRange* = struct_ImPlot3DRange 
+  struct_ImPlot3DRange* {.pure, inheritable, bycopy.} = object
+    Min*: cfloat             
+    Max*: cfloat
+  ImPlot3DQuat* = struct_ImPlot3DQuat 
+  struct_ImPlot3DQuat* {.pure, inheritable, bycopy.} = object
+    x*: cfloat               
+    y*: cfloat
+    z*: cfloat
+    w*: cfloat
+  ImPlot3DCond* = cint       
+  ImPlot3DCol* = cint        
+  ImPlot3DStyleVar* = cint   
+  ImPlot3DMarker* = cint     
+  ImPlot3DLocation* = cint   
+  ImAxis3D* = cint           
+  ImPlane3D* = cint          
+  ImPlot3DColormap* = cint   
+  ImPlot3DFlags* = cint      
+  ImPlot3DItemFlags* = cint  
+  ImPlot3DScatterFlags* = cint 
+  ImPlot3DLineFlags* = cint  
+  ImPlot3DTriangleFlags* = cint 
+  ImPlot3DQuadFlags* = cint  
+  ImPlot3DSurfaceFlags* = cint 
+  ImPlot3DMeshFlags* = cint  
+  ImPlot3DLegendFlags* = cint 
+  ImPlot3DAxisFlags* = cint  
+  ImPlot3DFlags_private* = enum_ImPlot3DFlags_private 
+  ImPlot3DCond_private* = enum_ImPlot3DCond_private 
+  ImPlot3DCol_private* = enum_ImPlot3DCol_private 
+  ImPlot3DStyleVar_private* = enum_ImPlot3DStyleVar_private 
+  ImPlot3DMarker_private* = enum_ImPlot3DMarker_private 
+  ImPlot3DItemFlags_private* = enum_ImPlot3DItemFlags_private 
+  ImPlot3DScatterFlags_private* = enum_ImPlot3DScatterFlags_private 
+  ImPlot3DLineFlags_private* = enum_ImPlot3DLineFlags_private 
+  ImPlot3DTriangleFlags_private* = enum_ImPlot3DTriangleFlags_private 
+  ImPlot3DQuadFlags_private* = enum_ImPlot3DQuadFlags_private 
+  ImPlot3DSurfaceFlags_private* = enum_ImPlot3DSurfaceFlags_private 
+  ImPlot3DMeshFlags_private* = enum_ImPlot3DMeshFlags_private 
+  ImPlot3DLegendFlags_private* = enum_ImPlot3DLegendFlags_private 
+  ImPlot3DLocation_private* = enum_ImPlot3DLocation_private 
+  ImPlot3DAxisFlags_private* = enum_ImPlot3DAxisFlags_private 
+  ImAxis3D_private* = enum_ImAxis3D_private 
+  ImPlane3D_private* = enum_ImPlane3D_private 
+  ImPlot3DColormap_private* = enum_ImPlot3DColormap_private 
+  ImPlot3DFormatter* = proc (a0: cfloat; a1: cstring; a2: cint; a3: pointer): cint {.
+      cdecl.}                
+  ImNodesContext* = struct_ImNodesContext 
+  ImNodesEditorContext* = struct_ImNodesEditorContext 
+  ImNodesCol* = cint         
+  ImNodesStyleVar* = cint    
+  ImNodesStyleFlags* = cint  
+  ImNodesPinShape* = cint    
+  ImNodesAttributeFlags* = cint 
+  ImNodesMiniMapLocation* = cint 
+  ImNodesCol_private* = enum_ImNodesCol_private 
+  ImNodesStyleVar_private* = enum_ImNodesStyleVar_private 
+  ImNodesStyleFlags_private* = enum_ImNodesStyleFlags_private 
+  ImNodesPinShape_private* = enum_ImNodesPinShape_private 
+  ImNodesAttributeFlags_private* = enum_ImNodesAttributeFlags_private 
+  ImNodesIO* = struct_ImNodesIO 
   struct_ImNodesIO* {.pure, inheritable, bycopy.} = object
-    EmulateThreeButtonMouse*: EmulateThreeButtonMouse
+    EmulateThreeButtonMouse*: EmulateThreeButtonMouse 
     LinkDetachWithModifierClick*: LinkDetachWithModifierClick
     MultipleSelectModifier*: MultipleSelectModifier
     AltMouseButton*: cint
     AutoPanningSpeed*: cfloat
   struct_EmulateThreeButtonMouse* {.pure, inheritable, bycopy.} = object
-    Modifier*: ptr bool
-  EmulateThreeButtonMouse* = struct_EmulateThreeButtonMouse
+    Modifier*: ptr bool      
+  EmulateThreeButtonMouse* = struct_EmulateThreeButtonMouse 
   struct_LinkDetachWithModifierClick* {.pure, inheritable, bycopy.} = object
-    Modifier*: ptr bool
-  LinkDetachWithModifierClick* = struct_LinkDetachWithModifierClick
+    Modifier*: ptr bool      
+  LinkDetachWithModifierClick* = struct_LinkDetachWithModifierClick 
   struct_MultipleSelectModifier* {.pure, inheritable, bycopy.} = object
-    Modifier*: ptr bool
-  MultipleSelectModifier* = struct_MultipleSelectModifier
-  ImNodesStyle* = struct_ImNodesStyle
+    Modifier*: ptr bool      
+  MultipleSelectModifier* = struct_MultipleSelectModifier 
+  ImNodesStyle* = struct_ImNodesStyle 
   struct_ImNodesStyle* {.pure, inheritable, bycopy.} = object
-    GridSpacing*: cfloat
+    GridSpacing*: cfloat     
     NodeCornerRounding*: cfloat
     NodePadding*: ImVec2
     NodeBorderThickness*: cfloat
@@ -4039,16 +4221,16 @@ type
     MiniMapOffset*: ImVec2
     Flags*: ImNodesStyleFlags
     Colors*: array[29'i64, cuint]
-  ImNodesMiniMapLocation_private* = enum_ImNodesMiniMapLocation_private
+  ImNodesMiniMapLocation_private* = enum_ImNodesMiniMapLocation_private 
   ImNodesMiniMapNodeHoveringCallback* = proc (a0: cint; a1: pointer): void {.
-      cdecl.}
-  ImNodesMiniMapNodeHoveringCallbackUserData* = pointer
-  OPERATION* = enum_OPERATION
-  MODE* = enum_MODE
-  COLOR* = enum_COLOR
-  Style* = struct_Style
+      cdecl.}                
+  ImNodesMiniMapNodeHoveringCallbackUserData* = pointer 
+  OPERATION* = enum_OPERATION 
+  MODE* = enum_MODE          
+  COLOR* = enum_COLOR        
+  Style* = struct_Style      
   struct_Style* {.pure, inheritable, bycopy.} = object
-    TranslationLineThickness*: cfloat
+    TranslationLineThickness*: cfloat 
     TranslationLineArrowSize*: cfloat
     RotationLineThickness*: cfloat
     RotationOuterLineThickness*: cfloat
@@ -4058,27 +4240,27 @@ type
     CenterCircleSize*: cfloat
     Colors*: array[15'i64, ImVec4]
   struct_IgKnobColorSet* {.pure, inheritable, bycopy.} = object
-    base*: cuint
+    base*: cuint             
     hovered*: cuint
     active*: cuint
-  IgKnobColorSet* = struct_IgKnobColorSet
-  IgKnobFlags* = enum_IgKnobFlags
-  IgKnobVariant* = enum_IgKnobVariant
-  IGFD_FileStyleFlags* = cint
-  ImGuiFileDialogFlags* = cint
-  IGFD_ResultMode* = cint
-  ImGuiFileDialog* = struct_ImGuiFileDialog
-  IGFD_Selection_Pair* = struct_IGFD_Selection_Pair
+  IgKnobColorSet* = struct_IgKnobColorSet 
+  IgKnobFlags* = enum_IgKnobFlags 
+  IgKnobVariant* = enum_IgKnobVariant 
+  IGFD_FileStyleFlags* = cint 
+  ImGuiFileDialogFlags* = cint 
+  IGFD_ResultMode* = cint    
+  ImGuiFileDialog* = struct_ImGuiFileDialog 
+  IGFD_Selection_Pair* = struct_IGFD_Selection_Pair 
   struct_IGFD_Selection_Pair* {.pure, inheritable, bycopy.} = object
-    fileName*: cstring
+    fileName*: cstring       
     filePathName*: cstring
-  IGFD_Selection* = struct_IGFD_Selection
+  IGFD_Selection* = struct_IGFD_Selection 
   struct_IGFD_Selection* {.pure, inheritable, bycopy.} = object
-    table*: ptr IGFD_Selection_Pair
+    table*: ptr IGFD_Selection_Pair 
     count*: csize_t
-  IGFD_PaneFun* = proc (a0: cstring; a1: pointer; a2: ptr bool): void {.cdecl.}
+  IGFD_PaneFun* = proc (a0: cstring; a1: pointer; a2: ptr bool): void {.cdecl.} 
   struct_IGFD_FileDialog_Config* {.pure, inheritable, bycopy.} = object
-    path*: cstring
+    path*: cstring           
     fileName*: cstring
     filePathName*: cstring
     countSelectionMax*: int32
@@ -4095,10 +4277,10 @@ type
     Offsets*: array[4'i64, cfloat]
     anon0*: struct_ImOffsetRect_anon0_t_anon0_t
   struct_ImOffsetRect* {.pure, inheritable, bycopy.} = object
-    anon0*: struct_ImOffsetRect_anon0_t
-  ImOffsetRect* = struct_ImOffsetRect
+    anon0*: struct_ImOffsetRect_anon0_t 
+  ImOffsetRect* = struct_ImOffsetRect 
   struct_ImGuiTogglePalette* {.pure, inheritable, bycopy.} = object
-    Knob*: ImVec4
+    Knob*: ImVec4            
     KnobHover*: ImVec4
     Frame*: ImVec4
     FrameHover*: ImVec4
@@ -4107,10 +4289,10 @@ type
     KnobBorder*: ImVec4
     KnobShadow*: ImVec4
     A11yGlyph*: ImVec4
-  ImGuiTogglePalette* = struct_ImGuiTogglePalette
-  ImGuiToggleConfig* = struct_ImGuiToggleConfig
+  ImGuiTogglePalette* = struct_ImGuiTogglePalette 
+  ImGuiToggleConfig* = struct_ImGuiToggleConfig 
   struct_ImGuiToggleConfig* {.pure, inheritable, bycopy.} = object
-    Flags*: ImGuiToggleFlags
+    Flags*: ImGuiToggleFlags 
     A11yStyle*: ImGuiToggleFlags
     AnimationDuration*: cfloat
     FrameRounding*: cfloat
@@ -4119,9 +4301,9 @@ type
     Size*: ImVec2
     On*: ImGuiToggleStateConfig
     Off*: ImGuiToggleStateConfig
-  ImGuiToggleStateConfig* = struct_ImGuiToggleStateConfig
+  ImGuiToggleStateConfig* = struct_ImGuiToggleStateConfig 
   struct_ImGuiToggleStateConfig* {.pure, inheritable, bycopy.} = object
-    FrameBorderThickness*: cfloat
+    FrameBorderThickness*: cfloat 
     FrameShadowThickness*: cfloat
     KnobBorderThickness*: cfloat
     KnobShadowThickness*: cfloat
@@ -4129,138 +4311,138 @@ type
     KnobInset*: ImOffsetRect
     KnobOffset*: ImVec2
     Palette*: ptr ImGuiTogglePalette
-  ImGuiToggleFlags* = cint
-  ImGuiToggleA11yStyle* = cint
+  ImGuiToggleFlags* = cint   
+  ImGuiToggleA11yStyle* = cint 
   struct_iobuf* {.pure, inheritable, bycopy.} = object
-    internal_Placeholder*: pointer
-  compiler_time64_t* = clonglong
+    internal_Placeholder*: pointer 
+  compiler_time64_t* = clonglong 
 when extern is typedesc:
   type
-    EXTERN* = extern
+    EXTERN* = extern         
 else:
   when extern is static:
     const
-      EXTERN* = extern
+      EXTERN* = extern       
   else:
-    let EXTERN* = extern
+    let EXTERN* = extern     
 when 65535 is static:
   const
-    IM_UNICODE_CODEPOINT_MAX* = 65535
+    IM_UNICODE_CODEPOINT_MAX* = 65535 
 else:
-  let IM_UNICODE_CODEPOINT_MAX* = 65535
+  let IM_UNICODE_CODEPOINT_MAX* = 65535 
 when 1 is static:
   const
-    IMGUI_HAS_DOCK* = 1
+    IMGUI_HAS_DOCK* = 1      
 else:
-  let IMGUI_HAS_DOCK* = 1
+  let IMGUI_HAS_DOCK* = 1    
 when "v0.6.8" is static:
   const
-    IGFD_VERSION* = "v0.6.8"
+    IGFD_VERSION* = "v0.6.8" 
 else:
-  let IGFD_VERSION* = "v0.6.8"
+  let IGFD_VERSION* = "v0.6.8" 
 when "1.90.5 WIP" is static:
   const
-    IGFD_IMGUI_SUPPORTED_VERSION* = "1.90.5 WIP"
+    IGFD_IMGUI_SUPPORTED_VERSION* = "1.90.5 WIP" 
 else:
-  let IGFD_IMGUI_SUPPORTED_VERSION* = "1.90.5 WIP"
+  let IGFD_IMGUI_SUPPORTED_VERSION* = "1.90.5 WIP" 
 when 1.618033988749895 is static:
   const
-    ImGui_ToggleConstants_Phi* = 1.618033988749895
+    ImGui_ToggleConstants_Phi* = 1.618033988749895 
 else:
-  let ImGuiToggleConstants_Phi* = 1.618033988749895
+  let ImGuiToggleConstants_Phi* = 1.618033988749895 
 when 0.5 is static:
   const
-    ImGui_ToggleConstants_DiameterToRadiusRatio* = 0.5
+    ImGui_ToggleConstants_DiameterToRadiusRatio* = 0.5 
 else:
-  let ImGuiToggleConstants_DiameterToRadiusRatio* = 0.5
+  let ImGuiToggleConstants_DiameterToRadiusRatio* = 0.5 
 when 0.0 is static:
   const
-    ImGui_ToggleConstants_AnimationDurationDisabled* = 0.0
+    ImGui_ToggleConstants_AnimationDurationDisabled* = 0.0 
 else:
-  let ImGuiToggleConstants_AnimationDurationDisabled* = 0.0
+  let ImGuiToggleConstants_AnimationDurationDisabled* = 0.0 
 when 0.1 is static:
   const
-    ImGui_ToggleConstants_AnimationDurationDefault* = 0.1
+    ImGui_ToggleConstants_AnimationDurationDefault* = 0.1 
 else:
-  let ImGuiToggleConstants_AnimationDurationDefault* = 0.1
+  let ImGuiToggleConstants_AnimationDurationDefault* = 0.1 
 when ImGuiToggleConstants_AnimationDurationDisabled is typedesc:
   type
-    ImGuiToggleConstants_AnimationDurationMinimum* = ImGuiToggleConstants_AnimationDurationDisabled
+    ImGuiToggleConstants_AnimationDurationMinimum* = ImGuiToggleConstants_AnimationDurationDisabled 
 else:
   when ImGuiToggleConstants_AnimationDurationDisabled is static:
     const
-      ImGuiToggleConstants_AnimationDurationMinimum* = ImGuiToggleConstants_AnimationDurationDisabled
+      ImGuiToggleConstants_AnimationDurationMinimum* = ImGuiToggleConstants_AnimationDurationDisabled 
   else:
-    let ImGuiToggleConstants_AnimationDurationMinimum* = ImGuiToggleConstants_AnimationDurationDisabled
+    let ImGuiToggleConstants_AnimationDurationMinimum* = ImGuiToggleConstants_AnimationDurationDisabled 
 when 1.0 is static:
   const
-    ImGui_ToggleConstants_FrameRoundingDefault* = 1.0
+    ImGui_ToggleConstants_FrameRoundingDefault* = 1.0 
 else:
-  let ImGuiToggleConstants_FrameRoundingDefault* = 1.0
+  let ImGuiToggleConstants_FrameRoundingDefault* = 1.0 
 when 0.0 is static:
   const
-    ImGui_ToggleConstants_FrameRoundingMinimum* = 0.0
+    ImGui_ToggleConstants_FrameRoundingMinimum* = 0.0 
 else:
-  let ImGuiToggleConstants_FrameRoundingMinimum* = 0.0
+  let ImGuiToggleConstants_FrameRoundingMinimum* = 0.0 
 when 1.0 is static:
   const
-    ImGui_ToggleConstants_FrameRoundingMaximum* = 1.0
+    ImGui_ToggleConstants_FrameRoundingMaximum* = 1.0 
 else:
-  let ImGuiToggleConstants_FrameRoundingMaximum* = 1.0
+  let ImGuiToggleConstants_FrameRoundingMaximum* = 1.0 
 when 1.0 is static:
   const
-    ImGui_ToggleConstants_KnobRoundingDefault* = 1.0
+    ImGui_ToggleConstants_KnobRoundingDefault* = 1.0 
 else:
-  let ImGuiToggleConstants_KnobRoundingDefault* = 1.0
+  let ImGuiToggleConstants_KnobRoundingDefault* = 1.0 
 when 0.0 is static:
   const
-    ImGui_ToggleConstants_KnobRoundingMinimum* = 0.0
+    ImGui_ToggleConstants_KnobRoundingMinimum* = 0.0 
 else:
-  let ImGuiToggleConstants_KnobRoundingMinimum* = 0.0
+  let ImGuiToggleConstants_KnobRoundingMinimum* = 0.0 
 when 1.0 is static:
   const
-    ImGui_ToggleConstants_KnobRoundingMaximum* = 1.0
+    ImGui_ToggleConstants_KnobRoundingMaximum* = 1.0 
 else:
-  let ImGuiToggleConstants_KnobRoundingMaximum* = 1.0
+  let ImGuiToggleConstants_KnobRoundingMaximum* = 1.0 
 when ImGuiToggleConstants_Phi is typedesc:
   type
-    ImGuiToggleConstants_WidthRatioDefault* = ImGuiToggleConstants_Phi
+    ImGuiToggleConstants_WidthRatioDefault* = ImGuiToggleConstants_Phi 
 else:
   when ImGuiToggleConstants_Phi is static:
     const
-      ImGuiToggleConstants_WidthRatioDefault* = ImGuiToggleConstants_Phi
+      ImGuiToggleConstants_WidthRatioDefault* = ImGuiToggleConstants_Phi 
   else:
-    let ImGuiToggleConstants_WidthRatioDefault* = ImGuiToggleConstants_Phi
+    let ImGuiToggleConstants_WidthRatioDefault* = ImGuiToggleConstants_Phi 
 when 1.0 is static:
   const
-    ImGui_ToggleConstants_WidthRatioMinimum* = 1.0
+    ImGui_ToggleConstants_WidthRatioMinimum* = 1.0 
 else:
-  let ImGuiToggleConstants_WidthRatioMinimum* = 1.0
+  let ImGuiToggleConstants_WidthRatioMinimum* = 1.0 
 when 10.0 is static:
   const
-    ImGui_ToggleConstants_WidthRatioMaximum* = 10.0
+    ImGui_ToggleConstants_WidthRatioMaximum* = 10.0 
 else:
-  let ImGuiToggleConstants_WidthRatioMaximum* = 10.0
+  let ImGuiToggleConstants_WidthRatioMaximum* = 10.0 
 when -100.0 is static:
   const
-    ImGuiToggleConstants_KnobInsetMinimum* = -100.0
+    ImGuiToggleConstants_KnobInsetMinimum* = -100.0 
 else:
-  let ImGuiToggleConstants_KnobInsetMinimum* = -100.0
+  let ImGuiToggleConstants_KnobInsetMinimum* = -100.0 
 when 100.0 is static:
   const
-    ImGui_ToggleConstants_KnobInsetMaximum* = 100.0
+    ImGui_ToggleConstants_KnobInsetMaximum* = 100.0 
 else:
-  let ImGuiToggleConstants_KnobInsetMaximum* = 100.0
+  let ImGuiToggleConstants_KnobInsetMaximum* = 100.0 
 when 1.0 is static:
   const
-    ImGui_ToggleConstants_BorderThicknessDefault* = 1.0
+    ImGui_ToggleConstants_BorderThicknessDefault* = 1.0 
 else:
-  let ImGuiToggleConstants_BorderThicknessDefault* = 1.0
+  let ImGuiToggleConstants_BorderThicknessDefault* = 1.0 
 when 2.0 is static:
   const
-    ImGui_ToggleConstants_ShadowThicknessDefault* = 2.0
+    ImGui_ToggleConstants_ShadowThicknessDefault* = 2.0 
 else:
-  let ImGuiToggleConstants_ShadowThicknessDefault* = 2.0
+  let ImGuiToggleConstants_ShadowThicknessDefault* = 2.0 
 var GImGui* {.importc: "GImGui".}: ptr ImGuiContext
 proc ImVec2_ImVec2_Nil*(): ptr ImVec2 {.cdecl, importc: "ImVec2_ImVec2_Nil".}
 proc ImVec2_destroy*(self: ptr ImVec2): void {.cdecl, importc: "ImVec2_destroy".}
@@ -9750,6 +9932,495 @@ proc ImPlot_Locator_SymLog*(ticker: ptr ImPlotTicker; range_arg: ImPlotRange;
                             pixels: cfloat; vertical: bool;
                             formatter: ImPlotFormatter; formatter_data: pointer): void {.
     cdecl, importc: "ImPlot_Locator_SymLog".}
+var CUBE_VTX_COUNT*: cint
+var CUBE_IDX_COUNT*: cint
+var cube_vtx* {.importc: "cube_vtx".}: array[8'i64, ImPlot3DPoint]
+var cube_idx* {.importc: "cube_idx".}: array[36'i64, cuint]
+var SPHERE_VTX_COUNT*: cint
+var SPHERE_IDX_COUNT*: cint
+var sphere_vtx* {.importc: "sphere_vtx".}: array[162'i64, ImPlot3DPoint]
+var sphere_idx* {.importc: "sphere_idx".}: array[960'i64, cuint]
+var DUCK_VTX_COUNT*: cint
+var DUCK_IDX_COUNT*: cint
+var duck_vtx* {.importc: "duck_vtx".}: array[254'i64, ImPlot3DPoint]
+var duck_idx* {.importc: "duck_idx".}: array[1428'i64, cuint]
+proc ImPlot3D_CreateContext*(): ptr ImPlot3DContext {.cdecl,
+    importc: "ImPlot3D_CreateContext".}
+proc ImPlot3D_DestroyContext*(ctx: ptr ImPlot3DContext): void {.cdecl,
+    importc: "ImPlot3D_DestroyContext".}
+proc ImPlot3D_GetCurrentContext*(): ptr ImPlot3DContext {.cdecl,
+    importc: "ImPlot3D_GetCurrentContext".}
+proc ImPlot3D_SetCurrentContext*(ctx: ptr ImPlot3DContext): void {.cdecl,
+    importc: "ImPlot3D_SetCurrentContext".}
+proc ImPlot3D_BeginPlot*(title_id: cstring; size: ImVec2; flags: ImPlot3DFlags): bool {.
+    cdecl, importc: "ImPlot3D_BeginPlot".}
+proc ImPlot3D_EndPlot*(): void {.cdecl, importc: "ImPlot3D_EndPlot".}
+proc ImPlot3D_SetupAxis*(axis: ImAxis3D; label: cstring;
+                         flags: ImPlot3DAxisFlags): void {.cdecl,
+    importc: "ImPlot3D_SetupAxis".}
+proc ImPlot3D_SetupAxisLimits*(axis: ImAxis3D; v_min: cdouble; v_max: cdouble;
+                               cond: ImPlot3DCond): void {.cdecl,
+    importc: "ImPlot3D_SetupAxisLimits".}
+proc ImPlot3D_SetupAxisFormat*(idx: ImAxis3D; formatter: ImPlot3DFormatter;
+                               data: pointer): void {.cdecl,
+    importc: "ImPlot3D_SetupAxisFormat".}
+proc ImPlot3D_SetupAxes*(x_label: cstring; y_label: cstring; z_label: cstring;
+                         x_flags: ImPlot3DAxisFlags; y_flags: ImPlot3DAxisFlags;
+                         z_flags: ImPlot3DAxisFlags): void {.cdecl,
+    importc: "ImPlot3D_SetupAxes".}
+proc ImPlot3D_SetupAxesLimits*(x_min: cdouble; x_max: cdouble; y_min: cdouble;
+                               y_max: cdouble; z_min: cdouble; z_max: cdouble;
+                               cond: ImPlot3DCond): void {.cdecl,
+    importc: "ImPlot3D_SetupAxesLimits".}
+proc ImPlot3D_SetupBoxScale*(x: cfloat; y: cfloat; z: cfloat): void {.cdecl,
+    importc: "ImPlot3D_SetupBoxScale".}
+proc ImPlot3D_SetupLegend*(location: ImPlot3DLocation;
+                           flags: ImPlot3DLegendFlags): void {.cdecl,
+    importc: "ImPlot3D_SetupLegend".}
+proc ImPlot3D_PlotScatter_FloatPtr*(label_id: cstring; xs: ptr cfloat;
+                                    ys: ptr cfloat; zs: ptr cfloat; count: cint;
+                                    flags: ImPlot3DScatterFlags; offset: cint;
+                                    stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotScatter_FloatPtr".}
+proc ImPlot3D_PlotScatter_doublePtr*(label_id: cstring; xs: ptr cdouble;
+                                     ys: ptr cdouble; zs: ptr cdouble;
+                                     count: cint; flags: ImPlot3DScatterFlags;
+                                     offset: cint; stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotScatter_doublePtr".}
+proc ImPlot3D_PlotScatter_S8Ptr*(label_id: cstring; xs: cstring; ys: cstring;
+                                 zs: cstring; count: cint;
+                                 flags: ImPlot3DScatterFlags; offset: cint;
+                                 stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotScatter_S8Ptr".}
+proc ImPlot3D_PlotScatter_U8Ptr*(label_id: cstring; xs: ptr ImU8; ys: ptr ImU8;
+                                 zs: ptr ImU8; count: cint;
+                                 flags: ImPlot3DScatterFlags; offset: cint;
+                                 stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotScatter_U8Ptr".}
+proc ImPlot3D_PlotScatter_S16Ptr*(label_id: cstring; xs: ptr ImS16;
+                                  ys: ptr ImS16; zs: ptr ImS16; count: cint;
+                                  flags: ImPlot3DScatterFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotScatter_S16Ptr".}
+proc ImPlot3D_PlotScatter_U16Ptr*(label_id: cstring; xs: ptr ImU16;
+                                  ys: ptr ImU16; zs: ptr ImU16; count: cint;
+                                  flags: ImPlot3DScatterFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotScatter_U16Ptr".}
+proc ImPlot3D_PlotScatter_S32Ptr*(label_id: cstring; xs: ptr ImS32;
+                                  ys: ptr ImS32; zs: ptr ImS32; count: cint;
+                                  flags: ImPlot3DScatterFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotScatter_S32Ptr".}
+proc ImPlot3D_PlotScatter_U32Ptr*(label_id: cstring; xs: ptr ImU32;
+                                  ys: ptr ImU32; zs: ptr ImU32; count: cint;
+                                  flags: ImPlot3DScatterFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotScatter_U32Ptr".}
+proc ImPlot3D_PlotScatter_S64Ptr*(label_id: cstring; xs: ptr ImS64;
+                                  ys: ptr ImS64; zs: ptr ImS64; count: cint;
+                                  flags: ImPlot3DScatterFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotScatter_S64Ptr".}
+proc ImPlot3D_PlotScatter_U64Ptr*(label_id: cstring; xs: ptr ImU64;
+                                  ys: ptr ImU64; zs: ptr ImU64; count: cint;
+                                  flags: ImPlot3DScatterFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotScatter_U64Ptr".}
+proc ImPlot3D_PlotLine_FloatPtr*(label_id: cstring; xs: ptr cfloat;
+                                 ys: ptr cfloat; zs: ptr cfloat; count: cint;
+                                 flags: ImPlot3DLineFlags; offset: cint;
+                                 stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotLine_FloatPtr".}
+proc ImPlot3D_PlotLine_doublePtr*(label_id: cstring; xs: ptr cdouble;
+                                  ys: ptr cdouble; zs: ptr cdouble; count: cint;
+                                  flags: ImPlot3DLineFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotLine_doublePtr".}
+proc ImPlot3D_PlotLine_S8Ptr*(label_id: cstring; xs: cstring; ys: cstring;
+                              zs: cstring; count: cint;
+                              flags: ImPlot3DLineFlags; offset: cint;
+                              stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotLine_S8Ptr".}
+proc ImPlot3D_PlotLine_U8Ptr*(label_id: cstring; xs: ptr ImU8; ys: ptr ImU8;
+                              zs: ptr ImU8; count: cint;
+                              flags: ImPlot3DLineFlags; offset: cint;
+                              stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotLine_U8Ptr".}
+proc ImPlot3D_PlotLine_S16Ptr*(label_id: cstring; xs: ptr ImS16; ys: ptr ImS16;
+                               zs: ptr ImS16; count: cint;
+                               flags: ImPlot3DLineFlags; offset: cint;
+                               stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotLine_S16Ptr".}
+proc ImPlot3D_PlotLine_U16Ptr*(label_id: cstring; xs: ptr ImU16; ys: ptr ImU16;
+                               zs: ptr ImU16; count: cint;
+                               flags: ImPlot3DLineFlags; offset: cint;
+                               stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotLine_U16Ptr".}
+proc ImPlot3D_PlotLine_S32Ptr*(label_id: cstring; xs: ptr ImS32; ys: ptr ImS32;
+                               zs: ptr ImS32; count: cint;
+                               flags: ImPlot3DLineFlags; offset: cint;
+                               stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotLine_S32Ptr".}
+proc ImPlot3D_PlotLine_U32Ptr*(label_id: cstring; xs: ptr ImU32; ys: ptr ImU32;
+                               zs: ptr ImU32; count: cint;
+                               flags: ImPlot3DLineFlags; offset: cint;
+                               stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotLine_U32Ptr".}
+proc ImPlot3D_PlotLine_S64Ptr*(label_id: cstring; xs: ptr ImS64; ys: ptr ImS64;
+                               zs: ptr ImS64; count: cint;
+                               flags: ImPlot3DLineFlags; offset: cint;
+                               stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotLine_S64Ptr".}
+proc ImPlot3D_PlotLine_U64Ptr*(label_id: cstring; xs: ptr ImU64; ys: ptr ImU64;
+                               zs: ptr ImU64; count: cint;
+                               flags: ImPlot3DLineFlags; offset: cint;
+                               stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotLine_U64Ptr".}
+proc ImPlot3D_PlotTriangle_FloatPtr*(label_id: cstring; xs: ptr cfloat;
+                                     ys: ptr cfloat; zs: ptr cfloat;
+                                     count: cint; flags: ImPlot3DTriangleFlags;
+                                     offset: cint; stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotTriangle_FloatPtr".}
+proc ImPlot3D_PlotTriangle_doublePtr*(label_id: cstring; xs: ptr cdouble;
+                                      ys: ptr cdouble; zs: ptr cdouble;
+                                      count: cint; flags: ImPlot3DTriangleFlags;
+                                      offset: cint; stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotTriangle_doublePtr".}
+proc ImPlot3D_PlotTriangle_S8Ptr*(label_id: cstring; xs: cstring; ys: cstring;
+                                  zs: cstring; count: cint;
+                                  flags: ImPlot3DTriangleFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotTriangle_S8Ptr".}
+proc ImPlot3D_PlotTriangle_U8Ptr*(label_id: cstring; xs: ptr ImU8; ys: ptr ImU8;
+                                  zs: ptr ImU8; count: cint;
+                                  flags: ImPlot3DTriangleFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotTriangle_U8Ptr".}
+proc ImPlot3D_PlotTriangle_S16Ptr*(label_id: cstring; xs: ptr ImS16;
+                                   ys: ptr ImS16; zs: ptr ImS16; count: cint;
+                                   flags: ImPlot3DTriangleFlags; offset: cint;
+                                   stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotTriangle_S16Ptr".}
+proc ImPlot3D_PlotTriangle_U16Ptr*(label_id: cstring; xs: ptr ImU16;
+                                   ys: ptr ImU16; zs: ptr ImU16; count: cint;
+                                   flags: ImPlot3DTriangleFlags; offset: cint;
+                                   stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotTriangle_U16Ptr".}
+proc ImPlot3D_PlotTriangle_S32Ptr*(label_id: cstring; xs: ptr ImS32;
+                                   ys: ptr ImS32; zs: ptr ImS32; count: cint;
+                                   flags: ImPlot3DTriangleFlags; offset: cint;
+                                   stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotTriangle_S32Ptr".}
+proc ImPlot3D_PlotTriangle_U32Ptr*(label_id: cstring; xs: ptr ImU32;
+                                   ys: ptr ImU32; zs: ptr ImU32; count: cint;
+                                   flags: ImPlot3DTriangleFlags; offset: cint;
+                                   stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotTriangle_U32Ptr".}
+proc ImPlot3D_PlotTriangle_S64Ptr*(label_id: cstring; xs: ptr ImS64;
+                                   ys: ptr ImS64; zs: ptr ImS64; count: cint;
+                                   flags: ImPlot3DTriangleFlags; offset: cint;
+                                   stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotTriangle_S64Ptr".}
+proc ImPlot3D_PlotTriangle_U64Ptr*(label_id: cstring; xs: ptr ImU64;
+                                   ys: ptr ImU64; zs: ptr ImU64; count: cint;
+                                   flags: ImPlot3DTriangleFlags; offset: cint;
+                                   stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotTriangle_U64Ptr".}
+proc ImPlot3D_PlotQuad_FloatPtr*(label_id: cstring; xs: ptr cfloat;
+                                 ys: ptr cfloat; zs: ptr cfloat; count: cint;
+                                 flags: ImPlot3DQuadFlags; offset: cint;
+                                 stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotQuad_FloatPtr".}
+proc ImPlot3D_PlotQuad_doublePtr*(label_id: cstring; xs: ptr cdouble;
+                                  ys: ptr cdouble; zs: ptr cdouble; count: cint;
+                                  flags: ImPlot3DQuadFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotQuad_doublePtr".}
+proc ImPlot3D_PlotQuad_S8Ptr*(label_id: cstring; xs: cstring; ys: cstring;
+                              zs: cstring; count: cint;
+                              flags: ImPlot3DQuadFlags; offset: cint;
+                              stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotQuad_S8Ptr".}
+proc ImPlot3D_PlotQuad_U8Ptr*(label_id: cstring; xs: ptr ImU8; ys: ptr ImU8;
+                              zs: ptr ImU8; count: cint;
+                              flags: ImPlot3DQuadFlags; offset: cint;
+                              stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotQuad_U8Ptr".}
+proc ImPlot3D_PlotQuad_S16Ptr*(label_id: cstring; xs: ptr ImS16; ys: ptr ImS16;
+                               zs: ptr ImS16; count: cint;
+                               flags: ImPlot3DQuadFlags; offset: cint;
+                               stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotQuad_S16Ptr".}
+proc ImPlot3D_PlotQuad_U16Ptr*(label_id: cstring; xs: ptr ImU16; ys: ptr ImU16;
+                               zs: ptr ImU16; count: cint;
+                               flags: ImPlot3DQuadFlags; offset: cint;
+                               stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotQuad_U16Ptr".}
+proc ImPlot3D_PlotQuad_S32Ptr*(label_id: cstring; xs: ptr ImS32; ys: ptr ImS32;
+                               zs: ptr ImS32; count: cint;
+                               flags: ImPlot3DQuadFlags; offset: cint;
+                               stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotQuad_S32Ptr".}
+proc ImPlot3D_PlotQuad_U32Ptr*(label_id: cstring; xs: ptr ImU32; ys: ptr ImU32;
+                               zs: ptr ImU32; count: cint;
+                               flags: ImPlot3DQuadFlags; offset: cint;
+                               stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotQuad_U32Ptr".}
+proc ImPlot3D_PlotQuad_S64Ptr*(label_id: cstring; xs: ptr ImS64; ys: ptr ImS64;
+                               zs: ptr ImS64; count: cint;
+                               flags: ImPlot3DQuadFlags; offset: cint;
+                               stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotQuad_S64Ptr".}
+proc ImPlot3D_PlotQuad_U64Ptr*(label_id: cstring; xs: ptr ImU64; ys: ptr ImU64;
+                               zs: ptr ImU64; count: cint;
+                               flags: ImPlot3DQuadFlags; offset: cint;
+                               stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotQuad_U64Ptr".}
+proc ImPlot3D_PlotSurface_FloatPtr*(label_id: cstring; xs: ptr cfloat;
+                                    ys: ptr cfloat; zs: ptr cfloat;
+                                    x_count: cint; y_count: cint;
+                                    scale_min: cdouble; scale_max: cdouble;
+                                    flags: ImPlot3DSurfaceFlags; offset: cint;
+                                    stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotSurface_FloatPtr".}
+proc ImPlot3D_PlotSurface_doublePtr*(label_id: cstring; xs: ptr cdouble;
+                                     ys: ptr cdouble; zs: ptr cdouble;
+                                     x_count: cint; y_count: cint;
+                                     scale_min: cdouble; scale_max: cdouble;
+                                     flags: ImPlot3DSurfaceFlags; offset: cint;
+                                     stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotSurface_doublePtr".}
+proc ImPlot3D_PlotSurface_S8Ptr*(label_id: cstring; xs: cstring; ys: cstring;
+                                 zs: cstring; x_count: cint; y_count: cint;
+                                 scale_min: cdouble; scale_max: cdouble;
+                                 flags: ImPlot3DSurfaceFlags; offset: cint;
+                                 stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotSurface_S8Ptr".}
+proc ImPlot3D_PlotSurface_U8Ptr*(label_id: cstring; xs: ptr ImU8; ys: ptr ImU8;
+                                 zs: ptr ImU8; x_count: cint; y_count: cint;
+                                 scale_min: cdouble; scale_max: cdouble;
+                                 flags: ImPlot3DSurfaceFlags; offset: cint;
+                                 stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotSurface_U8Ptr".}
+proc ImPlot3D_PlotSurface_S16Ptr*(label_id: cstring; xs: ptr ImS16;
+                                  ys: ptr ImS16; zs: ptr ImS16; x_count: cint;
+                                  y_count: cint; scale_min: cdouble;
+                                  scale_max: cdouble;
+                                  flags: ImPlot3DSurfaceFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotSurface_S16Ptr".}
+proc ImPlot3D_PlotSurface_U16Ptr*(label_id: cstring; xs: ptr ImU16;
+                                  ys: ptr ImU16; zs: ptr ImU16; x_count: cint;
+                                  y_count: cint; scale_min: cdouble;
+                                  scale_max: cdouble;
+                                  flags: ImPlot3DSurfaceFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotSurface_U16Ptr".}
+proc ImPlot3D_PlotSurface_S32Ptr*(label_id: cstring; xs: ptr ImS32;
+                                  ys: ptr ImS32; zs: ptr ImS32; x_count: cint;
+                                  y_count: cint; scale_min: cdouble;
+                                  scale_max: cdouble;
+                                  flags: ImPlot3DSurfaceFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotSurface_S32Ptr".}
+proc ImPlot3D_PlotSurface_U32Ptr*(label_id: cstring; xs: ptr ImU32;
+                                  ys: ptr ImU32; zs: ptr ImU32; x_count: cint;
+                                  y_count: cint; scale_min: cdouble;
+                                  scale_max: cdouble;
+                                  flags: ImPlot3DSurfaceFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotSurface_U32Ptr".}
+proc ImPlot3D_PlotSurface_S64Ptr*(label_id: cstring; xs: ptr ImS64;
+                                  ys: ptr ImS64; zs: ptr ImS64; x_count: cint;
+                                  y_count: cint; scale_min: cdouble;
+                                  scale_max: cdouble;
+                                  flags: ImPlot3DSurfaceFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotSurface_S64Ptr".}
+proc ImPlot3D_PlotSurface_U64Ptr*(label_id: cstring; xs: ptr ImU64;
+                                  ys: ptr ImU64; zs: ptr ImU64; x_count: cint;
+                                  y_count: cint; scale_min: cdouble;
+                                  scale_max: cdouble;
+                                  flags: ImPlot3DSurfaceFlags; offset: cint;
+                                  stride: cint): void {.cdecl,
+    importc: "ImPlot3D_PlotSurface_U64Ptr".}
+proc ImPlot3D_PlotMesh*(label_id: cstring; vtx: ptr ImPlot3DPoint;
+                        idx: ptr cuint; vtx_count: cint; idx_count: cint;
+                        flags: ImPlot3DMeshFlags): void {.cdecl,
+    importc: "ImPlot3D_PlotMesh".}
+proc ImPlot3D_PlotText*(text: cstring; x: cfloat; y: cfloat; z: cfloat;
+                        angle: cfloat; pix_offset: ImVec2): void {.cdecl,
+    importc: "ImPlot3D_PlotText".}
+proc ImPlot3D_PlotToPixels_Plot3DPoInt*(pOut: ptr ImVec2; point: ImPlot3DPoint): void {.
+    cdecl, importc: "ImPlot3D_PlotToPixels_Plot3DPoInt".}
+proc ImPlot3D_PlotToPixels_double*(pOut: ptr ImVec2; x: cdouble; y: cdouble;
+                                   z: cdouble): void {.cdecl,
+    importc: "ImPlot3D_PlotToPixels_double".}
+proc ImPlot3D_PixelsToPlotRay_Vec2*(pix: ImVec2): ImPlot3DRay {.cdecl,
+    importc: "ImPlot3D_PixelsToPlotRay_Vec2".}
+proc ImPlot3D_PixelsToPlotRay_double*(x: cdouble; y: cdouble): ImPlot3DRay {.
+    cdecl, importc: "ImPlot3D_PixelsToPlotRay_double".}
+proc ImPlot3D_PixelsToPlotPlane_Vec2*(pOut: ptr ImPlot3DPoint; pix: ImVec2;
+                                      plane: ImPlane3D; mask: bool): void {.
+    cdecl, importc: "ImPlot3D_PixelsToPlotPlane_Vec2".}
+proc ImPlot3D_PixelsToPlotPlane_double*(pOut: ptr ImPlot3DPoint; x: cdouble;
+                                        y: cdouble; plane: ImPlane3D; mask: bool): void {.
+    cdecl, importc: "ImPlot3D_PixelsToPlotPlane_double".}
+proc ImPlot3D_GetPlotPos*(pOut: ptr ImVec2): void {.cdecl,
+    importc: "ImPlot3D_GetPlotPos".}
+proc ImPlot3D_GetPlotSize*(pOut: ptr ImVec2): void {.cdecl,
+    importc: "ImPlot3D_GetPlotSize".}
+proc ImPlot3D_GetPlotDrawList*(): ptr ImDrawList {.cdecl,
+    importc: "ImPlot3D_GetPlotDrawList".}
+proc ImPlot3D_GetStyle*(): ptr ImPlot3DStyle {.cdecl,
+    importc: "ImPlot3D_GetStyle".}
+proc ImPlot3D_StyleColorsAuto*(dst: ptr ImPlot3DStyle): void {.cdecl,
+    importc: "ImPlot3D_StyleColorsAuto".}
+proc ImPlot3D_StyleColorsDark*(dst: ptr ImPlot3DStyle): void {.cdecl,
+    importc: "ImPlot3D_StyleColorsDark".}
+proc ImPlot3D_StyleColorsLight*(dst: ptr ImPlot3DStyle): void {.cdecl,
+    importc: "ImPlot3D_StyleColorsLight".}
+proc ImPlot3D_StyleColorsClassic*(dst: ptr ImPlot3DStyle): void {.cdecl,
+    importc: "ImPlot3D_StyleColorsClassic".}
+proc ImPlot3D_PushStyleColor_U32*(idx: ImPlot3DCol; col: ImU32): void {.cdecl,
+    importc: "ImPlot3D_PushStyleColor_U32".}
+proc ImPlot3D_PushStyleColor_Vec4*(idx: ImPlot3DCol; col: ImVec4): void {.cdecl,
+    importc: "ImPlot3D_PushStyleColor_Vec4".}
+proc ImPlot3D_PopStyleColor*(count: cint): void {.cdecl,
+    importc: "ImPlot3D_PopStyleColor".}
+proc ImPlot3D_PushStyleVar_Float*(idx: ImPlot3DStyleVar; val: cfloat): void {.
+    cdecl, importc: "ImPlot3D_PushStyleVar_Float".}
+proc ImPlot3D_PushStyleVar_Int*(idx: ImPlot3DStyleVar; val: cint): void {.cdecl,
+    importc: "ImPlot3D_PushStyleVar_Int".}
+proc ImPlot3D_PushStyleVar_Vec2*(idx: ImPlot3DStyleVar; val: ImVec2): void {.
+    cdecl, importc: "ImPlot3D_PushStyleVar_Vec2".}
+proc ImPlot3D_PopStyleVar*(count: cint): void {.cdecl,
+    importc: "ImPlot3D_PopStyleVar".}
+proc ImPlot3D_SetNextLineStyle*(col: ImVec4; weight: cfloat): void {.cdecl,
+    importc: "ImPlot3D_SetNextLineStyle".}
+proc ImPlot3D_SetNextFillStyle*(col: ImVec4; alpha_mod: cfloat): void {.cdecl,
+    importc: "ImPlot3D_SetNextFillStyle".}
+proc ImPlot3D_SetNextMarkerStyle*(marker: ImPlot3DMarker; size: cfloat;
+                                  fill: ImVec4; weight: cfloat; outline: ImVec4): void {.
+    cdecl, importc: "ImPlot3D_SetNextMarkerStyle".}
+proc ImPlot3D_GetStyleColorVec4*(pOut: ptr ImVec4; idx: ImPlot3DCol): void {.
+    cdecl, importc: "ImPlot3D_GetStyleColorVec4".}
+proc ImPlot3D_GetStyleColorU32*(idx: ImPlot3DCol): ImU32 {.cdecl,
+    importc: "ImPlot3D_GetStyleColorU32".}
+proc ImPlot3D_AddColormap_Vec4Ptr*(name: cstring; cols: ptr ImVec4; size: cint;
+                                   qual: bool): ImPlot3DColormap {.cdecl,
+    importc: "ImPlot3D_AddColormap_Vec4Ptr".}
+proc ImPlot3D_AddColormap_U32Ptr*(name: cstring; cols: ptr ImU32; size: cint;
+                                  qual: bool): ImPlot3DColormap {.cdecl,
+    importc: "ImPlot3D_AddColormap_U32Ptr".}
+proc ImPlot3D_GetColormapCount*(): cint {.cdecl,
+    importc: "ImPlot3D_GetColormapCount".}
+proc ImPlot3D_GetColormapName*(cmap: ImPlot3DColormap): cstring {.cdecl,
+    importc: "ImPlot3D_GetColormapName".}
+proc ImPlot3D_GetColormapIndex*(name: cstring): ImPlot3DColormap {.cdecl,
+    importc: "ImPlot3D_GetColormapIndex".}
+proc ImPlot3D_PushColormap_Plot3DColormap*(cmap: ImPlot3DColormap): void {.
+    cdecl, importc: "ImPlot3D_PushColormap_Plot3DColormap".}
+proc ImPlot3D_PushColormap_Str*(name: cstring): void {.cdecl,
+    importc: "ImPlot3D_PushColormap_Str".}
+proc ImPlot3D_PopColormap*(count: cint): void {.cdecl,
+    importc: "ImPlot3D_PopColormap".}
+proc ImPlot3D_NextColormapColor*(pOut: ptr ImVec4): void {.cdecl,
+    importc: "ImPlot3D_NextColormapColor".}
+proc ImPlot3D_GetColormapSize*(cmap: ImPlot3DColormap): cint {.cdecl,
+    importc: "ImPlot3D_GetColormapSize".}
+proc ImPlot3D_GetColormapColor*(pOut: ptr ImVec4; idx: cint;
+                                cmap: ImPlot3DColormap): void {.cdecl,
+    importc: "ImPlot3D_GetColormapColor".}
+proc ImPlot3D_SampleColormap*(pOut: ptr ImVec4; t: cfloat;
+                              cmap: ImPlot3DColormap): void {.cdecl,
+    importc: "ImPlot3D_SampleColormap".}
+proc ImPlot3D_ShowDemoWindow*(p_open: ptr bool): void {.cdecl,
+    importc: "ImPlot3D_ShowDemoWindow".}
+proc ImPlot3D_ShowStyleEditor*(ref_arg: ptr ImPlot3DStyle): void {.cdecl,
+    importc: "ImPlot3D_ShowStyleEditor".}
+proc ImPlot3DPoint_ImPlot3DPoint_Nil*(): ptr ImPlot3DPoint {.cdecl,
+    importc: "ImPlot3DPoint_ImPlot3DPoint_Nil".}
+proc ImPlot3DPoint_destroy*(self: ptr ImPlot3DPoint): void {.cdecl,
+    importc: "ImPlot3DPoint_destroy".}
+proc ImPlot3DPoint_ImPlot3DPoint_Float*(internal_x: cfloat; internal_y: cfloat;
+                                        internal_z: cfloat): ptr ImPlot3DPoint {.
+    cdecl, importc: "ImPlot3DPoint_ImPlot3DPoint_Float".}
+proc ImPlot3DPoint_Dot*(self: ptr ImPlot3DPoint; rhs: ImPlot3DPoint): cfloat {.
+    cdecl, importc: "ImPlot3DPoint_Dot".}
+proc ImPlot3DPoint_Cross*(pOut: ptr ImPlot3DPoint; self: ptr ImPlot3DPoint;
+                          rhs: ImPlot3DPoint): void {.cdecl,
+    importc: "ImPlot3DPoint_Cross".}
+proc ImPlot3DPoint_Length*(self: ptr ImPlot3DPoint): cfloat {.cdecl,
+    importc: "ImPlot3DPoint_Length".}
+proc ImPlot3DPoint_LengthSquared*(self: ptr ImPlot3DPoint): cfloat {.cdecl,
+    importc: "ImPlot3DPoint_LengthSquared".}
+proc ImPlot3DPoint_Normalize*(self: ptr ImPlot3DPoint): void {.cdecl,
+    importc: "ImPlot3DPoint_Normalize".}
+proc ImPlot3DPoint_Normalized*(pOut: ptr ImPlot3DPoint; self: ptr ImPlot3DPoint): void {.
+    cdecl, importc: "ImPlot3DPoint_Normalized".}
+proc ImPlot3DPoint_IsNaN*(self: ptr ImPlot3DPoint): bool {.cdecl,
+    importc: "ImPlot3DPoint_IsNaN".}
+proc ImPlot3DBox_ImPlot3DBox_Nil*(): ptr ImPlot3DBox {.cdecl,
+    importc: "ImPlot3DBox_ImPlot3DBox_Nil".}
+proc ImPlot3DBox_destroy*(self: ptr ImPlot3DBox): void {.cdecl,
+    importc: "ImPlot3DBox_destroy".}
+proc ImPlot3DBox_ImPlot3DBox_Plot3DPoInt*(min: ImPlot3DPoint; max: ImPlot3DPoint): ptr ImPlot3DBox {.
+    cdecl, importc: "ImPlot3DBox_ImPlot3DBox_Plot3DPoInt".}
+proc ImPlot3DBox_Expand*(self: ptr ImPlot3DBox; point: ImPlot3DPoint): void {.
+    cdecl, importc: "ImPlot3DBox_Expand".}
+proc ImPlot3DBox_Contains*(self: ptr ImPlot3DBox; point: ImPlot3DPoint): bool {.
+    cdecl, importc: "ImPlot3DBox_Contains".}
+proc ImPlot3DBox_ClipLineSegment*(self: ptr ImPlot3DBox; p0: ImPlot3DPoint;
+                                  p1: ImPlot3DPoint;
+                                  p0_clipped: ptr ImPlot3DPoint;
+                                  p1_clipped: ptr ImPlot3DPoint): bool {.cdecl,
+    importc: "ImPlot3DBox_ClipLineSegment".}
+proc ImPlot3DRange_ImPlot3DRange_Nil*(): ptr ImPlot3DRange {.cdecl,
+    importc: "ImPlot3DRange_ImPlot3DRange_Nil".}
+proc ImPlot3DRange_destroy*(self: ptr ImPlot3DRange): void {.cdecl,
+    importc: "ImPlot3DRange_destroy".}
+proc ImPlot3DRange_ImPlot3DRange_Float*(min: cfloat; max: cfloat): ptr ImPlot3DRange {.
+    cdecl, importc: "ImPlot3DRange_ImPlot3DRange_Float".}
+proc ImPlot3DRange_Expand*(self: ptr ImPlot3DRange; value: cfloat): void {.
+    cdecl, importc: "ImPlot3DRange_Expand".}
+proc ImPlot3DRange_Contains*(self: ptr ImPlot3DRange; value: cfloat): bool {.
+    cdecl, importc: "ImPlot3DRange_Contains".}
+proc ImPlot3DRange_Size*(self: ptr ImPlot3DRange): cfloat {.cdecl,
+    importc: "ImPlot3DRange_Size".}
+proc ImPlot3DQuat_ImPlot3DQuat_Nil*(): ptr ImPlot3DQuat {.cdecl,
+    importc: "ImPlot3DQuat_ImPlot3DQuat_Nil".}
+proc ImPlot3DQuat_destroy*(self: ptr ImPlot3DQuat): void {.cdecl,
+    importc: "ImPlot3DQuat_destroy".}
+proc ImPlot3DQuat_ImPlot3DQuat_FloatFloat*(internal_x: cfloat;
+    internal_y: cfloat; internal_z: cfloat; internal_w: cfloat): ptr ImPlot3DQuat {.
+    cdecl, importc: "ImPlot3DQuat_ImPlot3DQuat_FloatFloat".}
+proc ImPlot3DQuat_ImPlot3DQuat_FloatPlot3DPoInt*(internal_angle: cfloat;
+    internal_axis: ImPlot3DPoint): ptr ImPlot3DQuat {.cdecl,
+    importc: "ImPlot3DQuat_ImPlot3DQuat_FloatPlot3DPoInt".}
+proc ImPlot3DQuat_FromTwoVectors*(pOut: ptr ImPlot3DQuat; v0: ImPlot3DPoint;
+                                  v1: ImPlot3DPoint): void {.cdecl,
+    importc: "ImPlot3DQuat_FromTwoVectors".}
+proc ImPlot3DQuat_Length*(self: ptr ImPlot3DQuat): cfloat {.cdecl,
+    importc: "ImPlot3DQuat_Length".}
+proc ImPlot3DQuat_Normalized*(pOut: ptr ImPlot3DQuat; self: ptr ImPlot3DQuat): void {.
+    cdecl, importc: "ImPlot3DQuat_Normalized".}
+proc ImPlot3DQuat_Conjugate*(pOut: ptr ImPlot3DQuat; self: ptr ImPlot3DQuat): void {.
+    cdecl, importc: "ImPlot3DQuat_Conjugate".}
+proc ImPlot3DQuat_Inverse*(pOut: ptr ImPlot3DQuat; self: ptr ImPlot3DQuat): void {.
+    cdecl, importc: "ImPlot3DQuat_Inverse".}
+proc ImPlot3DQuat_Normalize*(self: ptr ImPlot3DQuat): ptr ImPlot3DQuat {.cdecl,
+    importc: "ImPlot3DQuat_Normalize".}
+proc ImPlot3DQuat_Slerp*(pOut: ptr ImPlot3DQuat; q1: ImPlot3DQuat;
+                         q2: ImPlot3DQuat; t: cfloat): void {.cdecl,
+    importc: "ImPlot3DQuat_Slerp".}
+proc ImPlot3DQuat_Dot*(self: ptr ImPlot3DQuat; rhs: ImPlot3DQuat): cfloat {.
+    cdecl, importc: "ImPlot3DQuat_Dot".}
+proc ImPlot3DStyle_ImPlot3DStyle*(): ptr ImPlot3DStyle {.cdecl,
+    importc: "ImPlot3DStyle_ImPlot3DStyle".}
+proc ImPlot3DStyle_destroy*(self: ptr ImPlot3DStyle): void {.cdecl,
+    importc: "ImPlot3DStyle_destroy".}
 proc EmulateThreeButtonMouse_EmulateThreeButtonMouse*(): ptr EmulateThreeButtonMouse {.
     cdecl, importc: "EmulateThreeButtonMouse_EmulateThreeButtonMouse".}
 proc EmulateThreeButtonMouse_destroy*(self: ptr EmulateThreeButtonMouse): void {.
@@ -10120,3 +10791,4 @@ proc ImGuiTogglePresets_MinecraftStyle*(size_scale: cfloat): ImGuiToggleConfig {
     cdecl, importc: "ImGuiTogglePresets_MinecraftStyle".}
 proc ImGuiToggleConfig_init*(config: ptr ImGuiToggleConfig): void {.cdecl,
     importc: "ImGuiToggleConfig_init".}
+

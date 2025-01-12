@@ -18,7 +18,7 @@
 
 `cimgui_toggle` is C language wrapper for `imgui_toggle` library 
 
-https://github.com/cmdwtf/imgui_toggle
+Based on https://github.com/cmdwtf/imgui_toggle
 
 ![alt](img/simple.png)
 
@@ -27,7 +27,7 @@ https://github.com/cmdwtf/imgui_toggle
 ---
 
 1. Windows OS  
-- MSys2/MingW tools installed.  
+- MSys2/MinGW tools installed.  
 Install at least,
 
    ```sh
@@ -40,6 +40,8 @@ Install at least,
    ```sh
    $ sudo apt install make pkgconf xorg-dev lib{opengl-dev,gl1-mesa-dev,glfw3,glfw3-dev}
    ```
+
+1. Git installed
 
 ### Build and run
 
