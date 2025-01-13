@@ -1,7 +1,7 @@
 import std/[os,strutils]
 import sdl3_nim
 
-const SDL_VERSION = "SDL3-3.1.6"
+const SDL_VERSION = "SDL3-3.1.8"
 
 proc currentSourceDir(): string {.compileTime.} =
   result = currentSourcePath().replace("\\", "/")
