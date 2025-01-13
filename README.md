@@ -72,9 +72,9 @@ Library name / C lang. wrapper
 - [x] [ImGui-Knobs](https://github.com/altschuler/imgui-knobs) / [CImGui-Knobs](https://github.com/dinau/imguin/tree/main/src/imguin/private/cimgui-knobs)
 - [x] [ImGuiFileDialog](https://github.com/aiekick/ImGuiFileDialog) / [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog)
 - [x] [ImGui_Toggle](https://github.com/cmdwtf/imgui_toggle) / [CimGui_Toggle](https://github.com/dinau/cimgui_toggle)
+- [x] [ImPlot3d](https://github.com/brenocq/implot3d) / [CImPlot3d](https://github.com/cimgui/cimplot3d) WIP
+- [x] [ImGui_Markdown](https://github.com/enkisoftware/imgui_markdown) WIP
 - [ ] [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE)
-- [ ] [ImPlot3d](https://github.com/brenocq/implot3d) / [CImPlot3d](https://github.com/cimgui/cimplot3d)
-- [ ] [ImGui_Markdown](https://github.com/enkisoftware/imgui_markdown)
 
 ####  Frontends and Backends 
 
@@ -171,7 +171,7 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
-   | 1.91.6dock        | 1.91.6.12   | 2025/01 | ?                       |
+   | 1.91.6dock        | 1.91.6.14   | 2025/01 | ?                       |
    | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK                      |
    | 1.91.3dock        | 1.91.3.1    | 2024/10 | ?                       |
    | 1.91.2dock        | 1.91.2.0    | 2024/10 | ?                       |
