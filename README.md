@@ -80,11 +80,11 @@ Library name / C lang. wrapper
 
 ---
 
-   |                     | GLFW    | SDL2     | SDL3     |
-   | ------------------- | :----:  | :----    | :----:   |
-   | OpenGL3<br>backend  | - [x] . | -  [x] . | - [x] .  |
-   | SDL2<br>backend     |         | - [x] .  |          |
-   | SDL3<br>backend     |         |          | -  [x] . |
+   |                     | GLFW   | SDL2  | SDL3   |
+   | ------------------- | :----: | :---- | :----: |
+   | OpenGL3<br>backend  | v      | v     | v      |
+   | SDL2<br>backend     | -      | v     | -      |
+   | SDL3<br>backend     | -      | -     | v      |
 
 
 #### Update / Downgrade Dear ImGui and CImGui
