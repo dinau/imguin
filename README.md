@@ -171,7 +171,7 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
-   | 1.91.6dock        | 1.91.6.14   | 2025/01 | ?                       |
+   | 1.91.6dock        | 1.91.6.15   | 2025/01 | ?                       |
    | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK                      |
    | 1.91.3dock        | 1.91.3.1    | 2024/10 | ?                       |
    | 1.91.2dock        | 1.91.2.0    | 2024/10 | ?                       |
@@ -182,7 +182,7 @@ Windows OS is all OK.
 
   (1): Except imnodes and SDL2 example.  
   (2): Works well only if it is compiled debug mode.  
-  (3) Dedian12 Bookworm, Linux Mint 22 , Ubuntu familiy etc.
+  (3) Dedian / Ubuntu familiy etc.
 
 #### TODO
 
@@ -223,12 +223,12 @@ Windows11 (main)
 - Make: GNU Make 4.4.1
 - MSys2/MinGW tools
 
-Linux Mint 22
+Linux Debian
 - **Nim Compiler Version 2.2.0**
-- gcc 13.2.0
-- SDL2: 2.30.0
+- gcc 12.2.0
+- SDL2: 2.26.5
 - make: GNU Make 4.3
-- git version 2.43.0
+- git version 2.39.5
 
 
 #### Other link
