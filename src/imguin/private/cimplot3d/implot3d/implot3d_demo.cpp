@@ -128,7 +128,7 @@ void DemoScatterPlots() {
         ImPlot3D::PlotScatter("Data 1", xs1, ys1, zs1, 100);
         ImPlot3D::PushStyleVar(ImPlot3DStyleVar_FillAlpha, 0.25f);
         ImPlot3D::SetNextMarkerStyle(ImPlot3DMarker_Square, 6, ImPlot3D::GetColormapColor(1), IMPLOT3D_AUTO, ImPlot3D::GetColormapColor(1));
-        ImPlot3D::PlotScatter("Data 2", xs2, ys2, zs1, 50);
+        ImPlot3D::PlotScatter("Data 2", xs2, ys2, zs2, 50);
         ImPlot3D::PopStyleVar();
         ImPlot3D::EndPlot();
     }
@@ -565,6 +565,29 @@ void DemoBoxScale() {
     }
 }
 
+void DemoTickLabels() {
+    static bool custom_ticks = false;
+    static bool custom_labels = true;
+    ImGui::Checkbox("Show Custom Ticks", &custom_ticks);
+    if (custom_ticks) {
+        ImGui::SameLine();
+        ImGui::Checkbox("Show Custom Labels", &custom_labels);
+    }
+    const double pi = 3.14;
+    const char* pi_str[] = {"PI"};
+    static double letters_ticks[] = {0.0, 0.2, 0.4, 0.6, 0.8, 1.0};
+    static const char* letters_labels[] = {"A", "B", "C", "D", "E", "F"};
+    if (ImPlot3D::BeginPlot("##Ticks")) {
+        ImPlot3D::SetupAxesLimits(2, 5, 0, 1, 0, 1);
+        if (custom_ticks) {
+            ImPlot3D::SetupAxisTicks(ImAxis3D_X, &pi, 1, custom_labels ? pi_str : nullptr, true);
+            ImPlot3D::SetupAxisTicks(ImAxis3D_Y, letters_ticks, 6, custom_labels ? letters_labels : nullptr, false);
+            ImPlot3D::SetupAxisTicks(ImAxis3D_Z, 0, 1, 6, custom_labels ? letters_labels : nullptr, false);
+        }
+        ImPlot3D::EndPlot();
+    }
+}
+
 //-----------------------------------------------------------------------------
 // [SECTION] Custom
 //-----------------------------------------------------------------------------
@@ -753,6 +776,7 @@ void ShowDemoWindow(bool* p_open) {
         }
         if (ImGui::BeginTabItem("Axes")) {
             DemoHeader("Box Scale", DemoBoxScale);
+            DemoHeader("Tick Labels", DemoTickLabels);
             ImGui::EndTabItem();
         }
         if (ImGui::BeginTabItem("Custom")) {
@@ -949,6 +973,7 @@ void ShowStyleEditor(ImPlot3DStyle* ref) {
             filter.Draw("Filter colors", ImGui::GetFontSize() * 16);
 
             static ImGuiColorEditFlags alpha_flags = ImGuiColorEditFlags_AlphaPreviewHalf;
+#if IMGUI_VERSION_NUM < 19173
             if (ImGui::RadioButton("Opaque", alpha_flags == ImGuiColorEditFlags_None))
                 alpha_flags = ImGuiColorEditFlags_None;
             ImGui::SameLine();
@@ -958,6 +983,17 @@ void ShowStyleEditor(ImPlot3DStyle* ref) {
             if (ImGui::RadioButton("Both", alpha_flags == ImGuiColorEditFlags_AlphaPreviewHalf))
                 alpha_flags = ImGuiColorEditFlags_AlphaPreviewHalf;
             ImGui::SameLine();
+#else
+            if (ImGui::RadioButton("Opaque", alpha_flags == ImGuiColorEditFlags_AlphaOpaque))      
+                alpha_flags = ImGuiColorEditFlags_AlphaOpaque;
+            ImGui::SameLine();
+            if (ImGui::RadioButton("Alpha",  alpha_flags == ImGuiColorEditFlags_None))
+                alpha_flags = ImGuiColorEditFlags_None;
+            ImGui::SameLine();
+            if (ImGui::RadioButton("Both",   alpha_flags == ImGuiColorEditFlags_AlphaPreviewHalf))
+                alpha_flags = ImGuiColorEditFlags_AlphaPreviewHalf;
+            ImGui::SameLine();
+#endif
             HelpMarker(
                 "In the color list:\n"
                 "Left-click on color square to open color picker,\n"

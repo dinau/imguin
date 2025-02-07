@@ -266,8 +266,8 @@ void SetNextLineStyle(const ImVec4& col, float weight) {
 void SetNextFillStyle(const ImVec4& col, float alpha) {
     ImPlot3DContext& gp = *GImPlot3D;
     ImPlot3DNextItemData& n = gp.NextItemData;
-    gp.NextItemData.Colors[ImPlot3DCol_Fill] = col;
-    gp.NextItemData.FillAlpha = alpha;
+    n.Colors[ImPlot3DCol_Fill] = col;
+    n.FillAlpha = alpha;
 }
 
 void SetNextMarkerStyle(ImPlot3DMarker marker, float size, const ImVec4& fill, float weight, const ImVec4& outline) {
@@ -747,8 +747,8 @@ struct RendererSurfaceFill : RendererBase {
             float min = Min;
             float max = Max;
             if (ScaleMin != 0.0 || ScaleMax != 0.0) {
-                min = ScaleMin;
-                max = ScaleMax;
+                min = (float)ScaleMin;
+                max = (float)ScaleMax;
             }
             for (int i = 0; i < 4; i++) {
                 ImVec4 col = SampleColormap(ImClamp(ImRemap01(p_plot[i].z, min, max), 0.0f, 1.0f));

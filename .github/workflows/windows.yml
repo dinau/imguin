@@ -1,4 +1,4 @@
-name: Windows OS Nim 2.2.0 compilation
+name: Windows OS Nim 2.2.2 compilation
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: jiro4989/setup-nim-action@v2
         with:
-          nim-version: '2.2.0'
+          nim-version: '2.2.2'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
           nimble install

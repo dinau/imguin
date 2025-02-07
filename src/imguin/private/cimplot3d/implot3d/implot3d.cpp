@@ -246,7 +246,6 @@ void ShowLegendEntries(ImPlot3DItemGroup& items, const ImRect& legend_bb, bool h
     const int num_items = items.GetLegendCount();
     if (num_items == 0)
         return;
-    ImPlot3DContext& gp = *GImPlot3D;
 
     // Render legend items
     for (int i = 0; i < num_items; i++) {
@@ -533,8 +532,6 @@ void RenderPlotBackground(ImDrawList* draw_list, const ImPlot3DPlot& plot, const
 }
 
 void RenderPlotBorder(ImDrawList* draw_list, const ImPlot3DPlot& plot, const ImVec2* corners_pix, const bool* active_faces, const int plane_2d) {
-    ImGuiIO& io = ImGui::GetIO();
-
     int hovered_edge = -1;
     if (!plot.Held)
         GetMouseOverAxis(plot, active_faces, corners_pix, plane_2d, &hovered_edge);
@@ -577,13 +574,11 @@ void RenderGrid(ImDrawList* draw_list, const ImPlot3DPlot& plot, const ImPlot3DP
         // Get the two axes (u and v) that define the face plane
         int idx0 = faces[face_idx][0];
         int idx1 = faces[face_idx][1];
-        int idx2 = faces[face_idx][2];
         int idx3 = faces[face_idx][3];
 
         // Corners of the face in plot space
         ImPlot3DPoint p0 = corners[idx0];
         ImPlot3DPoint p1 = corners[idx1];
-        ImPlot3DPoint p2 = corners[idx2];
         ImPlot3DPoint p3 = corners[idx3];
 
         // Vectors along the edges
@@ -597,6 +592,11 @@ void RenderGrid(ImDrawList* draw_list, const ImPlot3DPlot& plot, const ImPlot3DP
 
                 // Compute position along u
                 float t_u = (tick.PlotPos - axis_u.Range.Min) / (axis_u.Range.Max - axis_u.Range.Min);
+
+                // Skip ticks that are out of range
+                if (t_u < 0.0f || t_u > 1.0f)
+                    continue;
+
                 ImPlot3DPoint p_start = p0 + u_vec * t_u;
                 ImPlot3DPoint p_end = p3 + u_vec * t_u;
 
@@ -618,6 +618,11 @@ void RenderGrid(ImDrawList* draw_list, const ImPlot3DPlot& plot, const ImPlot3DP
 
                 // Compute position along v
                 float t_v = (tick.PlotPos - axis_v.Range.Min) / (axis_v.Range.Max - axis_v.Range.Min);
+
+                // Skip ticks that are out of range
+                if (t_v < 0.0f || t_v > 1.0f)
+                    continue;
+
                 ImPlot3DPoint p_start = p0 + v_vec * t_v;
                 ImPlot3DPoint p_end = p1 + v_vec * t_v;
 
@@ -720,6 +725,9 @@ void RenderTickMarks(ImDrawList* draw_list, const ImPlot3DPlot& plot, const ImPl
             const ImPlot3DTick& tick = axis.Ticker.Ticks[t];
             float v = (tick.PlotPos - axis.Range.Min) / (axis.Range.Max - axis.Range.Min);
 
+            // Skip ticks that are out of range
+            if (v < 0.0f || v > 1.0f)
+                continue;
             ImPlot3DPoint tick_pos_ndc = PlotToNDC(axis_start + axis_dir * (v * axis_len));
 
             // Half tick on each side of the axis line
@@ -738,7 +746,6 @@ void RenderTickMarks(ImDrawList* draw_list, const ImPlot3DPlot& plot, const ImPl
 }
 
 void RenderTickLabels(ImDrawList* draw_list, const ImPlot3DPlot& plot, const ImPlot3DPoint* corners, const ImVec2* corners_pix, const int axis_corners[3][2]) {
-    ImVec2 box_center_pix = PlotToPixels(plot.RangeCenter());
     ImU32 col_tick_txt = GetStyleColorU32(ImPlot3DCol_AxisText);
 
     for (int a = 0; a < 3; a++) {
@@ -811,6 +818,10 @@ void RenderTickLabels(ImDrawList* draw_list, const ImPlot3DPlot& plot, const ImP
 
             // Compute position along the axis
             float t_axis = (tick.PlotPos - axis.Range.Min) / (axis.Range.Max - axis.Range.Min);
+
+            // Skip ticks that are out of range
+            if (t_axis < 0.0f || t_axis > 1.0f)
+                continue;
             ImPlot3DPoint tick_pos = axis_start + axis_dir * t_axis;
 
             // Convert to pixel coordinates
@@ -923,11 +934,9 @@ void ComputeBoxCornersPix(ImVec2* corners_pix, const ImPlot3DPoint* corners) {
 
 void RenderPlotBox(ImDrawList* draw_list, const ImPlot3DPlot& plot) {
     // Get plot parameters
-    const ImRect& plot_area = plot.PlotRect;
     const ImPlot3DQuat& rotation = plot.Rotation;
     ImPlot3DPoint range_min = plot.RangeMin();
     ImPlot3DPoint range_max = plot.RangeMax();
-    ImPlot3DPoint range_center = plot.RangeCenter();
 
     // Compute active faces
     bool active_faces[3];
@@ -1114,6 +1123,15 @@ void Locator_Default(ImPlot3DTicker& ticker, const ImPlot3DRange& range, float p
     }
 }
 
+void AddTicksCustom(const double* values, const char* const labels[], int n, ImPlot3DTicker& ticker, ImPlot3DFormatter formatter, void* data) {
+    for (int i = 0; i < n; ++i) {
+        if (labels != nullptr)
+            ticker.AddTick(values[i], false, true, labels[i]);
+        else
+            ticker.AddTick(values[i], false, true, formatter, data);
+    }
+}
+
 //------------------------------------------------------------------------------
 // [SECTION] Context Menus
 //------------------------------------------------------------------------------
@@ -1207,7 +1225,6 @@ void ShowAxisContextMenu(ImPlot3DAxis& axis) {
 }
 
 void ShowPlaneContextMenu(ImPlot3DPlot& plot, int plane_idx) {
-    char buf[16] = {};
     for (int i = 0; i < 3; i++) {
         if (i == plane_idx)
             continue;
@@ -1338,6 +1355,11 @@ bool BeginPlot(const char* title_id, const ImVec2& size, ImPlot3DFlags flags) {
     // Reset legend
     plot.Items.Legend.Reset();
 
+    // Reset axes
+    for (int i = 0; i < ImAxis3D_COUNT; ++i) {
+        plot.Axes[i].Reset();
+    }
+
     // Push frame rect clipping
     ImGui::PushClipRect(plot.FrameRect.Min, plot.FrameRect.Max, true);
     plot.DrawList._Flags = window->DrawList->Flags;
@@ -1400,7 +1422,6 @@ void EndPlot() {
 
     // Plane context menus
     for (int i = 0; i < 3; i++) {
-        ImPlot3DAxis& axis = plot.Axes[i];
         if (ImGui::BeginPopup(plane_contexts[i])) {
             ImGui::Text("%s", plane_labels[i]);
             ImGui::Separator();
@@ -1469,6 +1490,31 @@ void SetupAxisFormat(ImAxis3D idx, ImPlot3DFormatter formatter, void* data) {
     ImPlot3DAxis& axis = plot.Axes[idx];
     axis.Formatter = formatter;
     axis.FormatterData = data;
+}
+
+void SetupAxisTicks(ImAxis3D idx, const double* values, int n_ticks, const char* const labels[], bool keep_default) {
+    ImPlot3DContext& gp = *GImPlot3D;
+    IM_ASSERT_USER_ERROR(gp.CurrentPlot != nullptr && !gp.CurrentPlot->SetupLocked,
+                         "Setup needs to be called after BeginPlot and before any setup locking functions (e.g. PlotX)!");
+    ImPlot3DPlot& plot = *gp.CurrentPlot;
+    ImPlot3DAxis& axis = plot.Axes[idx];
+    axis.ShowDefaultTicks = keep_default;
+    AddTicksCustom(values,
+                   labels,
+                   n_ticks,
+                   axis.Ticker,
+                   axis.Formatter ? axis.Formatter : Formatter_Default,
+                   (axis.Formatter && axis.FormatterData) ? axis.FormatterData : (void*)IMPLOT3D_LABEL_FORMAT);
+}
+
+void SetupAxisTicks(ImAxis3D idx, double v_min, double v_max, int n_ticks, const char* const labels[], bool keep_default) {
+    ImPlot3DContext& gp = *GImPlot3D;
+    IM_ASSERT_USER_ERROR(gp.CurrentPlot != nullptr && !gp.CurrentPlot->SetupLocked,
+                         "Setup needs to be called after BeginPlot and before any setup locking functions (e.g. PlotX)!");
+    n_ticks = n_ticks < 2 ? 2 : n_ticks;
+    ImVector<double> temp;
+    FillRange(temp, n_ticks, v_min, v_max);
+    SetupAxisTicks(idx, temp.Data, n_ticks, labels, keep_default);
 }
 
 void SetupAxes(const char* x_label, const char* y_label, const char* z_label, ImPlot3DAxisFlags x_flags, ImPlot3DAxisFlags y_flags, ImPlot3DAxisFlags z_flags) {
@@ -1726,7 +1772,6 @@ ImPlot3DRay PixelsToNDCRay(const ImVec2& pix) {
 ImPlot3DRay NDCRayToPlotRay(const ImPlot3DRay& ray) {
     ImPlot3DContext& gp = *GImPlot3D;
     IM_ASSERT_USER_ERROR(gp.CurrentPlot != nullptr, "NDCRayToPlotRay() needs to be called between BeginPlot() and EndPlot()!");
-    ImPlot3DPlot& plot = *gp.CurrentPlot;
     SetupLock();
 
     // Convert NDC origin and a point along the ray to plot coordinates
@@ -1806,17 +1851,16 @@ void HandleInput(ImPlot3DPlot& plot) {
 
     // Check which axes should be transformed (fit/zoom/translate)
     bool any_axis_held = plot.Axes[0].Held || plot.Axes[1].Held || plot.Axes[2].Held;
-    static bool transform_axis[3] = {false, false, false};
     if (!any_axis_held) {
         // Only update the transformation axes if the user is not already performing a transformation
-        transform_axis[0] = transform_axis[1] = transform_axis[2] = false;
+        plot.Axes[0].Hovered = plot.Axes[1].Hovered = plot.Axes[2].Hovered = false;
         if (hovered_axis != -1) {
-            transform_axis[hovered_axis] = true;
+            plot.Axes[hovered_axis].Hovered = true;
         } else if (hovered_plane != -1) {
-            transform_axis[(hovered_plane + 1) % 3] = true;
-            transform_axis[(hovered_plane + 2) % 3] = true;
+            plot.Axes[(hovered_plane + 1) % 3].Hovered = true;
+            plot.Axes[(hovered_plane + 2) % 3].Hovered = true;
         } else {
-            transform_axis[0] = transform_axis[1] = transform_axis[2] = true;
+            plot.Axes[0].Hovered = plot.Axes[1].Hovered = plot.Axes[2].Hovered = true;
         }
     }
 
@@ -1824,20 +1868,20 @@ void HandleInput(ImPlot3DPlot& plot) {
     ImPlane3D mouse_plane = ImPlane3D_XY;
     if (plane_2d != -1)
         mouse_plane = plane_2d;
-    else if (transform_axis[1] && transform_axis[2])
+    else if (plot.Axes[1].Hovered && plot.Axes[2].Hovered)
         mouse_plane = ImPlane3D_YZ;
-    else if (transform_axis[0] && transform_axis[2])
+    else if (plot.Axes[0].Hovered && plot.Axes[2].Hovered)
         mouse_plane = ImPlane3D_XZ;
-    else if (transform_axis[2])
+    else if (plot.Axes[2].Hovered)
         mouse_plane = ImPlane3D_YZ;
     ImVec2 mouse_pos = ImGui::GetMousePos();
     ImPlot3DPoint mouse_pos_plot = PixelsToPlotPlane(mouse_pos, mouse_plane, false);
 
     // Handle translation/zoom fit with double click
-    if (plot_clicked && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left) || ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Middle)) {
+    if (plot_clicked && (ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left) || ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Middle))) {
         plot.FitThisFrame = true;
         for (int i = 0; i < 3; i++)
-            plot.Axes[i].FitThisFrame = transform_axis[i];
+            plot.Axes[i].FitThisFrame = plot.Axes[i].Hovered;
     }
 
     // Handle auto fit
@@ -1851,7 +1895,7 @@ void HandleInput(ImPlot3DPlot& plot) {
     if (plot.Held && ImGui::IsMouseDown(ImGuiMouseButton_Left)) {
         ImVec2 delta(IO.MouseDelta.x, IO.MouseDelta.y);
 
-        if (transform_axis[0] && transform_axis[1] && transform_axis[2]) {
+        if (plot.Axes[0].Hovered && plot.Axes[1].Hovered && plot.Axes[2].Hovered) {
             // Perform unconstrained translation (translate on the viewer plane)
 
             // Compute delta_pixels in 3D (invert y-axis)
@@ -1872,8 +1916,11 @@ void HandleInput(ImPlot3DPlot& plot) {
 
             // Adjust plot range to translate the plot
             for (int i = 0; i < 3; i++) {
-                if (transform_axis[i]) {
-                    plot.Axes[i].SetRange(plot.Axes[i].Range.Min - delta_plot[i], plot.Axes[i].Range.Max - delta_plot[i]);
+                if (plot.Axes[i].Hovered) {
+                    if (!plot.Axes[i].IsInputLocked()) {
+                        plot.Axes[i].SetMin(plot.Axes[i].Range.Min - delta_plot[i]);
+                        plot.Axes[i].SetMax(plot.Axes[i].Range.Max - delta_plot[i]);
+                    }
                     plot.Axes[i].Held = true;
                 }
                 // If no axis was held before (user started translating in this frame), set the held edge/plane indices
@@ -1882,7 +1929,7 @@ void HandleInput(ImPlot3DPlot& plot) {
                     plot.HeldPlaneIdx = hovered_plane_idx;
                 }
             }
-        } else if (transform_axis[0] || transform_axis[1] || transform_axis[2]) {
+        } else if (plot.Axes[0].Hovered || plot.Axes[1].Hovered || plot.Axes[2].Hovered) {
             // Translate along plane/axis
 
             // Mouse delta in pixels
@@ -1893,9 +1940,11 @@ void HandleInput(ImPlot3DPlot& plot) {
 
             // Apply translation to the selected axes
             for (int i = 0; i < 3; i++) {
-                if (transform_axis[i]) {
-                    plot.Axes[i].SetRange(plot.Axes[i].Range.Min - delta_plot[i],
-                                          plot.Axes[i].Range.Max - delta_plot[i]);
+                if (plot.Axes[i].Hovered) {
+                    if (!plot.Axes[i].IsInputLocked()) {
+                        plot.Axes[i].SetMin(plot.Axes[i].Range.Min - delta_plot[i]);
+                        plot.Axes[i].SetMax(plot.Axes[i].Range.Max - delta_plot[i]);
+                    }
                     plot.Axes[i].Held = true;
                 }
                 if (!any_axis_held) {
@@ -2022,8 +2071,11 @@ void HandleInput(ImPlot3DPlot& plot) {
             }
 
             // Set new range after zoom
-            if (transform_axis[i]) {
-                plot.Axes[i].SetRange(new_min, new_max);
+            if (plot.Axes[i].Hovered) {
+                if (!plot.Axes[i].IsInputLocked()) {
+                    plot.Axes[i].SetMin(new_min);
+                    plot.Axes[i].SetMax(new_max);
+                }
                 plot.Axes[i].Held = true;
             }
 
@@ -2097,9 +2149,10 @@ void SetupLock() {
     // Compute ticks
     for (int i = 0; i < 3; i++) {
         ImPlot3DAxis& axis = plot.Axes[i];
-        axis.Ticker.Reset();
-        float pixels = plot.GetBoxZoom() * plot.BoxScale[i];
-        axis.Locator(axis.Ticker, axis.Range, pixels, axis.Formatter, axis.FormatterData);
+        if (axis.ShowDefaultTicks) {
+            float pixels = plot.GetBoxZoom() * plot.BoxScale[i];
+            axis.Locator(axis.Ticker, axis.Range, pixels, axis.Formatter, axis.FormatterData);
+        }
     }
 
     // Render title
@@ -2994,7 +3047,6 @@ void ImDrawList3D::SortedMoveToImGuiDrawList() {
     // Copy indices with triangle sorting based on distance from viewer
     ImDrawIdx* idx_out = draw_list._IdxWritePtr;
     ImDrawIdx* idx_in = IdxBuffer.Data;
-    int triangles_added = 0;
     for (int i = 0; i < tri_count; i++) {
         int tri_i = tris[i].tri_idx;
         int base_idx = tri_i * 3;
@@ -3011,7 +3063,6 @@ void ImDrawList3D::SortedMoveToImGuiDrawList() {
         idx_out[2] = (ImDrawIdx)(i2 + idx_offset);
 
         idx_out += 3;
-        triangles_added++;
     }
     draw_list._IdxWritePtr = idx_out;
 

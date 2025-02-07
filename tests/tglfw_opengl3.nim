@@ -138,9 +138,9 @@ proc winMain(hWin: glfw.GLFWWindow) =
       igText(s.cstring)
       s = "OpenGL v" & ($cast[cstring](glGetString(GL_VERSION))).split[0]
       igText(s.cstring)
-      igText(" Dear ImGui");  igSameLine(0, -1.0)
+      igText("Dear ImGui");  igSameLine(0, -1.0)
       igText(igGetVersion())
-      igText(" Nim-");  igSameLine(0, 0)
+      igText("Nim-");  igSameLine(0, 0)
       igText(NimVersion);
 
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
@@ -171,8 +171,6 @@ proc winMain(hWin: glfw.GLFWWindow) =
       igSameLine(0.0f, -1.0f)
       igText("counter = %d", counter)
       igText("Application average %.3f ms/frame (%.1f FPS)".cstring, (1000.0f / igGetIO().Framerate).cfloat, igGetIO().Framerate.cfloat)
-      igSeparatorText(" Icon font test ")
-      igText(" Trash")
 
     # show further samll window
     if showAnotherWindow:

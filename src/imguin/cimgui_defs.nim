@@ -17,10 +17,10 @@ type
     ImGui_WindowFlags_NoNav = 196608, ImGui_WindowFlags_NoInputs = 197120,
     ImGui_WindowFlags_UnsavedDocument = 262144,
     ImGui_WindowFlags_NoDocking = 524288,
+    ImGui_WindowFlags_DockNodeHost = 8388608,
     ImGui_WindowFlags_ChildWindow = 16777216,
     ImGui_WindowFlags_Tooltip = 33554432, ImGui_WindowFlags_Popup = 67108864,
-    ImGui_WindowFlags_Modal = 134217728, ImGui_WindowFlags_ChildMenu = 268435456,
-    ImGui_WindowFlags_DockNodeHost = 536870912
+    ImGui_WindowFlags_Modal = 134217728, ImGui_WindowFlags_ChildMenu = 268435456
 type
   enum_ImGuiChildFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_ChildFlags_None = 0, ImGui_ChildFlags_Borders = 1,
@@ -72,9 +72,10 @@ type
     ImGui_TreeNodeFlags_Bullet = 512, ImGui_TreeNodeFlags_FramePadding = 1024,
     ImGui_TreeNodeFlags_SpanAvailWidth = 2048,
     ImGui_TreeNodeFlags_SpanFullWidth = 4096,
-    ImGui_TreeNodeFlags_SpanTextWidth = 8192,
+    ImGui_TreeNodeFlags_SpanLabelWidth = 8192,
     ImGui_TreeNodeFlags_SpanAllColumns = 16384,
-    ImGui_TreeNodeFlags_NavLeftJumpsBackHere = 32768
+    ImGui_TreeNodeFlags_LabelSpanAllColumns = 32768,
+    ImGui_TreeNodeFlags_NavLeftJumpsBackHere = 131072
 type
   enum_ImGuiPopupFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_PopupFlags_None = 0, ImGui_PopupFlags_MouseButtonRight = 1,
@@ -171,7 +172,8 @@ type
     ImGui_DataType_S8 = 0, ImGui_DataType_U8 = 1, ImGui_DataType_S16 = 2,
     ImGui_DataType_U16 = 3, ImGui_DataType_S32 = 4, ImGui_DataType_U32 = 5,
     ImGui_DataType_S64 = 6, ImGui_DataType_U64 = 7, ImGui_DataType_Float = 8,
-    ImGui_DataType_Double = 9, ImGui_DataType_Bool = 10, ImGui_DataType_COUNT = 11
+    ImGui_DataType_Double = 9, ImGui_DataType_Bool = 10,
+    ImGui_DataType_String = 11, ImGui_DataType_COUNT = 12
 type
   enum_ImGuiDir* {.size: sizeof(cint).} = enum
     ImGuiDir_None = -1, ImGuiDir_Left = 0, ImGuiDir_Right = 1, ImGuiDir_Up = 2,
@@ -339,10 +341,12 @@ type
     ImGui_ColorEditFlags_NoTooltip = 64, ImGui_ColorEditFlags_NoLabel = 128,
     ImGui_ColorEditFlags_NoSidePreview = 256,
     ImGui_ColorEditFlags_NoDragDrop = 512, ImGui_ColorEditFlags_NoBorder = 1024,
-    ImGui_ColorEditFlags_AlphaBar = 65536,
-    ImGui_ColorEditFlags_AlphaPreview = 131072,
-    ImGui_ColorEditFlags_AlphaPreviewHalf = 262144,
-    ImGui_ColorEditFlags_HDR = 524288, ImGui_ColorEditFlags_DisplayRGB = 1048576,
+    ImGui_ColorEditFlags_AlphaOpaque = 2048,
+    ImGui_ColorEditFlags_AlphaNoBg = 4096,
+    ImGui_ColorEditFlags_AlphaPreviewHalf = 8192,
+    ImGui_ColorEditFlags_AlphaMask_private = 14338,
+    ImGui_ColorEditFlags_AlphaBar = 65536, ImGui_ColorEditFlags_HDR = 524288,
+    ImGui_ColorEditFlags_DisplayRGB = 1048576,
     ImGui_ColorEditFlags_DisplayHSV = 2097152,
     ImGui_ColorEditFlags_DisplayHex = 4194304,
     ImGui_ColorEditFlags_DisplayMask_private = 7340032,
@@ -361,6 +365,7 @@ type
     ImGui_SliderFlags_NoRoundToFormat = 64, ImGui_SliderFlags_NoInput = 128,
     ImGui_SliderFlags_WrapAround = 256, ImGui_SliderFlags_ClampOnInput = 512,
     ImGui_SliderFlags_ClampZeroRange = 1024, ImGui_SliderFlags_AlwaysClamp = 1536,
+    ImGui_SliderFlags_NoSpeedTweaks = 2048,
     ImGui_SliderFlags_InvalidMask_private = 1879048207
 type
   enum_ImGuiMouseButton_private* {.size: sizeof(cuint).} = enum
@@ -498,7 +503,7 @@ type
     ImGui_ViewportFlags_IsMinimized = 4096, ImGui_ViewportFlags_IsFocused = 8192
 type
   enum_ImGuiDataTypePrivate_private* {.size: sizeof(cuint).} = enum
-    ImGui_DataType_String = 12, ImGui_DataType_Pointer = 13, ImGui_DataType_ID = 14
+    ImGui_DataType_Pointer = 13, ImGui_DataType_ID = 14
 type
   enum_ImGuiItemFlagsPrivate_private* {.size: sizeof(cuint).} = enum
     ImGui_ItemFlags_Default_private = 16, ImGui_ItemFlags_Disabled = 1024,
@@ -791,7 +796,8 @@ type
   enum_ImGuiTabItemFlagsPrivate_private* {.size: sizeof(cuint).} = enum
     ImGui_TabItemFlags_SectionMask_private = 192,
     ImGui_TabItemFlags_NoCloseButton = 1048576,
-    ImGui_TabItemFlags_Button = 2097152, ImGui_TabItemFlags_Unsorted = 4194304
+    ImGui_TabItemFlags_Button = 2097152, ImGui_TabItemFlags_Invisible = 4194304,
+    ImGui_TabItemFlags_Unsorted = 8388608
 type
   enum_ImAxis_private* {.size: sizeof(cuint).} = enum
     ImAxis_X1 = 0, ImAxis_X2 = 1, ImAxis_X3 = 2, ImAxis_Y1 = 3, ImAxis_Y2 = 4,
@@ -881,7 +887,8 @@ type
 type
   enum_ImPlotPieChartFlags_private* {.size: sizeof(cuint).} = enum
     ImPlot_PieChartFlags_None = 0, ImPlot_PieChartFlags_Normalize = 1024,
-    ImPlot_PieChartFlags_IgnoreHidden = 2048
+    ImPlot_PieChartFlags_IgnoreHidden = 2048,
+    ImPlot_PieChartFlags_Exploding = 4096
 type
   enum_ImPlotHeatmapFlags_private* {.size: sizeof(cuint).} = enum
     ImPlot_HeatmapFlags_None = 0, ImPlot_HeatmapFlags_ColMajor = 1024
@@ -1291,7 +1298,7 @@ type
     IndexAdvanceX*: ImVector_float 
     FallbackAdvanceX*: cfloat
     FontSize*: cfloat
-    IndexLookup*: ImVector_ImWchar
+    IndexLookup*: ImVector_ImU16
     Glyphs*: ImVector_ImFontGlyph
     FallbackGlyph*: ptr ImFontGlyph
     ContainerAtlas*: ptr ImFontAtlas
@@ -1302,20 +1309,20 @@ type
     FallbackChar*: ImWchar
     EllipsisWidth*: cfloat
     EllipsisCharStep*: cfloat
-    DirtyLookupTables*: bool
     Scale*: cfloat
     Ascent*: cfloat
     Descent*: cfloat
     MetricsTotalSurface*: cint
-    Used4kPagesMap*: array[2'i64, ImU8]
+    DirtyLookupTables*: bool
+    Used8kPagesMap*: array[1'i64, ImU8]
   ImFontAtlas* = struct_ImFontAtlas 
   struct_ImFontAtlas* {.pure, inheritable, bycopy.} = object
     Flags*: ImFontAtlasFlags 
     TexID*: ImTextureID
     TexDesiredWidth*: cint
     TexGlyphPadding*: cint
-    Locked*: bool
     UserData*: pointer
+    Locked*: bool
     TexReady*: bool
     TexPixelsUseColors*: bool
     TexPixelsAlpha8*: ptr uint8
@@ -1327,7 +1334,7 @@ type
     Fonts*: ImVector_ImFontPtr
     CustomRects*: ImVector_ImFontAtlasCustomRect
     ConfigData*: ImVector_ImFontConfig
-    TexUvLines*: array[64'i64, ImVec4]
+    TexUvLines*: array[33'i64, ImVec4]
     FontBuilderIO*: ptr ImFontBuilderIO
     FontBuilderFlags*: cuint
     PackIdMouseCursors*: cint
@@ -1340,17 +1347,17 @@ type
     FontData*: pointer       
     FontDataSize*: cint
     FontDataOwnedByAtlas*: bool
+    MergeMode*: bool
+    PixelSnapH*: bool
     FontNo*: cint
-    SizePixels*: cfloat
     OversampleH*: cint
     OversampleV*: cint
-    PixelSnapH*: bool
+    SizePixels*: cfloat
     GlyphExtraSpacing*: ImVec2
     GlyphOffset*: ImVec2
     GlyphRanges*: ptr ImWchar
     GlyphMinAdvanceX*: cfloat
     GlyphMaxAdvanceX*: cfloat
-    MergeMode*: bool
     FontBuilderFlags*: cuint
     RasterizerMultiply*: cfloat
     RasterizerDensity*: cfloat
@@ -1397,9 +1404,9 @@ type
     FrameCountEnded*: cint
     FrameCountPlatformEnded*: cint
     FrameCountRendered*: cint
+    WithinEndChildID*: ImGuiID
     WithinFrameScope*: bool
     WithinFrameScopeWithImplicitWindow*: bool
-    WithinEndChild*: bool
     GcCompactAll*: bool
     TestEngineHookItems*: bool
     TestEngine*: pointer
@@ -1453,9 +1460,8 @@ type
     ActiveIdWindow*: ptr ImGuiWindow
     ActiveIdSource*: ImGuiInputSource
     ActiveIdPreviousFrame*: ImGuiID
-    ActiveIdPreviousFrameIsAlive*: bool
-    ActiveIdPreviousFrameHasBeenEditedBefore*: bool
-    ActiveIdPreviousFrameWindow*: ptr ImGuiWindow
+    DeactivatedItemData*: ImGuiDeactivatedItemData
+    ActiveIdValueOnActivation*: ImGuiDataTypeStorage
     LastActiveId*: ImGuiID
     LastActiveIdTimer*: cfloat
     LastKeyModsChangeTime*: cdouble
@@ -1791,6 +1797,7 @@ type
     MouseClickedCount*: array[5'i64, ImU16]
     MouseClickedLastCount*: array[5'i64, ImU16]
     MouseReleased*: array[5'i64, bool]
+    MouseReleasedTime*: array[5'i64, cdouble]
     MouseDownOwned*: array[5'i64, bool]
     MouseDownOwnedUnlessPopupClose*: array[5'i64, bool]
     MouseWheelRequestAxisSwap*: bool
@@ -2070,6 +2077,10 @@ type
   struct_ImRect* {.pure, inheritable, bycopy.} = object
     Min*: ImVec2             
     Max*: ImVec2
+  ImGuiTextIndex* = struct_ImGuiTextIndex 
+  struct_ImGuiTextIndex* {.pure, inheritable, bycopy.} = object
+    LineOffsets*: ImVector_int 
+    EndOffset*: cint
   ImDrawDataBuilder* = struct_ImDrawDataBuilder 
   struct_ImDrawDataBuilder* {.pure, inheritable, bycopy.} = object
     Layers*: array[2'i64, ptr ImVector_ImDrawListPtr] 
@@ -2113,6 +2124,12 @@ type
     Name*: cstring
     PrintFmt*: cstring
     ScanFmt*: cstring
+  ImGuiDeactivatedItemData* = struct_ImGuiDeactivatedItemData 
+  struct_ImGuiDeactivatedItemData* {.pure, inheritable, bycopy.} = object
+    ID*: ImGuiID             
+    ElapseFrame*: cint
+    HasBeenEditedBefore*: bool
+    IsAlive*: bool
   ImGuiDockContext* = struct_ImGuiDockContext 
   struct_ImGuiDockContext* {.pure, inheritable, bycopy.} = object
     Nodes*: ImGuiStorage     
@@ -2189,7 +2206,7 @@ type
     BackupCurrLineSize*: ImVec2
     BackupCurrLineTextBaseOffset*: cfloat
     BackupActiveIdIsAlive*: ImGuiID
-    BackupActiveIdPreviousFrameIsAlive*: bool
+    BackupDeactivatedIdIsAlive*: bool
     BackupHoveredIdIsAlive*: bool
     BackupIsSameLine*: bool
     EmitItem*: bool
@@ -2197,8 +2214,10 @@ type
   struct_ImGuiInputTextState* {.pure, inheritable, bycopy.} = object
     Ctx*: ptr ImGuiContext   
     Stb*: ptr ImStbTexteditState
+    Flags*: ImGuiInputTextFlags
     ID*: ImGuiID
     TextLen*: cint
+    TextSrc*: cstring
     TextA*: ImVector_char
     TextToRevertTo*: ImVector_char
     CallbackTextBackup*: ImVector_char
@@ -2208,8 +2227,7 @@ type
     CursorFollow*: bool
     SelectedAllMouseLock*: bool
     Edited*: bool
-    Flags*: ImGuiInputTextFlags
-    ReloadUserBuf*: bool
+    WantReloadUserBuf*: bool
     ReloadSelectionStart*: cint
     ReloadSelectionEnd*: cint
   ImGuiInputTextDeactivateData* = struct_ImGuiInputTextDeactivateData 
@@ -2533,6 +2551,7 @@ type
     DummyDrawChannel*: ImGuiTableDrawChannelIdx
     Bg2DrawChannelCurrent*: ImGuiTableDrawChannelIdx
     Bg2DrawChannelUnfrozen*: ImGuiTableDrawChannelIdx
+    NavLayer*: ImS8
     IsLayoutLocked*: bool
     IsInsideRow*: bool
     IsInitializing*: bool
@@ -2753,7 +2772,9 @@ type
     StateStorage*: ImGuiStorage
     ColumnsStorage*: ImVector_ImGuiOldColumns
     FontWindowScale*: cfloat
+    FontWindowScaleParents*: cfloat
     FontDpiScale*: cfloat
+    FontRefSize*: cfloat
     SettingsOffset*: cint
     DrawList*: ptr ImDrawList
     DrawListInst*: ImDrawList
@@ -2782,8 +2803,6 @@ type
     DockNode*: ptr ImGuiDockNode
     DockNodeAsHost*: ptr ImGuiDockNode
     DockId*: ImGuiID
-    DockTabItemStatusFlags*: ImGuiItemStatusFlags
-    DockTabItemRect*: ImRect
   ImGuiWindowDockStyle* = struct_ImGuiWindowDockStyle 
   struct_ImGuiWindowDockStyle* {.pure, inheritable, bycopy.} = object
     Colors*: array[8'i64, ImU32] 
@@ -2822,6 +2841,10 @@ type
     LayoutType*: ImGuiLayoutType
     ParentLayoutType*: ImGuiLayoutType
     ModalDimBgColor*: ImU32
+    WindowItemStatusFlags*: ImGuiItemStatusFlags
+    ChildItemStatusFlags*: ImGuiItemStatusFlags
+    DockTabItemStatusFlags*: ImGuiItemStatusFlags
+    DockTabItemRect*: ImRect
     ItemWidth*: cfloat
     TextWrapPos*: cfloat
     ItemWidthStack*: ImVector_float
@@ -3067,6 +3090,11 @@ type
     Capacity*: cint
     Data*: ptr cfloat
   ImVector_float* = struct_ImVector_float 
+  struct_ImVector_ImU16* {.pure, inheritable, bycopy.} = object
+    Size*: cint              
+    Capacity*: cint
+    Data*: ptr ImU16
+  ImVector_ImU16* = struct_ImVector_ImU16 
   struct_ImVector_ImFontGlyph* {.pure, inheritable, bycopy.} = object
     Size*: cint              
     Capacity*: cint
@@ -3112,10 +3140,6 @@ type
     y*: cshort
   ImBitArrayPtr* = ptr ImU32 
   ImPoolIdx* = cint          
-  ImGuiTextIndex* = struct_ImGuiTextIndex 
-  struct_ImGuiTextIndex* {.pure, inheritable, bycopy.} = object
-    LineOffsets*: ImVector_int 
-    EndOffset*: cint
   struct_ImVector_int* {.pure, inheritable, bycopy.} = object
     Size*: cint              
     Capacity*: cint
@@ -3747,11 +3771,6 @@ type
     Capacity*: cint
     Data*: cstring
   ImVector_ImS8* = struct_ImVector_ImS8 
-  struct_ImVector_ImU16* {.pure, inheritable, bycopy.} = object
-    Size*: cint              
-    Capacity*: cint
-    Data*: ptr ImU16
-  ImVector_ImU16* = struct_ImVector_ImU16 
   struct_ImVector_ImU64* {.pure, inheritable, bycopy.} = object
     Size*: cint              
     Capacity*: cint
@@ -5198,6 +5217,8 @@ proc igIsMouseReleased_Nil*(button: ImGuiMouseButton): bool {.cdecl,
     importc: "igIsMouseReleased_Nil".}
 proc igIsMouseDoubleClicked_Nil*(button: ImGuiMouseButton): bool {.cdecl,
     importc: "igIsMouseDoubleClicked_Nil".}
+proc igIsMouseReleasedWithDelay*(button: ImGuiMouseButton; delay: cfloat): bool {.
+    cdecl, importc: "igIsMouseReleasedWithDelay".}
 proc igGetMouseClickedCount*(button: ImGuiMouseButton): cint {.cdecl,
     importc: "igGetMouseClickedCount".}
 proc igIsMouseHoveringRect*(r_min: ImVec2; r_max: ImVec2; clip: bool): bool {.
@@ -5823,10 +5844,10 @@ proc ImFontAtlas_AddFontFromMemoryCompressedBase85TTF*(self: ptr ImFontAtlas;
     importc: "ImFontAtlas_AddFontFromMemoryCompressedBase85TTF".}
 proc ImFontAtlas_ClearInputData*(self: ptr ImFontAtlas): void {.cdecl,
     importc: "ImFontAtlas_ClearInputData".}
-proc ImFontAtlas_ClearTexData*(self: ptr ImFontAtlas): void {.cdecl,
-    importc: "ImFontAtlas_ClearTexData".}
 proc ImFontAtlas_ClearFonts*(self: ptr ImFontAtlas): void {.cdecl,
     importc: "ImFontAtlas_ClearFonts".}
+proc ImFontAtlas_ClearTexData*(self: ptr ImFontAtlas): void {.cdecl,
+    importc: "ImFontAtlas_ClearTexData".}
 proc ImFontAtlas_Clear*(self: ptr ImFontAtlas): void {.cdecl,
     importc: "ImFontAtlas_Clear".}
 proc ImFontAtlas_Build*(self: ptr ImFontAtlas): bool {.cdecl,
@@ -6641,6 +6662,7 @@ proc igSetNextWindowRefreshPolicy*(flags: ImGuiWindowRefreshFlags): void {.
 proc igSetCurrentFont*(font: ptr ImFont): void {.cdecl,
     importc: "igSetCurrentFont".}
 proc igGetDefaultFont*(): ptr ImFont {.cdecl, importc: "igGetDefaultFont".}
+proc igPushPasswordFont*(): void {.cdecl, importc: "igPushPasswordFont".}
 proc igGetForegroundDrawList_WindowPtr*(window: ptr ImGuiWindow): ptr ImDrawList {.
     cdecl, importc: "igGetForegroundDrawList_WindowPtr".}
 proc igAddDrawListToDrawDataEx*(draw_data: ptr ImDrawData;
@@ -6765,7 +6787,7 @@ proc igIsWindowContentHoverable*(window: ptr ImGuiWindow;
     importc: "igIsWindowContentHoverable".}
 proc igIsClippedEx*(bb: ImRect; id: ImGuiID): bool {.cdecl,
     importc: "igIsClippedEx".}
-proc igSetLastItemData*(item_id: ImGuiID; in_flags: ImGuiItemFlags;
+proc igSetLastItemData*(item_id: ImGuiID; item_flags: ImGuiItemFlags;
                         status_flags: ImGuiItemStatusFlags; item_rect: ImRect): void {.
     cdecl, importc: "igSetLastItemData".}
 proc igCalcItemSize*(pOut: ptr ImVec2; size: ImVec2; default_w: cfloat;
@@ -7291,6 +7313,8 @@ proc igTabBarProcessReorder*(tab_bar: ptr ImGuiTabBar): bool {.cdecl,
 proc igTabItemEx*(tab_bar: ptr ImGuiTabBar; label: cstring; p_open: ptr bool;
                   flags: ImGuiTabItemFlags; docked_window: ptr ImGuiWindow): bool {.
     cdecl, importc: "igTabItemEx".}
+proc igTabItemSpacing*(str_id: cstring; flags: ImGuiTabItemFlags; width: cfloat): void {.
+    cdecl, importc: "igTabItemSpacing".}
 proc igTabItemCalcSize_Str*(pOut: ptr ImVec2; label: cstring;
                             has_close_button_or_unsaved_marker: bool): void {.
     cdecl, importc: "igTabItemCalcSize_Str".}
@@ -7625,8 +7649,11 @@ proc igImFontAtlasBuildMultiplyCalcLookupTable*(
 proc igImFontAtlasBuildMultiplyRectAlpha8*(table: array[256'i64, uint8];
     pixels: ptr uint8; x: cint; y: cint; w: cint; h: cint; stride: cint): void {.
     cdecl, importc: "igImFontAtlasBuildMultiplyRectAlpha8".}
+proc igImFontAtlasBuildGetOversampleFactors*(cfg: ptr ImFontConfig;
+    out_oversample_h: ptr cint; out_oversample_v: ptr cint): void {.cdecl,
+    importc: "igImFontAtlasBuildGetOversampleFactors".}
 proc igLogText*(fmt: cstring): void {.cdecl, varargs, importc: "igLogText".}
-proc ImGuiTextBuffer_appendf*(buffer: ptr struct_ImGuiTextBuffer; fmt: cstring): void {.
+proc ImGuiTextBuffer_appendf*(self: ptr ImGuiTextBuffer; fmt: cstring): void {.
     cdecl, varargs, importc: "ImGuiTextBuffer_appendf".}
 proc igGET_FLT_MAX*(): cfloat {.cdecl, importc: "igGET_FLT_MAX".}
 proc igGET_FLT_MIN*(): cfloat {.cdecl, importc: "igGET_FLT_MIN".}
@@ -9866,10 +9893,15 @@ proc ImPlot_MkLocTime*(pOut: ptr ImPlotTime; ptm: ptr struct_tm): void {.cdecl,
     importc: "ImPlot_MkLocTime".}
 proc ImPlot_GetLocTime*(t: ImPlotTime; ptm: ptr tm): ptr tm {.cdecl,
     importc: "ImPlot_GetLocTime".}
+proc ImPlot_MkTime*(pOut: ptr ImPlotTime; ptm: ptr struct_tm): void {.cdecl,
+    importc: "ImPlot_MkTime".}
+proc ImPlot_GetTime*(t: ImPlotTime; ptm: ptr tm): ptr tm {.cdecl,
+    importc: "ImPlot_GetTime".}
 proc ImPlot_MakeTime*(pOut: ptr ImPlotTime; year: cint; month: cint; day: cint;
                       hour: cint; min: cint; sec: cint; us: cint): void {.cdecl,
     importc: "ImPlot_MakeTime".}
 proc ImPlot_GetYear*(t: ImPlotTime): cint {.cdecl, importc: "ImPlot_GetYear".}
+proc ImPlot_GetMonth*(t: ImPlotTime): cint {.cdecl, importc: "ImPlot_GetMonth".}
 proc ImPlot_AddTime*(pOut: ptr ImPlotTime; t: ImPlotTime; unit: ImPlotTimeUnit;
                      count: cint): void {.cdecl, importc: "ImPlot_AddTime".}
 proc ImPlot_FloorTime*(pOut: ptr ImPlotTime; t: ImPlotTime; unit: ImPlotTimeUnit): void {.
@@ -9881,6 +9913,8 @@ proc ImPlot_RoundTime*(pOut: ptr ImPlotTime; t: ImPlotTime; unit: ImPlotTimeUnit
 proc ImPlot_CombineDateTime*(pOut: ptr ImPlotTime; date_part: ImPlotTime;
                              time_part: ImPlotTime): void {.cdecl,
     importc: "ImPlot_CombineDateTime".}
+proc ImPlot_Now*(pOut: ptr ImPlotTime): void {.cdecl, importc: "ImPlot_Now".}
+proc ImPlot_Today*(pOut: ptr ImPlotTime): void {.cdecl, importc: "ImPlot_Today".}
 proc ImPlot_FormatTime*(t: ImPlotTime; buffer: cstring; size: cint;
                         fmt: ImPlotTimeFmt; use_24_hr_clk: bool): cint {.cdecl,
     importc: "ImPlot_FormatTime".}
@@ -9964,6 +9998,16 @@ proc ImPlot3D_SetupAxisLimits*(axis: ImAxis3D; v_min: cdouble; v_max: cdouble;
 proc ImPlot3D_SetupAxisFormat*(idx: ImAxis3D; formatter: ImPlot3DFormatter;
                                data: pointer): void {.cdecl,
     importc: "ImPlot3D_SetupAxisFormat".}
+proc ImPlot3D_SetupAxisTicks_doublePtr*(axis: ImAxis3D; values: ptr cdouble;
+                                        n_ticks: cint;
+                                        labels: ptr UncheckedArray[cstring];
+                                        keep_default: bool): void {.cdecl,
+    importc: "ImPlot3D_SetupAxisTicks_doublePtr".}
+proc ImPlot3D_SetupAxisTicks_double*(axis: ImAxis3D; v_min: cdouble;
+                                     v_max: cdouble; n_ticks: cint;
+                                     labels: ptr UncheckedArray[cstring];
+                                     keep_default: bool): void {.cdecl,
+    importc: "ImPlot3D_SetupAxisTicks_double".}
 proc ImPlot3D_SetupAxes*(x_label: cstring; y_label: cstring; z_label: cstring;
                          x_flags: ImPlot3DAxisFlags; y_flags: ImPlot3DAxisFlags;
                          z_flags: ImPlot3DAxisFlags): void {.cdecl,

@@ -147,6 +147,12 @@ Not currently. You can use your OS's screen capturing tools to save a plot. ImPl
 #### Is ImPlot3D suitable for publication-quality visuals?
 ImPlot3D prioritizes interactivity and real-time performance. If you need high-quality visualizations, use ImPlot3D for initial exploration and then switch to tools like [MATLAB](https://www.mathworks.com/products/matlab.html), [matplotlib](https://matplotlib.org/), or [ParaView](https://www.paraview.org/) for the final output.
 
+#### Can I use ImPlot3D with other languages/bindings?
+Yes! ImPlot3D can be used with various languages through the following bindings:
+- **Python**: [imgui-bundle](https://pypi.org/project/imgui-bundle/)
+- **C**: [cimplot3d](https://github.com/cimgui/cimplot3d)
+- **Lua**: [LuaJIT-ImGui](https://github.com/sonoro1234/LuaJIT-ImGui)
+
 ## 🤝 Contributing
 ImPlot3D is growing quickly and I would love more people to get involved in the project. Whether you have ideas to share, bugs to report, or features to implement, your contributions are welcome!
 

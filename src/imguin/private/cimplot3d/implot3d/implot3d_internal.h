@@ -97,6 +97,16 @@ static inline ImU32 ImMixU32(ImU32 a, ImU32 b, ImU32 s) {
 #endif
 }
 
+// Fills a buffer with n samples linear interpolated from vmin to vmax
+template <typename T>
+void FillRange(ImVector<T>& buffer, int n, T vmin, T vmax) {
+    buffer.resize(n);
+    T step = (vmax - vmin) / (n - 1);
+    for (int i = 0; i < n; ++i) {
+        buffer[i] = vmin + i * step;
+    }
+}
+
 } // namespace ImPlot3D
 
 //-----------------------------------------------------------------------------
@@ -127,7 +137,12 @@ struct ImDrawList3D {
     ImDrawListSharedData* _SharedData; // [Internal] shared draw list data
 
     ImDrawList3D() {
-        memset(this, 0, sizeof(*this));
+        _VtxCurrentIdx = 0;
+        _VtxWritePtr = nullptr;
+        _IdxWritePtr = nullptr;
+        _ZWritePtr = nullptr;
+        _Flags = ImDrawListFlags_None;
+        _SharedData = nullptr;
     }
 
     void PrimReserve(int idx_count, int vtx_count);
@@ -435,10 +450,12 @@ struct ImPlot3DAxis {
     ImPlot3DFormatter Formatter;
     void* FormatterData;
     ImPlot3DLocator Locator;
+    bool ShowDefaultTicks;
     // Fit data
     bool FitThisFrame;
     ImPlot3DRange FitExtents;
     // User input
+    bool Hovered;
     bool Held;
 
     // Constructor
@@ -452,12 +469,24 @@ struct ImPlot3DAxis {
         Formatter = nullptr;
         FormatterData = nullptr;
         Locator = nullptr;
+        ShowDefaultTicks = true;
         // Fit data
         FitThisFrame = true;
         FitExtents.Min = HUGE_VAL;
         FitExtents.Max = -HUGE_VAL;
         // User input
+        Hovered = false;
         Held = false;
+    }
+
+    inline void Reset() {
+        Formatter = nullptr;
+        FormatterData = nullptr;
+        Locator = nullptr;
+        ShowDefaultTicks = true;
+        FitExtents.Min = HUGE_VAL;
+        FitExtents.Max = -HUGE_VAL;
+        Ticker.Reset();
     }
 
     inline void SetRange(double v1, double v2) {
@@ -489,6 +518,9 @@ struct ImPlot3DAxis {
     inline bool IsLockedMin() const { return IsRangeLocked() || ImPlot3D::ImHasFlag(Flags, ImPlot3DAxisFlags_LockMin); }
     inline bool IsLockedMax() const { return IsRangeLocked() || ImPlot3D::ImHasFlag(Flags, ImPlot3DAxisFlags_LockMax); }
     inline bool IsLocked() const { return IsLockedMin() && IsLockedMax(); }
+    inline bool IsInputLockedMin() const { return IsLockedMin() || IsAutoFitting(); }
+    inline bool IsInputLockedMax() const { return IsLockedMax() || IsAutoFitting(); }
+    inline bool IsInputLocked() const { return IsLocked() || IsAutoFitting(); }
 
     inline void SetLabel(const char* label) {
         Label.Buf.shrink(0);

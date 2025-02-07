@@ -1,4 +1,4 @@
-name: Linux OS(Ubuntu) Nim 2.2.0 compilation
+name: Linux OS(Ubuntu) Nim 2.2.2 compilation
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: jiro4989/setup-nim-action@v2
         with:
-          nim-version: '2.2.0'
+          nim-version: '2.2.2'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
           sudo apt install xorg-dev libopengl-dev libgl1-mesa-dev

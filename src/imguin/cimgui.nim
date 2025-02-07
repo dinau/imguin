@@ -32,7 +32,7 @@ when defined(useFuthark): # Generate header files with Futhark.
     path    CImguiRootPath
     #path    CImguiGenePath
     path    CImPlotRootPath
-    path    CImPlotRoot3dPath
+    path    CImPlot3dRootPath
     path    CImNodesRootPath
     path    CImGuizmoRootPath
     path    CImKnobsRootPath

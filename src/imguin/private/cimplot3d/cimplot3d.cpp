@@ -43,6 +43,14 @@ CIMGUI_API void ImPlot3D_SetupAxisFormat(ImAxis3D idx,ImPlot3DFormatter formatte
 {
     return ImPlot3D::SetupAxisFormat(idx,formatter,data);
 }
+CIMGUI_API void ImPlot3D_SetupAxisTicks_doublePtr(ImAxis3D axis,const double* values,int n_ticks,const char* const labels[],bool keep_default)
+{
+    return ImPlot3D::SetupAxisTicks(axis,values,n_ticks,labels,keep_default);
+}
+CIMGUI_API void ImPlot3D_SetupAxisTicks_double(ImAxis3D axis,double v_min,double v_max,int n_ticks,const char* const labels[],bool keep_default)
+{
+    return ImPlot3D::SetupAxisTicks(axis,v_min,v_max,n_ticks,labels,keep_default);
+}
 CIMGUI_API void ImPlot3D_SetupAxes(const char* x_label,const char* y_label,const char* z_label,ImPlot3DAxisFlags x_flags,ImPlot3DAxisFlags y_flags,ImPlot3DAxisFlags z_flags)
 {
     return ImPlot3D::SetupAxes(x_label,y_label,z_label,x_flags,y_flags,z_flags);

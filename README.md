@@ -18,7 +18,7 @@
 
 ![alt](https://github.com/dinau/imguin/actions/workflows/windows.yml/badge.svg)  ![alt](https://github.com/dinau/imguin/actions/workflows/linux.yml/badge.svg)
 
-Updated to latest ImGui / CImGui version: : **v1.91.6dock** (2024/12)
+Updated to latest ImGui / CImGui version: : **v1.91.8dock** (2025/02)
 
 This project is my experiment project to use ImGui, ImPlot, futhark and so on with Nim language.  
 
@@ -73,7 +73,7 @@ Library name / C lang. wrapper
 - [x] [ImGuiFileDialog](https://github.com/aiekick/ImGuiFileDialog) / [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog)
 - [x] [ImGui_Toggle](https://github.com/cmdwtf/imgui_toggle) / [CimGui_Toggle](https://github.com/dinau/cimgui_toggle)
 - [x] [ImPlot3d](https://github.com/brenocq/implot3d) / [CImPlot3d](https://github.com/cimgui/cimplot3d) WIP
-- [x] [ImGui_Markdown](https://github.com/enkisoftware/imgui_markdown) WIP
+- [ ] [ImGui_Markdown](https://github.com/enkisoftware/imgui_markdown) WIP
 - [ ] [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE)
 
 ####  Frontends and Backends 
@@ -85,6 +85,7 @@ Library name / C lang. wrapper
    | OpenGL3<br>backend  | v      | v     | v      |
    | SDL2<br>backend     | -      | v     | -      |
    | SDL3<br>backend     | -      | -     | v      |
+   | Vulkan<br>backend   | ?      | ?     | ?      |
 
 
 #### Update / Downgrade Dear ImGui and CImGui
@@ -171,6 +172,7 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
+   | 1.91.8dock        | 1.91.8.0    | 2025/02 | ?                       |
    | 1.91.6dock        | 1.91.6.15   | 2025/01 | ?                       |
    | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK                      |
    | 1.91.3dock        | 1.91.3.1    | 2024/10 | ?                       |
@@ -205,7 +207,7 @@ Windows OS is all OK.
 ---
 
 Windows11 (main)
-- **Nim Compiler Version 2.2.0**
+- **Nim Compiler Version 2.2.2**
 - **GCC (Rev1, Built by MSYS2 project) 14.2.0**
 
    ```sh

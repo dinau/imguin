@@ -4,10 +4,12 @@ const LIBS_DIR = "../../../../../libs/"
 
 var libDirs = @[
 LIBS_DIR & "cimgui",
+LIBS_DIR & "cimgui_toggle",
+LIBS_DIR & "CImGuiFileDialog",
 LIBS_DIR & "cimguizmo",
 LIBS_DIR & "cimnodes",
 LIBS_DIR & "cimplot",
-LIBS_DIR & "CImGuiFileDialog",
+LIBS_DIR & "cimplot3d",
 ]
 
 var sOut = """
