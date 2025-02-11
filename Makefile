@@ -26,7 +26,7 @@ updater:
 
 gen: copylibs updater
 
-copylibs: imgui implot imnodes imguizmo ImGuiFileDialog imgui_toggle implot3d
+copylibs: imgui implot imnodes imguizmo ImGuiFileDialog imgui_toggle implot3d imspinner
 
 imgui:
 	@echo [ CImGui ] copying...
@@ -71,10 +71,16 @@ imgui_toggle:
 
 implot3d:
 	@echo [ cimplot3d ] copying...
-	-mkdir -p $(TARGET_DIR)/c$@/$@
-	@cp -f $(EXT_LIB_DIR)/c$@/{*.cpp,*.h,README.md}         $(TARGET_DIR)/c$@/
+	@-mkdir -p $(TARGET_DIR)/c$@/$@
+	@cp -f $(EXT_LIB_DIR)/c$@/{*.cpp,*.h,README.md}            $(TARGET_DIR)/c$@/
 	@cp -f $(EXT_LIB_DIR)/c$@/$@/{LICENSE,*.cpp,*.h,README.md} $(TARGET_DIR)/c$@/$@/
 
+imspinner:
+	@echo [ cimspinner ] copying...
+	@-mkdir -p $(TARGET_DIR)/c$@/$@
+	@cp -f $(EXT_LIB_DIR)/c$@/{*.cpp,*.h,README.md}               $(TARGET_DIR)/c$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/libs/$@/{LICENSE.txt,*.h,README.md} $(TARGET_DIR)/c$@/$@/
+	@echo "" >  $(TARGET_DIR)/c$@/cimspinner_config.h
 
 
 libs:
@@ -83,7 +89,7 @@ libs:
 
 .PHONY: cimgui cimplot cimnodes cimguizmo cimguifiledialog cimgui_toggle
 
-clonelibs: cimgui cimplot cimnodes cimguizmo cimgui_toggle
+clonelibs: cimgui cimplot cimnodes cimguizmo cimgui_toggle cimplot3d cimspinner
 
 cimgui:
 	git clone --recurse-submodules https://github.com/$@/$@      ../libs/$@
@@ -99,6 +105,8 @@ cimgui_toggle:
 	git clone --recurse-submodules https://github.com/dinau/$@  ../libs/$@
 cimplot3d:
 	git clone --recurse-submodules https://github.com/cimgui/$@  ../libs/$@
+cimspinner:
+	git clone --recurse-submodules https://github.com/dinau/$@  ../libs/$@
 
 help:
 	@echo See. https://github.com/dinau/imguin

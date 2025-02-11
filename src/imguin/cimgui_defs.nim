@@ -10465,6 +10465,750 @@ proc ImPlot3DStyle_ImPlot3DStyle*(): ptr ImPlot3DStyle {.cdecl,
     importc: "ImPlot3DStyle_ImPlot3DStyle".}
 proc ImPlot3DStyle_destroy*(self: ptr ImPlot3DStyle): void {.cdecl,
     importc: "ImPlot3DStyle_destroy".}
+proc SpinnerRainbow*(label: cstring; radius: cfloat; thickness: cfloat;
+                     color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerRainbow".}
+proc SpinnerRainbowEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                       color: ImColor; speed: cfloat; ang_min: cfloat;
+                       ang_max: cfloat; arcs: cint; mode: cint): void {.cdecl,
+    importc: "SpinnerRainbowEx".}
+proc SpinnerRainbowMix*(label: cstring; radius: cfloat; thickness: cfloat;
+                        color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerRainbowMix".}
+proc SpinnerRainbowMixEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; ang_min: cfloat;
+                          ang_max: cfloat; arcs: cint; mode: cint): void {.
+    cdecl, importc: "SpinnerRainbowMixEx".}
+proc SpinnerRotatingHeart*(label: cstring; radius: cfloat; thickness: cfloat;
+                           color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerRotatingHeart".}
+proc SpinnerRotatingHeartEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                             color: ImColor; speed: cfloat; ang_min: cfloat): void {.
+    cdecl, importc: "SpinnerRotatingHeartEx".}
+proc SpinnerAng*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerAng".}
+proc SpinnerAngEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                   color: ImColor; bg: ImColor; speed: cfloat; angle: cfloat;
+                   mode: cint): void {.cdecl, importc: "SpinnerAngEx".}
+proc SpinnerAng8*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerAng8".}
+proc SpinnerAng8Ex*(label: cstring; radius: cfloat; thickness: cfloat;
+                    color: ImColor; bg: ImColor; speed: cfloat; angle: cfloat;
+                    mode: cint; rkoef: cfloat): void {.cdecl,
+    importc: "SpinnerAng8Ex".}
+proc SpinnerAngMix*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerAngMix".}
+proc SpinnerAngMixEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                      color: ImColor; speed: cfloat; angle: cfloat; arcs: cint;
+                      mode: cint): void {.cdecl, importc: "SpinnerAngMixEx".}
+proc SpinnerLoadingRing*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerLoadingRing".}
+proc SpinnerLoadingRingEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                           color: ImColor; bg: ImColor; speed: cfloat;
+                           segments: cint): void {.cdecl,
+    importc: "SpinnerLoadingRingEx".}
+proc SpinnerClock*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerClock".}
+proc SpinnerClockEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                     color: ImColor; bg: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerClockEx".}
+proc SpinnerPulsar*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerPulsar".}
+proc SpinnerPulsarEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                      bg: ImColor; speed: cfloat; sequence: bool; angle: cfloat;
+                      mode: cint): void {.cdecl, importc: "SpinnerPulsarEx".}
+proc SpinnerDoubleFadePulsar*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerDoubleFadePulsar".}
+proc SpinnerDoubleFadePulsarEx*(label: cstring; radius: cfloat;
+                                thickness: cfloat; bg: ImColor; speed: cfloat): void {.
+    cdecl, importc: "SpinnerDoubleFadePulsarEx".}
+proc SpinnerTwinPulsar*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerTwinPulsar".}
+proc SpinnerTwinPulsarEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; rings: cint; mode: cint): void {.
+    cdecl, importc: "SpinnerTwinPulsarEx".}
+proc SpinnerFadePulsar*(label: cstring; radius: cfloat): void {.cdecl,
+    importc: "SpinnerFadePulsar".}
+proc SpinnerFadePulsarEx*(label: cstring; radius: cfloat; color: ImColor;
+                          speed: cfloat; rings: cint; mode: cint): void {.cdecl,
+    importc: "SpinnerFadePulsarEx".}
+proc SpinnerFadePulsarSquare*(label: cstring; radius: cfloat): void {.cdecl,
+    importc: "SpinnerFadePulsarSquare".}
+proc SpinnerFadePulsarSquareEx*(label: cstring; radius: cfloat; color: ImColor;
+                                speed: cfloat; rings: cint; mode: cint): void {.
+    cdecl, importc: "SpinnerFadePulsarSquareEx".}
+proc SpinnerCircularLines*(label: cstring; radius: cfloat): void {.cdecl,
+    importc: "SpinnerCircularLines".}
+proc SpinnerCircularLinesEx*(label: cstring; radius: cfloat; color: ImColor;
+                             speed: cfloat; lines: cint; mode: cint): void {.
+    cdecl, importc: "SpinnerCircularLinesEx".}
+proc SpinnerDots*(label: cstring; nextdot: ptr cfloat; radius: cfloat;
+                  thickness: cfloat): void {.cdecl, importc: "SpinnerDots".}
+proc SpinnerDotsEx*(label: cstring; nextdot: ptr cfloat; radius: cfloat;
+                    thickness: cfloat; color: ImColor; speed: cfloat;
+                    dots: csize_t; minth: cfloat; mode: cint): void {.cdecl,
+    importc: "SpinnerDotsEx".}
+proc SpinnerVDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerVDots".}
+proc SpinnerVDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                     color: ImColor; bgcolor: ImColor; speed: cfloat;
+                     dots: csize_t; mdots: csize_t; mode: cint): void {.cdecl,
+    importc: "SpinnerVDotsEx".}
+proc SpinnerBounceDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerBounceDots".}
+proc SpinnerBounceDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; dots: csize_t;
+                          mode: cint): void {.cdecl,
+    importc: "SpinnerBounceDotsEx".}
+proc SpinnerZipDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerZipDots".}
+proc SpinnerZipDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                       color: ImColor; speed: cfloat; dots: csize_t): void {.
+    cdecl, importc: "SpinnerZipDotsEx".}
+proc SpinnerDotsToPoints*(label: cstring; radius: cfloat; thickness: cfloat;
+                          offset_k: cfloat): void {.cdecl,
+    importc: "SpinnerDotsToPoints".}
+proc SpinnerDotsToPointsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                            offset_k: cfloat; color: ImColor; speed: cfloat;
+                            dots: csize_t): void {.cdecl,
+    importc: "SpinnerDotsToPointsEx".}
+proc SpinnerDotsToBar*(label: cstring; radius: cfloat; thickness: cfloat;
+                       offset_k: cfloat): void {.cdecl,
+    importc: "SpinnerDotsToBar".}
+proc SpinnerDotsToBarEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                         offset_k: cfloat; color: ImColor; speed: cfloat;
+                         dots: csize_t): void {.cdecl,
+    importc: "SpinnerDotsToBarEx".}
+proc SpinnerWaveDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerWaveDots".}
+proc SpinnerWaveDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                        color: ImColor; speed: cfloat; lt: cint): void {.cdecl,
+    importc: "SpinnerWaveDotsEx".}
+proc SpinnerFadeDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerFadeDots".}
+proc SpinnerFadeDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                        color: ImColor; speed: cfloat; lt: cint; mode: cint): void {.
+    cdecl, importc: "SpinnerFadeDotsEx".}
+proc SpinnerThreeDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerThreeDots".}
+proc SpinnerThreeDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                         color: ImColor; speed: cfloat; lt: cint): void {.cdecl,
+    importc: "SpinnerThreeDotsEx".}
+proc SpinnerFiveDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerFiveDots".}
+proc SpinnerFiveDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                        color: ImColor; speed: cfloat; lt: cint): void {.cdecl,
+    importc: "SpinnerFiveDotsEx".}
+proc Spinner4Caleidospcope*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "Spinner4Caleidospcope".}
+proc Spinner4CaleidospcopeEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                              color: ImColor; speed: cfloat; lt: cint): void {.
+    cdecl, importc: "Spinner4CaleidospcopeEx".}
+proc SpinnerMultiFadeDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerMultiFadeDots".}
+proc SpinnerMultiFadeDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                             color: ImColor; speed: cfloat; lt: cint): void {.
+    cdecl, importc: "SpinnerMultiFadeDotsEx".}
+proc SpinnerThickToSin*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerThickToSin".}
+proc SpinnerThickToSinEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; lt: cint; mode: cint): void {.
+    cdecl, importc: "SpinnerThickToSinEx".}
+proc SpinnerScaleDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerScaleDots".}
+proc SpinnerScaleDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                         color: ImColor; speed: cfloat; lt: cint): void {.cdecl,
+    importc: "SpinnerScaleDotsEx".}
+proc SpinnerSquareSpins*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerSquareSpins".}
+proc SpinnerSquareSpinsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                           color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerSquareSpinsEx".}
+proc SpinnerMovingDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerMovingDots".}
+proc SpinnerMovingDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; dots: csize_t): void {.
+    cdecl, importc: "SpinnerMovingDotsEx".}
+proc SpinnerRotateDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerRotateDots".}
+proc SpinnerRotateDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; dots: cint; mode: cint): void {.
+    cdecl, importc: "SpinnerRotateDotsEx".}
+proc SpinnerOrionDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerOrionDots".}
+proc SpinnerOrionDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                         color: ImColor; speed: cfloat; arcs: cint): void {.
+    cdecl, importc: "SpinnerOrionDotsEx".}
+proc SpinnerGalaxyDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerGalaxyDots".}
+proc SpinnerGalaxyDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; arcs: cint): void {.
+    cdecl, importc: "SpinnerGalaxyDotsEx".}
+proc SpinnerTwinAng*(label: cstring; radius1: cfloat; radius2: cfloat;
+                     thickness: cfloat): void {.cdecl, importc: "SpinnerTwinAng".}
+proc SpinnerTwinAngEx*(label: cstring; radius1: cfloat; radius2: cfloat;
+                       thickness: cfloat; color1: ImColor; color2: ImColor;
+                       speed: cfloat; angle: cfloat; mode: cint): void {.cdecl,
+    importc: "SpinnerTwinAngEx".}
+proc SpinnerFilling*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerFilling".}
+proc SpinnerFillingEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                       color1: ImColor; color2: ImColor; speed: cfloat): void {.
+    cdecl, importc: "SpinnerFillingEx".}
+proc SpinnerFillingMem*(label: cstring; radius: cfloat; thickness: cfloat;
+                        color: ImColor; colorbg: ImColor; speed: cfloat): void {.
+    cdecl, importc: "SpinnerFillingMem".}
+proc SpinnerTopup*(label: cstring; radius1: cfloat; radius2: cfloat): void {.
+    cdecl, importc: "SpinnerTopup".}
+proc SpinnerTopupEx*(label: cstring; radius1: cfloat; radius2: cfloat;
+                     color: ImColor; fg: ImColor; bg: ImColor; speed: cfloat): void {.
+    cdecl, importc: "SpinnerTopupEx".}
+proc SpinnerTwinAng180*(label: cstring; radius1: cfloat; radius2: cfloat;
+                        thickness: cfloat): void {.cdecl,
+    importc: "SpinnerTwinAng180".}
+proc SpinnerTwinAng180Ex*(label: cstring; radius1: cfloat; radius2: cfloat;
+                          thickness: cfloat; color1: ImColor; color2: ImColor;
+                          speed: cfloat; angle: cfloat; mode: cint): void {.
+    cdecl, importc: "SpinnerTwinAng180Ex".}
+proc SpinnerTwinAng360*(label: cstring; radius1: cfloat; radius2: cfloat;
+                        thickness: cfloat): void {.cdecl,
+    importc: "SpinnerTwinAng360".}
+proc SpinnerTwinAng360Ex*(label: cstring; radius1: cfloat; radius2: cfloat;
+                          thickness: cfloat; color1: ImColor; color2: ImColor;
+                          speed1: cfloat; speed2: cfloat; mode: cint): void {.
+    cdecl, importc: "SpinnerTwinAng360Ex".}
+proc SpinnerIncDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerIncDots".}
+proc SpinnerIncDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                       color: ImColor; speed: cfloat; dots: csize_t): void {.
+    cdecl, importc: "SpinnerIncDotsEx".}
+proc SpinnerIncFullDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerIncFullDots".}
+proc SpinnerIncFullDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                           color: ImColor; speed: cfloat; dots: csize_t): void {.
+    cdecl, importc: "SpinnerIncFullDotsEx".}
+proc SpinnerFadeBars*(label: cstring; w: cfloat): void {.cdecl,
+    importc: "SpinnerFadeBars".}
+proc SpinnerFadeBarsEx*(label: cstring; w: cfloat; color: ImColor;
+                        speed: cfloat; bars: csize_t; scale: bool): void {.
+    cdecl, importc: "SpinnerFadeBarsEx".}
+proc SpinnerFadeTris*(label: cstring; radius: cfloat): void {.cdecl,
+    importc: "SpinnerFadeTris".}
+proc SpinnerFadeTrisEx*(label: cstring; radius: cfloat; color: ImColor;
+                        speed: cfloat; dim: csize_t; scale: bool; mode: cint): void {.
+    cdecl, importc: "SpinnerFadeTrisEx".}
+proc SpinnerBarsRotateFade*(label: cstring; rmin: cfloat; rmax: cfloat;
+                            thickness: cfloat): void {.cdecl,
+    importc: "SpinnerBarsRotateFade".}
+proc SpinnerBarsRotateFadeEx*(label: cstring; rmin: cfloat; rmax: cfloat;
+                              thickness: cfloat; color: ImColor; speed: cfloat;
+                              bars: csize_t): void {.cdecl,
+    importc: "SpinnerBarsRotateFadeEx".}
+proc SpinnerBarsScaleMiddle*(label: cstring; w: cfloat): void {.cdecl,
+    importc: "SpinnerBarsScaleMiddle".}
+proc SpinnerBarsScaleMiddleEx*(label: cstring; w: cfloat; color: ImColor;
+                               speed: cfloat; bars: csize_t): void {.cdecl,
+    importc: "SpinnerBarsScaleMiddleEx".}
+proc SpinnerAngTwin*(label: cstring; radius1: cfloat; radius2: cfloat;
+                     thickness: cfloat): void {.cdecl, importc: "SpinnerAngTwin".}
+proc SpinnerAngTwinEx*(label: cstring; radius1: cfloat; radius2: cfloat;
+                       thickness: cfloat; color: ImColor; bg: ImColor;
+                       speed: cfloat; angle: cfloat; arcs: csize_t; mode: cint): void {.
+    cdecl, importc: "SpinnerAngTwinEx".}
+proc SpinnerArcRotation*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerArcRotation".}
+proc SpinnerArcRotationEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                           color: ImColor; speed: cfloat; arcs: csize_t;
+                           mode: cint): void {.cdecl,
+    importc: "SpinnerArcRotationEx".}
+proc SpinnerArcFade*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerArcFade".}
+proc SpinnerArcFadeEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                       color: ImColor; speed: cfloat; arcs: csize_t; mode: cint): void {.
+    cdecl, importc: "SpinnerArcFadeEx".}
+proc SpinnerSimpleArcFade*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerSimpleArcFade".}
+proc SpinnerSimpleArcFadeEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                             color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerSimpleArcFadeEx".}
+proc SpinnerSquareStrokeFade*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerSquareStrokeFade".}
+proc SpinnerSquareStrokeFadeEx*(label: cstring; radius: cfloat;
+                                thickness: cfloat; color: ImColor; speed: cfloat): void {.
+    cdecl, importc: "SpinnerSquareStrokeFadeEx".}
+proc SpinnerAsciiSymbolPoints*(label: cstring; text: cstring; radius: cfloat;
+                               thickness: cfloat): void {.cdecl,
+    importc: "SpinnerAsciiSymbolPoints".}
+proc SpinnerAsciiSymbolPointsEx*(label: cstring; text: cstring; radius: cfloat;
+                                 thickness: cfloat; color: ImColor;
+                                 speed: cfloat): void {.cdecl,
+    importc: "SpinnerAsciiSymbolPointsEx".}
+proc SpinnerTextFading*(label: cstring; text: cstring; radius: cfloat;
+                        fsize: cfloat): void {.cdecl,
+    importc: "SpinnerTextFading".}
+proc SpinnerTextFadingEx*(label: cstring; text: cstring; radius: cfloat;
+                          fsize: cfloat; color: ImColor; speed: cfloat): void {.
+    cdecl, importc: "SpinnerTextFadingEx".}
+proc SpinnerSevenSegments*(label: cstring; text: cstring; radius: cfloat;
+                           thickness: cfloat): void {.cdecl,
+    importc: "SpinnerSevenSegments".}
+proc SpinnerSevenSegmentsEx*(label: cstring; text: cstring; radius: cfloat;
+                             thickness: cfloat; color: ImColor; speed: cfloat): void {.
+    cdecl, importc: "SpinnerSevenSegmentsEx".}
+proc SpinnerSquareStrokeFill*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerSquareStrokeFill".}
+proc SpinnerSquareStrokeFillEx*(label: cstring; radius: cfloat;
+                                thickness: cfloat; color: ImColor; speed: cfloat): void {.
+    cdecl, importc: "SpinnerSquareStrokeFillEx".}
+proc SpinnerSquareStrokeLoading*(label: cstring; radius: cfloat;
+                                 thickness: cfloat): void {.cdecl,
+    importc: "SpinnerSquareStrokeLoading".}
+proc SpinnerSquareStrokeLoadingEx*(label: cstring; radius: cfloat;
+                                   thickness: cfloat; color: ImColor;
+                                   speed: cfloat): void {.cdecl,
+    importc: "SpinnerSquareStrokeLoadingEx".}
+proc SpinnerSquareLoading*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerSquareLoading".}
+proc SpinnerSquareLoadingEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                             color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerSquareLoadingEx".}
+proc SpinnerFilledArcFade*(label: cstring; radius: cfloat): void {.cdecl,
+    importc: "SpinnerFilledArcFade".}
+proc SpinnerFilledArcFadeEx*(label: cstring; radius: cfloat; color: ImColor;
+                             speed: cfloat; arcs: csize_t; mode: cint): void {.
+    cdecl, importc: "SpinnerFilledArcFadeEx".}
+proc SpinnerPointsRoller*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerPointsRoller".}
+proc SpinnerPointsRollerEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                            color: ImColor; speed: cfloat; points: csize_t;
+                            circles: cint; rspeed: cfloat): void {.cdecl,
+    importc: "SpinnerPointsRollerEx".}
+proc SpinnerPointsArcBounce*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerPointsArcBounce".}
+proc SpinnerPointsArcBounceEx*(label: cstring; radius: cfloat;
+                               thickness: cfloat; color: ImColor; speed: cfloat;
+                               points: csize_t; circles: cint; rspeed: cfloat): void {.
+    cdecl, importc: "SpinnerPointsArcBounceEx".}
+proc SpinnerFilledArcColor*(label: cstring; radius: cfloat): void {.cdecl,
+    importc: "SpinnerFilledArcColor".}
+proc SpinnerFilledArcColorEx*(label: cstring; radius: cfloat; color: ImColor;
+                              bg: ImColor; speed: cfloat; arcs: csize_t): void {.
+    cdecl, importc: "SpinnerFilledArcColorEx".}
+proc SpinnerFilledArcRing*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerFilledArcRing".}
+proc SpinnerFilledArcRingEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                             color: ImColor; bg: ImColor; speed: cfloat;
+                             arcs: csize_t): void {.cdecl,
+    importc: "SpinnerFilledArcRingEx".}
+proc SpinnerArcWedges*(label: cstring; radius: cfloat): void {.cdecl,
+    importc: "SpinnerArcWedges".}
+proc SpinnerArcWedgesEx*(label: cstring; radius: cfloat; color: ImColor;
+                         speed: cfloat; arcs: csize_t; mode: cint): void {.
+    cdecl, importc: "SpinnerArcWedgesEx".}
+proc SpinnerTwinBall*(label: cstring; radius1: cfloat; radius2: cfloat;
+                      thickness: cfloat; b_thickness: cfloat): void {.cdecl,
+    importc: "SpinnerTwinBall".}
+proc SpinnerTwinBallEx*(label: cstring; radius1: cfloat; radius2: cfloat;
+                        thickness: cfloat; b_thickness: cfloat; ball: ImColor;
+                        bg: ImColor; speed: cfloat; balls: csize_t; mode: cint): void {.
+    cdecl, importc: "SpinnerTwinBallEx".}
+proc SpinnerSolarBalls*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerSolarBalls".}
+proc SpinnerSolarBallsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          ball: ImColor; bg: ImColor; speed: cfloat;
+                          balls: csize_t): void {.cdecl,
+    importc: "SpinnerSolarBallsEx".}
+proc SpinnerSolarScaleBalls*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerSolarScaleBalls".}
+proc SpinnerSolarScaleBallsEx*(label: cstring; radius: cfloat;
+                               thickness: cfloat; ball: ImColor; speed: cfloat;
+                               balls: csize_t): void {.cdecl,
+    importc: "SpinnerSolarScaleBallsEx".}
+proc SpinnerSolarArcs*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerSolarArcs".}
+proc SpinnerSolarArcsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                         ball: ImColor; bg: ImColor; speed: cfloat;
+                         balls: csize_t): void {.cdecl,
+    importc: "SpinnerSolarArcsEx".}
+proc SpinnerMovingArcs*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerMovingArcs".}
+proc SpinnerMovingArcsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; arcs: csize_t): void {.
+    cdecl, importc: "SpinnerMovingArcsEx".}
+proc SpinnerRainbowCircle*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerRainbowCircle".}
+proc SpinnerRainbowCircleEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                             color: ImColor; speed: cfloat; arcs: csize_t;
+                             mode: cfloat): void {.cdecl,
+    importc: "SpinnerRainbowCircleEx".}
+proc SpinnerBounceBall*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerBounceBall".}
+proc SpinnerBounceBallEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; dots: cint;
+                          shadow: bool): void {.cdecl,
+    importc: "SpinnerBounceBallEx".}
+proc SpinnerPulsarBall*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerPulsarBall".}
+proc SpinnerPulsarBallEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; shadow: bool;
+                          mode: cint): void {.cdecl,
+    importc: "SpinnerPulsarBallEx".}
+proc SpinnerIncScaleDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerIncScaleDots".}
+proc SpinnerIncScaleDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                            color: ImColor; speed: cfloat; dots: csize_t;
+                            angle: cfloat; mode: cint): void {.cdecl,
+    importc: "SpinnerIncScaleDotsEx".}
+proc SpinnerSomeScaleDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerSomeScaleDots".}
+proc SpinnerSomeScaleDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                             color: ImColor; speed: cfloat; dots: csize_t;
+                             mode: cint): void {.cdecl,
+    importc: "SpinnerSomeScaleDotsEx".}
+proc SpinnerAngTriple*(label: cstring; radius1: cfloat; radius2: cfloat;
+                       radius3: cfloat; thickness: cfloat): void {.cdecl,
+    importc: "SpinnerAngTriple".}
+proc SpinnerAngTripleEx*(label: cstring; radius1: cfloat; radius2: cfloat;
+                         radius3: cfloat; thickness: cfloat; c1: ImColor;
+                         c2: ImColor; c3: ImColor; speed: cfloat; angle: cfloat): void {.
+    cdecl, importc: "SpinnerAngTripleEx".}
+proc SpinnerAngEclipse*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerAngEclipse".}
+proc SpinnerAngEclipseEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; angle: cfloat): void {.
+    cdecl, importc: "SpinnerAngEclipseEx".}
+proc SpinnerIngYang*(label: cstring; radius: cfloat; thickness: cfloat;
+                     reverse: bool; yang_detlta_r: cfloat): void {.cdecl,
+    importc: "SpinnerIngYang".}
+proc SpinnerIngYangEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                       reverse: bool; yang_detlta_r: cfloat; colorI: ImColor;
+                       colorY: ImColor; speed: cfloat; angle: cfloat; mode: cint): void {.
+    cdecl, importc: "SpinnerIngYangEx".}
+proc SpinnerGooeyBalls*(label: cstring; radius: cfloat; color: ImColor;
+                        speed: cfloat): void {.cdecl,
+    importc: "SpinnerGooeyBalls".}
+proc SpinnerGooeyBallsEx*(label: cstring; radius: cfloat; color: ImColor;
+                          speed: cfloat; mode: cint): void {.cdecl,
+    importc: "SpinnerGooeyBallsEx".}
+proc SpinnerDotsLoading*(label: cstring; radius: cfloat; thickness: cfloat;
+                         color: ImColor; bg: ImColor; speed: cfloat): void {.
+    cdecl, importc: "SpinnerDotsLoading".}
+proc SpinnerRotateGooeyBalls*(label: cstring; radius: cfloat; thickness: cfloat;
+                              color: ImColor; speed: cfloat; balls: cint): void {.
+    cdecl, importc: "SpinnerRotateGooeyBalls".}
+proc SpinnerRotateGooeyBallsEx*(label: cstring; radius: cfloat;
+                                thickness: cfloat; color: ImColor;
+                                speed: cfloat; balls: cint; mode: cint): void {.
+    cdecl, importc: "SpinnerRotateGooeyBallsEx".}
+proc SpinnerHerbertBalls*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; balls: cint): void {.
+    cdecl, importc: "SpinnerHerbertBalls".}
+proc SpinnerHerbertBalls3D*(label: cstring; radius: cfloat; thickness: cfloat;
+                            color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerHerbertBalls3D".}
+proc SpinnerRotateTriangles*(label: cstring; radius: cfloat; thickness: cfloat;
+                             color: ImColor; speed: cfloat; tris: cint): void {.
+    cdecl, importc: "SpinnerRotateTriangles".}
+proc SpinnerRotateTrianglesEx*(label: cstring; radius: cfloat;
+                               thickness: cfloat; color: ImColor; speed: cfloat;
+                               tris: cint; mode: cint): void {.cdecl,
+    importc: "SpinnerRotateTrianglesEx".}
+proc SpinnerRotateShapes*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; shapes: cint; pnt: cint): void {.
+    cdecl, importc: "SpinnerRotateShapes".}
+proc SpinnerSinSquares*(label: cstring; radius: cfloat; thickness: cfloat;
+                        color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerSinSquares".}
+proc SpinnerSinSquaresEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; mode: cint): void {.
+    cdecl, importc: "SpinnerSinSquaresEx".}
+proc SpinnerMoonLine*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerMoonLine".}
+proc SpinnerMoonLineEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                        color: ImColor; bg: ImColor; speed: cfloat;
+                        angle: cfloat): void {.cdecl,
+    importc: "SpinnerMoonLineEx".}
+proc SpinnerCircleDrop*(label: cstring; radius: cfloat; thickness: cfloat;
+                        thickness_drop: cfloat): void {.cdecl,
+    importc: "SpinnerCircleDrop".}
+proc SpinnerCircleDropEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          thickness_drop: cfloat; color: ImColor; bg: ImColor;
+                          speed: cfloat; angle: cfloat): void {.cdecl,
+    importc: "SpinnerCircleDropEx".}
+proc SpinnerSurroundedIndicator*(label: cstring; radius: cfloat;
+                                 thickness: cfloat): void {.cdecl,
+    importc: "SpinnerSurroundedIndicator".}
+proc SpinnerSurroundedIndicatorEx*(label: cstring; radius: cfloat;
+                                   thickness: cfloat; color: ImColor;
+                                   bg: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerSurroundedIndicatorEx".}
+proc SpinnerWifiIndicator*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerWifiIndicator".}
+proc SpinnerWifiIndicatorEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                             color: ImColor; bg: ImColor; speed: cfloat;
+                             cangle: cfloat; dots: cint): void {.cdecl,
+    importc: "SpinnerWifiIndicatorEx".}
+proc SpinnerTrianglesSelector*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerTrianglesSelector".}
+proc SpinnerTrianglesSelectorEx*(label: cstring; radius: cfloat;
+                                 thickness: cfloat; color: ImColor; bg: ImColor;
+                                 speed: cfloat; bars: csize_t): void {.cdecl,
+    importc: "SpinnerTrianglesSelectorEx".}
+proc SpinnerFlowingGradient*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerFlowingGradient".}
+proc SpinnerFlowingGradientEx*(label: cstring; radius: cfloat;
+                               thickness: cfloat; color: ImColor; bg: ImColor;
+                               speed: cfloat; angle: cfloat): void {.cdecl,
+    importc: "SpinnerFlowingGradientEx".}
+proc SpinnerRotateSegments*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerRotateSegments".}
+proc SpinnerRotateSegmentsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                              color: ImColor; speed: cfloat; arcs: csize_t;
+                              layers: csize_t; mode: cint): void {.cdecl,
+    importc: "SpinnerRotateSegmentsEx".}
+proc SpinnerLemniscate*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerLemniscate".}
+proc SpinnerLemniscateEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; angle: cfloat): void {.
+    cdecl, importc: "SpinnerLemniscateEx".}
+proc SpinnerRotateGear*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerRotateGear".}
+proc SpinnerRotateGearEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat; pins: csize_t): void {.
+    cdecl, importc: "SpinnerRotateGearEx".}
+proc SpinnerRotateWheel*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerRotateWheel".}
+proc SpinnerRotateWheelEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                           bg_color: ImColor; color: ImColor; speed: cfloat;
+                           pins: csize_t): void {.cdecl,
+    importc: "SpinnerRotateWheelEx".}
+proc SpinnerAtom*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerAtom".}
+proc SpinnerAtomEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                    color: ImColor; speed: cfloat; elipses: cint): void {.cdecl,
+    importc: "SpinnerAtomEx".}
+proc SpinnerPatternRings*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerPatternRings".}
+proc SpinnerPatternRingsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                            color: ImColor; speed: cfloat; elipses: cint): void {.
+    cdecl, importc: "SpinnerPatternRingsEx".}
+proc SpinnerPatternEclipse*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerPatternEclipse".}
+proc SpinnerPatternEclipseEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                              color: ImColor; speed: cfloat; elipses: cint;
+                              delta_a: cfloat; delta_y: cfloat): void {.cdecl,
+    importc: "SpinnerPatternEclipseEx".}
+proc SpinnerPatternSphere*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerPatternSphere".}
+proc SpinnerPatternSphereEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                             color: ImColor; speed: cfloat; elipses: cint): void {.
+    cdecl, importc: "SpinnerPatternSphereEx".}
+proc SpinnerRingSynchronous*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerRingSynchronous".}
+proc SpinnerRingSynchronousEx*(label: cstring; radius: cfloat;
+                               thickness: cfloat; color: ImColor; speed: cfloat;
+                               elipses: cint): void {.cdecl,
+    importc: "SpinnerRingSynchronousEx".}
+proc SpinnerRingWatermarks*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerRingWatermarks".}
+proc SpinnerRingWatermarksEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                              color: ImColor; speed: cfloat; elipses: cint): void {.
+    cdecl, importc: "SpinnerRingWatermarksEx".}
+proc SpinnerRotatedAtom*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerRotatedAtom".}
+proc SpinnerRotatedAtomEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                           color: ImColor; speed: cfloat; elipses: cint;
+                           mode: cint): void {.cdecl,
+    importc: "SpinnerRotatedAtomEx".}
+proc SpinnerRainbowBalls*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerRainbowBalls".}
+proc SpinnerRainbowBallsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                            color: ImColor; speed: cfloat; balls: cint;
+                            mode: cint): void {.cdecl,
+    importc: "SpinnerRainbowBallsEx".}
+proc SpinnerRainbowShot*(label: cstring; radius: cfloat; thickness: cfloat;
+                         color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerRainbowShot".}
+proc SpinnerRainbowShotEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                           color: ImColor; speed: cfloat; balls: cint): void {.
+    cdecl, importc: "SpinnerRainbowShotEx".}
+proc SpinnerSpiral*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerSpiral".}
+proc SpinnerSpiralEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                      color: ImColor; speed: cfloat; arcs: csize_t): void {.
+    cdecl, importc: "SpinnerSpiralEx".}
+proc SpinnerSpiralEye*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerSpiralEye".}
+proc SpinnerSpiralEyeEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                         color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerSpiralEyeEx".}
+proc SpinnerBarChartSine*(label: cstring; radius: cfloat; thickness: cfloat;
+                          color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerBarChartSine".}
+proc SpinnerBarChartSineEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                            color: ImColor; speed: cfloat; bars: cint;
+                            mode: cint): void {.cdecl,
+    importc: "SpinnerBarChartSineEx".}
+proc SpinnerBarChartAdvSine*(label: cstring; radius: cfloat; thickness: cfloat;
+                             color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerBarChartAdvSine".}
+proc SpinnerBarChartAdvSineEx*(label: cstring; radius: cfloat;
+                               thickness: cfloat; color: ImColor; speed: cfloat;
+                               mode: cint): void {.cdecl,
+    importc: "SpinnerBarChartAdvSineEx".}
+proc SpinnerBarChartAdvSineFade*(label: cstring; radius: cfloat;
+                                 thickness: cfloat; color: ImColor;
+                                 speed: cfloat): void {.cdecl,
+    importc: "SpinnerBarChartAdvSineFade".}
+proc SpinnerBarChartAdvSineFadeEx*(label: cstring; radius: cfloat;
+                                   thickness: cfloat; color: ImColor;
+                                   speed: cfloat; mode: cint): void {.cdecl,
+    importc: "SpinnerBarChartAdvSineFadeEx".}
+proc SpinnerBarChartRainbow*(label: cstring; radius: cfloat; thickness: cfloat;
+                             color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerBarChartRainbow".}
+proc SpinnerBarChartRainbowEx*(label: cstring; radius: cfloat;
+                               thickness: cfloat; color: ImColor; speed: cfloat;
+                               bars: cint; mode: cint): void {.cdecl,
+    importc: "SpinnerBarChartRainbowEx".}
+proc SpinnerBlocks*(label: cstring; radius: cfloat; thickness: cfloat;
+                    bg: ImColor; color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerBlocks".}
+proc SpinnerTwinBlocks*(label: cstring; radius: cfloat; thickness: cfloat;
+                        bg: ImColor; color: ImColor; speed: cfloat): void {.
+    cdecl, importc: "SpinnerTwinBlocks".}
+proc SpinnerSquareRandomDots*(label: cstring; radius: cfloat; thickness: cfloat;
+                              bg: ImColor; color: ImColor; speed: cfloat): void {.
+    cdecl, importc: "SpinnerSquareRandomDots".}
+proc SpinnerScaleBlocks*(label: cstring; radius: cfloat; thickness: cfloat;
+                         color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerScaleBlocks".}
+proc SpinnerScaleBlocksEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                           color: ImColor; speed: cfloat; mode: cint): void {.
+    cdecl, importc: "SpinnerScaleBlocksEx".}
+proc SpinnerScaleSquares*(label: cstring; radius: cfloat; thikness: cfloat;
+                          color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerScaleSquares".}
+proc SpinnerSquishSquare*(label: cstring; radius: cfloat; color: ImColor;
+                          speed: cfloat): void {.cdecl,
+    importc: "SpinnerSquishSquare".}
+proc SpinnerFluid*(label: cstring; radius: cfloat; color: ImColor; speed: cfloat): void {.
+    cdecl, importc: "SpinnerFluid".}
+proc SpinnerFluidEx*(label: cstring; radius: cfloat; color: ImColor;
+                     speed: cfloat; bars: cint): void {.cdecl,
+    importc: "SpinnerFluidEx".}
+proc SpinnerFluidPoints*(label: cstring; radius: cfloat; thickness: cfloat;
+                         color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerFluidPoints".}
+proc SpinnerFluidPointsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                           color: ImColor; speed: cfloat; dots: csize_t;
+                           delta: cfloat): void {.cdecl,
+    importc: "SpinnerFluidPointsEx".}
+proc SpinnerArcPolarFade*(label: cstring; radius: cfloat): void {.cdecl,
+    importc: "SpinnerArcPolarFade".}
+proc SpinnerArcPolarFadeEx*(label: cstring; radius: cfloat; color: ImColor;
+                            speed: cfloat; arcs: csize_t; mode: cint): void {.
+    cdecl, importc: "SpinnerArcPolarFadeEx".}
+proc SpinnerArcPolarRadius*(label: cstring; radius: cfloat): void {.cdecl,
+    importc: "SpinnerArcPolarRadius".}
+proc SpinnerArcPolarRadiusEx*(label: cstring; radius: cfloat; color: ImColor;
+                              speed: cfloat; arcs: csize_t; mode: cint): void {.
+    cdecl, importc: "SpinnerArcPolarRadiusEx".}
+proc SpinnerCaleidoscope*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerCaleidoscope".}
+proc SpinnerCaleidoscopeEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                            color: ImColor; speed: cfloat; arcs: csize_t;
+                            mode: cint): void {.cdecl,
+    importc: "SpinnerCaleidoscopeEx".}
+proc SpinnerHboDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerHboDots".}
+proc SpinnerHboDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                       color: ImColor; minfade: cfloat; ryk: cfloat;
+                       speed: cfloat; dots: csize_t; mode: cint): void {.cdecl,
+    importc: "SpinnerHboDotsEx".}
+proc SpinnerMoonDots*(label: cstring; radius: cfloat; thickness: cfloat;
+                      first: ImColor; second: ImColor): void {.cdecl,
+    importc: "SpinnerMoonDots".}
+proc SpinnerMoonDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                        first: ImColor; second: ImColor; speed: cfloat): void {.
+    cdecl, importc: "SpinnerMoonDotsEx".}
+proc SpinnerTwinHboDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerTwinHboDots".}
+proc SpinnerTwinHboDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                           color: ImColor; minfade: cfloat; ryk: cfloat;
+                           speed: cfloat; dots: csize_t; delta: cfloat): void {.
+    cdecl, importc: "SpinnerTwinHboDotsEx".}
+proc SpinnerThreeDotsStar*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerThreeDotsStar".}
+proc SpinnerThreeDotsStarEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                             color: ImColor; minfade: cfloat; ryk: cfloat;
+                             speed: cfloat; delta: cfloat): void {.cdecl,
+    importc: "SpinnerThreeDotsStarEx".}
+proc SpinnerSineArcs*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerSineArcs".}
+proc SpinnerSineArcsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                        color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerSineArcsEx".}
+proc SpinnerTrianglesShift*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerTrianglesShift".}
+proc SpinnerTrianglesShiftEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                              color: ImColor; bg: ImColor; speed: cfloat;
+                              bars: csize_t): void {.cdecl,
+    importc: "SpinnerTrianglesShiftEx".}
+proc SpinnerPointsShift*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerPointsShift".}
+proc SpinnerPointsShiftEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                           color: ImColor; bg: ImColor; speed: cfloat;
+                           bars: csize_t): void {.cdecl,
+    importc: "SpinnerPointsShiftEx".}
+proc SpinnerSwingDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerSwingDots".}
+proc SpinnerSwingDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                         color: ImColor; speed: cfloat): void {.cdecl,
+    importc: "SpinnerSwingDotsEx".}
+proc SpinnerCircularPoints*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerCircularPoints".}
+proc SpinnerCircularPointsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                              color: ImColor; speed: cfloat; lines: cint): void {.
+    cdecl, importc: "SpinnerCircularPointsEx".}
+proc SpinnerCurvedCircle*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerCurvedCircle".}
+proc SpinnerCurvedCircleEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                            color: ImColor; speed: cfloat; circles: csize_t): void {.
+    cdecl, importc: "SpinnerCurvedCircleEx".}
+proc SpinnerModCircle*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerModCircle".}
+proc SpinnerModCircleEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                         color: ImColor; ang_min: cfloat; ang_max: cfloat;
+                         speed: cfloat): void {.cdecl,
+    importc: "SpinnerModCircleEx".}
+proc SpinnerDnaDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerDnaDots".}
+proc SpinnerDnaDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                       color: ImColor; speed: cfloat; lt: cint; delta: cfloat;
+                       mode: bool): void {.cdecl, importc: "SpinnerDnaDotsEx".}
+proc Spinner3SmuggleDots*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "Spinner3SmuggleDots".}
+proc Spinner3SmuggleDotsEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                            color: ImColor; speed: cfloat; lt: cint;
+                            delta: cfloat; mode: bool): void {.cdecl,
+    importc: "Spinner3SmuggleDotsEx".}
+proc SpinnerRotateSegmentsPulsar*(label: cstring; radius: cfloat;
+                                  thickness: cfloat): void {.cdecl,
+    importc: "SpinnerRotateSegmentsPulsar".}
+proc SpinnerRotateSegmentsPulsarEx*(label: cstring; radius: cfloat;
+                                    thickness: cfloat; color: ImColor;
+                                    speed: cfloat; arcs: csize_t;
+                                    layers: csize_t): void {.cdecl,
+    importc: "SpinnerRotateSegmentsPulsarEx".}
+proc SpinnerSplineAng*(label: cstring; radius: cfloat; thickness: cfloat): void {.
+    cdecl, importc: "SpinnerSplineAng".}
+proc SpinnerSplineAngEx*(label: cstring; radius: cfloat; thickness: cfloat;
+                         color: ImColor; bg: ImColor; speed: cfloat;
+                         angle: cfloat; mode: cint): void {.cdecl,
+    importc: "SpinnerSplineAngEx".}
+proc demoSpinners*(): void {.cdecl, importc: "demoSpinners".}
 proc EmulateThreeButtonMouse_EmulateThreeButtonMouse*(): ptr EmulateThreeButtonMouse {.
     cdecl, importc: "EmulateThreeButtonMouse_EmulateThreeButtonMouse".}
 proc EmulateThreeButtonMouse_destroy*(self: ptr EmulateThreeButtonMouse): void {.

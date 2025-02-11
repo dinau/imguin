@@ -76,3 +76,5 @@ when defined(ImKnobsEnable):
 
 proc igPushStyleColor*(idx: ImGuiCol; col: ImU32) = igPushStyleColor_U32(idx, col)
 proc igPushStyleColor*(idx: ImGuiCol; col: ImVec4) = igPushStyleColor_Vec4(idx, col)
+
+proc igSameLine*() = igSameLine(0.0, -1.0)

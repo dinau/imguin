@@ -34,7 +34,7 @@ or [https://github.com/daniel-j/nimgl-imgui](https://github.com/daniel-j/nimgl-i
 
 See example project  [ImGuin_examples](https://github.com/dinau/imguin_examples)
 
-![alt](https://github.com/dinau/imguin/raw/main/src/img/sdl2_renderer.png)
+![alt](https://github.com/dinau/imguin/raw/main/src/img/topImage.png)
 
 #### Prerequisites
 
@@ -72,21 +72,22 @@ Library name / C lang. wrapper
 - [x] [ImGui-Knobs](https://github.com/altschuler/imgui-knobs) / [CImGui-Knobs](https://github.com/dinau/imguin/tree/main/src/imguin/private/cimgui-knobs)
 - [x] [ImGuiFileDialog](https://github.com/aiekick/ImGuiFileDialog) / [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog)
 - [x] [ImGui_Toggle](https://github.com/cmdwtf/imgui_toggle) / [CimGui_Toggle](https://github.com/dinau/cimgui_toggle)
-- [x] [ImPlot3d](https://github.com/brenocq/implot3d) / [CImPlot3d](https://github.com/cimgui/cimplot3d) WIP
+- [x] [ImPlot3d](https://github.com/brenocq/implot3d) / [CImPlot3d](https://github.com/cimgui/cimplot3d) 
+- [x] [ImSpinner](https://github.com/dalerank/imspinner) / [CImSpinner](https://github.com/dinau/CImSpinner) 
 - [ ] [ImGui_Markdown](https://github.com/enkisoftware/imgui_markdown) WIP
-- [ ] [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE)
 
 ####  Frontends and Backends 
 
 ---
 
-   |                     | GLFW   | SDL2  | SDL3   |
-   | ------------------- | :----: | :---- | :----: |
-   | OpenGL3<br>backend  | v      | v     | v      |
-   | SDL2<br>backend     | -      | v     | -      |
-   | SDL3<br>backend     | -      | -     | v      |
-   | Vulkan<br>backend   | ?      | ?     | ?      |
+   |                     | GLFW  [^fed] | SDL2  [^fed] | SDL3  [^fed] |
+   | ------------------- | :----:       | :----        | :----:       |
+   | OpenGL3<br>backend  | v            | v            | v            |
+   | SDL2<br>backend     | -            | v            | -            |
+   | SDL3<br>backend     | -            | -            | v            |
+   | Vulkan<br>backend   | ?            | ?            | ?            |
 
+[^fed]: Front end
 
 #### Update / Downgrade Dear ImGui and CImGui
 
@@ -172,19 +173,20 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
-   | 1.91.8dock        | 1.91.8.0    | 2025/02 | ?                       |
-   | 1.91.6dock        | 1.91.6.15   | 2025/01 | ?                       |
+   | 1.91.8dock        | 1.91.8.1    | 2025/02 | OK                      |
+   | 1.91.6dock        | 1.91.6.15   | 2025/01 | (4)                     |
    | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK                      |
-   | 1.91.3dock        | 1.91.3.1    | 2024/10 | ?                       |
-   | 1.91.2dock        | 1.91.2.0    | 2024/10 | ?                       |
+   | 1.91.3dock        | 1.91.3.1    | 2024/10 | (4)                     |
+   | 1.91.2dock        | 1.91.2.0    | 2024/10 | (4)                     |
    | 1.91.1dock        | 1.91.1.2    | 2024/09 | Except ImNodes example  |
-   | 1.91.0dock        | 1.91.0.0    | 2024/08 | ?                       |
+   | 1.91.0dock        | 1.91.0.0    | 2024/08 | (4)                     |
    | 1.90.4dock        | 1.90.4.2    | 2024/02 | Use nim-2.0.2           |
    | 1.89.9dock        | 1.89.9.8    | 2023/12 | OK (1)(2)               |
 
-  (1): Except imnodes and SDL2 example.  
-  (2): Works well only if it is compiled debug mode.  
-  (3) Dedian / Ubuntu familiy etc.
+  (1) Except imnodes and SDL2 example.  
+  (2) Works well only if it is compiled debug mode.  
+  (3) Dedian / Ubuntu familiy etc.  
+  (4) Doesn't check, but probably will works well.
 
 #### TODO
 
@@ -253,26 +255,30 @@ Linux Debian
 
 - Similar project ImGui / CImGui
 
-   | Language             |          | Project                                                                                                                                         |
-   | -------------------: | :---:    | :----------------------------------------------------------------:                                                                              |
-   | **Nim**              | Compiler | [ImGuin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
-   | **Lua**              | Script   | [LuaJITImGui](https://github.com/dinau/luajitImGui)                                                                                             |
-   | **Zig**, C lang.     | Compiler | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build)                                                                             |
-   | **Zig**              | Compiler | [ImGuinZ](https://github.com/dinau/imguinz)                                                                                                     |
-   | **NeLua**            | Compiler | [NeLuaImGui](https://github.com/dinau/neluaImGui)                                                                                               |
-   | **Python**           | Script   | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |
+| Language [^order]    |          | Project                                                                                                                                         |
+| -------------------: | :---:    | :----------------------------------------------------------------:                                                                              |
+| **Lua**              | Script   | [LuaJITImGui](https://github.com/dinau/luajitImGui)                                                                                             |
+| **NeLua**            | Compiler | [NeLuaImGui](https://github.com/dinau/neluaImGui)                                                                                               |
+| **Nim**              | Compiler | [ImGuin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
+| **Python**           | Script   | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |
+| **Ruby**             | Script   | [igRuby_Examples](https://github.com/dinau/igruby_examples)                                                                                     |
+| **Zig**, C lang.     | Compiler | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build)                                                                             |
+| **Zig**              | Compiler | [ImGuinZ](https://github.com/dinau/imguinz)                                                                                                     |
 
 - SDL Game tutorial Platfromer
 
    ![ald](https://github.com/dinau/nelua-platformer/raw/main/img/platformer-nelua-sdl2.gif)
+
+| Language    [^order] |          | SDL         | Project                                                                                                                                               |
+| -------------------: | :---:    | :---:       | :----------------------------------------------------------------:                                                                                    |
+| **LuaJIT**           | Script   | SDL2        | [LuaJIT-Platformer](https://github.com/dinau/luajit-platformer)
+| **Nelua**            | Compiler | SDL2        | [NeLua-Platformer](https://github.com/dinau/nelua-platformer)
+| **Nim**              | Compiler | SDL3 / SDL2 | [Nim-Platformer-sdl2](https://github.com/def-/nim-platformer)/ [Nim-Platformer-sdl3](https://github.com/dinau/sdl3_nim/tree/main/examples/platformer) |
+| **Ruby**             | Script   | SDL3        | [Ruby-Platformer](https://github.com/dinau/ruby-platformer)                                                                                           |
+| **Zig**              | Compiler | SDL2        | [Zig-Platformer](https://github.com/dinau/zig-platformer)                                                                                             |
+
+[^order]: Alphabectial order
    
-   | Language             |          | Project                                                                                                  |
-   | -------------------: | :---:    | :----------------------------------------------------------------:                                       |
-   | **Nim**              | Compiler | [Nim-Platformer](https://github.com/dinau/nim-platformer)/ [sdl3_nim](https://github.com/dinau/sdl3_nim) |
-   | **LuaJIT**           | Script   | [LuaJIT-Platformer](https://github.com/dinau/luajit-platformer)                                          |
-   | **Nelua**            | Compiler | [NeLua-Platformer](https://github.com/dinau/nelua-platformer)                                            |
-   | **Zig**              | Compiler | [Zig-Platformer](https://github.com/dinau/zig-platformer)                                                |
-  
 
 - Other link2
    - https://github.com/SpartanJ/SOIL2  

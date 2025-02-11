@@ -12,16 +12,17 @@ const ClangIncludePath = "c:/drvDx/msys64/ucrt64/lib/clang/19/include"
 #const ClangIncludePath = "c:/llvm/lib/clang/17/include"
 
 # Set root path of ImGui/CImGui
-const CImguiRootPath       = joinPath(currentSourceDir(),"private/cimgui").replace("\\", "/")
-#const CImguiGenePath       = joinPath(currentSourceDir(),"private/cimgui/generator/output").replace("\\", "/")
-const CImPlotRootPath      = joinPath(currentSourceDir(),"private/cimplot").replace("\\", "/")
-const CImPlot3dRootPath    = joinPath(currentSourceDir(),"private/cimplot3d").replace("\\", "/")
-const CImNodesRootPath     = joinPath(currentSourceDir(),"private/cimnodes").replace("\\", "/")
-const CImGuizmoRootPath    = joinPath(currentSourceDir(),"private/cimguizmo").replace("\\", "/")
-const CImKnobsRootPath     = joinPath(currentSourceDir(),"private/cimgui-knobs").replace("\\", "/")
+const CImguiPath           = joinPath(currentSourceDir(),"private/cimgui").replace("\\", "/")
+const CImPlotPath          = joinPath(currentSourceDir(),"private/cimplot").replace("\\", "/")
+const CImPlot3dPath        = joinPath(currentSourceDir(),"private/cimplot3d").replace("\\", "/")
+const CImNodesPath         = joinPath(currentSourceDir(),"private/cimnodes").replace("\\", "/")
+const CImGuizmoPath        = joinPath(currentSourceDir(),"private/cimguizmo").replace("\\", "/")
+const CImKnobsPath         = joinPath(currentSourceDir(),"private/cimgui-knobs").replace("\\", "/")
 const CImGuiFileDialogPath = joinPath(currentSourceDir(),"private/CImGuiFileDialog/libs/ImGuiFileDialog").replace("\\", "/")
 const CImGuiTogglePath     = joinPath(currentSourceDir(),"private/cimgui_toggle").replace("\\", "/")
 const ImGuiTogglePath      = joinPath(currentSourceDir(),"private/cimgui_toggle/libs/imgui_toggle").replace("\\", "/")
+const CImSpinnerPath       = joinPath(currentSourceDir(),"private/cimspinner").replace("\\", "/")
+const ImSpinnerPath        = joinPath(currentSourceDir(),"private/cimspinner/imspinner").replace("\\", "/")
 const IconFontPath         = joinPath(currentSourceDir(),"../../examples/utils/fonticon").replace("\\", "/")
 
 #--- Futhark start
@@ -29,15 +30,15 @@ when defined(useFuthark): # Generate header files with Futhark.
   import futhark
   importc:
     syspath ClangIncludePath
-    path    CImguiRootPath
-    #path    CImguiGenePath
-    path    CImPlotRootPath
-    path    CImPlot3dRootPath
-    path    CImNodesRootPath
-    path    CImGuizmoRootPath
-    path    CImKnobsRootPath
+    path    CImguiPath
+    path    CImPlotPath
+    path    CImPlot3dPath
+    path    CImNodesPath
+    path    CImGuizmoPath
+    path    CImKnobsPath
     path    CImGuiFileDialogPath
     path    CImGuiTogglePath
+    path    CImSpinnerPath
     path    IconFontPath
     #define "IMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
     #define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
@@ -49,6 +50,8 @@ when defined(useFuthark): # Generate header files with Futhark.
     "cimplot.h"
     define "ImDrawIdx=\"unsigned int\""
     "cimplot3d.h"
+    define "IMSPINNER_DEMO"
+    "cimspinner.h"
     #
     "cimnodes.h"
     "cimguizmo.h"
@@ -95,52 +98,52 @@ else: # Use generated header by Futark in your programs.
   else: # Linux
     {.passC:""" -DIMGUI_IMPL_API="extern \"C\""  """.}
 #
-  const ImguiRootPath     = joinPath(CImguiRootPath,"imgui").replace("\\", "/")
+  const ImguiPath     = joinPath(CImguiPath,"imgui").replace("\\", "/")
 
-  {.passC:"-I" & CImguiRootPath.}
-  {.passC:"-I" & ImguiRootPath.}
+  {.passC:"-I" & CImguiPath.}
+  {.passC:"-I" & ImguiPath.}
 
-  {.compile:joinPath(CImguiRootPath,"cimgui.cpp").replace("\\", "/").}
-  {.compile:joinPath(ImguiRootPath,"imgui.cpp").replace("\\", "/").}
-  {.compile:joinPath(ImguiRootPath,"imgui_demo.cpp").replace("\\", "/").}
-  {.compile:joinPath(ImguiRootPath,"imgui_draw.cpp").replace("\\", "/").}
-  {.compile:joinPath(ImguiRootPath,"imgui_tables.cpp").replace("\\", "/").}
-  {.compile:joinPath(ImguiRootPath,"imgui_widgets.cpp").replace("\\", "/").}
+  {.compile:joinPath(CImguiPath,"cimgui.cpp").replace("\\", "/").}
+  {.compile:joinPath(ImguiPath,"imgui.cpp").replace("\\", "/").}
+  {.compile:joinPath(ImguiPath,"imgui_demo.cpp").replace("\\", "/").}
+  {.compile:joinPath(ImguiPath,"imgui_draw.cpp").replace("\\", "/").}
+  {.compile:joinPath(ImguiPath,"imgui_tables.cpp").replace("\\", "/").}
+  {.compile:joinPath(ImguiPath,"imgui_widgets.cpp").replace("\\", "/").}
 
   when defined(ImPlotEnable) or defined(ImPlot) or defined(ImPlot3DEnable) or defined(ImPlot3D) :
-    {.passC:"-I" & CImPlotRootPath.}
-    {.compile:joinPath(CImPlotRootPath,"cimplot.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImPlotRootPath,"implot/implot.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImPlotRootPath,"implot/implot_demo.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImPlotRootPath,"implot/implot_items.cpp").replace("\\", "/").}
+    {.passC:"-I" & CImPlotPath.}
+    {.compile:joinPath(CImPlotPath,"cimplot.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImPlotPath,"implot/implot.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImPlotPath,"implot/implot_demo.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImPlotPath,"implot/implot_items.cpp").replace("\\", "/").}
 
   when defined(ImPlot3DEnable) or defined(ImPlot3D) :
-    {.passC:"-I" & CImPlot3dRootPath.}
-    {.compile:joinPath(CImPlot3dRootPath,"cimplot3d.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImPlot3dRootPath,"implot3d/implot3d.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImPlot3dRootPath,"implot3d/implot3d_demo.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImPlot3dRootPath,"implot3d/implot3d_items.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImPlot3dRootPath,"implot3d/implot3d_meshes.cpp").replace("\\", "/").}
+    {.passC:"-I" & CImPlot3dPath.}
+    {.compile:joinPath(CImPlot3dPath,"cimplot3d.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImPlot3dPath,"implot3d/implot3d.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImPlot3dPath,"implot3d/implot3d_demo.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImPlot3dPath,"implot3d/implot3d_items.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImPlot3dPath,"implot3d/implot3d_meshes.cpp").replace("\\", "/").}
 
   when defined(ImNodesEnable) or defined(ImNodes) :
     {.passC:"-DIMNODES_NAMESPACE=imnodes".}
-    {.passC:"-I" & CImNodesRootPath.}
-    {.compile:joinPath(CImNodesRootPath,"cimnodes.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImNodesRootPath,"imnodes/imnodes.cpp").replace("\\", "/").}
+    {.passC:"-I" & CImNodesPath.}
+    {.compile:joinPath(CImNodesPath,"cimnodes.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImNodesPath,"imnodes/imnodes.cpp").replace("\\", "/").}
 
   when defined(ImGuizmoEnable) or defined(ImGuizmo):
-    {.passC:"-I" & CImGuizmoRootPath.}
-    {.compile:joinPath(CImGuizmoRootPath,"cimguizmo.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/GraphEditor.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/ImCurveEdit.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/ImGradient.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/ImGuizmo.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImGuizmoRootPath,"ImGuizmo/ImSequencer.cpp").replace("\\", "/").}
+    {.passC:"-I" & CImGuizmoPath.}
+    {.compile:joinPath(CImGuizmoPath,"cimguizmo.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/GraphEditor.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/ImCurveEdit.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/ImGradient.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/ImGuizmo.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/ImSequencer.cpp").replace("\\", "/").}
 
   when defined(ImKnobsEnable) or defined(ImKnobs):
-    {.passC:"-I" & CImKnobsRootPath.}
-    {.compile:joinPath(CImKnobsRootPath,"cimgui-knobs.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImKnobsRootPath,"imgui-knobs.cpp").replace("\\", "/").}
+    {.passC:"-I" & CImKnobsPath.}
+    {.compile:joinPath(CImKnobsPath,"cimgui-knobs.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImKnobsPath,"imgui-knobs.cpp").replace("\\", "/").}
 
   when defined(ImGuiFileDialogEnable) or defined(ImGuiFileDialog):
     {.passC:"-I" & CImGuiFileDialogPath.}
@@ -157,4 +160,8 @@ else: # Use generated header by Futark in your programs.
     {.compile:joinPath(ImGuiTogglePath,"imgui_toggle_palette.cpp").replace("\\", "/").}
     {.compile:joinPath(ImGuiTogglePath,"imgui_toggle_presets.cpp").replace("\\", "/").}
     {.compile:joinPath(ImGuiTogglePath,"imgui_toggle_renderer.cpp").replace("\\", "/").}
-#
+
+  when defined(ImSpinnerEnable) or defined(ImSpinner) :
+    {.passC:"-I" & CImSpinnerPath.}
+    {.passC:"-I" & ImSpinnerPath.}
+    {.compile:joinPath(CImSpinnerPath,"cimspinner.cpp").replace("\\", "/").}

@@ -1,5 +1,5 @@
 # Compiling:
-# nim c glfw_opengl3
+# nim c -d:strip -d:ImSpinner tglfw_opengl3.nim
 
 import std/[os, strutils, math]
 import nimgl/[opengl,glfw]
@@ -14,6 +14,17 @@ when defined(windows):
 
 const MainWinWidth = 1024
 const MainWinHeight = 800
+
+
+{.passC:"-DSPINNER_RAINBOWMIX".}
+{.passC:"-DSPINNER_ROTATINGHEART".}
+{.passC:"-DSPINNER_ANG8".}
+{.passC:"-DSPINNER_CLOCK".}
+{.passC:"-DSPINNER_PULSAR".}
+{.passC:"-DSPINNER_DOTSTOBAR".}
+{.passC:"-DSPINNER_ATOM".}
+{.passC:"-DSPINNER_BARCHARTRAINBOW".}
+{.passC:"-DSPINNER_SWINGDOTS".}
 
 #--------------
 # Configration
@@ -62,7 +73,7 @@ proc main() =
   glfwWindowHint(GLFWResizable, GLFW_TRUE)
   #
   glfwWindowHint(GLFWVisible, GLFW_FALSE)
-  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight)
+  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight, "ImGui / CImGui demo 2025")
   if glfwWin.isNil:
     quit(-1)
   glfwWin.makeContextCurrent()
@@ -134,13 +145,38 @@ proc winMain(hWin: glfw.GLFWWindow) =
     if showFirstWindow:
       igBegin("Nim: Dear ImGui test with Futhark", addr showFirstWindow, 0)
       defer: igEnd()
+      #----------------
+      # ImSpinner demo
+      #----------------
+      const red  = ImColor(Value: ImVec4(x: 1.0,   y : 0.0,   z : 0.0, w : 1.0))
+      const gold = ImColor(Value: ImVec4(x: 255.0, y : 215.0, z : 0.0, w : 1.0))
+      SpinnerRotatingHeart("RHeart", 16, 2, red, 4)
+      igSameLine()
+      SpinnerRainbowMix("Rmix", 16, 2, gold, 4)
+      igSameLine()
+      SpinnerAng8("Ang", 16, 2)
+      igSameLine()
+      SpinnerPulsar("Pulsar", 16, 2)
+      igSameLine()
+      SpinnerClock("Clock", 16, 2)
+      igSameLine()
+      SpinnerAtom("atom", 16, 2)
+      igSameLine()
+      SpinnerSwingDots("wheel", 16, 6)
+      igSameLine()
+      SpinnerDotsToBar("tobar", 16, 2, 0.5)
+      igSameLine()
+      SpinnerBarChartRainbow("rainbow", 16, 4, red, 4)
+      #-------------
+      # Normal demo
+      #-------------
       var s = "GLFW v" & $glfwGetVersionString()
       igText(s.cstring)
       s = "OpenGL v" & ($cast[cstring](glGetString(GL_VERSION))).split[0]
       igText(s.cstring)
-      igText("Dear ImGui");  igSameLine(0, -1.0)
+      igText("Dear ImGui");  igSameLine()
       igText(igGetVersion())
-      igText("Nim-");  igSameLine(0, 0)
+      igText("Nim-");  igSameLine()
       igText(NimVersion);
 
       igInputTextWithHint("InputText" ,"Input text here" ,sBuf)
@@ -155,7 +191,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
       when defined(windows):
         if igButton("Open file", ImVec2(x: 0, y: 0)):
            sFnameSelected = openFileDialog("File open dialog", getCurrentDir() / "\0", ["*.nim", "*.nims"], "Text file")
-        igSameLine(0.0f, -1.0f)
+        igSameLine()
         # Show hint
         if igIsItemHovered(Imgui_HoveredFlagsDelayShort.cint) and igBeginTooltip():
           igText("[Open file]")
@@ -168,7 +204,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
       # Counter up
       if igButton("Button", ImVec2(x: 0.0f, y: 0.0f)):
         inc counter
-      igSameLine(0.0f, -1.0f)
+      igSameLine()
       igText("counter = %d", counter)
       igText("Application average %.3f ms/frame (%.1f FPS)".cstring, (1000.0f / igGetIO().Framerate).cfloat, igGetIO().Framerate.cfloat)
 
