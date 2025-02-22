@@ -17,7 +17,7 @@ const MainWinHeight = 800
 
 
 {.passC:"-DSPINNER_RAINBOWMIX".}
-{.passC:"-DSPINNER_ROTATINGHEART".}
+{.passC:"-DSPINNER_DNADOTS".}
 {.passC:"-DSPINNER_ANG8".}
 {.passC:"-DSPINNER_CLOCK".}
 {.passC:"-DSPINNER_PULSAR".}
@@ -73,7 +73,7 @@ proc main() =
   glfwWindowHint(GLFWResizable, GLFW_TRUE)
   #
   glfwWindowHint(GLFWVisible, GLFW_FALSE)
-  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight, "ImGui / CImGui demo 2025")
+  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight, "ImGui / CImGui demo 2025/02")
   if glfwWin.isNil:
     quit(-1)
   glfwWin.makeContextCurrent()
@@ -150,7 +150,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
       #----------------
       const red  = ImColor(Value: ImVec4(x: 1.0,   y : 0.0,   z : 0.0, w : 1.0))
       const gold = ImColor(Value: ImVec4(x: 255.0, y : 215.0, z : 0.0, w : 1.0))
-      SpinnerRotatingHeart("RHeart", 16, 2, red, 4)
+      SpinnerDnaDotsEx("DnaDots", 16, 2, red, 1.2, 8, 0.25, true)
       igSameLine()
       SpinnerRainbowMix("Rmix", 16, 2, gold, 4)
       igSameLine()
