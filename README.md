@@ -35,7 +35,6 @@ or [https://github.com/daniel-j/nimgl-imgui](https://github.com/daniel-j/nimgl-i
 See example project  [ImGuin_examples](https://github.com/dinau/imguin_examples)
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/topimage.gif)
-![alt](src/img/topimage.gif)
 
 #### Prerequisites
 
