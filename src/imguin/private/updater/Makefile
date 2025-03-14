@@ -36,8 +36,6 @@ cimgui: $(IMGUIN_DIR)/$(CIMGUI_DEFS).nim
 makehash:
 	@$(MAKE) -C ../libs_hash savehash
 
-
-
 #--------------------
 # Gen:: wordReplacer
 #--------------------
@@ -48,7 +46,7 @@ wordReplacer$(EXE): wordReplacer.nim
 # Gen:: delComments
 #-------------------
 delComments$(EXE): delComments.nim
-	nim c -d:release   $<
+	nim c -d:release --mm:refc   $<
 
 #--------------------------
 # Gen:: $(CIMGUI_DEFS).nim
@@ -57,6 +55,7 @@ $(IMGUIN_DIR)/$(CIMGUI_DEFS).nim:
 	nim c -f -c  $(OPT) --nimcache:.nimcache_$(notdir $@) $(IMGUIN_DIR)/cimgui.nim
 	./wordReplacer$(EXE) $(notdir $@)
 	./delComments$(EXE) $(notdir $@)
+	nimpretty --maxLineLen:1000 $(notdir $@)
 	$(MV) $(notdir $@) $@
 
 #-------

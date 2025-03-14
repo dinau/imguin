@@ -53,7 +53,7 @@ proc igPlotLines*[T](label:string,arry:openArray[T],size:int= arry.len
                              ,graphSize           # graph size
                              ,stride.cint)        # stride
 
-when defined(ImKnobsEnable):
+when defined(ImKnobsEnable) or defined(ImKnobs):
   proc IgKnobEx*(label: cstring; p_value: ptr cfloat; v_min: cfloat; v_max: cfloat; speed: cfloat; format: cstring; variant: IgKnobVariant; size: cfloat; flags: IgKnobFlags; steps: cint; angle_min: cfloat; angle_max: cfloat): bool =
     return IgKnobFloat(label, p_value, v_min, v_max, speed, format, variant
                         ,size
@@ -78,3 +78,10 @@ proc igPushStyleColor*(idx: ImGuiCol; col: ImU32) = igPushStyleColor_U32(idx, co
 proc igPushStyleColor*(idx: ImGuiCol; col: ImVec4) = igPushStyleColor_Vec4(idx, col)
 
 proc igSameLine*() = igSameLine(0.0, -1.0)
+
+
+
+proc igBeginMenuEx*(label: cstring, icon: cstring, enabled: bool = true): bool {.importc: "igBeginMenuEx".}
+proc igMenuItem*(label: cstring, shortcut: cstring = nil, selected: bool = false, enabled: bool = true): bool {.importc: "igMenuItem_Bool".}
+proc igMenuItem*(label: cstring, shortcut: cstring, p_selected: ptr bool, enabled: bool = true): bool {.importc: "igMenuItem_BoolPtr".}
+proc igMenuItemEx*(label: cstring, icon: cstring, shortcut: cstring = nil, selected: bool = false, enabled: bool = true): bool {.importc: "igMenuItemEx".}

@@ -12,6 +12,7 @@ var libDirs = @[
                 "cimplot",
                 "cimplot3d",
                 "cimspinner",
+                "cimCTE",
               ]
 
 var sOutHeader = fmt"""

@@ -200,7 +200,7 @@ Windows OS is all OK.
 1. ~~Add Font Awesome (Icon Font) demo.~~  Done (2023/04).
 1. ~~Can it compile with MSVC (--cc:vcc) ?~~ Done. Except SDL2 demo. (2023/03), TODO (2024/09)
 1. ~~Can it compile with Clang (--cc:clang) ?~~ Done. (2023/03)
-1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](examples/sdl2_opengl3) (2023/03)
+1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](https://github.com/dinau/imguin_examples/blob/main/sdl2_opengl3/sdl2_opengl3.nim) (2023/03)
 - First step is done. (2023/03)
 
 

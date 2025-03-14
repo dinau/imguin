@@ -22,4 +22,5 @@ checkout:
 	(cd $(EXT_LIBS_DIR)/cimnodes; git checkout 2c17d639e7ba969b294116834183b1520cb1035d)
 	(cd $(EXT_LIBS_DIR)/cimplot; git checkout 381ed68cc0688f16d027d67edc3bc060afa4dde9)
 	(cd $(EXT_LIBS_DIR)/cimplot3d; git checkout e3f8e5d421227051f789870b0142fd5d8313b77c)
-	(cd $(EXT_LIBS_DIR)/cimspinner; git checkout 610df646b75790dcc27236ae718d394b34b126b9)
+	(cd $(EXT_LIBS_DIR)/cimspinner; git checkout a5674f87d9d0f7df3feed774e651d10bd5ecdefb)
+	(cd $(EXT_LIBS_DIR)/cimCTE; git checkout 47c910fd77e863003192a6c4c0ea78c73ded31f8)
