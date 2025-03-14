@@ -74,6 +74,7 @@ Library name / C lang. wrapper
 - [x] [ImGui_Toggle](https://github.com/cmdwtf/imgui_toggle) / [CimGui_Toggle](https://github.com/dinau/cimgui_toggle)
 - [x] [ImPlot3d](https://github.com/brenocq/implot3d) / [CImPlot3d](https://github.com/cimgui/cimplot3d) 
 - [x] [ImSpinner](https://github.com/dalerank/imspinner) / [CImSpinner](https://github.com/dinau/CImSpinner) 
+- [x] [ImGuiColorTextEdit](https://github.com/santaclose/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE) (2025/03)
 - [ ] [ImGui_Markdown](https://github.com/enkisoftware/imgui_markdown) WIP
 
 ####  Frontends and Backends 
@@ -173,6 +174,7 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
+   | 1.91.8dock        | 1.91.8.2    | 2025/03 | OK                      |
    | 1.91.8dock        | 1.91.8.1    | 2025/02 | OK                      |
    | 1.91.6dock        | 1.91.6.15   | 2025/01 | (4)                     |
    | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK                      |
@@ -216,7 +218,7 @@ Windows11 (main)
    pacman -S mingw-w64-ucrt-x86_64-gcc
    ```
 
-- Clang version 19.1.6
+- Clang version 20.1.0
 
    ```sh
    pacman -S mingw-w64-ucrt-x86_64-clang
