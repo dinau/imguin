@@ -7,8 +7,8 @@ proc currentSourceDir(): string {.compileTime.} =
   result = result[0 ..< result.rfind("/")]
 
 #--- To specify the place that has "stdbool.h"
-const ClangIncludePath = "c:/drvDx/msys64/ucrt64/lib/clang/20/include"
-#const ClangIncludePath = "c:/drvDx/msys64/mingw64/lib/clang/18/include"
+#const ClangIncludePath = "c:/drvDx/msys64/ucrt64/lib/clang/20/include"
+const ClangIncludePath = "c:/drvDx/msys64/mingw64/lib/clang/20/include"
 #const ClangIncludePath = "c:/llvm/lib/clang/17/include"
 
 # Set root path of ImGui/CImGui
@@ -35,7 +35,7 @@ const ImSpinnerPath        = joinPath(currentSourceDir(),"private/cimspinner/ims
 const CImCTEPath               = joinPath(currentSourceDir(),"private/cimCTE").replace("\\", "/")
 const ImGuiColorTextEditPath   = joinPath(currentSourceDir(),"private/cimCTE/ImGuiColorTextEdit").replace("\\", "/")
 #
-const IconFontPath         = joinPath(currentSourceDir(),"../../examples/utils/fonticon").replace("\\", "/")
+const IconFontPath         = joinPath(currentSourceDir(),"private/fonticon").replace("\\", "/")
 
 #--- Futhark start
 when defined(useFuthark): # Generate header files with Futhark.
@@ -52,7 +52,7 @@ when defined(useFuthark): # Generate header files with Futhark.
     path    CImGuiTogglePath
     path    CImSpinnerPath
     path    CImCTEPath
-    path    IconFontPath
+    #path    IconFontPath
     #define "IMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
     #define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
     define "CIMGUI_DEFINE_ENUMS_AND_STRUCTS"

@@ -1,4 +1,4 @@
-switch "path","../src"
+#switch "path","../src"
 switch "hint","XDeclaredButNotUsed:off"
 
 switch "define", "release"

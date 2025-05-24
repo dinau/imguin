@@ -1,5 +1,6 @@
 import imguin/[cimgui]
 
+{.push discardable.}
 when false:
   type ccolor* = object
     x,y,z,w: cfloat
@@ -85,3 +86,12 @@ proc igBeginMenuEx*(label: cstring, icon: cstring, enabled: bool = true): bool {
 proc igMenuItem*(label: cstring, shortcut: cstring = nil, selected: bool = false, enabled: bool = true): bool {.importc: "igMenuItem_Bool".}
 proc igMenuItem*(label: cstring, shortcut: cstring, p_selected: ptr bool, enabled: bool = true): bool {.importc: "igMenuItem_BoolPtr".}
 proc igMenuItemEx*(label: cstring, icon: cstring, shortcut: cstring = nil, selected: bool = false, enabled: bool = true): bool {.importc: "igMenuItemEx".}
+
+proc igBeginChild*(str_id: cstring, size: ImVec2 = ImVec2(x: 0, y: 0), border: bool = false, flags: ImGuiWindowFlags = 0.ImGuiWindowFlags): bool {.importc: "igBeginChild_Str".}
+proc igBeginChild*(id: ImGuiID, size: ImVec2 = ImVec2(x: 0, y: 0), border: bool = false, flags: ImGuiWindowFlags = 0.ImGuiWindowFlags): bool {.importc: "igBeginChild_ID".}
+
+when not defined(igGetIO):
+  template igGetIO*(): ptr ImGuiIO =
+    igGetIO_Nil()
+
+{.pop.}

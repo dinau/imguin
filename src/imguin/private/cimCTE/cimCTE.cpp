@@ -4,7 +4,7 @@
 #include "imgui_internal.h"
 #include "./ImGuiColorTextEdit/TextEditor.h"
 #include "cimCTE.h"
-
+#include <cstring>
 
 
 CIMGUI_API TextEditor* TextEditor_TextEditor(void)

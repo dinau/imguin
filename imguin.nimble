@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.91.8.2"
+version       = "1.91.9.0"
 author        = "dinau"
 description   = "Imguin: ImGui / ImPlot / ImNodes wrapper using Futhark"
 license       = "MIT"
@@ -26,7 +26,7 @@ requires "glfw == 3.4.0.4"
 
 task test,"Run test app":
   withDir "tests":
-    let cmd = "nim c -r -d:strip tglfw_opengl3.nim"
+    let cmd = "nim c -r -d:strip -d:ImSpinner tglfw_opengl3.nim"
     echo cmd
     exec(cmd)
 

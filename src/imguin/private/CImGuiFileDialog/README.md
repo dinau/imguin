@@ -56,7 +56,7 @@ git hash: c66089f509bbfbc0d8852d54106b1af88a104822
 - OS
    - Windows10 OS or later
       - MSys/MinGW tools installed
-   - Linux Mint 22 (or Ubuntu / Debian families ?)
+   - Linux Ubuntu / Debian families 
 - CMake installed 
 - GCC compiler installed
 - Make command installed
@@ -66,13 +66,13 @@ git hash: c66089f509bbfbc0d8852d54106b1af88a104822
 ---
 
 ```sh
-git clone -b main --single-branch --depth 1 --recursive --shallow-submodules https://github.com/dinau/CImGuiFileDialog
+git clone --recursive https://github.com/dinau/CImGuiFileDialog
 ```
 
 For example,
 
 ```sh
 cd CImGuiFileDialog
-cd examples/glfw_opengl3_base
+cd examples/glfw_opengl3_color
 make
 ```

@@ -16,7 +16,7 @@ install:
 	#@-nimble build
 
 clean:
-	rm tests/tglfw_opengl3$(EXE)
+	@-rm tests/tglfw_opengl3$(EXE)
 
 EXT_LIB_DIR = ../libs
 TARGET_DIR = src/imguin/private
@@ -58,7 +58,7 @@ ImGuiFileDialog:
 	@echo [ CImGuiFileDialog ] copying...
 	@-mkdir -p $(TARGET_DIR)/C$@/libs/ImGuiFileDialog/dirent
 	@-mkdir -p $(TARGET_DIR)/C$@/libs/ImGuiFileDialog/stb
-	@cp -f $(EXT_LIB_DIR)/CImGuiFileDialog/{LICENSE,README.md} 	                               $(TARGET_DIR)/cimguifiledialog/
+	@cp -f $(EXT_LIB_DIR)/CImGuiFileDialog/{LICENSE,README.md,*.h} 	                           $(TARGET_DIR)/cimguifiledialog/
 	@cp -f $(EXT_LIB_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/{LICENSE,*.cpp,*.h,README.md}  $(TARGET_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/
 	@cp -f $(EXT_LIB_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/dirent/{LICENSE,*.h,README.md} $(TARGET_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/dirent/
 	@cp -f $(EXT_LIB_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/stb/{LICENSE,*.h,README.md}    $(TARGET_DIR)/CImGuiFileDialog/libs/ImGuiFileDialog/stb/
