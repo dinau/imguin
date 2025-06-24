@@ -18,9 +18,9 @@
 
 ![alt](https://github.com/dinau/imguin/actions/workflows/windows.yml/badge.svg)  ![alt](https://github.com/dinau/imguin/actions/workflows/linux.yml/badge.svg)
 
-Updated to latest ImGui / CImGui version: : **v1.91.9b dock** (2025/05)
+Updated to latest Dear ImGui / CImGui version: : **v1.91.9b dock** (2025/05)
 
-This project is my experiment project to use ImGui, ImPlot, futhark and so on with Nim language.  
+This project is Dear ImGui wrapper library for Nim language.
 
 - Notice  
 It may be better to use the **mainstream** project [nimgl/imgui](https://github.com/nimgl/imgui) (ImGui v1.85)  
@@ -32,22 +32,24 @@ or [https://github.com/daniel-j/nimgl-imgui](https://github.com/daniel-j/nimgl-i
 
 ---
 
-See example project  [ImGuin_examples](https://github.com/dinau/imguin_examples)
+See examples project  [ImGuin_examples](https://github.com/dinau/imguin_examples)
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/topimage.gif)
+
+[tglfw_opengl3.nim](https://github.com/dinau/imguin/blob/main/tests/tglfw_opengl3.nim)
 
 #### Prerequisites
 
 ---
 
-- [Nim-2.0.14](https://nim-lang.org) or later
+- [Nim-2.0.16](https://nim-lang.org) or later
 - Windows10 or later  
 [MSys2/MinGW](https://www.msys2.org/) command line tools (Unix tools), make, cp, rm, git, ...etc
 - Linux: Ubuntu / Debian families 
 
   ```sh
   $ sudo apt install gcc g++ make git 
-  $ sudo apt install xorg-dev libopengl-dev libgl1-mesa-dev
+  $ sudo apt install libopengl-dev libgl1-mesa-dev
   $ sudo apt install libglfw3 libglfw3-dev libsdl2-dev
   ```
 
@@ -57,7 +59,7 @@ See example project  [ImGuin_examples](https://github.com/dinau/imguin_examples)
 
 ```sh
 nimble uninstall imguin  # Remove old versions if exists. 
-nimble install https://github.com/dinau/imguin
+nimble install imguin
 ```
 
 #### Available libraries 
@@ -111,7 +113,7 @@ Library name / C lang. wrapper
        nimble install --passL:"-L/usr/lib/llvm-16/lib" futhark
        ```
    
-   Important Notice: Confirm Futhark version is **v0.13.7** at this time.
+   Important Notice: Confirm Futhark version is **v0.15.0** at this time.
 
    ```sh
    nimble dump futhark
@@ -174,9 +176,10 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
-   | 1.91.9b dock      | 1.91.9.0    | 2025/05 | ?                       |
+   | 1.91.9b dock      | 1.91.9.1    | 2025/06 | OK                      |
+   | Same as above     | 1.91.9.0    | 2025/05 | ?                       |
    | 1.91.8dock        | 1.91.8.2    | 2025/03 | OK                      |
-   | 1.91.8dock        | 1.91.8.1    | 2025/02 | OK                      |
+   | Same as above     | 1.91.8.1    | 2025/02 | OK                      |
    | 1.91.6dock        | 1.91.6.15   | 2025/01 | (4)                     |
    | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK                      |
    | 1.91.3dock        | 1.91.3.1    | 2024/10 | (4)                     |
@@ -188,7 +191,7 @@ Windows OS is all OK.
 
   (1) Except imnodes and SDL2 example.  
   (2) Works well only if it is compiled debug mode.  
-  (3) Dedian / Ubuntu familiy etc.  
+  (3) Dedian / Ubuntu familiy.  
   (4) Doesn't check, but probably will works well.
 
 #### TODO
@@ -212,31 +215,28 @@ Windows OS is all OK.
 ---
 
 Windows11 (main)
-- **Nim Compiler Version 2.2.2**
-- **GCC (Rev1, Built by MSYS2 project) 14.2.0**
+- **Nim Compiler Version 2.2.4**
+- **GCC (Rev1, Built by MSYS2 project) 15.1.0**
 
    ```sh
    pacman -S mingw-w64-ucrt-x86_64-gcc
    ```
 
-- Clang version 20.1.0
+- Clang version 20.1.7
 
    ```sh
    pacman -S mingw-w64-ucrt-x86_64-clang
    ```
 - Visual Studio C++/C 2022
 - git version 2.46.0.windows.1
-- SDL2.dll: 2.30.7
 - Make: GNU Make 4.4.1
 - MSys2/MinGW tools
 
 Linux Debian
-- **Nim Compiler Version 2.2.0**
+- **Nim Compiler Version 2.2.4**
 - gcc 12.2.0
-- SDL2: 2.26.5
 - make: GNU Make 4.3
 - git version 2.39.5
-
 
 #### Other link
 

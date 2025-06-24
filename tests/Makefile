@@ -6,7 +6,7 @@ TARGET = tglfw_opengl3
 
 all:
 	(cd ..; nimble make)
-	./$(TARGET)$(EXE)
+#	./$(TARGET)$(EXE)
 
 clean:
 	@-rm -f $(TARGET)$(EXE)

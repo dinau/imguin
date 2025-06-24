@@ -11,14 +11,16 @@ proc currentSourceDir(): string {.compileTime.} =
 const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui").replace("\\", "/")
 
 # Specify SDL3 C lang. header files
-const sdl3LibPath = joinPath(staticExec("nimble path sdl3_nim").strip,"private",SDL_VERSION,"x86_64-w64-mingw32","lib").replace("\\", "/")
-{.passC:"-I" &      joinPath(staticExec("nimble path sdl3_nim").strip,"private",SDL_VERSION,"x86_64-w64-mingw32","include").replace("\\", "/").}
+const sdl3LibPath = joinPath(staticExec("nimble path sdl3_nim").strip,"sdl3_nim/private",SDL_VERSION,"x86_64-w64-mingw32","lib").replace("\\", "/")
+{.passC:"-I" &      joinPath(staticExec("nimble path sdl3_nim").strip,"sdl3_nim/private",SDL_VERSION,"x86_64-w64-mingw32","include").replace("\\", "/").}
 {.passL:"-L" & sdl3LibPath.}
 when defined(vcc): # Fail: TODO
   {.passC:"libSDL3.dll.a".}
   {.passL:"/LIBPATH:" & sdl3LibPath.}
-else:
+when defined(windows):
   {.passL:"-lSDL3.dll".}
+when defined(linux):
+  {.passL:"-lSDL3".}
 
 const ImguiRootPath    = joinPath(CImguiRootPath,"imgui").replace("\\", "/")
 {.compile:joinPath(ImguiRootPath,"backends/imgui_impl_sdl3.cpp").replace("\\", "/").}

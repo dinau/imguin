@@ -23,19 +23,21 @@ const ImguiRootPath       = joinPath(CImguiRootPath,"imgui").replace("\\", "/")
 #  Glfwwindow* = structglfwwindow ## Generated based on cimgui_impl.h:3:27
 #  Glfwmonitor* = structglfwmonitor ## Generated based on cimgui_impl.h:4:28
 
-proc ImGui_implGlfw_initForOpenGL*(window: ptr Glfwwindow; installcallbacks: bool): bool {.  cdecl, importc: "ImGui_ImplGlfw_InitForOpenGL".}
-proc ImGui_implGlfw_initforVulkan*(window: ptr Glfwwindow; installcallbacks: bool): bool {.  cdecl, importc: "ImGui_ImplGlfw_InitForVulkan".}
-proc ImGui_implGlfw_initforOther*(window: ptr Glfwwindow; installcallbacks: bool): bool {.  cdecl, importc: "ImGui_ImplGlfw_InitForOther".}
-proc ImGui_implGlfw_shutdown*(): void {.cdecl, importc: "ImGui_ImplGlfw_Shutdown".}
-proc ImGui_implGlfw_newframe*(): void {.cdecl, importc: "ImGui_ImplGlfw_NewFrame".}
-proc ImGui_implGlfw_installcallbacks*(window: ptr Glfwwindow): void {.cdecl, importc: "ImGui_ImplGlfw_InstallCallbacks".}
-proc ImGui_implGlfw_restorecallbacks*(window: ptr Glfwwindow): void {.cdecl, importc: "ImGui_ImplGlfw_RestoreCallbacks".}
-proc ImGui_implGlfw_setcallbackschainforallwindows*(chainforallwindows: bool): void {.  cdecl, importc: "ImGui_ImplGlfw_SetCallbacksChainForAllWindows".}
-proc ImGui_implGlfw_windowfocuscallback*(window: ptr Glfwwindow; focused: cint): void {.  cdecl, importc: "ImGui_ImplGlfw_WindowFocusCallback".}
-proc ImGui_implGlfw_cursorentercallback*(window: ptr Glfwwindow; entered: cint): void {.  cdecl, importc: "ImGui_ImplGlfw_CursorEnterCallback".}
-proc ImGui_implGlfw_cursorposcallback*(window: ptr Glfwwindow; x: cdouble; y: cdouble): void {.cdecl, importc: "ImGui_ImplGlfw_CursorPosCallback".}
-proc ImGui_implGlfw_mousebuttoncallback*(window: ptr Glfwwindow; button: cint; action: cint; mods: cint): void {.cdecl, importc: "ImGui_ImplGlfw_MouseButtonCallback".}
-proc ImGui_implGlfw_scrollcallback*(window: ptr Glfwwindow; xoffset: cdouble; yoffset: cdouble): void {.cdecl, importc: "ImGui_ImplGlfw_ScrollCallback".}
-proc ImGui_implGlfw_keycallback*(window: ptr Glfwwindow; key: cint; scancode: cint; action: cint; mods: cint): void {.  cdecl, importc: "ImGui_ImplGlfw_KeyCallback".}
-proc ImGui_implGlfw_charcallback*(window: ptr Glfwwindow; c: cuint): void {.cdecl, importc: "ImGui_ImplGlfw_CharCallback".}
-proc ImGui_implGlfw_monitorcallback*(monitor: ptr Glfwmonitor; event: cint): void {.  cdecl, importc: "ImGui_ImplGlfw_MonitorCallback".}
+{.push discardable, cdecl, importc.}
+proc ImGui_ImplGlfw_InitForOpenGL*(window: ptr Glfwwindow; installcallbacks: bool): bool
+proc ImGui_ImplGlfw_InitforVulkan*(window: ptr Glfwwindow; installcallbacks: bool): bool
+proc ImGui_ImplGlfw_InitforOther*(window: ptr Glfwwindow; installcallbacks: bool): bool
+proc ImGui_ImplGlfw_Shutdown*(): void
+proc ImGui_ImplGlfw_NewFrame*(): void
+proc ImGui_ImplGlfw_Installcallbacks*(window: ptr Glfwwindow): void
+proc ImGui_ImplGlfw_Restorecallbacks*(window: ptr Glfwwindow): void
+proc ImGui_ImplGlfw_Setcallbackschainforallwindows*(chainforallwindows: bool): void
+proc ImGui_ImplGlfw_Windowfocuscallback*(window: ptr Glfwwindow; focused: cint): void
+proc ImGui_ImplGlfw_Cursorentercallback*(window: ptr Glfwwindow; entered: cint): void
+proc ImGui_ImplGlfw_Cursorposcallback*(window: ptr Glfwwindow; x: cdouble; y: cdouble): void
+proc ImGui_ImplGlfw_Mousebuttoncallback*(window: ptr Glfwwindow; button: cint; action: cint; mods: cint): void
+proc ImGui_ImplGlfw_Scrollcallback*(window: ptr Glfwwindow; xoffset: cdouble; yoffset: cdouble): void
+proc ImGui_ImplGlfw_Keycallback*(window: ptr Glfwwindow; key: cint; scancode: cint; action: cint; mods: cint): void
+proc ImGui_ImplGlfw_Charcallback*(window: ptr Glfwwindow; c: cuint): void
+proc ImGui_ImplGlfw_Monitorcallback*(monitor: ptr Glfwmonitor; event: cint): void
+{.pop.}
