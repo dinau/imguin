@@ -89,12 +89,14 @@ else: # Use generated header by Futark in your programs.
   {.pop.}
 
   # for glfw3
-  if false:
+  when false:
     # Use GLFW of glfw-4.0.0 package
-    {.passC:"-I" & joinPath(staticExec("nimble path glfw").strip,"glfw","private","glfw","include").replace("\\", "/").}
+    const dirs = staticExec("nimble path glfw").strip.split("\n")
+    {.passC:"-I" & joinPath(dirs[0],"glfw","private","glfw","include").replace("\\", "/").} # dirs[0]: Select max hash version: TODO
   else:
     # Use GLFW of nimgl package
-    {.passC:"-I" & joinPath(staticExec("nimble path nimgl").strip,"nimgl","private","glfw","include").replace("\\", "/").}
+    const dirs = staticExec("nimble path nimgl").strip.split("\n")
+    {.passC:"-I" & joinPath(dirs[0],"nimgl","private","glfw","include").replace("\\", "/").} # dirs[0]: Select max hash version: TODO
   #
   #
   # for ImGui

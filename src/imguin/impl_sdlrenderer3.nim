@@ -1,8 +1,6 @@
 import std/[os,strutils]
 import sdl3_nim
 
-const SDL_VERSION = "SDL3"
-
 proc currentSourceDir(): string {.compileTime.} =
   result = currentSourcePath().replace("\\", "/")
   result = result[0 ..< result.rfind("/")]
@@ -11,8 +9,11 @@ proc currentSourceDir(): string {.compileTime.} =
 const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui").replace("\\", "/")
 
 # Specify SDL3 C lang. header files
-const sdl3LibPath = joinPath(staticExec("nimble path sdl3_nim").strip,"sdl3_nim/private",SDL_VERSION,"x86_64-w64-mingw32","lib").replace("\\", "/")
-{.passC:"-I" &      joinPath(staticExec("nimble path sdl3_nim").strip,"sdl3_nim/private",SDL_VERSION,"x86_64-w64-mingw32","include").replace("\\", "/").}
+const dirs = staticExec("nimble path sdl3_nim").strip.split("\n")
+const sdl3NimPath = joinPath(dirs[0],"sdl3_nim/private/SDL3/x86_64-w64-mingw32").replace("\\", "/") # dirs[0]:  Select max hash version: TODO
+const sdl3LibPath = joinPath(sdl3NimPath,"lib").replace("\\", "/")
+{.passC:"-I" &      joinPath(sdl3NimPath,"include").replace("\\", "/").}
+{.passC:"-I" &      joinPath(sdl3NimPath,"include/SDL3").replace("\\", "/").}
 {.passL:"-L" & sdl3LibPath.}
 when defined(vcc): # Fail: TODO
   {.passC:"libSDL3.dll.a".}
