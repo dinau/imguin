@@ -7,24 +7,12 @@ proc currentSourceDir(): string {.compileTime.} =
 
 # Set root path of ImGui/CImGui
 const CImguiRootPath   = joinPath(currentSourceDir(),"private/cimgui").replace("\\", "/")
+const ImguiRootPath    = joinPath(CImguiRootPath,"imgui").replace("\\", "/")
 
-# Specify SDL3 C lang. header files
-const dirs = staticExec("nimble path sdl3_nim").strip.split("\n")
-const sdl3NimPath = joinPath(dirs[0],"sdl3_nim/private/SDL3/x86_64-w64-mingw32").replace("\\", "/") # dirs[0]: Select max hash version: TODO
-const sdl3LibPath = joinPath(sdl3NimPath,"lib").replace("\\", "/")
-{.passC:"-I" &      joinPath(sdl3NimPath,"include").replace("\\", "/").}
-{.passC:"-I" &      joinPath(sdl3NimPath,"include/SDL3").replace("\\", "/").}
-{.passL:"-L" & sdl3LibPath.}
-when defined(vcc): # Fail: TODO
-  {.passC:"libSDL3.dll.a".}
-  {.passL:"/LIBPATH:" & sdl3LibPath.}
-when defined(windows):
-  {.passL:"-lSDL3.dll".}
+{.compile:joinPath(ImguiRootPath,"backends/imgui_impl_sdl3.cpp").replace("\\", "/").}
+
 when defined(linux):
   {.passL:"-lSDL3".}
-
-const ImguiRootPath    = joinPath(CImguiRootPath,"imgui").replace("\\", "/")
-{.compile:joinPath(ImguiRootPath,"backends/imgui_impl_sdl3.cpp").replace("\\", "/").}
 
 type
   enum_ImGui_ImplSDL3_GamepadMode* {.size: sizeof(cuint).} = enum
@@ -33,15 +21,15 @@ type
     ImGui_ImplSDL3_GamepadMode_Manual = 2
   ImGui_ImplSDL3_GamepadMode* = enum_ImGui_ImplSDL3_GamepadMode
 
-{.push discardable.}
-proc ImGui_ImplSDL3_InitForOpenGL*(window: ptr SDL_Window; sdl_gl_context: pointer): bool {.cdecl, importc: "ImGui_ImplSDL3_InitForOpenGL".}
-proc ImGui_ImplSDL3_InitForVulkan*(window: ptr SDL_Window): bool {.cdecl, importc: "ImGui_ImplSDL3_InitForVulkan".}
-proc ImGui_ImplSDL3_InitForD3D*(window: ptr SDL_Window): bool {.cdecl, importc: "ImGui_ImplSDL3_InitForD3D".}
-proc ImGui_ImplSDL3_InitForMetal*(window: ptr SDL_Window): bool {.cdecl, importc: "ImGui_ImplSDL3_InitForMetal".}
-proc ImGui_ImplSDL3_InitForSDLRenderer*(window: ptr SDL_Window; renderer: ptr SDL_Renderer): bool {.  cdecl, importc: "ImGui_ImplSDL3_InitForSDLRenderer".}
-proc ImGui_ImplSDL3_InitForOther*(window: ptr SDL_Window): bool {.cdecl, importc: "ImGui_ImplSDL3_InitForOther".}
-proc ImGui_ImplSDL3_Shutdown*(): void {.cdecl, importc: "ImGui_ImplSDL3_Shutdown".}
-proc ImGui_ImplSDL3_NewFrame*(): void {.cdecl, importc: "ImGui_ImplSDL3_NewFrame".}
-proc ImGui_ImplSDL3_ProcessEvent*(event: ptr SDL_Event): bool {.cdecl, importc: "ImGui_ImplSDL3_ProcessEvent".}
-proc ImGui_ImplSDL3_SetGamepadMode*(mode: ImGui_ImplSDL3_GamepadMode; manual_gamepads_array: ptr ptr SDL_Gamepad; manual_gamepads_count: cint): void {.cdecl, importc: "ImGui_ImplSDL3_SetGamepadMode".}
+{.push discardable, cdecl, importc.}
+proc ImGui_ImplSDL3_InitForOpenGL*(window: ptr SDL_Window; sdl_gl_context: pointer): bool
+proc ImGui_ImplSDL3_InitForVulkan*(window: ptr SDL_Window): bool
+proc ImGui_ImplSDL3_InitForD3D*(window: ptr SDL_Window): bool
+proc ImGui_ImplSDL3_InitForMetal*(window: ptr SDL_Window): bool
+proc ImGui_ImplSDL3_InitForSDLRenderer*(window: ptr SDL_Window; renderer: ptr SDL_Renderer): bool
+proc ImGui_ImplSDL3_InitForOther*(window: ptr SDL_Window): bool
+proc ImGui_ImplSDL3_Shutdown*(): void
+proc ImGui_ImplSDL3_NewFrame*(): void
+proc ImGui_ImplSDL3_ProcessEvent*(event: ptr SDL_Event): bool
+proc ImGui_ImplSDL3_SetGamepadMode*(mode: ImGui_ImplSDL3_GamepadMode; manual_gamepads_array: ptr ptr SDL_Gamepad; manual_gamepads_count: cint): void
 {.pop.}
