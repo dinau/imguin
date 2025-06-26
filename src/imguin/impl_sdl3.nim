@@ -27,6 +27,7 @@ proc ImGui_ImplSDL3_InitForVulkan*(window: ptr SDL_Window): bool
 proc ImGui_ImplSDL3_InitForD3D*(window: ptr SDL_Window): bool
 proc ImGui_ImplSDL3_InitForMetal*(window: ptr SDL_Window): bool
 proc ImGui_ImplSDL3_InitForSDLRenderer*(window: ptr SDL_Window; renderer: ptr SDL_Renderer): bool
+proc ImGui_ImplSDL3_InitForSDLGPU*(window: ptr SDL_Window): bool
 proc ImGui_ImplSDL3_InitForOther*(window: ptr SDL_Window): bool
 proc ImGui_ImplSDL3_Shutdown*(): void
 proc ImGui_ImplSDL3_NewFrame*(): void
