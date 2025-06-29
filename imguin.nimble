@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.91.9.3"
+version       = "1.91.9.4"
 author        = "dinau"
 description   = "Imguin: ImGui / ImPlot / ImNodes wrapper using Futhark"
 license       = "MIT"

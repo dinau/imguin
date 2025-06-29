@@ -40,4 +40,5 @@ proc ImGui_ImplGlfw_Scrollcallback*(window: ptr Glfwwindow; xoffset: cdouble; yo
 proc ImGui_ImplGlfw_Keycallback*(window: ptr Glfwwindow; key: cint; scancode: cint; action: cint; mods: cint): void
 proc ImGui_ImplGlfw_Charcallback*(window: ptr Glfwwindow; c: cuint): void
 proc ImGui_ImplGlfw_Monitorcallback*(monitor: ptr Glfwmonitor; event: cint): void
+proc ImGui_ImplGlfw_Sleep*(milliseconds: cint)
 {.pop.}

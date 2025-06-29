@@ -96,7 +96,7 @@ else: # Use generated header by Futark in your programs.
   else:
     # Use GLFW of nimgl package
     const dirs = staticExec("nimble path nimgl").strip.split("\n")
-    {.passC:"-I" & joinPath(dirs[0],"nimgl","private","glfw","include").replace("\\", "/").} # dirs[0]: Select max hash version: TODO
+    #{.passC:"-I" & joinPath(dirs[0],"nimgl","private","glfw","include").replace("\\", "/").} # dirs[0]: Select max hash version: TODO
   #
   #
   # for ImGui

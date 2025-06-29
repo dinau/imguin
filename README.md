@@ -83,12 +83,12 @@ Library name / C lang. wrapper
 
 ---
 
-   |                     | GLFW  [^fed] | SDL2  [^fed] | SDL3  [^fed] |
-   | ------------------- | :----:       | :----        | :----:       |
-   | OpenGL3<br>backend  | v            | v            | v            |
-   | SDL2<br>backend     | -            | v            | -            |
-   | SDL3<br>backend     | -            | -            | v            |
-   | Vulkan<br>backend   | ?            | ?            | ?            |
+   |                             | GLFW  [^fed] | SDL2  [^fed] | SDL3  [^fed] |
+   | -------------------         | :----:       | :---:        | :----:       |
+   | OpenGL3 backend             | v            | v            | v            |
+   | SDL2 backend                | -            | v            | -            |
+   | SDL3 GPU / Renderer backend | -            | -            | v            |
+   | Vulkan backend              | ?            | ?            | ?            |
 
 [^fed]: Front end
 
@@ -176,11 +176,8 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
-   | 1.91.9b dock      | 1.91.9.2    | 2025/06 | OK                      |
-   | Same as above     | 1.91.9.1    | 2025/06 | OK                      |
-   | Same as above     | 1.91.9.0    | 2025/05 | ?                       |
+   | 1.91.9b dock      | 1.91.9.4    | 2025/06 | OK                      |
    | 1.91.8dock        | 1.91.8.2    | 2025/03 | OK                      |
-   | Same as above     | 1.91.8.1    | 2025/02 | OK                      |
    | 1.91.6dock        | 1.91.6.15   | 2025/01 | (4)                     |
    | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK                      |
    | 1.91.3dock        | 1.91.3.1    | 2024/10 | (4)                     |
