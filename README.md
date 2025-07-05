@@ -57,6 +57,7 @@ Note: See examples project  [ImGuin_examples](https://github.com/dinau/imguin_ex
 ---
 
 ```sh
+nimble refresh
 nimble uninstall imguin  # Remove old versions if exists. 
 nimble install imguin
 ```
