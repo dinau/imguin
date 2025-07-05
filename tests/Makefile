@@ -10,3 +10,6 @@ all:
 
 clean:
 	@-rm -f $(TARGET)$(EXE)
+
+run: all
+	./$(TARGET)$(EXE)

@@ -90,9 +90,9 @@ else: # Use generated header by Futark in your programs.
 
   # for glfw3
   when true:
-    # Use GLFW of glfw-4.x.x package
+    # Use GLFW of glfw-4|3.x.x package
     const dirs = staticExec("nimble path glfw").strip.split("\n")
-    {.passC:"-I" & joinPath(dirs[0],"glfw","private","glfw","include").replace("\\", "/").} # dirs[0]: Select max hash version: TODO
+    {.passC:"-I" & joinPath(dirs[0],"glfw","include").replace("\\", "/").} # dirs[0]: Select max hash version: TODO
   else:
     # Use GLFW of nimgl package
     const dirs = staticExec("nimble path nimgl").strip.split("\n")
