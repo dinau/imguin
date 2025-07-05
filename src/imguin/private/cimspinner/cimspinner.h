@@ -200,7 +200,7 @@ CIMSPINNER_API void Spinner4CaleidospcopeEx(const char *label, float radius, flo
 CIMSPINNER_API void SpinnerMultiFadeDots(const char *label, float radius, float thickness);
 CIMSPINNER_API void SpinnerMultiFadeDotsEx(const char *label, float radius, float thickness,const ImColor color, float speed, int lt);
 CIMSPINNER_API void SpinnerThickToSin(const char *label, float radius, float thickness);
-CIMSPINNER_API void SpinnerThickToSinEx(const char *label, float radius, float thickness,const ImColor color, float speed, int lt, int mode);
+CIMSPINNER_API void SpinnerThickToSinEx(const char *label, float radius, float thickness,const ImColor color, float speed, int nt, int lt, int mode);
 CIMSPINNER_API void SpinnerScaleDots(const char *label, float radius, float thickness);
 CIMSPINNER_API void SpinnerScaleDotsEx(const char *label, float radius, float thickness,const ImColor color, float speed, int lt);
 CIMSPINNER_API void SpinnerSquareSpins(const char *label, float radius, float thickness);
@@ -343,9 +343,9 @@ CIMSPINNER_API void SpinnerRingWatermarksEx(const char *label, float radius, flo
 CIMSPINNER_API void SpinnerRotatedAtom(const char *label, float radius, float thickness);
 CIMSPINNER_API void SpinnerRotatedAtomEx(const char *label, float radius, float thickness,const ImColor color, float speed, int elipses, int mode);
 CIMSPINNER_API void SpinnerRainbowBalls(const char *label, float radius, float thickness, const ImColor color, float speed);
-CIMSPINNER_API void SpinnerRainbowBallsEx(const char *label, float radius, float thickness, const ImColor color, float speed,int balls, int mode);
+CIMSPINNER_API void SpinnerRainbowBallsEx(const char *label, float radius, float thickness, const ImColor color, float speed,int balls, int mode, int rings, int mx);
 CIMSPINNER_API void SpinnerRainbowShot(const char *label, float radius, float thickness, const ImColor color, float speed);
-CIMSPINNER_API void SpinnerRainbowShotEx(const char *label, float radius, float thickness, const ImColor color, float speed,int balls);
+CIMSPINNER_API void SpinnerRainbowShotEx(const char *label, float radius, float thickness, const ImColor color, float speed,int balls, int mode);
 CIMSPINNER_API void SpinnerSpiral(const char *label, float radius, float thickness);
 CIMSPINNER_API void SpinnerSpiralEx(const char *label, float radius, float thickness,const ImColor color, float speed, size_t arcs);
 CIMSPINNER_API void SpinnerSpiralEye(const char *label, float radius, float thickness);

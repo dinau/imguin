@@ -18,12 +18,11 @@
 
 ![alt](https://github.com/dinau/imguin/actions/workflows/windows.yml/badge.svg)  ![alt](https://github.com/dinau/imguin/actions/workflows/linux.yml/badge.svg)
 
-Updated to latest Dear ImGui / CImGui version: : **v1.91.9b dock** (2025/05)
+Updated to latest [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui) version: : **v1.92.0 dock** (2025/07)
 
-This project is Dear ImGui wrapper library for Nim language.
+This project is Dear ImGui wrapper library for Nim language [^notice].
 
-- Notice  
-It may be better to use the **mainstream** project [nimgl/imgui](https://github.com/nimgl/imgui) (ImGui v1.85)  
+[^notice]: It may be better to use the **mainstream** project [nimgl/imgui](https://github.com/nimgl/imgui) (ImGui v1.85)  
 ,updated project [nimgl-imgui](https://github.com/dinau/nimgl-imgui) (ImGui v1.89.9)  ,sub project [nim_implot](https://github.com/dinau/nim_implot) and test project [nimgl_test](https://github.com/dinau/nimgl_test),  
 or [https://github.com/daniel-j/nimgl-imgui](https://github.com/daniel-j/nimgl-imgui) (ImGui v1.91.1)
 
@@ -32,7 +31,7 @@ or [https://github.com/daniel-j/nimgl-imgui](https://github.com/daniel-j/nimgl-i
 
 ---
 
-See examples project  [ImGuin_examples](https://github.com/dinau/imguin_examples)
+Note: See examples project  [ImGuin_examples](https://github.com/dinau/imguin_examples)
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/topimage.gif)
 
@@ -176,6 +175,7 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
+   | 1.92.0 dock       | 1.92.0.0    | 2025/07 | OK                      |
    | 1.91.9b dock      | 1.91.9.4    | 2025/06 | OK                      |
    | 1.91.8dock        | 1.91.8.2    | 2025/03 | OK                      |
    | 1.91.6dock        | 1.91.6.15   | 2025/01 | (4)                     |
@@ -190,7 +190,7 @@ Windows OS is all OK.
   (1) Except imnodes and SDL2 example.  
   (2) Works well only if it is compiled debug mode.  
   (3) Dedian / Ubuntu familiy.  
-  (4) Doesn't check, but probably will works well.
+  (4) Doesn't check, but probably will work well.
 
 #### TODO
 

@@ -89,8 +89,8 @@ else: # Use generated header by Futark in your programs.
   {.pop.}
 
   # for glfw3
-  when false:
-    # Use GLFW of glfw-4.0.0 package
+  when true:
+    # Use GLFW of glfw-4.x.x package
     const dirs = staticExec("nimble path glfw").strip.split("\n")
     {.passC:"-I" & joinPath(dirs[0],"glfw","private","glfw","include").replace("\\", "/").} # dirs[0]: Select max hash version: TODO
   else:

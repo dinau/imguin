@@ -1,3 +1,4 @@
+#include "cimspinner_config.h"
 
 #include "imspinner.h"
 #include "cimspinner.h"
@@ -316,14 +317,14 @@ CIMSPINNER_API void SpinnerMultiFadeDotsEx(const char *label, float radius, floa
 #endif
 
 /* C++ definition
-   void Spinner::SpinnerThickToSin(const char *label, float radius, float thickness, const ImColor &color = white, float speed = 2.8f, int lt = 8, int mode = 0)
+   void Spinner::SpinnerThickToSin(const char *label, float radius, float thickness, const ImColor &color = white, float speed = 2.8f, int nt = 1, int lt = 8, int mode = 0)
 */
 #ifdef SPINNER_THICKTOSIN
 CIMSPINNER_API void SpinnerThickToSin(const char *label, float radius, float thickness) {
   ImSpinner::SpinnerThickToSin(label, radius, thickness);
 }
-CIMSPINNER_API void SpinnerThickToSinEx(const char *label, float radius, float thickness,const ImColor color, float speed, int lt, int mode) {
-  ImSpinner::SpinnerThickToSin(label, radius, thickness, color, speed, lt, mode);
+CIMSPINNER_API void SpinnerThickToSinEx(const char *label, float radius, float thickness,const ImColor color, float speed, int nt, int lt, int mode) {
+  ImSpinner::SpinnerThickToSin(label, radius, thickness, color, speed, nt, lt, mode);
 }
 #endif
 
@@ -1189,26 +1190,26 @@ CIMSPINNER_API void SpinnerRotatedAtomEx(const char *label, float radius, float 
 #endif
 
 /* C++ definition
-   void Spinner::SpinnerRainbowBalls(const char *label, float radius, float thickness, const ImColor &color, float speed, int balls = 5, int mode = 0)
+   void Spinner::SpinnerRainbowBalls(const char *label, float radius, float thickness, const ImColor &color, float speed, int balls = 5, int mode = 0, int rings = 1, int mx = 1)
 */
 #ifdef SPINNER_RAINBOWBALLS
 CIMSPINNER_API void SpinnerRainbowBalls(const char *label, float radius, float thickness, const ImColor color, float speed) {
   ImSpinner::SpinnerRainbowBalls(label, radius, thickness, color, speed);
 }
-CIMSPINNER_API void SpinnerRainbowBallsEx(const char *label, float radius, float thickness, const ImColor color, float speed,int balls, int mode) {
-  ImSpinner::SpinnerRainbowBalls(label, radius, thickness, color, speed, balls, mode);
+CIMSPINNER_API void SpinnerRainbowBallsEx(const char *label, float radius, float thickness, const ImColor color, float speed,int balls, int mode, int rings, int mx) {
+  ImSpinner::SpinnerRainbowBalls(label, radius, thickness, color, speed, balls, mode, rings, mx);
 }
 #endif
 
 /* C++ definition
-   void Spinner::SpinnerRainbowShot(const char *label, float radius, float thickness, const ImColor &color, float speed, int balls = 5)
+   void Spinner::SpinnerRainbowShot(const char *label, float radius, float thickness, const ImColor &color, float speed, int balls = 5, int mode = 0)
 */
 #ifdef SPINNER_RAINBOWSHOT
 CIMSPINNER_API void SpinnerRainbowShot(const char *label, float radius, float thickness, const ImColor color, float speed) {
   ImSpinner::SpinnerRainbowShot(label, radius, thickness, color, speed);
 }
-CIMSPINNER_API void SpinnerRainbowShotEx(const char *label, float radius, float thickness, const ImColor color, float speed,int balls) {
-  ImSpinner::SpinnerRainbowShot(label, radius, thickness, color, speed, balls);
+CIMSPINNER_API void SpinnerRainbowShotEx(const char *label, float radius, float thickness, const ImColor color, float speed,int balls, int mode) {
+  ImSpinner::SpinnerRainbowShot(label, radius, thickness, color, speed, balls, mode);
 }
 #endif
 
@@ -1583,6 +1584,6 @@ CIMSPINNER_API void SpinnerSplineAngEx(const char *label, float radius, float th
 
 #ifdef IMSPINNER_DEMO
 CIMSPINNER_API void demoSpinners() {
-  ImSpinner::demoSpinners();
+  ImSpinner::demoSpinners(); 
 }
 #endif

@@ -39,7 +39,7 @@ type
 proc ImGui_ImplSDLGPU3_Init*(info: ptr ImGui_ImplSDLGPU3_InitInfo): bool
 proc ImGui_ImplSDLGPU3_Shutdown*(): void
 proc ImGui_ImplSDLGPU3_NewFrame*(): void
-proc Imgui_ImplSDLGPU3_PrepareDrawData*(draw_data: ptr ImDrawData ,command_buffer: ptr SDL_GPUCommandBuffer): void
+proc ImGui_ImplSDLGPU3_PrepareDrawData*(draw_data: ptr ImDrawData ,command_buffer: ptr SDL_GPUCommandBuffer): void
 proc ImGui_ImplSDLGPU3_RenderDrawData*(draw_data: ptr ImDrawData ,command_buffer: ptr SDL_GPUCommandBuffer ,render_pass: ptr SDL_GPURenderPass,  pipeline: ptr SDL_GPUGraphicsPipeline): void
 proc ImGui_ImplSDLGPU3_CreateDeviceObjects*(): void
 proc ImGui_ImplSDLGPU3_DestroyDeviceObjects*(): void
