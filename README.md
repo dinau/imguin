@@ -176,7 +176,7 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
-   | 1.92.0 dock       | 1.92.0.0    | 2025/07 | OK                      |
+   | 1.92.0 dock       | 1.92.0.1    | 2025/07 | OK                      |
    | 1.91.9b dock      | 1.91.9.4    | 2025/06 | OK                      |
    | 1.91.8dock        | 1.91.8.2    | 2025/03 | OK                      |
    | 1.91.6dock        | 1.91.6.15   | 2025/01 | (4)                     |
