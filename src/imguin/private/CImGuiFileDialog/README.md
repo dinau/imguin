@@ -66,7 +66,7 @@ git hash: c66089f509bbfbc0d8852d54106b1af88a104822
 ---
 
 ```sh
-git clone --recursive https://github.com/dinau/CImGuiFileDialog
+git clone -b main --single-branch --depth 1 --recursive --shallow-submodules https://github.com/dinau/CImGuiFileDialog
 ```
 
 For example,

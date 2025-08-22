@@ -2,9 +2,10 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [cimgui_toggle](#cimgui_toggle)
-- [Prerequisites](#prerequisites)
-- [Build and run](#build-and-run)
-- [Custom window](#custom-window)
+  - [Prerequisites](#prerequisites)
+  - [Build and run](#build-and-run)
+  - [Custom window](#custom-window)
+  - [Using this project](#using-this-project)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -12,13 +13,11 @@
 ![alt](https://github.com/dinau/cimgui_toggle/actions/workflows/windows.yml/badge.svg)
 ![alt](https://github.com/dinau/cimgui_toggle/actions/workflows/linux.yml/badge.svg) 
 
-### cimgui_toggle 
+## cimgui_toggle 
 
 ---
 
-`cimgui_toggle` is C language wrapper for `imgui_toggle` library 
-
-Based on https://github.com/cmdwtf/imgui_toggle
+`cimgui_toggle` is C language wrapper for [imgui_toggle](https://github.com/cmdwtf/imgui_toggle) library 
 
 ![alt](img/simple.png)
 
@@ -38,7 +37,7 @@ Install at least,
 Install at least,
 
    ```sh
-   $ sudo apt install make pkgconf xorg-dev lib{opengl-dev,gl1-mesa-dev,glfw3,glfw3-dev}
+   $ sudo apt install make pkgconf lib{opengl-dev,gl1-mesa-dev,glfw3,glfw3-dev}
    ```
 
 1. Git installed
@@ -50,7 +49,7 @@ Install at least,
 1. Getting sources
 
    ```sh
-   git clone --recurse-submodules https://github.com/dinau/cimgui_toggle
+   git clone --recursive https://github.com/dinau/cimgui_toggle
    ```
 
 1. Build and run  C language demo
@@ -72,3 +71,17 @@ Install at least,
 ---
 
 ![alt](img/custom.png)
+
+
+### Using this project
+
+---
+
+| Language [^order]    |          | Project                                                             |
+| -------------------: | :---:    | :----------------------------------------------------------------:  |
+| **NeLua**            | Compiler | [NeLuaImGui](https://github.com/dinau/neluaImGui)                   |
+| **Nim**              | Compiler | [ImGuin](https://github.com/dinau/imguin)                           |
+| **Zig**, C lang.     | Compiler | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build) |
+| **Zig**              | Compiler | [ImGuinZ](https://github.com/dinau/imguinz)                         |
+
+[^order]: Alphabectial order

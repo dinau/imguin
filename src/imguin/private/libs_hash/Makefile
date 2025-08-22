@@ -16,11 +16,11 @@ EXT_LIBS_DIR = ../../../../../libs
 
 checkout:
 	(cd $(EXT_LIBS_DIR)/cimgui; git checkout 63e6dd0ef317d2e5bbd187455e12615b0917a816)
-	(cd $(EXT_LIBS_DIR)/cimgui_toggle; git checkout 212dd94a8df465750bc5009871b694707af2c52f)
-	(cd $(EXT_LIBS_DIR)/CImGuiFileDialog; git checkout 8fdcebfeea6e9740346a8f9d30dd17e4163d5db5)
+	(cd $(EXT_LIBS_DIR)/cimgui/imgui; git checkout adfa5364cd84db127f8f5d093be90c2e3608be0f)
+	(cd $(EXT_LIBS_DIR)/cimgui_toggle; git checkout 4a96b92fafe6e08e0a4e6d9de33517f2e017917f)
+	(cd $(EXT_LIBS_DIR)/CImGuiFileDialog; git checkout 2f6787feb81b57f82b081c953e6a47b17879bc3c)
 	(cd $(EXT_LIBS_DIR)/cimguizmo; git checkout c3ade65dbda9750536a6a26c8d8fe705f0cfdfd1)
 	(cd $(EXT_LIBS_DIR)/cimnodes; git checkout 25de5197bb2520fc70cfa3bff9d0d7cd5e70544d)
 	(cd $(EXT_LIBS_DIR)/cimplot; git checkout 9981145d7bc916eb9877df6e451543c9134fc061)
 	(cd $(EXT_LIBS_DIR)/cimplot3d; git checkout dc046a11f7b37652bf5031aad7e7716475dcb412)
-	(cd $(EXT_LIBS_DIR)/cimspinner; git checkout a5674f87d9d0f7df3feed774e651d10bd5ecdefb)
 	(cd $(EXT_LIBS_DIR)/cimCTE; git checkout d1c27ebb0e1af785f781fd7076be943ceee8d26c)

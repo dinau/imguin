@@ -1222,7 +1222,8 @@ type
     ImGui_FileDialogFlags_DisablePlaceMode = 2048,
     ImGui_FileDialogFlags_DisableQuickPathSelection = 4096,
     ImGui_FileDialogFlags_ShowDevicesButton = 8192,
-    ImGui_FileDialogFlags_NaturalSorting = 16384
+    ImGui_FileDialogFlags_NaturalSorting = 16384,
+    ImGui_FileDialogFlags_OptionalFileName = 32768
 type
   enum_IGFD_ResultMode_private* {.size: sizeof(cuint).} = enum
     IGFD_ResultMode_AddIfNoFileExt = 0, IGFD_ResultMode_OverwriteFileExt = 1,
@@ -4408,6 +4409,7 @@ type
   ImPlane3D_private* = enum_ImPlane3D_private
   ImPlot3DColormap_private* = enum_ImPlot3DColormap_private
   ImPlot3DFormatter* = proc (a0: cfloat; a1: cstring; a2: cint; a3: pointer): cint {.cdecl.}
+  LeafColor* = proc (a0: cint): ImColor {.cdecl.}
   TextEditor* = struct_TextEditor
   PaletteId* = enum_PaletteId
   LanguageDefinitionId* = enum_LanguageDefinitionId
@@ -4585,11 +4587,11 @@ when "v0.6.8" is static:
     IGFD_VERSION* = "v0.6.8"
 else:
   let IGFD_VERSION* = "v0.6.8"
-when "1.90.5 WIP" is static:
+when "1.92.0 WIP" is static:
   const
-    IGFD_IMGUI_SUPPORTED_VERSION* = "1.90.5 WIP"
+    IGFD_IMGUI_SUPPORTED_VERSION* = "1.92.0 WIP"
 else:
-  let IGFD_IMGUI_SUPPORTED_VERSION* = "1.90.5 WIP"
+  let IGFD_IMGUI_SUPPORTED_VERSION* = "1.92.0 WIP"
 when 1.618033988749895 is static:
   const
     ImGui_ToggleConstants_Phi* = 1.618033988749895
@@ -7305,6 +7307,8 @@ proc SpinnerWifiIndicator*(label: cstring; radius: cfloat; thickness: cfloat): v
 proc SpinnerWifiIndicatorEx*(label: cstring; radius: cfloat; thickness: cfloat; color: ImColor; bg: ImColor; speed: cfloat; cangle: cfloat; dots: cint): void {.cdecl, importc: "SpinnerWifiIndicatorEx".}
 proc SpinnerTrianglesSelector*(label: cstring; radius: cfloat; thickness: cfloat): void {.cdecl, importc: "SpinnerTrianglesSelector".}
 proc SpinnerTrianglesSelectorEx*(label: cstring; radius: cfloat; thickness: cfloat; color: ImColor; bg: ImColor; speed: cfloat; bars: csize_t): void {.cdecl, importc: "SpinnerTrianglesSelectorEx".}
+proc SpinnerCamera*(label: cstring; radius: cfloat; thickness: cfloat; leaf_color: LeafColor): void {.cdecl, importc: "SpinnerCamera".}
+proc SpinnerCameraEx*(label: cstring; radius: cfloat; thickness: cfloat; leaf_color: LeafColor; speed: cfloat; bars: csize_t; mode: cint): void {.cdecl, importc: "SpinnerCameraEx".}
 proc SpinnerFlowingGradient*(label: cstring; radius: cfloat; thickness: cfloat): void {.cdecl, importc: "SpinnerFlowingGradient".}
 proc SpinnerFlowingGradientEx*(label: cstring; radius: cfloat; thickness: cfloat; color: ImColor; bg: ImColor; speed: cfloat; angle: cfloat): void {.cdecl, importc: "SpinnerFlowingGradientEx".}
 proc SpinnerRotateSegments*(label: cstring; radius: cfloat; thickness: cfloat): void {.cdecl, importc: "SpinnerRotateSegments".}

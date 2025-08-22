@@ -29,8 +29,7 @@ const CImGuiFileDialogPath = joinPath(currentSourceDir(),"private/CImGuiFileDial
 const CImGuiTogglePath     = joinPath(currentSourceDir(),"private/cimgui_toggle").replace("\\", "/")
 const ImGuiTogglePath      = joinPath(currentSourceDir(),"private/cimgui_toggle/libs/imgui_toggle").replace("\\", "/")
 #
-const CImSpinnerPath       = joinPath(currentSourceDir(),"private/cimspinner").replace("\\", "/")
-const ImSpinnerPath        = joinPath(currentSourceDir(),"private/cimspinner/imspinner").replace("\\", "/")
+const CImSpinnerPath       = joinPath(currentSourceDir(),"private/imspinner").replace("\\", "/")
 #
 const CImCTEPath               = joinPath(currentSourceDir(),"private/cimCTE").replace("\\", "/")
 const ImGuiColorTextEditPath   = joinPath(currentSourceDir(),"private/cimCTE/ImGuiColorTextEdit").replace("\\", "/")
@@ -182,7 +181,6 @@ else: # Use generated header by Futark in your programs.
 
   when defined(ImSpinnerEnable) or defined(ImSpinner) :
     {.passC:"-I" & CImSpinnerPath.}
-    {.passC:"-I" & ImSpinnerPath.}
     {.compile:joinPath(CImSpinnerPath,"cimspinner.cpp").replace("\\", "/").}
 
   when defined(ImColorTextEditEnable) or defined(ImColorTextEdit) :

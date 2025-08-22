@@ -18,7 +18,7 @@
 
 ![alt](https://github.com/dinau/imguin/actions/workflows/windows.yml/badge.svg)  ![alt](https://github.com/dinau/imguin/actions/workflows/linux.yml/badge.svg)
 
-Updated to latest [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui) version: : **v1.92.0 dock** (2025/07)
+Updated to latest [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui) version: : **v1.92.0 dock** (2025/08)
 
 This project is Dear ImGui wrapper library for Nim language [^notice].
 
@@ -77,7 +77,7 @@ Library name / C lang. wrapper
 - [x] [ImPlot3d](https://github.com/brenocq/implot3d) / [CImPlot3d](https://github.com/cimgui/cimplot3d) 
 - [x] [ImSpinner](https://github.com/dalerank/imspinner) / [CImSpinner](https://github.com/dinau/CImSpinner) 
 - [x] [ImGuiColorTextEdit](https://github.com/santaclose/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE) (2025/03)
-- [ ] [ImGui_Markdown](https://github.com/enkisoftware/imgui_markdown) WIP
+- [ ] [ImGui_Markdown](https://github.com/enkisoftware/imgui_markdown) (2025/09) WIP
 
 ####  Frontends and Backends 
 
@@ -176,6 +176,7 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
+   | 1.92.0 dock       | 1.92.0.2    | 2025/08 | OK                      |
    | 1.92.0 dock       | 1.92.0.1    | 2025/07 | OK                      |
    | 1.91.9b dock      | 1.91.9.4    | 2025/06 | OK                      |
    | 1.91.8dock        | 1.91.8.2    | 2025/03 | OK                      |

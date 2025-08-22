@@ -5,6 +5,7 @@ const LIBS_DIR = "../../../../../libs"
 
 var libDirs = @[
                 "cimgui",
+                "cimgui/imgui",
                 "cimgui_toggle",
                 "CImGuiFileDialog",
                 "cimguizmo",
