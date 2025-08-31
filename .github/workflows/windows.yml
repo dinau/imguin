@@ -18,7 +18,5 @@ jobs:
           nim-version: '2.2.4'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          pacman -Syu --noconfirm
-          pacman -S --noconfirm mingw-w64-x86_64-{gcc,glfw,SDL2,sdl3} make
           nimble install
           nimble make
