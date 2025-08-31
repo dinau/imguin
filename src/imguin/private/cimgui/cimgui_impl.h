@@ -100,6 +100,46 @@ CIMGUI_API bool ImGui_ImplSDL3_ProcessEvent(const SDL_Event* event);
 CIMGUI_API void ImGui_ImplSDL3_SetGamepadMode(ImGui_ImplSDL3_GamepadMode mode,SDL_Gamepad** manual_gamepads_array,int manual_gamepads_count);
 
 #endif
+#ifdef CIMGUI_USE_SDLRENDERER2
+#ifdef CIMGUI_DEFINE_ENUMS_AND_STRUCTS
+
+typedef struct SDL_Renderer SDL_Renderer;
+struct SDL_Renderer;
+typedef struct ImGui_ImplSDLRenderer2_RenderState ImGui_ImplSDLRenderer2_RenderState;
+struct ImGui_ImplSDLRenderer2_RenderState
+{
+    SDL_Renderer* Renderer;
+};
+#endif //CIMGUI_DEFINE_ENUMS_AND_STRUCTS
+CIMGUI_API bool ImGui_ImplSDLRenderer2_Init(SDL_Renderer* renderer);
+CIMGUI_API void ImGui_ImplSDLRenderer2_Shutdown(void);
+CIMGUI_API void ImGui_ImplSDLRenderer2_NewFrame(void);
+CIMGUI_API void ImGui_ImplSDLRenderer2_RenderDrawData(ImDrawData* draw_data,SDL_Renderer* renderer);
+CIMGUI_API void ImGui_ImplSDLRenderer2_CreateDeviceObjects(void);
+CIMGUI_API void ImGui_ImplSDLRenderer2_DestroyDeviceObjects(void);
+CIMGUI_API void ImGui_ImplSDLRenderer2_UpdateTexture(ImTextureData* tex);
+
+#endif
+#ifdef CIMGUI_USE_SDLRENDERER3
+#ifdef CIMGUI_DEFINE_ENUMS_AND_STRUCTS
+
+typedef struct SDL_Renderer SDL_Renderer;
+struct SDL_Renderer;
+typedef struct ImGui_ImplSDLRenderer3_RenderState ImGui_ImplSDLRenderer3_RenderState;
+struct ImGui_ImplSDLRenderer3_RenderState
+{
+    SDL_Renderer* Renderer;
+};
+#endif //CIMGUI_DEFINE_ENUMS_AND_STRUCTS
+CIMGUI_API bool ImGui_ImplSDLRenderer3_Init(SDL_Renderer* renderer);
+CIMGUI_API void ImGui_ImplSDLRenderer3_Shutdown(void);
+CIMGUI_API void ImGui_ImplSDLRenderer3_NewFrame(void);
+CIMGUI_API void ImGui_ImplSDLRenderer3_RenderDrawData(ImDrawData* draw_data,SDL_Renderer* renderer);
+CIMGUI_API void ImGui_ImplSDLRenderer3_CreateDeviceObjects(void);
+CIMGUI_API void ImGui_ImplSDLRenderer3_DestroyDeviceObjects(void);
+CIMGUI_API void ImGui_ImplSDLRenderer3_UpdateTexture(ImTextureData* tex);
+
+#endif
 #ifdef CIMGUI_USE_VULKAN
 #ifdef CIMGUI_DEFINE_ENUMS_AND_STRUCTS
 

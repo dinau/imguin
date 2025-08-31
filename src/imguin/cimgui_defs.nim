@@ -113,11 +113,12 @@ type
     ImGui_TabBarFlags_NoCloseWithMiddleMouseButton = 8,
     ImGui_TabBarFlags_NoTabListScrollingButtons = 16,
     ImGui_TabBarFlags_NoTooltip = 32, ImGui_TabBarFlags_DrawSelectedOverline = 64,
-    ImGui_TabBarFlags_FittingPolicyResizeDown = 128,
-    ImGui_TabBarFlags_FittingPolicyScroll = 256,
-    ImGui_TabBarFlags_FittingPolicyMask_private = 384
+    ImGui_TabBarFlags_FittingPolicyMixed = 128,
+    ImGui_TabBarFlags_FittingPolicyShrink = 256,
+    ImGui_TabBarFlags_FittingPolicyScroll = 512,
+    ImGui_TabBarFlags_FittingPolicyMask_private = 896
 const
-  ImGuiTabBarFlags_FittingPolicyDefault_private* = enum_ImGuiTabBarFlags_private.ImGuiTabBarFlags_FittingPolicyResizeDown
+  ImGuiTabBarFlags_FittingPolicyDefault_private* = enum_ImGuiTabBarFlags_private.ImGuiTabBarFlags_FittingPolicyMixed
 type
   enum_ImGuiTabItemFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_TabItemFlags_None = 0, ImGui_TabItemFlags_UnsavedDocument = 1,
@@ -322,16 +323,17 @@ type
     ImGui_StyleVar_ScrollbarSize = 18, ImGui_StyleVar_ScrollbarRounding = 19,
     ImGui_StyleVar_GrabMinSize = 20, ImGui_StyleVar_GrabRounding = 21,
     ImGui_StyleVar_ImageBorderSize = 22, ImGui_StyleVar_TabRounding = 23,
-    ImGui_StyleVar_TabBorderSize = 24, ImGui_StyleVar_TabBarBorderSize = 25,
-    ImGui_StyleVar_TabBarOverlineSize = 26,
-    ImGui_StyleVar_TableAngledHeadersAngle = 27,
-    ImGui_StyleVar_TableAngledHeadersTextAlign = 28,
-    ImGui_StyleVar_TreeLinesSize = 29, ImGui_StyleVar_TreeLinesRounding = 30,
-    ImGui_StyleVar_ButtonTextAlign = 31, ImGui_StyleVar_SelectableTextAlign = 32,
-    ImGui_StyleVar_SeparatorTextBorderSize = 33,
-    ImGui_StyleVar_SeparatorTextAlign = 34,
-    ImGui_StyleVar_SeparatorTextPadding = 35,
-    ImGui_StyleVar_DockingSeparatorSize = 36, ImGui_StyleVar_COUNT = 37
+    ImGui_StyleVar_TabBorderSize = 24, ImGui_StyleVar_TabMinWidthBase = 25,
+    ImGui_StyleVar_TabMinWidthShrink = 26, ImGui_StyleVar_TabBarBorderSize = 27,
+    ImGui_StyleVar_TabBarOverlineSize = 28,
+    ImGui_StyleVar_TableAngledHeadersAngle = 29,
+    ImGui_StyleVar_TableAngledHeadersTextAlign = 30,
+    ImGui_StyleVar_TreeLinesSize = 31, ImGui_StyleVar_TreeLinesRounding = 32,
+    ImGui_StyleVar_ButtonTextAlign = 33, ImGui_StyleVar_SelectableTextAlign = 34,
+    ImGui_StyleVar_SeparatorTextBorderSize = 35,
+    ImGui_StyleVar_SeparatorTextAlign = 36,
+    ImGui_StyleVar_SeparatorTextPadding = 37,
+    ImGui_StyleVar_DockingSeparatorSize = 38, ImGui_StyleVar_COUNT = 39
 type
   enum_ImGuiButtonFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_ButtonFlags_None = 0, ImGui_ButtonFlags_MouseButtonLeft = 1,
@@ -1433,7 +1435,8 @@ type
     Descent*: cfloat
     MetricsTotalSurface* {.bitsize: 26'i64.}: cuint
     WantDestroy* {.bitsize: 1'i64.}: cuint
-    LockLoadingFallback* {.bitsize: 1'i64.}: cuint
+    LoadNoFallback* {.bitsize: 1'i64.}: cuint
+    LoadNoRenderOnLayout* {.bitsize: 1'i64.}: cuint
     LastUsedFrame*: cint
     BakedId*: ImGuiID
     ContainerFont*: ptr ImFont
@@ -1447,9 +1450,9 @@ type
     MergeMode*: bool
     PixelSnapH*: bool
     PixelSnapV*: bool
-    FontNo*: ImS8
     OversampleH*: ImS8
     OversampleV*: ImS8
+    EllipsisChar*: ImWchar
     SizePixels*: cfloat
     GlyphRanges*: ptr ImWchar
     GlyphExcludeRanges*: ptr ImWchar
@@ -1457,10 +1460,10 @@ type
     GlyphMinAdvanceX*: cfloat
     GlyphMaxAdvanceX*: cfloat
     GlyphExtraAdvanceX*: cfloat
+    FontNo*: ImU32
     FontLoaderFlags*: cuint
     RasterizerMultiply*: cfloat
     RasterizerDensity*: cfloat
-    EllipsisChar*: ImWchar
     Flags*: ImFontFlags
     DstFont*: ptr ImFont
     FontLoader*: ptr ImFontLoader
@@ -1494,7 +1497,7 @@ type
     FontSrcContainsGlyph*: proc (a0: ptr ImFontAtlas; a1: ptr ImFontConfig; a2: ImWchar): bool {.cdecl.}
     FontBakedInit*: proc (a0: ptr ImFontAtlas; a1: ptr ImFontConfig; a2: ptr ImFontBaked; a3: pointer): bool {.cdecl.}
     FontBakedDestroy*: proc (a0: ptr ImFontAtlas; a1: ptr ImFontConfig; a2: ptr ImFontBaked; a3: pointer): void {.cdecl.}
-    FontBakedLoadGlyph*: proc (a0: ptr ImFontAtlas; a1: ptr ImFontConfig; a2: ptr ImFontBaked; a3: pointer; a4: ImWchar; a5: ptr ImFontGlyph): bool {.cdecl.}
+    FontBakedLoadGlyph*: proc (a0: ptr ImFontAtlas; a1: ptr ImFontConfig; a2: ptr ImFontBaked; a3: pointer; a4: ImWchar; a5: ptr ImFontGlyph; a6: ptr cfloat): bool {.cdecl.}
     FontBakedSrcLoaderDataSize*: csize_t
   ImTextureData* = struct_ImTextureData
   struct_ImTextureData* {.pure, inheritable, bycopy.} = object
@@ -1576,7 +1579,7 @@ type
     WheelingWindowReleaseTimer*: cfloat
     WheelingWindowWheelRemainder*: ImVec2
     WheelingAxisAvg*: ImVec2
-    DebugDrawIdConflicts*: ImGuiID
+    DebugDrawIdConflictsId*: ImGuiID
     DebugHookIdInfo*: ImGuiID
     HoveredId*: ImGuiID
     HoveredIdPreviousFrame*: ImGuiID
@@ -1596,6 +1599,7 @@ type
     ActiveIdHasBeenEditedBefore*: bool
     ActiveIdHasBeenEditedThisFrame*: bool
     ActiveIdFromShortcut*: bool
+    ActiveIdDisabledId*: ImGuiID
     ActiveIdMouseButton* {.bitsize: 8'i64.}: cint
     ActiveIdClickOffset*: ImVec2
     ActiveIdWindow*: ptr ImGuiWindow
@@ -1872,6 +1876,7 @@ type
     ConfigViewportsNoTaskBarIcon*: bool
     ConfigViewportsNoDecoration*: bool
     ConfigViewportsNoDefaultParent*: bool
+    ConfigViewportPlatformFocusSetsImGuiFocus*: bool
     ConfigDpiScaleFonts*: bool
     ConfigDpiScaleViewports*: bool
     MouseDrawCursor*: bool
@@ -2134,6 +2139,8 @@ type
     ImageBorderSize*: cfloat
     TabRounding*: cfloat
     TabBorderSize*: cfloat
+    TabMinWidthBase*: cfloat
+    TabMinWidthShrink*: cfloat
     TabCloseButtonMinWidthSelected*: cfloat
     TabCloseButtonMinWidthUnselected*: cfloat
     TabBarBorderSize*: cfloat
@@ -2577,6 +2584,7 @@ type
     CurrFrameVisible*: cint
     PrevFrameVisible*: cint
     BarRect*: ImRect
+    BarRectPrevWidth*: cfloat
     CurrTabsContentsHeight*: cfloat
     PrevTabsContentsHeight*: cfloat
     WidthAllTabs*: cfloat
@@ -2595,6 +2603,7 @@ type
     WantLayout*: bool
     VisibleTabWasSubmitted*: bool
     TabsAddedNew*: bool
+    ScrollButtonEnabled*: bool
     TabsActiveCount*: ImS16
     LastTabItemIdx*: ImS16
     ItemSpacingY*: cfloat
@@ -5350,6 +5359,7 @@ proc ImFontAtlas_AddFontFromMemoryCompressedBase85TTF*(self: ptr ImFontAtlas; co
 proc ImFontAtlas_RemoveFont*(self: ptr ImFontAtlas; font: ptr ImFont): void {.cdecl, importc: "ImFontAtlas_RemoveFont".}
 proc ImFontAtlas_Clear*(self: ptr ImFontAtlas): void {.cdecl, importc: "ImFontAtlas_Clear".}
 proc ImFontAtlas_CompactCache*(self: ptr ImFontAtlas): void {.cdecl, importc: "ImFontAtlas_CompactCache".}
+proc ImFontAtlas_SetFontLoader*(self: ptr ImFontAtlas; font_loader: ptr ImFontLoader): void {.cdecl, importc: "ImFontAtlas_SetFontLoader".}
 proc ImFontAtlas_ClearInputData*(self: ptr ImFontAtlas): void {.cdecl, importc: "ImFontAtlas_ClearInputData".}
 proc ImFontAtlas_ClearFonts*(self: ptr ImFontAtlas): void {.cdecl, importc: "ImFontAtlas_ClearFonts".}
 proc ImFontAtlas_ClearTexData*(self: ptr ImFontAtlas): void {.cdecl, importc: "ImFontAtlas_ClearTexData".}
@@ -5422,7 +5432,7 @@ proc igImParseFormatTrimDecorations*(format: cstring; buf: cstring; buf_size: cs
 proc igImParseFormatSanitizeForPrinting*(fmt_in: cstring; fmt_out: cstring; fmt_out_size: csize_t): void {.cdecl, importc: "igImParseFormatSanitizeForPrinting".}
 proc igImParseFormatSanitizeForScanning*(fmt_in: cstring; fmt_out: cstring; fmt_out_size: csize_t): cstring {.cdecl, importc: "igImParseFormatSanitizeForScanning".}
 proc igImParseFormatPrecision*(format: cstring; default_value: cint): cint {.cdecl, importc: "igImParseFormatPrecision".}
-proc igImTextCharToUtf8*(out_buf: array[5'i64, cschar]; c: cuint): cstring {.cdecl, importc: "igImTextCharToUtf8".}
+proc igImTextCharToUtf8*(out_buf: array[5'i64, cschar]; c: cuint): cint {.cdecl, importc: "igImTextCharToUtf8".}
 proc igImTextStrToUtf8*(out_buf: cstring; out_buf_size: cint; in_text: ptr ImWchar; in_text_end: ptr ImWchar): cint {.cdecl, importc: "igImTextStrToUtf8".}
 proc igImTextCharFromUtf8*(out_char: ptr cuint; in_text: cstring; in_text_end: cstring): cint {.cdecl, importc: "igImTextCharFromUtf8".}
 proc igImTextStrFromUtf8*(out_buf: ptr ImWchar; out_buf_size: cint; in_text: cstring; in_text_end: cstring; in_remaining: ptr cstring): cint {.cdecl, importc: "igImTextStrFromUtf8".}
@@ -5743,6 +5753,7 @@ proc igUpdateHoveredWindowAndCaptureFlags*(mouse_pos: ImVec2): void {.cdecl, imp
 proc igFindHoveredWindowEx*(pos: ImVec2; find_first_and_in_any_viewport: bool; out_hovered_window: ptr ptr ImGuiWindow; out_hovered_window_under_moving_window: ptr ptr ImGuiWindow): void {.cdecl, importc: "igFindHoveredWindowEx".}
 proc igStartMouseMovingWindow*(window: ptr ImGuiWindow): void {.cdecl, importc: "igStartMouseMovingWindow".}
 proc igStartMouseMovingWindowOrNode*(window: ptr ImGuiWindow; node: ptr ImGuiDockNode; undock: bool): void {.cdecl, importc: "igStartMouseMovingWindowOrNode".}
+proc igStopMouseMovingWindow*(): void {.cdecl, importc: "igStopMouseMovingWindow".}
 proc igUpdateMouseMovingWindowNewFrame*(): void {.cdecl, importc: "igUpdateMouseMovingWindowNewFrame".}
 proc igUpdateMouseMovingWindowEndFrame*(): void {.cdecl, importc: "igUpdateMouseMovingWindowEndFrame".}
 proc igAddContextHook*(context: ptr ImGuiContext; hook: ptr ImGuiContextHook): ImGuiID {.cdecl, importc: "igAddContextHook".}
@@ -5799,7 +5810,7 @@ proc igSetLastItemData*(item_id: ImGuiID; item_flags: ImGuiItemFlags; status_fla
 proc igCalcItemSize*(pOut: ptr ImVec2; size: ImVec2; default_w: cfloat; default_h: cfloat): void {.cdecl, importc: "igCalcItemSize".}
 proc igCalcWrapWidthForPos*(pos: ImVec2; wrap_pos_x: cfloat): cfloat {.cdecl, importc: "igCalcWrapWidthForPos".}
 proc igPushMultiItemsWidths*(components: cint; width_full: cfloat): void {.cdecl, importc: "igPushMultiItemsWidths".}
-proc igShrinkWidths*(items: ptr ImGuiShrinkWidthItem; count: cint; width_excess: cfloat): void {.cdecl, importc: "igShrinkWidths".}
+proc igShrinkWidths*(items: ptr ImGuiShrinkWidthItem; count: cint; width_excess: cfloat; width_min: cfloat): void {.cdecl, importc: "igShrinkWidths".}
 proc igGetStyleVarInfo*(idx: ImGuiStyleVar): ptr ImGuiStyleVarInfo {.cdecl, importc: "igGetStyleVarInfo".}
 proc igBeginDisabledOverrideReenable*(): void {.cdecl, importc: "igBeginDisabledOverrideReenable".}
 proc igEndDisabledOverrideReenable*(): void {.cdecl, importc: "igEndDisabledOverrideReenable".}
@@ -6188,6 +6199,7 @@ proc igImFontAtlasBakedGetClosestMatch*(atlas: ptr ImFontAtlas; font: ptr ImFont
 proc igImFontAtlasBakedAdd*(atlas: ptr ImFontAtlas; font: ptr ImFont; font_size: cfloat; font_rasterizer_density: cfloat; baked_id: ImGuiID): ptr ImFontBaked {.cdecl, importc: "igImFontAtlasBakedAdd".}
 proc igImFontAtlasBakedDiscard*(atlas: ptr ImFontAtlas; font: ptr ImFont; baked: ptr ImFontBaked): void {.cdecl, importc: "igImFontAtlasBakedDiscard".}
 proc igImFontAtlasBakedAddFontGlyph*(atlas: ptr ImFontAtlas; baked: ptr ImFontBaked; src: ptr ImFontConfig; in_glyph: ptr ImFontGlyph): ptr ImFontGlyph {.cdecl, importc: "igImFontAtlasBakedAddFontGlyph".}
+proc igImFontAtlasBakedAddFontGlyphAdvancedX*(atlas: ptr ImFontAtlas; baked: ptr ImFontBaked; src: ptr ImFontConfig; codepoint: ImWchar; advance_x: cfloat): void {.cdecl, importc: "igImFontAtlasBakedAddFontGlyphAdvancedX".}
 proc igImFontAtlasBakedDiscardFontGlyph*(atlas: ptr ImFontAtlas; font: ptr ImFont; baked: ptr ImFontBaked; glyph: ptr ImFontGlyph): void {.cdecl, importc: "igImFontAtlasBakedDiscardFontGlyph".}
 proc igImFontAtlasBakedSetFontGlyphBitmap*(atlas: ptr ImFontAtlas; baked: ptr ImFontBaked; src: ptr ImFontConfig; glyph: ptr ImFontGlyph; r: ptr ImTextureRect; src_pixels: ptr uint8; src_fmt: ImTextureFormat; src_pitch: cint): void {.cdecl, importc: "igImFontAtlasBakedSetFontGlyphBitmap".}
 proc igImFontAtlasPackInit*(atlas: ptr ImFontAtlas): void {.cdecl, importc: "igImFontAtlasPackInit".}

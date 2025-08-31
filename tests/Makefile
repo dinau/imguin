@@ -10,6 +10,7 @@ all:
 
 clean:
 	@-rm -f $(TARGET)$(EXE)
+	@-rm -fr .nimcache
 
 run: all
 	./$(TARGET)$(EXE)

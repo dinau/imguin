@@ -19,7 +19,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
           sudo apt-get update
-          sudo apt-get install --fix-missing libopengl-dev libgl1-mesa-dev libglfw3 libglfw3-dev libsdl2-dev
+          sudo apt-get install --fix-missing libopengl-dev libgl1-mesa-dev libglfw3-dev libsdl2-dev
       - run: |
           nimble install
           nimble make

@@ -18,7 +18,7 @@
 
 ![alt](https://github.com/dinau/imguin/actions/workflows/windows.yml/badge.svg)  ![alt](https://github.com/dinau/imguin/actions/workflows/linux.yml/badge.svg)
 
-Updated to latest [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui) version: : **v1.92.0 dock** (2025/08)
+Updated to latest [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui) version: : **v1.92.2b dock** (2025/08)
 
 This project is Dear ImGui wrapper library for Nim language [^notice].
 
@@ -44,12 +44,17 @@ Note: See examples project  [ImGuin_examples](https://github.com/dinau/imguin_ex
 - [Nim-2.0.16](https://nim-lang.org) or later
 - Windows10 or later  
 [MSys2/MinGW](https://www.msys2.org/) command line tools (Unix tools), make, cp, rm, git, ...etc
+
+  ```sh
+  pacman -S mingw-w64-x86_64-{gcc,glfw} make
+  ```
+
 - Linux: Ubuntu / Debian families 
 
   ```sh
-  $ sudo apt install gcc g++ make git 
+  $ sudo apt install gcc make git 
   $ sudo apt install libopengl-dev libgl1-mesa-dev
-  $ sudo apt install libglfw3 libglfw3-dev libsdl2-dev
+  $ sudo apt install libglfw3-dev libsdl2-dev
   ```
 
 #### Install
@@ -83,12 +88,12 @@ Library name / C lang. wrapper
 
 ---
 
-   |                             | GLFW  [^fed] | SDL2  [^fed] | SDL3  [^fed] |
-   | -------------------         | :----:       | :---:        | :----:       |
-   | OpenGL3 backend             | v            | v            | v            |
-   | SDL2 backend                | -            | v            | -            |
-   | SDL3 GPU / Renderer backend | -            | -            | v            |
-   | Vulkan backend              | ?            | ?            | ?            |
+   |                                     | GLFW   | SDL2  | SDL3   |
+   | -------------------                 | :----: | :---: | :----: |
+   | OpenGL3 backend                     | v      | v     | v      |
+   | SDL2 backend                        | -      | v     | -      |
+   | SDL3 **GPU** / **Renderer** backend | -      | -     | v      |
+   | Vulkan backend                      | ?      | ?     | ?      |
 
 [^fed]: Front end
 
@@ -176,6 +181,7 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
+   | 1.92.2b dock      | 1.92.2.0    | 2025/08 | OK                      |
    | 1.92.0 dock       | 1.92.0.2    | 2025/08 | OK                      |
    | 1.92.0 dock       | 1.92.0.1    | 2025/07 | OK                      |
    | 1.91.9b dock      | 1.91.9.4    | 2025/06 | OK                      |
@@ -219,7 +225,7 @@ Windows11 (main)
 - **GCC (Rev1, Built by MSYS2 project) 15.1.0**
 
    ```sh
-   pacman -S mingw-w64-ucrt-x86_64-gcc
+   pacman -S mingw-w64-x86_64-{gcc,glfw,SDL2,sdl3} make
    ```
 
 - Clang version 20.1.7
