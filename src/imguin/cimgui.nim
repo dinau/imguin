@@ -34,6 +34,9 @@ const CImSpinnerPath       = joinPath(currentSourceDir(),"private/imspinner").re
 const CImCTEPath               = joinPath(currentSourceDir(),"private/cimCTE").replace("\\", "/")
 const ImGuiColorTextEditPath   = joinPath(currentSourceDir(),"private/cimCTE/ImGuiColorTextEdit").replace("\\", "/")
 #
+const CImGuiTextSelectPath     = joinPath(currentSourceDir(),"private/CImGuiTextSelect").replace("\\", "/")
+const ImGuiTextSelectPath      = joinPath(currentSourceDir(),"private/CImGuiTextSelect/ImGuiTextSelect").replace("\\", "/")
+#
 const IconFontPath         = joinPath(currentSourceDir(),"private/fonticon").replace("\\", "/")
 
 #--- Futhark start
@@ -51,6 +54,7 @@ when defined(useFuthark): # Generate header files with Futhark.
     path    CImGuiTogglePath
     path    CImSpinnerPath
     path    CImCTEPath
+    path    CImGuiTextSelectPath
     #path    IconFontPath
     #define "IMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
     #define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
@@ -65,6 +69,7 @@ when defined(useFuthark): # Generate header files with Futhark.
     define "IMSPINNER_DEMO"
     "cimspinner.h"
     "cimCTE.h"
+    "ctextselect.h"
     #
     "cimnodes.h"
     "cimguizmo.h"
@@ -192,3 +197,9 @@ else: # Use generated header by Futark in your programs.
     {.compile:joinPath(ImGuiColorTextEditPath,"LanguageDefinitions.cpp").replace("\\", "/").}
     {.compile:joinPath(ImGuiColorTextEditPath,"TextEditor.cpp").replace("\\", "/").}
     {.compile:joinPath(ImGuiColorTextEditPath,"UnitTests.cpp").replace("\\", "/").}
+
+  when defined(ImGuiTextSelectEnable) or defined(ImGuiTextSelect) :
+    {.passC:"-I" & CImGuiTextSelectPath.}
+    {.passC:"-I" & ImGuiTextSelectPath.}
+    {.compile:joinPath(CImGuiTextSelectPath,"ctextselect.cpp").replace("\\", "/").}
+    {.compile:joinPath(ImGuiTextSelectPath,"textselect.cpp").replace("\\", "/").}

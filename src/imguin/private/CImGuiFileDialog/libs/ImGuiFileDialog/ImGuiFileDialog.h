@@ -22,7 +22,7 @@ https://patorjk.com/software/taag/#p=display&h=1&v=0&f=Big&t=ImGuiFileDialog%0Av
 
 MIT License
 
-Copyright (c) 2018-2025 Stephane Cuillerdier (aka aiekick)
+Copyright (c) 2018-2024 Stephane Cuillerdier (aka aiekick)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -46,7 +46,7 @@ SOFTWARE.
 #pragma once
 
 #define IGFD_VERSION "v0.6.8"
-#define IGFD_IMGUI_SUPPORTED_VERSION "1.92.0 WIP"
+#define IGFD_IMGUI_SUPPORTED_VERSION "1.90.5 WIP"
 
 // Config file
 #ifndef CUSTOM_IMGUIFILEDIALOG_CONFIG
@@ -83,28 +83,27 @@ enum IGFD_FileStyleFlags_         // by evaluation / priority order
 
 typedef int ImGuiFileDialogFlags;  // -> enum ImGuiFileDialogFlags_
 enum ImGuiFileDialogFlags_ {
-    ImGuiFileDialogFlags_None = 0,                                      // define none default flag
-    ImGuiFileDialogFlags_ConfirmOverwrite = (1 << 0),                   // show confirm to overwrite dialog
-    ImGuiFileDialogFlags_DontShowHiddenFiles = (1 << 1),                // dont show hidden file (file starting with a .)
-    ImGuiFileDialogFlags_DisableCreateDirectoryButton = (1 << 2),       // disable the create directory button
-    ImGuiFileDialogFlags_HideColumnType = (1 << 3),                     // hide column file type
-    ImGuiFileDialogFlags_HideColumnSize = (1 << 4),                     // hide column file size
-    ImGuiFileDialogFlags_HideColumnDate = (1 << 5),                     // hide column file date
-    ImGuiFileDialogFlags_NoDialog = (1 << 6),                           // let the dialog embedded in your own imgui begin / end scope
-    ImGuiFileDialogFlags_ReadOnlyFileNameField = (1 << 7),              // don't let user type in filename field for file open style dialogs
-    ImGuiFileDialogFlags_CaseInsensitiveExtentionFiltering = (1 << 8),  // the file extentions filtering will not take into account the case
-    ImGuiFileDialogFlags_Modal = (1 << 9),                              // modal
-    ImGuiFileDialogFlags_DisableThumbnailMode = (1 << 10),              // disable the thumbnail mode
-    ImGuiFileDialogFlags_DisablePlaceMode = (1 << 11),                  // disable the place mode
-    ImGuiFileDialogFlags_DisableQuickPathSelection = (1 << 12),         // disable the quick path selection
-    ImGuiFileDialogFlags_ShowDevicesButton = (1 << 13),                 // show the devices selection button
-    ImGuiFileDialogFlags_NaturalSorting = (1 << 14),                    // enable the antural sorting for filenames and extentions, slower than standard sorting
-    ImGuiFileDialogFlags_OptionalFileName = (1 << 15),                  // the input filename is optional, so the dialog can be validated even if the filebname input is empty
+    ImGuiFileDialogFlags_None                              = 0,          // define none default flag
+    ImGuiFileDialogFlags_ConfirmOverwrite                  = (1 << 0),   // show confirm to overwrite dialog
+    ImGuiFileDialogFlags_DontShowHiddenFiles               = (1 << 1),   // dont show hidden file (file starting with a .)
+    ImGuiFileDialogFlags_DisableCreateDirectoryButton      = (1 << 2),   // disable the create directory button
+    ImGuiFileDialogFlags_HideColumnType                    = (1 << 3),   // hide column file type
+    ImGuiFileDialogFlags_HideColumnSize                    = (1 << 4),   // hide column file size
+    ImGuiFileDialogFlags_HideColumnDate                    = (1 << 5),   // hide column file date
+    ImGuiFileDialogFlags_NoDialog                          = (1 << 6),   // let the dialog embedded in your own imgui begin / end scope
+    ImGuiFileDialogFlags_ReadOnlyFileNameField             = (1 << 7),   // don't let user type in filename field for file open style dialogs
+    ImGuiFileDialogFlags_CaseInsensitiveExtentionFiltering = (1 << 8),   // the file extentions filtering will not take into account the case
+    ImGuiFileDialogFlags_Modal                             = (1 << 9),   // modal
+    ImGuiFileDialogFlags_DisableThumbnailMode              = (1 << 10),  // disable the thumbnail mode
+    ImGuiFileDialogFlags_DisablePlaceMode                  = (1 << 11),  // disable the place mode
+    ImGuiFileDialogFlags_DisableQuickPathSelection         = (1 << 12),  // disable the quick path selection
+    ImGuiFileDialogFlags_ShowDevicesButton                 = (1 << 13),  // show the devices selection button
+    ImGuiFileDialogFlags_NaturalSorting                    = (1 << 14),  // enable the antural sorting for filenames and extentions, slower than standard sorting
 
     // default behavior when no flags is defined. seems to be the more common cases
     ImGuiFileDialogFlags_Default = ImGuiFileDialogFlags_ConfirmOverwrite |  //
-        ImGuiFileDialogFlags_Modal |                                        //
-        ImGuiFileDialogFlags_HideColumnType
+                                   ImGuiFileDialogFlags_Modal |             //
+                                   ImGuiFileDialogFlags_HideColumnType
 };
 
 // flags used for GetFilePathName(flag) or GetSelection(flag)
@@ -314,7 +313,6 @@ class IGFD_API FileInfos;
 class IGFD_API FileDialogInternal;
 
 class IGFD_API Utils {
-    friend class TestUtils;
 public:
     struct PathStruct {
         std::string path;
@@ -341,7 +339,11 @@ public:
     static std::string FormatFileSize(size_t vByteSize);                                                                // format file size field
     static bool NaturalCompare(const std::string& vA, const std::string& vB, bool vInsensitiveCase, bool vDescending);  // natural sorting
 
+#ifdef NEED_TO_BE_PUBLIC_FOR_TESTS
+public:
+#else
 private:
+#endif
     static bool M_IsAValidCharExt(const char& c);
     static bool M_IsAValidCharSuffix(const char& c);
     static bool M_ExtractNumFromStringAtPos(const std::string& str, size_t& pos, double& vOutNum);
@@ -401,8 +403,11 @@ public:
 };
 
 class IGFD_API FilterManager {
-    friend class TestFilterManager;
+#ifdef NEED_TO_BE_PUBLIC_FOR_TESTS
+public:
+#else
 private:
+#endif
     std::vector<FilterInfos> m_ParsedFilters;
     std::unordered_map<IGFD_FileStyleFlags, std::unordered_map<std::string, std::shared_ptr<FileStyle> > > m_FilesStyle;  // file infos for file
                                                                                                                           // extention only
@@ -530,7 +535,6 @@ public:
 };
 
 class IGFD_API FileManager {
-    friend class TestFileManager;
 public:                            // types
     enum class SortingFieldEnum {  // sorting for filetering of the file lsit
         FIELD_NONE = 0,            // no sorting reference, result indetermined haha..
@@ -541,7 +545,11 @@ public:                            // types
         FIELD_THUMBNAILS,          // sorted by thumbnails (comparaison by width then by height)
     };
 
+#ifdef NEED_TO_BE_PUBLIC_FOR_TESTS
+public:
+#else
 private:
+#endif
     std::string m_CurrentPath;                                    // current path (to be decomposed in m_CurrentPathDecomposition
     std::vector<std::string> m_CurrentPathDecomposition;          // part words
     std::vector<std::shared_ptr<FileInfos> > m_FileList;          // base container
@@ -585,7 +593,11 @@ public:
 
     std::string fsRoot;
 
+#ifdef NEED_TO_BE_PUBLIC_FOR_TESTS
+public:
+#else
 private:
+#endif
     static void m_CompleteFileInfos(const std::shared_ptr<FileInfos>& vInfos);                    // set time and date infos of a file (detail view mode)
     void m_RemoveFileNameInSelection(const std::string& vFileName);                               // selection : remove a file name
     void m_AddFileNameInSelection(const std::string& vFileName, bool vSetLastSelectionFileName);  // selection : add a file name
@@ -883,7 +895,6 @@ protected:
     ImGuiWindowFlags m_CurrentDisplayedFlags;
 
 public:
-#ifndef NEW_SINGLETON
     // Singleton for easier accces form anywhere but only one dialog at a time
     // vCopy or vForce can be used for share a memory pointer in a new memory space like a dll module
     static FileDialog* Instance(FileDialog* vCopy = nullptr, bool vForce = false) {
@@ -897,28 +908,6 @@ public:
         }
         return &_instance;
     }
-#else   // NEW_SINGLETON
-    static std::unique_ptr<FileDialog>& initSingleton(FileDialog* vCopy = nullptr, bool vForce = false) {
-        static auto mp_instance = std::unique_ptr<FileDialog>(new FileDialog());
-        static std::unique_ptr<FileDialog> mp_instance_copy;
-        if (vCopy != nullptr || vForce) {
-            if (vCopy != nullptr) {
-                mp_instance_copy = std::unique_ptr<FileDialog>(vCopy);
-            } else {
-                mp_instance_copy.release();  // frees the internal borrowed pointer without deletion
-            }
-        }
-        if (mp_instance_copy != nullptr) {
-            return mp_instance_copy;
-        }
-        return mp_instance;
-    }
-    static FileDialog& ref() { return *initSingleton().get(); }
-    static void unitSingleton() {
-        initSingleton(nullptr, true); // frees the borrowed pointer in case
-        initSingleton().reset(); // else the reset with destroy the borrowed pointer
-    }
-#endif  // NEW_SINGLETON
 
 public:
     FileDialog();           // ImGuiFileDialog Constructor. can be used for have many dialog at same time (not possible with singleton)
@@ -1004,9 +993,8 @@ protected:
     virtual bool m_DrawOkButton();                  // draw ok button
     virtual bool m_DrawCancelButton();              // draw cancel button
     virtual void m_DrawSidePane(float vHeight);     // draw side pane
-    virtual bool m_Selectable(int vRowIdx, const char* vLabel, bool vSelected, ImGuiSelectableFlags vFlags, const ImVec2& vSizeArg);
-    virtual void m_SelectableItem(int vRowIdx, std::shared_ptr<FileInfos> vInfos, bool vSelected, const char* vFmt, ...);  // draw a custom selectable behavior item
-    virtual void m_drawColumnText(int vColIdx, const char* vLabel, bool vSelected, bool vHovered);
+    virtual void m_SelectableItem(int vidx, std::shared_ptr<FileInfos> vInfos, bool vSelected, const char* vFmt,
+                                  ...);             // draw a custom selectable behavior item
     virtual void m_DrawFileListView(ImVec2 vSize);  // draw file list view (default mode)
 
 #ifdef USE_THUMBNAILS

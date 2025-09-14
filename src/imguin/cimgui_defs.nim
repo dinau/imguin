@@ -1224,8 +1224,7 @@ type
     ImGui_FileDialogFlags_DisablePlaceMode = 2048,
     ImGui_FileDialogFlags_DisableQuickPathSelection = 4096,
     ImGui_FileDialogFlags_ShowDevicesButton = 8192,
-    ImGui_FileDialogFlags_NaturalSorting = 16384,
-    ImGui_FileDialogFlags_OptionalFileName = 32768
+    ImGui_FileDialogFlags_NaturalSorting = 16384
 type
   enum_IGFD_ResultMode_private* {.size: sizeof(cuint).} = enum
     IGFD_ResultMode_AddIfNoFileExt = 0, IGFD_ResultMode_OverwriteFileExt = 1,
@@ -1271,6 +1270,8 @@ type
   struct_ImNodesContext* = object
 type
   struct_STB_TexteditState* = object
+type
+  struct_TextSelect* = object
 type
   ImDrawChannel* = struct_ImDrawChannel
   struct_ImDrawChannel* {.pure, inheritable, bycopy.} = object
@@ -4423,6 +4424,9 @@ type
   PaletteId* = enum_PaletteId
   LanguageDefinitionId* = enum_LanguageDefinitionId
   SetViewAtLineMode* = enum_SetViewAtLineMode
+  TextSelect* = struct_TextSelect
+  GetLineAtIdxFn* = proc (a0: csize_t; a1: pointer; a2: ptr csize_t): cstring {.cdecl.}
+  GetNumLinesFn* = proc (a0: pointer): csize_t {.cdecl.}
   ImNodesContext* = struct_ImNodesContext
   ImNodesEditorContext* = struct_ImNodesEditorContext
   ImNodesCol* = cint
@@ -4596,11 +4600,11 @@ when "v0.6.8" is static:
     IGFD_VERSION* = "v0.6.8"
 else:
   let IGFD_VERSION* = "v0.6.8"
-when "1.92.0 WIP" is static:
+when "1.90.5 WIP" is static:
   const
-    IGFD_IMGUI_SUPPORTED_VERSION* = "1.92.0 WIP"
+    IGFD_IMGUI_SUPPORTED_VERSION* = "1.90.5 WIP"
 else:
-  let IGFD_IMGUI_SUPPORTED_VERSION* = "1.92.0 WIP"
+  let IGFD_IMGUI_SUPPORTED_VERSION* = "1.90.5 WIP"
 when 1.618033988749895 is static:
   const
     ImGui_ToggleConstants_Phi* = 1.618033988749895
@@ -7464,6 +7468,13 @@ proc TextEditor_GetText_free*(ptr_arg: cstring): void {.cdecl, importc: "TextEdi
 proc TextEditor_GetText_static*(self: ptr TextEditor): cstring {.cdecl, importc: "TextEditor_GetText_static".}
 proc TextEditor_GetText*(self: ptr TextEditor): cstring {.cdecl, importc: "TextEditor_GetText".}
 proc TextEditor_ImGuiDebugPanel*(self: ptr TextEditor; panelName: cstring): void {.cdecl, importc: "TextEditor_ImGuiDebugPanel".}
+proc textselect_create*(getLineAtIdx: GetLineAtIdxFn; getNumLines: GetNumLinesFn; userdata: pointer; enableWordWrap: cint): ptr TextSelect {.cdecl, importc: "textselect_create".}
+proc textselect_destroy*(ts: ptr TextSelect): void {.cdecl, importc: "textselect_destroy".}
+proc textselect_has_selection*(ts: ptr TextSelect): cint {.cdecl, importc: "textselect_has_selection".}
+proc textselect_copy*(ts: ptr TextSelect): void {.cdecl, importc: "textselect_copy".}
+proc textselect_select_all*(ts: ptr TextSelect): void {.cdecl, importc: "textselect_select_all".}
+proc textselect_update*(ts: ptr TextSelect): void {.cdecl, importc: "textselect_update".}
+proc textselect_clear_selection*(ts: ptr TextSelect): void {.cdecl, importc: "textselect_clear_selection".}
 proc EmulateThreeButtonMouse_EmulateThreeButtonMouse*(): ptr EmulateThreeButtonMouse {.cdecl, importc: "EmulateThreeButtonMouse_EmulateThreeButtonMouse".}
 proc EmulateThreeButtonMouse_destroy*(self: ptr EmulateThreeButtonMouse): void {.cdecl, importc: "EmulateThreeButtonMouse_destroy".}
 proc LinkDetachWithModifierClick_LinkDetachWithModifierClick*(): ptr LinkDetachWithModifierClick {.cdecl, importc: "LinkDetachWithModifierClick_LinkDetachWithModifierClick".}

@@ -1975,13 +1975,11 @@ bool IGFD::FileManager::m_CompleteFileInfosWithUserFileAttirbutes(const FileDial
 void IGFD::FileManager::ClearFileLists() {
     m_FilteredFileList.clear();
     m_FileList.clear();
-    m_SelectedFileNames.clear();
 }
 
 void IGFD::FileManager::ClearPathLists() {
     m_FilteredPathList.clear();
     m_PathList.clear();
-    m_SelectedFileNames.clear();
 }
 
 void IGFD::FileManager::m_AddFile(const FileDialogInternal& vFileDialogInternal, const std::string& vPath, const std::string& vFileName, const FileType& vFileType) {
@@ -2713,23 +2711,16 @@ std::string IGFD::FileManager::GetResultingFilePathName(FileDialogInternal& vFil
 
 std::map<std::string, std::string> IGFD::FileManager::GetResultingSelection(FileDialogInternal& vFileDialogInternal, IGFD_ResultMode vFlag) {
     std::map<std::string, std::string> res;
-    const auto& result_path = GetResultingPath();
-    if (!m_SelectedFileNames.empty()) {
-        for (const auto& selectedFileName : m_SelectedFileNames) {
-            auto result = result_path;
+    for (const auto& selectedFileName : m_SelectedFileNames) {
+        auto result = GetResultingPath();
 #ifdef _IGFD_UNIX_
-            if (fsRoot != result)
+        if (fsRoot != result)
 #endif  // _IGFD_UNIX_
-            {
-                result += IGFD::Utils::GetPathSeparator();
-            }
-            result += vFileDialogInternal.filterManager.ReplaceExtentionWithCurrentFilterIfNeeded(selectedFileName, vFlag);
-            res[selectedFileName] = result;
+        {
+            result += IGFD::Utils::GetPathSeparator();
         }
-    } else {                                                     // opened directory with no selection
-        if (vFileDialogInternal.fileManager.dLGDirectoryMode) {  // directory mode
-            res["."] = result_path;
-        }
+        result += vFileDialogInternal.filterManager.ReplaceExtentionWithCurrentFilterIfNeeded(selectedFileName, vFlag);
+        res[selectedFileName] = result;
     }
     return res;
 }
@@ -3767,11 +3758,12 @@ bool IGFD::FileDialog::Display(const std::string& vKey, ImGuiWindowFlags vFlags,
         }
         m_FileDialogInternal.lastImGuiFrameCount = g.FrameCount;  // mark this instance as used this frame
 
-        m_CurrentDisplayedFlags = vFlags;
+        m_CurrentDisplayedFlags = ImGuiWindowFlags_None;
         std::string name        = m_FileDialogInternal.dLGtitle + "##" + m_FileDialogInternal.dLGkey;
         if (m_FileDialogInternal.name != name) {
             fdFile.ClearComposer();
             fdFile.ClearFileLists();
+            m_CurrentDisplayedFlags = vFlags;
         }
 
         m_NewFrame();
@@ -4026,8 +4018,7 @@ void IGFD::FileDialog::m_DisplayPathPopup(ImVec2 vSize) {
 
 bool IGFD::FileDialog::m_DrawOkButton() {
     auto& fdFile = m_FileDialogInternal.fileManager;
-    if (m_FileDialogInternal.canWeContinue && strlen(fdFile.fileNameBuffer) || //
-        m_FileDialogInternal.getDialogConfig().flags & ImGuiFileDialogFlags_OptionalFileName) { // optional
+    if (m_FileDialogInternal.canWeContinue && strlen(fdFile.fileNameBuffer)) {
         if (IMGUI_BUTTON(okButtonString "##validationdialog", ImVec2(okButtonWidth, 0.0f)) || m_FileDialogInternal.isOk) {
             m_FileDialogInternal.isOk = true;
             return true;
@@ -4114,22 +4105,7 @@ bool IGFD::FileDialog::m_DrawFooter() {
     return res;
 }
 
-bool IGFD::FileDialog::m_Selectable(int vRowIdx, const char* vLabel, bool vSelected, ImGuiSelectableFlags vFlags, const ImVec2& vSizeArg) {
-    bool res = false;
-#ifdef USE_EXPLORATION_BY_KEYS
-    bool flashed = m_BeginFlashItem((size_t)vRowIdx);
-    res = m_FlashableSelectable(vLabel, vSelected, vFlags, flashed, vSizeArg);
-    if (flashed) {
-        m_EndFlashItem();
-    }
-#else   // USE_EXPLORATION_BY_KEYS
-    (void)vRowIdx;  // remove a warnings for unused var
-    res = ImGui::Selectable(vLabel, vSelected, vFlags, vSizeArg);
-#endif  // USE_EXPLORATION_BY_KEYS
-    return res;
-}
-
-void IGFD::FileDialog::m_SelectableItem(int vRowIdx, std::shared_ptr<FileInfos> vInfos, bool vSelected, const char* vFmt, ...) {
+void IGFD::FileDialog::m_SelectableItem(int vidx, std::shared_ptr<FileInfos> vInfos, bool vSelected, const char* vFmt, ...) {
     if (!vInfos.use_count()) return;
 
     auto& fdi = m_FileDialogInternal.fileManager;
@@ -4147,7 +4123,18 @@ void IGFD::FileDialog::m_SelectableItem(int vRowIdx, std::shared_ptr<FileInfos> 
         h = DisplayMode_ThumbailsList_ImageHeight;
     }
 #endif  // USE_THUMBNAILS
-    if (m_Selectable(vRowIdx, fdi.variadicBuffer, vSelected, selectableFlags, ImVec2(-1.0f, h))) {
+#ifdef USE_EXPLORATION_BY_KEYS
+    bool flashed = m_BeginFlashItem((size_t)vidx);
+    bool res     = m_FlashableSelectable(fdi.variadicBuffer, vSelected, selectableFlags, flashed, ImVec2(-1.0f, h));
+    if (flashed) {
+        m_EndFlashItem();
+    }
+#else   // USE_EXPLORATION_BY_KEYS
+    (void)vidx;  // remove a warnings for unused var
+
+    bool res = ImGui::Selectable(fdi.variadicBuffer, vSelected, selectableFlags, ImVec2(-1.0f, h));
+#endif  // USE_EXPLORATION_BY_KEYS
+    if (res) {
         if (vInfos->fileType.isDir()) {
             // nav system, selectable cause open directory or select directory
             if (ImGui::GetIO().ConfigFlags & ImGuiConfigFlags_NavEnableKeyboard) {
@@ -4207,29 +4194,13 @@ void IGFD::FileDialog::m_BeginFileColorIconStyle(std::shared_ptr<FileInfos> vFil
 
     vOutStr += " " + vFileInfos->fileNameExt;
 
-    if (vOutShowColor) {
-        ImGui::PushStyleColor(ImGuiCol_Text, vFileInfos->fileStyle->color);
-    }
-    if (*vOutFont) {
-#if IMGUI_VERSION_NUM < 19201
-        ImGui::PushFont(*vOutFont);
-#else
-        ImGui::PushFont(*vOutFont, 0.0f);
-#endif
-    }
+    if (vOutShowColor) ImGui::PushStyleColor(ImGuiCol_Text, vFileInfos->fileStyle->color);
+    if (*vOutFont) ImGui::PushFont(*vOutFont);
 }
 
 void IGFD::FileDialog::m_EndFileColorIconStyle(const bool vShowColor, ImFont* vFont) {
-    if (vFont) {
-        ImGui::PopFont();
-    }
-    if (vShowColor) {
-        ImGui::PopStyleColor();
-    }
-}
-
-void IGFD::FileDialog::m_drawColumnText(int /*vColIdx*/, const char* vLabel, bool /*vSelected*/, bool /*vHovered*/) {
-    ImGui::Text("%s", vLabel);
+    if (vFont) ImGui::PopFont();
+    if (vShowColor) ImGui::PopStyleColor();
 }
 
 void IGFD::FileDialog::m_DrawFileListView(ImVec2 vSize) {
@@ -4339,7 +4310,6 @@ void IGFD::FileDialog::m_DrawFileListView(ImVec2 vSize) {
             bool _showColor = false;
 
             int column_id = 0;
-            bool _rowHovered = false;
             m_FileListClipper.Begin((int)fdi.GetFilteredListSize(), ImGui::GetTextLineHeightWithSpacing());
             while (m_FileListClipper.Step()) {
                 for (int i = m_FileListClipper.DisplayStart; i < m_FileListClipper.DisplayEnd; i++) {
@@ -4355,31 +4325,30 @@ void IGFD::FileDialog::m_DrawFileListView(ImVec2 vSize) {
                     ImGui::TableNextRow();
 
                     column_id = 0;
-                    _rowHovered = false;
                     if (ImGui::TableNextColumn()) {  // file name
                         if (!infos_ptr->deviceInfos.empty()) {
                             _str += " " + infos_ptr->deviceInfos;
                         }
                         m_SelectableItem(i, infos_ptr, selected, _str.c_str());
-                        _rowHovered = ImGui::IsItemHovered();
                         m_DisplayFileInfosTooltip(i, column_id++, infos_ptr);
                     }
                     if (ImGui::TableNextColumn()) {  // file type
-                        m_drawColumnText(column_id, infos_ptr->fileExtLevels[0].c_str(), selected, _rowHovered);
+                        ImGui::Text("%s", infos_ptr->fileExtLevels[0].c_str());
                         m_DisplayFileInfosTooltip(i, column_id++, infos_ptr);
                     }
                     if (ImGui::TableNextColumn()) {  // file size
                         if (!infos_ptr->fileType.isDir()) {
-                            m_drawColumnText(column_id, infos_ptr->formatedFileSize.c_str(), selected, _rowHovered);
+                            ImGui::Text("%s ", infos_ptr->formatedFileSize.c_str());
                         } else {
                             ImGui::TextUnformatted("");
                         }
                         m_DisplayFileInfosTooltip(i, column_id++, infos_ptr);
                     }
                     if (ImGui::TableNextColumn()) {  // file date + time
-                        m_drawColumnText(column_id, infos_ptr->fileModifDate.c_str(), selected, _rowHovered);
+                        ImGui::Text("%s", infos_ptr->fileModifDate.c_str());
                         m_DisplayFileInfosTooltip(i, column_id++, infos_ptr);
                     }
+
                     m_EndFileColorIconStyle(_showColor, _font);
                 }
             }
