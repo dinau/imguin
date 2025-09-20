@@ -16,7 +16,7 @@ EXT_LIBS_DIR = ../../../../../libs
 
 checkout:
 	(cd $(EXT_LIBS_DIR)/cimgui; git checkout 63e6dd0ef317d2e5bbd187455e12615b0917a816)
-	(cd $(EXT_LIBS_DIR)/cimgui/imgui; git checkout 1f7f1f54af38b0350d8c0008b096a9af6de299c7)
+	(cd $(EXT_LIBS_DIR)/cimgui/imgui; git checkout 62275e877a691bd2e51d1ca86bdfed49fa5cb297)
 	(cd $(EXT_LIBS_DIR)/cimgui_toggle; git checkout 4a96b92fafe6e08e0a4e6d9de33517f2e017917f)
 	(cd $(EXT_LIBS_DIR)/CImGuiFileDialog; git checkout 8fdcebfeea6e9740346a8f9d30dd17e4163d5db5)
 	(cd $(EXT_LIBS_DIR)/cimguizmo; git checkout c3ade65dbda9750536a6a26c8d8fe705f0cfdfd1)

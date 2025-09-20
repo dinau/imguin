@@ -133,14 +133,14 @@ else: # Use generated header by Futark in your programs.
   {.compile:joinPath(ImguiPath,"imgui_tables.cpp").replace("\\", "/").}
   {.compile:joinPath(ImguiPath,"imgui_widgets.cpp").replace("\\", "/").}
 
-  when defined(ImPlotEnable) or defined(ImPlot) or defined(ImPlot3DEnable) or defined(ImPlot3D) :
+  when defined(ImPlotEnable) or defined(ImPlot) or defined(ImPlot3DEnable) or defined(ImPlot3D)or defined(ImPlot3dEnable) or defined(ImPlot3d):
     {.passC:"-I" & CImPlotPath.}
     {.compile:joinPath(CImPlotPath,"cimplot.cpp").replace("\\", "/").}
     {.compile:joinPath(CImPlotPath,"implot/implot.cpp").replace("\\", "/").}
     {.compile:joinPath(CImPlotPath,"implot/implot_demo.cpp").replace("\\", "/").}
     {.compile:joinPath(CImPlotPath,"implot/implot_items.cpp").replace("\\", "/").}
 
-  when defined(ImPlot3DEnable) or defined(ImPlot3D) :
+  when defined(ImPlot3DEnable) or defined(ImPlot3D) or defined(ImPlot3dEnable) or defined(ImPlot3d):
     {.passC:"-I" & CImPlot3dPath.}
     {.compile:joinPath(CImPlot3dPath,"cimplot3d.cpp").replace("\\", "/").}
     {.compile:joinPath(CImPlot3dPath,"implot3d/implot3d.cpp").replace("\\", "/").}

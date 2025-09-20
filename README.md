@@ -18,7 +18,7 @@
 
 ![alt](https://github.com/dinau/imguin/actions/workflows/windows.yml/badge.svg)  ![alt](https://github.com/dinau/imguin/actions/workflows/linux.yml/badge.svg)
 
-Updated to latest [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui) version: : **v1.92.2b dock** (2025/08)
+Updated to latest [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui) version: : **v1.92.3 dock** (2025/09)
 
 This project is Dear ImGui wrapper library for Nim language [^notice].
 
@@ -182,6 +182,7 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
+   | 1.92.3  dock      | 1.92.3.0    | 2025/09 | OK                      |
    | 1.92.2b dock      | 1.92.2.1    | 2025/09 | OK                      |
    | 1.92.2b dock      | 1.92.2.0    | 2025/08 | OK                      |
    | 1.92.0 dock       | 1.92.0.2    | 2025/08 | OK                      |

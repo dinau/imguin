@@ -26,14 +26,6 @@
 #include "imgui_impl_sdl3.h"
 #endif
 
-#ifdef CIMGUI_USE_SDLRENDERER2
-#include "imgui_impl_sdlrenderer2.h"
-#endif
-
-#ifdef CIMGUI_USE_SDLRENDERER3
-#include "imgui_impl_sdlrenderer3.h"
-#endif
-
 #ifdef CIMGUI_USE_VULKAN
 #include "imgui_impl_vulkan.h"
 #endif
