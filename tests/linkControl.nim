@@ -22,6 +22,7 @@ else: # shared/dll
     #switch "define","cimguiDLL"
   else:
     switch "passL","-lglfw"
+    switch "passL","-lX11"
 
 when STATIC_LINK_CC: # gcc static link
   switch "passC", "-static"
