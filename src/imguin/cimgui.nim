@@ -8,7 +8,7 @@ proc currentSourceDir(): string {.compileTime.} =
 
 #--- To specify the place that has "stdbool.h"
 #const ClangIncludePath = "c:/drvDx/msys64/ucrt64/lib/clang/20/include"
-const ClangIncludePath = "c:/drvDx/msys64/mingw64/lib/clang/20/include"
+const ClangIncludePath = "c:/drvDx/msys64/mingw64/lib/clang/21/include"
 #const ClangIncludePath = "c:/llvm/lib/clang/17/include"
 
 # Set root path of ImGui/CImGui

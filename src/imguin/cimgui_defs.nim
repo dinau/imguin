@@ -1278,6 +1278,8 @@ type
 type
   struct_ImNodesContext* = object
 type
+  CIMGUI_API* = object
+type
   struct_STB_TexteditState* = object
 type
   struct_TextSelect* = object
@@ -4727,6 +4729,15 @@ when 2.0 is static:
     ImGui_ToggleConstants_ShadowThicknessDefault* = 2.0
 else:
   let ImGuiToggleConstants_ShadowThicknessDefault* = 2.0
+when CIMGUI_API is typedesc:
+  type
+    CIMTOGGLE_API* = CIMGUI_API
+else:
+  when CIMGUI_API is static:
+    const
+      CIMTOGGLE_API* = CIMGUI_API
+  else:
+    let CIMTOGGLE_API* = CIMGUI_API
 var GImGui* {.importc: "GImGui".}: ptr ImGuiContext
 proc ImVec2_ImVec2_Nil*(): ptr ImVec2 {.cdecl, importc: "ImVec2_ImVec2_Nil".}
 proc ImVec2_destroy*(self: ptr ImVec2): void {.cdecl, importc: "ImVec2_destroy".}
@@ -6560,7 +6571,7 @@ proc ImPlot_PlotDigital_U32Ptr*(label_id: cstring; xs: ptr ImU32; ys: ptr ImU32;
 proc ImPlot_PlotDigital_S64Ptr*(label_id: cstring; xs: ptr ImS64; ys: ptr ImS64; count: cint; flags: ImPlotDigitalFlags; offset: cint; stride: cint): void {.cdecl, importc: "ImPlot_PlotDigital_S64Ptr".}
 proc ImPlot_PlotDigital_U64Ptr*(label_id: cstring; xs: ptr ImU64; ys: ptr ImU64; count: cint; flags: ImPlotDigitalFlags; offset: cint; stride: cint): void {.cdecl, importc: "ImPlot_PlotDigital_U64Ptr".}
 proc ImPlot_PlotDigitalG*(label_id: cstring; getter: ImPlotPoint_getter; data: pointer; count: cint; flags: ImPlotDigitalFlags): void {.cdecl, importc: "ImPlot_PlotDigitalG".}
-proc ImPlot_PlotImage*(label_id: cstring; tex_ref: ImTextureRef; bounds_min: ImPlotPoint; bounds_max: ImPlotPoint; uv0: ImVec2; uv1: ImVec2; tint_col: ImVec4; flags: ImPlotImageFlags): void {.cdecl, importc: "ImPlot_PlotImage".}
+proc ImPlot_PlotImage*(label_id: cstring; user_texture_id: ImTextureID; bounds_min: ImPlotPoint; bounds_max: ImPlotPoint; uv0: ImVec2; uv1: ImVec2; tint_col: ImVec4; flags: ImPlotImageFlags): void {.cdecl, importc: "ImPlot_PlotImage".}
 proc ImPlot_PlotText*(text: cstring; x: cdouble; y: cdouble; pix_offset: ImVec2; flags: ImPlotTextFlags): void {.cdecl, importc: "ImPlot_PlotText".}
 proc ImPlot_PlotDummy*(label_id: cstring; flags: ImPlotDummyFlags): void {.cdecl, importc: "ImPlot_PlotDummy".}
 proc ImPlot_DragPoint*(id: cint; x: ptr cdouble; y: ptr cdouble; col: ImVec4; size: cfloat; flags: ImPlotDragToolFlags; out_clicked: ptr bool; out_hovered: ptr bool; held: ptr bool): bool {.cdecl, importc: "ImPlot_DragPoint".}

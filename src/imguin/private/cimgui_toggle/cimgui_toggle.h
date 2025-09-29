@@ -195,13 +195,24 @@ static const char* const LabelA11yOnDefault = "1";
 static const char* const LabelA11yOffDefault = "0";
 #endif
 
+#ifndef CIMGUI_API
+#    if defined(_WIN32) || defined(__CYGWIN__)
+#       define CIMGUI_API  __declspec(dllexport)
+#    else
+#       define CIMGUI_API __attribute__((visibility("default")))
+#    endif
+#endif
 
-/* a */ bool Toggle(         const char* label, bool* v, const ImVec2 size);
-/* b */ bool ToggleFlag(     const char* label, bool* v, ImGuiToggleFlags flags, const ImVec2 size);
-/* c */ bool ToggleAnim(     const char* label, bool* v, ImGuiToggleFlags flags, float animation_duration, const ImVec2 size);
-/* d */ bool ToggleCfg(      const char* label, bool* v, const ImGuiToggleConfig config);
-/* e */ bool ToggleRound(    const char* label, bool* v, ImGuiToggleFlags flags, float frame_rounding, float knob_rounding, const ImVec2 size);
-/* f */ bool ToggleAnimRound(const char* label, bool* v, ImGuiToggleFlags flags, float animation_duration, float frame_rounding, float knob_rounding, const ImVec2 size);
+#ifndef CIMTOGGLE_API
+#    define CIMTOGGLE_API CIMGUI_API
+#endif
+
+/* a */ CIMTOGGLE_API bool Toggle(         const char* label, bool* v, const ImVec2 size);
+/* b */ CIMTOGGLE_API bool ToggleFlag(     const char* label, bool* v, ImGuiToggleFlags flags, const ImVec2 size);
+/* c */ CIMTOGGLE_API bool ToggleAnim(     const char* label, bool* v, ImGuiToggleFlags flags, float animation_duration, const ImVec2 size);
+/* d */ CIMTOGGLE_API bool ToggleCfg(      const char* label, bool* v, const ImGuiToggleConfig config);
+/* e */ CIMTOGGLE_API bool ToggleRound(    const char* label, bool* v, ImGuiToggleFlags flags, float frame_rounding, float knob_rounding, const ImVec2 size);
+/* f */ CIMTOGGLE_API bool ToggleAnimRound(const char* label, bool* v, ImGuiToggleFlags flags, float animation_duration, float frame_rounding, float knob_rounding, const ImVec2 size);
 
 
 /* a */ //IMGUI_API bool Toggle(const char* label, bool* v, const ImVec2& size = ImVec2());
