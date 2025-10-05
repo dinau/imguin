@@ -52,9 +52,8 @@ Note: See examples project  [ImGuin_examples](https://github.com/dinau/imguin_ex
 - Linux: Ubuntu / Debian families 
 
   ```sh
-  $ sudo apt install make  
-  $ sudo apt install libopengl-dev libgl1-mesa-dev
-  $ sudo apt install libglfw3-dev libsdl2-dev
+   $ sudo apt install gcc g++ make 
+   $ sudo apt install lib{opengl-dev,gl1-mesa-dev,glfw3,glfw3-dev,libsdl2-dev,xcursor-dev,xinerama-dev,xi-dev,sdl2-dev} git 
   ```
 
 #### Install
