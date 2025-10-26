@@ -2,7 +2,9 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [ImGuin](#imguin)
-  - [Screen shot](#screen-shot)
+  - [Screenshot](#screenshot)
+    - [tests folder](#tests-folder)
+    - [Dear ImGui + Naylib(Raylib) + rlImgui example](#dear-imgui--naylibraylib--rlimgui-example)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Available libraries](#available-libraries)
@@ -31,30 +33,52 @@ or [https://github.com/daniel-j/nimgl-imgui](https://github.com/daniel-j/nimgl-i
 
 ---
 
-Note: See examples project  [ImGuin_examples](https://github.com/dinau/imguin_examples)
+Note: First see examples project  [ImGuin_examples](https://github.com/dinau/imguin_examples)
+
+##### tests folder
+
+---
+
+[tglfw_opengl3.nim](https://github.com/dinau/imguin/blob/main/tests/tglfw_opengl3.nim)
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/topimage.gif)
 
-[tglfw_opengl3.nim](https://github.com/dinau/imguin/blob/main/tests/tglfw_opengl3.nim)
+
+##### Dear ImGui + Naylib(Raylib) + rlImgui example
+
+---
+
+[rlimgui_basic](https://github.com/dinau/imguin_examples/blob/main/rlimgui_basic/rlimgui_basic.nim)
+
+![alt](https://github.com/dinau/imguin_examples/raw/main/img/rlimgui.gif)  
 
 #### Prerequisites
 
 ---
 
-- [Nim-2.0.16](https://nim-lang.org) or later
+- [Nim-2.2.4](https://nim-lang.org) or later
 - Windows10 or later  
 [MSys2/MinGW](https://www.msys2.org/) command line tools (Unix tools), make, cp, rm, git, ...etc
 
   ```sh
-  pacman -S mingw-w64-x86_64-glfw make
+  pacman -S mingw-w64-ucrt-x86_64-glfw make
   ```
 
 - Linux: Ubuntu / Debian families 
 
-  ```sh
-   $ sudo apt install gcc g++ make 
-   $ sudo apt install lib{opengl-dev,gl1-mesa-dev,glfw3,glfw3-dev,libsdl2-dev,xcursor-dev,xinerama-dev,xi-dev,sdl2-dev} git 
-  ```
+   ```sh
+   $ sudo apt install gcc g++ make git curl xz-utils
+   $ sudo apt install lib{opengl-dev,gl1-mesa-dev,glfw3-dev,xcursor-dev,xinerama-dev,xi-dev,sdl2-dev} 
+   ```
+
+   - Install nim
+   ```sh
+   curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+   ```
+   You must now ensure that the Nimble bin dir is in your PATH.
+   Place the following line in the ~/.profile or ~/.bashrc file.
+   export PATH=/home/username/.nimble/bin:$PATH
+     ```
 
 #### Install
 
@@ -83,6 +107,9 @@ Library name / C lang. wrapper
 - [x] [ImGuiColorTextEdit](https://github.com/santaclose/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE) (2025/03)
 - [x] [ImGuiTextSelect](https://github.com/AidanSun05/ImGuiTextSelect) / [CImGuiTextSelect](https://github.com/dinau/CImGuiTextSelect) (2025/09)
 - [ ] [ImGui_Markdown](https://github.com/enkisoftware/imgui_markdown) (2025/09) WIP
+
+Additional examples
+- [x] [Naylib](https://github.com/planetis-m/naylib)([Raylib](https://github.com/raysan5/raylib)) , [rlImGui](https://github.com/raylib-extras/rlImGui) (2025/10)
 
 ####  Frontends and Backends 
 
@@ -290,3 +317,15 @@ Linux Debian 13
    ```nim
    type ConstCstring {.importc: const char *.} = cstring
    ```
+
+
+
+Notes:
+
+- Using ImPlot3D / ImPlot with Nim
+- Nim + ImGui + ImPlot3D / ImPlot demo
+- Build with ImPlot3D / ImPlot
+- ImPlot3D integration example
+- This project builds and runs Dear ImGui + ImPlot3D / ImPlotusing Nim.
+- ImPlot3D is compiled from source (implot3d.h / implot3d.cpp)
+- ImPlot is compiled from source (implot.h / implot.cpp)
