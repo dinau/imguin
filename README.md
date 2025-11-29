@@ -270,7 +270,8 @@ Linux Debian 13
 
 - File Dialog
    - [Cross Platform File Dialog for Dear-ImGui ](https://github.com/gallickgunner/ImGui-Addons)
-   - [ImGui File Dialogs - CLI and Client Library](https://github.com/time-killer-games/libfiledialogs)
+   - [SDL2 ImGui File Dialogs - CLI and Client Library](https://github.com/samuelvenable/SDL2-ImGui-FileDialogs)
+   - [SDL3 ImGui File Dialogs - CLI and Client Library](https://github.com/samuelvenable/SDL3-ImGui-FileDialogs)
    - [A Dear ImGui based File Dialog without any extra dependencies](https://github.com/Julianiolo/ImGuiFD)
 - Other
    - [Node Editor built using Dear ImGui](https://github.com/thedmd/imgui-node-editor)
