@@ -33,7 +33,7 @@ type
     ImGui_ItemFlags_None = 0, ImGui_ItemFlags_NoTabStop = 1,
     ImGui_ItemFlags_NoNav = 2, ImGui_ItemFlags_NoNavDefaultFocus = 4,
     ImGui_ItemFlags_ButtonRepeat = 8, ImGui_ItemFlags_AutoClosePopups = 16,
-    ImGui_ItemFlags_AllowDuplicateId = 32
+    ImGui_ItemFlags_AllowDuplicateId = 32, ImGui_ItemFlags_Disabled = 64
 type
   enum_ImGuiInputTextFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_InputTextFlags_None = 0, ImGui_InputTextFlags_CharsDecimal = 1,
@@ -82,16 +82,15 @@ type
     ImGui_TreeNodeFlags_DrawLinesToNodes = 1048576
 type
   enum_ImGuiPopupFlags_private* {.size: sizeof(cuint).} = enum
-    ImGui_PopupFlags_None = 0, ImGui_PopupFlags_MouseButtonRight = 1,
-    ImGui_PopupFlags_MouseButtonMiddle = 2,
-    ImGui_PopupFlags_MouseButtonMask_private = 31, ImGui_PopupFlags_NoReopen = 32,
+    ImGui_PopupFlags_None = 0, ImGui_PopupFlags_MouseButtonShift_private = 2,
+    ImGui_PopupFlags_InvalidMask_private = 3,
+    ImGui_PopupFlags_MouseButtonLeft = 4, ImGui_PopupFlags_MouseButtonRight = 8,
+    ImGui_PopupFlags_MouseButtonMiddle = 12, ImGui_PopupFlags_NoReopen = 32,
     ImGui_PopupFlags_NoOpenOverExistingPopup = 128,
     ImGui_PopupFlags_NoOpenOverItems = 256, ImGui_PopupFlags_AnyPopupId = 1024,
     ImGui_PopupFlags_AnyPopupLevel = 2048, ImGui_PopupFlags_AnyPopup = 3072
 const
-  ImGuiPopupFlags_MouseButtonLeft* = enum_ImGuiPopupFlags_private.ImGuiPopupFlags_None
-const
-  ImGuiPopupFlags_MouseButtonDefault_private* = enum_ImGuiPopupFlags_private.ImGuiPopupFlags_MouseButtonRight
+  ImGuiPopupFlags_MouseButtonMask_private* = enum_ImGuiPopupFlags_private.ImGuiPopupFlags_MouseButtonMiddle
 type
   enum_ImGuiSelectableFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_SelectableFlags_None = 0, ImGui_SelectableFlags_NoAutoClosePopups = 1,
@@ -171,7 +170,8 @@ type
     ImGui_DragDropFlags_AcceptBeforeDelivery = 1024,
     ImGui_DragDropFlags_AcceptNoDrawDefaultRect = 2048,
     ImGui_DragDropFlags_AcceptPeekOnly = 3072,
-    ImGui_DragDropFlags_AcceptNoPreviewTooltip = 4096
+    ImGui_DragDropFlags_AcceptNoPreviewTooltip = 4096,
+    ImGui_DragDropFlags_AcceptDrawAsHovered = 8192
 type
   enum_ImGuiDataType_private* {.size: sizeof(cuint).} = enum
     ImGui_DataType_S8 = 0, ImGui_DataType_U8 = 1, ImGui_DataType_S16 = 2,
@@ -308,10 +308,10 @@ type
     ImGui_Col_TableBorderLight = 49, ImGui_Col_TableRowBg = 50,
     ImGui_Col_TableRowBgAlt = 51, ImGui_Col_TextLink = 52,
     ImGui_Col_TextSelectedBg = 53, ImGui_Col_TreeLines = 54,
-    ImGui_Col_DragDropTarget = 55, ImGui_Col_UnsavedMarker = 56,
-    ImGui_Col_NavCursor = 57, ImGui_Col_NavWindowingHighlight = 58,
-    ImGui_Col_NavWindowingDimBg = 59, ImGui_Col_ModalWindowDimBg = 60,
-    ImGui_Col_COUNT = 61
+    ImGui_Col_DragDropTarget = 55, ImGui_Col_DragDropTargetBg = 56,
+    ImGui_Col_UnsavedMarker = 57, ImGui_Col_NavCursor = 58,
+    ImGui_Col_NavWindowingHighlight = 59, ImGui_Col_NavWindowingDimBg = 60,
+    ImGui_Col_ModalWindowDimBg = 61, ImGui_Col_COUNT = 62
 type
   enum_ImGuiStyleVar_private* {.size: sizeof(cuint).} = enum
     ImGui_StyleVar_Alpha = 0, ImGui_StyleVar_DisabledAlpha = 1,
@@ -325,18 +325,19 @@ type
     ImGui_StyleVar_IndentSpacing = 16, ImGui_StyleVar_CellPadding = 17,
     ImGui_StyleVar_ScrollbarSize = 18, ImGui_StyleVar_ScrollbarRounding = 19,
     ImGui_StyleVar_ScrollbarPadding = 20, ImGui_StyleVar_GrabMinSize = 21,
-    ImGui_StyleVar_GrabRounding = 22, ImGui_StyleVar_ImageBorderSize = 23,
-    ImGui_StyleVar_TabRounding = 24, ImGui_StyleVar_TabBorderSize = 25,
-    ImGui_StyleVar_TabMinWidthBase = 26, ImGui_StyleVar_TabMinWidthShrink = 27,
-    ImGui_StyleVar_TabBarBorderSize = 28, ImGui_StyleVar_TabBarOverlineSize = 29,
-    ImGui_StyleVar_TableAngledHeadersAngle = 30,
-    ImGui_StyleVar_TableAngledHeadersTextAlign = 31,
-    ImGui_StyleVar_TreeLinesSize = 32, ImGui_StyleVar_TreeLinesRounding = 33,
-    ImGui_StyleVar_ButtonTextAlign = 34, ImGui_StyleVar_SelectableTextAlign = 35,
-    ImGui_StyleVar_SeparatorTextBorderSize = 36,
-    ImGui_StyleVar_SeparatorTextAlign = 37,
-    ImGui_StyleVar_SeparatorTextPadding = 38,
-    ImGui_StyleVar_DockingSeparatorSize = 39, ImGui_StyleVar_COUNT = 40
+    ImGui_StyleVar_GrabRounding = 22, ImGui_StyleVar_ImageRounding = 23,
+    ImGui_StyleVar_ImageBorderSize = 24, ImGui_StyleVar_TabRounding = 25,
+    ImGui_StyleVar_TabBorderSize = 26, ImGui_StyleVar_TabMinWidthBase = 27,
+    ImGui_StyleVar_TabMinWidthShrink = 28, ImGui_StyleVar_TabBarBorderSize = 29,
+    ImGui_StyleVar_TabBarOverlineSize = 30,
+    ImGui_StyleVar_TableAngledHeadersAngle = 31,
+    ImGui_StyleVar_TableAngledHeadersTextAlign = 32,
+    ImGui_StyleVar_TreeLinesSize = 33, ImGui_StyleVar_TreeLinesRounding = 34,
+    ImGui_StyleVar_ButtonTextAlign = 35, ImGui_StyleVar_SelectableTextAlign = 36,
+    ImGui_StyleVar_SeparatorTextBorderSize = 37,
+    ImGui_StyleVar_SeparatorTextAlign = 38,
+    ImGui_StyleVar_SeparatorTextPadding = 39,
+    ImGui_StyleVar_DockingSeparatorSize = 40, ImGui_StyleVar_COUNT = 41
 type
   enum_ImGuiButtonFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_ButtonFlags_None = 0, ImGui_ButtonFlags_MouseButtonLeft = 1,
@@ -351,11 +352,12 @@ type
     ImGui_ColorEditFlags_NoTooltip = 64, ImGui_ColorEditFlags_NoLabel = 128,
     ImGui_ColorEditFlags_NoSidePreview = 256,
     ImGui_ColorEditFlags_NoDragDrop = 512, ImGui_ColorEditFlags_NoBorder = 1024,
-    ImGui_ColorEditFlags_AlphaOpaque = 2048,
-    ImGui_ColorEditFlags_AlphaNoBg = 4096,
-    ImGui_ColorEditFlags_AlphaPreviewHalf = 8192,
-    ImGui_ColorEditFlags_AlphaMask_private = 14338,
-    ImGui_ColorEditFlags_AlphaBar = 65536, ImGui_ColorEditFlags_HDR = 524288,
+    ImGui_ColorEditFlags_NoColorMarkers = 2048,
+    ImGui_ColorEditFlags_AlphaOpaque = 4096,
+    ImGui_ColorEditFlags_AlphaNoBg = 8192,
+    ImGui_ColorEditFlags_AlphaPreviewHalf = 16384,
+    ImGui_ColorEditFlags_AlphaMask_private = 28674,
+    ImGui_ColorEditFlags_AlphaBar = 262144, ImGui_ColorEditFlags_HDR = 524288,
     ImGui_ColorEditFlags_DisplayRGB = 1048576,
     ImGui_ColorEditFlags_DisplayHSV = 2097152,
     ImGui_ColorEditFlags_DisplayHex = 4194304,
@@ -375,7 +377,7 @@ type
     ImGui_SliderFlags_NoRoundToFormat = 64, ImGui_SliderFlags_NoInput = 128,
     ImGui_SliderFlags_WrapAround = 256, ImGui_SliderFlags_ClampOnInput = 512,
     ImGui_SliderFlags_ClampZeroRange = 1024, ImGui_SliderFlags_AlwaysClamp = 1536,
-    ImGui_SliderFlags_NoSpeedTweaks = 2048,
+    ImGui_SliderFlags_NoSpeedTweaks = 2048, ImGui_SliderFlags_ColorMarkers = 4096,
     ImGui_SliderFlags_InvalidMask_private = 1879048207
 type
   enum_ImGuiMouseButton_private* {.size: sizeof(cuint).} = enum
@@ -479,7 +481,8 @@ type
     ImGui_MultiSelectFlags_ScopeRect = 4096,
     ImGui_MultiSelectFlags_SelectOnClick = 8192,
     ImGui_MultiSelectFlags_SelectOnClickRelease = 16384,
-    ImGui_MultiSelectFlags_NavWrapX = 65536
+    ImGui_MultiSelectFlags_NavWrapX = 65536,
+    ImGui_MultiSelectFlags_NoSelectOnRightClick = 131072
 type
   enum_ImGuiSelectionRequestType* {.size: sizeof(cuint).} = enum
     ImGui_SelectionRequestType_None = 0, ImGui_SelectionRequestType_SetAll = 1,
@@ -533,12 +536,15 @@ type
     ImDrawTextFlags_None = 0, ImDrawTextFlags_CpuFineClip = 1,
     ImDrawTextFlags_WrapKeepBlanks = 2, ImDrawTextFlags_StopOnNewLine = 4
 type
+  enum_ImWcharClass* {.size: sizeof(cuint).} = enum
+    ImWcharClass_Blank = 0, ImWcharClass_Punct = 1, ImWcharClass_Other = 2
+type
   enum_ImGuiDataTypePrivate_private* {.size: sizeof(cuint).} = enum
     ImGui_DataType_Pointer = 12, ImGui_DataType_ID = 13
 type
   enum_ImGuiItemFlagsPrivate_private* {.size: sizeof(cuint).} = enum
-    ImGui_ItemFlags_Default_private = 16, ImGui_ItemFlags_Disabled = 1024,
-    ImGui_ItemFlags_ReadOnly = 2048, ImGui_ItemFlags_MixedValue = 4096,
+    ImGui_ItemFlags_Default_private = 16, ImGui_ItemFlags_ReadOnly = 2048,
+    ImGui_ItemFlags_MixedValue = 4096,
     ImGui_ItemFlags_NoWindowHoverableCheck = 8192,
     ImGui_ItemFlags_AllowOverlap = 16384,
     ImGui_ItemFlags_NoNavDisableMouseHover = 32768,
@@ -646,6 +652,9 @@ type
     ImGui_WindowRefreshFlags_RefreshOnHover = 2,
     ImGui_WindowRefreshFlags_RefreshOnFocus = 4
 type
+  enum_ImGuiWindowBgClickFlags_private* {.size: sizeof(cuint).} = enum
+    ImGui_WindowBgClickFlags_None = 0, ImGui_WindowBgClickFlags_Move = 1
+type
   enum_ImGuiNextWindowDataFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_NextWindowDataFlags_None = 0, ImGui_NextWindowDataFlags_HasPos = 1,
     ImGui_NextWindowDataFlags_HasSize = 2,
@@ -666,7 +675,8 @@ type
     ImGui_NextItemDataFlags_None = 0, ImGui_NextItemDataFlags_HasWidth = 1,
     ImGui_NextItemDataFlags_HasOpen = 2, ImGui_NextItemDataFlags_HasShortcut = 4,
     ImGui_NextItemDataFlags_HasRefVal = 8,
-    ImGui_NextItemDataFlags_HasStorageID = 16
+    ImGui_NextItemDataFlags_HasStorageID = 16,
+    ImGui_NextItemDataFlags_HasColorMarker = 32
 type
   enum_ImGuiPopupPositionPolicy* {.size: sizeof(cuint).} = enum
     ImGui_PopupPositionPolicy_Default = 0, ImGui_PopupPositionPolicy_ComboBox = 1,
@@ -793,7 +803,7 @@ type
     ImGui_WindowDockStyleCol_TabDimmed = 5,
     ImGui_WindowDockStyleCol_TabDimmedSelected = 6,
     ImGui_WindowDockStyleCol_TabDimmedSelectedOverline = 7,
-    ImGui_WindowDockStyleCol_COUNT = 8
+    ImGui_WindowDockStyleCol_UnsavedMarker = 8, ImGui_WindowDockStyleCol_COUNT = 9
 type
   enum_ImGuiLocKey* {.size: sizeof(cuint).} = enum
     ImGui_LocKey_VersionStr = 0, ImGui_LocKey_TableSizeOne = 1,
@@ -816,7 +826,8 @@ type
     ImGui_DebugLogFlags_EventViewport = 2048,
     ImGui_DebugLogFlags_EventMask_private = 4095,
     ImGui_DebugLogFlags_OutputToTTY = 1048576,
-    ImGui_DebugLogFlags_OutputToTestEngine = 2097152
+    ImGui_DebugLogFlags_OutputToDebugger = 2097152,
+    ImGui_DebugLogFlags_OutputToTestEngine = 4194304
 type
   enum_ImGuiContextHookType* {.size: sizeof(cuint).} = enum
     ImGui_ContextHookType_NewFramePre = 0, ImGui_ContextHookType_NewFramePost = 1,
@@ -871,7 +882,7 @@ type
     ImPlot_LegendFlags_NoHighlightItem = 2,
     ImPlot_LegendFlags_NoHighlightAxis = 4, ImPlot_LegendFlags_NoMenus = 8,
     ImPlot_LegendFlags_Outside = 16, ImPlot_LegendFlags_Horizontal = 32,
-    ImPlot_LegendFlags_Sort = 64
+    ImPlot_LegendFlags_Sort = 64, ImPlot_LegendFlags_Reverse = 128
 type
   enum_ImPlotMouseTextFlags_private* {.size: sizeof(cuint).} = enum
     ImPlot_MouseTextFlags_None = 0, ImPlot_MouseTextFlags_NoAuxAxes = 1,
@@ -1025,7 +1036,9 @@ type
     ImPlot3DFlags_None = 0, ImPlot3DFlags_NoTitle = 1,
     ImPlot3DFlags_NoLegend = 2, ImPlot3DFlags_NoMouseText = 4,
     ImPlot3DFlags_CanvasOnly = 7, ImPlot3DFlags_NoClip = 8,
-    ImPlot3DFlags_NoMenus = 16
+    ImPlot3DFlags_NoMenus = 16, ImPlot3DFlags_Equal = 32,
+    ImPlot3DFlags_NoRotate = 64, ImPlot3DFlags_NoPan = 128,
+    ImPlot3DFlags_NoZoom = 256, ImPlot3DFlags_NoInputs = 512
 type
   enum_ImPlot3DCond_private* {.size: sizeof(cuint).} = enum
     ImPlot3DCond_None = 0, ImPlot3DCond_Always = 1, ImPlot3DCond_Once = 2
@@ -1044,9 +1057,10 @@ type
     ImPlot3DStyleVar_MarkerSize = 2, ImPlot3DStyleVar_MarkerWeight = 3,
     ImPlot3DStyleVar_FillAlpha = 4, ImPlot3DStyleVar_PlotDefaultSize = 5,
     ImPlot3DStyleVar_PlotMinSize = 6, ImPlot3DStyleVar_PlotPadding = 7,
-    ImPlot3DStyleVar_LabelPadding = 8, ImPlot3DStyleVar_LegendPadding = 9,
-    ImPlot3DStyleVar_LegendInnerPadding = 10,
-    ImPlot3DStyleVar_LegendSpacing = 11, ImPlot3DStyleVar_COUNT = 12
+    ImPlot3DStyleVar_LabelPadding = 8, ImPlot3DStyleVar_ViewScaleFactor = 9,
+    ImPlot3DStyleVar_LegendPadding = 10,
+    ImPlot3DStyleVar_LegendInnerPadding = 11,
+    ImPlot3DStyleVar_LegendSpacing = 12, ImPlot3DStyleVar_COUNT = 13
 type
   enum_ImPlot3DMarker_private* {.size: sizeof(cint).} = enum
     ImPlot3DMarker_None = -1, ImPlot3DMarker_Circle = 0,
@@ -1092,6 +1106,9 @@ type
     ImPlot3DImageFlags_None = 0, ImPlot3DImageFlags_NoLegend = 1,
     ImPlot3DImageFlags_NoFit = 2
 type
+  enum_ImPlot3DDummyFlags_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DDummyFlags_None = 0
+type
   enum_ImPlot3DLegendFlags_private* {.size: sizeof(cuint).} = enum
     ImPlot3DLegendFlags_None = 0, ImPlot3DLegendFlags_NoButtons = 1,
     ImPlot3DLegendFlags_NoHighlightItem = 2, ImPlot3DLegendFlags_Horizontal = 4
@@ -1116,6 +1133,9 @@ type
 type
   enum_ImPlane3D_private* {.size: sizeof(cuint).} = enum
     ImPlane3D_YZ = 0, ImPlane3D_XZ = 1, ImPlane3D_XY = 2, ImPlane3D_COUNT = 3
+type
+  enum_ImPlot3DScale_private* {.size: sizeof(cuint).} = enum
+    ImPlot3DScale_Linear = 0, ImPlot3DScale_Log10 = 1, ImPlot3DScale_SymLog = 2
 type
   enum_ImPlot3DColormap_private* {.size: sizeof(cuint).} = enum
     ImPlot3DColormap_Deep = 0, ImPlot3DColormap_Dark = 1,
@@ -1235,7 +1255,8 @@ type
     ImGui_FileDialogFlags_DisablePlaceMode = 2048,
     ImGui_FileDialogFlags_DisableQuickPathSelection = 4096,
     ImGui_FileDialogFlags_ShowDevicesButton = 8192,
-    ImGui_FileDialogFlags_NaturalSorting = 16384
+    ImGui_FileDialogFlags_NaturalSorting = 16384,
+    ImGui_FileDialogFlags_OptionalFileName = 32768
 type
   enum_IGFD_ResultMode_private* {.size: sizeof(cuint).} = enum
     IGFD_ResultMode_AddIfNoFileExt = 0, IGFD_ResultMode_OverwriteFileExt = 1,
@@ -1272,6 +1293,10 @@ type
 type
   struct_ImPlot3DContext* = object
 type
+  struct_ImVec2* = object
+    x*: cfloat
+    y*: cfloat
+type
   struct_ImGuiDockNodeSettings* = object
 type
   struct_ImGuiFileDialog* = object
@@ -1292,8 +1317,8 @@ type
     internal_IdxBuffer*: ImVector_ImDrawIdx
   ImDrawCmd* = struct_ImDrawCmd
   struct_ImDrawCmd* {.pure, inheritable, bycopy.} = object
-    ClipRect*: ImVec4
-    TexRef*: ImTextureRef
+    ClipRect*: ImVec4_c
+    TexRef*: ImTextureRef_c
     VtxOffset*: cuint
     IdxOffset*: cuint
     ElemCount*: cuint
@@ -1308,9 +1333,9 @@ type
     TotalIdxCount*: cint
     TotalVtxCount*: cint
     CmdLists*: ImVector_ImDrawListPtr
-    DisplayPos*: ImVec2
-    DisplaySize*: ImVec2
-    FramebufferScale*: ImVec2
+    DisplayPos*: ImVec2_c
+    DisplaySize*: ImVec2_c
+    FramebufferScale*: ImVec2_c
     OwnerViewport*: ptr ImGuiViewport
     Textures*: ptr ImVector_ImTextureDataPtr
   ImDrawList* = struct_ImDrawList
@@ -1333,8 +1358,8 @@ type
     internal_OwnerName*: cstring
   ImDrawListSharedData* = struct_ImDrawListSharedData
   struct_ImDrawListSharedData* {.pure, inheritable, bycopy.} = object
-    TexUvWhitePixel*: ImVec2
-    TexUvLines*: ptr ImVec4
+    TexUvWhitePixel*: ImVec2_c
+    TexUvLines*: ptr ImVec4_c
     FontAtlas*: ptr ImFontAtlas
     Font*: ptr ImFont
     FontSize*: cfloat
@@ -1343,11 +1368,11 @@ type
     CircleSegmentMaxError*: cfloat
     InitialFringeScale*: cfloat
     InitialFlags*: ImDrawListFlags
-    ClipRectFullscreen*: ImVec4
+    ClipRectFullscreen*: ImVec4_c
     TempBuffer*: ImVector_ImVec2
     DrawLists*: ImVector_ImDrawListPtr
     Context*: ptr ImGuiContext
-    ArcFastVtx*: array[48'i64, ImVec2]
+    ArcFastVtx*: array[48'i64, ImVec2_c]
     ArcFastRadiusCutoff*: cfloat
     CircleSegmentCounts*: array[64'i64, ImU8]
   ImDrawListSplitter* = struct_ImDrawListSplitter
@@ -1357,13 +1382,13 @@ type
     internal_Channels*: ImVector_ImDrawChannel
   ImDrawVert* = struct_ImDrawVert
   struct_ImDrawVert* {.pure, inheritable, bycopy.} = object
-    pos*: ImVec2
-    uv*: ImVec2
+    pos*: ImVec2_c
+    uv*: ImVec2_c
     col*: ImU32
   ImFont* = struct_ImFont
   struct_ImFont* {.pure, inheritable, bycopy.} = object
     LastBaked*: ptr ImFontBaked
-    ContainerAtlas*: ptr ImFontAtlas
+    OwnerAtlas*: ptr ImFontAtlas
     Flags*: ImFontFlags
     CurrentRasterizerDensity*: cfloat
     FontId*: ImGuiID
@@ -1384,18 +1409,18 @@ type
     TexMaxWidth*: cint
     TexMaxHeight*: cint
     UserData*: pointer
-    TexRef*: ImTextureRef
+    TexRef*: ImTextureRef_c
     TexData*: ptr ImTextureData
     TexList*: ImVector_ImTextureDataPtr
     Locked*: bool
     RendererHasTextures*: bool
     TexIsBuilt*: bool
     TexPixelsUseColors*: bool
-    TexUvScale*: ImVec2
-    TexUvWhitePixel*: ImVec2
+    TexUvScale*: ImVec2_c
+    TexUvWhitePixel*: ImVec2_c
     Fonts*: ImVector_ImFontPtr
     Sources*: ImVector_ImFontConfig
-    TexUvLines*: array[33'i64, ImVec4]
+    TexUvLines*: array[33'i64, ImVec4_c]
     TexNextUniqueID*: cint
     FontNextUniqueID*: cint
     DrawListSharedDatas*: ImVector_ImDrawListSharedDataPtr
@@ -1419,8 +1444,8 @@ type
     RectsDiscardedCount*: cint
     RectsDiscardedSurface*: cint
     FrameCount*: cint
-    MaxRectSize*: ImVec2i
-    MaxRectBounds*: ImVec2i
+    MaxRectSize*: ImVec2i_c
+    MaxRectBounds*: ImVec2i_c
     LockDisableResize*: bool
     PreloadedAllGlyphsRanges*: bool
     BakedPool*: ImStableVector_ImFontBaked_32
@@ -1434,8 +1459,8 @@ type
     y*: cushort
     w*: cushort
     h*: cushort
-    uv0*: ImVec2
-    uv1*: ImVec2
+    uv0*: ImVec2_c
+    uv1*: ImVec2_c
   ImFontBaked* = struct_ImFontBaked
   struct_ImFontBaked* {.pure, inheritable, bycopy.} = object
     IndexAdvanceX*: ImVector_float
@@ -1453,7 +1478,7 @@ type
     LoadNoRenderOnLayout* {.bitsize: 1'i64.}: cuint
     LastUsedFrame*: cint
     BakedId*: ImGuiID
-    ContainerFont*: ptr ImFont
+    OwnerFont*: ptr ImFont
     FontLoaderDatas*: pointer
   ImFontConfig* = struct_ImFontConfig
   struct_ImFontConfig* {.pure, inheritable, bycopy.} = object
@@ -1463,14 +1488,13 @@ type
     FontDataOwnedByAtlas*: bool
     MergeMode*: bool
     PixelSnapH*: bool
-    PixelSnapV*: bool
     OversampleH*: ImS8
     OversampleV*: ImS8
     EllipsisChar*: ImWchar
     SizePixels*: cfloat
     GlyphRanges*: ptr ImWchar
     GlyphExcludeRanges*: ptr ImWchar
-    GlyphOffset*: ImVec2
+    GlyphOffset*: ImVec2_c
     GlyphMinAdvanceX*: cfloat
     GlyphMaxAdvanceX*: cfloat
     GlyphExtraAdvanceX*: cfloat
@@ -1478,6 +1502,7 @@ type
     FontLoaderFlags*: cuint
     RasterizerMultiply*: cfloat
     RasterizerDensity*: cfloat
+    ExtraSizeScale*: cfloat
     Flags*: ImFontFlags
     DstFont*: ptr ImFont
     FontLoader*: ptr ImFontLoader
@@ -1537,12 +1562,21 @@ type
     y*: cushort
     w*: cushort
     h*: cushort
-  ImColor* = struct_ImColor
-  struct_ImColor* {.pure, inheritable, bycopy.} = object
-    Value*: ImVec4
+  ImColor_c* = struct_ImColor_c
+  struct_ImColor_c* {.pure, inheritable, bycopy.} = object
+    Value*: ImVec4_c
   ImGuiContext* = struct_ImGuiContext
   struct_ImGuiContext* {.pure, inheritable, bycopy.} = object
     Initialized*: bool
+    WithinFrameScope*: bool
+    WithinFrameScopeWithImplicitWindow*: bool
+    TestEngineHookItems*: bool
+    FrameCount*: cint
+    FrameCountEnded*: cint
+    FrameCountPlatformEnded*: cint
+    FrameCountRendered*: cint
+    Time*: cdouble
+    ContextName*: array[16'i64, cschar]
     IO*: ImGuiIO
     PlatformIO*: ImGuiPlatformIO
     Style*: ImGuiStyle
@@ -1557,18 +1591,8 @@ type
     FontRasterizerDensity*: cfloat
     CurrentDpiScale*: cfloat
     DrawListSharedData*: ImDrawListSharedData
-    Time*: cdouble
-    FrameCount*: cint
-    FrameCountEnded*: cint
-    FrameCountPlatformEnded*: cint
-    FrameCountRendered*: cint
     WithinEndChildID*: ImGuiID
-    WithinFrameScope*: bool
-    WithinFrameScopeWithImplicitWindow*: bool
-    GcCompactAll*: bool
-    TestEngineHookItems*: bool
     TestEngine*: pointer
-    ContextName*: array[16'i64, cschar]
     InputEventsQueue*: ImVector_ImGuiInputEvent
     InputEventsTrail*: ImVector_ImGuiInputEvent
     InputEventsNextMouseSource*: ImGuiMouseSource
@@ -1587,12 +1611,12 @@ type
     HoveredWindowBeforeClear*: ptr ImGuiWindow
     MovingWindow*: ptr ImGuiWindow
     WheelingWindow*: ptr ImGuiWindow
-    WheelingWindowRefMousePos*: ImVec2
+    WheelingWindowRefMousePos*: ImVec2_c
     WheelingWindowStartFrame*: cint
     WheelingWindowScrolledFrame*: cint
     WheelingWindowReleaseTimer*: cfloat
-    WheelingWindowWheelRemainder*: ImVec2
-    WheelingAxisAvg*: ImVec2
+    WheelingWindowWheelRemainder*: ImVec2_c
+    WheelingAxisAvg*: ImVec2_c
     DebugDrawIdConflictsId*: ImGuiID
     DebugHookIdInfoId*: ImGuiID
     HoveredId*: ImGuiID
@@ -1613,11 +1637,11 @@ type
     ActiveIdHasBeenEditedBefore*: bool
     ActiveIdHasBeenEditedThisFrame*: bool
     ActiveIdFromShortcut*: bool
+    ActiveIdMouseButton*: ImS8
     ActiveIdDisabledId*: ImGuiID
-    ActiveIdMouseButton* {.bitsize: 8'i64.}: cint
-    ActiveIdClickOffset*: ImVec2
-    ActiveIdWindow*: ptr ImGuiWindow
+    ActiveIdClickOffset*: ImVec2_c
     ActiveIdSource*: ImGuiInputSource
+    ActiveIdWindow*: ptr ImGuiWindow
     ActiveIdPreviousFrame*: ImGuiID
     DeactivatedItemData*: ImGuiDeactivatedItemData
     ActiveIdValueOnActivation*: ImGuiDataTypeStorage
@@ -1639,6 +1663,7 @@ type
     LastItemData*: ImGuiLastItemData
     NextWindowData*: ImGuiNextWindowData
     DebugShowGroupRects*: bool
+    GcCompactAll*: bool
     DebugFlashStyleColorIdx*: ImGuiCol
     ColorStack*: ImVector_ImGuiColorMod
     StyleVarStack*: ImVector_ImGuiStyleMod
@@ -1655,7 +1680,7 @@ type
     MouseLastHoveredViewport*: ptr ImGuiViewportP
     PlatformLastFocusedViewportId*: ImGuiID
     FallbackMonitor*: ImGuiPlatformMonitor
-    PlatformMonitorsFullWorkRect*: ImRect
+    PlatformMonitorsFullWorkRect*: ImRect_c
     ViewportCreatedCount*: cint
     PlatformWindowsCreatedCount*: cint
     ViewportFocusedStampCount*: cint
@@ -1692,8 +1717,8 @@ type
     NavMoveDir*: ImGuiDir
     NavMoveDirForDebug*: ImGuiDir
     NavMoveClipDir*: ImGuiDir
-    NavScoringRect*: ImRect
-    NavScoringNoClipRect*: ImRect
+    NavScoringRect*: ImRect_c
+    NavScoringNoClipRect*: ImRect_c
     NavScoringDebugCount*: cint
     NavTabbingDir*: cint
     NavTabbingCounter*: cint
@@ -1707,6 +1732,7 @@ type
     NavJustMovedToKeyMods*: ImGuiKeyChord
     NavJustMovedToIsTabbing*: bool
     NavJustMovedToHasSelectionData*: bool
+    ConfigNavEnableTabbing*: bool
     ConfigNavWindowingWithGamepad*: bool
     ConfigNavWindowingKeyNext*: ImGuiKeyChord
     ConfigNavWindowingKeyPrev*: ImGuiKeyChord
@@ -1718,8 +1744,8 @@ type
     NavWindowingInputSource*: ImGuiInputSource
     NavWindowingToggleLayer*: bool
     NavWindowingToggleKey*: ImGuiKey
-    NavWindowingAccumDeltaPos*: ImVec2
-    NavWindowingAccumDeltaSize*: ImVec2
+    NavWindowingAccumDeltaPos*: ImVec2_c
+    NavWindowingAccumDeltaSize*: ImVec2_c
     DimBgRatio*: cfloat
     DragDropActive*: bool
     DragDropWithinSource*: bool
@@ -1728,11 +1754,12 @@ type
     DragDropSourceFrameCount*: cint
     DragDropMouseButton*: cint
     DragDropPayload*: ImGuiPayload
-    DragDropTargetRect*: ImRect
-    DragDropTargetClipRect*: ImRect
+    DragDropTargetRect*: ImRect_c
+    DragDropTargetClipRect*: ImRect_c
     DragDropTargetId*: ImGuiID
     DragDropTargetFullViewport*: ImGuiID
-    DragDropAcceptFlags*: ImGuiDragDropFlags
+    DragDropAcceptFlagsCurr*: ImGuiDragDropFlags
+    DragDropAcceptFlagsPrev*: ImGuiDragDropFlags
     DragDropAcceptIdCurrRectSurface*: cfloat
     DragDropAcceptIdCurr*: ImGuiID
     DragDropAcceptIdPrev*: ImGuiID
@@ -1766,7 +1793,7 @@ type
     HoverWindowUnlockedStationaryId*: ImGuiID
     MouseCursor*: ImGuiMouseCursor
     MouseStationaryTimer*: cfloat
-    MouseLastValidPos*: ImVec2
+    MouseLastValidPos*: ImVec2_c
     InputTextState*: ImGuiInputTextState
     InputTextLineIndex*: ImGuiTextIndex
     InputTextDeactivatedState*: ImGuiInputTextDeactivatedState
@@ -1782,9 +1809,9 @@ type
     ColorEditSavedHue*: cfloat
     ColorEditSavedSat*: cfloat
     ColorEditSavedColor*: ImU32
-    ColorPickerRef*: ImVec4
+    ColorPickerRef*: ImVec4_c
     ComboPreviewData*: ImGuiComboPreviewData
-    WindowResizeBorderExpectedRect*: ImRect
+    WindowResizeBorderExpectedRect*: ImRect_c
     WindowResizeRelativeMode*: bool
     ScrollbarSeekMode*: cshort
     ScrollbarClickDeltaToGrabCenter*: cfloat
@@ -1816,6 +1843,7 @@ type
     HookIdNext*: ImGuiID
     LocalizationTable*: array[13'i64, cstring]
     LogEnabled*: bool
+    LogLineFirstItem*: bool
     LogFlags*: ImGuiLogFlags
     LogWindow*: ptr ImGuiWindow
     LogFile*: ImFileHandle
@@ -1823,13 +1851,12 @@ type
     LogNextPrefix*: cstring
     LogNextSuffix*: cstring
     LogLinePosY*: cfloat
-    LogLineFirstItem*: bool
     LogDepthRef*: cint
     LogDepthToExpand*: cint
     LogDepthToExpandDefault*: cint
     ErrorCallback*: ImGuiErrorCallback
     ErrorCallbackUserData*: pointer
-    ErrorTooltipLockedPos*: ImVec2
+    ErrorTooltipLockedPos*: ImVec2_c
     ErrorFirst*: bool
     ErrorCountCurrentFrame*: cint
     StackSizesInNewFrame*: ImGuiErrorRecoveryState
@@ -1849,8 +1876,9 @@ type
     DebugItemPickerMouseButton*: ImU8
     DebugItemPickerBreakId*: ImGuiID
     DebugFlashStyleColorTime*: cfloat
-    DebugFlashStyleColorBackup*: ImVec4
+    DebugFlashStyleColorBackup*: ImVec4_c
     DebugMetricsConfig*: ImGuiMetricsConfig
+    DebugItemPathQuery*: ImGuiDebugItemPathQuery
     DebugIDStackTool*: ImGuiIDStackTool
     DebugAllocInfo*: ImGuiDebugAllocInfo
     DebugHoveredDockNode*: ptr ImGuiDockNode
@@ -1867,8 +1895,8 @@ type
   struct_ImGuiIO* {.pure, inheritable, bycopy.} = object
     ConfigFlags*: ImGuiConfigFlags
     BackendFlags*: ImGuiBackendFlags
-    DisplaySize*: ImVec2
-    DisplayFramebufferScale*: ImVec2
+    DisplaySize*: ImVec2_c
+    DisplayFramebufferScale*: ImVec2_c
     DeltaTime*: cfloat
     IniSavingRate*: cfloat
     IniFilename*: cstring
@@ -1885,6 +1913,7 @@ type
     ConfigNavCursorVisibleAuto*: bool
     ConfigNavCursorVisibleAlways*: bool
     ConfigDockingNoSplit*: bool
+    ConfigDockingNoDockingOver*: bool
     ConfigDockingWithShift*: bool
     ConfigDockingAlwaysTabBar*: bool
     ConfigDockingTransparentPayload*: bool
@@ -1939,9 +1968,9 @@ type
     MetricsRenderIndices*: cint
     MetricsRenderWindows*: cint
     MetricsActiveWindows*: cint
-    MouseDelta*: ImVec2
+    MouseDelta*: ImVec2_c
     Ctx*: ptr ImGuiContext
-    MousePos*: ImVec2
+    MousePos*: ImVec2_c
     MouseDown*: array[5'i64, bool]
     MouseWheel*: cfloat
     MouseWheelH*: cfloat
@@ -1954,8 +1983,8 @@ type
     KeyMods*: ImGuiKeyChord
     KeysData*: array[155'i64, ImGuiKeyData]
     WantCaptureMouseUnlessPopupClose*: bool
-    MousePosPrev*: ImVec2
-    MouseClickedPos*: array[5'i64, ImVec2]
+    MousePosPrev*: ImVec2_c
+    MouseClickedPos*: array[5'i64, ImVec2_c]
     MouseClickedTime*: array[5'i64, cdouble]
     MouseClicked*: array[5'i64, bool]
     MouseDoubleClicked*: array[5'i64, bool]
@@ -1969,7 +1998,7 @@ type
     MouseCtrlLeftAsRightClick*: bool
     MouseDownDuration*: array[5'i64, cfloat]
     MouseDownDurationPrev*: array[5'i64, cfloat]
-    MouseDragMaxDistanceAbs*: array[5'i64, ImVec2]
+    MouseDragMaxDistanceAbs*: array[5'i64, ImVec2_c]
     MouseDragMaxDistanceSqr*: array[5'i64, cfloat]
     PenPressure*: cfloat
     AppFocusLost*: bool
@@ -1982,12 +2011,14 @@ type
     EventFlag*: ImGuiInputTextFlags
     Flags*: ImGuiInputTextFlags
     UserData*: pointer
-    EventChar*: ImWchar
+    ID*: ImGuiID
     EventKey*: ImGuiKey
+    EventChar*: ImWchar
+    EventActivated*: bool
+    BufDirty*: bool
     Buf*: cstring
     BufTextLen*: cint
     BufSize*: cint
-    BufDirty*: bool
     CursorPos*: cint
     SelectionStart*: cint
     SelectionEnd*: cint
@@ -2045,11 +2076,11 @@ type
     Platform_CreateWindow*: proc (a0: ptr ImGuiViewport): void {.cdecl.}
     Platform_DestroyWindow*: proc (a0: ptr ImGuiViewport): void {.cdecl.}
     Platform_ShowWindow*: proc (a0: ptr ImGuiViewport): void {.cdecl.}
-    Platform_SetWindowPos*: proc (a0: ptr ImGuiViewport; a1: ImVec2): void {.cdecl.}
-    Platform_GetWindowPos*: proc (a0: ptr ImGuiViewport): ImVec2 {.cdecl.}
-    Platform_SetWindowSize*: proc (a0: ptr ImGuiViewport; a1: ImVec2): void {.cdecl.}
-    Platform_GetWindowSize*: proc (a0: ptr ImGuiViewport): ImVec2 {.cdecl.}
-    Platform_GetWindowFramebufferScale*: proc (a0: ptr ImGuiViewport): ImVec2 {.cdecl.}
+    Platform_SetWindowPos*: proc (a0: ptr ImGuiViewport; a1: ImVec2_c): void {.cdecl.}
+    Platform_GetWindowPos*: proc (a0: ptr ImGuiViewport): ImVec2_c {.cdecl.}
+    Platform_SetWindowSize*: proc (a0: ptr ImGuiViewport; a1: ImVec2_c): void {.cdecl.}
+    Platform_GetWindowSize*: proc (a0: ptr ImGuiViewport): ImVec2_c {.cdecl.}
+    Platform_GetWindowFramebufferScale*: proc (a0: ptr ImGuiViewport): ImVec2_c {.cdecl.}
     Platform_SetWindowFocus*: proc (a0: ptr ImGuiViewport): void {.cdecl.}
     Platform_GetWindowFocus*: proc (a0: ptr ImGuiViewport): bool {.cdecl.}
     Platform_GetWindowMinimized*: proc (a0: ptr ImGuiViewport): bool {.cdecl.}
@@ -2060,11 +2091,11 @@ type
     Platform_SwapBuffers*: proc (a0: ptr ImGuiViewport; a1: pointer): void {.cdecl.}
     Platform_GetWindowDpiScale*: proc (a0: ptr ImGuiViewport): cfloat {.cdecl.}
     Platform_OnChangedViewport*: proc (a0: ptr ImGuiViewport): void {.cdecl.}
-    Platform_GetWindowWorkAreaInsets*: proc (a0: ptr ImGuiViewport): ImVec4 {.cdecl.}
+    Platform_GetWindowWorkAreaInsets*: proc (a0: ptr ImGuiViewport): ImVec4_c {.cdecl.}
     Platform_CreateVkSurface*: proc (a0: ptr ImGuiViewport; a1: ImU64; a2: pointer; a3: ptr ImU64): cint {.cdecl.}
     Renderer_CreateWindow*: proc (a0: ptr ImGuiViewport): void {.cdecl.}
     Renderer_DestroyWindow*: proc (a0: ptr ImGuiViewport): void {.cdecl.}
-    Renderer_SetWindowSize*: proc (a0: ptr ImGuiViewport; a1: ImVec2): void {.cdecl.}
+    Renderer_SetWindowSize*: proc (a0: ptr ImGuiViewport; a1: ImVec2_c): void {.cdecl.}
     Renderer_RenderWindow*: proc (a0: ptr ImGuiViewport; a1: pointer): void {.cdecl.}
     Renderer_SwapBuffers*: proc (a0: ptr ImGuiViewport; a1: pointer): void {.cdecl.}
     Monitors*: ImVector_ImGuiPlatformMonitor
@@ -2074,15 +2105,15 @@ type
   struct_ImGuiPlatformImeData* {.pure, inheritable, bycopy.} = object
     WantVisible*: bool
     WantTextInput*: bool
-    InputPos*: ImVec2
+    InputPos*: ImVec2_c
     InputLineHeight*: cfloat
     ViewportId*: ImGuiID
   ImGuiPlatformMonitor* = struct_ImGuiPlatformMonitor
   struct_ImGuiPlatformMonitor* {.pure, inheritable, bycopy.} = object
-    MainPos*: ImVec2
-    MainSize*: ImVec2
-    WorkPos*: ImVec2
-    WorkSize*: ImVec2
+    MainPos*: ImVec2_c
+    MainSize*: ImVec2_c
+    WorkPos*: ImVec2_c
+    WorkSize*: ImVec2_c
     DpiScale*: cfloat
     PlatformHandle*: pointer
   ImGuiSelectionBasicStorage* = struct_ImGuiSelectionBasicStorage
@@ -2107,9 +2138,9 @@ type
   ImGuiSizeCallbackData* = struct_ImGuiSizeCallbackData
   struct_ImGuiSizeCallbackData* {.pure, inheritable, bycopy.} = object
     UserData*: pointer
-    Pos*: ImVec2
-    CurrentSize*: ImVec2
-    DesiredSize*: ImVec2
+    Pos*: ImVec2_c
+    CurrentSize*: ImVec2_c
+    DesiredSize*: ImVec2_c
   ImGuiStorage* = struct_ImGuiStorage
   struct_ImGuiStorage* {.pure, inheritable, bycopy.} = object
     Data*: ImVector_ImGuiStoragePair
@@ -2128,24 +2159,24 @@ type
     FontScaleDpi*: cfloat
     Alpha*: cfloat
     DisabledAlpha*: cfloat
-    WindowPadding*: ImVec2
+    WindowPadding*: ImVec2_c
     WindowRounding*: cfloat
     WindowBorderSize*: cfloat
     WindowBorderHoverPadding*: cfloat
-    WindowMinSize*: ImVec2
-    WindowTitleAlign*: ImVec2
+    WindowMinSize*: ImVec2_c
+    WindowTitleAlign*: ImVec2_c
     WindowMenuButtonPosition*: ImGuiDir
     ChildRounding*: cfloat
     ChildBorderSize*: cfloat
     PopupRounding*: cfloat
     PopupBorderSize*: cfloat
-    FramePadding*: ImVec2
+    FramePadding*: ImVec2_c
     FrameRounding*: cfloat
     FrameBorderSize*: cfloat
-    ItemSpacing*: ImVec2
-    ItemInnerSpacing*: ImVec2
-    CellPadding*: ImVec2
-    TouchExtraPadding*: ImVec2
+    ItemSpacing*: ImVec2_c
+    ItemInnerSpacing*: ImVec2_c
+    CellPadding*: ImVec2_c
+    TouchExtraPadding*: ImVec2_c
     IndentSpacing*: cfloat
     ColumnsMinSpacing*: cfloat
     ScrollbarSize*: cfloat
@@ -2154,6 +2185,7 @@ type
     GrabMinSize*: cfloat
     GrabRounding*: cfloat
     LogSliderDeadzone*: cfloat
+    ImageRounding*: cfloat
     ImageBorderSize*: cfloat
     TabRounding*: cfloat
     TabBorderSize*: cfloat
@@ -2164,18 +2196,22 @@ type
     TabBarBorderSize*: cfloat
     TabBarOverlineSize*: cfloat
     TableAngledHeadersAngle*: cfloat
-    TableAngledHeadersTextAlign*: ImVec2
+    TableAngledHeadersTextAlign*: ImVec2_c
     TreeLinesFlags*: ImGuiTreeNodeFlags
     TreeLinesSize*: cfloat
     TreeLinesRounding*: cfloat
+    DragDropTargetRounding*: cfloat
+    DragDropTargetBorderSize*: cfloat
+    DragDropTargetPadding*: cfloat
+    ColorMarkerSize*: cfloat
     ColorButtonPosition*: ImGuiDir
-    ButtonTextAlign*: ImVec2
-    SelectableTextAlign*: ImVec2
+    ButtonTextAlign*: ImVec2_c
+    SelectableTextAlign*: ImVec2_c
     SeparatorTextBorderSize*: cfloat
-    SeparatorTextAlign*: ImVec2
-    SeparatorTextPadding*: ImVec2
-    DisplayWindowPadding*: ImVec2
-    DisplaySafeAreaPadding*: ImVec2
+    SeparatorTextAlign*: ImVec2_c
+    SeparatorTextPadding*: ImVec2_c
+    DisplayWindowPadding*: ImVec2_c
+    DisplaySafeAreaPadding*: ImVec2_c
     DockingNodeHasCloseButton*: bool
     DockingSeparatorSize*: cfloat
     MouseCursorScale*: cfloat
@@ -2184,7 +2220,7 @@ type
     AntiAliasedFill*: bool
     CurveTessellationTol*: cfloat
     CircleTessellationMaxError*: cfloat
-    Colors*: array[61'i64, ImVec4]
+    Colors*: array[62'i64, ImVec4_c]
     HoverStationaryDelay*: cfloat
     HoverDelayShort*: cfloat
     HoverDelayNormal*: cfloat
@@ -2215,11 +2251,11 @@ type
   struct_ImGuiViewport* {.pure, inheritable, bycopy.} = object
     ID*: ImGuiID
     Flags*: ImGuiViewportFlags
-    Pos*: ImVec2
-    Size*: ImVec2
-    FramebufferScale*: ImVec2
-    WorkPos*: ImVec2
-    WorkSize*: ImVec2
+    Pos*: ImVec2_c
+    Size*: ImVec2_c
+    FramebufferScale*: ImVec2_c
+    WorkPos*: ImVec2_c
+    WorkSize*: ImVec2_c
     DpiScale*: cfloat
     ParentViewportId*: ImGuiID
     ParentViewport*: ptr ImGuiViewport
@@ -2246,10 +2282,10 @@ type
   ImBitVector* = struct_ImBitVector
   struct_ImBitVector* {.pure, inheritable, bycopy.} = object
     Storage*: ImVector_ImU32
-  ImRect* = struct_ImRect
-  struct_ImRect* {.pure, inheritable, bycopy.} = object
-    Min*: ImVec2
-    Max*: ImVec2
+  ImRect_c* = struct_ImRect_c
+  struct_ImRect_c* {.pure, inheritable, bycopy.} = object
+    Min*: ImVec2_c
+    Max*: ImVec2_c
   ImGuiTextIndex* = struct_ImGuiTextIndex
   struct_ImGuiTextIndex* {.pure, inheritable, bycopy.} = object
     Offsets*: ImVector_int
@@ -2284,18 +2320,18 @@ type
     IsStartedSetNavIdOnce*: bool
     RequestClear*: bool
     KeyMods* {.bitsize: 16'i64.}: ImGuiKeyChord
-    StartPosRel*: ImVec2
-    EndPosRel*: ImVec2
-    ScrollAccum*: ImVec2
+    StartPosRel*: ImVec2_c
+    EndPosRel*: ImVec2_c
+    ScrollAccum*: ImVec2_c
     Window*: ptr ImGuiWindow
     UnclipMode*: bool
-    UnclipRect*: ImRect
-    BoxSelectRectPrev*: ImRect
-    BoxSelectRectCurr*: ImRect
+    UnclipRect*: ImRect_c
+    BoxSelectRectPrev*: ImRect_c
+    BoxSelectRectCurr*: ImRect_c
   ImGuiColorMod* = struct_ImGuiColorMod
   struct_ImGuiColorMod* {.pure, inheritable, bycopy.} = object
     Col*: ImGuiCol
-    BackupValue*: ImVec4
+    BackupValue*: ImVec4_c
   ImGuiContextHook* = struct_ImGuiContextHook
   struct_ImGuiContextHook* {.pure, inheritable, bycopy.} = object
     HookId*: ImGuiID
@@ -2334,9 +2370,9 @@ type
     ChildNodes*: array[2'i64, ptr ImGuiDockNode]
     Windows*: ImVector_ImGuiWindowPtr
     TabBar*: ptr ImGuiTabBar
-    Pos*: ImVec2
-    Size*: ImVec2
-    SizeRef*: ImVec2
+    Pos*: ImVec2_c
+    Size*: ImVec2_c
+    SizeRef*: ImVec2_c
     SplitAxis*: ImGuiAxis
     WindowClass*: ImGuiWindowClass
     LastBgColor*: ImU32
@@ -2383,14 +2419,15 @@ type
   ImGuiGroupData* = struct_ImGuiGroupData
   struct_ImGuiGroupData* {.pure, inheritable, bycopy.} = object
     WindowID*: ImGuiID
-    BackupCursorPos*: ImVec2
-    BackupCursorMaxPos*: ImVec2
-    BackupCursorPosPrevLine*: ImVec2
+    BackupCursorPos*: ImVec2_c
+    BackupCursorMaxPos*: ImVec2_c
+    BackupCursorPosPrevLine*: ImVec2_c
     BackupIndent*: ImVec1
     BackupGroupOffset*: ImVec1
-    BackupCurrLineSize*: ImVec2
+    BackupCurrLineSize*: ImVec2_c
     BackupCurrLineTextBaseOffset*: cfloat
     BackupActiveIdIsAlive*: ImGuiID
+    BackupActiveIdHasBeenEditedThisFrame*: bool
     BackupDeactivatedIdIsAlive*: bool
     BackupHoveredIdIsAlive*: bool
     BackupIsSameLine*: bool
@@ -2407,7 +2444,7 @@ type
     TextToRevertTo*: ImVector_char
     CallbackTextBackup*: ImVector_char
     BufCapacity*: cint
-    Scroll*: ImVec2
+    Scroll*: ImVec2_c
     LineCount*: cint
     WrapWidth*: cfloat
     CursorAnim*: cfloat
@@ -2425,10 +2462,10 @@ type
     ID*: ImGuiID
     ItemFlags*: ImGuiItemFlags
     StatusFlags*: ImGuiItemStatusFlags
-    Rect*: ImRect
-    NavRect*: ImRect
-    DisplayRect*: ImRect
-    ClipRect*: ImRect
+    Rect*: ImRect_c
+    NavRect*: ImRect_c
+    DisplayRect*: ImRect_c
+    ClipRect*: ImRect_c
     Shortcut*: ImGuiKeyChord
   ImGuiLocEntry* = struct_ImGuiLocEntry
   struct_ImGuiLocEntry* {.pure, inheritable, bycopy.} = object
@@ -2460,8 +2497,8 @@ type
     Storage*: ptr ImGuiMultiSelectState
     FocusScopeId*: ImGuiID
     Flags*: ImGuiMultiSelectFlags
-    ScopeRectMin*: ImVec2
-    BackupCursorMaxPos*: ImVec2
+    ScopeRectMin*: ImVec2_c
+    BackupCursorMaxPos*: ImVec2_c
     LastSubmittedItem*: ImGuiSelectionUserData
     BoxSelectId*: ImGuiID
     KeyMods*: ImGuiKeyChord
@@ -2477,7 +2514,7 @@ type
     Window*: ptr ImGuiWindow
     ID*: ImGuiID
     FocusScopeId*: ImGuiID
-    RectRel*: ImRect
+    RectRel*: ImRect_c
     ItemFlags*: ImGuiItemFlags
     DistBox*: cfloat
     DistCenter*: cfloat
@@ -2507,23 +2544,23 @@ type
     SizeCond*: ImGuiCond
     CollapsedCond*: ImGuiCond
     DockCond*: ImGuiCond
-    PosVal*: ImVec2
-    PosPivotVal*: ImVec2
-    SizeVal*: ImVec2
-    ContentSizeVal*: ImVec2
-    ScrollVal*: ImVec2
+    PosVal*: ImVec2_c
+    PosPivotVal*: ImVec2_c
+    SizeVal*: ImVec2_c
+    ContentSizeVal*: ImVec2_c
+    ScrollVal*: ImVec2_c
     WindowFlags*: ImGuiWindowFlags
     ChildFlags*: ImGuiChildFlags
     PosUndock*: bool
     CollapsedVal*: bool
-    SizeConstraintRect*: ImRect
+    SizeConstraintRect*: ImRect_c
     SizeCallback*: ImGuiSizeCallback
     SizeCallbackUserData*: pointer
     BgAlphaVal*: cfloat
     ViewportId*: ImGuiID
     DockId*: ImGuiID
     WindowClass*: ImGuiWindowClass
-    MenuBarOffsetMinVal*: ImVec2
+    MenuBarOffsetMinVal*: ImVec2_c
     RefreshFlagsVal*: ImGuiWindowRefreshFlags
   ImGuiNextItemData* = struct_ImGuiNextItemData
   struct_ImGuiNextItemData* {.pure, inheritable, bycopy.} = object
@@ -2538,12 +2575,13 @@ type
     OpenCond*: ImU8
     RefVal*: ImGuiDataTypeStorage
     StorageId*: ImGuiID
+    ColorMarker*: ImU32
   ImGuiOldColumnData* = struct_ImGuiOldColumnData
   struct_ImGuiOldColumnData* {.pure, inheritable, bycopy.} = object
     OffsetNorm*: cfloat
     OffsetNormBeforeResize*: cfloat
     Flags*: ImGuiOldColumnFlags
-    ClipRect*: ImRect
+    ClipRect*: ImRect_c
   ImGuiOldColumns* = struct_ImGuiOldColumns
   struct_ImGuiOldColumns* {.pure, inheritable, bycopy.} = object
     ID*: ImGuiID
@@ -2558,9 +2596,9 @@ type
     LineMaxY*: cfloat
     HostCursorPosY*: cfloat
     HostCursorMaxPosX*: cfloat
-    HostInitialClipRect*: ImRect
-    HostBackupClipRect*: ImRect
-    HostBackupParentWorkRect*: ImRect
+    HostInitialClipRect*: ImRect_c
+    HostBackupClipRect*: ImRect_c
+    HostBackupParentWorkRect*: ImRect_c
     Columns*: ImVector_ImGuiOldColumnData
     Splitter*: ImDrawListSplitter
   ImGuiPopupData* = struct_ImGuiPopupData
@@ -2571,8 +2609,8 @@ type
     ParentNavLayer*: cint
     OpenFrameCount*: cint
     OpenParentId*: ImGuiID
-    OpenPopupPos*: ImVec2
-    OpenMousePos*: ImVec2
+    OpenPopupPos*: ImVec2_c
+    OpenMousePos*: ImVec2_c
   ImGuiSettingsHandler* = struct_ImGuiSettingsHandler
   struct_ImGuiSettingsHandler* {.pure, inheritable, bycopy.} = object
     TypeName*: cstring
@@ -2604,10 +2642,11 @@ type
     ID*: ImGuiID
     SelectedTabId*: ImGuiID
     NextSelectedTabId*: ImGuiID
+    NextScrollToTabId*: ImGuiID
     VisibleTabId*: ImGuiID
     CurrFrameVisible*: cint
     PrevFrameVisible*: cint
-    BarRect*: ImRect
+    BarRect*: ImRect_c
     BarRectPrevWidth*: cfloat
     CurrTabsContentsHeight*: cfloat
     PrevTabsContentsHeight*: cfloat
@@ -2631,8 +2670,8 @@ type
     TabsActiveCount*: ImS16
     LastTabItemIdx*: ImS16
     ItemSpacingY*: cfloat
-    FramePadding*: ImVec2
-    BackupCursorPos*: ImVec2
+    FramePadding*: ImVec2_c
+    BackupCursorPos*: ImVec2_c
     TabsNames*: ImGuiTextBuffer
   ImGuiTabItem* = struct_ImGuiTabItem
   struct_ImGuiTabItem* {.pure, inheritable, bycopy.} = object
@@ -2698,15 +2737,15 @@ type
     RefScale*: cfloat
     AngledHeadersHeight*: cfloat
     AngledHeadersSlope*: cfloat
-    OuterRect*: ImRect
-    InnerRect*: ImRect
-    WorkRect*: ImRect
-    InnerClipRect*: ImRect
-    BgClipRect*: ImRect
-    Bg0ClipRectForDrawCmd*: ImRect
-    Bg2ClipRectForDrawCmd*: ImRect
-    HostClipRect*: ImRect
-    HostBackupInnerClipRect*: ImRect
+    OuterRect*: ImRect_c
+    InnerRect*: ImRect_c
+    WorkRect*: ImRect_c
+    InnerClipRect*: ImRect_c
+    BgClipRect*: ImRect_c
+    Bg0ClipRectForDrawCmd*: ImRect_c
+    Bg2ClipRectForDrawCmd*: ImRect_c
+    HostClipRect*: ImRect_c
+    HostBackupInnerClipRect*: ImRect_c
     OuterWindow*: ptr ImGuiWindow
     InnerWindow*: ptr ImGuiWindow
     ColumnsNames*: ImGuiTextBuffer
@@ -2781,7 +2820,7 @@ type
     WidthMax*: cfloat
     StretchWeight*: cfloat
     InitStretchWeightOrWidth*: cfloat
-    ClipRect*: ImRect
+    ClipRect*: ImRect_c
     UserID*: ImGuiID
     WorkMinX*: cfloat
     WorkMaxX*: cfloat
@@ -2824,17 +2863,18 @@ type
     HoveredRowNext*: cint
   ImGuiTableTempData* = struct_ImGuiTableTempData
   struct_ImGuiTableTempData* {.pure, inheritable, bycopy.} = object
+    WindowID*: ImGuiID
     TableIndex*: cint
     LastTimeActive*: cfloat
     AngledHeadersExtraWidth*: cfloat
     AngledHeadersRequests*: ImVector_ImGuiTableHeaderData
-    UserOuterSize*: ImVec2
+    UserOuterSize*: ImVec2_c
     DrawSplitter*: ImDrawListSplitter
-    HostBackupWorkRect*: ImRect
-    HostBackupParentWorkRect*: ImRect
-    HostBackupPrevLineSize*: ImVec2
-    HostBackupCurrLineSize*: ImVec2
-    HostBackupCursorMaxPos*: ImVec2
+    HostBackupWorkRect*: ImRect_c
+    HostBackupParentWorkRect*: ImRect_c
+    HostBackupPrevLineSize*: ImVec2_c
+    HostBackupCurrLineSize*: ImVec2_c
+    HostBackupCursorMaxPos*: ImVec2_c
     HostBackupColumnsOffset*: ImVec1
     HostBackupItemWidth*: cfloat
     HostBackupItemWidthStackSize*: cint
@@ -2852,7 +2892,7 @@ type
     ID*: ImGuiID
     TreeFlags*: ImGuiTreeNodeFlags
     ItemFlags*: ImGuiItemFlags
-    NavRect*: ImRect
+    NavRect*: ImRect_c
     DrawLinesX1*: cfloat
     DrawLinesToNodesY2*: cfloat
     DrawLinesTableColumn*: ImGuiTableColumnIdx
@@ -2883,15 +2923,15 @@ type
     WindowClass*: ImGuiWindowClass
     Viewport*: ptr ImGuiViewportP
     ViewportId*: ImGuiID
-    ViewportPos*: ImVec2
+    ViewportPos*: ImVec2_c
     ViewportAllowPlatformMonitorExtend*: cint
-    Pos*: ImVec2
-    Size*: ImVec2
-    SizeFull*: ImVec2
-    ContentSize*: ImVec2
-    ContentSizeIdeal*: ImVec2
-    ContentSizeExplicit*: ImVec2
-    WindowPadding*: ImVec2
+    Pos*: ImVec2_c
+    Size*: ImVec2_c
+    SizeFull*: ImVec2_c
+    ContentSize*: ImVec2_c
+    ContentSizeIdeal*: ImVec2_c
+    ContentSizeExplicit*: ImVec2_c
+    WindowPadding*: ImVec2_c
     WindowRounding*: cfloat
     WindowBorderSize*: cfloat
     TitleBarHeight*: cfloat
@@ -2907,12 +2947,12 @@ type
     TabId*: ImGuiID
     ChildId*: ImGuiID
     PopupId*: ImGuiID
-    Scroll*: ImVec2
-    ScrollMax*: ImVec2
-    ScrollTarget*: ImVec2
-    ScrollTargetCenterRatio*: ImVec2
-    ScrollTargetEdgeSnapDist*: ImVec2
-    ScrollbarSizes*: ImVec2
+    Scroll*: ImVec2_c
+    ScrollMax*: ImVec2_c
+    ScrollTarget*: ImVec2_c
+    ScrollTargetCenterRatio*: ImVec2_c
+    ScrollTargetEdgeSnapDist*: ImVec2_c
+    ScrollbarSizes*: ImVec2_c
     ScrollbarX*: bool
     ScrollbarY*: bool
     ScrollbarXStabilizeEnabled*: bool
@@ -2937,35 +2977,35 @@ type
     BeginOrderWithinParent*: cshort
     BeginOrderWithinContext*: cshort
     FocusOrder*: cshort
+    AutoPosLastDirection*: ImGuiDir
     AutoFitFramesX*: ImS8
     AutoFitFramesY*: ImS8
     AutoFitOnlyGrows*: bool
-    AutoPosLastDirection*: ImGuiDir
     HiddenFramesCanSkipItems*: ImS8
     HiddenFramesCannotSkipItems*: ImS8
     HiddenFramesForRenderOnly*: ImS8
     DisableInputsFrames*: ImS8
+    BgClickFlags* {.bitsize: 8'i64.}: ImGuiWindowBgClickFlags
     SetWindowPosAllowFlags* {.bitsize: 8'i64.}: ImGuiCond
     SetWindowSizeAllowFlags* {.bitsize: 8'i64.}: ImGuiCond
     SetWindowCollapsedAllowFlags* {.bitsize: 8'i64.}: ImGuiCond
     SetWindowDockAllowFlags* {.bitsize: 8'i64.}: ImGuiCond
-    SetWindowPosVal*: ImVec2
-    SetWindowPosPivot*: ImVec2
+    SetWindowPosVal*: ImVec2_c
+    SetWindowPosPivot*: ImVec2_c
     IDStack*: ImVector_ImGuiID
     DC*: ImGuiWindowTempData
-    OuterRectClipped*: ImRect
-    InnerRect*: ImRect
-    InnerClipRect*: ImRect
-    WorkRect*: ImRect
-    ParentWorkRect*: ImRect
-    ClipRect*: ImRect
-    ContentRegionRect*: ImRect
+    OuterRectClipped*: ImRect_c
+    InnerRect*: ImRect_c
+    InnerClipRect*: ImRect_c
+    WorkRect*: ImRect_c
+    ParentWorkRect*: ImRect_c
+    ClipRect*: ImRect_c
+    ContentRegionRect*: ImRect_c
     HitTestHoleSize*: ImVec2ih
     HitTestHoleOffset*: ImVec2ih
     LastFrameActive*: cint
     LastFrameJustFocused*: cint
     LastTimeActive*: cfloat
-    ItemWidthDefault*: cfloat
     StateStorage*: ImGuiStorage
     ColumnsStorage*: ImVector_ImGuiOldColumns
     FontWindowScale*: cfloat
@@ -2984,8 +3024,8 @@ type
     ParentWindowForFocusRoute*: ptr ImGuiWindow
     NavLastChildNavWindow*: ptr ImGuiWindow
     NavLastIds*: array[2'i64, ImGuiID]
-    NavRectRel*: array[2'i64, ImRect]
-    NavPreferredScoringPosRel*: array[2'i64, ImVec2]
+    NavRectRel*: array[2'i64, ImRect_c]
+    NavPreferredScoringPosRel*: array[2'i64, ImVec2_c]
     NavRootFocusScopeId*: ImGuiID
     MemoryDrawListIdxCapacity*: cint
     MemoryDrawListVtxCapacity*: cint
@@ -3001,16 +3041,16 @@ type
     DockId*: ImGuiID
   ImGuiWindowDockStyle* = struct_ImGuiWindowDockStyle
   struct_ImGuiWindowDockStyle* {.pure, inheritable, bycopy.} = object
-    Colors*: array[8'i64, ImU32]
+    Colors*: array[9'i64, ImU32]
   ImGuiWindowTempData* = struct_ImGuiWindowTempData
   struct_ImGuiWindowTempData* {.pure, inheritable, bycopy.} = object
-    CursorPos*: ImVec2
-    CursorPosPrevLine*: ImVec2
-    CursorStartPos*: ImVec2
-    CursorMaxPos*: ImVec2
-    IdealMaxPos*: ImVec2
-    CurrLineSize*: ImVec2
-    PrevLineSize*: ImVec2
+    CursorPos*: ImVec2_c
+    CursorPosPrevLine*: ImVec2_c
+    CursorStartPos*: ImVec2_c
+    CursorMaxPos*: ImVec2_c
+    IdealMaxPos*: ImVec2_c
+    CurrLineSize*: ImVec2_c
+    PrevLineSize*: ImVec2_c
     CurrLineTextBaseOffset*: cfloat
     PrevLineTextBaseOffset*: cfloat
     IsSameLine*: bool
@@ -3018,7 +3058,7 @@ type
     Indent*: ImVec1
     ColumnsOffset*: ImVec1
     GroupOffset*: ImVec1
-    CursorStartPosLossyness*: ImVec2
+    CursorStartPosLossyness*: ImVec2_c
     NavLayerCurrent*: ImGuiNavLayer
     NavLayersActiveMask*: cshort
     NavLayersActiveMaskNext*: cshort
@@ -3026,7 +3066,7 @@ type
     NavHideHighlightOneFrame*: bool
     NavWindowHasScrollY*: bool
     MenuBarAppending*: bool
-    MenuBarOffset*: ImVec2
+    MenuBarOffset*: ImVec2_c
     MenuColumns*: ImGuiMenuColumns
     TreeDepth*: cint
     TreeHasStackDataDepthMask*: ImU32
@@ -3041,8 +3081,9 @@ type
     WindowItemStatusFlags*: ImGuiItemStatusFlags
     ChildItemStatusFlags*: ImGuiItemStatusFlags
     DockTabItemStatusFlags*: ImGuiItemStatusFlags
-    DockTabItemRect*: ImRect
+    DockTabItemRect*: ImRect_c
     ItemWidth*: cfloat
+    ItemWidthDefault*: cfloat
     TextWrapPos*: cfloat
     ItemWidthStack*: ImVector_float
     TextWrapPosStack*: ImVector_float
@@ -3123,19 +3164,19 @@ type
   ImGuiSizeCallback* = proc (a0: ptr ImGuiSizeCallbackData): void {.cdecl.}
   ImGuiMemAllocFunc* = proc (a0: csize_t; a1: pointer): pointer {.cdecl.}
   ImGuiMemFreeFunc* = proc (a0: pointer; a1: pointer): void {.cdecl.}
-  ImVec2* = struct_ImVec2
-  struct_ImVec2* {.pure, inheritable, bycopy.} = object
+  ImVec2_c* = struct_ImVec2_c
+  struct_ImVec2_c* {.pure, inheritable, bycopy.} = object
     x*: cfloat
     y*: cfloat
-  ImVec4* = struct_ImVec4
-  struct_ImVec4* {.pure, inheritable, bycopy.} = object
+  ImVec4_c* = struct_ImVec4_c
+  struct_ImVec4_c* {.pure, inheritable, bycopy.} = object
     x*: cfloat
     y*: cfloat
     z*: cfloat
     w*: cfloat
   ImTextureID* = ImU64
-  ImTextureRef* = struct_ImTextureRef
-  struct_ImTextureRef* {.pure, inheritable, bycopy.} = object
+  ImTextureRef_c* = struct_ImTextureRef_c
+  struct_ImTextureRef_c* {.pure, inheritable, bycopy.} = object
     internal_TexData*: ptr ImTextureData
     internal_TexID*: ImTextureID
   ImGuiWindowFlags_private* = enum_ImGuiWindowFlags_private
@@ -3208,8 +3249,8 @@ type
   ImDrawCallback* = proc (a0: ptr ImDrawList; a1: ptr ImDrawCmd): void {.cdecl.}
   ImDrawCmdHeader* = struct_ImDrawCmdHeader
   struct_ImDrawCmdHeader* {.pure, inheritable, bycopy.} = object
-    ClipRect*: ImVec4
-    TexRef*: ImTextureRef
+    ClipRect*: ImVec4_c
+    TexRef*: ImTextureRef_c
     VtxOffset*: cuint
   struct_ImVector_ImDrawCmd* {.pure, inheritable, bycopy.} = object
     Size*: cint
@@ -3236,17 +3277,17 @@ type
   struct_ImVector_ImVec2* {.pure, inheritable, bycopy.} = object
     Size*: cint
     Capacity*: cint
-    Data*: ptr ImVec2
+    Data*: ptr ImVec2_c
   ImVector_ImVec2* = struct_ImVector_ImVec2
   struct_ImVector_ImVec4* {.pure, inheritable, bycopy.} = object
     Size*: cint
     Capacity*: cint
-    Data*: ptr ImVec4
+    Data*: ptr ImVec4_c
   ImVector_ImVec4* = struct_ImVector_ImVec4
   struct_ImVector_ImTextureRef* {.pure, inheritable, bycopy.} = object
     Size*: cint
     Capacity*: cint
-    Data*: ptr ImTextureRef
+    Data*: ptr ImTextureRef_c
   ImVector_ImTextureRef* = struct_ImVector_ImTextureRef
   struct_ImVector_ImU8* {.pure, inheritable, bycopy.} = object
     Size*: cint
@@ -3341,17 +3382,19 @@ type
   ImGuiTextFlags* = cint
   ImGuiTooltipFlags* = cint
   ImGuiTypingSelectFlags* = cint
+  ImGuiWindowBgClickFlags* = cint
   ImGuiWindowRefreshFlags* = cint
   ImGuiTableColumnIdx* = ImS16
   ImGuiTableDrawChannelIdx* = ImU16
   ImDrawTextFlags_private* = enum_ImDrawTextFlags_private
+  ImWcharClass* = enum_ImWcharClass
   ImFileHandle* = ptr FILE
   FILE* = struct_iobuf
   ImVec1* = struct_ImVec1
   struct_ImVec1* {.pure, inheritable, bycopy.} = object
     x*: cfloat
-  ImVec2i* = struct_ImVec2i
-  struct_ImVec2i* {.pure, inheritable, bycopy.} = object
+  ImVec2i_c* = struct_ImVec2i_c
+  struct_ImVec2i_c* {.pure, inheritable, bycopy.} = object
     x*: cint
     y*: cint
   ImVec2ih* = struct_ImVec2ih
@@ -3393,10 +3436,10 @@ type
   ImGuiPlotType* = enum_ImGuiPlotType
   ImGuiComboPreviewData* = struct_ImGuiComboPreviewData
   struct_ImGuiComboPreviewData* {.pure, inheritable, bycopy.} = object
-    PreviewRect*: ImRect
-    BackupCursorPos*: ImVec2
-    BackupCursorMaxPos*: ImVec2
-    BackupCursorPosPrevLine*: ImVec2
+    PreviewRect*: ImRect_c
+    BackupCursorPos*: ImVec2_c
+    BackupCursorMaxPos*: ImVec2_c
+    BackupCursorPosPrevLine*: ImVec2_c
     BackupPrevLineTextBaseOffset*: cfloat
     BackupLayout*: ImGuiLayoutType
   ImGuiInputTextDeactivatedState* = struct_ImGuiInputTextDeactivatedState
@@ -3405,6 +3448,7 @@ type
     TextA*: ImVector_char
   ImStbTexteditState* = STB_TexteditState
   ImGuiWindowRefreshFlags_private* = enum_ImGuiWindowRefreshFlags_private
+  ImGuiWindowBgClickFlags_private* = enum_ImGuiWindowBgClickFlags_private
   ImGuiNextWindowDataFlags_private* = enum_ImGuiNextWindowDataFlags_private
   ImGuiNextItemDataFlags_private* = enum_ImGuiNextItemDataFlags_private
   ImGuiWindowStackData* = struct_ImGuiWindowStackData
@@ -3426,7 +3470,7 @@ type
   ImGuiPopupPositionPolicy* = enum_ImGuiPopupPositionPolicy
   struct_ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN* {.pure,
       inheritable, bycopy.} = object
-    Storage*: array[5'i64, ImU32]
+    Data*: array[5'i64, ImU32]
   ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN* = struct_ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN
   ImBitArrayForNamedKeys* = ImBitArray_ImGuiKey_NamedKey_COUNT_lessImGuiKey_NamedKey_BEGIN
   ImGuiInputEventType* = enum_ImGuiInputEventType
@@ -3563,8 +3607,8 @@ type
     LastFrameActive*: cint
     LastFocusedStampCount*: cint
     LastNameHash*: ImGuiID
-    LastPos*: ImVec2
-    LastSize*: ImVec2
+    LastPos*: ImVec2_c
+    LastSize*: ImVec2_c
     Alpha*: cfloat
     LastAlpha*: cfloat
     LastFocusedHadNavWindow*: bool
@@ -3573,13 +3617,13 @@ type
     BgFgDrawLists*: array[2'i64, ptr ImDrawList]
     DrawDataP*: ImDrawData
     DrawDataBuilder*: ImDrawDataBuilder
-    LastPlatformPos*: ImVec2
-    LastPlatformSize*: ImVec2
-    LastRendererSize*: ImVec2
-    WorkInsetMin*: ImVec2
-    WorkInsetMax*: ImVec2
-    BuildWorkInsetMin*: ImVec2
-    BuildWorkInsetMax*: ImVec2
+    LastPlatformPos*: ImVec2_c
+    LastPlatformSize*: ImVec2_c
+    LastRendererSize*: ImVec2_c
+    WorkInsetMin*: ImVec2_c
+    WorkInsetMax*: ImVec2_c
+    BuildWorkInsetMin*: ImVec2_c
+    BuildWorkInsetMax*: ImVec2_c
   ImGuiLocKey* = enum_ImGuiLocKey
   ImGuiErrorCallback* = proc (a0: ptr ImGuiContext; a1: pointer; a2: cstring): void {.cdecl.}
   ImGuiDebugLogFlags_private* = enum_ImGuiDebugLogFlags_private
@@ -3601,23 +3645,26 @@ type
     QuerySuccess*: bool
     DataType*: ImS8
     DescOffset*: cint
-  ImGuiIDStackTool* = struct_ImGuiIDStackTool
-  struct_ImGuiIDStackTool* {.pure, inheritable, bycopy.} = object
-    LastActiveFrame*: cint
-    StackLevel*: cint
-    QueryMainId*: ImGuiID
+  ImGuiDebugItemPathQuery* = struct_ImGuiDebugItemPathQuery
+  struct_ImGuiDebugItemPathQuery* {.pure, inheritable, bycopy.} = object
+    MainID*: ImGuiID
+    Active*: bool
+    Complete*: bool
+    Step*: ImS8
     Results*: ImVector_ImGuiStackLevelInfo
-    QueryHookActive*: bool
-    OptHexEncodeNonAsciiChars*: bool
-    OptCopyToClipboardOnCtrlC*: bool
-    CopyToClipboardLastTime*: cfloat
-    ResultPathsBuf*: ImGuiTextBuffer
-    ResultTempBuf*: ImGuiTextBuffer
+    ResultsDescBuf*: ImGuiTextBuffer
+    ResultPathBuf*: ImGuiTextBuffer
   struct_ImVector_ImGuiStackLevelInfo* {.pure, inheritable, bycopy.} = object
     Size*: cint
     Capacity*: cint
     Data*: ptr ImGuiStackLevelInfo
   ImVector_ImGuiStackLevelInfo* = struct_ImVector_ImGuiStackLevelInfo
+  ImGuiIDStackTool* = struct_ImGuiIDStackTool
+  struct_ImGuiIDStackTool* {.pure, inheritable, bycopy.} = object
+    OptHexEncodeNonAsciiChars*: bool
+    OptCopyToClipboardOnCtrlC*: bool
+    LastActiveFrame*: cint
+    CopyToClipboardLastTime*: cfloat
   ImGuiContextHookCallback* = proc (a0: ptr ImGuiContext; a1: ptr ImGuiContextHook): void {.cdecl.}
   ImGuiContextHookType* = enum_ImGuiContextHookType
   struct_ImVector_ImFontAtlasPtr* {.pure, inheritable, bycopy.} = object
@@ -3841,6 +3888,12 @@ type
     Capacity*: cint
     Blocks*: ImVector_ImFontBakedPtr
   ImStableVector_ImFontBaked_32* = struct_ImStableVector_ImFontBaked_32
+  ImTextureRef* = struct_ImTextureRef_c
+  ImVec2* = struct_ImVec2
+  ImVec2i* = struct_ImVec2i_c
+  ImVec4* = struct_ImVec4_c
+  ImColor* = struct_ImColor_c
+  ImRect* = struct_ImRect_c
   tm* = struct_tm
   struct_tm* {.pure, inheritable, bycopy.} = object
     tm_sec*: cint
@@ -3884,28 +3937,28 @@ type
     AlignmentData*: ImPool_ImPlotAlignmentData
     CurrentAlignmentH*: ptr ImPlotAlignmentData
     CurrentAlignmentV*: ptr ImPlotAlignmentData
-  ImPlotTick* = struct_ImPlotTick
-  struct_ImPlotTick* {.pure, inheritable, bycopy.} = object
+  ImPlotTick_c* = struct_ImPlotTick_c
+  struct_ImPlotTick_c* {.pure, inheritable, bycopy.} = object
     PlotPos*: cdouble
     PixelPos*: cfloat
-    LabelSize*: ImVec2
+    LabelSize*: ImVec2_c
     TextOffset*: cint
     Major*: bool
     ShowLabel*: bool
     Level*: cint
     Idx*: cint
-  ImPlotAxis* = struct_ImPlotAxis
-  struct_ImPlotAxis* {.pure, inheritable, bycopy.} = object
+  ImPlotAxis_c* = struct_ImPlotAxis_c
+  struct_ImPlotAxis_c* {.pure, inheritable, bycopy.} = object
     ID*: ImGuiID
     Flags*: ImPlotAxisFlags
     PreviousFlags*: ImPlotAxisFlags
-    Range*: ImPlotRange
+    Range*: ImPlotRange_c
     RangeCond*: ImPlotCond
     Scale*: ImPlotScale
-    FitExtents*: ImPlotRange
-    OrthoAxis*: ptr ImPlotAxis
-    ConstraintRange*: ImPlotRange
-    ConstraintZoom*: ImPlotRange
+    FitExtents*: ImPlotRange_c
+    OrthoAxis*: ptr ImPlotAxis_c
+    ConstraintRange*: ImPlotRange_c
+    ConstraintZoom*: ImPlotRange_c
     Ticker*: ImPlotTicker
     Formatter*: ImPlotFormatter
     FormatterData*: pointer
@@ -3914,8 +3967,8 @@ type
     LinkedMin*: ptr cdouble
     LinkedMax*: ptr cdouble
     PickerLevel*: cint
-    PickerTimeMin*: ImPlotTime
-    PickerTimeMax*: ImPlotTime
+    PickerTimeMin*: ImPlotTime_c
+    PickerTimeMax*: ImPlotTime_c
     TransformForward*: ImPlotTransform
     TransformInverse*: ImPlotTransform
     TransformData*: pointer
@@ -3926,7 +3979,7 @@ type
     ScaleToPixel*: cdouble
     Datum1*: cfloat
     Datum2*: cfloat
-    HoverRect*: ImRect
+    HoverRect*: ImRect_c
     LabelOffset*: cint
     ColorMaj*: ImU32
     ColorMin*: ImU32
@@ -3949,7 +4002,7 @@ type
   struct_ImPlotItem* {.pure, inheritable, bycopy.} = object
     ID*: ImGuiID
     Color*: ImU32
-    LegendHoverRect*: ImRect
+    LegendHoverRect*: ImRect_c
     NameOffset*: cint
     Show*: bool
     LegendHovered*: bool
@@ -3960,11 +4013,11 @@ type
     PreviousFlags*: ImPlotLegendFlags
     Location*: ImPlotLocation
     PreviousLocation*: ImPlotLocation
-    Scroll*: ImVec2
+    Scroll*: ImVec2_c
     Indices*: ImVector_int
     Labels*: ImGuiTextBuffer
-    Rect*: ImRect
-    RectClamped*: ImRect
+    Rect*: ImRect_c
+    RectClamped*: ImRect_c
     Hovered*: bool
     Held*: bool
     CanGoInside*: bool
@@ -3975,17 +4028,17 @@ type
     PreviousFlags*: ImPlotFlags
     MouseTextLocation*: ImPlotLocation
     MouseTextFlags*: ImPlotMouseTextFlags
-    Axes*: array[6'i64, ImPlotAxis]
+    Axes*: array[6'i64, ImPlotAxis_c]
     TextBuffer*: ImGuiTextBuffer
     Items*: ImPlotItemGroup
     CurrentX*: ImAxis
     CurrentY*: ImAxis
-    FrameRect*: ImRect
-    CanvasRect*: ImRect
-    PlotRect*: ImRect
-    AxesRect*: ImRect
-    SelectRect*: ImRect
-    SelectStart*: ImVec2
+    FrameRect*: ImRect_c
+    CanvasRect*: ImRect_c
+    PlotRect*: ImRect_c
+    AxesRect*: ImRect_c
+    SelectRect*: ImRect_c
+    SelectStart*: ImVec2_c
     TitleOffset*: cint
     JustCreated*: bool
     Initialized*: bool
@@ -3999,7 +4052,7 @@ type
   ImPlotNextPlotData* = struct_ImPlotNextPlotData
   struct_ImPlotNextPlotData* {.pure, inheritable, bycopy.} = object
     RangeCond*: array[6'i64, ImPlotCond]
-    Range*: array[6'i64, ImPlotRange]
+    Range*: array[6'i64, ImPlotRange_c]
     HasRange*: array[6'i64, bool]
     Fit*: array[6'i64, bool]
     LinkedMin*: array[6'i64, ptr cdouble]
@@ -4008,8 +4061,8 @@ type
   struct_ImPlotTicker* {.pure, inheritable, bycopy.} = object
     Ticks*: ImVector_ImPlotTick
     TextBuffer*: ImGuiTextBuffer
-    MaxSize*: ImVec2
-    LateSize*: ImVec2
+    MaxSize*: ImVec2_c
+    LateSize*: ImVec2_c
     Levels*: cint
   struct_ImVector_ImS16* {.pure, inheritable, bycopy.} = object
     Size*: cint
@@ -4102,18 +4155,18 @@ type
   ImPlotColormap_private* = enum_ImPlotColormap_private
   ImPlotLocation_private* = enum_ImPlotLocation_private
   ImPlotBin_private* = enum_ImPlotBin_private
-  ImPlotPoint* = struct_ImPlotPoint
-  struct_ImPlotPoint* {.pure, inheritable, bycopy.} = object
+  ImPlotPoint_c* = struct_ImPlotPoint_c
+  struct_ImPlotPoint_c* {.pure, inheritable, bycopy.} = object
     x*: cdouble
     y*: cdouble
-  ImPlotRange* = struct_ImPlotRange
-  struct_ImPlotRange* {.pure, inheritable, bycopy.} = object
+  ImPlotRange_c* = struct_ImPlotRange_c
+  struct_ImPlotRange_c* {.pure, inheritable, bycopy.} = object
     Min*: cdouble
     Max*: cdouble
-  ImPlotRect* = struct_ImPlotRect
-  struct_ImPlotRect* {.pure, inheritable, bycopy.} = object
-    X*: ImPlotRange
-    Y*: ImPlotRange
+  ImPlotRect_c* = struct_ImPlotRect_c
+  struct_ImPlotRect_c* {.pure, inheritable, bycopy.} = object
+    X*: ImPlotRange_c
+    Y*: ImPlotRange_c
   ImPlotStyle* = struct_ImPlotStyle
   struct_ImPlotStyle* {.pure, inheritable, bycopy.} = object
     LineWeight*: cfloat
@@ -4127,23 +4180,23 @@ type
     DigitalBitGap*: cfloat
     PlotBorderSize*: cfloat
     MinorAlpha*: cfloat
-    MajorTickLen*: ImVec2
-    MinorTickLen*: ImVec2
-    MajorTickSize*: ImVec2
-    MinorTickSize*: ImVec2
-    MajorGridSize*: ImVec2
-    MinorGridSize*: ImVec2
-    PlotPadding*: ImVec2
-    LabelPadding*: ImVec2
-    LegendPadding*: ImVec2
-    LegendInnerPadding*: ImVec2
-    LegendSpacing*: ImVec2
-    MousePosPadding*: ImVec2
-    AnnotationPadding*: ImVec2
-    FitPadding*: ImVec2
-    PlotDefaultSize*: ImVec2
-    PlotMinSize*: ImVec2
-    Colors*: array[21'i64, ImVec4]
+    MajorTickLen*: ImVec2_c
+    MinorTickLen*: ImVec2_c
+    MajorTickSize*: ImVec2_c
+    MinorTickSize*: ImVec2_c
+    MajorGridSize*: ImVec2_c
+    MinorGridSize*: ImVec2_c
+    PlotPadding*: ImVec2_c
+    LabelPadding*: ImVec2_c
+    LegendPadding*: ImVec2_c
+    LegendInnerPadding*: ImVec2_c
+    LegendSpacing*: ImVec2_c
+    MousePosPadding*: ImVec2_c
+    AnnotationPadding*: ImVec2_c
+    FitPadding*: ImVec2_c
+    PlotDefaultSize*: ImVec2_c
+    PlotMinSize*: ImVec2_c
+    Colors*: array[21'i64, ImVec4_c]
     Colormap*: ImPlotColormap
     UseLocalTime*: bool
     UseISO8601*: bool
@@ -4163,7 +4216,7 @@ type
     ZoomMod*: cint
     ZoomRate*: cfloat
   ImPlotFormatter* = proc (a0: cdouble; a1: cstring; a2: cint; a3: pointer): cint {.cdecl.}
-  ImPlotGetter* = proc (a0: cint; a1: pointer): ImPlotPoint {.cdecl.}
+  ImPlotGetter* = proc (a0: cint; a1: pointer): ImPlotPoint_c {.cdecl.}
   ImPlotTransform* = proc (a0: cdouble; a1: pointer): cdouble {.cdecl.}
   ImPlotTimeUnit* = cint
   ImPlotDateFmt* = cint
@@ -4171,15 +4224,15 @@ type
   ImPlotTimeUnit_private* = enum_ImPlotTimeUnit_private
   ImPlotDateFmt_private* = enum_ImPlotDateFmt_private
   ImPlotTimeFmt_private* = enum_ImPlotTimeFmt_private
-  ImPlotLocator* = proc (a0: ptr ImPlotTicker; a1: ImPlotRange; a2: cfloat; a3: bool; a4: ImPlotFormatter; a5: pointer): void {.cdecl.}
-  ImPlotDateTimeSpec* = struct_ImPlotDateTimeSpec
-  struct_ImPlotDateTimeSpec* {.pure, inheritable, bycopy.} = object
+  ImPlotLocator* = proc (a0: ptr ImPlotTicker; a1: ImPlotRange_c; a2: cfloat; a3: bool; a4: ImPlotFormatter; a5: pointer): void {.cdecl.}
+  ImPlotDateTimeSpec_c* = struct_ImPlotDateTimeSpec_c
+  struct_ImPlotDateTimeSpec_c* {.pure, inheritable, bycopy.} = object
     Date*: ImPlotDateFmt
     Time*: ImPlotTimeFmt
     UseISO8601*: bool
     Use24HourClock*: bool
-  ImPlotTime* = struct_ImPlotTime
-  struct_ImPlotTime* {.pure, inheritable, bycopy.} = object
+  ImPlotTime_c* = struct_ImPlotTime_c
+  struct_ImPlotTime_c* {.pure, inheritable, bycopy.} = object
     S*: time_t
     Us*: cint
   time_t* = compiler_time64_t
@@ -4209,8 +4262,8 @@ type
     Pos*: cdouble
   ImPlotAnnotation* = struct_ImPlotAnnotation
   struct_ImPlotAnnotation* {.pure, inheritable, bycopy.} = object
-    Pos*: ImVec2
-    Offset*: ImVec2
+    Pos*: ImVec2_c
+    Offset*: ImVec2_c
     ColorBg*: ImU32
     ColorFg*: ImU32
     TextOffset*: cint
@@ -4245,7 +4298,7 @@ type
   struct_ImVector_ImPlotTick* {.pure, inheritable, bycopy.} = object
     Size*: cint
     Capacity*: cint
-    Data*: ptr ImPlotTick
+    Data*: ptr ImPlotTick_c
   ImVector_ImPlotTick* = struct_ImVector_ImPlotTick
   ImPlotAlignmentData* = struct_ImPlotAlignmentData
   struct_ImPlotAlignmentData* {.pure, inheritable, bycopy.} = object
@@ -4280,9 +4333,9 @@ type
     Rows*: cint
     Cols*: cint
     CurrentIdx*: cint
-    FrameRect*: ImRect
-    GridRect*: ImRect
-    CellSize*: ImVec2
+    FrameRect*: ImRect_c
+    GridRect*: ImRect_c
+    CellSize*: ImVec2_c
     RowAlignmentData*: ImVector_ImPlotAlignmentData
     ColAlignmentData*: ImVector_ImPlotAlignmentData
     RowRatios*: ImVector_float
@@ -4300,11 +4353,11 @@ type
   struct_ImVector_ImPlotRange* {.pure, inheritable, bycopy.} = object
     Size*: cint
     Capacity*: cint
-    Data*: ptr ImPlotRange
+    Data*: ptr ImPlotRange_c
   ImVector_ImPlotRange* = struct_ImVector_ImPlotRange
   ImPlotNextItemData* = struct_ImPlotNextItemData
   struct_ImPlotNextItemData* {.pure, inheritable, bycopy.} = object
-    Colors*: array[5'i64, ImVec4]
+    Colors*: array[5'i64, ImVec4_c]
     LineWeight*: cfloat
     Marker*: ImPlotMarker
     MarkerSize*: cfloat
@@ -4361,55 +4414,63 @@ type
   ImPool_ImPlotAlignmentData* = struct_ImPool_ImPlotAlignmentData
   Formatter_Time_Data* = struct_Formatter_Time_Data
   struct_Formatter_Time_Data* {.pure, inheritable, bycopy.} = object
-    Time*: ImPlotTime
-    Spec*: ImPlotDateTimeSpec
+    Time*: ImPlotTime_c
+    Spec*: ImPlotDateTimeSpec_c
     UserFormatter*: ImPlotFormatter
     UserFormatterData*: pointer
-  ImPlotPoint_getter* = proc (a0: pointer; a1: cint; a2: ptr ImPlotPoint): pointer {.cdecl.}
+  ImPlotDateTimeSpec* = struct_ImPlotDateTimeSpec_c
+  ImPlotPoint* = struct_ImPlotPoint_c
+  ImPlotRange* = struct_ImPlotRange_c
+  ImPlotTime* = struct_ImPlotTime_c
+  ImPlotRect* = struct_ImPlotRect_c
+  ImPlotTick* = struct_ImPlotTick_c
+  ImPlotAxis* = struct_ImPlotAxis_c
+  ImPlotPoint_getter* = proc (a0: pointer; a1: cint; a2: ptr ImPlotPoint_c): pointer {.cdecl.}
   ImPlot3DContext* = struct_ImPlot3DContext
-  ImPlot3DStyle* = struct_ImPlot3DStyle
-  struct_ImPlot3DStyle* {.pure, inheritable, bycopy.} = object
+  ImPlot3DStyle_c* = struct_ImPlot3DStyle_c
+  struct_ImPlot3DStyle_c* {.pure, inheritable, bycopy.} = object
     LineWeight*: cfloat
     Marker*: cint
     MarkerSize*: cfloat
     MarkerWeight*: cfloat
     FillAlpha*: cfloat
-    PlotDefaultSize*: ImVec2
-    PlotMinSize*: ImVec2
-    PlotPadding*: ImVec2
-    LabelPadding*: ImVec2
-    LegendPadding*: ImVec2
-    LegendInnerPadding*: ImVec2
-    LegendSpacing*: ImVec2
-    Colors*: array[15'i64, ImVec4]
+    PlotDefaultSize*: ImVec2_c
+    PlotMinSize*: ImVec2_c
+    PlotPadding*: ImVec2_c
+    LabelPadding*: ImVec2_c
+    ViewScaleFactor*: cfloat
+    LegendPadding*: ImVec2_c
+    LegendInnerPadding*: ImVec2_c
+    LegendSpacing*: ImVec2_c
+    Colors*: array[15'i64, ImVec4_c]
     Colormap*: ImPlot3DColormap
-  ImPlot3DPoint* = struct_ImPlot3DPoint
-  struct_ImPlot3DPoint* {.pure, inheritable, bycopy.} = object
-    x*: cfloat
-    y*: cfloat
-    z*: cfloat
+  ImPlot3DPoint_c* = struct_ImPlot3DPoint_c
+  struct_ImPlot3DPoint_c* {.pure, inheritable, bycopy.} = object
+    x*: cdouble
+    y*: cdouble
+    z*: cdouble
   ImPlot3DRay* = struct_ImPlot3DRay
   struct_ImPlot3DRay* {.pure, inheritable, bycopy.} = object
-    Origin*: ImPlot3DPoint
-    Direction*: ImPlot3DPoint
+    Origin*: ImPlot3DPoint_c
+    Direction*: ImPlot3DPoint_c
   ImPlot3DPlane* = struct_ImPlot3DPlane
   struct_ImPlot3DPlane* {.pure, inheritable, bycopy.} = object
-    Point*: ImPlot3DPoint
-    Normal*: ImPlot3DPoint
+    Point*: ImPlot3DPoint_c
+    Normal*: ImPlot3DPoint_c
   ImPlot3DBox* = struct_ImPlot3DBox
   struct_ImPlot3DBox* {.pure, inheritable, bycopy.} = object
-    Min*: ImPlot3DPoint
-    Max*: ImPlot3DPoint
+    Min*: ImPlot3DPoint_c
+    Max*: ImPlot3DPoint_c
   ImPlot3DRange* = struct_ImPlot3DRange
   struct_ImPlot3DRange* {.pure, inheritable, bycopy.} = object
-    Min*: cfloat
-    Max*: cfloat
-  ImPlot3DQuat* = struct_ImPlot3DQuat
-  struct_ImPlot3DQuat* {.pure, inheritable, bycopy.} = object
-    x*: cfloat
-    y*: cfloat
-    z*: cfloat
-    w*: cfloat
+    Min*: cdouble
+    Max*: cdouble
+  ImPlot3DQuat_c* = struct_ImPlot3DQuat_c
+  struct_ImPlot3DQuat_c* {.pure, inheritable, bycopy.} = object
+    x*: cdouble
+    y*: cdouble
+    z*: cdouble
+    w*: cdouble
   ImPlot3DCond* = cint
   ImPlot3DCol* = cint
   ImPlot3DStyleVar* = cint
@@ -4417,6 +4478,7 @@ type
   ImPlot3DLocation* = cint
   ImAxis3D* = cint
   ImPlane3D* = cint
+  ImPlot3DScale* = cint
   ImPlot3DColormap* = cint
   ImPlot3DFlags* = cint
   ImPlot3DItemFlags* = cint
@@ -4427,6 +4489,7 @@ type
   ImPlot3DSurfaceFlags* = cint
   ImPlot3DMeshFlags* = cint
   ImPlot3DImageFlags* = cint
+  ImPlot3DDummyFlags* = cint
   ImPlot3DLegendFlags* = cint
   ImPlot3DAxisFlags* = cint
   ImPlot3DFlags_private* = enum_ImPlot3DFlags_private
@@ -4442,13 +4505,19 @@ type
   ImPlot3DSurfaceFlags_private* = enum_ImPlot3DSurfaceFlags_private
   ImPlot3DMeshFlags_private* = enum_ImPlot3DMeshFlags_private
   ImPlot3DImageFlags_private* = enum_ImPlot3DImageFlags_private
+  ImPlot3DDummyFlags_private* = enum_ImPlot3DDummyFlags_private
   ImPlot3DLegendFlags_private* = enum_ImPlot3DLegendFlags_private
   ImPlot3DLocation_private* = enum_ImPlot3DLocation_private
   ImPlot3DAxisFlags_private* = enum_ImPlot3DAxisFlags_private
   ImAxis3D_private* = enum_ImAxis3D_private
   ImPlane3D_private* = enum_ImPlane3D_private
+  ImPlot3DScale_private* = enum_ImPlot3DScale_private
   ImPlot3DColormap_private* = enum_ImPlot3DColormap_private
-  ImPlot3DFormatter* = proc (a0: cfloat; a1: cstring; a2: cint; a3: pointer): cint {.cdecl.}
+  ImPlot3DFormatter* = proc (a0: cdouble; a1: cstring; a2: cint; a3: pointer): cint {.cdecl.}
+  ImPlot3DTransform* = proc (a0: cdouble; a1: pointer): cdouble {.cdecl.}
+  ImPlot3DPoint* = struct_ImPlot3DPoint_c
+  ImPlot3DQuat* = struct_ImPlot3DQuat_c
+  ImPlot3DStyle* = struct_ImPlot3DStyle_c
   LeafColor* = proc (a0: cint): ImColor {.cdecl.}
   TextEditor* = struct_TextEditor
   PaletteId* = enum_PaletteId
@@ -4618,16 +4687,16 @@ when 1 is static:
     IMGUI_HAS_DOCK* = 1
 else:
   let IMGUI_HAS_DOCK* = 1
-when "v0.6.8" is static:
+when "v0.6.9 WIP" is static:
   const
-    IGFD_VERSION* = "v0.6.8"
+    IGFD_VERSION* = "v0.6.9 WIP"
 else:
-  let IGFD_VERSION* = "v0.6.8"
-when "1.92.0 WIP" is static:
+  let IGFD_VERSION* = "v0.6.9 WIP"
+when "1.92.3" is static:
   const
-    IGFD_IMGUI_SUPPORTED_VERSION* = "1.92.0 WIP"
+    IGFD_IMGUI_SUPPORTED_VERSION* = "1.92.3"
 else:
-  let IGFD_IMGUI_SUPPORTED_VERSION* = "1.92.0 WIP"
+  let IGFD_IMGUI_SUPPORTED_VERSION* = "1.92.3"
 when 1.618033988749895 is static:
   const
     ImGui_ToggleConstants_Phi* = 1.618033988749895
@@ -4772,8 +4841,8 @@ proc igStyleColorsLight*(dst: ptr ImGuiStyle): void {.cdecl, importc: "igStyleCo
 proc igStyleColorsClassic*(dst: ptr ImGuiStyle): void {.cdecl, importc: "igStyleColorsClassic".}
 proc igBegin*(name: cstring; p_open: ptr bool; flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBegin".}
 proc igEnd*(): void {.cdecl, importc: "igEnd".}
-proc igBeginChild_Str*(str_id: cstring; size: ImVec2; child_flags: ImGuiChildFlags; window_flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginChild_Str".}
-proc igBeginChild_ID*(id: ImGuiID; size: ImVec2; child_flags: ImGuiChildFlags; window_flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginChild_ID".}
+proc igBeginChild_Str*(str_id: cstring; size: ImVec2_c; child_flags: ImGuiChildFlags; window_flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginChild_Str".}
+proc igBeginChild_ID*(id: ImGuiID; size: ImVec2_c; child_flags: ImGuiChildFlags; window_flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginChild_ID".}
 proc igEndChild*(): void {.cdecl, importc: "igEndChild".}
 proc igIsWindowAppearing*(): bool {.cdecl, importc: "igIsWindowAppearing".}
 proc igIsWindowCollapsed*(): bool {.cdecl, importc: "igIsWindowCollapsed".}
@@ -4781,26 +4850,26 @@ proc igIsWindowFocused*(flags: ImGuiFocusedFlags): bool {.cdecl, importc: "igIsW
 proc igIsWindowHovered*(flags: ImGuiHoveredFlags): bool {.cdecl, importc: "igIsWindowHovered".}
 proc igGetWindowDrawList*(): ptr ImDrawList {.cdecl, importc: "igGetWindowDrawList".}
 proc igGetWindowDpiScale*(): cfloat {.cdecl, importc: "igGetWindowDpiScale".}
-proc igGetWindowPos*(pOut: ptr ImVec2): void {.cdecl, importc: "igGetWindowPos".}
-proc igGetWindowSize*(pOut: ptr ImVec2): void {.cdecl, importc: "igGetWindowSize".}
+proc igGetWindowPos*(): ImVec2_c {.cdecl, importc: "igGetWindowPos".}
+proc igGetWindowSize*(): ImVec2_c {.cdecl, importc: "igGetWindowSize".}
 proc igGetWindowWidth*(): cfloat {.cdecl, importc: "igGetWindowWidth".}
 proc igGetWindowHeight*(): cfloat {.cdecl, importc: "igGetWindowHeight".}
 proc igGetWindowViewport*(): ptr ImGuiViewport {.cdecl, importc: "igGetWindowViewport".}
-proc igSetNextWindowPos*(pos: ImVec2; cond: ImGuiCond; pivot: ImVec2): void {.cdecl, importc: "igSetNextWindowPos".}
-proc igSetNextWindowSize*(size: ImVec2; cond: ImGuiCond): void {.cdecl, importc: "igSetNextWindowSize".}
-proc igSetNextWindowSizeConstraints*(size_min: ImVec2; size_max: ImVec2; custom_callback: ImGuiSizeCallback; custom_callback_data: pointer): void {.cdecl, importc: "igSetNextWindowSizeConstraints".}
-proc igSetNextWindowContentSize*(size: ImVec2): void {.cdecl, importc: "igSetNextWindowContentSize".}
+proc igSetNextWindowPos*(pos: ImVec2_c; cond: ImGuiCond; pivot: ImVec2_c): void {.cdecl, importc: "igSetNextWindowPos".}
+proc igSetNextWindowSize*(size: ImVec2_c; cond: ImGuiCond): void {.cdecl, importc: "igSetNextWindowSize".}
+proc igSetNextWindowSizeConstraints*(size_min: ImVec2_c; size_max: ImVec2_c; custom_callback: ImGuiSizeCallback; custom_callback_data: pointer): void {.cdecl, importc: "igSetNextWindowSizeConstraints".}
+proc igSetNextWindowContentSize*(size: ImVec2_c): void {.cdecl, importc: "igSetNextWindowContentSize".}
 proc igSetNextWindowCollapsed*(collapsed: bool; cond: ImGuiCond): void {.cdecl, importc: "igSetNextWindowCollapsed".}
 proc igSetNextWindowFocus*(): void {.cdecl, importc: "igSetNextWindowFocus".}
-proc igSetNextWindowScroll*(scroll: ImVec2): void {.cdecl, importc: "igSetNextWindowScroll".}
+proc igSetNextWindowScroll*(scroll: ImVec2_c): void {.cdecl, importc: "igSetNextWindowScroll".}
 proc igSetNextWindowBgAlpha*(alpha: cfloat): void {.cdecl, importc: "igSetNextWindowBgAlpha".}
 proc igSetNextWindowViewport*(viewport_id: ImGuiID): void {.cdecl, importc: "igSetNextWindowViewport".}
-proc igSetWindowPos_Vec2*(pos: ImVec2; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowPos_Vec2".}
-proc igSetWindowSize_Vec2*(size: ImVec2; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowSize_Vec2".}
+proc igSetWindowPos_Vec2*(pos: ImVec2_c; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowPos_Vec2".}
+proc igSetWindowSize_Vec2*(size: ImVec2_c; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowSize_Vec2".}
 proc igSetWindowCollapsed_Bool*(collapsed: bool; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowCollapsed_Bool".}
 proc igSetWindowFocus_Nil*(): void {.cdecl, importc: "igSetWindowFocus_Nil".}
-proc igSetWindowPos_Str*(name: cstring; pos: ImVec2; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowPos_Str".}
-proc igSetWindowSize_Str*(name: cstring; size: ImVec2; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowSize_Str".}
+proc igSetWindowPos_Str*(name: cstring; pos: ImVec2_c; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowPos_Str".}
+proc igSetWindowSize_Str*(name: cstring; size: ImVec2_c; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowSize_Str".}
 proc igSetWindowCollapsed_Str*(name: cstring; collapsed: bool; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowCollapsed_Str".}
 proc igSetWindowFocus_Str*(name: cstring): void {.cdecl, importc: "igSetWindowFocus_Str".}
 proc igGetScrollX*(): cfloat {.cdecl, importc: "igGetScrollX".}
@@ -4819,10 +4888,10 @@ proc igGetFont*(): ptr ImFont {.cdecl, importc: "igGetFont".}
 proc igGetFontSize*(): cfloat {.cdecl, importc: "igGetFontSize".}
 proc igGetFontBaked*(): ptr ImFontBaked {.cdecl, importc: "igGetFontBaked".}
 proc igPushStyleColor_U32*(idx: ImGuiCol; col: ImU32): void {.cdecl, importc: "igPushStyleColor_U32".}
-proc igPushStyleColor_Vec4*(idx: ImGuiCol; col: ImVec4): void {.cdecl, importc: "igPushStyleColor_Vec4".}
+proc igPushStyleColor_Vec4*(idx: ImGuiCol; col: ImVec4_c): void {.cdecl, importc: "igPushStyleColor_Vec4".}
 proc igPopStyleColor*(count: cint): void {.cdecl, importc: "igPopStyleColor".}
 proc igPushStyleVar_Float*(idx: ImGuiStyleVar; val: cfloat): void {.cdecl, importc: "igPushStyleVar_Float".}
-proc igPushStyleVar_Vec2*(idx: ImGuiStyleVar; val: ImVec2): void {.cdecl, importc: "igPushStyleVar_Vec2".}
+proc igPushStyleVar_Vec2*(idx: ImGuiStyleVar; val: ImVec2_c): void {.cdecl, importc: "igPushStyleVar_Vec2".}
 proc igPushStyleVarX*(idx: ImGuiStyleVar; val_x: cfloat): void {.cdecl, importc: "igPushStyleVarX".}
 proc igPushStyleVarY*(idx: ImGuiStyleVar; val_y: cfloat): void {.cdecl, importc: "igPushStyleVarY".}
 proc igPopStyleVar*(count: cint): void {.cdecl, importc: "igPopStyleVar".}
@@ -4834,26 +4903,26 @@ proc igSetNextItemWidth*(item_width: cfloat): void {.cdecl, importc: "igSetNextI
 proc igCalcItemWidth*(): cfloat {.cdecl, importc: "igCalcItemWidth".}
 proc igPushTextWrapPos*(wrap_local_pos_x: cfloat): void {.cdecl, importc: "igPushTextWrapPos".}
 proc igPopTextWrapPos*(): void {.cdecl, importc: "igPopTextWrapPos".}
-proc igGetFontTexUvWhitePixel*(pOut: ptr ImVec2): void {.cdecl, importc: "igGetFontTexUvWhitePixel".}
+proc igGetFontTexUvWhitePixel*(): ImVec2_c {.cdecl, importc: "igGetFontTexUvWhitePixel".}
 proc igGetColorU32_Col*(idx: ImGuiCol; alpha_mul: cfloat): ImU32 {.cdecl, importc: "igGetColorU32_Col".}
-proc igGetColorU32_Vec4*(col: ImVec4): ImU32 {.cdecl, importc: "igGetColorU32_Vec4".}
+proc igGetColorU32_Vec4*(col: ImVec4_c): ImU32 {.cdecl, importc: "igGetColorU32_Vec4".}
 proc igGetColorU32_U32*(col: ImU32; alpha_mul: cfloat): ImU32 {.cdecl, importc: "igGetColorU32_U32".}
-proc igGetStyleColorVec4*(idx: ImGuiCol): ptr ImVec4 {.cdecl, importc: "igGetStyleColorVec4".}
-proc igGetCursorScreenPos*(pOut: ptr ImVec2): void {.cdecl, importc: "igGetCursorScreenPos".}
-proc igSetCursorScreenPos*(pos: ImVec2): void {.cdecl, importc: "igSetCursorScreenPos".}
-proc igGetContentRegionAvail*(pOut: ptr ImVec2): void {.cdecl, importc: "igGetContentRegionAvail".}
-proc igGetCursorPos*(pOut: ptr ImVec2): void {.cdecl, importc: "igGetCursorPos".}
+proc igGetStyleColorVec4*(idx: ImGuiCol): ptr ImVec4_c {.cdecl, importc: "igGetStyleColorVec4".}
+proc igGetCursorScreenPos*(): ImVec2_c {.cdecl, importc: "igGetCursorScreenPos".}
+proc igSetCursorScreenPos*(pos: ImVec2_c): void {.cdecl, importc: "igSetCursorScreenPos".}
+proc igGetContentRegionAvail*(): ImVec2_c {.cdecl, importc: "igGetContentRegionAvail".}
+proc igGetCursorPos*(): ImVec2_c {.cdecl, importc: "igGetCursorPos".}
 proc igGetCursorPosX*(): cfloat {.cdecl, importc: "igGetCursorPosX".}
 proc igGetCursorPosY*(): cfloat {.cdecl, importc: "igGetCursorPosY".}
-proc igSetCursorPos*(local_pos: ImVec2): void {.cdecl, importc: "igSetCursorPos".}
+proc igSetCursorPos*(local_pos: ImVec2_c): void {.cdecl, importc: "igSetCursorPos".}
 proc igSetCursorPosX*(local_x: cfloat): void {.cdecl, importc: "igSetCursorPosX".}
 proc igSetCursorPosY*(local_y: cfloat): void {.cdecl, importc: "igSetCursorPosY".}
-proc igGetCursorStartPos*(pOut: ptr ImVec2): void {.cdecl, importc: "igGetCursorStartPos".}
+proc igGetCursorStartPos*(): ImVec2_c {.cdecl, importc: "igGetCursorStartPos".}
 proc igSeparator*(): void {.cdecl, importc: "igSeparator".}
 proc igSameLine*(offset_from_start_x: cfloat; spacing: cfloat): void {.cdecl, importc: "igSameLine".}
 proc igNewLine*(): void {.cdecl, importc: "igNewLine".}
 proc igSpacing*(): void {.cdecl, importc: "igSpacing".}
-proc igDummy*(size: ImVec2): void {.cdecl, importc: "igDummy".}
+proc igDummy*(size: ImVec2_c): void {.cdecl, importc: "igDummy".}
 proc igIndent*(indent_w: cfloat): void {.cdecl, importc: "igIndent".}
 proc igUnindent*(indent_w: cfloat): void {.cdecl, importc: "igUnindent".}
 proc igBeginGroup*(): void {.cdecl, importc: "igBeginGroup".}
@@ -4875,8 +4944,8 @@ proc igGetID_Int*(int_id: cint): ImGuiID {.cdecl, importc: "igGetID_Int".}
 proc igTextUnformatted*(text: cstring; text_end: cstring): void {.cdecl, importc: "igTextUnformatted".}
 proc igText*(fmt: cstring): void {.cdecl, varargs, importc: "igText".}
 proc igTextV*(fmt: cstring): void {.cdecl, varargs, importc: "igTextV".}
-proc igTextColored*(col: ImVec4; fmt: cstring): void {.cdecl, varargs, importc: "igTextColored".}
-proc igTextColoredV*(col: ImVec4; fmt: cstring): void {.cdecl, varargs, importc: "igTextColoredV".}
+proc igTextColored*(col: ImVec4_c; fmt: cstring): void {.cdecl, varargs, importc: "igTextColored".}
+proc igTextColoredV*(col: ImVec4_c; fmt: cstring): void {.cdecl, varargs, importc: "igTextColoredV".}
 proc igTextDisabled*(fmt: cstring): void {.cdecl, varargs, importc: "igTextDisabled".}
 proc igTextDisabledV*(fmt: cstring): void {.cdecl, varargs, importc: "igTextDisabledV".}
 proc igTextWrapped*(fmt: cstring): void {.cdecl, varargs, importc: "igTextWrapped".}
@@ -4886,22 +4955,22 @@ proc igLabelTextV*(label: cstring; fmt: cstring): void {.cdecl, varargs, importc
 proc igBulletText*(fmt: cstring): void {.cdecl, varargs, importc: "igBulletText".}
 proc igBulletTextV*(fmt: cstring): void {.cdecl, varargs, importc: "igBulletTextV".}
 proc igSeparatorText*(label: cstring): void {.cdecl, importc: "igSeparatorText".}
-proc igButton*(label: cstring; size: ImVec2): bool {.cdecl, importc: "igButton".}
+proc igButton*(label: cstring; size: ImVec2_c): bool {.cdecl, importc: "igButton".}
 proc igSmallButton*(label: cstring): bool {.cdecl, importc: "igSmallButton".}
-proc igInvisibleButton*(str_id: cstring; size: ImVec2; flags: ImGuiButtonFlags): bool {.cdecl, importc: "igInvisibleButton".}
+proc igInvisibleButton*(str_id: cstring; size: ImVec2_c; flags: ImGuiButtonFlags): bool {.cdecl, importc: "igInvisibleButton".}
 proc igArrowButton*(str_id: cstring; dir: ImGuiDir): bool {.cdecl, importc: "igArrowButton".}
 proc igCheckbox*(label: cstring; v: ptr bool): bool {.cdecl, importc: "igCheckbox".}
 proc igCheckboxFlags_IntPtr*(label: cstring; flags: ptr cint; flags_value: cint): bool {.cdecl, importc: "igCheckboxFlags_IntPtr".}
 proc igCheckboxFlags_UintPtr*(label: cstring; flags: ptr cuint; flags_value: cuint): bool {.cdecl, importc: "igCheckboxFlags_UintPtr".}
 proc igRadioButton_Bool*(label: cstring; active: bool): bool {.cdecl, importc: "igRadioButton_Bool".}
 proc igRadioButton_IntPtr*(label: cstring; v: ptr cint; v_button: cint): bool {.cdecl, importc: "igRadioButton_IntPtr".}
-proc igProgressBar*(fraction: cfloat; size_arg: ImVec2; overlay: cstring): void {.cdecl, importc: "igProgressBar".}
+proc igProgressBar*(fraction: cfloat; size_arg: ImVec2_c; overlay: cstring): void {.cdecl, importc: "igProgressBar".}
 proc igBullet*(): void {.cdecl, importc: "igBullet".}
 proc igTextLink*(label: cstring): bool {.cdecl, importc: "igTextLink".}
 proc igTextLinkOpenURL*(label: cstring; url: cstring): bool {.cdecl, importc: "igTextLinkOpenURL".}
-proc igImage*(tex_ref: ImTextureRef; image_size: ImVec2; uv0: ImVec2; uv1: ImVec2): void {.cdecl, importc: "igImage".}
-proc igImageWithBg*(tex_ref: ImTextureRef; image_size: ImVec2; uv0: ImVec2; uv1: ImVec2; bg_col: ImVec4; tint_col: ImVec4): void {.cdecl, importc: "igImageWithBg".}
-proc igImageButton*(str_id: cstring; tex_ref: ImTextureRef; image_size: ImVec2; uv0: ImVec2; uv1: ImVec2; bg_col: ImVec4; tint_col: ImVec4): bool {.cdecl, importc: "igImageButton".}
+proc igImage*(tex_ref: ImTextureRef_c; image_size: ImVec2_c; uv0: ImVec2_c; uv1: ImVec2_c): void {.cdecl, importc: "igImage".}
+proc igImageWithBg*(tex_ref: ImTextureRef_c; image_size: ImVec2_c; uv0: ImVec2_c; uv1: ImVec2_c; bg_col: ImVec4_c; tint_col: ImVec4_c): void {.cdecl, importc: "igImageWithBg".}
+proc igImageButton*(str_id: cstring; tex_ref: ImTextureRef_c; image_size: ImVec2_c; uv0: ImVec2_c; uv1: ImVec2_c; bg_col: ImVec4_c; tint_col: ImVec4_c): bool {.cdecl, importc: "igImageButton".}
 proc igBeginCombo*(label: cstring; preview_value: cstring; flags: ImGuiComboFlags): bool {.cdecl, importc: "igBeginCombo".}
 proc igEndCombo*(): void {.cdecl, importc: "igEndCombo".}
 proc igCombo_Str_arr*(label: cstring; current_item: ptr cint; items: ptr UncheckedArray[cstring]; items_count: cint; popup_max_height_in_items: cint): bool {.cdecl, importc: "igCombo_Str_arr".}
@@ -4930,11 +4999,11 @@ proc igSliderInt3*(label: cstring; v: array[3'i64, cint]; v_min: cint; v_max: ci
 proc igSliderInt4*(label: cstring; v: array[4'i64, cint]; v_min: cint; v_max: cint; format: cstring; flags: ImGuiSliderFlags): bool {.cdecl, importc: "igSliderInt4".}
 proc igSliderScalar*(label: cstring; data_type: ImGuiDataType; p_data: pointer; p_min: pointer; p_max: pointer; format: cstring; flags: ImGuiSliderFlags): bool {.cdecl, importc: "igSliderScalar".}
 proc igSliderScalarN*(label: cstring; data_type: ImGuiDataType; p_data: pointer; components: cint; p_min: pointer; p_max: pointer; format: cstring; flags: ImGuiSliderFlags): bool {.cdecl, importc: "igSliderScalarN".}
-proc igVSliderFloat*(label: cstring; size: ImVec2; v: ptr cfloat; v_min: cfloat; v_max: cfloat; format: cstring; flags: ImGuiSliderFlags): bool {.cdecl, importc: "igVSliderFloat".}
-proc igVSliderInt*(label: cstring; size: ImVec2; v: ptr cint; v_min: cint; v_max: cint; format: cstring; flags: ImGuiSliderFlags): bool {.cdecl, importc: "igVSliderInt".}
-proc igVSliderScalar*(label: cstring; size: ImVec2; data_type: ImGuiDataType; p_data: pointer; p_min: pointer; p_max: pointer; format: cstring; flags: ImGuiSliderFlags): bool {.cdecl, importc: "igVSliderScalar".}
+proc igVSliderFloat*(label: cstring; size: ImVec2_c; v: ptr cfloat; v_min: cfloat; v_max: cfloat; format: cstring; flags: ImGuiSliderFlags): bool {.cdecl, importc: "igVSliderFloat".}
+proc igVSliderInt*(label: cstring; size: ImVec2_c; v: ptr cint; v_min: cint; v_max: cint; format: cstring; flags: ImGuiSliderFlags): bool {.cdecl, importc: "igVSliderInt".}
+proc igVSliderScalar*(label: cstring; size: ImVec2_c; data_type: ImGuiDataType; p_data: pointer; p_min: pointer; p_max: pointer; format: cstring; flags: ImGuiSliderFlags): bool {.cdecl, importc: "igVSliderScalar".}
 proc igInputText*(label: cstring; buf: cstring; buf_size: csize_t; flags: ImGuiInputTextFlags; callback: ImGuiInputTextCallback; user_data: pointer): bool {.cdecl, importc: "igInputText".}
-proc igInputTextMultiline*(label: cstring; buf: cstring; buf_size: csize_t; size: ImVec2; flags: ImGuiInputTextFlags; callback: ImGuiInputTextCallback; user_data: pointer): bool {.cdecl, importc: "igInputTextMultiline".}
+proc igInputTextMultiline*(label: cstring; buf: cstring; buf_size: csize_t; size: ImVec2_c; flags: ImGuiInputTextFlags; callback: ImGuiInputTextCallback; user_data: pointer): bool {.cdecl, importc: "igInputTextMultiline".}
 proc igInputTextWithHint*(label: cstring; hint: cstring; buf: cstring; buf_size: csize_t; flags: ImGuiInputTextFlags; callback: ImGuiInputTextCallback; user_data: pointer): bool {.cdecl, importc: "igInputTextWithHint".}
 proc igInputFloat*(label: cstring; v: ptr cfloat; step: cfloat; step_fast: cfloat; format: cstring; flags: ImGuiInputTextFlags): bool {.cdecl, importc: "igInputFloat".}
 proc igInputFloat2*(label: cstring; v: array[2'i64, cfloat]; format: cstring; flags: ImGuiInputTextFlags): bool {.cdecl, importc: "igInputFloat2".}
@@ -4951,7 +5020,7 @@ proc igColorEdit3*(label: cstring; col: array[3'i64, cfloat]; flags: ImGuiColorE
 proc igColorEdit4*(label: cstring; col: array[4'i64, cfloat]; flags: ImGuiColorEditFlags): bool {.cdecl, importc: "igColorEdit4".}
 proc igColorPicker3*(label: cstring; col: array[3'i64, cfloat]; flags: ImGuiColorEditFlags): bool {.cdecl, importc: "igColorPicker3".}
 proc igColorPicker4*(label: cstring; col: array[4'i64, cfloat]; flags: ImGuiColorEditFlags; ref_col: ptr cfloat): bool {.cdecl, importc: "igColorPicker4".}
-proc igColorButton*(desc_id: cstring; col: ImVec4; flags: ImGuiColorEditFlags; size: ImVec2): bool {.cdecl, importc: "igColorButton".}
+proc igColorButton*(desc_id: cstring; col: ImVec4_c; flags: ImGuiColorEditFlags; size: ImVec2_c): bool {.cdecl, importc: "igColorButton".}
 proc igSetColorEditOptions*(flags: ImGuiColorEditFlags): void {.cdecl, importc: "igSetColorEditOptions".}
 proc igTreeNode_Str*(label: cstring): bool {.cdecl, importc: "igTreeNode_Str".}
 proc igTreeNode_StrStr*(str_id: cstring; fmt: cstring): bool {.cdecl, varargs, importc: "igTreeNode_StrStr".}
@@ -4971,20 +5040,20 @@ proc igCollapsingHeader_TreeNodeFlags*(label: cstring; flags: ImGuiTreeNodeFlags
 proc igCollapsingHeader_BoolPtr*(label: cstring; p_visible: ptr bool; flags: ImGuiTreeNodeFlags): bool {.cdecl, importc: "igCollapsingHeader_BoolPtr".}
 proc igSetNextItemOpen*(is_open: bool; cond: ImGuiCond): void {.cdecl, importc: "igSetNextItemOpen".}
 proc igSetNextItemStorageID*(storage_id: ImGuiID): void {.cdecl, importc: "igSetNextItemStorageID".}
-proc igSelectable_Bool*(label: cstring; selected: bool; flags: ImGuiSelectableFlags; size: ImVec2): bool {.cdecl, importc: "igSelectable_Bool".}
-proc igSelectable_BoolPtr*(label: cstring; p_selected: ptr bool; flags: ImGuiSelectableFlags; size: ImVec2): bool {.cdecl, importc: "igSelectable_BoolPtr".}
+proc igSelectable_Bool*(label: cstring; selected: bool; flags: ImGuiSelectableFlags; size: ImVec2_c): bool {.cdecl, importc: "igSelectable_Bool".}
+proc igSelectable_BoolPtr*(label: cstring; p_selected: ptr bool; flags: ImGuiSelectableFlags; size: ImVec2_c): bool {.cdecl, importc: "igSelectable_BoolPtr".}
 proc igBeginMultiSelect*(flags: ImGuiMultiSelectFlags; selection_size: cint; items_count: cint): ptr ImGuiMultiSelectIO {.cdecl, importc: "igBeginMultiSelect".}
 proc igEndMultiSelect*(): ptr ImGuiMultiSelectIO {.cdecl, importc: "igEndMultiSelect".}
 proc igSetNextItemSelectionUserData*(selection_user_data: ImGuiSelectionUserData): void {.cdecl, importc: "igSetNextItemSelectionUserData".}
 proc igIsItemToggledSelection*(): bool {.cdecl, importc: "igIsItemToggledSelection".}
-proc igBeginListBox*(label: cstring; size: ImVec2): bool {.cdecl, importc: "igBeginListBox".}
+proc igBeginListBox*(label: cstring; size: ImVec2_c): bool {.cdecl, importc: "igBeginListBox".}
 proc igEndListBox*(): void {.cdecl, importc: "igEndListBox".}
 proc igListBox_Str_arr*(label: cstring; current_item: ptr cint; items: ptr UncheckedArray[cstring]; items_count: cint; height_in_items: cint): bool {.cdecl, importc: "igListBox_Str_arr".}
 proc igListBox_FnStrPtr*(label: cstring; current_item: ptr cint; getter: proc (a0: pointer; a1: cint): cstring {.cdecl.}; user_data: pointer; items_count: cint; height_in_items: cint): bool {.cdecl, importc: "igListBox_FnStrPtr".}
-proc igPlotLines_FloatPtr*(label: cstring; values: ptr cfloat; values_count: cint; values_offset: cint; overlay_text: cstring; scale_min: cfloat; scale_max: cfloat; graph_size: ImVec2; stride: cint): void {.cdecl, importc: "igPlotLines_FloatPtr".}
-proc igPlotLines_FnFloatPtr*(label: cstring; values_getter: proc (a0: pointer; a1: cint): cfloat {.cdecl.}; data: pointer; values_count: cint; values_offset: cint; overlay_text: cstring; scale_min: cfloat; scale_max: cfloat; graph_size: ImVec2): void {.cdecl, importc: "igPlotLines_FnFloatPtr".}
-proc igPlotHistogram_FloatPtr*(label: cstring; values: ptr cfloat; values_count: cint; values_offset: cint; overlay_text: cstring; scale_min: cfloat; scale_max: cfloat; graph_size: ImVec2; stride: cint): void {.cdecl, importc: "igPlotHistogram_FloatPtr".}
-proc igPlotHistogram_FnFloatPtr*(label: cstring; values_getter: proc (a0: pointer; a1: cint): cfloat {.cdecl.}; data: pointer; values_count: cint; values_offset: cint; overlay_text: cstring; scale_min: cfloat; scale_max: cfloat; graph_size: ImVec2): void {.cdecl, importc: "igPlotHistogram_FnFloatPtr".}
+proc igPlotLines_FloatPtr*(label: cstring; values: ptr cfloat; values_count: cint; values_offset: cint; overlay_text: cstring; scale_min: cfloat; scale_max: cfloat; graph_size: ImVec2_c; stride: cint): void {.cdecl, importc: "igPlotLines_FloatPtr".}
+proc igPlotLines_FnFloatPtr*(label: cstring; values_getter: proc (a0: pointer; a1: cint): cfloat {.cdecl.}; data: pointer; values_count: cint; values_offset: cint; overlay_text: cstring; scale_min: cfloat; scale_max: cfloat; graph_size: ImVec2_c): void {.cdecl, importc: "igPlotLines_FnFloatPtr".}
+proc igPlotHistogram_FloatPtr*(label: cstring; values: ptr cfloat; values_count: cint; values_offset: cint; overlay_text: cstring; scale_min: cfloat; scale_max: cfloat; graph_size: ImVec2_c; stride: cint): void {.cdecl, importc: "igPlotHistogram_FloatPtr".}
+proc igPlotHistogram_FnFloatPtr*(label: cstring; values_getter: proc (a0: pointer; a1: cint): cfloat {.cdecl.}; data: pointer; values_count: cint; values_offset: cint; overlay_text: cstring; scale_min: cfloat; scale_max: cfloat; graph_size: ImVec2_c): void {.cdecl, importc: "igPlotHistogram_FnFloatPtr".}
 proc igValue_Bool*(prefix: cstring; b: bool): void {.cdecl, importc: "igValue_Bool".}
 proc igValue_Int*(prefix: cstring; v: cint): void {.cdecl, importc: "igValue_Int".}
 proc igValue_Uint*(prefix: cstring; v: cuint): void {.cdecl, importc: "igValue_Uint".}
@@ -5015,7 +5084,7 @@ proc igBeginPopupContextItem*(str_id: cstring; popup_flags: ImGuiPopupFlags): bo
 proc igBeginPopupContextWindow*(str_id: cstring; popup_flags: ImGuiPopupFlags): bool {.cdecl, importc: "igBeginPopupContextWindow".}
 proc igBeginPopupContextVoid*(str_id: cstring; popup_flags: ImGuiPopupFlags): bool {.cdecl, importc: "igBeginPopupContextVoid".}
 proc igIsPopupOpen_Str*(str_id: cstring; flags: ImGuiPopupFlags): bool {.cdecl, importc: "igIsPopupOpen_Str".}
-proc igBeginTable*(str_id: cstring; columns: cint; flags: ImGuiTableFlags; outer_size: ImVec2; inner_width: cfloat): bool {.cdecl, importc: "igBeginTable".}
+proc igBeginTable*(str_id: cstring; columns: cint; flags: ImGuiTableFlags; outer_size: ImVec2_c; inner_width: cfloat): bool {.cdecl, importc: "igBeginTable".}
 proc igEndTable*(): void {.cdecl, importc: "igEndTable".}
 proc igTableNextRow*(row_flags: ImGuiTableRowFlags; min_row_height: cfloat): void {.cdecl, importc: "igTableNextRow".}
 proc igTableNextColumn*(): bool {.cdecl, importc: "igTableNextColumn".}
@@ -5048,7 +5117,7 @@ proc igBeginTabItem*(label: cstring; p_open: ptr bool; flags: ImGuiTabItemFlags)
 proc igEndTabItem*(): void {.cdecl, importc: "igEndTabItem".}
 proc igTabItemButton*(label: cstring; flags: ImGuiTabItemFlags): bool {.cdecl, importc: "igTabItemButton".}
 proc igSetTabItemClosed*(tab_or_docked_window_label: cstring): void {.cdecl, importc: "igSetTabItemClosed".}
-proc igDockSpace*(dockspace_id: ImGuiID; size: ImVec2; flags: ImGuiDockNodeFlags; window_class: ptr ImGuiWindowClass): ImGuiID {.cdecl, importc: "igDockSpace".}
+proc igDockSpace*(dockspace_id: ImGuiID; size: ImVec2_c; flags: ImGuiDockNodeFlags; window_class: ptr ImGuiWindowClass): ImGuiID {.cdecl, importc: "igDockSpace".}
 proc igDockSpaceOverViewport*(dockspace_id: ImGuiID; viewport: ptr ImGuiViewport; flags: ImGuiDockNodeFlags; window_class: ptr ImGuiWindowClass): ImGuiID {.cdecl, importc: "igDockSpaceOverViewport".}
 proc igSetNextWindowDockID*(dock_id: ImGuiID; cond: ImGuiCond): void {.cdecl, importc: "igSetNextWindowDockID".}
 proc igSetNextWindowClass*(window_class: ptr ImGuiWindowClass): void {.cdecl, importc: "igSetNextWindowClass".}
@@ -5070,7 +5139,7 @@ proc igEndDragDropTarget*(): void {.cdecl, importc: "igEndDragDropTarget".}
 proc igGetDragDropPayload*(): ptr ImGuiPayload {.cdecl, importc: "igGetDragDropPayload".}
 proc igBeginDisabled*(disabled: bool): void {.cdecl, importc: "igBeginDisabled".}
 proc igEndDisabled*(): void {.cdecl, importc: "igEndDisabled".}
-proc igPushClipRect*(clip_rect_min: ImVec2; clip_rect_max: ImVec2; intersect_with_current_clip_rect: bool): void {.cdecl, importc: "igPushClipRect".}
+proc igPushClipRect*(clip_rect_min: ImVec2_c; clip_rect_max: ImVec2_c; intersect_with_current_clip_rect: bool): void {.cdecl, importc: "igPushClipRect".}
 proc igPopClipRect*(): void {.cdecl, importc: "igPopClipRect".}
 proc igSetItemDefaultFocus*(): void {.cdecl, importc: "igSetItemDefaultFocus".}
 proc igSetKeyboardFocusHere*(offset: cint): void {.cdecl, importc: "igSetKeyboardFocusHere".}
@@ -5090,23 +5159,24 @@ proc igIsAnyItemHovered*(): bool {.cdecl, importc: "igIsAnyItemHovered".}
 proc igIsAnyItemActive*(): bool {.cdecl, importc: "igIsAnyItemActive".}
 proc igIsAnyItemFocused*(): bool {.cdecl, importc: "igIsAnyItemFocused".}
 proc igGetItemID*(): ImGuiID {.cdecl, importc: "igGetItemID".}
-proc igGetItemRectMin*(pOut: ptr ImVec2): void {.cdecl, importc: "igGetItemRectMin".}
-proc igGetItemRectMax*(pOut: ptr ImVec2): void {.cdecl, importc: "igGetItemRectMax".}
-proc igGetItemRectSize*(pOut: ptr ImVec2): void {.cdecl, importc: "igGetItemRectSize".}
+proc igGetItemRectMin*(): ImVec2_c {.cdecl, importc: "igGetItemRectMin".}
+proc igGetItemRectMax*(): ImVec2_c {.cdecl, importc: "igGetItemRectMax".}
+proc igGetItemRectSize*(): ImVec2_c {.cdecl, importc: "igGetItemRectSize".}
+proc igGetItemFlags*(): ImGuiItemFlags {.cdecl, importc: "igGetItemFlags".}
 proc igGetMainViewport*(): ptr ImGuiViewport {.cdecl, importc: "igGetMainViewport".}
 proc igGetBackgroundDrawList*(viewport: ptr ImGuiViewport): ptr ImDrawList {.cdecl, importc: "igGetBackgroundDrawList".}
 proc igGetForegroundDrawList_ViewportPtr*(viewport: ptr ImGuiViewport): ptr ImDrawList {.cdecl, importc: "igGetForegroundDrawList_ViewportPtr".}
-proc igIsRectVisible_Nil*(size: ImVec2): bool {.cdecl, importc: "igIsRectVisible_Nil".}
-proc igIsRectVisible_Vec2*(rect_min: ImVec2; rect_max: ImVec2): bool {.cdecl, importc: "igIsRectVisible_Vec2".}
+proc igIsRectVisible_Nil*(size: ImVec2_c): bool {.cdecl, importc: "igIsRectVisible_Nil".}
+proc igIsRectVisible_Vec2*(rect_min: ImVec2_c; rect_max: ImVec2_c): bool {.cdecl, importc: "igIsRectVisible_Vec2".}
 proc igGetTime*(): cdouble {.cdecl, importc: "igGetTime".}
 proc igGetFrameCount*(): cint {.cdecl, importc: "igGetFrameCount".}
 proc igGetDrawListSharedData*(): ptr ImDrawListSharedData {.cdecl, importc: "igGetDrawListSharedData".}
 proc igGetStyleColorName*(idx: ImGuiCol): cstring {.cdecl, importc: "igGetStyleColorName".}
 proc igSetStateStorage*(storage: ptr ImGuiStorage): void {.cdecl, importc: "igSetStateStorage".}
 proc igGetStateStorage*(): ptr ImGuiStorage {.cdecl, importc: "igGetStateStorage".}
-proc igCalcTextSize*(pOut: ptr ImVec2; text: cstring; text_end: cstring; hide_text_after_double_hash: bool; wrap_width: cfloat): void {.cdecl, importc: "igCalcTextSize".}
-proc igColorConvertU32ToFloat4*(pOut: ptr ImVec4; in_arg: ImU32): void {.cdecl, importc: "igColorConvertU32ToFloat4".}
-proc igColorConvertFloat4ToU32*(in_arg: ImVec4): ImU32 {.cdecl, importc: "igColorConvertFloat4ToU32".}
+proc igCalcTextSize*(text: cstring; text_end: cstring; hide_text_after_double_hash: bool; wrap_width: cfloat): ImVec2_c {.cdecl, importc: "igCalcTextSize".}
+proc igColorConvertU32ToFloat4*(in_arg: ImU32): ImVec4_c {.cdecl, importc: "igColorConvertU32ToFloat4".}
+proc igColorConvertFloat4ToU32*(in_arg: ImVec4_c): ImU32 {.cdecl, importc: "igColorConvertFloat4ToU32".}
 proc igColorConvertRGBtoHSV*(r: cfloat; g: cfloat; b: cfloat; out_h: ptr cfloat; out_s: ptr cfloat; out_v: ptr cfloat): void {.cdecl, importc: "igColorConvertRGBtoHSV".}
 proc igColorConvertHSVtoRGB*(h: cfloat; s: cfloat; v: cfloat; out_r: ptr cfloat; out_g: ptr cfloat; out_b: ptr cfloat): void {.cdecl, importc: "igColorConvertHSVtoRGB".}
 proc igIsKeyDown_Nil*(key: ImGuiKey): bool {.cdecl, importc: "igIsKeyDown_Nil".}
@@ -5125,13 +5195,13 @@ proc igIsMouseReleased_Nil*(button: ImGuiMouseButton): bool {.cdecl, importc: "i
 proc igIsMouseDoubleClicked_Nil*(button: ImGuiMouseButton): bool {.cdecl, importc: "igIsMouseDoubleClicked_Nil".}
 proc igIsMouseReleasedWithDelay*(button: ImGuiMouseButton; delay: cfloat): bool {.cdecl, importc: "igIsMouseReleasedWithDelay".}
 proc igGetMouseClickedCount*(button: ImGuiMouseButton): cint {.cdecl, importc: "igGetMouseClickedCount".}
-proc igIsMouseHoveringRect*(r_min: ImVec2; r_max: ImVec2; clip: bool): bool {.cdecl, importc: "igIsMouseHoveringRect".}
-proc igIsMousePosValid*(mouse_pos: ptr ImVec2): bool {.cdecl, importc: "igIsMousePosValid".}
+proc igIsMouseHoveringRect*(r_min: ImVec2_c; r_max: ImVec2_c; clip: bool): bool {.cdecl, importc: "igIsMouseHoveringRect".}
+proc igIsMousePosValid*(mouse_pos: ptr ImVec2_c): bool {.cdecl, importc: "igIsMousePosValid".}
 proc igIsAnyMouseDown*(): bool {.cdecl, importc: "igIsAnyMouseDown".}
-proc igGetMousePos*(pOut: ptr ImVec2): void {.cdecl, importc: "igGetMousePos".}
-proc igGetMousePosOnOpeningCurrentPopup*(pOut: ptr ImVec2): void {.cdecl, importc: "igGetMousePosOnOpeningCurrentPopup".}
+proc igGetMousePos*(): ImVec2_c {.cdecl, importc: "igGetMousePos".}
+proc igGetMousePosOnOpeningCurrentPopup*(): ImVec2_c {.cdecl, importc: "igGetMousePosOnOpeningCurrentPopup".}
 proc igIsMouseDragging*(button: ImGuiMouseButton; lock_threshold: cfloat): bool {.cdecl, importc: "igIsMouseDragging".}
-proc igGetMouseDragDelta*(pOut: ptr ImVec2; button: ImGuiMouseButton; lock_threshold: cfloat): void {.cdecl, importc: "igGetMouseDragDelta".}
+proc igGetMouseDragDelta*(button: ImGuiMouseButton; lock_threshold: cfloat): ImVec2_c {.cdecl, importc: "igGetMouseDragDelta".}
 proc igResetMouseDragDelta*(button: ImGuiMouseButton): void {.cdecl, importc: "igResetMouseDragDelta".}
 proc igGetMouseCursor*(): ImGuiMouseCursor {.cdecl, importc: "igGetMouseCursor".}
 proc igSetMouseCursor*(cursor_type: ImGuiMouseCursor): void {.cdecl, importc: "igSetMouseCursor".}
@@ -5155,7 +5225,7 @@ proc igMemFree*(ptr_arg: pointer): void {.cdecl, importc: "igMemFree".}
 proc igUpdatePlatformWindows*(): void {.cdecl, importc: "igUpdatePlatformWindows".}
 proc igRenderPlatformWindowsDefault*(platform_render_arg: pointer; renderer_render_arg: pointer): void {.cdecl, importc: "igRenderPlatformWindowsDefault".}
 proc igDestroyPlatformWindows*(): void {.cdecl, importc: "igDestroyPlatformWindows".}
-proc igFindViewportByID*(id: ImGuiID): ptr ImGuiViewport {.cdecl, importc: "igFindViewportByID".}
+proc igFindViewportByID*(viewport_id: ImGuiID): ptr ImGuiViewport {.cdecl, importc: "igFindViewportByID".}
 proc igFindViewportByPlatformHandle*(platform_handle: pointer): ptr ImGuiViewport {.cdecl, importc: "igFindViewportByPlatformHandle".}
 proc ImGuiTableSortSpecs_ImGuiTableSortSpecs*(): ptr ImGuiTableSortSpecs {.cdecl, importc: "ImGuiTableSortSpecs_ImGuiTableSortSpecs".}
 proc ImGuiTableSortSpecs_destroy*(self: ptr ImGuiTableSortSpecs): void {.cdecl, importc: "ImGuiTableSortSpecs_destroy".}
@@ -5187,6 +5257,7 @@ proc ImGuiInputTextCallbackData_destroy*(self: ptr ImGuiInputTextCallbackData): 
 proc ImGuiInputTextCallbackData_DeleteChars*(self: ptr ImGuiInputTextCallbackData; pos: cint; bytes_count: cint): void {.cdecl, importc: "ImGuiInputTextCallbackData_DeleteChars".}
 proc ImGuiInputTextCallbackData_InsertChars*(self: ptr ImGuiInputTextCallbackData; pos: cint; text: cstring; text_end: cstring): void {.cdecl, importc: "ImGuiInputTextCallbackData_InsertChars".}
 proc ImGuiInputTextCallbackData_SelectAll*(self: ptr ImGuiInputTextCallbackData): void {.cdecl, importc: "ImGuiInputTextCallbackData_SelectAll".}
+proc ImGuiInputTextCallbackData_SetSelection*(self: ptr ImGuiInputTextCallbackData; s: cint; e: cint): void {.cdecl, importc: "ImGuiInputTextCallbackData_SetSelection".}
 proc ImGuiInputTextCallbackData_ClearSelection*(self: ptr ImGuiInputTextCallbackData): void {.cdecl, importc: "ImGuiInputTextCallbackData_ClearSelection".}
 proc ImGuiInputTextCallbackData_HasSelection*(self: ptr ImGuiInputTextCallbackData): bool {.cdecl, importc: "ImGuiInputTextCallbackData_HasSelection".}
 proc ImGuiWindowClass_ImGuiWindowClass*(): ptr ImGuiWindowClass {.cdecl, importc: "ImGuiWindowClass_ImGuiWindowClass".}
@@ -5253,11 +5324,11 @@ proc ImGuiListClipper_SeekCursorForItem*(self: ptr ImGuiListClipper; item_index:
 proc ImColor_ImColor_Nil*(): ptr ImColor {.cdecl, importc: "ImColor_ImColor_Nil".}
 proc ImColor_destroy*(self: ptr ImColor): void {.cdecl, importc: "ImColor_destroy".}
 proc ImColor_ImColor_Float*(r: cfloat; g: cfloat; b: cfloat; a: cfloat): ptr ImColor {.cdecl, importc: "ImColor_ImColor_Float".}
-proc ImColor_ImColor_Vec4*(col: ImVec4): ptr ImColor {.cdecl, importc: "ImColor_ImColor_Vec4".}
+proc ImColor_ImColor_Vec4*(col: ImVec4_c): ptr ImColor {.cdecl, importc: "ImColor_ImColor_Vec4".}
 proc ImColor_ImColor_Int*(r: cint; g: cint; b: cint; a: cint): ptr ImColor {.cdecl, importc: "ImColor_ImColor_Int".}
 proc ImColor_ImColor_U32*(rgba: ImU32): ptr ImColor {.cdecl, importc: "ImColor_ImColor_U32".}
 proc ImColor_SetHSV*(self: ptr ImColor; h: cfloat; s: cfloat; v: cfloat; a: cfloat): void {.cdecl, importc: "ImColor_SetHSV".}
-proc ImColor_HSV*(pOut: ptr ImColor; h: cfloat; s: cfloat; v: cfloat; a: cfloat): void {.cdecl, importc: "ImColor_HSV".}
+proc ImColor_HSV*(h: cfloat; s: cfloat; v: cfloat; a: cfloat): ImColor_c {.cdecl, importc: "ImColor_HSV".}
 proc ImGuiSelectionBasicStorage_ImGuiSelectionBasicStorage*(): ptr ImGuiSelectionBasicStorage {.cdecl, importc: "ImGuiSelectionBasicStorage_ImGuiSelectionBasicStorage".}
 proc ImGuiSelectionBasicStorage_destroy*(self: ptr ImGuiSelectionBasicStorage): void {.cdecl, importc: "ImGuiSelectionBasicStorage_destroy".}
 proc ImGuiSelectionBasicStorage_ApplyRequests*(self: ptr ImGuiSelectionBasicStorage; ms_io: ptr ImGuiMultiSelectIO): void {.cdecl, importc: "ImGuiSelectionBasicStorage_ApplyRequests".}
@@ -5282,49 +5353,49 @@ proc ImDrawListSplitter_Merge*(self: ptr ImDrawListSplitter; draw_list: ptr ImDr
 proc ImDrawListSplitter_SetCurrentChannel*(self: ptr ImDrawListSplitter; draw_list: ptr ImDrawList; channel_idx: cint): void {.cdecl, importc: "ImDrawListSplitter_SetCurrentChannel".}
 proc ImDrawList_ImDrawList*(shared_data: ptr ImDrawListSharedData): ptr ImDrawList {.cdecl, importc: "ImDrawList_ImDrawList".}
 proc ImDrawList_destroy*(self: ptr ImDrawList): void {.cdecl, importc: "ImDrawList_destroy".}
-proc ImDrawList_PushClipRect*(self: ptr ImDrawList; clip_rect_min: ImVec2; clip_rect_max: ImVec2; intersect_with_current_clip_rect: bool): void {.cdecl, importc: "ImDrawList_PushClipRect".}
+proc ImDrawList_PushClipRect*(self: ptr ImDrawList; clip_rect_min: ImVec2_c; clip_rect_max: ImVec2_c; intersect_with_current_clip_rect: bool): void {.cdecl, importc: "ImDrawList_PushClipRect".}
 proc ImDrawList_PushClipRectFullScreen*(self: ptr ImDrawList): void {.cdecl, importc: "ImDrawList_PushClipRectFullScreen".}
 proc ImDrawList_PopClipRect*(self: ptr ImDrawList): void {.cdecl, importc: "ImDrawList_PopClipRect".}
-proc ImDrawList_PushTexture*(self: ptr ImDrawList; tex_ref: ImTextureRef): void {.cdecl, importc: "ImDrawList_PushTexture".}
+proc ImDrawList_PushTexture*(self: ptr ImDrawList; tex_ref: ImTextureRef_c): void {.cdecl, importc: "ImDrawList_PushTexture".}
 proc ImDrawList_PopTexture*(self: ptr ImDrawList): void {.cdecl, importc: "ImDrawList_PopTexture".}
-proc ImDrawList_GetClipRectMin*(pOut: ptr ImVec2; self: ptr ImDrawList): void {.cdecl, importc: "ImDrawList_GetClipRectMin".}
-proc ImDrawList_GetClipRectMax*(pOut: ptr ImVec2; self: ptr ImDrawList): void {.cdecl, importc: "ImDrawList_GetClipRectMax".}
-proc ImDrawList_AddLine*(self: ptr ImDrawList; p1: ImVec2; p2: ImVec2; col: ImU32; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddLine".}
-proc ImDrawList_AddRect*(self: ptr ImDrawList; p_min: ImVec2; p_max: ImVec2; col: ImU32; rounding: cfloat; flags: ImDrawFlags; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddRect".}
-proc ImDrawList_AddRectFilled*(self: ptr ImDrawList; p_min: ImVec2; p_max: ImVec2; col: ImU32; rounding: cfloat; flags: ImDrawFlags): void {.cdecl, importc: "ImDrawList_AddRectFilled".}
-proc ImDrawList_AddRectFilledMultiColor*(self: ptr ImDrawList; p_min: ImVec2; p_max: ImVec2; col_upr_left: ImU32; col_upr_right: ImU32; col_bot_right: ImU32; col_bot_left: ImU32): void {.cdecl, importc: "ImDrawList_AddRectFilledMultiColor".}
-proc ImDrawList_AddQuad*(self: ptr ImDrawList; p1: ImVec2; p2: ImVec2; p3: ImVec2; p4: ImVec2; col: ImU32; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddQuad".}
-proc ImDrawList_AddQuadFilled*(self: ptr ImDrawList; p1: ImVec2; p2: ImVec2; p3: ImVec2; p4: ImVec2; col: ImU32): void {.cdecl, importc: "ImDrawList_AddQuadFilled".}
-proc ImDrawList_AddTriangle*(self: ptr ImDrawList; p1: ImVec2; p2: ImVec2; p3: ImVec2; col: ImU32; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddTriangle".}
-proc ImDrawList_AddTriangleFilled*(self: ptr ImDrawList; p1: ImVec2; p2: ImVec2; p3: ImVec2; col: ImU32): void {.cdecl, importc: "ImDrawList_AddTriangleFilled".}
-proc ImDrawList_AddCircle*(self: ptr ImDrawList; center: ImVec2; radius: cfloat; col: ImU32; num_segments: cint; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddCircle".}
-proc ImDrawList_AddCircleFilled*(self: ptr ImDrawList; center: ImVec2; radius: cfloat; col: ImU32; num_segments: cint): void {.cdecl, importc: "ImDrawList_AddCircleFilled".}
-proc ImDrawList_AddNgon*(self: ptr ImDrawList; center: ImVec2; radius: cfloat; col: ImU32; num_segments: cint; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddNgon".}
-proc ImDrawList_AddNgonFilled*(self: ptr ImDrawList; center: ImVec2; radius: cfloat; col: ImU32; num_segments: cint): void {.cdecl, importc: "ImDrawList_AddNgonFilled".}
-proc ImDrawList_AddEllipse*(self: ptr ImDrawList; center: ImVec2; radius: ImVec2; col: ImU32; rot: cfloat; num_segments: cint; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddEllipse".}
-proc ImDrawList_AddEllipseFilled*(self: ptr ImDrawList; center: ImVec2; radius: ImVec2; col: ImU32; rot: cfloat; num_segments: cint): void {.cdecl, importc: "ImDrawList_AddEllipseFilled".}
-proc ImDrawList_AddText_Vec2*(self: ptr ImDrawList; pos: ImVec2; col: ImU32; text_begin: cstring; text_end: cstring): void {.cdecl, importc: "ImDrawList_AddText_Vec2".}
-proc ImDrawList_AddText_FontPtr*(self: ptr ImDrawList; font: ptr ImFont; font_size: cfloat; pos: ImVec2; col: ImU32; text_begin: cstring; text_end: cstring; wrap_width: cfloat; cpu_fine_clip_rect: ptr ImVec4): void {.cdecl, importc: "ImDrawList_AddText_FontPtr".}
-proc ImDrawList_AddBezierCubic*(self: ptr ImDrawList; p1: ImVec2; p2: ImVec2; p3: ImVec2; p4: ImVec2; col: ImU32; thickness: cfloat; num_segments: cint): void {.cdecl, importc: "ImDrawList_AddBezierCubic".}
-proc ImDrawList_AddBezierQuadratic*(self: ptr ImDrawList; p1: ImVec2; p2: ImVec2; p3: ImVec2; col: ImU32; thickness: cfloat; num_segments: cint): void {.cdecl, importc: "ImDrawList_AddBezierQuadratic".}
-proc ImDrawList_AddPolyline*(self: ptr ImDrawList; points: ptr ImVec2; num_points: cint; col: ImU32; flags: ImDrawFlags; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddPolyline".}
-proc ImDrawList_AddConvexPolyFilled*(self: ptr ImDrawList; points: ptr ImVec2; num_points: cint; col: ImU32): void {.cdecl, importc: "ImDrawList_AddConvexPolyFilled".}
-proc ImDrawList_AddConcavePolyFilled*(self: ptr ImDrawList; points: ptr ImVec2; num_points: cint; col: ImU32): void {.cdecl, importc: "ImDrawList_AddConcavePolyFilled".}
-proc ImDrawList_AddImage*(self: ptr ImDrawList; tex_ref: ImTextureRef; p_min: ImVec2; p_max: ImVec2; uv_min: ImVec2; uv_max: ImVec2; col: ImU32): void {.cdecl, importc: "ImDrawList_AddImage".}
-proc ImDrawList_AddImageQuad*(self: ptr ImDrawList; tex_ref: ImTextureRef; p1: ImVec2; p2: ImVec2; p3: ImVec2; p4: ImVec2; uv1: ImVec2; uv2: ImVec2; uv3: ImVec2; uv4: ImVec2; col: ImU32): void {.cdecl, importc: "ImDrawList_AddImageQuad".}
-proc ImDrawList_AddImageRounded*(self: ptr ImDrawList; tex_ref: ImTextureRef; p_min: ImVec2; p_max: ImVec2; uv_min: ImVec2; uv_max: ImVec2; col: ImU32; rounding: cfloat; flags: ImDrawFlags): void {.cdecl, importc: "ImDrawList_AddImageRounded".}
+proc ImDrawList_GetClipRectMin*(self: ptr ImDrawList): ImVec2_c {.cdecl, importc: "ImDrawList_GetClipRectMin".}
+proc ImDrawList_GetClipRectMax*(self: ptr ImDrawList): ImVec2_c {.cdecl, importc: "ImDrawList_GetClipRectMax".}
+proc ImDrawList_AddLine*(self: ptr ImDrawList; p1: ImVec2_c; p2: ImVec2_c; col: ImU32; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddLine".}
+proc ImDrawList_AddRect*(self: ptr ImDrawList; p_min: ImVec2_c; p_max: ImVec2_c; col: ImU32; rounding: cfloat; flags: ImDrawFlags; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddRect".}
+proc ImDrawList_AddRectFilled*(self: ptr ImDrawList; p_min: ImVec2_c; p_max: ImVec2_c; col: ImU32; rounding: cfloat; flags: ImDrawFlags): void {.cdecl, importc: "ImDrawList_AddRectFilled".}
+proc ImDrawList_AddRectFilledMultiColor*(self: ptr ImDrawList; p_min: ImVec2_c; p_max: ImVec2_c; col_upr_left: ImU32; col_upr_right: ImU32; col_bot_right: ImU32; col_bot_left: ImU32): void {.cdecl, importc: "ImDrawList_AddRectFilledMultiColor".}
+proc ImDrawList_AddQuad*(self: ptr ImDrawList; p1: ImVec2_c; p2: ImVec2_c; p3: ImVec2_c; p4: ImVec2_c; col: ImU32; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddQuad".}
+proc ImDrawList_AddQuadFilled*(self: ptr ImDrawList; p1: ImVec2_c; p2: ImVec2_c; p3: ImVec2_c; p4: ImVec2_c; col: ImU32): void {.cdecl, importc: "ImDrawList_AddQuadFilled".}
+proc ImDrawList_AddTriangle*(self: ptr ImDrawList; p1: ImVec2_c; p2: ImVec2_c; p3: ImVec2_c; col: ImU32; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddTriangle".}
+proc ImDrawList_AddTriangleFilled*(self: ptr ImDrawList; p1: ImVec2_c; p2: ImVec2_c; p3: ImVec2_c; col: ImU32): void {.cdecl, importc: "ImDrawList_AddTriangleFilled".}
+proc ImDrawList_AddCircle*(self: ptr ImDrawList; center: ImVec2_c; radius: cfloat; col: ImU32; num_segments: cint; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddCircle".}
+proc ImDrawList_AddCircleFilled*(self: ptr ImDrawList; center: ImVec2_c; radius: cfloat; col: ImU32; num_segments: cint): void {.cdecl, importc: "ImDrawList_AddCircleFilled".}
+proc ImDrawList_AddNgon*(self: ptr ImDrawList; center: ImVec2_c; radius: cfloat; col: ImU32; num_segments: cint; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddNgon".}
+proc ImDrawList_AddNgonFilled*(self: ptr ImDrawList; center: ImVec2_c; radius: cfloat; col: ImU32; num_segments: cint): void {.cdecl, importc: "ImDrawList_AddNgonFilled".}
+proc ImDrawList_AddEllipse*(self: ptr ImDrawList; center: ImVec2_c; radius: ImVec2_c; col: ImU32; rot: cfloat; num_segments: cint; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddEllipse".}
+proc ImDrawList_AddEllipseFilled*(self: ptr ImDrawList; center: ImVec2_c; radius: ImVec2_c; col: ImU32; rot: cfloat; num_segments: cint): void {.cdecl, importc: "ImDrawList_AddEllipseFilled".}
+proc ImDrawList_AddText_Vec2*(self: ptr ImDrawList; pos: ImVec2_c; col: ImU32; text_begin: cstring; text_end: cstring): void {.cdecl, importc: "ImDrawList_AddText_Vec2".}
+proc ImDrawList_AddText_FontPtr*(self: ptr ImDrawList; font: ptr ImFont; font_size: cfloat; pos: ImVec2_c; col: ImU32; text_begin: cstring; text_end: cstring; wrap_width: cfloat; cpu_fine_clip_rect: ptr ImVec4): void {.cdecl, importc: "ImDrawList_AddText_FontPtr".}
+proc ImDrawList_AddBezierCubic*(self: ptr ImDrawList; p1: ImVec2_c; p2: ImVec2_c; p3: ImVec2_c; p4: ImVec2_c; col: ImU32; thickness: cfloat; num_segments: cint): void {.cdecl, importc: "ImDrawList_AddBezierCubic".}
+proc ImDrawList_AddBezierQuadratic*(self: ptr ImDrawList; p1: ImVec2_c; p2: ImVec2_c; p3: ImVec2_c; col: ImU32; thickness: cfloat; num_segments: cint): void {.cdecl, importc: "ImDrawList_AddBezierQuadratic".}
+proc ImDrawList_AddPolyline*(self: ptr ImDrawList; points: ptr ImVec2_c; num_points: cint; col: ImU32; flags: ImDrawFlags; thickness: cfloat): void {.cdecl, importc: "ImDrawList_AddPolyline".}
+proc ImDrawList_AddConvexPolyFilled*(self: ptr ImDrawList; points: ptr ImVec2_c; num_points: cint; col: ImU32): void {.cdecl, importc: "ImDrawList_AddConvexPolyFilled".}
+proc ImDrawList_AddConcavePolyFilled*(self: ptr ImDrawList; points: ptr ImVec2_c; num_points: cint; col: ImU32): void {.cdecl, importc: "ImDrawList_AddConcavePolyFilled".}
+proc ImDrawList_AddImage*(self: ptr ImDrawList; tex_ref: ImTextureRef_c; p_min: ImVec2_c; p_max: ImVec2_c; uv_min: ImVec2_c; uv_max: ImVec2_c; col: ImU32): void {.cdecl, importc: "ImDrawList_AddImage".}
+proc ImDrawList_AddImageQuad*(self: ptr ImDrawList; tex_ref: ImTextureRef_c; p1: ImVec2_c; p2: ImVec2_c; p3: ImVec2_c; p4: ImVec2_c; uv1: ImVec2_c; uv2: ImVec2_c; uv3: ImVec2_c; uv4: ImVec2_c; col: ImU32): void {.cdecl, importc: "ImDrawList_AddImageQuad".}
+proc ImDrawList_AddImageRounded*(self: ptr ImDrawList; tex_ref: ImTextureRef_c; p_min: ImVec2_c; p_max: ImVec2_c; uv_min: ImVec2_c; uv_max: ImVec2_c; col: ImU32; rounding: cfloat; flags: ImDrawFlags): void {.cdecl, importc: "ImDrawList_AddImageRounded".}
 proc ImDrawList_PathClear*(self: ptr ImDrawList): void {.cdecl, importc: "ImDrawList_PathClear".}
-proc ImDrawList_PathLineTo*(self: ptr ImDrawList; pos: ImVec2): void {.cdecl, importc: "ImDrawList_PathLineTo".}
-proc ImDrawList_PathLineToMergeDuplicate*(self: ptr ImDrawList; pos: ImVec2): void {.cdecl, importc: "ImDrawList_PathLineToMergeDuplicate".}
+proc ImDrawList_PathLineTo*(self: ptr ImDrawList; pos: ImVec2_c): void {.cdecl, importc: "ImDrawList_PathLineTo".}
+proc ImDrawList_PathLineToMergeDuplicate*(self: ptr ImDrawList; pos: ImVec2_c): void {.cdecl, importc: "ImDrawList_PathLineToMergeDuplicate".}
 proc ImDrawList_PathFillConvex*(self: ptr ImDrawList; col: ImU32): void {.cdecl, importc: "ImDrawList_PathFillConvex".}
 proc ImDrawList_PathFillConcave*(self: ptr ImDrawList; col: ImU32): void {.cdecl, importc: "ImDrawList_PathFillConcave".}
 proc ImDrawList_PathStroke*(self: ptr ImDrawList; col: ImU32; flags: ImDrawFlags; thickness: cfloat): void {.cdecl, importc: "ImDrawList_PathStroke".}
-proc ImDrawList_PathArcTo*(self: ptr ImDrawList; center: ImVec2; radius: cfloat; a_min: cfloat; a_max: cfloat; num_segments: cint): void {.cdecl, importc: "ImDrawList_PathArcTo".}
-proc ImDrawList_PathArcToFast*(self: ptr ImDrawList; center: ImVec2; radius: cfloat; a_min_of_12: cint; a_max_of_12: cint): void {.cdecl, importc: "ImDrawList_PathArcToFast".}
-proc ImDrawList_PathEllipticalArcTo*(self: ptr ImDrawList; center: ImVec2; radius: ImVec2; rot: cfloat; a_min: cfloat; a_max: cfloat; num_segments: cint): void {.cdecl, importc: "ImDrawList_PathEllipticalArcTo".}
-proc ImDrawList_PathBezierCubicCurveTo*(self: ptr ImDrawList; p2: ImVec2; p3: ImVec2; p4: ImVec2; num_segments: cint): void {.cdecl, importc: "ImDrawList_PathBezierCubicCurveTo".}
-proc ImDrawList_PathBezierQuadraticCurveTo*(self: ptr ImDrawList; p2: ImVec2; p3: ImVec2; num_segments: cint): void {.cdecl, importc: "ImDrawList_PathBezierQuadraticCurveTo".}
-proc ImDrawList_PathRect*(self: ptr ImDrawList; rect_min: ImVec2; rect_max: ImVec2; rounding: cfloat; flags: ImDrawFlags): void {.cdecl, importc: "ImDrawList_PathRect".}
+proc ImDrawList_PathArcTo*(self: ptr ImDrawList; center: ImVec2_c; radius: cfloat; a_min: cfloat; a_max: cfloat; num_segments: cint): void {.cdecl, importc: "ImDrawList_PathArcTo".}
+proc ImDrawList_PathArcToFast*(self: ptr ImDrawList; center: ImVec2_c; radius: cfloat; a_min_of_12: cint; a_max_of_12: cint): void {.cdecl, importc: "ImDrawList_PathArcToFast".}
+proc ImDrawList_PathEllipticalArcTo*(self: ptr ImDrawList; center: ImVec2_c; radius: ImVec2_c; rot: cfloat; a_min: cfloat; a_max: cfloat; num_segments: cint): void {.cdecl, importc: "ImDrawList_PathEllipticalArcTo".}
+proc ImDrawList_PathBezierCubicCurveTo*(self: ptr ImDrawList; p2: ImVec2_c; p3: ImVec2_c; p4: ImVec2_c; num_segments: cint): void {.cdecl, importc: "ImDrawList_PathBezierCubicCurveTo".}
+proc ImDrawList_PathBezierQuadraticCurveTo*(self: ptr ImDrawList; p2: ImVec2_c; p3: ImVec2_c; num_segments: cint): void {.cdecl, importc: "ImDrawList_PathBezierQuadraticCurveTo".}
+proc ImDrawList_PathRect*(self: ptr ImDrawList; rect_min: ImVec2_c; rect_max: ImVec2_c; rounding: cfloat; flags: ImDrawFlags): void {.cdecl, importc: "ImDrawList_PathRect".}
 proc ImDrawList_AddCallback*(self: ptr ImDrawList; callback: ImDrawCallback; userdata: pointer; userdata_size: csize_t): void {.cdecl, importc: "ImDrawList_AddCallback".}
 proc ImDrawList_AddDrawCmd*(self: ptr ImDrawList): void {.cdecl, importc: "ImDrawList_AddDrawCmd".}
 proc ImDrawList_CloneOutput*(self: ptr ImDrawList): ptr ImDrawList {.cdecl, importc: "ImDrawList_CloneOutput".}
@@ -5333,12 +5404,12 @@ proc ImDrawList_ChannelsMerge*(self: ptr ImDrawList): void {.cdecl, importc: "Im
 proc ImDrawList_ChannelsSetCurrent*(self: ptr ImDrawList; n: cint): void {.cdecl, importc: "ImDrawList_ChannelsSetCurrent".}
 proc ImDrawList_PrimReserve*(self: ptr ImDrawList; idx_count: cint; vtx_count: cint): void {.cdecl, importc: "ImDrawList_PrimReserve".}
 proc ImDrawList_PrimUnreserve*(self: ptr ImDrawList; idx_count: cint; vtx_count: cint): void {.cdecl, importc: "ImDrawList_PrimUnreserve".}
-proc ImDrawList_PrimRect*(self: ptr ImDrawList; a: ImVec2; b: ImVec2; col: ImU32): void {.cdecl, importc: "ImDrawList_PrimRect".}
-proc ImDrawList_PrimRectUV*(self: ptr ImDrawList; a: ImVec2; b: ImVec2; uv_a: ImVec2; uv_b: ImVec2; col: ImU32): void {.cdecl, importc: "ImDrawList_PrimRectUV".}
-proc ImDrawList_PrimQuadUV*(self: ptr ImDrawList; a: ImVec2; b: ImVec2; c: ImVec2; d: ImVec2; uv_a: ImVec2; uv_b: ImVec2; uv_c: ImVec2; uv_d: ImVec2; col: ImU32): void {.cdecl, importc: "ImDrawList_PrimQuadUV".}
-proc ImDrawList_PrimWriteVtx*(self: ptr ImDrawList; pos: ImVec2; uv: ImVec2; col: ImU32): void {.cdecl, importc: "ImDrawList_PrimWriteVtx".}
+proc ImDrawList_PrimRect*(self: ptr ImDrawList; a: ImVec2_c; b: ImVec2_c; col: ImU32): void {.cdecl, importc: "ImDrawList_PrimRect".}
+proc ImDrawList_PrimRectUV*(self: ptr ImDrawList; a: ImVec2_c; b: ImVec2_c; uv_a: ImVec2_c; uv_b: ImVec2_c; col: ImU32): void {.cdecl, importc: "ImDrawList_PrimRectUV".}
+proc ImDrawList_PrimQuadUV*(self: ptr ImDrawList; a: ImVec2_c; b: ImVec2_c; c: ImVec2_c; d: ImVec2_c; uv_a: ImVec2_c; uv_b: ImVec2_c; uv_c: ImVec2_c; uv_d: ImVec2_c; col: ImU32): void {.cdecl, importc: "ImDrawList_PrimQuadUV".}
+proc ImDrawList_PrimWriteVtx*(self: ptr ImDrawList; pos: ImVec2_c; uv: ImVec2_c; col: ImU32): void {.cdecl, importc: "ImDrawList_PrimWriteVtx".}
 proc ImDrawList_PrimWriteIdx*(self: ptr ImDrawList; idx: ImDrawIdx): void {.cdecl, importc: "ImDrawList_PrimWriteIdx".}
-proc ImDrawList_PrimVtx*(self: ptr ImDrawList; pos: ImVec2; uv: ImVec2; col: ImU32): void {.cdecl, importc: "ImDrawList_PrimVtx".}
+proc ImDrawList_PrimVtx*(self: ptr ImDrawList; pos: ImVec2_c; uv: ImVec2_c; col: ImU32): void {.cdecl, importc: "ImDrawList_PrimVtx".}
 proc ImDrawList_SetDrawListSharedData*(self: ptr ImDrawList; data: ptr ImDrawListSharedData): void {.cdecl, importc: "ImDrawList__SetDrawListSharedData".}
 proc ImDrawList_ResetForNewFrame*(self: ptr ImDrawList): void {.cdecl, importc: "ImDrawList__ResetForNewFrame".}
 proc ImDrawList_ClearFreeMemory*(self: ptr ImDrawList): void {.cdecl, importc: "ImDrawList__ClearFreeMemory".}
@@ -5347,16 +5418,16 @@ proc ImDrawList_TryMergeDrawCmds*(self: ptr ImDrawList): void {.cdecl, importc: 
 proc ImDrawList_OnChangedClipRect*(self: ptr ImDrawList): void {.cdecl, importc: "ImDrawList__OnChangedClipRect".}
 proc ImDrawList_OnChangedTexture*(self: ptr ImDrawList): void {.cdecl, importc: "ImDrawList__OnChangedTexture".}
 proc ImDrawList_OnChangedVtxOffset*(self: ptr ImDrawList): void {.cdecl, importc: "ImDrawList__OnChangedVtxOffset".}
-proc ImDrawList_SetTexture*(self: ptr ImDrawList; tex_ref: ImTextureRef): void {.cdecl, importc: "ImDrawList__SetTexture".}
+proc ImDrawList_SetTexture*(self: ptr ImDrawList; tex_ref: ImTextureRef_c): void {.cdecl, importc: "ImDrawList__SetTexture".}
 proc ImDrawList_CalcCircleAutoSegmentCount*(self: ptr ImDrawList; radius: cfloat): cint {.cdecl, importc: "ImDrawList__CalcCircleAutoSegmentCount".}
-proc ImDrawList_PathArcToFastEx*(self: ptr ImDrawList; center: ImVec2; radius: cfloat; a_min_sample: cint; a_max_sample: cint; a_step: cint): void {.cdecl, importc: "ImDrawList__PathArcToFastEx".}
-proc ImDrawList_PathArcToN*(self: ptr ImDrawList; center: ImVec2; radius: cfloat; a_min: cfloat; a_max: cfloat; num_segments: cint): void {.cdecl, importc: "ImDrawList__PathArcToN".}
+proc ImDrawList_PathArcToFastEx*(self: ptr ImDrawList; center: ImVec2_c; radius: cfloat; a_min_sample: cint; a_max_sample: cint; a_step: cint): void {.cdecl, importc: "ImDrawList__PathArcToFastEx".}
+proc ImDrawList_PathArcToN*(self: ptr ImDrawList; center: ImVec2_c; radius: cfloat; a_min: cfloat; a_max: cfloat; num_segments: cint): void {.cdecl, importc: "ImDrawList__PathArcToN".}
 proc ImDrawData_ImDrawData*(): ptr ImDrawData {.cdecl, importc: "ImDrawData_ImDrawData".}
 proc ImDrawData_destroy*(self: ptr ImDrawData): void {.cdecl, importc: "ImDrawData_destroy".}
 proc ImDrawData_Clear*(self: ptr ImDrawData): void {.cdecl, importc: "ImDrawData_Clear".}
 proc ImDrawData_AddDrawList*(self: ptr ImDrawData; draw_list: ptr ImDrawList): void {.cdecl, importc: "ImDrawData_AddDrawList".}
 proc ImDrawData_DeIndexAllBuffers*(self: ptr ImDrawData): void {.cdecl, importc: "ImDrawData_DeIndexAllBuffers".}
-proc ImDrawData_ScaleClipRects*(self: ptr ImDrawData; fb_scale: ImVec2): void {.cdecl, importc: "ImDrawData_ScaleClipRects".}
+proc ImDrawData_ScaleClipRects*(self: ptr ImDrawData; fb_scale: ImVec2_c): void {.cdecl, importc: "ImDrawData_ScaleClipRects".}
 proc ImTextureData_ImTextureData*(): ptr ImTextureData {.cdecl, importc: "ImTextureData_ImTextureData".}
 proc ImTextureData_destroy*(self: ptr ImTextureData): void {.cdecl, importc: "ImTextureData_destroy".}
 proc ImTextureData_Create*(self: ptr ImTextureData; format: ImTextureFormat; w: cint; h: cint): void {.cdecl, importc: "ImTextureData_Create".}
@@ -5365,7 +5436,7 @@ proc ImTextureData_GetPixels*(self: ptr ImTextureData): pointer {.cdecl, importc
 proc ImTextureData_GetPixelsAt*(self: ptr ImTextureData; x: cint; y: cint): pointer {.cdecl, importc: "ImTextureData_GetPixelsAt".}
 proc ImTextureData_GetSizeInBytes*(self: ptr ImTextureData): cint {.cdecl, importc: "ImTextureData_GetSizeInBytes".}
 proc ImTextureData_GetPitch*(self: ptr ImTextureData): cint {.cdecl, importc: "ImTextureData_GetPitch".}
-proc ImTextureData_GetTexRef*(pOut: ptr ImTextureRef; self: ptr ImTextureData): void {.cdecl, importc: "ImTextureData_GetTexRef".}
+proc ImTextureData_GetTexRef*(self: ptr ImTextureData): ImTextureRef_c {.cdecl, importc: "ImTextureData_GetTexRef".}
 proc ImTextureData_GetTexID*(self: ptr ImTextureData): ImTextureID {.cdecl, importc: "ImTextureData_GetTexID".}
 proc ImTextureData_SetTexID*(self: ptr ImTextureData; tex_id: ImTextureID): void {.cdecl, importc: "ImTextureData_SetTexID".}
 proc ImTextureData_SetStatus*(self: ptr ImTextureData; status: ImTextureStatus): void {.cdecl, importc: "ImTextureData_SetStatus".}
@@ -5388,6 +5459,8 @@ proc ImFontAtlas_ImFontAtlas*(): ptr ImFontAtlas {.cdecl, importc: "ImFontAtlas_
 proc ImFontAtlas_destroy*(self: ptr ImFontAtlas): void {.cdecl, importc: "ImFontAtlas_destroy".}
 proc ImFontAtlas_AddFont*(self: ptr ImFontAtlas; font_cfg: ptr ImFontConfig): ptr ImFont {.cdecl, importc: "ImFontAtlas_AddFont".}
 proc ImFontAtlas_AddFontDefault*(self: ptr ImFontAtlas; font_cfg: ptr ImFontConfig): ptr ImFont {.cdecl, importc: "ImFontAtlas_AddFontDefault".}
+proc ImFontAtlas_AddFontDefaultVector*(self: ptr ImFontAtlas; font_cfg: ptr ImFontConfig): ptr ImFont {.cdecl, importc: "ImFontAtlas_AddFontDefaultVector".}
+proc ImFontAtlas_AddFontDefaultBitmap*(self: ptr ImFontAtlas; font_cfg: ptr ImFontConfig): ptr ImFont {.cdecl, importc: "ImFontAtlas_AddFontDefaultBitmap".}
 proc ImFontAtlas_AddFontFromFileTTF*(self: ptr ImFontAtlas; filename: cstring; size_pixels: cfloat; font_cfg: ptr ImFontConfig; glyph_ranges: ptr ImWchar): ptr ImFont {.cdecl, importc: "ImFontAtlas_AddFontFromFileTTF".}
 proc ImFontAtlas_AddFontFromMemoryTTF*(self: ptr ImFontAtlas; font_data: pointer; font_data_size: cint; size_pixels: cfloat; font_cfg: ptr ImFontConfig; glyph_ranges: ptr ImWchar): ptr ImFont {.cdecl, importc: "ImFontAtlas_AddFontFromMemoryTTF".}
 proc ImFontAtlas_AddFontFromMemoryCompressedTTF*(self: ptr ImFontAtlas; compressed_font_data: pointer; compressed_font_data_size: cint; size_pixels: cfloat; font_cfg: ptr ImFontConfig; glyph_ranges: ptr ImWchar): ptr ImFont {.cdecl, importc: "ImFontAtlas_AddFontFromMemoryCompressedTTF".}
@@ -5416,17 +5489,17 @@ proc ImFont_IsGlyphInFont*(self: ptr ImFont; c: ImWchar): bool {.cdecl, importc:
 proc ImFont_IsLoaded*(self: ptr ImFont): bool {.cdecl, importc: "ImFont_IsLoaded".}
 proc ImFont_GetDebugName*(self: ptr ImFont): cstring {.cdecl, importc: "ImFont_GetDebugName".}
 proc ImFont_GetFontBaked*(self: ptr ImFont; font_size: cfloat; density: cfloat): ptr ImFontBaked {.cdecl, importc: "ImFont_GetFontBaked".}
-proc ImFont_CalcTextSizeA*(pOut: ptr ImVec2; self: ptr ImFont; size: cfloat; max_width: cfloat; wrap_width: cfloat; text_begin: cstring; text_end: cstring; out_remaining: ptr cstring): void {.cdecl, importc: "ImFont_CalcTextSizeA".}
+proc ImFont_CalcTextSizeA*(self: ptr ImFont; size: cfloat; max_width: cfloat; wrap_width: cfloat; text_begin: cstring; text_end: cstring; out_remaining: ptr cstring): ImVec2_c {.cdecl, importc: "ImFont_CalcTextSizeA".}
 proc ImFont_CalcWordWrapPosition*(self: ptr ImFont; size: cfloat; text: cstring; text_end: cstring; wrap_width: cfloat): cstring {.cdecl, importc: "ImFont_CalcWordWrapPosition".}
-proc ImFont_RenderChar*(self: ptr ImFont; draw_list: ptr ImDrawList; size: cfloat; pos: ImVec2; col: ImU32; c: ImWchar; cpu_fine_clip: ptr ImVec4): void {.cdecl, importc: "ImFont_RenderChar".}
-proc ImFont_RenderText*(self: ptr ImFont; draw_list: ptr ImDrawList; size: cfloat; pos: ImVec2; col: ImU32; clip_rect: ImVec4; text_begin: cstring; text_end: cstring; wrap_width: cfloat; flags: ImDrawTextFlags): void {.cdecl, importc: "ImFont_RenderText".}
+proc ImFont_RenderChar*(self: ptr ImFont; draw_list: ptr ImDrawList; size: cfloat; pos: ImVec2_c; col: ImU32; c: ImWchar; cpu_fine_clip: ptr ImVec4): void {.cdecl, importc: "ImFont_RenderChar".}
+proc ImFont_RenderText*(self: ptr ImFont; draw_list: ptr ImDrawList; size: cfloat; pos: ImVec2_c; col: ImU32; clip_rect: ImVec4_c; text_begin: cstring; text_end: cstring; wrap_width: cfloat; flags: ImDrawTextFlags): void {.cdecl, importc: "ImFont_RenderText".}
 proc ImFont_ClearOutputData*(self: ptr ImFont): void {.cdecl, importc: "ImFont_ClearOutputData".}
 proc ImFont_AddRemapChar*(self: ptr ImFont; from_codepoint: ImWchar; to_codepoint: ImWchar): void {.cdecl, importc: "ImFont_AddRemapChar".}
 proc ImFont_IsGlyphRangeUnused*(self: ptr ImFont; c_begin: cuint; c_last: cuint): bool {.cdecl, importc: "ImFont_IsGlyphRangeUnused".}
 proc ImGuiViewport_ImGuiViewport*(): ptr ImGuiViewport {.cdecl, importc: "ImGuiViewport_ImGuiViewport".}
 proc ImGuiViewport_destroy*(self: ptr ImGuiViewport): void {.cdecl, importc: "ImGuiViewport_destroy".}
-proc ImGuiViewport_GetCenter*(pOut: ptr ImVec2; self: ptr ImGuiViewport): void {.cdecl, importc: "ImGuiViewport_GetCenter".}
-proc ImGuiViewport_GetWorkCenter*(pOut: ptr ImVec2; self: ptr ImGuiViewport): void {.cdecl, importc: "ImGuiViewport_GetWorkCenter".}
+proc ImGuiViewport_GetCenter*(self: ptr ImGuiViewport): ImVec2_c {.cdecl, importc: "ImGuiViewport_GetCenter".}
+proc ImGuiViewport_GetWorkCenter*(self: ptr ImGuiViewport): ImVec2_c {.cdecl, importc: "ImGuiViewport_GetWorkCenter".}
 proc ImGuiPlatformIO_ImGuiPlatformIO*(): ptr ImGuiPlatformIO {.cdecl, importc: "ImGuiPlatformIO_ImGuiPlatformIO".}
 proc ImGuiPlatformIO_destroy*(self: ptr ImGuiPlatformIO): void {.cdecl, importc: "ImGuiPlatformIO_destroy".}
 proc ImGuiPlatformIO_ClearPlatformHandlers*(self: ptr ImGuiPlatformIO): void {.cdecl, importc: "ImGuiPlatformIO_ClearPlatformHandlers".}
@@ -5478,11 +5551,16 @@ proc igImTextStrFromUtf8*(out_buf: ptr ImWchar; out_buf_size: cint; in_text: cst
 proc igImTextCountCharsFromUtf8*(in_text: cstring; in_text_end: cstring): cint {.cdecl, importc: "igImTextCountCharsFromUtf8".}
 proc igImTextCountUtf8BytesFromChar*(in_text: cstring; in_text_end: cstring): cint {.cdecl, importc: "igImTextCountUtf8BytesFromChar".}
 proc igImTextCountUtf8BytesFromStr*(in_text: ptr ImWchar; in_text_end: ptr ImWchar): cint {.cdecl, importc: "igImTextCountUtf8BytesFromStr".}
-proc igImTextFindPreviousUtf8Codepoint*(in_text_start: cstring; in_text_curr: cstring): cstring {.cdecl, importc: "igImTextFindPreviousUtf8Codepoint".}
+proc igImTextFindPreviousUtf8Codepoint*(in_text_start: cstring; in_p: cstring): cstring {.cdecl, importc: "igImTextFindPreviousUtf8Codepoint".}
+proc igImTextFindValidUtf8CodepointEnd*(in_text_start: cstring; in_text_end: cstring; in_p: cstring): cstring {.cdecl, importc: "igImTextFindValidUtf8CodepointEnd".}
 proc igImTextCountLines*(in_text: cstring; in_text_end: cstring): cint {.cdecl, importc: "igImTextCountLines".}
-proc igImFontCalcTextSizeEx*(pOut: ptr ImVec2; font: ptr ImFont; size: cfloat; max_width: cfloat; wrap_width: cfloat; text_begin: cstring; text_end_display: cstring; text_end: cstring; out_remaining: ptr cstring; out_offset: ptr ImVec2; flags: ImDrawTextFlags): void {.cdecl, importc: "igImFontCalcTextSizeEx".}
+proc igImFontCalcTextSizeEx*(font: ptr ImFont; size: cfloat; max_width: cfloat; wrap_width: cfloat; text_begin: cstring; text_end_display: cstring; text_end: cstring; out_remaining: ptr cstring; out_offset: ptr ImVec2_c; flags: ImDrawTextFlags): ImVec2_c {.cdecl, importc: "igImFontCalcTextSizeEx".}
 proc igImFontCalcWordWrapPositionEx*(font: ptr ImFont; size: cfloat; text: cstring; text_end: cstring; wrap_width: cfloat; flags: ImDrawTextFlags): cstring {.cdecl, importc: "igImFontCalcWordWrapPositionEx".}
 proc igImTextCalcWordWrapNextLineStart*(text: cstring; text_end: cstring; flags: ImDrawTextFlags): cstring {.cdecl, importc: "igImTextCalcWordWrapNextLineStart".}
+proc igImTextInitClassifiers*(): void {.cdecl, importc: "igImTextInitClassifiers".}
+proc igImTextClassifierClear*(bits: ptr ImU32; codepoint_min: cuint; codepoint_end: cuint; char_class: ImWcharClass): void {.cdecl, importc: "igImTextClassifierClear".}
+proc igImTextClassifierSetCharClass*(bits: ptr ImU32; codepoint_min: cuint; codepoint_end: cuint; char_class: ImWcharClass; c: cuint): void {.cdecl, importc: "igImTextClassifierSetCharClass".}
+proc igImTextClassifierSetCharClassFromStr*(bits: ptr ImU32; codepoint_min: cuint; codepoint_end: cuint; char_class: ImWcharClass; s: cstring): void {.cdecl, importc: "igImTextClassifierSetCharClassFromStr".}
 proc igImFileOpen*(filename: cstring; mode: cstring): ImFileHandle {.cdecl, importc: "igImFileOpen".}
 proc igImFileClose*(file: ImFileHandle): bool {.cdecl, importc: "igImFileClose".}
 proc igImFileGetSize*(file: ImFileHandle): ImU64 {.cdecl, importc: "igImFileGetSize".}
@@ -5500,40 +5578,40 @@ proc igImSign_Float*(x: cfloat): cfloat {.cdecl, importc: "igImSign_Float".}
 proc igImSign_double*(x: cdouble): cdouble {.cdecl, importc: "igImSign_double".}
 proc igImRsqrt_Float*(x: cfloat): cfloat {.cdecl, importc: "igImRsqrt_Float".}
 proc igImRsqrt_double*(x: cdouble): cdouble {.cdecl, importc: "igImRsqrt_double".}
-proc igImMin*(pOut: ptr ImVec2; lhs: ImVec2; rhs: ImVec2): void {.cdecl, importc: "igImMin".}
-proc igImMax*(pOut: ptr ImVec2; lhs: ImVec2; rhs: ImVec2): void {.cdecl, importc: "igImMax".}
-proc igImClamp*(pOut: ptr ImVec2; v: ImVec2; mn: ImVec2; mx: ImVec2): void {.cdecl, importc: "igImClamp".}
-proc igImLerp_Vec2Float*(pOut: ptr ImVec2; a: ImVec2; b: ImVec2; t: cfloat): void {.cdecl, importc: "igImLerp_Vec2Float".}
-proc igImLerp_Vec2Vec2*(pOut: ptr ImVec2; a: ImVec2; b: ImVec2; t: ImVec2): void {.cdecl, importc: "igImLerp_Vec2Vec2".}
-proc igImLerp_Vec4*(pOut: ptr ImVec4; a: ImVec4; b: ImVec4; t: cfloat): void {.cdecl, importc: "igImLerp_Vec4".}
+proc igImMin*(lhs: ImVec2_c; rhs: ImVec2_c): ImVec2_c {.cdecl, importc: "igImMin".}
+proc igImMax*(lhs: ImVec2_c; rhs: ImVec2_c): ImVec2_c {.cdecl, importc: "igImMax".}
+proc igImClamp*(v: ImVec2_c; mn: ImVec2_c; mx: ImVec2_c): ImVec2_c {.cdecl, importc: "igImClamp".}
+proc igImLerp_Vec2Float*(a: ImVec2_c; b: ImVec2_c; t: cfloat): ImVec2_c {.cdecl, importc: "igImLerp_Vec2Float".}
+proc igImLerp_Vec2Vec2*(a: ImVec2_c; b: ImVec2_c; t: ImVec2_c): ImVec2_c {.cdecl, importc: "igImLerp_Vec2Vec2".}
+proc igImLerp_Vec4*(a: ImVec4_c; b: ImVec4_c; t: cfloat): ImVec4_c {.cdecl, importc: "igImLerp_Vec4".}
 proc igImSaturate*(f: cfloat): cfloat {.cdecl, importc: "igImSaturate".}
-proc igImLengthSqr_Vec2*(lhs: ImVec2): cfloat {.cdecl, importc: "igImLengthSqr_Vec2".}
-proc igImLengthSqr_Vec4*(lhs: ImVec4): cfloat {.cdecl, importc: "igImLengthSqr_Vec4".}
-proc igImInvLength*(lhs: ImVec2; fail_value: cfloat): cfloat {.cdecl, importc: "igImInvLength".}
+proc igImLengthSqr_Vec2*(lhs: ImVec2_c): cfloat {.cdecl, importc: "igImLengthSqr_Vec2".}
+proc igImLengthSqr_Vec4*(lhs: ImVec4_c): cfloat {.cdecl, importc: "igImLengthSqr_Vec4".}
+proc igImInvLength*(lhs: ImVec2_c; fail_value: cfloat): cfloat {.cdecl, importc: "igImInvLength".}
 proc igImTrunc_Float*(f: cfloat): cfloat {.cdecl, importc: "igImTrunc_Float".}
-proc igImTrunc_Vec2*(pOut: ptr ImVec2; v: ImVec2): void {.cdecl, importc: "igImTrunc_Vec2".}
+proc igImTrunc_Vec2*(v: ImVec2_c): ImVec2_c {.cdecl, importc: "igImTrunc_Vec2".}
 proc igImFloor_Float*(f: cfloat): cfloat {.cdecl, importc: "igImFloor_Float".}
-proc igImFloor_Vec2*(pOut: ptr ImVec2; v: ImVec2): void {.cdecl, importc: "igImFloor_Vec2".}
+proc igImFloor_Vec2*(v: ImVec2_c): ImVec2_c {.cdecl, importc: "igImFloor_Vec2".}
 proc igImTrunc64*(f: cfloat): cfloat {.cdecl, importc: "igImTrunc64".}
 proc igImRound64*(f: cfloat): cfloat {.cdecl, importc: "igImRound64".}
 proc igImModPositive*(a: cint; b: cint): cint {.cdecl, importc: "igImModPositive".}
-proc igImDot*(a: ImVec2; b: ImVec2): cfloat {.cdecl, importc: "igImDot".}
-proc igImRotate*(pOut: ptr ImVec2; v: ImVec2; cos_a: cfloat; sin_a: cfloat): void {.cdecl, importc: "igImRotate".}
+proc igImDot*(a: ImVec2_c; b: ImVec2_c): cfloat {.cdecl, importc: "igImDot".}
+proc igImRotate*(v: ImVec2_c; cos_a: cfloat; sin_a: cfloat): ImVec2_c {.cdecl, importc: "igImRotate".}
 proc igImLinearSweep*(current: cfloat; target: cfloat; speed: cfloat): cfloat {.cdecl, importc: "igImLinearSweep".}
 proc igImLinearRemapClamp*(s0: cfloat; s1: cfloat; d0: cfloat; d1: cfloat; x: cfloat): cfloat {.cdecl, importc: "igImLinearRemapClamp".}
-proc igImMul*(pOut: ptr ImVec2; lhs: ImVec2; rhs: ImVec2): void {.cdecl, importc: "igImMul".}
+proc igImMul*(lhs: ImVec2_c; rhs: ImVec2_c): ImVec2_c {.cdecl, importc: "igImMul".}
 proc igImIsFloatAboveGuaranteedIntegerPrecision*(f: cfloat): bool {.cdecl, importc: "igImIsFloatAboveGuaranteedIntegerPrecision".}
 proc igImExponentialMovingAverage*(avg: cfloat; sample: cfloat; n: cint): cfloat {.cdecl, importc: "igImExponentialMovingAverage".}
-proc igImBezierCubicCalc*(pOut: ptr ImVec2; p1: ImVec2; p2: ImVec2; p3: ImVec2; p4: ImVec2; t: cfloat): void {.cdecl, importc: "igImBezierCubicCalc".}
-proc igImBezierCubicClosestPoint*(pOut: ptr ImVec2; p1: ImVec2; p2: ImVec2; p3: ImVec2; p4: ImVec2; p: ImVec2; num_segments: cint): void {.cdecl, importc: "igImBezierCubicClosestPoint".}
-proc igImBezierCubicClosestPointCasteljau*(pOut: ptr ImVec2; p1: ImVec2; p2: ImVec2; p3: ImVec2; p4: ImVec2; p: ImVec2; tess_tol: cfloat): void {.cdecl, importc: "igImBezierCubicClosestPointCasteljau".}
-proc igImBezierQuadraticCalc*(pOut: ptr ImVec2; p1: ImVec2; p2: ImVec2; p3: ImVec2; t: cfloat): void {.cdecl, importc: "igImBezierQuadraticCalc".}
-proc igImLineClosestPoint*(pOut: ptr ImVec2; a: ImVec2; b: ImVec2; p: ImVec2): void {.cdecl, importc: "igImLineClosestPoint".}
-proc igImTriangleContainsPoint*(a: ImVec2; b: ImVec2; c: ImVec2; p: ImVec2): bool {.cdecl, importc: "igImTriangleContainsPoint".}
-proc igImTriangleClosestPoint*(pOut: ptr ImVec2; a: ImVec2; b: ImVec2; c: ImVec2; p: ImVec2): void {.cdecl, importc: "igImTriangleClosestPoint".}
-proc igImTriangleBarycentricCoords*(a: ImVec2; b: ImVec2; c: ImVec2; p: ImVec2; out_u: ptr cfloat; out_v: ptr cfloat; out_w: ptr cfloat): void {.cdecl, importc: "igImTriangleBarycentricCoords".}
-proc igImTriangleArea*(a: ImVec2; b: ImVec2; c: ImVec2): cfloat {.cdecl, importc: "igImTriangleArea".}
-proc igImTriangleIsClockwise*(a: ImVec2; b: ImVec2; c: ImVec2): bool {.cdecl, importc: "igImTriangleIsClockwise".}
+proc igImBezierCubicCalc*(p1: ImVec2_c; p2: ImVec2_c; p3: ImVec2_c; p4: ImVec2_c; t: cfloat): ImVec2_c {.cdecl, importc: "igImBezierCubicCalc".}
+proc igImBezierCubicClosestPoint*(p1: ImVec2_c; p2: ImVec2_c; p3: ImVec2_c; p4: ImVec2_c; p: ImVec2_c; num_segments: cint): ImVec2_c {.cdecl, importc: "igImBezierCubicClosestPoint".}
+proc igImBezierCubicClosestPointCasteljau*(p1: ImVec2_c; p2: ImVec2_c; p3: ImVec2_c; p4: ImVec2_c; p: ImVec2_c; tess_tol: cfloat): ImVec2_c {.cdecl, importc: "igImBezierCubicClosestPointCasteljau".}
+proc igImBezierQuadraticCalc*(p1: ImVec2_c; p2: ImVec2_c; p3: ImVec2_c; t: cfloat): ImVec2_c {.cdecl, importc: "igImBezierQuadraticCalc".}
+proc igImLineClosestPoint*(a: ImVec2_c; b: ImVec2_c; p: ImVec2_c): ImVec2_c {.cdecl, importc: "igImLineClosestPoint".}
+proc igImTriangleContainsPoint*(a: ImVec2_c; b: ImVec2_c; c: ImVec2_c; p: ImVec2_c): bool {.cdecl, importc: "igImTriangleContainsPoint".}
+proc igImTriangleClosestPoint*(a: ImVec2_c; b: ImVec2_c; c: ImVec2_c; p: ImVec2_c): ImVec2_c {.cdecl, importc: "igImTriangleClosestPoint".}
+proc igImTriangleBarycentricCoords*(a: ImVec2_c; b: ImVec2_c; c: ImVec2_c; p: ImVec2_c; out_u: ptr cfloat; out_v: ptr cfloat; out_w: ptr cfloat): void {.cdecl, importc: "igImTriangleBarycentricCoords".}
+proc igImTriangleArea*(a: ImVec2_c; b: ImVec2_c; c: ImVec2_c): cfloat {.cdecl, importc: "igImTriangleArea".}
+proc igImTriangleIsClockwise*(a: ImVec2_c; b: ImVec2_c; c: ImVec2_c): bool {.cdecl, importc: "igImTriangleIsClockwise".}
 proc ImVec1_ImVec1_Nil*(): ptr ImVec1 {.cdecl, importc: "ImVec1_ImVec1_Nil".}
 proc ImVec1_destroy*(self: ptr ImVec1): void {.cdecl, importc: "ImVec1_destroy".}
 proc ImVec1_ImVec1_Float*(internal_x: cfloat): ptr ImVec1 {.cdecl, importc: "ImVec1_ImVec1_Float".}
@@ -5543,38 +5621,37 @@ proc ImVec2i_ImVec2i_Int*(internal_x: cint; internal_y: cint): ptr ImVec2i {.cde
 proc ImVec2ih_ImVec2ih_Nil*(): ptr ImVec2ih {.cdecl, importc: "ImVec2ih_ImVec2ih_Nil".}
 proc ImVec2ih_destroy*(self: ptr ImVec2ih): void {.cdecl, importc: "ImVec2ih_destroy".}
 proc ImVec2ih_ImVec2ih_short*(internal_x: cshort; internal_y: cshort): ptr ImVec2ih {.cdecl, importc: "ImVec2ih_ImVec2ih_short".}
-proc ImVec2ih_ImVec2ih_Vec2*(rhs: ImVec2): ptr ImVec2ih {.cdecl, importc: "ImVec2ih_ImVec2ih_Vec2".}
+proc ImVec2ih_ImVec2ih_Vec2*(rhs: ImVec2_c): ptr ImVec2ih {.cdecl, importc: "ImVec2ih_ImVec2ih_Vec2".}
 proc ImRect_ImRect_Nil*(): ptr ImRect {.cdecl, importc: "ImRect_ImRect_Nil".}
 proc ImRect_destroy*(self: ptr ImRect): void {.cdecl, importc: "ImRect_destroy".}
-proc ImRect_ImRect_Vec2*(min: ImVec2; max: ImVec2): ptr ImRect {.cdecl, importc: "ImRect_ImRect_Vec2".}
-proc ImRect_ImRect_Vec4*(v: ImVec4): ptr ImRect {.cdecl, importc: "ImRect_ImRect_Vec4".}
+proc ImRect_ImRect_Vec2*(min: ImVec2_c; max: ImVec2_c): ptr ImRect {.cdecl, importc: "ImRect_ImRect_Vec2".}
+proc ImRect_ImRect_Vec4*(v: ImVec4_c): ptr ImRect {.cdecl, importc: "ImRect_ImRect_Vec4".}
 proc ImRect_ImRect_Float*(x1: cfloat; y1: cfloat; x2: cfloat; y2: cfloat): ptr ImRect {.cdecl, importc: "ImRect_ImRect_Float".}
-proc ImRect_GetCenter*(pOut: ptr ImVec2; self: ptr ImRect): void {.cdecl, importc: "ImRect_GetCenter".}
-proc ImRect_GetSize*(pOut: ptr ImVec2; self: ptr ImRect): void {.cdecl, importc: "ImRect_GetSize".}
+proc ImRect_GetCenter*(self: ptr ImRect): ImVec2_c {.cdecl, importc: "ImRect_GetCenter".}
+proc ImRect_GetSize*(self: ptr ImRect): ImVec2_c {.cdecl, importc: "ImRect_GetSize".}
 proc ImRect_GetWidth*(self: ptr ImRect): cfloat {.cdecl, importc: "ImRect_GetWidth".}
 proc ImRect_GetHeight*(self: ptr ImRect): cfloat {.cdecl, importc: "ImRect_GetHeight".}
 proc ImRect_GetArea*(self: ptr ImRect): cfloat {.cdecl, importc: "ImRect_GetArea".}
-proc ImRect_GetTL*(pOut: ptr ImVec2; self: ptr ImRect): void {.cdecl, importc: "ImRect_GetTL".}
-proc ImRect_GetTR*(pOut: ptr ImVec2; self: ptr ImRect): void {.cdecl, importc: "ImRect_GetTR".}
-proc ImRect_GetBL*(pOut: ptr ImVec2; self: ptr ImRect): void {.cdecl, importc: "ImRect_GetBL".}
-proc ImRect_GetBR*(pOut: ptr ImVec2; self: ptr ImRect): void {.cdecl, importc: "ImRect_GetBR".}
-proc ImRect_Contains_Vec2*(self: ptr ImRect; p: ImVec2): bool {.cdecl, importc: "ImRect_Contains_Vec2".}
-proc ImRect_Contains_Rect*(self: ptr ImRect; r: ImRect): bool {.cdecl, importc: "ImRect_Contains_Rect".}
-proc ImRect_ContainsWithPad*(self: ptr ImRect; p: ImVec2; pad: ImVec2): bool {.cdecl, importc: "ImRect_ContainsWithPad".}
-proc ImRect_Overlaps*(self: ptr ImRect; r: ImRect): bool {.cdecl, importc: "ImRect_Overlaps".}
-proc ImRect_Add_Vec2*(self: ptr ImRect; p: ImVec2): void {.cdecl, importc: "ImRect_Add_Vec2".}
-proc ImRect_Add_Rect*(self: ptr ImRect; r: ImRect): void {.cdecl, importc: "ImRect_Add_Rect".}
+proc ImRect_GetTL*(self: ptr ImRect): ImVec2_c {.cdecl, importc: "ImRect_GetTL".}
+proc ImRect_GetTR*(self: ptr ImRect): ImVec2_c {.cdecl, importc: "ImRect_GetTR".}
+proc ImRect_GetBL*(self: ptr ImRect): ImVec2_c {.cdecl, importc: "ImRect_GetBL".}
+proc ImRect_GetBR*(self: ptr ImRect): ImVec2_c {.cdecl, importc: "ImRect_GetBR".}
+proc ImRect_Contains_Vec2*(self: ptr ImRect; p: ImVec2_c): bool {.cdecl, importc: "ImRect_Contains_Vec2".}
+proc ImRect_Contains_Rect*(self: ptr ImRect; r: ImRect_c): bool {.cdecl, importc: "ImRect_Contains_Rect".}
+proc ImRect_ContainsWithPad*(self: ptr ImRect; p: ImVec2_c; pad: ImVec2_c): bool {.cdecl, importc: "ImRect_ContainsWithPad".}
+proc ImRect_Overlaps*(self: ptr ImRect; r: ImRect_c): bool {.cdecl, importc: "ImRect_Overlaps".}
+proc ImRect_Add_Vec2*(self: ptr ImRect; p: ImVec2_c): void {.cdecl, importc: "ImRect_Add_Vec2".}
+proc ImRect_Add_Rect*(self: ptr ImRect; r: ImRect_c): void {.cdecl, importc: "ImRect_Add_Rect".}
 proc ImRect_Expand_Float*(self: ptr ImRect; amount: cfloat): void {.cdecl, importc: "ImRect_Expand_Float".}
-proc ImRect_Expand_Vec2*(self: ptr ImRect; amount: ImVec2): void {.cdecl, importc: "ImRect_Expand_Vec2".}
-proc ImRect_Translate*(self: ptr ImRect; d: ImVec2): void {.cdecl, importc: "ImRect_Translate".}
+proc ImRect_Expand_Vec2*(self: ptr ImRect; amount: ImVec2_c): void {.cdecl, importc: "ImRect_Expand_Vec2".}
+proc ImRect_Translate*(self: ptr ImRect; d: ImVec2_c): void {.cdecl, importc: "ImRect_Translate".}
 proc ImRect_TranslateX*(self: ptr ImRect; dx: cfloat): void {.cdecl, importc: "ImRect_TranslateX".}
 proc ImRect_TranslateY*(self: ptr ImRect; dy: cfloat): void {.cdecl, importc: "ImRect_TranslateY".}
-proc ImRect_ClipWith*(self: ptr ImRect; r: ImRect): void {.cdecl, importc: "ImRect_ClipWith".}
-proc ImRect_ClipWithFull*(self: ptr ImRect; r: ImRect): void {.cdecl, importc: "ImRect_ClipWithFull".}
-proc ImRect_Floor*(self: ptr ImRect): void {.cdecl, importc: "ImRect_Floor".}
+proc ImRect_ClipWith*(self: ptr ImRect; r: ImRect_c): void {.cdecl, importc: "ImRect_ClipWith".}
+proc ImRect_ClipWithFull*(self: ptr ImRect; r: ImRect_c): void {.cdecl, importc: "ImRect_ClipWithFull".}
 proc ImRect_IsInverted*(self: ptr ImRect): bool {.cdecl, importc: "ImRect_IsInverted".}
-proc ImRect_ToVec4*(pOut: ptr ImVec4; self: ptr ImRect): void {.cdecl, importc: "ImRect_ToVec4".}
-proc ImRect_AsVec4*(self: ptr ImRect): ptr ImVec4 {.cdecl, importc: "ImRect_AsVec4".}
+proc ImRect_ToVec4*(self: ptr ImRect): ImVec4_c {.cdecl, importc: "ImRect_ToVec4".}
+proc ImRect_AsVec4*(self: ptr ImRect): ptr ImVec4_c {.cdecl, importc: "ImRect_AsVec4".}
 proc igImBitArrayGetStorageSizeInBytes*(bitcount: cint): csize_t {.cdecl, importc: "igImBitArrayGetStorageSizeInBytes".}
 proc igImBitArrayClearAllBits*(arr: ptr ImU32; bitcount: cint): void {.cdecl, importc: "igImBitArrayClearAllBits".}
 proc igImBitArrayTestBit*(arr: ptr ImU32; n: cint): bool {.cdecl, importc: "igImBitArrayTestBit".}
@@ -5601,7 +5678,7 @@ proc ImGuiStyleVarInfo_GetVarPtr*(self: ptr ImGuiStyleVarInfo; parent: pointer):
 proc ImGuiStyleMod_ImGuiStyleMod_Int*(idx: ImGuiStyleVar; v: cint): ptr ImGuiStyleMod {.cdecl, importc: "ImGuiStyleMod_ImGuiStyleMod_Int".}
 proc ImGuiStyleMod_destroy*(self: ptr ImGuiStyleMod): void {.cdecl, importc: "ImGuiStyleMod_destroy".}
 proc ImGuiStyleMod_ImGuiStyleMod_Float*(idx: ImGuiStyleVar; v: cfloat): ptr ImGuiStyleMod {.cdecl, importc: "ImGuiStyleMod_ImGuiStyleMod_Float".}
-proc ImGuiStyleMod_ImGuiStyleMod_Vec2*(idx: ImGuiStyleVar; v: ImVec2): ptr ImGuiStyleMod {.cdecl, importc: "ImGuiStyleMod_ImGuiStyleMod_Vec2".}
+proc ImGuiStyleMod_ImGuiStyleMod_Vec2*(idx: ImGuiStyleVar; v: ImVec2_c): ptr ImGuiStyleMod {.cdecl, importc: "ImGuiStyleMod_ImGuiStyleMod_Vec2".}
 proc ImGuiComboPreviewData_ImGuiComboPreviewData*(): ptr ImGuiComboPreviewData {.cdecl, importc: "ImGuiComboPreviewData_ImGuiComboPreviewData".}
 proc ImGuiComboPreviewData_destroy*(self: ptr ImGuiComboPreviewData): void {.cdecl, importc: "ImGuiComboPreviewData_destroy".}
 proc ImGuiMenuColumns_ImGuiMenuColumns*(): ptr ImGuiMenuColumns {.cdecl, importc: "ImGuiMenuColumns_ImGuiMenuColumns".}
@@ -5626,6 +5703,7 @@ proc ImGuiInputTextState_ClearSelection*(self: ptr ImGuiInputTextState): void {.
 proc ImGuiInputTextState_GetCursorPos*(self: ptr ImGuiInputTextState): cint {.cdecl, importc: "ImGuiInputTextState_GetCursorPos".}
 proc ImGuiInputTextState_GetSelectionStart*(self: ptr ImGuiInputTextState): cint {.cdecl, importc: "ImGuiInputTextState_GetSelectionStart".}
 proc ImGuiInputTextState_GetSelectionEnd*(self: ptr ImGuiInputTextState): cint {.cdecl, importc: "ImGuiInputTextState_GetSelectionEnd".}
+proc ImGuiInputTextState_SetSelection*(self: ptr ImGuiInputTextState; start: cint; end_arg: cint): void {.cdecl, importc: "ImGuiInputTextState_SetSelection".}
 proc ImGuiInputTextState_SelectAll*(self: ptr ImGuiInputTextState): void {.cdecl, importc: "ImGuiInputTextState_SelectAll".}
 proc ImGuiInputTextState_ReloadUserBufAndSelectAll*(self: ptr ImGuiInputTextState): void {.cdecl, importc: "ImGuiInputTextState_ReloadUserBufAndSelectAll".}
 proc ImGuiInputTextState_ReloadUserBufAndKeepSelection*(self: ptr ImGuiInputTextState): void {.cdecl, importc: "ImGuiInputTextState_ReloadUserBufAndKeepSelection".}
@@ -5688,7 +5766,7 @@ proc ImGuiDockNode_IsNoTabBar*(self: ptr ImGuiDockNode): bool {.cdecl, importc: 
 proc ImGuiDockNode_IsSplitNode*(self: ptr ImGuiDockNode): bool {.cdecl, importc: "ImGuiDockNode_IsSplitNode".}
 proc ImGuiDockNode_IsLeafNode*(self: ptr ImGuiDockNode): bool {.cdecl, importc: "ImGuiDockNode_IsLeafNode".}
 proc ImGuiDockNode_IsEmpty*(self: ptr ImGuiDockNode): bool {.cdecl, importc: "ImGuiDockNode_IsEmpty".}
-proc ImGuiDockNode_Rect*(pOut: ptr ImRect; self: ptr ImGuiDockNode): void {.cdecl, importc: "ImGuiDockNode_Rect".}
+proc ImGuiDockNode_Rect*(self: ptr ImGuiDockNode): ImRect_c {.cdecl, importc: "ImGuiDockNode_Rect".}
 proc ImGuiDockNode_SetLocalFlags*(self: ptr ImGuiDockNode; flags: ImGuiDockNodeFlags): void {.cdecl, importc: "ImGuiDockNode_SetLocalFlags".}
 proc ImGuiDockNode_UpdateMergedFlags*(self: ptr ImGuiDockNode): void {.cdecl, importc: "ImGuiDockNode_UpdateMergedFlags".}
 proc ImGuiDockContext_ImGuiDockContext*(): ptr ImGuiDockContext {.cdecl, importc: "ImGuiDockContext_ImGuiDockContext".}
@@ -5696,12 +5774,12 @@ proc ImGuiDockContext_destroy*(self: ptr ImGuiDockContext): void {.cdecl, import
 proc ImGuiViewportP_ImGuiViewportP*(): ptr ImGuiViewportP {.cdecl, importc: "ImGuiViewportP_ImGuiViewportP".}
 proc ImGuiViewportP_destroy*(self: ptr ImGuiViewportP): void {.cdecl, importc: "ImGuiViewportP_destroy".}
 proc ImGuiViewportP_ClearRequestFlags*(self: ptr ImGuiViewportP): void {.cdecl, importc: "ImGuiViewportP_ClearRequestFlags".}
-proc ImGuiViewportP_CalcWorkRectPos*(pOut: ptr ImVec2; self: ptr ImGuiViewportP; inset_min: ImVec2): void {.cdecl, importc: "ImGuiViewportP_CalcWorkRectPos".}
-proc ImGuiViewportP_CalcWorkRectSize*(pOut: ptr ImVec2; self: ptr ImGuiViewportP; inset_min: ImVec2; inset_max: ImVec2): void {.cdecl, importc: "ImGuiViewportP_CalcWorkRectSize".}
+proc ImGuiViewportP_CalcWorkRectPos*(self: ptr ImGuiViewportP; inset_min: ImVec2_c): ImVec2_c {.cdecl, importc: "ImGuiViewportP_CalcWorkRectPos".}
+proc ImGuiViewportP_CalcWorkRectSize*(self: ptr ImGuiViewportP; inset_min: ImVec2_c; inset_max: ImVec2_c): ImVec2_c {.cdecl, importc: "ImGuiViewportP_CalcWorkRectSize".}
 proc ImGuiViewportP_UpdateWorkRect*(self: ptr ImGuiViewportP): void {.cdecl, importc: "ImGuiViewportP_UpdateWorkRect".}
-proc ImGuiViewportP_GetMainRect*(pOut: ptr ImRect; self: ptr ImGuiViewportP): void {.cdecl, importc: "ImGuiViewportP_GetMainRect".}
-proc ImGuiViewportP_GetWorkRect*(pOut: ptr ImRect; self: ptr ImGuiViewportP): void {.cdecl, importc: "ImGuiViewportP_GetWorkRect".}
-proc ImGuiViewportP_GetBuildWorkRect*(pOut: ptr ImRect; self: ptr ImGuiViewportP): void {.cdecl, importc: "ImGuiViewportP_GetBuildWorkRect".}
+proc ImGuiViewportP_GetMainRect*(self: ptr ImGuiViewportP): ImRect_c {.cdecl, importc: "ImGuiViewportP_GetMainRect".}
+proc ImGuiViewportP_GetWorkRect*(self: ptr ImGuiViewportP): ImRect_c {.cdecl, importc: "ImGuiViewportP_GetWorkRect".}
+proc ImGuiViewportP_GetBuildWorkRect*(self: ptr ImGuiViewportP): ImRect_c {.cdecl, importc: "ImGuiViewportP_GetBuildWorkRect".}
 proc ImGuiWindowSettings_ImGuiWindowSettings*(): ptr ImGuiWindowSettings {.cdecl, importc: "ImGuiWindowSettings_ImGuiWindowSettings".}
 proc ImGuiWindowSettings_destroy*(self: ptr ImGuiWindowSettings): void {.cdecl, importc: "ImGuiWindowSettings_destroy".}
 proc ImGuiWindowSettings_GetName*(self: ptr ImGuiWindowSettings): cstring {.cdecl, importc: "ImGuiWindowSettings_GetName".}
@@ -5711,6 +5789,8 @@ proc ImGuiDebugAllocInfo_ImGuiDebugAllocInfo*(): ptr ImGuiDebugAllocInfo {.cdecl
 proc ImGuiDebugAllocInfo_destroy*(self: ptr ImGuiDebugAllocInfo): void {.cdecl, importc: "ImGuiDebugAllocInfo_destroy".}
 proc ImGuiStackLevelInfo_ImGuiStackLevelInfo*(): ptr ImGuiStackLevelInfo {.cdecl, importc: "ImGuiStackLevelInfo_ImGuiStackLevelInfo".}
 proc ImGuiStackLevelInfo_destroy*(self: ptr ImGuiStackLevelInfo): void {.cdecl, importc: "ImGuiStackLevelInfo_destroy".}
+proc ImGuiDebugItemPathQuery_ImGuiDebugItemPathQuery*(): ptr ImGuiDebugItemPathQuery {.cdecl, importc: "ImGuiDebugItemPathQuery_ImGuiDebugItemPathQuery".}
+proc ImGuiDebugItemPathQuery_destroy*(self: ptr ImGuiDebugItemPathQuery): void {.cdecl, importc: "ImGuiDebugItemPathQuery_destroy".}
 proc ImGuiIDStackTool_ImGuiIDStackTool*(): ptr ImGuiIDStackTool {.cdecl, importc: "ImGuiIDStackTool_ImGuiIDStackTool".}
 proc ImGuiIDStackTool_destroy*(self: ptr ImGuiIDStackTool): void {.cdecl, importc: "ImGuiIDStackTool_destroy".}
 proc ImGuiContextHook_ImGuiContextHook*(): ptr ImGuiContextHook {.cdecl, importc: "ImGuiContextHook_ImGuiContextHook".}
@@ -5722,11 +5802,11 @@ proc ImGuiWindow_destroy*(self: ptr ImGuiWindow): void {.cdecl, importc: "ImGuiW
 proc ImGuiWindow_GetID_Str*(self: ptr ImGuiWindow; str: cstring; str_end: cstring): ImGuiID {.cdecl, importc: "ImGuiWindow_GetID_Str".}
 proc ImGuiWindow_GetID_Ptr*(self: ptr ImGuiWindow; ptr_arg: pointer): ImGuiID {.cdecl, importc: "ImGuiWindow_GetID_Ptr".}
 proc ImGuiWindow_GetID_Int*(self: ptr ImGuiWindow; n: cint): ImGuiID {.cdecl, importc: "ImGuiWindow_GetID_Int".}
-proc ImGuiWindow_GetIDFromPos*(self: ptr ImGuiWindow; p_abs: ImVec2): ImGuiID {.cdecl, importc: "ImGuiWindow_GetIDFromPos".}
-proc ImGuiWindow_GetIDFromRectangle*(self: ptr ImGuiWindow; r_abs: ImRect): ImGuiID {.cdecl, importc: "ImGuiWindow_GetIDFromRectangle".}
-proc ImGuiWindow_Rect*(pOut: ptr ImRect; self: ptr ImGuiWindow): void {.cdecl, importc: "ImGuiWindow_Rect".}
-proc ImGuiWindow_TitleBarRect*(pOut: ptr ImRect; self: ptr ImGuiWindow): void {.cdecl, importc: "ImGuiWindow_TitleBarRect".}
-proc ImGuiWindow_MenuBarRect*(pOut: ptr ImRect; self: ptr ImGuiWindow): void {.cdecl, importc: "ImGuiWindow_MenuBarRect".}
+proc ImGuiWindow_GetIDFromPos*(self: ptr ImGuiWindow; p_abs: ImVec2_c): ImGuiID {.cdecl, importc: "ImGuiWindow_GetIDFromPos".}
+proc ImGuiWindow_GetIDFromRectangle*(self: ptr ImGuiWindow; r_abs: ImRect_c): ImGuiID {.cdecl, importc: "ImGuiWindow_GetIDFromRectangle".}
+proc ImGuiWindow_Rect*(self: ptr ImGuiWindow): ImRect_c {.cdecl, importc: "ImGuiWindow_Rect".}
+proc ImGuiWindow_TitleBarRect*(self: ptr ImGuiWindow): ImRect_c {.cdecl, importc: "ImGuiWindow_TitleBarRect".}
+proc ImGuiWindow_MenuBarRect*(self: ptr ImGuiWindow): ImRect_c {.cdecl, importc: "ImGuiWindow_MenuBarRect".}
 proc ImGuiTabItem_ImGuiTabItem*(): ptr ImGuiTabItem {.cdecl, importc: "ImGuiTabItem_ImGuiTabItem".}
 proc ImGuiTabItem_destroy*(self: ptr ImGuiTabItem): void {.cdecl, importc: "ImGuiTabItem_destroy".}
 proc ImGuiTabBar_ImGuiTabBar*(): ptr ImGuiTabBar {.cdecl, importc: "ImGuiTabBar_ImGuiTabBar".}
@@ -5746,27 +5826,29 @@ proc ImGuiTableSettings_destroy*(self: ptr ImGuiTableSettings): void {.cdecl, im
 proc ImGuiTableSettings_GetColumnSettings*(self: ptr ImGuiTableSettings): ptr ImGuiTableColumnSettings {.cdecl, importc: "ImGuiTableSettings_GetColumnSettings".}
 proc igGetIO_ContextPtr*(ctx: ptr ImGuiContext): ptr ImGuiIO {.cdecl, importc: "igGetIO_ContextPtr".}
 proc igGetPlatformIO_ContextPtr*(ctx: ptr ImGuiContext): ptr ImGuiPlatformIO {.cdecl, importc: "igGetPlatformIO_ContextPtr".}
+proc igGetScale*(): cfloat {.cdecl, importc: "igGetScale".}
 proc igGetCurrentWindowRead*(): ptr ImGuiWindow {.cdecl, importc: "igGetCurrentWindowRead".}
 proc igGetCurrentWindow*(): ptr ImGuiWindow {.cdecl, importc: "igGetCurrentWindow".}
 proc igFindWindowByID*(id: ImGuiID): ptr ImGuiWindow {.cdecl, importc: "igFindWindowByID".}
 proc igFindWindowByName*(name: cstring): ptr ImGuiWindow {.cdecl, importc: "igFindWindowByName".}
 proc igUpdateWindowParentAndRootLinks*(window: ptr ImGuiWindow; flags: ImGuiWindowFlags; parent_window: ptr ImGuiWindow): void {.cdecl, importc: "igUpdateWindowParentAndRootLinks".}
 proc igUpdateWindowSkipRefresh*(window: ptr ImGuiWindow): void {.cdecl, importc: "igUpdateWindowSkipRefresh".}
-proc igCalcWindowNextAutoFitSize*(pOut: ptr ImVec2; window: ptr ImGuiWindow): void {.cdecl, importc: "igCalcWindowNextAutoFitSize".}
+proc igCalcWindowNextAutoFitSize*(window: ptr ImGuiWindow): ImVec2_c {.cdecl, importc: "igCalcWindowNextAutoFitSize".}
 proc igIsWindowChildOf*(window: ptr ImGuiWindow; potential_parent: ptr ImGuiWindow; popup_hierarchy: bool; dock_hierarchy: bool): bool {.cdecl, importc: "igIsWindowChildOf".}
+proc igIsWindowInBeginStack*(window: ptr ImGuiWindow): bool {.cdecl, importc: "igIsWindowInBeginStack".}
 proc igIsWindowWithinBeginStackOf*(window: ptr ImGuiWindow; potential_parent: ptr ImGuiWindow): bool {.cdecl, importc: "igIsWindowWithinBeginStackOf".}
 proc igIsWindowAbove*(potential_above: ptr ImGuiWindow; potential_below: ptr ImGuiWindow): bool {.cdecl, importc: "igIsWindowAbove".}
 proc igIsWindowNavFocusable*(window: ptr ImGuiWindow): bool {.cdecl, importc: "igIsWindowNavFocusable".}
-proc igSetWindowPos_WindowPtr*(window: ptr ImGuiWindow; pos: ImVec2; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowPos_WindowPtr".}
-proc igSetWindowSize_WindowPtr*(window: ptr ImGuiWindow; size: ImVec2; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowSize_WindowPtr".}
+proc igSetWindowPos_WindowPtr*(window: ptr ImGuiWindow; pos: ImVec2_c; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowPos_WindowPtr".}
+proc igSetWindowSize_WindowPtr*(window: ptr ImGuiWindow; size: ImVec2_c; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowSize_WindowPtr".}
 proc igSetWindowCollapsed_WindowPtr*(window: ptr ImGuiWindow; collapsed: bool; cond: ImGuiCond): void {.cdecl, importc: "igSetWindowCollapsed_WindowPtr".}
-proc igSetWindowHitTestHole*(window: ptr ImGuiWindow; pos: ImVec2; size: ImVec2): void {.cdecl, importc: "igSetWindowHitTestHole".}
+proc igSetWindowHitTestHole*(window: ptr ImGuiWindow; pos: ImVec2_c; size: ImVec2_c): void {.cdecl, importc: "igSetWindowHitTestHole".}
 proc igSetWindowHiddenAndSkipItemsForCurrentFrame*(window: ptr ImGuiWindow): void {.cdecl, importc: "igSetWindowHiddenAndSkipItemsForCurrentFrame".}
 proc igSetWindowParentWindowForFocusRoute*(window: ptr ImGuiWindow; parent_window: ptr ImGuiWindow): void {.cdecl, importc: "igSetWindowParentWindowForFocusRoute".}
-proc igWindowRectAbsToRel*(pOut: ptr ImRect; window: ptr ImGuiWindow; r: ImRect): void {.cdecl, importc: "igWindowRectAbsToRel".}
-proc igWindowRectRelToAbs*(pOut: ptr ImRect; window: ptr ImGuiWindow; r: ImRect): void {.cdecl, importc: "igWindowRectRelToAbs".}
-proc igWindowPosAbsToRel*(pOut: ptr ImVec2; window: ptr ImGuiWindow; p: ImVec2): void {.cdecl, importc: "igWindowPosAbsToRel".}
-proc igWindowPosRelToAbs*(pOut: ptr ImVec2; window: ptr ImGuiWindow; p: ImVec2): void {.cdecl, importc: "igWindowPosRelToAbs".}
+proc igWindowRectAbsToRel*(window: ptr ImGuiWindow; r: ImRect_c): ImRect_c {.cdecl, importc: "igWindowRectAbsToRel".}
+proc igWindowRectRelToAbs*(window: ptr ImGuiWindow; r: ImRect_c): ImRect_c {.cdecl, importc: "igWindowRectRelToAbs".}
+proc igWindowPosAbsToRel*(window: ptr ImGuiWindow; p: ImVec2_c): ImVec2_c {.cdecl, importc: "igWindowPosAbsToRel".}
+proc igWindowPosRelToAbs*(window: ptr ImGuiWindow; p: ImVec2_c): ImVec2_c {.cdecl, importc: "igWindowPosRelToAbs".}
 proc igFocusWindow*(window: ptr ImGuiWindow; flags: ImGuiFocusRequestFlags): void {.cdecl, importc: "igFocusWindow".}
 proc igFocusTopMostWindowUnderOne*(under_this_window: ptr ImGuiWindow; ignore_window: ptr ImGuiWindow; filter_viewport: ptr ImGuiViewport; flags: ImGuiFocusRequestFlags): void {.cdecl, importc: "igFocusTopMostWindowUnderOne".}
 proc igBringWindowToFocusFront*(window: ptr ImGuiWindow): void {.cdecl, importc: "igBringWindowToFocusFront".}
@@ -5792,24 +5874,25 @@ proc igGetForegroundDrawList_WindowPtr*(window: ptr ImGuiWindow): ptr ImDrawList
 proc igAddDrawListToDrawDataEx*(draw_data: ptr ImDrawData; out_list: ptr ImVector_ImDrawListPtr; draw_list: ptr ImDrawList): void {.cdecl, importc: "igAddDrawListToDrawDataEx".}
 proc igInitialize*(): void {.cdecl, importc: "igInitialize".}
 proc igShutdown*(): void {.cdecl, importc: "igShutdown".}
+proc igSetContextName*(ctx: ptr ImGuiContext; name: cstring): void {.cdecl, importc: "igSetContextName".}
+proc igAddContextHook*(ctx: ptr ImGuiContext; hook: ptr ImGuiContextHook): ImGuiID {.cdecl, importc: "igAddContextHook".}
+proc igRemoveContextHook*(ctx: ptr ImGuiContext; hook_to_remove: ImGuiID): void {.cdecl, importc: "igRemoveContextHook".}
+proc igCallContextHooks*(ctx: ptr ImGuiContext; type_arg: ImGuiContextHookType): void {.cdecl, importc: "igCallContextHooks".}
 proc igUpdateInputEvents*(trickle_fast_inputs: bool): void {.cdecl, importc: "igUpdateInputEvents".}
-proc igUpdateHoveredWindowAndCaptureFlags*(mouse_pos: ImVec2): void {.cdecl, importc: "igUpdateHoveredWindowAndCaptureFlags".}
-proc igFindHoveredWindowEx*(pos: ImVec2; find_first_and_in_any_viewport: bool; out_hovered_window: ptr ptr ImGuiWindow; out_hovered_window_under_moving_window: ptr ptr ImGuiWindow): void {.cdecl, importc: "igFindHoveredWindowEx".}
+proc igUpdateHoveredWindowAndCaptureFlags*(mouse_pos: ImVec2_c): void {.cdecl, importc: "igUpdateHoveredWindowAndCaptureFlags".}
+proc igFindHoveredWindowEx*(pos: ImVec2_c; find_first_and_in_any_viewport: bool; out_hovered_window: ptr ptr ImGuiWindow; out_hovered_window_under_moving_window: ptr ptr ImGuiWindow): void {.cdecl, importc: "igFindHoveredWindowEx".}
 proc igStartMouseMovingWindow*(window: ptr ImGuiWindow): void {.cdecl, importc: "igStartMouseMovingWindow".}
 proc igStartMouseMovingWindowOrNode*(window: ptr ImGuiWindow; node: ptr ImGuiDockNode; undock: bool): void {.cdecl, importc: "igStartMouseMovingWindowOrNode".}
 proc igStopMouseMovingWindow*(): void {.cdecl, importc: "igStopMouseMovingWindow".}
 proc igUpdateMouseMovingWindowNewFrame*(): void {.cdecl, importc: "igUpdateMouseMovingWindowNewFrame".}
 proc igUpdateMouseMovingWindowEndFrame*(): void {.cdecl, importc: "igUpdateMouseMovingWindowEndFrame".}
-proc igAddContextHook*(context: ptr ImGuiContext; hook: ptr ImGuiContextHook): ImGuiID {.cdecl, importc: "igAddContextHook".}
-proc igRemoveContextHook*(context: ptr ImGuiContext; hook_to_remove: ImGuiID): void {.cdecl, importc: "igRemoveContextHook".}
-proc igCallContextHooks*(context: ptr ImGuiContext; type_arg: ImGuiContextHookType): void {.cdecl, importc: "igCallContextHooks".}
-proc igTranslateWindowsInViewport*(viewport: ptr ImGuiViewportP; old_pos: ImVec2; new_pos: ImVec2; old_size: ImVec2; new_size: ImVec2): void {.cdecl, importc: "igTranslateWindowsInViewport".}
+proc igTranslateWindowsInViewport*(viewport: ptr ImGuiViewportP; old_pos: ImVec2_c; new_pos: ImVec2_c; old_size: ImVec2_c; new_size: ImVec2_c): void {.cdecl, importc: "igTranslateWindowsInViewport".}
 proc igScaleWindowsInViewport*(viewport: ptr ImGuiViewportP; scale: cfloat): void {.cdecl, importc: "igScaleWindowsInViewport".}
 proc igDestroyPlatformWindow*(viewport: ptr ImGuiViewportP): void {.cdecl, importc: "igDestroyPlatformWindow".}
 proc igSetWindowViewport*(window: ptr ImGuiWindow; viewport: ptr ImGuiViewportP): void {.cdecl, importc: "igSetWindowViewport".}
 proc igSetCurrentViewport*(window: ptr ImGuiWindow; viewport: ptr ImGuiViewportP): void {.cdecl, importc: "igSetCurrentViewport".}
 proc igGetViewportPlatformMonitor*(viewport: ptr ImGuiViewport): ptr ImGuiPlatformMonitor {.cdecl, importc: "igGetViewportPlatformMonitor".}
-proc igFindHoveredViewportFromPlatformWindowStack*(mouse_platform_pos: ImVec2): ptr ImGuiViewportP {.cdecl, importc: "igFindHoveredViewportFromPlatformWindowStack".}
+proc igFindHoveredViewportFromPlatformWindowStack*(mouse_platform_pos: ImVec2_c): ptr ImGuiViewportP {.cdecl, importc: "igFindHoveredViewportFromPlatformWindowStack".}
 proc igMarkIniSettingsDirty_Nil*(): void {.cdecl, importc: "igMarkIniSettingsDirty_Nil".}
 proc igMarkIniSettingsDirty_WindowPtr*(window: ptr ImGuiWindow): void {.cdecl, importc: "igMarkIniSettingsDirty_WindowPtr".}
 proc igClearIniSettings*(): void {.cdecl, importc: "igClearIniSettings".}
@@ -5827,11 +5910,10 @@ proc igSetScrollY_WindowPtr*(window: ptr ImGuiWindow; scroll_y: cfloat): void {.
 proc igSetScrollFromPosX_WindowPtr*(window: ptr ImGuiWindow; local_x: cfloat; center_x_ratio: cfloat): void {.cdecl, importc: "igSetScrollFromPosX_WindowPtr".}
 proc igSetScrollFromPosY_WindowPtr*(window: ptr ImGuiWindow; local_y: cfloat; center_y_ratio: cfloat): void {.cdecl, importc: "igSetScrollFromPosY_WindowPtr".}
 proc igScrollToItem*(flags: ImGuiScrollFlags): void {.cdecl, importc: "igScrollToItem".}
-proc igScrollToRect*(window: ptr ImGuiWindow; rect: ImRect; flags: ImGuiScrollFlags): void {.cdecl, importc: "igScrollToRect".}
-proc igScrollToRectEx*(pOut: ptr ImVec2; window: ptr ImGuiWindow; rect: ImRect; flags: ImGuiScrollFlags): void {.cdecl, importc: "igScrollToRectEx".}
-proc igScrollToBringRectIntoView*(window: ptr ImGuiWindow; rect: ImRect): void {.cdecl, importc: "igScrollToBringRectIntoView".}
+proc igScrollToRect*(window: ptr ImGuiWindow; rect: ImRect_c; flags: ImGuiScrollFlags): void {.cdecl, importc: "igScrollToRect".}
+proc igScrollToRectEx*(window: ptr ImGuiWindow; rect: ImRect_c; flags: ImGuiScrollFlags): ImVec2_c {.cdecl, importc: "igScrollToRectEx".}
+proc igScrollToBringRectIntoView*(window: ptr ImGuiWindow; rect: ImRect_c): void {.cdecl, importc: "igScrollToBringRectIntoView".}
 proc igGetItemStatusFlags*(): ImGuiItemStatusFlags {.cdecl, importc: "igGetItemStatusFlags".}
-proc igGetItemFlags*(): ImGuiItemFlags {.cdecl, importc: "igGetItemFlags".}
 proc igGetActiveID*(): ImGuiID {.cdecl, importc: "igGetActiveID".}
 proc igGetFocusID*(): ImGuiID {.cdecl, importc: "igGetFocusID".}
 proc igSetActiveID*(id: ImGuiID; window: ptr ImGuiWindow): void {.cdecl, importc: "igSetActiveID".}
@@ -5844,26 +5926,26 @@ proc igMarkItemEdited*(id: ImGuiID): void {.cdecl, importc: "igMarkItemEdited".}
 proc igPushOverrideID*(id: ImGuiID): void {.cdecl, importc: "igPushOverrideID".}
 proc igGetIDWithSeed_Str*(str_id_begin: cstring; str_id_end: cstring; seed: ImGuiID): ImGuiID {.cdecl, importc: "igGetIDWithSeed_Str".}
 proc igGetIDWithSeed_Int*(n: cint; seed: ImGuiID): ImGuiID {.cdecl, importc: "igGetIDWithSeed_Int".}
-proc igItemSize_Vec2*(size: ImVec2; text_baseline_y: cfloat): void {.cdecl, importc: "igItemSize_Vec2".}
-proc igItemSize_Rect*(bb: ImRect; text_baseline_y: cfloat): void {.cdecl, importc: "igItemSize_Rect".}
-proc igItemAdd*(bb: ImRect; id: ImGuiID; nav_bb: ptr ImRect; extra_flags: ImGuiItemFlags): bool {.cdecl, importc: "igItemAdd".}
-proc igItemHoverable*(bb: ImRect; id: ImGuiID; item_flags: ImGuiItemFlags): bool {.cdecl, importc: "igItemHoverable".}
+proc igItemSize_Vec2*(size: ImVec2_c; text_baseline_y: cfloat): void {.cdecl, importc: "igItemSize_Vec2".}
+proc igItemSize_Rect*(bb: ImRect_c; text_baseline_y: cfloat): void {.cdecl, importc: "igItemSize_Rect".}
+proc igItemAdd*(bb: ImRect_c; id: ImGuiID; nav_bb: ptr ImRect; extra_flags: ImGuiItemFlags): bool {.cdecl, importc: "igItemAdd".}
+proc igItemHoverable*(bb: ImRect_c; id: ImGuiID; item_flags: ImGuiItemFlags): bool {.cdecl, importc: "igItemHoverable".}
 proc igIsWindowContentHoverable*(window: ptr ImGuiWindow; flags: ImGuiHoveredFlags): bool {.cdecl, importc: "igIsWindowContentHoverable".}
-proc igIsClippedEx*(bb: ImRect; id: ImGuiID): bool {.cdecl, importc: "igIsClippedEx".}
-proc igSetLastItemData*(item_id: ImGuiID; item_flags: ImGuiItemFlags; status_flags: ImGuiItemStatusFlags; item_rect: ImRect): void {.cdecl, importc: "igSetLastItemData".}
-proc igCalcItemSize*(pOut: ptr ImVec2; size: ImVec2; default_w: cfloat; default_h: cfloat): void {.cdecl, importc: "igCalcItemSize".}
-proc igCalcWrapWidthForPos*(pos: ImVec2; wrap_pos_x: cfloat): cfloat {.cdecl, importc: "igCalcWrapWidthForPos".}
+proc igIsClippedEx*(bb: ImRect_c; id: ImGuiID): bool {.cdecl, importc: "igIsClippedEx".}
+proc igSetLastItemData*(item_id: ImGuiID; item_flags: ImGuiItemFlags; status_flags: ImGuiItemStatusFlags; item_rect: ImRect_c): void {.cdecl, importc: "igSetLastItemData".}
+proc igCalcItemSize*(size: ImVec2_c; default_w: cfloat; default_h: cfloat): ImVec2_c {.cdecl, importc: "igCalcItemSize".}
+proc igCalcWrapWidthForPos*(pos: ImVec2_c; wrap_pos_x: cfloat): cfloat {.cdecl, importc: "igCalcWrapWidthForPos".}
 proc igPushMultiItemsWidths*(components: cint; width_full: cfloat): void {.cdecl, importc: "igPushMultiItemsWidths".}
 proc igShrinkWidths*(items: ptr ImGuiShrinkWidthItem; count: cint; width_excess: cfloat; width_min: cfloat): void {.cdecl, importc: "igShrinkWidths".}
-proc igCalcClipRectVisibleItemsY*(clip_rect: ImRect; pos: ImVec2; items_height: cfloat; out_visible_start: ptr cint; out_visible_end: ptr cint): void {.cdecl, importc: "igCalcClipRectVisibleItemsY".}
+proc igCalcClipRectVisibleItemsY*(clip_rect: ImRect_c; pos: ImVec2_c; items_height: cfloat; out_visible_start: ptr cint; out_visible_end: ptr cint): void {.cdecl, importc: "igCalcClipRectVisibleItemsY".}
 proc igGetStyleVarInfo*(idx: ImGuiStyleVar): ptr ImGuiStyleVarInfo {.cdecl, importc: "igGetStyleVarInfo".}
 proc igBeginDisabledOverrideReenable*(): void {.cdecl, importc: "igBeginDisabledOverrideReenable".}
 proc igEndDisabledOverrideReenable*(): void {.cdecl, importc: "igEndDisabledOverrideReenable".}
 proc igLogBegin*(flags: ImGuiLogFlags; auto_open_depth: cint): void {.cdecl, importc: "igLogBegin".}
 proc igLogToBuffer*(auto_open_depth: cint): void {.cdecl, importc: "igLogToBuffer".}
-proc igLogRenderedText*(ref_pos: ptr ImVec2; text: cstring; text_end: cstring): void {.cdecl, importc: "igLogRenderedText".}
+proc igLogRenderedText*(ref_pos: ptr ImVec2_c; text: cstring; text_end: cstring): void {.cdecl, importc: "igLogRenderedText".}
 proc igLogSetNextTextDecoration*(prefix: cstring; suffix: cstring): void {.cdecl, importc: "igLogSetNextTextDecoration".}
-proc igBeginChildEx*(name: cstring; id: ImGuiID; size_arg: ImVec2; child_flags: ImGuiChildFlags; window_flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginChildEx".}
+proc igBeginChildEx*(name: cstring; id: ImGuiID; size_arg: ImVec2_c; child_flags: ImGuiChildFlags; window_flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginChildEx".}
 proc igBeginPopupEx*(id: ImGuiID; extra_window_flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginPopupEx".}
 proc igBeginPopupMenuEx*(id: ImGuiID; label: cstring; extra_window_flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginPopupMenuEx".}
 proc igOpenPopupEx*(id: ImGuiID; popup_flags: ImGuiPopupFlags): void {.cdecl, importc: "igOpenPopupEx".}
@@ -5871,18 +5953,19 @@ proc igClosePopupToLevel*(remaining: cint; restore_focus_to_window_under_popup: 
 proc igClosePopupsOverWindow*(ref_window: ptr ImGuiWindow; restore_focus_to_window_under_popup: bool): void {.cdecl, importc: "igClosePopupsOverWindow".}
 proc igClosePopupsExceptModals*(): void {.cdecl, importc: "igClosePopupsExceptModals".}
 proc igIsPopupOpen_ID*(id: ImGuiID; popup_flags: ImGuiPopupFlags): bool {.cdecl, importc: "igIsPopupOpen_ID".}
-proc igGetPopupAllowedExtentRect*(pOut: ptr ImRect; window: ptr ImGuiWindow): void {.cdecl, importc: "igGetPopupAllowedExtentRect".}
+proc igGetPopupAllowedExtentRect*(window: ptr ImGuiWindow): ImRect_c {.cdecl, importc: "igGetPopupAllowedExtentRect".}
 proc igGetTopMostPopupModal*(): ptr ImGuiWindow {.cdecl, importc: "igGetTopMostPopupModal".}
 proc igGetTopMostAndVisiblePopupModal*(): ptr ImGuiWindow {.cdecl, importc: "igGetTopMostAndVisiblePopupModal".}
 proc igFindBlockingModal*(window: ptr ImGuiWindow): ptr ImGuiWindow {.cdecl, importc: "igFindBlockingModal".}
-proc igFindBestWindowPosForPopup*(pOut: ptr ImVec2; window: ptr ImGuiWindow): void {.cdecl, importc: "igFindBestWindowPosForPopup".}
-proc igFindBestWindowPosForPopupEx*(pOut: ptr ImVec2; ref_pos: ImVec2; size: ImVec2; last_dir: ptr ImGuiDir; r_outer: ImRect; r_avoid: ImRect; policy: ImGuiPopupPositionPolicy): void {.cdecl, importc: "igFindBestWindowPosForPopupEx".}
+proc igFindBestWindowPosForPopup*(window: ptr ImGuiWindow): ImVec2_c {.cdecl, importc: "igFindBestWindowPosForPopup".}
+proc igFindBestWindowPosForPopupEx*(ref_pos: ImVec2_c; size: ImVec2_c; last_dir: ptr ImGuiDir; r_outer: ImRect_c; r_avoid: ImRect_c; policy: ImGuiPopupPositionPolicy): ImVec2_c {.cdecl, importc: "igFindBestWindowPosForPopupEx".}
+proc igGetMouseButtonFromPopupFlags*(flags: ImGuiPopupFlags): ImGuiMouseButton {.cdecl, importc: "igGetMouseButtonFromPopupFlags".}
 proc igBeginTooltipEx*(tooltip_flags: ImGuiTooltipFlags; extra_window_flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginTooltipEx".}
 proc igBeginTooltipHidden*(): bool {.cdecl, importc: "igBeginTooltipHidden".}
 proc igBeginViewportSideBar*(name: cstring; viewport: ptr ImGuiViewport; dir: ImGuiDir; size: cfloat; window_flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginViewportSideBar".}
 proc igBeginMenuEx*(label: cstring; icon: cstring; enabled: bool): bool {.cdecl, importc: "igBeginMenuEx".}
 proc igMenuItemEx*(label: cstring; icon: cstring; shortcut: cstring; selected: bool; enabled: bool): bool {.cdecl, importc: "igMenuItemEx".}
-proc igBeginComboPopup*(popup_id: ImGuiID; bb: ImRect; flags: ImGuiComboFlags): bool {.cdecl, importc: "igBeginComboPopup".}
+proc igBeginComboPopup*(popup_id: ImGuiID; bb: ImRect_c; flags: ImGuiComboFlags): bool {.cdecl, importc: "igBeginComboPopup".}
 proc igBeginComboPreview*(): bool {.cdecl, importc: "igBeginComboPreview".}
 proc igEndComboPreview*(): void {.cdecl, importc: "igEndComboPreview".}
 proc igNavInitWindow*(window: ptr ImGuiWindow; force_reinit: bool): void {.cdecl, importc: "igNavInitWindow".}
@@ -5900,7 +5983,7 @@ proc igNavClearPreferredPosForAxis*(axis: ImGuiAxis): void {.cdecl, importc: "ig
 proc igSetNavCursorVisibleAfterMove*(): void {.cdecl, importc: "igSetNavCursorVisibleAfterMove".}
 proc igNavUpdateCurrentWindowIsScrollPushableX*(): void {.cdecl, importc: "igNavUpdateCurrentWindowIsScrollPushableX".}
 proc igSetNavWindow*(window: ptr ImGuiWindow): void {.cdecl, importc: "igSetNavWindow".}
-proc igSetNavID*(id: ImGuiID; nav_layer: ImGuiNavLayer; focus_scope_id: ImGuiID; rect_rel: ImRect): void {.cdecl, importc: "igSetNavID".}
+proc igSetNavID*(id: ImGuiID; nav_layer: ImGuiNavLayer; focus_scope_id: ImGuiID; rect_rel: ImRect_c): void {.cdecl, importc: "igSetNavID".}
 proc igSetNavFocusScope*(focus_scope_id: ImGuiID): void {.cdecl, importc: "igSetNavFocusScope".}
 proc igFocusItem*(): void {.cdecl, importc: "igFocusItem".}
 proc igActivateItemByID*(id: ImGuiID): void {.cdecl, importc: "igActivateItemByID".}
@@ -5919,11 +6002,11 @@ proc igGetKeyData_Key*(key: ImGuiKey): ptr ImGuiKeyData {.cdecl, importc: "igGet
 proc igGetKeyChordName*(key_chord: ImGuiKeyChord): cstring {.cdecl, importc: "igGetKeyChordName".}
 proc igMouseButtonToKey*(button: ImGuiMouseButton): ImGuiKey {.cdecl, importc: "igMouseButtonToKey".}
 proc igIsMouseDragPastThreshold*(button: ImGuiMouseButton; lock_threshold: cfloat): bool {.cdecl, importc: "igIsMouseDragPastThreshold".}
-proc igGetKeyMagnitude2d*(pOut: ptr ImVec2; key_left: ImGuiKey; key_right: ImGuiKey; key_up: ImGuiKey; key_down: ImGuiKey): void {.cdecl, importc: "igGetKeyMagnitude2d".}
+proc igGetKeyMagnitude2d*(key_left: ImGuiKey; key_right: ImGuiKey; key_up: ImGuiKey; key_down: ImGuiKey): ImVec2_c {.cdecl, importc: "igGetKeyMagnitude2d".}
 proc igGetNavTweakPressedAmount*(axis: ImGuiAxis): cfloat {.cdecl, importc: "igGetNavTweakPressedAmount".}
 proc igCalcTypematicRepeatAmount*(t0: cfloat; t1: cfloat; repeat_delay: cfloat; repeat_rate: cfloat): cint {.cdecl, importc: "igCalcTypematicRepeatAmount".}
 proc igGetTypematicRepeatRate*(flags: ImGuiInputFlags; repeat_delay: ptr cfloat; repeat_rate: ptr cfloat): void {.cdecl, importc: "igGetTypematicRepeatRate".}
-proc igTeleportMousePos*(pos: ImVec2): void {.cdecl, importc: "igTeleportMousePos".}
+proc igTeleportMousePos*(pos: ImVec2_c): void {.cdecl, importc: "igTeleportMousePos".}
 proc igSetActiveIdUsingAllKeyboardKeys*(): void {.cdecl, importc: "igSetActiveIdUsingAllKeyboardKeys".}
 proc igIsActiveIdUsingNavDir*(dir: ImGuiDir): bool {.cdecl, importc: "igIsActiveIdUsingNavDir".}
 proc igGetKeyOwner*(key: ImGuiKey): ImGuiID {.cdecl, importc: "igGetKeyOwner".}
@@ -5957,7 +6040,7 @@ proc igDockContextQueueUndockWindow*(ctx: ptr ImGuiContext; window: ptr ImGuiWin
 proc igDockContextQueueUndockNode*(ctx: ptr ImGuiContext; node: ptr ImGuiDockNode): void {.cdecl, importc: "igDockContextQueueUndockNode".}
 proc igDockContextProcessUndockWindow*(ctx: ptr ImGuiContext; window: ptr ImGuiWindow; clear_persistent_docking_ref: bool): void {.cdecl, importc: "igDockContextProcessUndockWindow".}
 proc igDockContextProcessUndockNode*(ctx: ptr ImGuiContext; node: ptr ImGuiDockNode): void {.cdecl, importc: "igDockContextProcessUndockNode".}
-proc igDockContextCalcDropPosForDocking*(target: ptr ImGuiWindow; target_node: ptr ImGuiDockNode; payload_window: ptr ImGuiWindow; payload_node: ptr ImGuiDockNode; split_dir: ImGuiDir; split_outer: bool; out_pos: ptr ImVec2): bool {.cdecl, importc: "igDockContextCalcDropPosForDocking".}
+proc igDockContextCalcDropPosForDocking*(target: ptr ImGuiWindow; target_node: ptr ImGuiDockNode; payload_window: ptr ImGuiWindow; payload_node: ptr ImGuiDockNode; split_dir: ImGuiDir; split_outer: bool; out_pos: ptr ImVec2_c): bool {.cdecl, importc: "igDockContextCalcDropPosForDocking".}
 proc igDockContextFindNodeByID*(ctx: ptr ImGuiContext; id: ImGuiID): ptr ImGuiDockNode {.cdecl, importc: "igDockContextFindNodeByID".}
 proc igDockNodeWindowMenuHandler_Default*(ctx: ptr ImGuiContext; node: ptr ImGuiDockNode; tab_bar: ptr ImGuiTabBar): void {.cdecl, importc: "igDockNodeWindowMenuHandler_Default".}
 proc igDockNodeBeginAmendTabBar*(node: ptr ImGuiDockNode): bool {.cdecl, importc: "igDockNodeBeginAmendTabBar".}
@@ -5979,8 +6062,8 @@ proc igDockBuilderAddNode*(node_id: ImGuiID; flags: ImGuiDockNodeFlags): ImGuiID
 proc igDockBuilderRemoveNode*(node_id: ImGuiID): void {.cdecl, importc: "igDockBuilderRemoveNode".}
 proc igDockBuilderRemoveNodeDockedWindows*(node_id: ImGuiID; clear_settings_refs: bool): void {.cdecl, importc: "igDockBuilderRemoveNodeDockedWindows".}
 proc igDockBuilderRemoveNodeChildNodes*(node_id: ImGuiID): void {.cdecl, importc: "igDockBuilderRemoveNodeChildNodes".}
-proc igDockBuilderSetNodePos*(node_id: ImGuiID; pos: ImVec2): void {.cdecl, importc: "igDockBuilderSetNodePos".}
-proc igDockBuilderSetNodeSize*(node_id: ImGuiID; size: ImVec2): void {.cdecl, importc: "igDockBuilderSetNodeSize".}
+proc igDockBuilderSetNodePos*(node_id: ImGuiID; pos: ImVec2_c): void {.cdecl, importc: "igDockBuilderSetNodePos".}
+proc igDockBuilderSetNodeSize*(node_id: ImGuiID; size: ImVec2_c): void {.cdecl, importc: "igDockBuilderSetNodeSize".}
 proc igDockBuilderSplitNode*(node_id: ImGuiID; split_dir: ImGuiDir; size_ratio_for_node_at_dir: cfloat; out_id_at_dir: ptr ImGuiID; out_id_at_opposite_dir: ptr ImGuiID): ImGuiID {.cdecl, importc: "igDockBuilderSplitNode".}
 proc igDockBuilderCopyDockSpace*(src_dockspace_id: ImGuiID; dst_dockspace_id: ImGuiID; in_window_remap_pairs: ptr ImVector_const_charPtr): void {.cdecl, importc: "igDockBuilderCopyDockSpace".}
 proc igDockBuilderCopyNode*(src_node_id: ImGuiID; dst_node_id: ImGuiID; out_node_remap_pairs: ptr ImVector_ImGuiID): void {.cdecl, importc: "igDockBuilderCopyNode".}
@@ -5990,25 +6073,25 @@ proc igPushFocusScope*(id: ImGuiID): void {.cdecl, importc: "igPushFocusScope".}
 proc igPopFocusScope*(): void {.cdecl, importc: "igPopFocusScope".}
 proc igGetCurrentFocusScope*(): ImGuiID {.cdecl, importc: "igGetCurrentFocusScope".}
 proc igIsDragDropActive*(): bool {.cdecl, importc: "igIsDragDropActive".}
-proc igBeginDragDropTargetCustom*(bb: ImRect; id: ImGuiID): bool {.cdecl, importc: "igBeginDragDropTargetCustom".}
+proc igBeginDragDropTargetCustom*(bb: ImRect_c; id: ImGuiID): bool {.cdecl, importc: "igBeginDragDropTargetCustom".}
 proc igBeginDragDropTargetViewport*(viewport: ptr ImGuiViewport; p_bb: ptr ImRect): bool {.cdecl, importc: "igBeginDragDropTargetViewport".}
 proc igClearDragDrop*(): void {.cdecl, importc: "igClearDragDrop".}
 proc igIsDragDropPayloadBeingAccepted*(): bool {.cdecl, importc: "igIsDragDropPayloadBeingAccepted".}
-proc igRenderDragDropTargetRectForItem*(bb: ImRect): void {.cdecl, importc: "igRenderDragDropTargetRectForItem".}
-proc igRenderDragDropTargetRectEx*(draw_list: ptr ImDrawList; bb: ImRect): void {.cdecl, importc: "igRenderDragDropTargetRectEx".}
+proc igRenderDragDropTargetRectForItem*(bb: ImRect_c): void {.cdecl, importc: "igRenderDragDropTargetRectForItem".}
+proc igRenderDragDropTargetRectEx*(draw_list: ptr ImDrawList; bb: ImRect_c): void {.cdecl, importc: "igRenderDragDropTargetRectEx".}
 proc igGetTypingSelectRequest*(flags: ImGuiTypingSelectFlags): ptr ImGuiTypingSelectRequest {.cdecl, importc: "igGetTypingSelectRequest".}
 proc igTypingSelectFindMatch*(req: ptr ImGuiTypingSelectRequest; items_count: cint; get_item_name_func: proc (a0: pointer; a1: cint): cstring {.cdecl.}; user_data: pointer; nav_item_idx: cint): cint {.cdecl, importc: "igTypingSelectFindMatch".}
 proc igTypingSelectFindNextSingleCharMatch*(req: ptr ImGuiTypingSelectRequest; items_count: cint; get_item_name_func: proc (a0: pointer; a1: cint): cstring {.cdecl.}; user_data: pointer; nav_item_idx: cint): cint {.cdecl, importc: "igTypingSelectFindNextSingleCharMatch".}
 proc igTypingSelectFindBestLeadingMatch*(req: ptr ImGuiTypingSelectRequest; items_count: cint; get_item_name_func: proc (a0: pointer; a1: cint): cstring {.cdecl.}; user_data: pointer): cint {.cdecl, importc: "igTypingSelectFindBestLeadingMatch".}
-proc igBeginBoxSelect*(scope_rect: ImRect; window: ptr ImGuiWindow; box_select_id: ImGuiID; ms_flags: ImGuiMultiSelectFlags): bool {.cdecl, importc: "igBeginBoxSelect".}
-proc igEndBoxSelect*(scope_rect: ImRect; ms_flags: ImGuiMultiSelectFlags): void {.cdecl, importc: "igEndBoxSelect".}
+proc igBeginBoxSelect*(scope_rect: ImRect_c; window: ptr ImGuiWindow; box_select_id: ImGuiID; ms_flags: ImGuiMultiSelectFlags): bool {.cdecl, importc: "igBeginBoxSelect".}
+proc igEndBoxSelect*(scope_rect: ImRect_c; ms_flags: ImGuiMultiSelectFlags): void {.cdecl, importc: "igEndBoxSelect".}
 proc igMultiSelectItemHeader*(id: ImGuiID; p_selected: ptr bool; p_button_flags: ptr ImGuiButtonFlags): void {.cdecl, importc: "igMultiSelectItemHeader".}
 proc igMultiSelectItemFooter*(id: ImGuiID; p_selected: ptr bool; p_pressed: ptr bool): void {.cdecl, importc: "igMultiSelectItemFooter".}
 proc igMultiSelectAddSetAll*(ms: ptr ImGuiMultiSelectTempData; selected: bool): void {.cdecl, importc: "igMultiSelectAddSetAll".}
 proc igMultiSelectAddSetRange*(ms: ptr ImGuiMultiSelectTempData; selected: bool; range_dir: cint; first_item: ImGuiSelectionUserData; last_item: ImGuiSelectionUserData): void {.cdecl, importc: "igMultiSelectAddSetRange".}
 proc igGetBoxSelectState*(id: ImGuiID): ptr ImGuiBoxSelectState {.cdecl, importc: "igGetBoxSelectState".}
 proc igGetMultiSelectState*(id: ImGuiID): ptr ImGuiMultiSelectState {.cdecl, importc: "igGetMultiSelectState".}
-proc igSetWindowClipRectBeforeSetChannel*(window: ptr ImGuiWindow; clip_rect: ImRect): void {.cdecl, importc: "igSetWindowClipRectBeforeSetChannel".}
+proc igSetWindowClipRectBeforeSetChannel*(window: ptr ImGuiWindow; clip_rect: ImRect_c): void {.cdecl, importc: "igSetWindowClipRectBeforeSetChannel".}
 proc igBeginColumns*(str_id: cstring; count: cint; flags: ImGuiOldColumnFlags): void {.cdecl, importc: "igBeginColumns".}
 proc igEndColumns*(): void {.cdecl, importc: "igEndColumns".}
 proc igPushColumnClipRect*(column_index: cint): void {.cdecl, importc: "igPushColumnClipRect".}
@@ -6031,7 +6114,7 @@ proc igTablePopColumnChannel*(): void {.cdecl, importc: "igTablePopColumnChannel
 proc igTableAngledHeadersRowEx*(row_id: ImGuiID; angle: cfloat; max_label_width: cfloat; data: ptr ImGuiTableHeaderData; data_count: cint): void {.cdecl, importc: "igTableAngledHeadersRowEx".}
 proc igGetCurrentTable*(): ptr ImGuiTable {.cdecl, importc: "igGetCurrentTable".}
 proc igTableFindByID*(id: ImGuiID): ptr ImGuiTable {.cdecl, importc: "igTableFindByID".}
-proc igBeginTableEx*(name: cstring; id: ImGuiID; columns_count: cint; flags: ImGuiTableFlags; outer_size: ImVec2; inner_width: cfloat): bool {.cdecl, importc: "igBeginTableEx".}
+proc igBeginTableEx*(name: cstring; id: ImGuiID; columns_count: cint; flags: ImGuiTableFlags; outer_size: ImVec2_c; inner_width: cfloat): bool {.cdecl, importc: "igBeginTableEx".}
 proc igTableBeginInitMemory*(table: ptr ImGuiTable; columns_count: cint): void {.cdecl, importc: "igTableBeginInitMemory".}
 proc igTableBeginApplyRequests*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableBeginApplyRequests".}
 proc igTableSetupDrawChannels*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSetupDrawChannels".}
@@ -6044,6 +6127,7 @@ proc igTableBeginContextMenuPopup*(table: ptr ImGuiTable): bool {.cdecl, importc
 proc igTableMergeDrawChannels*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableMergeDrawChannels".}
 proc igTableGetInstanceData*(table: ptr ImGuiTable; instance_no: cint): ptr ImGuiTableInstanceData {.cdecl, importc: "igTableGetInstanceData".}
 proc igTableGetInstanceID*(table: ptr ImGuiTable; instance_no: cint): ImGuiID {.cdecl, importc: "igTableGetInstanceID".}
+proc igTableFixDisplayOrder*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableFixDisplayOrder".}
 proc igTableSortSpecsSanitize*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSortSpecsSanitize".}
 proc igTableSortSpecsBuild*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSortSpecsBuild".}
 proc igTableGetColumnNextSortDirection*(column: ptr ImGuiTableColumn): ImGuiSortDirection {.cdecl, importc: "igTableGetColumnNextSortDirection".}
@@ -6053,12 +6137,13 @@ proc igTableBeginRow*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableBeg
 proc igTableEndRow*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableEndRow".}
 proc igTableBeginCell*(table: ptr ImGuiTable; column_n: cint): void {.cdecl, importc: "igTableBeginCell".}
 proc igTableEndCell*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableEndCell".}
-proc igTableGetCellBgRect*(pOut: ptr ImRect; table: ptr ImGuiTable; column_n: cint): void {.cdecl, importc: "igTableGetCellBgRect".}
+proc igTableGetCellBgRect*(table: ptr ImGuiTable; column_n: cint): ImRect_c {.cdecl, importc: "igTableGetCellBgRect".}
 proc igTableGetColumnName_TablePtr*(table: ptr ImGuiTable; column_n: cint): cstring {.cdecl, importc: "igTableGetColumnName_TablePtr".}
 proc igTableGetColumnResizeID*(table: ptr ImGuiTable; column_n: cint; instance_no: cint): ImGuiID {.cdecl, importc: "igTableGetColumnResizeID".}
 proc igTableCalcMaxColumnWidth*(table: ptr ImGuiTable; column_n: cint): cfloat {.cdecl, importc: "igTableCalcMaxColumnWidth".}
 proc igTableSetColumnWidthAutoSingle*(table: ptr ImGuiTable; column_n: cint): void {.cdecl, importc: "igTableSetColumnWidthAutoSingle".}
 proc igTableSetColumnWidthAutoAll*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSetColumnWidthAutoAll".}
+proc igTableSetColumnDisplayOrder*(table: ptr ImGuiTable; column_n: cint; dst_order: cint): void {.cdecl, importc: "igTableSetColumnDisplayOrder".}
 proc igTableRemove*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableRemove".}
 proc igTableGcCompactTransientBuffers_TablePtr*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableGcCompactTransientBuffers_TablePtr".}
 proc igTableGcCompactTransientBuffers_TableTempDataPtr*(table: ptr ImGuiTableTempData): void {.cdecl, importc: "igTableGcCompactTransientBuffers_TableTempDataPtr".}
@@ -6073,7 +6158,7 @@ proc igTableSettingsFindByID*(id: ImGuiID): ptr ImGuiTableSettings {.cdecl, impo
 proc igGetCurrentTabBar*(): ptr ImGuiTabBar {.cdecl, importc: "igGetCurrentTabBar".}
 proc igTabBarFindByID*(id: ImGuiID): ptr ImGuiTabBar {.cdecl, importc: "igTabBarFindByID".}
 proc igTabBarRemove*(tab_bar: ptr ImGuiTabBar): void {.cdecl, importc: "igTabBarRemove".}
-proc igBeginTabBarEx*(tab_bar: ptr ImGuiTabBar; bb: ImRect; flags: ImGuiTabBarFlags): bool {.cdecl, importc: "igBeginTabBarEx".}
+proc igBeginTabBarEx*(tab_bar: ptr ImGuiTabBar; bb: ImRect_c; flags: ImGuiTabBarFlags): bool {.cdecl, importc: "igBeginTabBarEx".}
 proc igTabBarFindTabByID*(tab_bar: ptr ImGuiTabBar; tab_id: ImGuiID): ptr ImGuiTabItem {.cdecl, importc: "igTabBarFindTabByID".}
 proc igTabBarFindTabByOrder*(tab_bar: ptr ImGuiTabBar; order: cint): ptr ImGuiTabItem {.cdecl, importc: "igTabBarFindTabByOrder".}
 proc igTabBarFindMostRecentlySelectedTabForActiveWindow*(tab_bar: ptr ImGuiTabBar): ptr ImGuiTabItem {.cdecl, importc: "igTabBarFindMostRecentlySelectedTabForActiveWindow".}
@@ -6086,57 +6171,58 @@ proc igTabBarCloseTab*(tab_bar: ptr ImGuiTabBar; tab: ptr ImGuiTabItem): void {.
 proc igTabBarQueueFocus_TabItemPtr*(tab_bar: ptr ImGuiTabBar; tab: ptr ImGuiTabItem): void {.cdecl, importc: "igTabBarQueueFocus_TabItemPtr".}
 proc igTabBarQueueFocus_Str*(tab_bar: ptr ImGuiTabBar; tab_name: cstring): void {.cdecl, importc: "igTabBarQueueFocus_Str".}
 proc igTabBarQueueReorder*(tab_bar: ptr ImGuiTabBar; tab: ptr ImGuiTabItem; offset: cint): void {.cdecl, importc: "igTabBarQueueReorder".}
-proc igTabBarQueueReorderFromMousePos*(tab_bar: ptr ImGuiTabBar; tab: ptr ImGuiTabItem; mouse_pos: ImVec2): void {.cdecl, importc: "igTabBarQueueReorderFromMousePos".}
+proc igTabBarQueueReorderFromMousePos*(tab_bar: ptr ImGuiTabBar; tab: ptr ImGuiTabItem; mouse_pos: ImVec2_c): void {.cdecl, importc: "igTabBarQueueReorderFromMousePos".}
 proc igTabBarProcessReorder*(tab_bar: ptr ImGuiTabBar): bool {.cdecl, importc: "igTabBarProcessReorder".}
 proc igTabItemEx*(tab_bar: ptr ImGuiTabBar; label: cstring; p_open: ptr bool; flags: ImGuiTabItemFlags; docked_window: ptr ImGuiWindow): bool {.cdecl, importc: "igTabItemEx".}
 proc igTabItemSpacing*(str_id: cstring; flags: ImGuiTabItemFlags; width: cfloat): void {.cdecl, importc: "igTabItemSpacing".}
-proc igTabItemCalcSize_Str*(pOut: ptr ImVec2; label: cstring; has_close_button_or_unsaved_marker: bool): void {.cdecl, importc: "igTabItemCalcSize_Str".}
-proc igTabItemCalcSize_WindowPtr*(pOut: ptr ImVec2; window: ptr ImGuiWindow): void {.cdecl, importc: "igTabItemCalcSize_WindowPtr".}
-proc igTabItemBackground*(draw_list: ptr ImDrawList; bb: ImRect; flags: ImGuiTabItemFlags; col: ImU32): void {.cdecl, importc: "igTabItemBackground".}
-proc igTabItemLabelAndCloseButton*(draw_list: ptr ImDrawList; bb: ImRect; flags: ImGuiTabItemFlags; frame_padding: ImVec2; label: cstring; tab_id: ImGuiID; close_button_id: ImGuiID; is_contents_visible: bool; out_just_closed: ptr bool; out_text_clipped: ptr bool): void {.cdecl, importc: "igTabItemLabelAndCloseButton".}
-proc igRenderText*(pos: ImVec2; text: cstring; text_end: cstring; hide_text_after_hash: bool): void {.cdecl, importc: "igRenderText".}
-proc igRenderTextWrapped*(pos: ImVec2; text: cstring; text_end: cstring; wrap_width: cfloat): void {.cdecl, importc: "igRenderTextWrapped".}
-proc igRenderTextClipped*(pos_min: ImVec2; pos_max: ImVec2; text: cstring; text_end: cstring; text_size_if_known: ptr ImVec2; align: ImVec2; clip_rect: ptr ImRect): void {.cdecl, importc: "igRenderTextClipped".}
-proc igRenderTextClippedEx*(draw_list: ptr ImDrawList; pos_min: ImVec2; pos_max: ImVec2; text: cstring; text_end: cstring; text_size_if_known: ptr ImVec2; align: ImVec2; clip_rect: ptr ImRect): void {.cdecl, importc: "igRenderTextClippedEx".}
-proc igRenderTextEllipsis*(draw_list: ptr ImDrawList; pos_min: ImVec2; pos_max: ImVec2; ellipsis_max_x: cfloat; text: cstring; text_end: cstring; text_size_if_known: ptr ImVec2): void {.cdecl, importc: "igRenderTextEllipsis".}
-proc igRenderFrame*(p_min: ImVec2; p_max: ImVec2; fill_col: ImU32; borders: bool; rounding: cfloat): void {.cdecl, importc: "igRenderFrame".}
-proc igRenderFrameBorder*(p_min: ImVec2; p_max: ImVec2; rounding: cfloat): void {.cdecl, importc: "igRenderFrameBorder".}
-proc igRenderColorRectWithAlphaCheckerboard*(draw_list: ptr ImDrawList; p_min: ImVec2; p_max: ImVec2; fill_col: ImU32; grid_step: cfloat; grid_off: ImVec2; rounding: cfloat; flags: ImDrawFlags): void {.cdecl, importc: "igRenderColorRectWithAlphaCheckerboard".}
-proc igRenderNavCursor*(bb: ImRect; id: ImGuiID; flags: ImGuiNavRenderCursorFlags): void {.cdecl, importc: "igRenderNavCursor".}
+proc igTabItemCalcSize_Str*(label: cstring; has_close_button_or_unsaved_marker: bool): ImVec2_c {.cdecl, importc: "igTabItemCalcSize_Str".}
+proc igTabItemCalcSize_WindowPtr*(window: ptr ImGuiWindow): ImVec2_c {.cdecl, importc: "igTabItemCalcSize_WindowPtr".}
+proc igTabItemBackground*(draw_list: ptr ImDrawList; bb: ImRect_c; flags: ImGuiTabItemFlags; col: ImU32): void {.cdecl, importc: "igTabItemBackground".}
+proc igTabItemLabelAndCloseButton*(draw_list: ptr ImDrawList; bb: ImRect_c; flags: ImGuiTabItemFlags; frame_padding: ImVec2_c; label: cstring; tab_id: ImGuiID; close_button_id: ImGuiID; is_contents_visible: bool; out_just_closed: ptr bool; out_text_clipped: ptr bool): void {.cdecl, importc: "igTabItemLabelAndCloseButton".}
+proc igRenderText*(pos: ImVec2_c; text: cstring; text_end: cstring; hide_text_after_hash: bool): void {.cdecl, importc: "igRenderText".}
+proc igRenderTextWrapped*(pos: ImVec2_c; text: cstring; text_end: cstring; wrap_width: cfloat): void {.cdecl, importc: "igRenderTextWrapped".}
+proc igRenderTextClipped*(pos_min: ImVec2_c; pos_max: ImVec2_c; text: cstring; text_end: cstring; text_size_if_known: ptr ImVec2_c; align: ImVec2_c; clip_rect: ptr ImRect): void {.cdecl, importc: "igRenderTextClipped".}
+proc igRenderTextClippedEx*(draw_list: ptr ImDrawList; pos_min: ImVec2_c; pos_max: ImVec2_c; text: cstring; text_end: cstring; text_size_if_known: ptr ImVec2_c; align: ImVec2_c; clip_rect: ptr ImRect): void {.cdecl, importc: "igRenderTextClippedEx".}
+proc igRenderTextEllipsis*(draw_list: ptr ImDrawList; pos_min: ImVec2_c; pos_max: ImVec2_c; ellipsis_max_x: cfloat; text: cstring; text_end: cstring; text_size_if_known: ptr ImVec2_c): void {.cdecl, importc: "igRenderTextEllipsis".}
+proc igRenderFrame*(p_min: ImVec2_c; p_max: ImVec2_c; fill_col: ImU32; borders: bool; rounding: cfloat): void {.cdecl, importc: "igRenderFrame".}
+proc igRenderFrameBorder*(p_min: ImVec2_c; p_max: ImVec2_c; rounding: cfloat): void {.cdecl, importc: "igRenderFrameBorder".}
+proc igRenderColorComponentMarker*(bb: ImRect_c; col: ImU32; rounding: cfloat): void {.cdecl, importc: "igRenderColorComponentMarker".}
+proc igRenderColorRectWithAlphaCheckerboard*(draw_list: ptr ImDrawList; p_min: ImVec2_c; p_max: ImVec2_c; fill_col: ImU32; grid_step: cfloat; grid_off: ImVec2_c; rounding: cfloat; flags: ImDrawFlags): void {.cdecl, importc: "igRenderColorRectWithAlphaCheckerboard".}
+proc igRenderNavCursor*(bb: ImRect_c; id: ImGuiID; flags: ImGuiNavRenderCursorFlags): void {.cdecl, importc: "igRenderNavCursor".}
 proc igFindRenderedTextEnd*(text: cstring; text_end: cstring): cstring {.cdecl, importc: "igFindRenderedTextEnd".}
-proc igRenderMouseCursor*(pos: ImVec2; scale: cfloat; mouse_cursor: ImGuiMouseCursor; col_fill: ImU32; col_border: ImU32; col_shadow: ImU32): void {.cdecl, importc: "igRenderMouseCursor".}
-proc igRenderArrow*(draw_list: ptr ImDrawList; pos: ImVec2; col: ImU32; dir: ImGuiDir; scale: cfloat): void {.cdecl, importc: "igRenderArrow".}
-proc igRenderBullet*(draw_list: ptr ImDrawList; pos: ImVec2; col: ImU32): void {.cdecl, importc: "igRenderBullet".}
-proc igRenderCheckMark*(draw_list: ptr ImDrawList; pos: ImVec2; col: ImU32; sz: cfloat): void {.cdecl, importc: "igRenderCheckMark".}
-proc igRenderArrowPointingAt*(draw_list: ptr ImDrawList; pos: ImVec2; half_sz: ImVec2; direction: ImGuiDir; col: ImU32): void {.cdecl, importc: "igRenderArrowPointingAt".}
-proc igRenderArrowDockMenu*(draw_list: ptr ImDrawList; p_min: ImVec2; sz: cfloat; col: ImU32): void {.cdecl, importc: "igRenderArrowDockMenu".}
-proc igRenderRectFilledRangeH*(draw_list: ptr ImDrawList; rect: ImRect; col: ImU32; x_start_norm: cfloat; x_end_norm: cfloat; rounding: cfloat): void {.cdecl, importc: "igRenderRectFilledRangeH".}
-proc igRenderRectFilledWithHole*(draw_list: ptr ImDrawList; outer: ImRect; inner: ImRect; col: ImU32; rounding: cfloat): void {.cdecl, importc: "igRenderRectFilledWithHole".}
-proc igCalcRoundingFlagsForRectInRect*(r_in: ImRect; r_outer: ImRect; threshold: cfloat): ImDrawFlags {.cdecl, importc: "igCalcRoundingFlagsForRectInRect".}
+proc igRenderMouseCursor*(pos: ImVec2_c; scale: cfloat; mouse_cursor: ImGuiMouseCursor; col_fill: ImU32; col_border: ImU32; col_shadow: ImU32): void {.cdecl, importc: "igRenderMouseCursor".}
+proc igRenderArrow*(draw_list: ptr ImDrawList; pos: ImVec2_c; col: ImU32; dir: ImGuiDir; scale: cfloat): void {.cdecl, importc: "igRenderArrow".}
+proc igRenderBullet*(draw_list: ptr ImDrawList; pos: ImVec2_c; col: ImU32): void {.cdecl, importc: "igRenderBullet".}
+proc igRenderCheckMark*(draw_list: ptr ImDrawList; pos: ImVec2_c; col: ImU32; sz: cfloat): void {.cdecl, importc: "igRenderCheckMark".}
+proc igRenderArrowPointingAt*(draw_list: ptr ImDrawList; pos: ImVec2_c; half_sz: ImVec2_c; direction: ImGuiDir; col: ImU32): void {.cdecl, importc: "igRenderArrowPointingAt".}
+proc igRenderArrowDockMenu*(draw_list: ptr ImDrawList; p_min: ImVec2_c; sz: cfloat; col: ImU32): void {.cdecl, importc: "igRenderArrowDockMenu".}
+proc igRenderRectFilledInRangeH*(draw_list: ptr ImDrawList; rect: ImRect_c; col: ImU32; fill_x0: cfloat; fill_x1: cfloat; rounding: cfloat): void {.cdecl, importc: "igRenderRectFilledInRangeH".}
+proc igRenderRectFilledWithHole*(draw_list: ptr ImDrawList; outer: ImRect_c; inner: ImRect_c; col: ImU32; rounding: cfloat): void {.cdecl, importc: "igRenderRectFilledWithHole".}
+proc igCalcRoundingFlagsForRectInRect*(r_in: ImRect_c; r_outer: ImRect_c; threshold: cfloat): ImDrawFlags {.cdecl, importc: "igCalcRoundingFlagsForRectInRect".}
 proc igTextEx*(text: cstring; text_end: cstring; flags: ImGuiTextFlags): void {.cdecl, importc: "igTextEx".}
 proc igTextAligned*(align_x: cfloat; size_x: cfloat; fmt: cstring): void {.cdecl, varargs, importc: "igTextAligned".}
 proc igTextAlignedV*(align_x: cfloat; size_x: cfloat; fmt: cstring): void {.cdecl, varargs, importc: "igTextAlignedV".}
-proc igButtonEx*(label: cstring; size_arg: ImVec2; flags: ImGuiButtonFlags): bool {.cdecl, importc: "igButtonEx".}
-proc igArrowButtonEx*(str_id: cstring; dir: ImGuiDir; size_arg: ImVec2; flags: ImGuiButtonFlags): bool {.cdecl, importc: "igArrowButtonEx".}
-proc igImageButtonEx*(id: ImGuiID; tex_ref: ImTextureRef; image_size: ImVec2; uv0: ImVec2; uv1: ImVec2; bg_col: ImVec4; tint_col: ImVec4; flags: ImGuiButtonFlags): bool {.cdecl, importc: "igImageButtonEx".}
+proc igButtonEx*(label: cstring; size_arg: ImVec2_c; flags: ImGuiButtonFlags): bool {.cdecl, importc: "igButtonEx".}
+proc igArrowButtonEx*(str_id: cstring; dir: ImGuiDir; size_arg: ImVec2_c; flags: ImGuiButtonFlags): bool {.cdecl, importc: "igArrowButtonEx".}
+proc igImageButtonEx*(id: ImGuiID; tex_ref: ImTextureRef_c; image_size: ImVec2_c; uv0: ImVec2_c; uv1: ImVec2_c; bg_col: ImVec4_c; tint_col: ImVec4_c; flags: ImGuiButtonFlags): bool {.cdecl, importc: "igImageButtonEx".}
 proc igSeparatorEx*(flags: ImGuiSeparatorFlags; thickness: cfloat): void {.cdecl, importc: "igSeparatorEx".}
 proc igSeparatorTextEx*(id: ImGuiID; label: cstring; label_end: cstring; extra_width: cfloat): void {.cdecl, importc: "igSeparatorTextEx".}
 proc igCheckboxFlags_S64Ptr*(label: cstring; flags: ptr ImS64; flags_value: ImS64): bool {.cdecl, importc: "igCheckboxFlags_S64Ptr".}
 proc igCheckboxFlags_U64Ptr*(label: cstring; flags: ptr ImU64; flags_value: ImU64): bool {.cdecl, importc: "igCheckboxFlags_U64Ptr".}
-proc igCloseButton*(id: ImGuiID; pos: ImVec2): bool {.cdecl, importc: "igCloseButton".}
-proc igCollapseButton*(id: ImGuiID; pos: ImVec2; dock_node: ptr ImGuiDockNode): bool {.cdecl, importc: "igCollapseButton".}
+proc igCloseButton*(id: ImGuiID; pos: ImVec2_c): bool {.cdecl, importc: "igCloseButton".}
+proc igCollapseButton*(id: ImGuiID; pos: ImVec2_c; dock_node: ptr ImGuiDockNode): bool {.cdecl, importc: "igCollapseButton".}
 proc igScrollbar*(axis: ImGuiAxis): void {.cdecl, importc: "igScrollbar".}
-proc igScrollbarEx*(bb: ImRect; id: ImGuiID; axis: ImGuiAxis; p_scroll_v: ptr ImS64; avail_v: ImS64; contents_v: ImS64; draw_rounding_flags: ImDrawFlags): bool {.cdecl, importc: "igScrollbarEx".}
-proc igGetWindowScrollbarRect*(pOut: ptr ImRect; window: ptr ImGuiWindow; axis: ImGuiAxis): void {.cdecl, importc: "igGetWindowScrollbarRect".}
+proc igScrollbarEx*(bb: ImRect_c; id: ImGuiID; axis: ImGuiAxis; p_scroll_v: ptr ImS64; avail_v: ImS64; contents_v: ImS64; draw_rounding_flags: ImDrawFlags): bool {.cdecl, importc: "igScrollbarEx".}
+proc igGetWindowScrollbarRect*(window: ptr ImGuiWindow; axis: ImGuiAxis): ImRect_c {.cdecl, importc: "igGetWindowScrollbarRect".}
 proc igGetWindowScrollbarID*(window: ptr ImGuiWindow; axis: ImGuiAxis): ImGuiID {.cdecl, importc: "igGetWindowScrollbarID".}
 proc igGetWindowResizeCornerID*(window: ptr ImGuiWindow; n: cint): ImGuiID {.cdecl, importc: "igGetWindowResizeCornerID".}
 proc igGetWindowResizeBorderID*(window: ptr ImGuiWindow; dir: ImGuiDir): ImGuiID {.cdecl, importc: "igGetWindowResizeBorderID".}
-proc igButtonBehavior*(bb: ImRect; id: ImGuiID; out_hovered: ptr bool; out_held: ptr bool; flags: ImGuiButtonFlags): bool {.cdecl, importc: "igButtonBehavior".}
+proc igButtonBehavior*(bb: ImRect_c; id: ImGuiID; out_hovered: ptr bool; out_held: ptr bool; flags: ImGuiButtonFlags): bool {.cdecl, importc: "igButtonBehavior".}
 proc igDragBehavior*(id: ImGuiID; data_type: ImGuiDataType; p_v: pointer; v_speed: cfloat; p_min: pointer; p_max: pointer; format: cstring; flags: ImGuiSliderFlags): bool {.cdecl, importc: "igDragBehavior".}
-proc igSliderBehavior*(bb: ImRect; id: ImGuiID; data_type: ImGuiDataType; p_v: pointer; p_min: pointer; p_max: pointer; format: cstring; flags: ImGuiSliderFlags; out_grab_bb: ptr ImRect): bool {.cdecl, importc: "igSliderBehavior".}
-proc igSplitterBehavior*(bb: ImRect; id: ImGuiID; axis: ImGuiAxis; size1: ptr cfloat; size2: ptr cfloat; min_size1: cfloat; min_size2: cfloat; hover_extend: cfloat; hover_visibility_delay: cfloat; bg_col: ImU32): bool {.cdecl, importc: "igSplitterBehavior".}
+proc igSliderBehavior*(bb: ImRect_c; id: ImGuiID; data_type: ImGuiDataType; p_v: pointer; p_min: pointer; p_max: pointer; format: cstring; flags: ImGuiSliderFlags; out_grab_bb: ptr ImRect): bool {.cdecl, importc: "igSliderBehavior".}
+proc igSplitterBehavior*(bb: ImRect_c; id: ImGuiID; axis: ImGuiAxis; size1: ptr cfloat; size2: ptr cfloat; min_size1: cfloat; min_size2: cfloat; hover_extend: cfloat; hover_visibility_delay: cfloat; bg_col: ImU32): bool {.cdecl, importc: "igSplitterBehavior".}
 proc igTreeNodeBehavior*(id: ImGuiID; flags: ImGuiTreeNodeFlags; label: cstring; label_end: cstring): bool {.cdecl, importc: "igTreeNodeBehavior".}
-proc igTreeNodeDrawLineToChildNode*(target_pos: ImVec2): void {.cdecl, importc: "igTreeNodeDrawLineToChildNode".}
+proc igTreeNodeDrawLineToChildNode*(target_pos: ImVec2_c): void {.cdecl, importc: "igTreeNodeDrawLineToChildNode".}
 proc igTreeNodeDrawLineToTreePop*(data: ptr ImGuiTreeNodeStackData): void {.cdecl, importc: "igTreeNodeDrawLineToTreePop".}
 proc igTreePushOverrideID*(id: ImGuiID): void {.cdecl, importc: "igTreePushOverrideID".}
 proc igTreeNodeGetOpen*(storage_id: ImGuiID): bool {.cdecl, importc: "igTreeNodeGetOpen".}
@@ -6149,10 +6235,10 @@ proc igDataTypeApplyFromText*(buf: cstring; data_type: ImGuiDataType; p_data: po
 proc igDataTypeCompare*(data_type: ImGuiDataType; arg_1: pointer; arg_2: pointer): cint {.cdecl, importc: "igDataTypeCompare".}
 proc igDataTypeClamp*(data_type: ImGuiDataType; p_data: pointer; p_min: pointer; p_max: pointer): bool {.cdecl, importc: "igDataTypeClamp".}
 proc igDataTypeIsZero*(data_type: ImGuiDataType; p_data: pointer): bool {.cdecl, importc: "igDataTypeIsZero".}
-proc igInputTextEx*(label: cstring; hint: cstring; buf: cstring; buf_size: cint; size_arg: ImVec2; flags: ImGuiInputTextFlags; callback: ImGuiInputTextCallback; user_data: pointer): bool {.cdecl, importc: "igInputTextEx".}
+proc igInputTextEx*(label: cstring; hint: cstring; buf: cstring; buf_size: cint; size_arg: ImVec2_c; flags: ImGuiInputTextFlags; callback: ImGuiInputTextCallback; user_data: pointer): bool {.cdecl, importc: "igInputTextEx".}
 proc igInputTextDeactivateHook*(id: ImGuiID): void {.cdecl, importc: "igInputTextDeactivateHook".}
-proc igTempInputText*(bb: ImRect; id: ImGuiID; label: cstring; buf: cstring; buf_size: cint; flags: ImGuiInputTextFlags): bool {.cdecl, importc: "igTempInputText".}
-proc igTempInputScalar*(bb: ImRect; id: ImGuiID; label: cstring; data_type: ImGuiDataType; p_data: pointer; format: cstring; p_clamp_min: pointer; p_clamp_max: pointer): bool {.cdecl, importc: "igTempInputScalar".}
+proc igTempInputText*(bb: ImRect_c; id: ImGuiID; label: cstring; buf: cstring; buf_size: cint; flags: ImGuiInputTextFlags): bool {.cdecl, importc: "igTempInputText".}
+proc igTempInputScalar*(bb: ImRect_c; id: ImGuiID; label: cstring; data_type: ImGuiDataType; p_data: pointer; format: cstring; p_clamp_min: pointer; p_clamp_max: pointer): bool {.cdecl, importc: "igTempInputScalar".}
 proc igTempInputIsActive*(id: ImGuiID): bool {.cdecl, importc: "igTempInputIsActive".}
 proc igGetInputTextState*(id: ImGuiID): ptr ImGuiInputTextState {.cdecl, importc: "igGetInputTextState".}
 proc igSetNextItemRefVal*(data_type: ImGuiDataType; p_data: pointer): void {.cdecl, importc: "igSetNextItemRefVal".}
@@ -6160,10 +6246,11 @@ proc igIsItemActiveAsInputText*(): bool {.cdecl, importc: "igIsItemActiveAsInput
 proc igColorTooltip*(text: cstring; col: ptr cfloat; flags: ImGuiColorEditFlags): void {.cdecl, importc: "igColorTooltip".}
 proc igColorEditOptionsPopup*(col: ptr cfloat; flags: ImGuiColorEditFlags): void {.cdecl, importc: "igColorEditOptionsPopup".}
 proc igColorPickerOptionsPopup*(ref_col: ptr cfloat; flags: ImGuiColorEditFlags): void {.cdecl, importc: "igColorPickerOptionsPopup".}
-proc igPlotEx*(plot_type: ImGuiPlotType; label: cstring; values_getter: proc (a0: pointer; a1: cint): cfloat {.cdecl.}; data: pointer; values_count: cint; values_offset: cint; overlay_text: cstring; scale_min: cfloat; scale_max: cfloat; size_arg: ImVec2): cint {.cdecl, importc: "igPlotEx".}
-proc igShadeVertsLinearColorGradientKeepAlpha*(draw_list: ptr ImDrawList; vert_start_idx: cint; vert_end_idx: cint; gradient_p0: ImVec2; gradient_p1: ImVec2; col0: ImU32; col1: ImU32): void {.cdecl, importc: "igShadeVertsLinearColorGradientKeepAlpha".}
-proc igShadeVertsLinearUV*(draw_list: ptr ImDrawList; vert_start_idx: cint; vert_end_idx: cint; a: ImVec2; b: ImVec2; uv_a: ImVec2; uv_b: ImVec2; clamp: bool): void {.cdecl, importc: "igShadeVertsLinearUV".}
-proc igShadeVertsTransformPos*(draw_list: ptr ImDrawList; vert_start_idx: cint; vert_end_idx: cint; pivot_in: ImVec2; cos_a: cfloat; sin_a: cfloat; pivot_out: ImVec2): void {.cdecl, importc: "igShadeVertsTransformPos".}
+proc igSetNextItemColorMarker*(col: ImU32): void {.cdecl, importc: "igSetNextItemColorMarker".}
+proc igPlotEx*(plot_type: ImGuiPlotType; label: cstring; values_getter: proc (a0: pointer; a1: cint): cfloat {.cdecl.}; data: pointer; values_count: cint; values_offset: cint; overlay_text: cstring; scale_min: cfloat; scale_max: cfloat; size_arg: ImVec2_c): cint {.cdecl, importc: "igPlotEx".}
+proc igShadeVertsLinearColorGradientKeepAlpha*(draw_list: ptr ImDrawList; vert_start_idx: cint; vert_end_idx: cint; gradient_p0: ImVec2_c; gradient_p1: ImVec2_c; col0: ImU32; col1: ImU32): void {.cdecl, importc: "igShadeVertsLinearColorGradientKeepAlpha".}
+proc igShadeVertsLinearUV*(draw_list: ptr ImDrawList; vert_start_idx: cint; vert_end_idx: cint; a: ImVec2_c; b: ImVec2_c; uv_a: ImVec2_c; uv_b: ImVec2_c; clamp: bool): void {.cdecl, importc: "igShadeVertsLinearUV".}
+proc igShadeVertsTransformPos*(draw_list: ptr ImDrawList; vert_start_idx: cint; vert_end_idx: cint; pivot_in: ImVec2_c; cos_a: cfloat; sin_a: cfloat; pivot_out: ImVec2_c): void {.cdecl, importc: "igShadeVertsTransformPos".}
 proc igGcCompactTransientMiscBuffers*(): void {.cdecl, importc: "igGcCompactTransientMiscBuffers".}
 proc igGcCompactTransientWindowBuffers*(window: ptr ImGuiWindow): void {.cdecl, importc: "igGcCompactTransientWindowBuffers".}
 proc igGcAwakeTransientWindowBuffers*(window: ptr ImGuiWindow): void {.cdecl, importc: "igGcAwakeTransientWindowBuffers".}
@@ -6187,6 +6274,7 @@ proc igDebugBreakClearData*(): void {.cdecl, importc: "igDebugBreakClearData".}
 proc igDebugBreakButton*(label: cstring; description_of_location: cstring): bool {.cdecl, importc: "igDebugBreakButton".}
 proc igDebugBreakButtonTooltip*(keyboard_only: bool; description_of_location: cstring): void {.cdecl, importc: "igDebugBreakButtonTooltip".}
 proc igShowFontAtlas*(atlas: ptr ImFontAtlas): void {.cdecl, importc: "igShowFontAtlas".}
+proc igDebugTextureIDToU64*(tex_id: ImTextureID): ImU64 {.cdecl, importc: "igDebugTextureIDToU64".}
 proc igDebugHookIdInfo*(id: ImGuiID; data_type: ImGuiDataType; data_id: pointer; data_id_end: pointer): void {.cdecl, importc: "igDebugHookIdInfo".}
 proc igDebugNodeColumns*(columns: ptr ImGuiOldColumns): void {.cdecl, importc: "igDebugNodeColumns".}
 proc igDebugNodeDockNode*(node: ptr ImGuiDockNode; label: cstring): void {.cdecl, importc: "igDebugNodeDockNode".}
@@ -6210,7 +6298,7 @@ proc igDebugNodeWindowsListByBeginStackParent*(windows: ptr ptr ImGuiWindow; win
 proc igDebugNodeViewport*(viewport: ptr ImGuiViewportP): void {.cdecl, importc: "igDebugNodeViewport".}
 proc igDebugNodePlatformMonitor*(monitor: ptr ImGuiPlatformMonitor; label: cstring; idx: cint): void {.cdecl, importc: "igDebugNodePlatformMonitor".}
 proc igDebugRenderKeyboardPreview*(draw_list: ptr ImDrawList): void {.cdecl, importc: "igDebugRenderKeyboardPreview".}
-proc igDebugRenderViewportThumbnail*(draw_list: ptr ImDrawList; viewport: ptr ImGuiViewportP; bb: ImRect): void {.cdecl, importc: "igDebugRenderViewportThumbnail".}
+proc igDebugRenderViewportThumbnail*(draw_list: ptr ImDrawList; viewport: ptr ImGuiViewportP; bb: ImRect_c): void {.cdecl, importc: "igDebugRenderViewportThumbnail".}
 proc ImFontLoader_ImFontLoader*(): ptr ImFontLoader {.cdecl, importc: "ImFontLoader_ImFontLoader".}
 proc ImFontLoader_destroy*(self: ptr ImFontLoader): void {.cdecl, importc: "ImFontLoader_destroy".}
 proc igImFontAtlasGetFontLoaderForStbTruetype*(): ptr ImFontLoader {.cdecl, importc: "igImFontAtlasGetFontLoaderForStbTruetype".}
@@ -6223,6 +6311,7 @@ proc igImFontAtlasBuildInit*(atlas: ptr ImFontAtlas): void {.cdecl, importc: "ig
 proc igImFontAtlasBuildDestroy*(atlas: ptr ImFontAtlas): void {.cdecl, importc: "igImFontAtlasBuildDestroy".}
 proc igImFontAtlasBuildMain*(atlas: ptr ImFontAtlas): void {.cdecl, importc: "igImFontAtlasBuildMain".}
 proc igImFontAtlasBuildSetupFontLoader*(atlas: ptr ImFontAtlas; font_loader: ptr ImFontLoader): void {.cdecl, importc: "igImFontAtlasBuildSetupFontLoader".}
+proc igImFontAtlasBuildNotifySetFont*(atlas: ptr ImFontAtlas; old_font: ptr ImFont; new_font: ptr ImFont): void {.cdecl, importc: "igImFontAtlasBuildNotifySetFont".}
 proc igImFontAtlasBuildUpdatePointers*(atlas: ptr ImFontAtlas): void {.cdecl, importc: "igImFontAtlasBuildUpdatePointers".}
 proc igImFontAtlasBuildRenderBitmapFromString*(atlas: ptr ImFontAtlas; x: cint; y: cint; w: cint; h: cint; in_str: cstring; in_marker_char: cschar): void {.cdecl, importc: "igImFontAtlasBuildRenderBitmapFromString".}
 proc igImFontAtlasBuildClear*(atlas: ptr ImFontAtlas): void {.cdecl, importc: "igImFontAtlasBuildClear".}
@@ -6231,7 +6320,7 @@ proc igImFontAtlasTextureMakeSpace*(atlas: ptr ImFontAtlas): void {.cdecl, impor
 proc igImFontAtlasTextureRepack*(atlas: ptr ImFontAtlas; w: cint; h: cint): void {.cdecl, importc: "igImFontAtlasTextureRepack".}
 proc igImFontAtlasTextureGrow*(atlas: ptr ImFontAtlas; old_w: cint; old_h: cint): void {.cdecl, importc: "igImFontAtlasTextureGrow".}
 proc igImFontAtlasTextureCompact*(atlas: ptr ImFontAtlas): void {.cdecl, importc: "igImFontAtlasTextureCompact".}
-proc igImFontAtlasTextureGetSizeEstimate*(pOut: ptr ImVec2i; atlas: ptr ImFontAtlas): void {.cdecl, importc: "igImFontAtlasTextureGetSizeEstimate".}
+proc igImFontAtlasTextureGetSizeEstimate*(atlas: ptr ImFontAtlas): ImVec2i_c {.cdecl, importc: "igImFontAtlasTextureGetSizeEstimate".}
 proc igImFontAtlasBuildSetupFontSpecialGlyphs*(atlas: ptr ImFontAtlas; font: ptr ImFont; src: ptr ImFontConfig): void {.cdecl, importc: "igImFontAtlasBuildSetupFontSpecialGlyphs".}
 proc igImFontAtlasBuildLegacyPreloadAllGlyphRanges*(atlas: ptr ImFontAtlas): void {.cdecl, importc: "igImFontAtlasBuildLegacyPreloadAllGlyphRanges".}
 proc igImFontAtlasBuildGetOversampleFactors*(src: ptr ImFontConfig; baked: ptr ImFontBaked; out_oversample_h: ptr cint; out_oversample_v: ptr cint): void {.cdecl, importc: "igImFontAtlasBuildGetOversampleFactors".}
@@ -6241,6 +6330,7 @@ proc igImFontAtlasFontSourceAddToFont*(atlas: ptr ImFontAtlas; font: ptr ImFont;
 proc igImFontAtlasFontDestroySourceData*(atlas: ptr ImFontAtlas; src: ptr ImFontConfig): void {.cdecl, importc: "igImFontAtlasFontDestroySourceData".}
 proc igImFontAtlasFontInitOutput*(atlas: ptr ImFontAtlas; font: ptr ImFont): bool {.cdecl, importc: "igImFontAtlasFontInitOutput".}
 proc igImFontAtlasFontDestroyOutput*(atlas: ptr ImFontAtlas; font: ptr ImFont): void {.cdecl, importc: "igImFontAtlasFontDestroyOutput".}
+proc igImFontAtlasFontRebuildOutput*(atlas: ptr ImFontAtlas; font: ptr ImFont): void {.cdecl, importc: "igImFontAtlasFontRebuildOutput".}
 proc igImFontAtlasFontDiscardBakes*(atlas: ptr ImFontAtlas; font: ptr ImFont; unused_frames: cint): void {.cdecl, importc: "igImFontAtlasFontDiscardBakes".}
 proc igImFontAtlasBakedGetId*(font_id: ImGuiID; baked_size: cfloat; rasterizer_density: cfloat): ImGuiID {.cdecl, importc: "igImFontAtlasBakedGetId".}
 proc igImFontAtlasBakedGetOrAdd*(atlas: ptr ImFontAtlas; font: ptr ImFont; font_size: cfloat; font_rasterizer_density: cfloat): ptr ImFontBaked {.cdecl, importc: "igImFontAtlasBakedGetOrAdd".}
@@ -6259,7 +6349,7 @@ proc igImFontAtlasPackDiscardRect*(atlas: ptr ImFontAtlas; id: ImFontAtlasRectId
 proc igImFontAtlasUpdateNewFrame*(atlas: ptr ImFontAtlas; frame_count: cint; renderer_has_textures: bool): void {.cdecl, importc: "igImFontAtlasUpdateNewFrame".}
 proc igImFontAtlasAddDrawListSharedData*(atlas: ptr ImFontAtlas; data: ptr ImDrawListSharedData): void {.cdecl, importc: "igImFontAtlasAddDrawListSharedData".}
 proc igImFontAtlasRemoveDrawListSharedData*(atlas: ptr ImFontAtlas; data: ptr ImDrawListSharedData): void {.cdecl, importc: "igImFontAtlasRemoveDrawListSharedData".}
-proc igImFontAtlasUpdateDrawListsTextures*(atlas: ptr ImFontAtlas; old_tex: ImTextureRef; new_tex: ImTextureRef): void {.cdecl, importc: "igImFontAtlasUpdateDrawListsTextures".}
+proc igImFontAtlasUpdateDrawListsTextures*(atlas: ptr ImFontAtlas; old_tex: ImTextureRef_c; new_tex: ImTextureRef_c): void {.cdecl, importc: "igImFontAtlasUpdateDrawListsTextures".}
 proc igImFontAtlasUpdateDrawListsSharedData*(atlas: ptr ImFontAtlas): void {.cdecl, importc: "igImFontAtlasUpdateDrawListsSharedData".}
 proc igImFontAtlasTextureBlockConvert*(src_pixels: ptr uint8; src_fmt: ImTextureFormat; src_pitch: cint; dst_pixels: ptr uint8; dst_fmt: ImTextureFormat; dst_pitch: cint; w: cint; h: cint): void {.cdecl, importc: "igImFontAtlasTextureBlockConvert".}
 proc igImFontAtlasTextureBlockPostProcess*(data: ptr ImFontAtlasPostProcessData): void {.cdecl, importc: "igImFontAtlasTextureBlockPostProcess".}
@@ -6271,7 +6361,7 @@ proc igImTextureDataGetFormatBytesPerPixel*(format: ImTextureFormat): cint {.cde
 proc igImTextureDataGetStatusName*(status: ImTextureStatus): cstring {.cdecl, importc: "igImTextureDataGetStatusName".}
 proc igImTextureDataGetFormatName*(format: ImTextureFormat): cstring {.cdecl, importc: "igImTextureDataGetFormatName".}
 proc igImFontAtlasDebugLogTextureRequests*(atlas: ptr ImFontAtlas): void {.cdecl, importc: "igImFontAtlasDebugLogTextureRequests".}
-proc igImFontAtlasGetMouseCursorTexData*(atlas: ptr ImFontAtlas; cursor_type: ImGuiMouseCursor; out_offset: ptr ImVec2; out_size: ptr ImVec2; out_uv_border: array[2'i64, ImVec2]; out_uv_fill: array[2'i64, ImVec2]): bool {.cdecl, importc: "igImFontAtlasGetMouseCursorTexData".}
+proc igImFontAtlasGetMouseCursorTexData*(atlas: ptr ImFontAtlas; cursor_type: ImGuiMouseCursor; out_offset: ptr ImVec2_c; out_size: ptr ImVec2_c; out_uv_border: array[2'i64, ImVec2]; out_uv_fill: array[2'i64, ImVec2]): bool {.cdecl, importc: "igImFontAtlasGetMouseCursorTexData".}
 proc ImGuiTextBuffer_appendf*(self: ptr ImGuiTextBuffer; fmt: cstring): void {.cdecl, varargs, importc: "ImGuiTextBuffer_appendf".}
 proc igGET_FLT_MAX*(): cfloat {.cdecl, importc: "igGET_FLT_MAX".}
 proc igGET_FLT_MIN*(): cfloat {.cdecl, importc: "igGET_FLT_MIN".}
@@ -6285,7 +6375,7 @@ var GImPlot* {.importc: "GImPlot".}: ptr ImPlotContext
 proc ImPlotPoint_ImPlotPoint_Nil*(): ptr ImPlotPoint {.cdecl, importc: "ImPlotPoint_ImPlotPoint_Nil".}
 proc ImPlotPoint_destroy*(self: ptr ImPlotPoint): void {.cdecl, importc: "ImPlotPoint_destroy".}
 proc ImPlotPoint_ImPlotPoint_double*(internal_x: cdouble; internal_y: cdouble): ptr ImPlotPoint {.cdecl, importc: "ImPlotPoint_ImPlotPoint_double".}
-proc ImPlotPoint_ImPlotPoint_Vec2*(p: ImVec2): ptr ImPlotPoint {.cdecl, importc: "ImPlotPoint_ImPlotPoint_Vec2".}
+proc ImPlotPoint_ImPlotPoint_Vec2*(p: ImVec2_c): ptr ImPlotPoint {.cdecl, importc: "ImPlotPoint_ImPlotPoint_Vec2".}
 proc ImPlotRange_ImPlotRange_Nil*(): ptr ImPlotRange {.cdecl, importc: "ImPlotRange_ImPlotRange_Nil".}
 proc ImPlotRange_destroy*(self: ptr ImPlotRange): void {.cdecl, importc: "ImPlotRange_destroy".}
 proc ImPlotRange_ImPlotRange_double*(internal_min: cdouble; internal_max: cdouble): ptr ImPlotRange {.cdecl, importc: "ImPlotRange_ImPlotRange_double".}
@@ -6295,13 +6385,13 @@ proc ImPlotRange_Clamp*(self: ptr ImPlotRange; value: cdouble): cdouble {.cdecl,
 proc ImPlotRect_ImPlotRect_Nil*(): ptr ImPlotRect {.cdecl, importc: "ImPlotRect_ImPlotRect_Nil".}
 proc ImPlotRect_destroy*(self: ptr ImPlotRect): void {.cdecl, importc: "ImPlotRect_destroy".}
 proc ImPlotRect_ImPlotRect_double*(x_min: cdouble; x_max: cdouble; y_min: cdouble; y_max: cdouble): ptr ImPlotRect {.cdecl, importc: "ImPlotRect_ImPlotRect_double".}
-proc ImPlotRect_Contains_PlotPoInt*(self: ptr ImPlotRect; p: ImPlotPoint): bool {.cdecl, importc: "ImPlotRect_Contains_PlotPoInt".}
+proc ImPlotRect_Contains_PlotPoInt*(self: ptr ImPlotRect; p: ImPlotPoint_c): bool {.cdecl, importc: "ImPlotRect_Contains_PlotPoInt".}
 proc ImPlotRect_Contains_double*(self: ptr ImPlotRect; x: cdouble; y: cdouble): bool {.cdecl, importc: "ImPlotRect_Contains_double".}
-proc ImPlotRect_Size*(pOut: ptr ImPlotPoint; self: ptr ImPlotRect): void {.cdecl, importc: "ImPlotRect_Size".}
-proc ImPlotRect_Clamp_PlotPoInt*(pOut: ptr ImPlotPoint; self: ptr ImPlotRect; p: ImPlotPoint): void {.cdecl, importc: "ImPlotRect_Clamp_PlotPoInt".}
-proc ImPlotRect_Clamp_double*(pOut: ptr ImPlotPoint; self: ptr ImPlotRect; x: cdouble; y: cdouble): void {.cdecl, importc: "ImPlotRect_Clamp_double".}
-proc ImPlotRect_Min*(pOut: ptr ImPlotPoint; self: ptr ImPlotRect): void {.cdecl, importc: "ImPlotRect_Min".}
-proc ImPlotRect_Max*(pOut: ptr ImPlotPoint; self: ptr ImPlotRect): void {.cdecl, importc: "ImPlotRect_Max".}
+proc ImPlotRect_Size*(self: ptr ImPlotRect): ImPlotPoint_c {.cdecl, importc: "ImPlotRect_Size".}
+proc ImPlotRect_Clamp_PlotPoInt*(self: ptr ImPlotRect; p: ImPlotPoint_c): ImPlotPoint_c {.cdecl, importc: "ImPlotRect_Clamp_PlotPoInt".}
+proc ImPlotRect_Clamp_double*(self: ptr ImPlotRect; x: cdouble; y: cdouble): ImPlotPoint_c {.cdecl, importc: "ImPlotRect_Clamp_double".}
+proc ImPlotRect_Min*(self: ptr ImPlotRect): ImPlotPoint_c {.cdecl, importc: "ImPlotRect_Min".}
+proc ImPlotRect_Max*(self: ptr ImPlotRect): ImPlotPoint_c {.cdecl, importc: "ImPlotRect_Max".}
 proc ImPlotStyle_ImPlotStyle*(): ptr ImPlotStyle {.cdecl, importc: "ImPlotStyle_ImPlotStyle".}
 proc ImPlotStyle_destroy*(self: ptr ImPlotStyle): void {.cdecl, importc: "ImPlotStyle_destroy".}
 proc ImPlotInputMap_ImPlotInputMap*(): ptr ImPlotInputMap {.cdecl, importc: "ImPlotInputMap_ImPlotInputMap".}
@@ -6311,9 +6401,9 @@ proc ImPlot_DestroyContext*(ctx: ptr ImPlotContext): void {.cdecl, importc: "ImP
 proc ImPlot_GetCurrentContext*(): ptr ImPlotContext {.cdecl, importc: "ImPlot_GetCurrentContext".}
 proc ImPlot_SetCurrentContext*(ctx: ptr ImPlotContext): void {.cdecl, importc: "ImPlot_SetCurrentContext".}
 proc ImPlot_SetImGuiContext*(ctx: ptr ImGuiContext): void {.cdecl, importc: "ImPlot_SetImGuiContext".}
-proc ImPlot_BeginPlot*(title_id: cstring; size: ImVec2; flags: ImPlotFlags): bool {.cdecl, importc: "ImPlot_BeginPlot".}
+proc ImPlot_BeginPlot*(title_id: cstring; size: ImVec2_c; flags: ImPlotFlags): bool {.cdecl, importc: "ImPlot_BeginPlot".}
 proc ImPlot_EndPlot*(): void {.cdecl, importc: "ImPlot_EndPlot".}
-proc ImPlot_BeginSubplots*(title_id: cstring; rows: cint; cols: cint; size: ImVec2; flags: ImPlotSubplotFlags; row_ratios: ptr cfloat; col_ratios: ptr cfloat): bool {.cdecl, importc: "ImPlot_BeginSubplots".}
+proc ImPlot_BeginSubplots*(title_id: cstring; rows: cint; cols: cint; size: ImVec2_c; flags: ImPlotSubplotFlags; row_ratios: ptr cfloat; col_ratios: ptr cfloat): bool {.cdecl, importc: "ImPlot_BeginSubplots".}
 proc ImPlot_EndSubplots*(): void {.cdecl, importc: "ImPlot_EndSubplots".}
 proc ImPlot_SetupAxis*(axis: ImAxis; label: cstring; flags: ImPlotAxisFlags): void {.cdecl, importc: "ImPlot_SetupAxis".}
 proc ImPlot_SetupAxisLimits*(axis: ImAxis; v_min: cdouble; v_max: cdouble; cond: ImPlotCond): void {.cdecl, importc: "ImPlot_SetupAxisLimits".}
@@ -6531,36 +6621,36 @@ proc ImPlot_PlotPieChart_S32PtrStr*(label_ids: ptr UncheckedArray[cstring]; valu
 proc ImPlot_PlotPieChart_U32PtrStr*(label_ids: ptr UncheckedArray[cstring]; values: ptr ImU32; count: cint; x: cdouble; y: cdouble; radius: cdouble; label_fmt: cstring; angle0: cdouble; flags: ImPlotPieChartFlags): void {.cdecl, importc: "ImPlot_PlotPieChart_U32PtrStr".}
 proc ImPlot_PlotPieChart_S64PtrStr*(label_ids: ptr UncheckedArray[cstring]; values: ptr ImS64; count: cint; x: cdouble; y: cdouble; radius: cdouble; label_fmt: cstring; angle0: cdouble; flags: ImPlotPieChartFlags): void {.cdecl, importc: "ImPlot_PlotPieChart_S64PtrStr".}
 proc ImPlot_PlotPieChart_U64PtrStr*(label_ids: ptr UncheckedArray[cstring]; values: ptr ImU64; count: cint; x: cdouble; y: cdouble; radius: cdouble; label_fmt: cstring; angle0: cdouble; flags: ImPlotPieChartFlags): void {.cdecl, importc: "ImPlot_PlotPieChart_U64PtrStr".}
-proc ImPlot_PlotHeatmap_FloatPtr*(label_id: cstring; values: ptr cfloat; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint; bounds_max: ImPlotPoint; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_FloatPtr".}
-proc ImPlot_PlotHeatmap_doublePtr*(label_id: cstring; values: ptr cdouble; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint; bounds_max: ImPlotPoint; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_doublePtr".}
-proc ImPlot_PlotHeatmap_S8Ptr*(label_id: cstring; values: cstring; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint; bounds_max: ImPlotPoint; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_S8Ptr".}
-proc ImPlot_PlotHeatmap_U8Ptr*(label_id: cstring; values: ptr ImU8; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint; bounds_max: ImPlotPoint; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_U8Ptr".}
-proc ImPlot_PlotHeatmap_S16Ptr*(label_id: cstring; values: ptr ImS16; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint; bounds_max: ImPlotPoint; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_S16Ptr".}
-proc ImPlot_PlotHeatmap_U16Ptr*(label_id: cstring; values: ptr ImU16; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint; bounds_max: ImPlotPoint; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_U16Ptr".}
-proc ImPlot_PlotHeatmap_S32Ptr*(label_id: cstring; values: ptr ImS32; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint; bounds_max: ImPlotPoint; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_S32Ptr".}
-proc ImPlot_PlotHeatmap_U32Ptr*(label_id: cstring; values: ptr ImU32; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint; bounds_max: ImPlotPoint; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_U32Ptr".}
-proc ImPlot_PlotHeatmap_S64Ptr*(label_id: cstring; values: ptr ImS64; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint; bounds_max: ImPlotPoint; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_S64Ptr".}
-proc ImPlot_PlotHeatmap_U64Ptr*(label_id: cstring; values: ptr ImU64; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint; bounds_max: ImPlotPoint; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_U64Ptr".}
-proc ImPlot_PlotHistogram_FloatPtr*(label_id: cstring; values: ptr cfloat; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_FloatPtr".}
-proc ImPlot_PlotHistogram_doublePtr*(label_id: cstring; values: ptr cdouble; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_doublePtr".}
-proc ImPlot_PlotHistogram_S8Ptr*(label_id: cstring; values: cstring; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_S8Ptr".}
-proc ImPlot_PlotHistogram_U8Ptr*(label_id: cstring; values: ptr ImU8; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_U8Ptr".}
-proc ImPlot_PlotHistogram_S16Ptr*(label_id: cstring; values: ptr ImS16; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_S16Ptr".}
-proc ImPlot_PlotHistogram_U16Ptr*(label_id: cstring; values: ptr ImU16; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_U16Ptr".}
-proc ImPlot_PlotHistogram_S32Ptr*(label_id: cstring; values: ptr ImS32; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_S32Ptr".}
-proc ImPlot_PlotHistogram_U32Ptr*(label_id: cstring; values: ptr ImU32; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_U32Ptr".}
-proc ImPlot_PlotHistogram_S64Ptr*(label_id: cstring; values: ptr ImS64; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_S64Ptr".}
-proc ImPlot_PlotHistogram_U64Ptr*(label_id: cstring; values: ptr ImU64; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_U64Ptr".}
-proc ImPlot_PlotHistogram2D_FloatPtr*(label_id: cstring; xs: ptr cfloat; ys: ptr cfloat; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_FloatPtr".}
-proc ImPlot_PlotHistogram2D_doublePtr*(label_id: cstring; xs: ptr cdouble; ys: ptr cdouble; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_doublePtr".}
-proc ImPlot_PlotHistogram2D_S8Ptr*(label_id: cstring; xs: cstring; ys: cstring; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_S8Ptr".}
-proc ImPlot_PlotHistogram2D_U8Ptr*(label_id: cstring; xs: ptr ImU8; ys: ptr ImU8; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_U8Ptr".}
-proc ImPlot_PlotHistogram2D_S16Ptr*(label_id: cstring; xs: ptr ImS16; ys: ptr ImS16; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_S16Ptr".}
-proc ImPlot_PlotHistogram2D_U16Ptr*(label_id: cstring; xs: ptr ImU16; ys: ptr ImU16; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_U16Ptr".}
-proc ImPlot_PlotHistogram2D_S32Ptr*(label_id: cstring; xs: ptr ImS32; ys: ptr ImS32; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_S32Ptr".}
-proc ImPlot_PlotHistogram2D_U32Ptr*(label_id: cstring; xs: ptr ImU32; ys: ptr ImU32; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_U32Ptr".}
-proc ImPlot_PlotHistogram2D_S64Ptr*(label_id: cstring; xs: ptr ImS64; ys: ptr ImS64; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_S64Ptr".}
-proc ImPlot_PlotHistogram2D_U64Ptr*(label_id: cstring; xs: ptr ImU64; ys: ptr ImU64; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_U64Ptr".}
+proc ImPlot_PlotHeatmap_FloatPtr*(label_id: cstring; values: ptr cfloat; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint_c; bounds_max: ImPlotPoint_c; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_FloatPtr".}
+proc ImPlot_PlotHeatmap_doublePtr*(label_id: cstring; values: ptr cdouble; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint_c; bounds_max: ImPlotPoint_c; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_doublePtr".}
+proc ImPlot_PlotHeatmap_S8Ptr*(label_id: cstring; values: cstring; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint_c; bounds_max: ImPlotPoint_c; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_S8Ptr".}
+proc ImPlot_PlotHeatmap_U8Ptr*(label_id: cstring; values: ptr ImU8; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint_c; bounds_max: ImPlotPoint_c; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_U8Ptr".}
+proc ImPlot_PlotHeatmap_S16Ptr*(label_id: cstring; values: ptr ImS16; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint_c; bounds_max: ImPlotPoint_c; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_S16Ptr".}
+proc ImPlot_PlotHeatmap_U16Ptr*(label_id: cstring; values: ptr ImU16; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint_c; bounds_max: ImPlotPoint_c; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_U16Ptr".}
+proc ImPlot_PlotHeatmap_S32Ptr*(label_id: cstring; values: ptr ImS32; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint_c; bounds_max: ImPlotPoint_c; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_S32Ptr".}
+proc ImPlot_PlotHeatmap_U32Ptr*(label_id: cstring; values: ptr ImU32; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint_c; bounds_max: ImPlotPoint_c; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_U32Ptr".}
+proc ImPlot_PlotHeatmap_S64Ptr*(label_id: cstring; values: ptr ImS64; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint_c; bounds_max: ImPlotPoint_c; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_S64Ptr".}
+proc ImPlot_PlotHeatmap_U64Ptr*(label_id: cstring; values: ptr ImU64; rows: cint; cols: cint; scale_min: cdouble; scale_max: cdouble; label_fmt: cstring; bounds_min: ImPlotPoint_c; bounds_max: ImPlotPoint_c; flags: ImPlotHeatmapFlags): void {.cdecl, importc: "ImPlot_PlotHeatmap_U64Ptr".}
+proc ImPlot_PlotHistogram_FloatPtr*(label_id: cstring; values: ptr cfloat; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_FloatPtr".}
+proc ImPlot_PlotHistogram_doublePtr*(label_id: cstring; values: ptr cdouble; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_doublePtr".}
+proc ImPlot_PlotHistogram_S8Ptr*(label_id: cstring; values: cstring; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_S8Ptr".}
+proc ImPlot_PlotHistogram_U8Ptr*(label_id: cstring; values: ptr ImU8; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_U8Ptr".}
+proc ImPlot_PlotHistogram_S16Ptr*(label_id: cstring; values: ptr ImS16; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_S16Ptr".}
+proc ImPlot_PlotHistogram_U16Ptr*(label_id: cstring; values: ptr ImU16; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_U16Ptr".}
+proc ImPlot_PlotHistogram_S32Ptr*(label_id: cstring; values: ptr ImS32; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_S32Ptr".}
+proc ImPlot_PlotHistogram_U32Ptr*(label_id: cstring; values: ptr ImU32; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_U32Ptr".}
+proc ImPlot_PlotHistogram_S64Ptr*(label_id: cstring; values: ptr ImS64; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_S64Ptr".}
+proc ImPlot_PlotHistogram_U64Ptr*(label_id: cstring; values: ptr ImU64; count: cint; bins: cint; bar_scale: cdouble; range: ImPlotRange_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram_U64Ptr".}
+proc ImPlot_PlotHistogram2D_FloatPtr*(label_id: cstring; xs: ptr cfloat; ys: ptr cfloat; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_FloatPtr".}
+proc ImPlot_PlotHistogram2D_doublePtr*(label_id: cstring; xs: ptr cdouble; ys: ptr cdouble; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_doublePtr".}
+proc ImPlot_PlotHistogram2D_S8Ptr*(label_id: cstring; xs: cstring; ys: cstring; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_S8Ptr".}
+proc ImPlot_PlotHistogram2D_U8Ptr*(label_id: cstring; xs: ptr ImU8; ys: ptr ImU8; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_U8Ptr".}
+proc ImPlot_PlotHistogram2D_S16Ptr*(label_id: cstring; xs: ptr ImS16; ys: ptr ImS16; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_S16Ptr".}
+proc ImPlot_PlotHistogram2D_U16Ptr*(label_id: cstring; xs: ptr ImU16; ys: ptr ImU16; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_U16Ptr".}
+proc ImPlot_PlotHistogram2D_S32Ptr*(label_id: cstring; xs: ptr ImS32; ys: ptr ImS32; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_S32Ptr".}
+proc ImPlot_PlotHistogram2D_U32Ptr*(label_id: cstring; xs: ptr ImU32; ys: ptr ImU32; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_U32Ptr".}
+proc ImPlot_PlotHistogram2D_S64Ptr*(label_id: cstring; xs: ptr ImS64; ys: ptr ImS64; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_S64Ptr".}
+proc ImPlot_PlotHistogram2D_U64Ptr*(label_id: cstring; xs: ptr ImU64; ys: ptr ImU64; count: cint; x_bins: cint; y_bins: cint; range: ImPlotRect_c; flags: ImPlotHistogramFlags): cdouble {.cdecl, importc: "ImPlot_PlotHistogram2D_U64Ptr".}
 proc ImPlot_PlotDigital_FloatPtr*(label_id: cstring; xs: ptr cfloat; ys: ptr cfloat; count: cint; flags: ImPlotDigitalFlags; offset: cint; stride: cint): void {.cdecl, importc: "ImPlot_PlotDigital_FloatPtr".}
 proc ImPlot_PlotDigital_doublePtr*(label_id: cstring; xs: ptr cdouble; ys: ptr cdouble; count: cint; flags: ImPlotDigitalFlags; offset: cint; stride: cint): void {.cdecl, importc: "ImPlot_PlotDigital_doublePtr".}
 proc ImPlot_PlotDigital_S8Ptr*(label_id: cstring; xs: cstring; ys: cstring; count: cint; flags: ImPlotDigitalFlags; offset: cint; stride: cint): void {.cdecl, importc: "ImPlot_PlotDigital_S8Ptr".}
@@ -6572,37 +6662,37 @@ proc ImPlot_PlotDigital_U32Ptr*(label_id: cstring; xs: ptr ImU32; ys: ptr ImU32;
 proc ImPlot_PlotDigital_S64Ptr*(label_id: cstring; xs: ptr ImS64; ys: ptr ImS64; count: cint; flags: ImPlotDigitalFlags; offset: cint; stride: cint): void {.cdecl, importc: "ImPlot_PlotDigital_S64Ptr".}
 proc ImPlot_PlotDigital_U64Ptr*(label_id: cstring; xs: ptr ImU64; ys: ptr ImU64; count: cint; flags: ImPlotDigitalFlags; offset: cint; stride: cint): void {.cdecl, importc: "ImPlot_PlotDigital_U64Ptr".}
 proc ImPlot_PlotDigitalG*(label_id: cstring; getter: ImPlotPoint_getter; data: pointer; count: cint; flags: ImPlotDigitalFlags): void {.cdecl, importc: "ImPlot_PlotDigitalG".}
-proc ImPlot_PlotImage*(label_id: cstring; tex_ref: ImTextureRef; bounds_min: ImPlotPoint; bounds_max: ImPlotPoint; uv0: ImVec2; uv1: ImVec2; tint_col: ImVec4; flags: ImPlotImageFlags): void {.cdecl, importc: "ImPlot_PlotImage".}
-proc ImPlot_PlotText*(text: cstring; x: cdouble; y: cdouble; pix_offset: ImVec2; flags: ImPlotTextFlags): void {.cdecl, importc: "ImPlot_PlotText".}
+proc ImPlot_PlotImage*(label_id: cstring; tex_ref: ImTextureRef_c; bounds_min: ImPlotPoint_c; bounds_max: ImPlotPoint_c; uv0: ImVec2_c; uv1: ImVec2_c; tint_col: ImVec4_c; flags: ImPlotImageFlags): void {.cdecl, importc: "ImPlot_PlotImage".}
+proc ImPlot_PlotText*(text: cstring; x: cdouble; y: cdouble; pix_offset: ImVec2_c; flags: ImPlotTextFlags): void {.cdecl, importc: "ImPlot_PlotText".}
 proc ImPlot_PlotDummy*(label_id: cstring; flags: ImPlotDummyFlags): void {.cdecl, importc: "ImPlot_PlotDummy".}
-proc ImPlot_DragPoint*(id: cint; x: ptr cdouble; y: ptr cdouble; col: ImVec4; size: cfloat; flags: ImPlotDragToolFlags; out_clicked: ptr bool; out_hovered: ptr bool; held: ptr bool): bool {.cdecl, importc: "ImPlot_DragPoint".}
-proc ImPlot_DragLineX*(id: cint; x: ptr cdouble; col: ImVec4; thickness: cfloat; flags: ImPlotDragToolFlags; out_clicked: ptr bool; out_hovered: ptr bool; held: ptr bool): bool {.cdecl, importc: "ImPlot_DragLineX".}
-proc ImPlot_DragLineY*(id: cint; y: ptr cdouble; col: ImVec4; thickness: cfloat; flags: ImPlotDragToolFlags; out_clicked: ptr bool; out_hovered: ptr bool; held: ptr bool): bool {.cdecl, importc: "ImPlot_DragLineY".}
-proc ImPlot_DragRect*(id: cint; x1: ptr cdouble; y1: ptr cdouble; x2: ptr cdouble; y2: ptr cdouble; col: ImVec4; flags: ImPlotDragToolFlags; out_clicked: ptr bool; out_hovered: ptr bool; held: ptr bool): bool {.cdecl, importc: "ImPlot_DragRect".}
-proc ImPlot_Annotation_Bool*(x: cdouble; y: cdouble; col: ImVec4; pix_offset: ImVec2; clamp: bool; round: bool): void {.cdecl, importc: "ImPlot_Annotation_Bool".}
-proc ImPlot_Annotation_Str*(x: cdouble; y: cdouble; col: ImVec4; pix_offset: ImVec2; clamp: bool; fmt: cstring): void {.cdecl, varargs, importc: "ImPlot_Annotation_Str".}
-proc ImPlot_AnnotationV*(x: cdouble; y: cdouble; col: ImVec4; pix_offset: ImVec2; clamp: bool; fmt: cstring): void {.cdecl, varargs, importc: "ImPlot_AnnotationV".}
-proc ImPlot_TagX_Bool*(x: cdouble; col: ImVec4; round: bool): void {.cdecl, importc: "ImPlot_TagX_Bool".}
-proc ImPlot_TagX_Str*(x: cdouble; col: ImVec4; fmt: cstring): void {.cdecl, varargs, importc: "ImPlot_TagX_Str".}
-proc ImPlot_TagXV*(x: cdouble; col: ImVec4; fmt: cstring): void {.cdecl, varargs, importc: "ImPlot_TagXV".}
-proc ImPlot_TagY_Bool*(y: cdouble; col: ImVec4; round: bool): void {.cdecl, importc: "ImPlot_TagY_Bool".}
-proc ImPlot_TagY_Str*(y: cdouble; col: ImVec4; fmt: cstring): void {.cdecl, varargs, importc: "ImPlot_TagY_Str".}
-proc ImPlot_TagYV*(y: cdouble; col: ImVec4; fmt: cstring): void {.cdecl, varargs, importc: "ImPlot_TagYV".}
+proc ImPlot_DragPoint*(id: cint; x: ptr cdouble; y: ptr cdouble; col: ImVec4_c; size: cfloat; flags: ImPlotDragToolFlags; out_clicked: ptr bool; out_hovered: ptr bool; out_held: ptr bool): bool {.cdecl, importc: "ImPlot_DragPoint".}
+proc ImPlot_DragLineX*(id: cint; x: ptr cdouble; col: ImVec4_c; thickness: cfloat; flags: ImPlotDragToolFlags; out_clicked: ptr bool; out_hovered: ptr bool; out_held: ptr bool): bool {.cdecl, importc: "ImPlot_DragLineX".}
+proc ImPlot_DragLineY*(id: cint; y: ptr cdouble; col: ImVec4_c; thickness: cfloat; flags: ImPlotDragToolFlags; out_clicked: ptr bool; out_hovered: ptr bool; out_held: ptr bool): bool {.cdecl, importc: "ImPlot_DragLineY".}
+proc ImPlot_DragRect*(id: cint; x1: ptr cdouble; y1: ptr cdouble; x2: ptr cdouble; y2: ptr cdouble; col: ImVec4_c; flags: ImPlotDragToolFlags; out_clicked: ptr bool; out_hovered: ptr bool; out_held: ptr bool): bool {.cdecl, importc: "ImPlot_DragRect".}
+proc ImPlot_Annotation_Bool*(x: cdouble; y: cdouble; col: ImVec4_c; pix_offset: ImVec2_c; clamp: bool; round: bool): void {.cdecl, importc: "ImPlot_Annotation_Bool".}
+proc ImPlot_Annotation_Str*(x: cdouble; y: cdouble; col: ImVec4_c; pix_offset: ImVec2_c; clamp: bool; fmt: cstring): void {.cdecl, varargs, importc: "ImPlot_Annotation_Str".}
+proc ImPlot_AnnotationV*(x: cdouble; y: cdouble; col: ImVec4_c; pix_offset: ImVec2_c; clamp: bool; fmt: cstring): void {.cdecl, varargs, importc: "ImPlot_AnnotationV".}
+proc ImPlot_TagX_Bool*(x: cdouble; col: ImVec4_c; round: bool): void {.cdecl, importc: "ImPlot_TagX_Bool".}
+proc ImPlot_TagX_Str*(x: cdouble; col: ImVec4_c; fmt: cstring): void {.cdecl, varargs, importc: "ImPlot_TagX_Str".}
+proc ImPlot_TagXV*(x: cdouble; col: ImVec4_c; fmt: cstring): void {.cdecl, varargs, importc: "ImPlot_TagXV".}
+proc ImPlot_TagY_Bool*(y: cdouble; col: ImVec4_c; round: bool): void {.cdecl, importc: "ImPlot_TagY_Bool".}
+proc ImPlot_TagY_Str*(y: cdouble; col: ImVec4_c; fmt: cstring): void {.cdecl, varargs, importc: "ImPlot_TagY_Str".}
+proc ImPlot_TagYV*(y: cdouble; col: ImVec4_c; fmt: cstring): void {.cdecl, varargs, importc: "ImPlot_TagYV".}
 proc ImPlot_SetAxis*(axis: ImAxis): void {.cdecl, importc: "ImPlot_SetAxis".}
 proc ImPlot_SetAxes*(x_axis: ImAxis; y_axis: ImAxis): void {.cdecl, importc: "ImPlot_SetAxes".}
-proc ImPlot_PixelsToPlot_Vec2*(pOut: ptr ImPlotPoint; pix: ImVec2; x_axis: ImAxis; y_axis: ImAxis): void {.cdecl, importc: "ImPlot_PixelsToPlot_Vec2".}
-proc ImPlot_PixelsToPlot_Float*(pOut: ptr ImPlotPoint; x: cfloat; y: cfloat; x_axis: ImAxis; y_axis: ImAxis): void {.cdecl, importc: "ImPlot_PixelsToPlot_Float".}
-proc ImPlot_PlotToPixels_PlotPoInt*(pOut: ptr ImVec2; plt: ImPlotPoint; x_axis: ImAxis; y_axis: ImAxis): void {.cdecl, importc: "ImPlot_PlotToPixels_PlotPoInt".}
-proc ImPlot_PlotToPixels_double*(pOut: ptr ImVec2; x: cdouble; y: cdouble; x_axis: ImAxis; y_axis: ImAxis): void {.cdecl, importc: "ImPlot_PlotToPixels_double".}
-proc ImPlot_GetPlotPos*(pOut: ptr ImVec2): void {.cdecl, importc: "ImPlot_GetPlotPos".}
-proc ImPlot_GetPlotSize*(pOut: ptr ImVec2): void {.cdecl, importc: "ImPlot_GetPlotSize".}
-proc ImPlot_GetPlotMousePos*(pOut: ptr ImPlotPoint; x_axis: ImAxis; y_axis: ImAxis): void {.cdecl, importc: "ImPlot_GetPlotMousePos".}
-proc ImPlot_GetPlotLimits*(pOut: ptr ImPlotRect; x_axis: ImAxis; y_axis: ImAxis): void {.cdecl, importc: "ImPlot_GetPlotLimits".}
+proc ImPlot_PixelsToPlot_Vec2*(pix: ImVec2_c; x_axis: ImAxis; y_axis: ImAxis): ImPlotPoint_c {.cdecl, importc: "ImPlot_PixelsToPlot_Vec2".}
+proc ImPlot_PixelsToPlot_Float*(x: cfloat; y: cfloat; x_axis: ImAxis; y_axis: ImAxis): ImPlotPoint_c {.cdecl, importc: "ImPlot_PixelsToPlot_Float".}
+proc ImPlot_PlotToPixels_PlotPoInt*(plt: ImPlotPoint_c; x_axis: ImAxis; y_axis: ImAxis): ImVec2_c {.cdecl, importc: "ImPlot_PlotToPixels_PlotPoInt".}
+proc ImPlot_PlotToPixels_double*(x: cdouble; y: cdouble; x_axis: ImAxis; y_axis: ImAxis): ImVec2_c {.cdecl, importc: "ImPlot_PlotToPixels_double".}
+proc ImPlot_GetPlotPos*(): ImVec2_c {.cdecl, importc: "ImPlot_GetPlotPos".}
+proc ImPlot_GetPlotSize*(): ImVec2_c {.cdecl, importc: "ImPlot_GetPlotSize".}
+proc ImPlot_GetPlotMousePos*(x_axis: ImAxis; y_axis: ImAxis): ImPlotPoint_c {.cdecl, importc: "ImPlot_GetPlotMousePos".}
+proc ImPlot_GetPlotLimits*(x_axis: ImAxis; y_axis: ImAxis): ImPlotRect_c {.cdecl, importc: "ImPlot_GetPlotLimits".}
 proc ImPlot_IsPlotHovered*(): bool {.cdecl, importc: "ImPlot_IsPlotHovered".}
 proc ImPlot_IsAxisHovered*(axis: ImAxis): bool {.cdecl, importc: "ImPlot_IsAxisHovered".}
 proc ImPlot_IsSubplotsHovered*(): bool {.cdecl, importc: "ImPlot_IsSubplotsHovered".}
 proc ImPlot_IsPlotSelected*(): bool {.cdecl, importc: "ImPlot_IsPlotSelected".}
-proc ImPlot_GetPlotSelection*(pOut: ptr ImPlotRect; x_axis: ImAxis; y_axis: ImAxis): void {.cdecl, importc: "ImPlot_GetPlotSelection".}
+proc ImPlot_GetPlotSelection*(x_axis: ImAxis; y_axis: ImAxis): ImPlotRect_c {.cdecl, importc: "ImPlot_GetPlotSelection".}
 proc ImPlot_CancelPlotSelection*(): void {.cdecl, importc: "ImPlot_CancelPlotSelection".}
 proc ImPlot_HideNextItem*(hidden: bool; cond: ImPlotCond): void {.cdecl, importc: "ImPlot_HideNextItem".}
 proc ImPlot_BeginAlignedPlots*(group_id: cstring; vertical: bool): bool {.cdecl, importc: "ImPlot_BeginAlignedPlots".}
@@ -6624,17 +6714,17 @@ proc ImPlot_StyleColorsClassic*(dst: ptr ImPlotStyle): void {.cdecl, importc: "I
 proc ImPlot_StyleColorsDark*(dst: ptr ImPlotStyle): void {.cdecl, importc: "ImPlot_StyleColorsDark".}
 proc ImPlot_StyleColorsLight*(dst: ptr ImPlotStyle): void {.cdecl, importc: "ImPlot_StyleColorsLight".}
 proc ImPlot_PushStyleColor_U32*(idx: ImPlotCol; col: ImU32): void {.cdecl, importc: "ImPlot_PushStyleColor_U32".}
-proc ImPlot_PushStyleColor_Vec4*(idx: ImPlotCol; col: ImVec4): void {.cdecl, importc: "ImPlot_PushStyleColor_Vec4".}
+proc ImPlot_PushStyleColor_Vec4*(idx: ImPlotCol; col: ImVec4_c): void {.cdecl, importc: "ImPlot_PushStyleColor_Vec4".}
 proc ImPlot_PopStyleColor*(count: cint): void {.cdecl, importc: "ImPlot_PopStyleColor".}
 proc ImPlot_PushStyleVar_Float*(idx: ImPlotStyleVar; val: cfloat): void {.cdecl, importc: "ImPlot_PushStyleVar_Float".}
 proc ImPlot_PushStyleVar_Int*(idx: ImPlotStyleVar; val: cint): void {.cdecl, importc: "ImPlot_PushStyleVar_Int".}
-proc ImPlot_PushStyleVar_Vec2*(idx: ImPlotStyleVar; val: ImVec2): void {.cdecl, importc: "ImPlot_PushStyleVar_Vec2".}
+proc ImPlot_PushStyleVar_Vec2*(idx: ImPlotStyleVar; val: ImVec2_c): void {.cdecl, importc: "ImPlot_PushStyleVar_Vec2".}
 proc ImPlot_PopStyleVar*(count: cint): void {.cdecl, importc: "ImPlot_PopStyleVar".}
-proc ImPlot_SetNextLineStyle*(col: ImVec4; weight: cfloat): void {.cdecl, importc: "ImPlot_SetNextLineStyle".}
-proc ImPlot_SetNextFillStyle*(col: ImVec4; alpha_mod: cfloat): void {.cdecl, importc: "ImPlot_SetNextFillStyle".}
-proc ImPlot_SetNextMarkerStyle*(marker: ImPlotMarker; size: cfloat; fill: ImVec4; weight: cfloat; outline: ImVec4): void {.cdecl, importc: "ImPlot_SetNextMarkerStyle".}
-proc ImPlot_SetNextErrorBarStyle*(col: ImVec4; size: cfloat; weight: cfloat): void {.cdecl, importc: "ImPlot_SetNextErrorBarStyle".}
-proc ImPlot_GetLastItemColor*(pOut: ptr ImVec4): void {.cdecl, importc: "ImPlot_GetLastItemColor".}
+proc ImPlot_SetNextLineStyle*(col: ImVec4_c; weight: cfloat): void {.cdecl, importc: "ImPlot_SetNextLineStyle".}
+proc ImPlot_SetNextFillStyle*(col: ImVec4_c; alpha_mod: cfloat): void {.cdecl, importc: "ImPlot_SetNextFillStyle".}
+proc ImPlot_SetNextMarkerStyle*(marker: ImPlotMarker; size: cfloat; fill: ImVec4_c; weight: cfloat; outline: ImVec4_c): void {.cdecl, importc: "ImPlot_SetNextMarkerStyle".}
+proc ImPlot_SetNextErrorBarStyle*(col: ImVec4_c; size: cfloat; weight: cfloat): void {.cdecl, importc: "ImPlot_SetNextErrorBarStyle".}
+proc ImPlot_GetLastItemColor*(): ImVec4_c {.cdecl, importc: "ImPlot_GetLastItemColor".}
 proc ImPlot_GetStyleColorName*(idx: ImPlotCol): cstring {.cdecl, importc: "ImPlot_GetStyleColorName".}
 proc ImPlot_GetMarkerName*(idx: ImPlotMarker): cstring {.cdecl, importc: "ImPlot_GetMarkerName".}
 proc ImPlot_AddColormap_Vec4Ptr*(name: cstring; cols: ptr ImVec4; size: cint; qual: bool): ImPlotColormap {.cdecl, importc: "ImPlot_AddColormap_Vec4Ptr".}
@@ -6645,18 +6735,18 @@ proc ImPlot_GetColormapIndex*(name: cstring): ImPlotColormap {.cdecl, importc: "
 proc ImPlot_PushColormap_PlotColormap*(cmap: ImPlotColormap): void {.cdecl, importc: "ImPlot_PushColormap_PlotColormap".}
 proc ImPlot_PushColormap_Str*(name: cstring): void {.cdecl, importc: "ImPlot_PushColormap_Str".}
 proc ImPlot_PopColormap*(count: cint): void {.cdecl, importc: "ImPlot_PopColormap".}
-proc ImPlot_NextColormapColor*(pOut: ptr ImVec4): void {.cdecl, importc: "ImPlot_NextColormapColor".}
+proc ImPlot_NextColormapColor*(): ImVec4_c {.cdecl, importc: "ImPlot_NextColormapColor".}
 proc ImPlot_GetColormapSize*(cmap: ImPlotColormap): cint {.cdecl, importc: "ImPlot_GetColormapSize".}
-proc ImPlot_GetColormapColor*(pOut: ptr ImVec4; idx: cint; cmap: ImPlotColormap): void {.cdecl, importc: "ImPlot_GetColormapColor".}
-proc ImPlot_SampleColormap*(pOut: ptr ImVec4; t: cfloat; cmap: ImPlotColormap): void {.cdecl, importc: "ImPlot_SampleColormap".}
-proc ImPlot_ColormapScale*(label: cstring; scale_min: cdouble; scale_max: cdouble; size: ImVec2; format: cstring; flags: ImPlotColormapScaleFlags; cmap: ImPlotColormap): void {.cdecl, importc: "ImPlot_ColormapScale".}
+proc ImPlot_GetColormapColor*(idx: cint; cmap: ImPlotColormap): ImVec4_c {.cdecl, importc: "ImPlot_GetColormapColor".}
+proc ImPlot_SampleColormap*(t: cfloat; cmap: ImPlotColormap): ImVec4_c {.cdecl, importc: "ImPlot_SampleColormap".}
+proc ImPlot_ColormapScale*(label: cstring; scale_min: cdouble; scale_max: cdouble; size: ImVec2_c; format: cstring; flags: ImPlotColormapScaleFlags; cmap: ImPlotColormap): void {.cdecl, importc: "ImPlot_ColormapScale".}
 proc ImPlot_ColormapSlider*(label: cstring; t: ptr cfloat; out_arg: ptr ImVec4; format: cstring; cmap: ImPlotColormap): bool {.cdecl, importc: "ImPlot_ColormapSlider".}
-proc ImPlot_ColormapButton*(label: cstring; size: ImVec2; cmap: ImPlotColormap): bool {.cdecl, importc: "ImPlot_ColormapButton".}
+proc ImPlot_ColormapButton*(label: cstring; size: ImVec2_c; cmap: ImPlotColormap): bool {.cdecl, importc: "ImPlot_ColormapButton".}
 proc ImPlot_BustColorCache*(plot_title_id: cstring): void {.cdecl, importc: "ImPlot_BustColorCache".}
 proc ImPlot_GetInputMap*(): ptr ImPlotInputMap {.cdecl, importc: "ImPlot_GetInputMap".}
 proc ImPlot_MapInputDefault*(dst: ptr ImPlotInputMap): void {.cdecl, importc: "ImPlot_MapInputDefault".}
 proc ImPlot_MapInputReverse*(dst: ptr ImPlotInputMap): void {.cdecl, importc: "ImPlot_MapInputReverse".}
-proc ImPlot_ItemIcon_Vec4*(col: ImVec4): void {.cdecl, importc: "ImPlot_ItemIcon_Vec4".}
+proc ImPlot_ItemIcon_Vec4*(col: ImVec4_c): void {.cdecl, importc: "ImPlot_ItemIcon_Vec4".}
 proc ImPlot_ItemIcon_U32*(col: ImU32): void {.cdecl, importc: "ImPlot_ItemIcon_U32".}
 proc ImPlot_ColormapIcon*(cmap: ImPlotColormap): void {.cdecl, importc: "ImPlot_ColormapIcon".}
 proc ImPlot_GetPlotDrawList*(): ptr ImDrawList {.cdecl, importc: "ImPlot_GetPlotDrawList".}
@@ -6784,7 +6874,7 @@ proc ImPlotTime_destroy*(self: ptr ImPlotTime): void {.cdecl, importc: "ImPlotTi
 proc ImPlotTime_ImPlotTime_time_t*(s: time_t; us: cint): ptr ImPlotTime {.cdecl, importc: "ImPlotTime_ImPlotTime_time_t".}
 proc ImPlotTime_RollOver*(self: ptr ImPlotTime): void {.cdecl, importc: "ImPlotTime_RollOver".}
 proc ImPlotTime_ToDouble*(self: ptr ImPlotTime): cdouble {.cdecl, importc: "ImPlotTime_ToDouble".}
-proc ImPlotTime_FromDouble*(pOut: ptr ImPlotTime; t: cdouble): void {.cdecl, importc: "ImPlotTime_FromDouble".}
+proc ImPlotTime_FromDouble*(t: cdouble): ImPlotTime_c {.cdecl, importc: "ImPlotTime_FromDouble".}
 proc ImPlotColormapData_ImPlotColormapData*(): ptr ImPlotColormapData {.cdecl, importc: "ImPlotColormapData_ImPlotColormapData".}
 proc ImPlotColormapData_destroy*(self: ptr ImPlotColormapData): void {.cdecl, importc: "ImPlotColormapData_destroy".}
 proc ImPlotColormapData_Append*(self: ptr ImPlotColormapData; name: cstring; keys: ptr ImU32; count: cint; qual: bool): cint {.cdecl, importc: "ImPlotColormapData_Append".}
@@ -6801,32 +6891,36 @@ proc ImPlotColormapData_GetTable*(self: ptr ImPlotColormapData; cmap: ImPlotColo
 proc ImPlotColormapData_GetTableSize*(self: ptr ImPlotColormapData; cmap: ImPlotColormap): cint {.cdecl, importc: "ImPlotColormapData_GetTableSize".}
 proc ImPlotColormapData_GetTableColor*(self: ptr ImPlotColormapData; cmap: ImPlotColormap; idx: cint): ImU32 {.cdecl, importc: "ImPlotColormapData_GetTableColor".}
 proc ImPlotColormapData_LerpTable*(self: ptr ImPlotColormapData; cmap: ImPlotColormap; t: cfloat): ImU32 {.cdecl, importc: "ImPlotColormapData_LerpTable".}
-proc ImPlotPointError_ImPlotPointError*(x: cdouble; y: cdouble; neg: cdouble; pos: cdouble): ptr ImPlotPointError {.cdecl, importc: "ImPlotPointError_ImPlotPointError".}
+proc ImPlotPointError_ImPlotPointError_Nil*(): ptr ImPlotPointError {.cdecl, importc: "ImPlotPointError_ImPlotPointError_Nil".}
 proc ImPlotPointError_destroy*(self: ptr ImPlotPointError): void {.cdecl, importc: "ImPlotPointError_destroy".}
+proc ImPlotPointError_ImPlotPointError_double*(x: cdouble; y: cdouble; neg: cdouble; pos: cdouble): ptr ImPlotPointError {.cdecl, importc: "ImPlotPointError_ImPlotPointError_double".}
 proc ImPlotAnnotation_ImPlotAnnotation*(): ptr ImPlotAnnotation {.cdecl, importc: "ImPlotAnnotation_ImPlotAnnotation".}
 proc ImPlotAnnotation_destroy*(self: ptr ImPlotAnnotation): void {.cdecl, importc: "ImPlotAnnotation_destroy".}
 proc ImPlotAnnotationCollection_ImPlotAnnotationCollection*(): ptr ImPlotAnnotationCollection {.cdecl, importc: "ImPlotAnnotationCollection_ImPlotAnnotationCollection".}
 proc ImPlotAnnotationCollection_destroy*(self: ptr ImPlotAnnotationCollection): void {.cdecl, importc: "ImPlotAnnotationCollection_destroy".}
-proc ImPlotAnnotationCollection_AppendV*(self: ptr ImPlotAnnotationCollection; pos: ImVec2; off: ImVec2; bg: ImU32; fg: ImU32; clamp: bool; fmt: cstring): void {.cdecl, varargs, importc: "ImPlotAnnotationCollection_AppendV".}
-proc ImPlotAnnotationCollection_Append*(self: ptr ImPlotAnnotationCollection; pos: ImVec2; off: ImVec2; bg: ImU32; fg: ImU32; clamp: bool; fmt: cstring): void {.cdecl, varargs, importc: "ImPlotAnnotationCollection_Append".}
+proc ImPlotAnnotationCollection_AppendV*(self: ptr ImPlotAnnotationCollection; pos: ImVec2_c; off: ImVec2_c; bg: ImU32; fg: ImU32; clamp: bool; fmt: cstring): void {.cdecl, varargs, importc: "ImPlotAnnotationCollection_AppendV".}
+proc ImPlotAnnotationCollection_Append*(self: ptr ImPlotAnnotationCollection; pos: ImVec2_c; off: ImVec2_c; bg: ImU32; fg: ImU32; clamp: bool; fmt: cstring): void {.cdecl, varargs, importc: "ImPlotAnnotationCollection_Append".}
 proc ImPlotAnnotationCollection_GetText*(self: ptr ImPlotAnnotationCollection; idx: cint): cstring {.cdecl, importc: "ImPlotAnnotationCollection_GetText".}
 proc ImPlotAnnotationCollection_Reset*(self: ptr ImPlotAnnotationCollection): void {.cdecl, importc: "ImPlotAnnotationCollection_Reset".}
+proc ImPlotTag_ImPlotTag*(): ptr ImPlotTag {.cdecl, importc: "ImPlotTag_ImPlotTag".}
+proc ImPlotTag_destroy*(self: ptr ImPlotTag): void {.cdecl, importc: "ImPlotTag_destroy".}
 proc ImPlotTagCollection_ImPlotTagCollection*(): ptr ImPlotTagCollection {.cdecl, importc: "ImPlotTagCollection_ImPlotTagCollection".}
 proc ImPlotTagCollection_destroy*(self: ptr ImPlotTagCollection): void {.cdecl, importc: "ImPlotTagCollection_destroy".}
 proc ImPlotTagCollection_AppendV*(self: ptr ImPlotTagCollection; axis: ImAxis; value: cdouble; bg: ImU32; fg: ImU32; fmt: cstring): void {.cdecl, varargs, importc: "ImPlotTagCollection_AppendV".}
 proc ImPlotTagCollection_Append*(self: ptr ImPlotTagCollection; axis: ImAxis; value: cdouble; bg: ImU32; fg: ImU32; fmt: cstring): void {.cdecl, varargs, importc: "ImPlotTagCollection_Append".}
 proc ImPlotTagCollection_GetText*(self: ptr ImPlotTagCollection; idx: cint): cstring {.cdecl, importc: "ImPlotTagCollection_GetText".}
 proc ImPlotTagCollection_Reset*(self: ptr ImPlotTagCollection): void {.cdecl, importc: "ImPlotTagCollection_Reset".}
-proc ImPlotTick_ImPlotTick*(value: cdouble; major: bool; level: cint; show_label: bool): ptr ImPlotTick {.cdecl, importc: "ImPlotTick_ImPlotTick".}
+proc ImPlotTick_ImPlotTick_Nil*(): ptr ImPlotTick {.cdecl, importc: "ImPlotTick_ImPlotTick_Nil".}
 proc ImPlotTick_destroy*(self: ptr ImPlotTick): void {.cdecl, importc: "ImPlotTick_destroy".}
+proc ImPlotTick_ImPlotTick_double*(value: cdouble; major: bool; level: cint; show_label: bool): ptr ImPlotTick {.cdecl, importc: "ImPlotTick_ImPlotTick_double".}
 proc ImPlotTicker_ImPlotTicker*(): ptr ImPlotTicker {.cdecl, importc: "ImPlotTicker_ImPlotTicker".}
 proc ImPlotTicker_destroy*(self: ptr ImPlotTicker): void {.cdecl, importc: "ImPlotTicker_destroy".}
 proc ImPlotTicker_AddTick_doubleStr*(self: ptr ImPlotTicker; value: cdouble; major: bool; level: cint; show_label: bool; label: cstring): ptr ImPlotTick {.cdecl, importc: "ImPlotTicker_AddTick_doubleStr".}
 proc ImPlotTicker_AddTick_doublePlotFormatter*(self: ptr ImPlotTicker; value: cdouble; major: bool; level: cint; show_label: bool; formatter: ImPlotFormatter; data: pointer): ptr ImPlotTick {.cdecl, importc: "ImPlotTicker_AddTick_doublePlotFormatter".}
-proc ImPlotTicker_AddTick_PlotTick*(self: ptr ImPlotTicker; tick: ImPlotTick): ptr ImPlotTick {.cdecl, importc: "ImPlotTicker_AddTick_PlotTick".}
+proc ImPlotTicker_AddTick_PlotTick*(self: ptr ImPlotTicker; tick: ImPlotTick_c): ptr ImPlotTick {.cdecl, importc: "ImPlotTicker_AddTick_PlotTick".}
 proc ImPlotTicker_GetText_Int*(self: ptr ImPlotTicker; idx: cint): cstring {.cdecl, importc: "ImPlotTicker_GetText_Int".}
-proc ImPlotTicker_GetText_PlotTick*(self: ptr ImPlotTicker; tick: ImPlotTick): cstring {.cdecl, importc: "ImPlotTicker_GetText_PlotTick".}
-proc ImPlotTicker_OverrideSizeLate*(self: ptr ImPlotTicker; size: ImVec2): void {.cdecl, importc: "ImPlotTicker_OverrideSizeLate".}
+proc ImPlotTicker_GetText_PlotTick*(self: ptr ImPlotTicker; tick: ImPlotTick_c): cstring {.cdecl, importc: "ImPlotTicker_GetText_PlotTick".}
+proc ImPlotTicker_OverrideSizeLate*(self: ptr ImPlotTicker; size: ImVec2_c): void {.cdecl, importc: "ImPlotTicker_OverrideSizeLate".}
 proc ImPlotTicker_Reset*(self: ptr ImPlotTicker): void {.cdecl, importc: "ImPlotTicker_Reset".}
 proc ImPlotTicker_TickCount*(self: ptr ImPlotTicker): cint {.cdecl, importc: "ImPlotTicker_TickCount".}
 proc ImPlotAxis_ImPlotAxis*(): ptr ImPlotAxis {.cdecl, importc: "ImPlotAxis_ImPlotAxis".}
@@ -6835,7 +6929,7 @@ proc ImPlotAxis_Reset*(self: ptr ImPlotAxis): void {.cdecl, importc: "ImPlotAxis
 proc ImPlotAxis_SetMin*(self: ptr ImPlotAxis; internal_min: cdouble; force: bool): bool {.cdecl, importc: "ImPlotAxis_SetMin".}
 proc ImPlotAxis_SetMax*(self: ptr ImPlotAxis; internal_max: cdouble; force: bool): bool {.cdecl, importc: "ImPlotAxis_SetMax".}
 proc ImPlotAxis_SetRange_double*(self: ptr ImPlotAxis; v1: cdouble; v2: cdouble): void {.cdecl, importc: "ImPlotAxis_SetRange_double".}
-proc ImPlotAxis_SetRange_PlotRange*(self: ptr ImPlotAxis; range: ImPlotRange): void {.cdecl, importc: "ImPlotAxis_SetRange_PlotRange".}
+proc ImPlotAxis_SetRange_PlotRange*(self: ptr ImPlotAxis; range: ImPlotRange_c): void {.cdecl, importc: "ImPlotAxis_SetRange_PlotRange".}
 proc ImPlotAxis_SetAspect*(self: ptr ImPlotAxis; unit_per_pix: cdouble): void {.cdecl, importc: "ImPlotAxis_SetAspect".}
 proc ImPlotAxis_PixelSize*(self: ptr ImPlotAxis): cfloat {.cdecl, importc: "ImPlotAxis_PixelSize".}
 proc ImPlotAxis_GetAspect*(self: ptr ImPlotAxis): cdouble {.cdecl, importc: "ImPlotAxis_GetAspect".}
@@ -6905,7 +6999,7 @@ proc ImPlotPlot_YAxis_const*(self: ptr ImPlotPlot; i: cint): ptr ImPlotAxis {.cd
 proc ImPlotPlot_EnabledAxesX*(self: ptr ImPlotPlot): cint {.cdecl, importc: "ImPlotPlot_EnabledAxesX".}
 proc ImPlotPlot_EnabledAxesY*(self: ptr ImPlotPlot): cint {.cdecl, importc: "ImPlotPlot_EnabledAxesY".}
 proc ImPlotPlot_SetAxisLabel*(self: ptr ImPlotPlot; axis: ptr ImPlotAxis; label: cstring): void {.cdecl, importc: "ImPlotPlot_SetAxisLabel".}
-proc ImPlotPlot_GetAxisLabel*(self: ptr ImPlotPlot; axis: ImPlotAxis): cstring {.cdecl, importc: "ImPlotPlot_GetAxisLabel".}
+proc ImPlotPlot_GetAxisLabel*(self: ptr ImPlotPlot; axis: ImPlotAxis_c): cstring {.cdecl, importc: "ImPlotPlot_GetAxisLabel".}
 proc ImPlotSubplot_ImPlotSubplot*(): ptr ImPlotSubplot {.cdecl, importc: "ImPlotSubplot_ImPlotSubplot".}
 proc ImPlotSubplot_destroy*(self: ptr ImPlotSubplot): void {.cdecl, importc: "ImPlotSubplot_destroy".}
 proc ImPlotNextPlotData_ImPlotNextPlotData*(): ptr ImPlotNextPlotData {.cdecl, importc: "ImPlotNextPlotData_ImPlotNextPlotData".}
@@ -6938,39 +7032,39 @@ proc ImPlot_AnyAxesHovered*(axes: ptr ImPlotAxis; count: cint): bool {.cdecl, im
 proc ImPlot_FitThisFrame*(): bool {.cdecl, importc: "ImPlot_FitThisFrame".}
 proc ImPlot_FitPointX*(x: cdouble): void {.cdecl, importc: "ImPlot_FitPointX".}
 proc ImPlot_FitPointY*(y: cdouble): void {.cdecl, importc: "ImPlot_FitPointY".}
-proc ImPlot_FitPoint*(p: ImPlotPoint): void {.cdecl, importc: "ImPlot_FitPoint".}
-proc ImPlot_RangesOverlap*(r1: ImPlotRange; r2: ImPlotRange): bool {.cdecl, importc: "ImPlot_RangesOverlap".}
+proc ImPlot_FitPoint*(p: ImPlotPoint_c): void {.cdecl, importc: "ImPlot_FitPoint".}
+proc ImPlot_RangesOverlap*(r1: ImPlotRange_c; r2: ImPlotRange_c): bool {.cdecl, importc: "ImPlot_RangesOverlap".}
 proc ImPlot_ShowAxisContextMenu*(axis: ptr ImPlotAxis; equal_axis: ptr ImPlotAxis; time_allowed: bool): void {.cdecl, importc: "ImPlot_ShowAxisContextMenu".}
-proc ImPlot_GetLocationPos*(pOut: ptr ImVec2; outer_rect: ImRect; inner_size: ImVec2; location: ImPlotLocation; pad: ImVec2): void {.cdecl, importc: "ImPlot_GetLocationPos".}
-proc ImPlot_CalcLegendSize*(pOut: ptr ImVec2; items: ptr ImPlotItemGroup; pad: ImVec2; spacing: ImVec2; vertical: bool): void {.cdecl, importc: "ImPlot_CalcLegendSize".}
-proc ImPlot_ClampLegendRect*(legend_rect: ptr ImRect; outer_rect: ImRect; pad: ImVec2): bool {.cdecl, importc: "ImPlot_ClampLegendRect".}
-proc ImPlot_ShowLegendEntries*(items: ptr ImPlotItemGroup; legend_bb: ImRect; interactable: bool; pad: ImVec2; spacing: ImVec2; vertical: bool; DrawList: ptr ImDrawList): bool {.cdecl, importc: "ImPlot_ShowLegendEntries".}
-proc ImPlot_ShowAltLegend*(title_id: cstring; vertical: bool; size: ImVec2; interactable: bool): void {.cdecl, importc: "ImPlot_ShowAltLegend".}
+proc ImPlot_GetLocationPos*(outer_rect: ImRect_c; inner_size: ImVec2_c; location: ImPlotLocation; pad: ImVec2_c): ImVec2_c {.cdecl, importc: "ImPlot_GetLocationPos".}
+proc ImPlot_CalcLegendSize*(items: ptr ImPlotItemGroup; pad: ImVec2_c; spacing: ImVec2_c; vertical: bool): ImVec2_c {.cdecl, importc: "ImPlot_CalcLegendSize".}
+proc ImPlot_ClampLegendRect*(legend_rect: ptr ImRect; outer_rect: ImRect_c; pad: ImVec2_c): bool {.cdecl, importc: "ImPlot_ClampLegendRect".}
+proc ImPlot_ShowLegendEntries*(items: ptr ImPlotItemGroup; legend_bb: ImRect_c; interactable: bool; pad: ImVec2_c; spacing: ImVec2_c; vertical: bool; DrawList: ptr ImDrawList): bool {.cdecl, importc: "ImPlot_ShowLegendEntries".}
+proc ImPlot_ShowAltLegend*(title_id: cstring; vertical: bool; size: ImVec2_c; interactable: bool): void {.cdecl, importc: "ImPlot_ShowAltLegend".}
 proc ImPlot_ShowLegendContextMenu*(legend: ptr ImPlotLegend; visible: bool): bool {.cdecl, importc: "ImPlot_ShowLegendContextMenu".}
-proc ImPlot_LabelAxisValue*(axis: ImPlotAxis; value: cdouble; buff: cstring; size: cint; round: bool): void {.cdecl, importc: "ImPlot_LabelAxisValue".}
+proc ImPlot_LabelAxisValue*(axis: ImPlotAxis_c; value: cdouble; buff: cstring; size: cint; round: bool): void {.cdecl, importc: "ImPlot_LabelAxisValue".}
 proc ImPlot_GetItemData*(): ptr ImPlotNextItemData {.cdecl, importc: "ImPlot_GetItemData".}
-proc ImPlot_IsColorAuto_Vec4*(col: ImVec4): bool {.cdecl, importc: "ImPlot_IsColorAuto_Vec4".}
+proc ImPlot_IsColorAuto_Vec4*(col: ImVec4_c): bool {.cdecl, importc: "ImPlot_IsColorAuto_Vec4".}
 proc ImPlot_IsColorAuto_PlotCol*(idx: ImPlotCol): bool {.cdecl, importc: "ImPlot_IsColorAuto_PlotCol".}
-proc ImPlot_GetAutoColor*(pOut: ptr ImVec4; idx: ImPlotCol): void {.cdecl, importc: "ImPlot_GetAutoColor".}
-proc ImPlot_GetStyleColorVec4*(pOut: ptr ImVec4; idx: ImPlotCol): void {.cdecl, importc: "ImPlot_GetStyleColorVec4".}
+proc ImPlot_GetAutoColor*(idx: ImPlotCol): ImVec4_c {.cdecl, importc: "ImPlot_GetAutoColor".}
+proc ImPlot_GetStyleColorVec4*(idx: ImPlotCol): ImVec4_c {.cdecl, importc: "ImPlot_GetStyleColorVec4".}
 proc ImPlot_GetStyleColorU32*(idx: ImPlotCol): ImU32 {.cdecl, importc: "ImPlot_GetStyleColorU32".}
-proc ImPlot_AddTextVertical*(DrawList: ptr ImDrawList; pos: ImVec2; col: ImU32; text_begin: cstring; text_end: cstring): void {.cdecl, importc: "ImPlot_AddTextVertical".}
-proc ImPlot_AddTextCentered*(DrawList: ptr ImDrawList; top_center: ImVec2; col: ImU32; text_begin: cstring; text_end: cstring): void {.cdecl, importc: "ImPlot_AddTextCentered".}
-proc ImPlot_CalcTextSizeVertical*(pOut: ptr ImVec2; text: cstring): void {.cdecl, importc: "ImPlot_CalcTextSizeVertical".}
-proc ImPlot_CalcTextColor_Vec4*(bg: ImVec4): ImU32 {.cdecl, importc: "ImPlot_CalcTextColor_Vec4".}
+proc ImPlot_AddTextVertical*(DrawList: ptr ImDrawList; pos: ImVec2_c; col: ImU32; text_begin: cstring; text_end: cstring): void {.cdecl, importc: "ImPlot_AddTextVertical".}
+proc ImPlot_AddTextCentered*(DrawList: ptr ImDrawList; top_center: ImVec2_c; col: ImU32; text_begin: cstring; text_end: cstring): void {.cdecl, importc: "ImPlot_AddTextCentered".}
+proc ImPlot_CalcTextSizeVertical*(text: cstring): ImVec2_c {.cdecl, importc: "ImPlot_CalcTextSizeVertical".}
+proc ImPlot_CalcTextColor_Vec4*(bg: ImVec4_c): ImU32 {.cdecl, importc: "ImPlot_CalcTextColor_Vec4".}
 proc ImPlot_CalcTextColor_U32*(bg: ImU32): ImU32 {.cdecl, importc: "ImPlot_CalcTextColor_U32".}
 proc ImPlot_CalcHoverColor*(col: ImU32): ImU32 {.cdecl, importc: "ImPlot_CalcHoverColor".}
-proc ImPlot_ClampLabelPos*(pOut: ptr ImVec2; pos: ImVec2; size: ImVec2; Min: ImVec2; Max: ImVec2): void {.cdecl, importc: "ImPlot_ClampLabelPos".}
+proc ImPlot_ClampLabelPos*(pos: ImVec2_c; size: ImVec2_c; Min: ImVec2_c; Max: ImVec2_c): ImVec2_c {.cdecl, importc: "ImPlot_ClampLabelPos".}
 proc ImPlot_GetColormapColorU32*(idx: cint; cmap: ImPlotColormap): ImU32 {.cdecl, importc: "ImPlot_GetColormapColorU32".}
 proc ImPlot_NextColormapColorU32*(): ImU32 {.cdecl, importc: "ImPlot_NextColormapColorU32".}
 proc ImPlot_SampleColormapU32*(t: cfloat; cmap: ImPlotColormap): ImU32 {.cdecl, importc: "ImPlot_SampleColormapU32".}
-proc ImPlot_RenderColorBar*(colors: ptr ImU32; size: cint; DrawList: ptr ImDrawList; bounds: ImRect; vert: bool; reversed: bool; continuous: bool): void {.cdecl, importc: "ImPlot_RenderColorBar".}
+proc ImPlot_RenderColorBar*(colors: ptr ImU32; size: cint; DrawList: ptr ImDrawList; bounds: ImRect_c; vert: bool; reversed: bool; continuous: bool): void {.cdecl, importc: "ImPlot_RenderColorBar".}
 proc ImPlot_NiceNum*(x: cdouble; round: bool): cdouble {.cdecl, importc: "ImPlot_NiceNum".}
 proc ImPlot_OrderOfMagnitude*(val: cdouble): cint {.cdecl, importc: "ImPlot_OrderOfMagnitude".}
 proc ImPlot_OrderToPrecision*(order: cint): cint {.cdecl, importc: "ImPlot_OrderToPrecision".}
 proc ImPlot_Precision*(val: cdouble): cint {.cdecl, importc: "ImPlot_Precision".}
 proc ImPlot_RoundTo*(val: cdouble; prec: cint): cdouble {.cdecl, importc: "ImPlot_RoundTo".}
-proc ImPlot_Intersection*(pOut: ptr ImVec2; a1: ImVec2; a2: ImVec2; b1: ImVec2; b2: ImVec2): void {.cdecl, importc: "ImPlot_Intersection".}
+proc ImPlot_Intersection*(a1: ImVec2_c; a2: ImVec2_c; b1: ImVec2_c; b2: ImVec2_c): ImVec2_c {.cdecl, importc: "ImPlot_Intersection".}
 proc ImPlot_FillRange_Vector_Float_Ptr*(buffer: ptr ImVector_float; n: cint; vmin: cfloat; vmax: cfloat): void {.cdecl, importc: "ImPlot_FillRange_Vector_Float_Ptr".}
 proc ImPlot_FillRange_Vector_double_Ptr*(buffer: ptr ImVector_double; n: cint; vmin: cdouble; vmax: cdouble): void {.cdecl, importc: "ImPlot_FillRange_Vector_double_Ptr".}
 proc ImPlot_FillRange_Vector_S8_Ptr*(buffer: ptr ImVector_ImS8; n: cint; vmin: ImS8; vmax: ImS8): void {.cdecl, importc: "ImPlot_FillRange_Vector_S8_Ptr".}
@@ -6981,37 +7075,37 @@ proc ImPlot_FillRange_Vector_S32_Ptr*(buffer: ptr ImVector_ImS32; n: cint; vmin:
 proc ImPlot_FillRange_Vector_U32_Ptr*(buffer: ptr ImVector_ImU32; n: cint; vmin: ImU32; vmax: ImU32): void {.cdecl, importc: "ImPlot_FillRange_Vector_U32_Ptr".}
 proc ImPlot_FillRange_Vector_S64_Ptr*(buffer: ptr ImVector_ImS64; n: cint; vmin: ImS64; vmax: ImS64): void {.cdecl, importc: "ImPlot_FillRange_Vector_S64_Ptr".}
 proc ImPlot_FillRange_Vector_U64_Ptr*(buffer: ptr ImVector_ImU64; n: cint; vmin: ImU64; vmax: ImU64): void {.cdecl, importc: "ImPlot_FillRange_Vector_U64_Ptr".}
-proc ImPlot_CalculateBins_FloatPtr*(values: ptr cfloat; count: cint; meth: ImPlotBin; range: ImPlotRange; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_FloatPtr".}
-proc ImPlot_CalculateBins_doublePtr*(values: ptr cdouble; count: cint; meth: ImPlotBin; range: ImPlotRange; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_doublePtr".}
-proc ImPlot_CalculateBins_S8Ptr*(values: cstring; count: cint; meth: ImPlotBin; range: ImPlotRange; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_S8Ptr".}
-proc ImPlot_CalculateBins_U8Ptr*(values: ptr ImU8; count: cint; meth: ImPlotBin; range: ImPlotRange; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_U8Ptr".}
-proc ImPlot_CalculateBins_S16Ptr*(values: ptr ImS16; count: cint; meth: ImPlotBin; range: ImPlotRange; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_S16Ptr".}
-proc ImPlot_CalculateBins_U16Ptr*(values: ptr ImU16; count: cint; meth: ImPlotBin; range: ImPlotRange; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_U16Ptr".}
-proc ImPlot_CalculateBins_S32Ptr*(values: ptr ImS32; count: cint; meth: ImPlotBin; range: ImPlotRange; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_S32Ptr".}
-proc ImPlot_CalculateBins_U32Ptr*(values: ptr ImU32; count: cint; meth: ImPlotBin; range: ImPlotRange; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_U32Ptr".}
-proc ImPlot_CalculateBins_S64Ptr*(values: ptr ImS64; count: cint; meth: ImPlotBin; range: ImPlotRange; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_S64Ptr".}
-proc ImPlot_CalculateBins_U64Ptr*(values: ptr ImU64; count: cint; meth: ImPlotBin; range: ImPlotRange; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_U64Ptr".}
+proc ImPlot_CalculateBins_FloatPtr*(values: ptr cfloat; count: cint; meth: ImPlotBin; range: ImPlotRange_c; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_FloatPtr".}
+proc ImPlot_CalculateBins_doublePtr*(values: ptr cdouble; count: cint; meth: ImPlotBin; range: ImPlotRange_c; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_doublePtr".}
+proc ImPlot_CalculateBins_S8Ptr*(values: cstring; count: cint; meth: ImPlotBin; range: ImPlotRange_c; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_S8Ptr".}
+proc ImPlot_CalculateBins_U8Ptr*(values: ptr ImU8; count: cint; meth: ImPlotBin; range: ImPlotRange_c; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_U8Ptr".}
+proc ImPlot_CalculateBins_S16Ptr*(values: ptr ImS16; count: cint; meth: ImPlotBin; range: ImPlotRange_c; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_S16Ptr".}
+proc ImPlot_CalculateBins_U16Ptr*(values: ptr ImU16; count: cint; meth: ImPlotBin; range: ImPlotRange_c; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_U16Ptr".}
+proc ImPlot_CalculateBins_S32Ptr*(values: ptr ImS32; count: cint; meth: ImPlotBin; range: ImPlotRange_c; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_S32Ptr".}
+proc ImPlot_CalculateBins_U32Ptr*(values: ptr ImU32; count: cint; meth: ImPlotBin; range: ImPlotRange_c; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_U32Ptr".}
+proc ImPlot_CalculateBins_S64Ptr*(values: ptr ImS64; count: cint; meth: ImPlotBin; range: ImPlotRange_c; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_S64Ptr".}
+proc ImPlot_CalculateBins_U64Ptr*(values: ptr ImU64; count: cint; meth: ImPlotBin; range: ImPlotRange_c; bins_out: ptr cint; width_out: ptr cdouble): void {.cdecl, importc: "ImPlot_CalculateBins_U64Ptr".}
 proc ImPlot_IsLeapYear*(year: cint): bool {.cdecl, importc: "ImPlot_IsLeapYear".}
 proc ImPlot_GetDaysInMonth*(year: cint; month: cint): cint {.cdecl, importc: "ImPlot_GetDaysInMonth".}
-proc ImPlot_MkGmtTime*(pOut: ptr ImPlotTime; ptm: ptr struct_tm): void {.cdecl, importc: "ImPlot_MkGmtTime".}
-proc ImPlot_GetGmtTime*(t: ImPlotTime; ptm: ptr tm): ptr tm {.cdecl, importc: "ImPlot_GetGmtTime".}
-proc ImPlot_MkLocTime*(pOut: ptr ImPlotTime; ptm: ptr struct_tm): void {.cdecl, importc: "ImPlot_MkLocTime".}
-proc ImPlot_GetLocTime*(t: ImPlotTime; ptm: ptr tm): ptr tm {.cdecl, importc: "ImPlot_GetLocTime".}
-proc ImPlot_MkTime*(pOut: ptr ImPlotTime; ptm: ptr struct_tm): void {.cdecl, importc: "ImPlot_MkTime".}
-proc ImPlot_GetTime*(t: ImPlotTime; ptm: ptr tm): ptr tm {.cdecl, importc: "ImPlot_GetTime".}
-proc ImPlot_MakeTime*(pOut: ptr ImPlotTime; year: cint; month: cint; day: cint; hour: cint; min: cint; sec: cint; us: cint): void {.cdecl, importc: "ImPlot_MakeTime".}
-proc ImPlot_GetYear*(t: ImPlotTime): cint {.cdecl, importc: "ImPlot_GetYear".}
-proc ImPlot_GetMonth*(t: ImPlotTime): cint {.cdecl, importc: "ImPlot_GetMonth".}
-proc ImPlot_AddTime*(pOut: ptr ImPlotTime; t: ImPlotTime; unit: ImPlotTimeUnit; count: cint): void {.cdecl, importc: "ImPlot_AddTime".}
-proc ImPlot_FloorTime*(pOut: ptr ImPlotTime; t: ImPlotTime; unit: ImPlotTimeUnit): void {.cdecl, importc: "ImPlot_FloorTime".}
-proc ImPlot_CeilTime*(pOut: ptr ImPlotTime; t: ImPlotTime; unit: ImPlotTimeUnit): void {.cdecl, importc: "ImPlot_CeilTime".}
-proc ImPlot_RoundTime*(pOut: ptr ImPlotTime; t: ImPlotTime; unit: ImPlotTimeUnit): void {.cdecl, importc: "ImPlot_RoundTime".}
-proc ImPlot_CombineDateTime*(pOut: ptr ImPlotTime; date_part: ImPlotTime; time_part: ImPlotTime): void {.cdecl, importc: "ImPlot_CombineDateTime".}
-proc ImPlot_Now*(pOut: ptr ImPlotTime): void {.cdecl, importc: "ImPlot_Now".}
-proc ImPlot_Today*(pOut: ptr ImPlotTime): void {.cdecl, importc: "ImPlot_Today".}
-proc ImPlot_FormatTime*(t: ImPlotTime; buffer: cstring; size: cint; fmt: ImPlotTimeFmt; use_24_hr_clk: bool): cint {.cdecl, importc: "ImPlot_FormatTime".}
-proc ImPlot_FormatDate*(t: ImPlotTime; buffer: cstring; size: cint; fmt: ImPlotDateFmt; use_iso_8601: bool): cint {.cdecl, importc: "ImPlot_FormatDate".}
-proc ImPlot_FormatDateTime*(t: ImPlotTime; buffer: cstring; size: cint; fmt: ImPlotDateTimeSpec): cint {.cdecl, importc: "ImPlot_FormatDateTime".}
+proc ImPlot_MkGmtTime*(ptm: ptr struct_tm): ImPlotTime_c {.cdecl, importc: "ImPlot_MkGmtTime".}
+proc ImPlot_GetGmtTime*(t: ImPlotTime_c; ptm: ptr tm): ptr tm {.cdecl, importc: "ImPlot_GetGmtTime".}
+proc ImPlot_MkLocTime*(ptm: ptr struct_tm): ImPlotTime_c {.cdecl, importc: "ImPlot_MkLocTime".}
+proc ImPlot_GetLocTime*(t: ImPlotTime_c; ptm: ptr tm): ptr tm {.cdecl, importc: "ImPlot_GetLocTime".}
+proc ImPlot_MkTime*(ptm: ptr struct_tm): ImPlotTime_c {.cdecl, importc: "ImPlot_MkTime".}
+proc ImPlot_GetTime*(t: ImPlotTime_c; ptm: ptr tm): ptr tm {.cdecl, importc: "ImPlot_GetTime".}
+proc ImPlot_MakeTime*(year: cint; month: cint; day: cint; hour: cint; min: cint; sec: cint; us: cint): ImPlotTime_c {.cdecl, importc: "ImPlot_MakeTime".}
+proc ImPlot_GetYear*(t: ImPlotTime_c): cint {.cdecl, importc: "ImPlot_GetYear".}
+proc ImPlot_GetMonth*(t: ImPlotTime_c): cint {.cdecl, importc: "ImPlot_GetMonth".}
+proc ImPlot_AddTime*(t: ImPlotTime_c; unit: ImPlotTimeUnit; count: cint): ImPlotTime_c {.cdecl, importc: "ImPlot_AddTime".}
+proc ImPlot_FloorTime*(t: ImPlotTime_c; unit: ImPlotTimeUnit): ImPlotTime_c {.cdecl, importc: "ImPlot_FloorTime".}
+proc ImPlot_CeilTime*(t: ImPlotTime_c; unit: ImPlotTimeUnit): ImPlotTime_c {.cdecl, importc: "ImPlot_CeilTime".}
+proc ImPlot_RoundTime*(t: ImPlotTime_c; unit: ImPlotTimeUnit): ImPlotTime_c {.cdecl, importc: "ImPlot_RoundTime".}
+proc ImPlot_CombineDateTime*(date_part: ImPlotTime_c; time_part: ImPlotTime_c): ImPlotTime_c {.cdecl, importc: "ImPlot_CombineDateTime".}
+proc ImPlot_Now*(): ImPlotTime_c {.cdecl, importc: "ImPlot_Now".}
+proc ImPlot_Today*(): ImPlotTime_c {.cdecl, importc: "ImPlot_Today".}
+proc ImPlot_FormatTime*(t: ImPlotTime_c; buffer: cstring; size: cint; fmt: ImPlotTimeFmt; use_24_hr_clk: bool): cint {.cdecl, importc: "ImPlot_FormatTime".}
+proc ImPlot_FormatDate*(t: ImPlotTime_c; buffer: cstring; size: cint; fmt: ImPlotDateFmt; use_iso_8601: bool): cint {.cdecl, importc: "ImPlot_FormatDate".}
+proc ImPlot_FormatDateTime*(t: ImPlotTime_c; buffer: cstring; size: cint; fmt: ImPlotDateTimeSpec_c): cint {.cdecl, importc: "ImPlot_FormatDateTime".}
 proc ImPlot_ShowDatePicker*(id: cstring; level: ptr cint; t: ptr ImPlotTime; t1: ptr ImPlotTime; t2: ptr ImPlotTime): bool {.cdecl, importc: "ImPlot_ShowDatePicker".}
 proc ImPlot_ShowTimePicker*(id: cstring; t: ptr ImPlotTime): bool {.cdecl, importc: "ImPlot_ShowTimePicker".}
 proc ImPlot_TransformForward_Log10*(v: cdouble; noname1: pointer): cdouble {.cdecl, importc: "ImPlot_TransformForward_Log10".}
@@ -7023,42 +7117,44 @@ proc ImPlot_TransformInverse_Logit*(v: cdouble; noname1: pointer): cdouble {.cde
 proc ImPlot_Formatter_Default*(value: cdouble; buff: cstring; size: cint; data: pointer): cint {.cdecl, importc: "ImPlot_Formatter_Default".}
 proc ImPlot_Formatter_Logit*(value: cdouble; buff: cstring; size: cint; noname1: pointer): cint {.cdecl, importc: "ImPlot_Formatter_Logit".}
 proc ImPlot_Formatter_Time*(noname1: cdouble; buff: cstring; size: cint; data: pointer): cint {.cdecl, importc: "ImPlot_Formatter_Time".}
-proc ImPlot_Locator_Default*(ticker: ptr ImPlotTicker; range: ImPlotRange; pixels: cfloat; vertical: bool; formatter: ImPlotFormatter; formatter_data: pointer): void {.cdecl, importc: "ImPlot_Locator_Default".}
-proc ImPlot_Locator_Time*(ticker: ptr ImPlotTicker; range: ImPlotRange; pixels: cfloat; vertical: bool; formatter: ImPlotFormatter; formatter_data: pointer): void {.cdecl, importc: "ImPlot_Locator_Time".}
-proc ImPlot_Locator_Log10*(ticker: ptr ImPlotTicker; range: ImPlotRange; pixels: cfloat; vertical: bool; formatter: ImPlotFormatter; formatter_data: pointer): void {.cdecl, importc: "ImPlot_Locator_Log10".}
-proc ImPlot_Locator_SymLog*(ticker: ptr ImPlotTicker; range: ImPlotRange; pixels: cfloat; vertical: bool; formatter: ImPlotFormatter; formatter_data: pointer): void {.cdecl, importc: "ImPlot_Locator_SymLog".}
+proc ImPlot_Locator_Default*(ticker: ptr ImPlotTicker; range: ImPlotRange_c; pixels: cfloat; vertical: bool; formatter: ImPlotFormatter; formatter_data: pointer): void {.cdecl, importc: "ImPlot_Locator_Default".}
+proc ImPlot_Locator_Time*(ticker: ptr ImPlotTicker; range: ImPlotRange_c; pixels: cfloat; vertical: bool; formatter: ImPlotFormatter; formatter_data: pointer): void {.cdecl, importc: "ImPlot_Locator_Time".}
+proc ImPlot_Locator_Log10*(ticker: ptr ImPlotTicker; range: ImPlotRange_c; pixels: cfloat; vertical: bool; formatter: ImPlotFormatter; formatter_data: pointer): void {.cdecl, importc: "ImPlot_Locator_Log10".}
+proc ImPlot_Locator_SymLog*(ticker: ptr ImPlotTicker; range: ImPlotRange_c; pixels: cfloat; vertical: bool; formatter: ImPlotFormatter; formatter_data: pointer): void {.cdecl, importc: "ImPlot_Locator_SymLog".}
 var CUBE_VTX_COUNT*: cint
 var CUBE_IDX_COUNT*: cint
-var cube_vtx* {.importc: "cube_vtx".}: array[8'i64, ImPlot3DPoint]
+var cube_vtx* {.importc: "cube_vtx".}: array[8'i64, ImPlot3DPoint_c]
 var cube_idx* {.importc: "cube_idx".}: array[36'i64, cuint]
 var SPHERE_VTX_COUNT*: cint
 var SPHERE_IDX_COUNT*: cint
-var sphere_vtx* {.importc: "sphere_vtx".}: array[162'i64, ImPlot3DPoint]
+var sphere_vtx* {.importc: "sphere_vtx".}: array[162'i64, ImPlot3DPoint_c]
 var sphere_idx* {.importc: "sphere_idx".}: array[960'i64, cuint]
 var DUCK_VTX_COUNT*: cint
 var DUCK_IDX_COUNT*: cint
-var duck_vtx* {.importc: "duck_vtx".}: array[254'i64, ImPlot3DPoint]
+var duck_vtx* {.importc: "duck_vtx".}: array[254'i64, ImPlot3DPoint_c]
 var duck_idx* {.importc: "duck_idx".}: array[1428'i64, cuint]
 proc ImPlot3D_CreateContext*(): ptr ImPlot3DContext {.cdecl, importc: "ImPlot3D_CreateContext".}
 proc ImPlot3D_DestroyContext*(ctx: ptr ImPlot3DContext): void {.cdecl, importc: "ImPlot3D_DestroyContext".}
 proc ImPlot3D_GetCurrentContext*(): ptr ImPlot3DContext {.cdecl, importc: "ImPlot3D_GetCurrentContext".}
 proc ImPlot3D_SetCurrentContext*(ctx: ptr ImPlot3DContext): void {.cdecl, importc: "ImPlot3D_SetCurrentContext".}
-proc ImPlot3D_BeginPlot*(title_id: cstring; size: ImVec2; flags: ImPlot3DFlags): bool {.cdecl, importc: "ImPlot3D_BeginPlot".}
+proc ImPlot3D_BeginPlot*(title_id: cstring; size: ImVec2_c; flags: ImPlot3DFlags): bool {.cdecl, importc: "ImPlot3D_BeginPlot".}
 proc ImPlot3D_EndPlot*(): void {.cdecl, importc: "ImPlot3D_EndPlot".}
 proc ImPlot3D_SetupAxis*(axis: ImAxis3D; label: cstring; flags: ImPlot3DAxisFlags): void {.cdecl, importc: "ImPlot3D_SetupAxis".}
 proc ImPlot3D_SetupAxisLimits*(axis: ImAxis3D; v_min: cdouble; v_max: cdouble; cond: ImPlot3DCond): void {.cdecl, importc: "ImPlot3D_SetupAxisLimits".}
 proc ImPlot3D_SetupAxisFormat*(axis: ImAxis3D; formatter: ImPlot3DFormatter; data: pointer): void {.cdecl, importc: "ImPlot3D_SetupAxisFormat".}
 proc ImPlot3D_SetupAxisTicks_doublePtr*(axis: ImAxis3D; values: ptr cdouble; n_ticks: cint; labels: ptr UncheckedArray[cstring]; keep_default: bool): void {.cdecl, importc: "ImPlot3D_SetupAxisTicks_doublePtr".}
 proc ImPlot3D_SetupAxisTicks_double*(axis: ImAxis3D; v_min: cdouble; v_max: cdouble; n_ticks: cint; labels: ptr UncheckedArray[cstring]; keep_default: bool): void {.cdecl, importc: "ImPlot3D_SetupAxisTicks_double".}
+proc ImPlot3D_SetupAxisScale_Plot3DScale*(axis: ImAxis3D; scale: ImPlot3DScale): void {.cdecl, importc: "ImPlot3D_SetupAxisScale_Plot3DScale".}
+proc ImPlot3D_SetupAxisScale_Plot3DTransform*(axis: ImAxis3D; forward: ImPlot3DTransform; inverse: ImPlot3DTransform; data: pointer): void {.cdecl, importc: "ImPlot3D_SetupAxisScale_Plot3DTransform".}
 proc ImPlot3D_SetupAxisLimitsConstraints*(axis: ImAxis3D; v_min: cdouble; v_max: cdouble): void {.cdecl, importc: "ImPlot3D_SetupAxisLimitsConstraints".}
-proc ImPlot3D_SetupAxisZoomConstraints*(axis: ImAxis3D; z_min: cdouble; z_max: cdouble): void {.cdecl, importc: "ImPlot3D_SetupAxisZoomConstraints".}
+proc ImPlot3D_SetupAxisZoomConstraints*(axis: ImAxis3D; zoom_min: cdouble; zoom_max: cdouble): void {.cdecl, importc: "ImPlot3D_SetupAxisZoomConstraints".}
 proc ImPlot3D_SetupAxes*(x_label: cstring; y_label: cstring; z_label: cstring; x_flags: ImPlot3DAxisFlags; y_flags: ImPlot3DAxisFlags; z_flags: ImPlot3DAxisFlags): void {.cdecl, importc: "ImPlot3D_SetupAxes".}
 proc ImPlot3D_SetupAxesLimits*(x_min: cdouble; x_max: cdouble; y_min: cdouble; y_max: cdouble; z_min: cdouble; z_max: cdouble; cond: ImPlot3DCond): void {.cdecl, importc: "ImPlot3D_SetupAxesLimits".}
-proc ImPlot3D_SetupBoxRotation_Float*(elevation: cfloat; azimuth: cfloat; animate: bool; cond: ImPlot3DCond): void {.cdecl, importc: "ImPlot3D_SetupBoxRotation_Float".}
-proc ImPlot3D_SetupBoxRotation_Plot3DQuat*(rotation: ImPlot3DQuat; animate: bool; cond: ImPlot3DCond): void {.cdecl, importc: "ImPlot3D_SetupBoxRotation_Plot3DQuat".}
-proc ImPlot3D_SetupBoxInitialRotation_Float*(elevation: cfloat; azimuth: cfloat): void {.cdecl, importc: "ImPlot3D_SetupBoxInitialRotation_Float".}
-proc ImPlot3D_SetupBoxInitialRotation_Plot3DQuat*(rotation: ImPlot3DQuat): void {.cdecl, importc: "ImPlot3D_SetupBoxInitialRotation_Plot3DQuat".}
-proc ImPlot3D_SetupBoxScale*(x: cfloat; y: cfloat; z: cfloat): void {.cdecl, importc: "ImPlot3D_SetupBoxScale".}
+proc ImPlot3D_SetupBoxRotation_double*(elevation: cdouble; azimuth: cdouble; animate: bool; cond: ImPlot3DCond): void {.cdecl, importc: "ImPlot3D_SetupBoxRotation_double".}
+proc ImPlot3D_SetupBoxRotation_Plot3DQuat*(rotation: ImPlot3DQuat_c; animate: bool; cond: ImPlot3DCond): void {.cdecl, importc: "ImPlot3D_SetupBoxRotation_Plot3DQuat".}
+proc ImPlot3D_SetupBoxInitialRotation_double*(elevation: cdouble; azimuth: cdouble): void {.cdecl, importc: "ImPlot3D_SetupBoxInitialRotation_double".}
+proc ImPlot3D_SetupBoxInitialRotation_Plot3DQuat*(rotation: ImPlot3DQuat_c): void {.cdecl, importc: "ImPlot3D_SetupBoxInitialRotation_Plot3DQuat".}
+proc ImPlot3D_SetupBoxScale*(x: cdouble; y: cdouble; z: cdouble): void {.cdecl, importc: "ImPlot3D_SetupBoxScale".}
 proc ImPlot3D_SetupLegend*(location: ImPlot3DLocation; flags: ImPlot3DLegendFlags): void {.cdecl, importc: "ImPlot3D_SetupLegend".}
 proc ImPlot3D_PlotScatter_FloatPtr*(label_id: cstring; xs: ptr cfloat; ys: ptr cfloat; zs: ptr cfloat; count: cint; flags: ImPlot3DScatterFlags; offset: cint; stride: cint): void {.cdecl, importc: "ImPlot3D_PlotScatter_FloatPtr".}
 proc ImPlot3D_PlotScatter_doublePtr*(label_id: cstring; xs: ptr cdouble; ys: ptr cdouble; zs: ptr cdouble; count: cint; flags: ImPlot3DScatterFlags; offset: cint; stride: cint): void {.cdecl, importc: "ImPlot3D_PlotScatter_doublePtr".}
@@ -7111,35 +7207,36 @@ proc ImPlot3D_PlotSurface_U32Ptr*(label_id: cstring; xs: ptr ImU32; ys: ptr ImU3
 proc ImPlot3D_PlotSurface_S64Ptr*(label_id: cstring; xs: ptr ImS64; ys: ptr ImS64; zs: ptr ImS64; x_count: cint; y_count: cint; scale_min: cdouble; scale_max: cdouble; flags: ImPlot3DSurfaceFlags; offset: cint; stride: cint): void {.cdecl, importc: "ImPlot3D_PlotSurface_S64Ptr".}
 proc ImPlot3D_PlotSurface_U64Ptr*(label_id: cstring; xs: ptr ImU64; ys: ptr ImU64; zs: ptr ImU64; x_count: cint; y_count: cint; scale_min: cdouble; scale_max: cdouble; flags: ImPlot3DSurfaceFlags; offset: cint; stride: cint): void {.cdecl, importc: "ImPlot3D_PlotSurface_U64Ptr".}
 proc ImPlot3D_PlotMesh*(label_id: cstring; vtx: ptr ImPlot3DPoint; idx: ptr cuint; vtx_count: cint; idx_count: cint; flags: ImPlot3DMeshFlags): void {.cdecl, importc: "ImPlot3D_PlotMesh".}
-proc ImPlot3D_PlotImage_Vec2*(label_id: cstring; tex_ref: ImTextureRef; center: ImPlot3DPoint; axis_u: ImPlot3DPoint; axis_v: ImPlot3DPoint; uv0: ImVec2; uv1: ImVec2; tint_col: ImVec4; flags: ImPlot3DImageFlags): void {.cdecl, importc: "ImPlot3D_PlotImage_Vec2".}
-proc ImPlot3D_PlotImage_Plot3DPoInt*(label_id: cstring; tex_ref: ImTextureRef; p0: ImPlot3DPoint; p1: ImPlot3DPoint; p2: ImPlot3DPoint; p3: ImPlot3DPoint; uv0: ImVec2; uv1: ImVec2; uv2: ImVec2; uv3: ImVec2; tint_col: ImVec4; flags: ImPlot3DImageFlags): void {.cdecl, importc: "ImPlot3D_PlotImage_Plot3DPoInt".}
-proc ImPlot3D_PlotText*(text: cstring; x: cfloat; y: cfloat; z: cfloat; angle: cfloat; pix_offset: ImVec2): void {.cdecl, importc: "ImPlot3D_PlotText".}
-proc ImPlot3D_PlotToPixels_Plot3DPoInt*(pOut: ptr ImVec2; point: ImPlot3DPoint): void {.cdecl, importc: "ImPlot3D_PlotToPixels_Plot3DPoInt".}
-proc ImPlot3D_PlotToPixels_double*(pOut: ptr ImVec2; x: cdouble; y: cdouble; z: cdouble): void {.cdecl, importc: "ImPlot3D_PlotToPixels_double".}
-proc ImPlot3D_PixelsToPlotRay_Vec2*(pix: ImVec2): ImPlot3DRay {.cdecl, importc: "ImPlot3D_PixelsToPlotRay_Vec2".}
+proc ImPlot3D_PlotImage_Vec2*(label_id: cstring; tex_ref: ImTextureRef_c; center: ImPlot3DPoint_c; axis_u: ImPlot3DPoint_c; axis_v: ImPlot3DPoint_c; uv0: ImVec2_c; uv1: ImVec2_c; tint_col: ImVec4_c; flags: ImPlot3DImageFlags): void {.cdecl, importc: "ImPlot3D_PlotImage_Vec2".}
+proc ImPlot3D_PlotImage_Plot3DPoInt*(label_id: cstring; tex_ref: ImTextureRef_c; p0: ImPlot3DPoint_c; p1: ImPlot3DPoint_c; p2: ImPlot3DPoint_c; p3: ImPlot3DPoint_c; uv0: ImVec2_c; uv1: ImVec2_c; uv2: ImVec2_c; uv3: ImVec2_c; tint_col: ImVec4_c; flags: ImPlot3DImageFlags): void {.cdecl, importc: "ImPlot3D_PlotImage_Plot3DPoInt".}
+proc ImPlot3D_PlotText*(text: cstring; x: cdouble; y: cdouble; z: cdouble; angle: cdouble; pix_offset: ImVec2_c): void {.cdecl, importc: "ImPlot3D_PlotText".}
+proc ImPlot3D_PlotDummy*(label_id: cstring; flags: ImPlot3DDummyFlags): void {.cdecl, importc: "ImPlot3D_PlotDummy".}
+proc ImPlot3D_PlotToPixels_Plot3DPoInt*(point: ImPlot3DPoint_c): ImVec2_c {.cdecl, importc: "ImPlot3D_PlotToPixels_Plot3DPoInt".}
+proc ImPlot3D_PlotToPixels_double*(x: cdouble; y: cdouble; z: cdouble): ImVec2_c {.cdecl, importc: "ImPlot3D_PlotToPixels_double".}
+proc ImPlot3D_PixelsToPlotRay_Vec2*(pix: ImVec2_c): ImPlot3DRay {.cdecl, importc: "ImPlot3D_PixelsToPlotRay_Vec2".}
 proc ImPlot3D_PixelsToPlotRay_double*(x: cdouble; y: cdouble): ImPlot3DRay {.cdecl, importc: "ImPlot3D_PixelsToPlotRay_double".}
-proc ImPlot3D_PixelsToPlotPlane_Vec2*(pOut: ptr ImPlot3DPoint; pix: ImVec2; plane: ImPlane3D; mask: bool): void {.cdecl, importc: "ImPlot3D_PixelsToPlotPlane_Vec2".}
-proc ImPlot3D_PixelsToPlotPlane_double*(pOut: ptr ImPlot3DPoint; x: cdouble; y: cdouble; plane: ImPlane3D; mask: bool): void {.cdecl, importc: "ImPlot3D_PixelsToPlotPlane_double".}
-proc ImPlot3D_GetPlotPos*(pOut: ptr ImVec2): void {.cdecl, importc: "ImPlot3D_GetPlotPos".}
-proc ImPlot3D_GetPlotSize*(pOut: ptr ImVec2): void {.cdecl, importc: "ImPlot3D_GetPlotSize".}
+proc ImPlot3D_PixelsToPlotPlane_Vec2*(pix: ImVec2_c; plane: ImPlane3D; mask: bool): ImPlot3DPoint_c {.cdecl, importc: "ImPlot3D_PixelsToPlotPlane_Vec2".}
+proc ImPlot3D_PixelsToPlotPlane_double*(x: cdouble; y: cdouble; plane: ImPlane3D; mask: bool): ImPlot3DPoint_c {.cdecl, importc: "ImPlot3D_PixelsToPlotPlane_double".}
+proc ImPlot3D_GetPlotRectPos*(): ImVec2_c {.cdecl, importc: "ImPlot3D_GetPlotRectPos".}
+proc ImPlot3D_GetPlotRectSize*(): ImVec2_c {.cdecl, importc: "ImPlot3D_GetPlotRectSize".}
 proc ImPlot3D_GetPlotDrawList*(): ptr ImDrawList {.cdecl, importc: "ImPlot3D_GetPlotDrawList".}
 proc ImPlot3D_GetStyle*(): ptr ImPlot3DStyle {.cdecl, importc: "ImPlot3D_GetStyle".}
-proc ImPlot3D_SetStyle*(style: ImPlot3DStyle): void {.cdecl, importc: "ImPlot3D_SetStyle".}
+proc ImPlot3D_SetStyle*(style: ImPlot3DStyle_c): void {.cdecl, importc: "ImPlot3D_SetStyle".}
 proc ImPlot3D_StyleColorsAuto*(dst: ptr ImPlot3DStyle): void {.cdecl, importc: "ImPlot3D_StyleColorsAuto".}
 proc ImPlot3D_StyleColorsDark*(dst: ptr ImPlot3DStyle): void {.cdecl, importc: "ImPlot3D_StyleColorsDark".}
 proc ImPlot3D_StyleColorsLight*(dst: ptr ImPlot3DStyle): void {.cdecl, importc: "ImPlot3D_StyleColorsLight".}
 proc ImPlot3D_StyleColorsClassic*(dst: ptr ImPlot3DStyle): void {.cdecl, importc: "ImPlot3D_StyleColorsClassic".}
 proc ImPlot3D_PushStyleColor_U32*(idx: ImPlot3DCol; col: ImU32): void {.cdecl, importc: "ImPlot3D_PushStyleColor_U32".}
-proc ImPlot3D_PushStyleColor_Vec4*(idx: ImPlot3DCol; col: ImVec4): void {.cdecl, importc: "ImPlot3D_PushStyleColor_Vec4".}
+proc ImPlot3D_PushStyleColor_Vec4*(idx: ImPlot3DCol; col: ImVec4_c): void {.cdecl, importc: "ImPlot3D_PushStyleColor_Vec4".}
 proc ImPlot3D_PopStyleColor*(count: cint): void {.cdecl, importc: "ImPlot3D_PopStyleColor".}
 proc ImPlot3D_PushStyleVar_Float*(idx: ImPlot3DStyleVar; val: cfloat): void {.cdecl, importc: "ImPlot3D_PushStyleVar_Float".}
 proc ImPlot3D_PushStyleVar_Int*(idx: ImPlot3DStyleVar; val: cint): void {.cdecl, importc: "ImPlot3D_PushStyleVar_Int".}
-proc ImPlot3D_PushStyleVar_Vec2*(idx: ImPlot3DStyleVar; val: ImVec2): void {.cdecl, importc: "ImPlot3D_PushStyleVar_Vec2".}
+proc ImPlot3D_PushStyleVar_Vec2*(idx: ImPlot3DStyleVar; val: ImVec2_c): void {.cdecl, importc: "ImPlot3D_PushStyleVar_Vec2".}
 proc ImPlot3D_PopStyleVar*(count: cint): void {.cdecl, importc: "ImPlot3D_PopStyleVar".}
-proc ImPlot3D_SetNextLineStyle*(col: ImVec4; weight: cfloat): void {.cdecl, importc: "ImPlot3D_SetNextLineStyle".}
-proc ImPlot3D_SetNextFillStyle*(col: ImVec4; alpha_mod: cfloat): void {.cdecl, importc: "ImPlot3D_SetNextFillStyle".}
-proc ImPlot3D_SetNextMarkerStyle*(marker: ImPlot3DMarker; size: cfloat; fill: ImVec4; weight: cfloat; outline: ImVec4): void {.cdecl, importc: "ImPlot3D_SetNextMarkerStyle".}
-proc ImPlot3D_GetStyleColorVec4*(pOut: ptr ImVec4; idx: ImPlot3DCol): void {.cdecl, importc: "ImPlot3D_GetStyleColorVec4".}
+proc ImPlot3D_SetNextLineStyle*(col: ImVec4_c; weight: cfloat): void {.cdecl, importc: "ImPlot3D_SetNextLineStyle".}
+proc ImPlot3D_SetNextFillStyle*(col: ImVec4_c; alpha_mod: cfloat): void {.cdecl, importc: "ImPlot3D_SetNextFillStyle".}
+proc ImPlot3D_SetNextMarkerStyle*(marker: ImPlot3DMarker; size: cfloat; fill: ImVec4_c; weight: cfloat; outline: ImVec4_c): void {.cdecl, importc: "ImPlot3D_SetNextMarkerStyle".}
+proc ImPlot3D_GetStyleColorVec4*(idx: ImPlot3DCol): ImVec4_c {.cdecl, importc: "ImPlot3D_GetStyleColorVec4".}
 proc ImPlot3D_GetStyleColorU32*(idx: ImPlot3DCol): ImU32 {.cdecl, importc: "ImPlot3D_GetStyleColorU32".}
 proc ImPlot3D_AddColormap_Vec4Ptr*(name: cstring; cols: ptr ImVec4; size: cint; qual: bool): ImPlot3DColormap {.cdecl, importc: "ImPlot3D_AddColormap_Vec4Ptr".}
 proc ImPlot3D_AddColormap_U32Ptr*(name: cstring; cols: ptr ImU32; size: cint; qual: bool): ImPlot3DColormap {.cdecl, importc: "ImPlot3D_AddColormap_U32Ptr".}
@@ -7149,54 +7246,57 @@ proc ImPlot3D_GetColormapIndex*(name: cstring): ImPlot3DColormap {.cdecl, import
 proc ImPlot3D_PushColormap_Plot3DColormap*(cmap: ImPlot3DColormap): void {.cdecl, importc: "ImPlot3D_PushColormap_Plot3DColormap".}
 proc ImPlot3D_PushColormap_Str*(name: cstring): void {.cdecl, importc: "ImPlot3D_PushColormap_Str".}
 proc ImPlot3D_PopColormap*(count: cint): void {.cdecl, importc: "ImPlot3D_PopColormap".}
-proc ImPlot3D_NextColormapColor*(pOut: ptr ImVec4): void {.cdecl, importc: "ImPlot3D_NextColormapColor".}
+proc ImPlot3D_NextColormapColor*(): ImVec4_c {.cdecl, importc: "ImPlot3D_NextColormapColor".}
 proc ImPlot3D_GetColormapSize*(cmap: ImPlot3DColormap): cint {.cdecl, importc: "ImPlot3D_GetColormapSize".}
-proc ImPlot3D_GetColormapColor*(pOut: ptr ImVec4; idx: cint; cmap: ImPlot3DColormap): void {.cdecl, importc: "ImPlot3D_GetColormapColor".}
-proc ImPlot3D_SampleColormap*(pOut: ptr ImVec4; t: cfloat; cmap: ImPlot3DColormap): void {.cdecl, importc: "ImPlot3D_SampleColormap".}
+proc ImPlot3D_GetColormapColor*(idx: cint; cmap: ImPlot3DColormap): ImVec4_c {.cdecl, importc: "ImPlot3D_GetColormapColor".}
+proc ImPlot3D_SampleColormap*(t: cfloat; cmap: ImPlot3DColormap): ImVec4_c {.cdecl, importc: "ImPlot3D_SampleColormap".}
 proc ImPlot3D_ShowDemoWindow*(p_open: ptr bool): void {.cdecl, importc: "ImPlot3D_ShowDemoWindow".}
 proc ImPlot3D_ShowAllDemos*(): void {.cdecl, importc: "ImPlot3D_ShowAllDemos".}
 proc ImPlot3D_ShowStyleEditor*(ref_arg: ptr ImPlot3DStyle): void {.cdecl, importc: "ImPlot3D_ShowStyleEditor".}
+proc ImPlot3D_ShowStyleSelector*(label: cstring): bool {.cdecl, importc: "ImPlot3D_ShowStyleSelector".}
+proc ImPlot3D_ShowColormapSelector*(label: cstring): bool {.cdecl, importc: "ImPlot3D_ShowColormapSelector".}
 proc ImPlot3D_ShowMetricsWindow*(p_popen: ptr bool): void {.cdecl, importc: "ImPlot3D_ShowMetricsWindow".}
+proc ImPlot3D_ShowAboutWindow*(p_open: ptr bool): void {.cdecl, importc: "ImPlot3D_ShowAboutWindow".}
 proc ImPlot3DPoint_ImPlot3DPoint_Nil*(): ptr ImPlot3DPoint {.cdecl, importc: "ImPlot3DPoint_ImPlot3DPoint_Nil".}
 proc ImPlot3DPoint_destroy*(self: ptr ImPlot3DPoint): void {.cdecl, importc: "ImPlot3DPoint_destroy".}
-proc ImPlot3DPoint_ImPlot3DPoint_Float*(internal_x: cfloat; internal_y: cfloat; internal_z: cfloat): ptr ImPlot3DPoint {.cdecl, importc: "ImPlot3DPoint_ImPlot3DPoint_Float".}
-proc ImPlot3DPoint_Dot*(self: ptr ImPlot3DPoint; rhs: ImPlot3DPoint): cfloat {.cdecl, importc: "ImPlot3DPoint_Dot".}
-proc ImPlot3DPoint_Cross*(pOut: ptr ImPlot3DPoint; self: ptr ImPlot3DPoint; rhs: ImPlot3DPoint): void {.cdecl, importc: "ImPlot3DPoint_Cross".}
-proc ImPlot3DPoint_Length*(self: ptr ImPlot3DPoint): cfloat {.cdecl, importc: "ImPlot3DPoint_Length".}
-proc ImPlot3DPoint_LengthSquared*(self: ptr ImPlot3DPoint): cfloat {.cdecl, importc: "ImPlot3DPoint_LengthSquared".}
+proc ImPlot3DPoint_ImPlot3DPoint_double*(internal_x: cdouble; internal_y: cdouble; internal_z: cdouble): ptr ImPlot3DPoint {.cdecl, importc: "ImPlot3DPoint_ImPlot3DPoint_double".}
+proc ImPlot3DPoint_Dot*(self: ptr ImPlot3DPoint; rhs: ImPlot3DPoint_c): cdouble {.cdecl, importc: "ImPlot3DPoint_Dot".}
+proc ImPlot3DPoint_Cross*(self: ptr ImPlot3DPoint; rhs: ImPlot3DPoint_c): ImPlot3DPoint_c {.cdecl, importc: "ImPlot3DPoint_Cross".}
+proc ImPlot3DPoint_Length*(self: ptr ImPlot3DPoint): cdouble {.cdecl, importc: "ImPlot3DPoint_Length".}
+proc ImPlot3DPoint_LengthSquared*(self: ptr ImPlot3DPoint): cdouble {.cdecl, importc: "ImPlot3DPoint_LengthSquared".}
 proc ImPlot3DPoint_Normalize*(self: ptr ImPlot3DPoint): void {.cdecl, importc: "ImPlot3DPoint_Normalize".}
-proc ImPlot3DPoint_Normalized*(pOut: ptr ImPlot3DPoint; self: ptr ImPlot3DPoint): void {.cdecl, importc: "ImPlot3DPoint_Normalized".}
+proc ImPlot3DPoint_Normalized*(self: ptr ImPlot3DPoint): ImPlot3DPoint_c {.cdecl, importc: "ImPlot3DPoint_Normalized".}
 proc ImPlot3DPoint_IsNaN*(self: ptr ImPlot3DPoint): bool {.cdecl, importc: "ImPlot3DPoint_IsNaN".}
 proc ImPlot3DBox_ImPlot3DBox_Nil*(): ptr ImPlot3DBox {.cdecl, importc: "ImPlot3DBox_ImPlot3DBox_Nil".}
 proc ImPlot3DBox_destroy*(self: ptr ImPlot3DBox): void {.cdecl, importc: "ImPlot3DBox_destroy".}
-proc ImPlot3DBox_ImPlot3DBox_Plot3DPoInt*(min: ImPlot3DPoint; max: ImPlot3DPoint): ptr ImPlot3DBox {.cdecl, importc: "ImPlot3DBox_ImPlot3DBox_Plot3DPoInt".}
-proc ImPlot3DBox_Expand*(self: ptr ImPlot3DBox; point: ImPlot3DPoint): void {.cdecl, importc: "ImPlot3DBox_Expand".}
-proc ImPlot3DBox_Contains*(self: ptr ImPlot3DBox; point: ImPlot3DPoint): bool {.cdecl, importc: "ImPlot3DBox_Contains".}
-proc ImPlot3DBox_ClipLineSegment*(self: ptr ImPlot3DBox; p0: ImPlot3DPoint; p1: ImPlot3DPoint; p0_clipped: ptr ImPlot3DPoint; p1_clipped: ptr ImPlot3DPoint): bool {.cdecl, importc: "ImPlot3DBox_ClipLineSegment".}
+proc ImPlot3DBox_ImPlot3DBox_Plot3DPoInt*(min: ImPlot3DPoint_c; max: ImPlot3DPoint_c): ptr ImPlot3DBox {.cdecl, importc: "ImPlot3DBox_ImPlot3DBox_Plot3DPoInt".}
+proc ImPlot3DBox_Expand*(self: ptr ImPlot3DBox; point: ImPlot3DPoint_c): void {.cdecl, importc: "ImPlot3DBox_Expand".}
+proc ImPlot3DBox_Contains*(self: ptr ImPlot3DBox; point: ImPlot3DPoint_c): bool {.cdecl, importc: "ImPlot3DBox_Contains".}
+proc ImPlot3DBox_ClipLineSegment*(self: ptr ImPlot3DBox; p0: ImPlot3DPoint_c; p1: ImPlot3DPoint_c; p0_clipped: ptr ImPlot3DPoint; p1_clipped: ptr ImPlot3DPoint): bool {.cdecl, importc: "ImPlot3DBox_ClipLineSegment".}
 proc ImPlot3DRange_ImPlot3DRange_Nil*(): ptr ImPlot3DRange {.cdecl, importc: "ImPlot3DRange_ImPlot3DRange_Nil".}
 proc ImPlot3DRange_destroy*(self: ptr ImPlot3DRange): void {.cdecl, importc: "ImPlot3DRange_destroy".}
-proc ImPlot3DRange_ImPlot3DRange_Float*(min: cfloat; max: cfloat): ptr ImPlot3DRange {.cdecl, importc: "ImPlot3DRange_ImPlot3DRange_Float".}
-proc ImPlot3DRange_Expand*(self: ptr ImPlot3DRange; value: cfloat): void {.cdecl, importc: "ImPlot3DRange_Expand".}
-proc ImPlot3DRange_Contains*(self: ptr ImPlot3DRange; value: cfloat): bool {.cdecl, importc: "ImPlot3DRange_Contains".}
-proc ImPlot3DRange_Size*(self: ptr ImPlot3DRange): cfloat {.cdecl, importc: "ImPlot3DRange_Size".}
+proc ImPlot3DRange_ImPlot3DRange_double*(min: cdouble; max: cdouble): ptr ImPlot3DRange {.cdecl, importc: "ImPlot3DRange_ImPlot3DRange_double".}
+proc ImPlot3DRange_Expand*(self: ptr ImPlot3DRange; value: cdouble): void {.cdecl, importc: "ImPlot3DRange_Expand".}
+proc ImPlot3DRange_Contains*(self: ptr ImPlot3DRange; value: cdouble): bool {.cdecl, importc: "ImPlot3DRange_Contains".}
+proc ImPlot3DRange_Size*(self: ptr ImPlot3DRange): cdouble {.cdecl, importc: "ImPlot3DRange_Size".}
 proc ImPlot3DQuat_ImPlot3DQuat_Nil*(): ptr ImPlot3DQuat {.cdecl, importc: "ImPlot3DQuat_ImPlot3DQuat_Nil".}
 proc ImPlot3DQuat_destroy*(self: ptr ImPlot3DQuat): void {.cdecl, importc: "ImPlot3DQuat_destroy".}
-proc ImPlot3DQuat_ImPlot3DQuat_FloatFloat*(internal_x: cfloat; internal_y: cfloat; internal_z: cfloat; internal_w: cfloat): ptr ImPlot3DQuat {.cdecl, importc: "ImPlot3DQuat_ImPlot3DQuat_FloatFloat".}
-proc ImPlot3DQuat_ImPlot3DQuat_FloatPlot3DPoInt*(internal_angle: cfloat; internal_axis: ImPlot3DPoint): ptr ImPlot3DQuat {.cdecl, importc: "ImPlot3DQuat_ImPlot3DQuat_FloatPlot3DPoInt".}
-proc ImPlot3DQuat_FromTwoVectors*(pOut: ptr ImPlot3DQuat; v0: ImPlot3DPoint; v1: ImPlot3DPoint): void {.cdecl, importc: "ImPlot3DQuat_FromTwoVectors".}
-proc ImPlot3DQuat_FromElAz*(pOut: ptr ImPlot3DQuat; elevation: cfloat; azimuth: cfloat): void {.cdecl, importc: "ImPlot3DQuat_FromElAz".}
-proc ImPlot3DQuat_Length*(self: ptr ImPlot3DQuat): cfloat {.cdecl, importc: "ImPlot3DQuat_Length".}
-proc ImPlot3DQuat_Normalized*(pOut: ptr ImPlot3DQuat; self: ptr ImPlot3DQuat): void {.cdecl, importc: "ImPlot3DQuat_Normalized".}
-proc ImPlot3DQuat_Conjugate*(pOut: ptr ImPlot3DQuat; self: ptr ImPlot3DQuat): void {.cdecl, importc: "ImPlot3DQuat_Conjugate".}
-proc ImPlot3DQuat_Inverse*(pOut: ptr ImPlot3DQuat; self: ptr ImPlot3DQuat): void {.cdecl, importc: "ImPlot3DQuat_Inverse".}
-proc ImPlot3DQuat_Normalize*(self: ptr ImPlot3DQuat): ptr ImPlot3DQuat {.cdecl, importc: "ImPlot3DQuat_Normalize".}
-proc ImPlot3DQuat_Slerp*(pOut: ptr ImPlot3DQuat; q1: ImPlot3DQuat; q2: ImPlot3DQuat; t: cfloat): void {.cdecl, importc: "ImPlot3DQuat_Slerp".}
-proc ImPlot3DQuat_Dot*(self: ptr ImPlot3DQuat; rhs: ImPlot3DQuat): cfloat {.cdecl, importc: "ImPlot3DQuat_Dot".}
-proc ImPlot3DStyle_GetColor*(pOut: ptr ImVec4; self: ptr ImPlot3DStyle; idx: ImPlot3DCol): void {.cdecl, importc: "ImPlot3DStyle_GetColor".}
-proc ImPlot3DStyle_SetColor*(self: ptr ImPlot3DStyle; idx: ImPlot3DCol; col: ImVec4): void {.cdecl, importc: "ImPlot3DStyle_SetColor".}
+proc ImPlot3DQuat_ImPlot3DQuat_doubledouble*(internal_x: cdouble; internal_y: cdouble; internal_z: cdouble; internal_w: cdouble): ptr ImPlot3DQuat {.cdecl, importc: "ImPlot3DQuat_ImPlot3DQuat_doubledouble".}
+proc ImPlot3DQuat_ImPlot3DQuat_doublePlot3DPoInt*(internal_angle: cdouble; internal_axis: ImPlot3DPoint_c): ptr ImPlot3DQuat {.cdecl, importc: "ImPlot3DQuat_ImPlot3DQuat_doublePlot3DPoInt".}
+proc ImPlot3DQuat_FromTwoVectors*(v0: ImPlot3DPoint_c; v1: ImPlot3DPoint_c): ImPlot3DQuat_c {.cdecl, importc: "ImPlot3DQuat_FromTwoVectors".}
+proc ImPlot3DQuat_FromElAz*(elevation: cdouble; azimuth: cdouble): ImPlot3DQuat_c {.cdecl, importc: "ImPlot3DQuat_FromElAz".}
+proc ImPlot3DQuat_Length*(self: ptr ImPlot3DQuat): cdouble {.cdecl, importc: "ImPlot3DQuat_Length".}
+proc ImPlot3DQuat_Normalized*(self: ptr ImPlot3DQuat): ImPlot3DQuat_c {.cdecl, importc: "ImPlot3DQuat_Normalized".}
+proc ImPlot3DQuat_Conjugate*(self: ptr ImPlot3DQuat): ImPlot3DQuat_c {.cdecl, importc: "ImPlot3DQuat_Conjugate".}
+proc ImPlot3DQuat_Inverse*(self: ptr ImPlot3DQuat): ImPlot3DQuat_c {.cdecl, importc: "ImPlot3DQuat_Inverse".}
+proc ImPlot3DQuat_Normalize*(self: ptr ImPlot3DQuat): ptr ImPlot3DQuat_c {.cdecl, importc: "ImPlot3DQuat_Normalize".}
+proc ImPlot3DQuat_Slerp*(q1: ImPlot3DQuat_c; q2: ImPlot3DQuat_c; t: cdouble): ImPlot3DQuat_c {.cdecl, importc: "ImPlot3DQuat_Slerp".}
+proc ImPlot3DQuat_Dot*(self: ptr ImPlot3DQuat; rhs: ImPlot3DQuat_c): cdouble {.cdecl, importc: "ImPlot3DQuat_Dot".}
+proc ImPlot3DStyle_GetColor*(self: ptr ImPlot3DStyle; idx: ImPlot3DCol): ImVec4_c {.cdecl, importc: "ImPlot3DStyle_GetColor".}
+proc ImPlot3DStyle_SetColor*(self: ptr ImPlot3DStyle; idx: ImPlot3DCol; col: ImVec4_c): void {.cdecl, importc: "ImPlot3DStyle_SetColor".}
 proc ImPlot3DStyle_ImPlot3DStyle_Nil*(): ptr ImPlot3DStyle {.cdecl, importc: "ImPlot3DStyle_ImPlot3DStyle_Nil".}
 proc ImPlot3DStyle_destroy*(self: ptr ImPlot3DStyle): void {.cdecl, importc: "ImPlot3DStyle_destroy".}
-proc ImPlot3DStyle_ImPlot3DStyle_Plot3DStyle*(other: ImPlot3DStyle): ptr ImPlot3DStyle {.cdecl, importc: "ImPlot3DStyle_ImPlot3DStyle_Plot3DStyle".}
+proc ImPlot3DStyle_ImPlot3DStyle_Plot3DStyle*(other: ImPlot3DStyle_c): ptr ImPlot3DStyle {.cdecl, importc: "ImPlot3DStyle_ImPlot3DStyle_Plot3DStyle".}
 proc SpinnerRainbow*(label: cstring; radius: cfloat; thickness: cfloat; color: ImColor; speed: cfloat): void {.cdecl, importc: "SpinnerRainbow".}
 proc SpinnerRainbowEx*(label: cstring; radius: cfloat; thickness: cfloat; color: ImColor; speed: cfloat; ang_min: cfloat; ang_max: cfloat; arcs: cint; mode: cint): void {.cdecl, importc: "SpinnerRainbowEx".}
 proc SpinnerRainbowMix*(label: cstring; radius: cfloat; thickness: cfloat; color: ImColor; speed: cfloat): void {.cdecl, importc: "SpinnerRainbowMix".}
@@ -7505,7 +7605,7 @@ proc TextEditor_Redo*(self: ptr TextEditor; aSteps: cint): void {.cdecl, importc
 proc TextEditor_CanUndo*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_CanUndo".}
 proc TextEditor_CanRedo*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_CanRedo".}
 proc TextEditor_GetUndoIndex*(self: ptr TextEditor): cint {.cdecl, importc: "TextEditor_GetUndoIndex".}
-proc TextEditor_Render*(self: ptr TextEditor; aTitle: cstring; aParentIsFocused: bool; aSize: ImVec2; aBorder: bool): bool {.cdecl, importc: "TextEditor_Render".}
+proc TextEditor_Render*(self: ptr TextEditor; aTitle: cstring; aParentIsFocused: bool; aSize: ImVec2_c; aBorder: bool): bool {.cdecl, importc: "TextEditor_Render".}
 proc TextEditor_UnitTests*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_UnitTests".}
 proc TextEditor_SetText*(self: ptr TextEditor; aText: cstring): void {.cdecl, importc: "TextEditor_SetText".}
 proc TextEditor_GetText_alloc*(self: ptr TextEditor): cstring {.cdecl, importc: "TextEditor_GetText_alloc".}

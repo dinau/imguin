@@ -79,7 +79,7 @@ bool ImGuiToggleRenderer::Render()
         widget_position
         + ImVec2(
             width + (label_size.x > 0.0f ? _style->ItemInnerSpacing.x + label_size.x : 0.0f) + label_x_offset,
-            ImMax(height, label_size.y) + _style->FramePadding.y * 2.0f
+            ImMax(height, label_size.y) //+ _style->FramePadding.y * 2.0f
         ));
 
     // handle the toggle input behavior
@@ -523,3 +523,4 @@ void ImGuiToggleRenderer::DrawCircleShadow(const ImVec2& center, float radius, I
 
     _drawList->AddCircle(center, radius, color_border, 0, thickness);
 }
+

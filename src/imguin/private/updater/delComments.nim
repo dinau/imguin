@@ -1,20 +1,21 @@
-import strutils,pegs,re
+import strutils,pegs,re,os
 
-const CIMGUI_DEF = "cimgui_defs.nim"
-#const CIMGUI_DEF = "../../cimgui_defs.nim"
+if paramCount() == 0: quit 1
+let fname = os.commandLineParams()[0]
+
 #-----------------
 # Delete comments
 #-----------------
 var sOut:seq[string]
 
-for line in lines(CIMGUI_DEF):
+for line in lines(fname):
   let sline = line
   if sline =~ peg"{@}'##'@$":
     sOut.add(matches[0])
   else:
     sOut.add(sline)
 
-writefile(CIMGUI_DEF, sOut.join("\n"))
+writefile(fname, sOut.join("\n"))
 
 #-------------------
 # Combine two lines
@@ -25,7 +26,7 @@ while true:
     prevLine = ""
     count = 0
   sOut= @[]
-  for line in lines(CIMGUI_DEF):
+  for line in lines(fname):
     let sline = line
     if fConbine:
       fConbine = false
@@ -39,7 +40,7 @@ while true:
       prevline = sline
     else:
       sOut.add(sline)
-  writefile(CIMGUI_DEF, sOut.join("\n"))
+  writefile(fname, sOut.join("\n"))
   #echo count
   if count == 0:
     break

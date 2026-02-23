@@ -24,13 +24,13 @@ endif
 
 IMGUIN_DIR = ../../../imguin
 
-.PHONY: wordReplacer$(EXE) gen cimgui copylibs delComments$(EXE) makehash
+.PHONY: wordReplacer$(EXE) gen cimgui copylibs delComments$(EXE) patches$(EXE) makehash
 .PHONY: $(IMGUIN_DIR)/$(CIMGUI_DEFS).nim
 
 all: gen
 
 # For manual update cimgui/cimplot/cimnodes and regeneration *defs.nim file
-gen:    clean wordReplacer$(EXE) delComments$(EXE) cimgui makehash
+gen:    clean wordReplacer$(EXE) delComments$(EXE) patches$(EXE) cimgui makehash
 cimgui: $(IMGUIN_DIR)/$(CIMGUI_DEFS).nim
 
 makehash:
@@ -46,7 +46,13 @@ wordReplacer$(EXE): wordReplacer.nim
 # Gen:: delComments
 #-------------------
 delComments$(EXE): delComments.nim
-	nim c -d:release --mm:refc   $<
+	nim c -d:release $<
+
+#-------------------
+# Gen:: pathces
+#-------------------
+patches$(EXE): patches.nim
+	nim c $<
 
 #--------------------------
 # Gen:: $(CIMGUI_DEFS).nim
@@ -55,21 +61,18 @@ $(IMGUIN_DIR)/$(CIMGUI_DEFS).nim:
 	nim c -f -c  $(OPT) --nimcache:.nimcache_$(notdir $@) $(IMGUIN_DIR)/cimgui.nim
 	./wordReplacer$(EXE) $(notdir $@)
 	./delComments$(EXE) $(notdir $@)
+	./patches$(EXE) $(notdir $@)
 	nimpretty --maxLineLen:1000 $(notdir $@)
 	$(MV) $(notdir $@) $@
 
 #-------
 # clean
 #-------
-ifeq ($(OS),Windows_NT)
 clean:
-	-$(CMD) rmdir /q /s .nimcache_$(CIMGUI_DEFS).nim
-	-$(CMD) rmdir /q /s .nimcache
-else
-clean:
-	-$(RM) -fr .nimcache_*
-	-$(RM) -fr .nimcache
-endif
+	@-rm -fr .nimcache_*
+	@-rm -fr .nimcache
+	@-rm *.exe
+
 
 #-----------------
 # install Futhark

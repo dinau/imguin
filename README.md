@@ -18,16 +18,13 @@
 
 ### ImGuin
 
-![alt](https://github.com/dinau/imguin/actions/workflows/windows.yml/badge.svg)  ![alt](https://github.com/dinau/imguin/actions/workflows/linux.yml/badge.svg)
+Updated to latest [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui) version: : **v1.92.6 dock** (2026/02)
 
-Updated to latest [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui) version: : **v1.92.4 dock** (2025/11)
-
-This project is Dear ImGui wrapper library for Nim language [^notice].
+This project is Dear ImGui wrapper library for Nim[^notice].
 
 [^notice]: It may be better to use the **mainstream** project [nimgl/imgui](https://github.com/nimgl/imgui) (ImGui v1.85)  
 ,updated project [nimgl-imgui](https://github.com/dinau/nimgl-imgui) (ImGui v1.89.9)  ,sub project [nim_implot](https://github.com/dinau/nim_implot) and test project [nimgl_test](https://github.com/dinau/nimgl_test),  
 or [https://github.com/daniel-j/nimgl-imgui](https://github.com/daniel-j/nimgl-imgui) (ImGui v1.91.1)
-
 
 #### Screenshot
 
@@ -43,7 +40,6 @@ Note: First see examples project  [ImGuin_examples](https://github.com/dinau/img
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/topimage.gif)
 
-
 ##### Dear ImGui + Naylib(Raylib) + rlImgui example
 
 ---
@@ -56,7 +52,7 @@ Note: First see examples project  [ImGuin_examples](https://github.com/dinau/img
 
 ---
 
-- [Nim-2.2.4](https://nim-lang.org) or later
+- [Nim-2.2.6](https://nim-lang.org) or later
 - Windows11 or later  
 [MSys2/MinGW](https://www.msys2.org/) command line tools (Unix tools), make, cp, rm, git, ...etc
 
@@ -116,12 +112,11 @@ Additional examples
 
 ---
 
-   |                                     | GLFW   | SDL2  | SDL3   |
-   | -------------------                 | :----: | :---: | :----: |
-   | OpenGL3 backend                     | v      | v     | v      |
-   | SDL2 backend                        |        | v     |        |
-   | SDL3 **GPU** / **Renderer** backend |        |       | v      |
-   | Vulkan backend                      |        |       | WIP    |
+   | Frontends | Backends                       |
+   | ---       | -------------------            |
+   | GLFW      | OpenGL3, SDL2, SDL3            |
+   | SDL2      | OpenGL3, sdlrenderer2           |
+   | SDL3      | OpenGL3, sdlrenderer3, sdlgpu3 |
 
 [^fed]: Front end
 
@@ -172,13 +167,13 @@ Additional examples
       ```
    
       Cloned libraries are under `../libs/` folder
-   1. **Recursively** update the sources using git `Pull` or `fetch` in the each library folder,  
+   1. **Recursively** update the sources using git `pull` or `fetch` in the each library folder,  
       ../libs/cimgui  
       ../libs/cimguizmo  
       ../libs/cimnodes  
       ../libs/cimplot  
       ... snip ...
-   1.  Checkout arbitrary version with git command in the respective folder
+   1.  `checkout` arbitrary version with git command in the respective folder
    
    1. Specify your `Clang` include path to  `ClangIncludePath` in `imguin/src/imguin/cimgui.nim`.
    
@@ -209,6 +204,7 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
    | :--------------:  | ---------   | :----:  | :---:                   |
+   | 1.92.6  dock      | 1.92.6.0    | 2026/02 | OK                      |
    | 1.92.4  dock      | 1.92.4.0    | 2025/11 | OK                      |
    | 1.92.3  dock      | 1.92.3.0    | 2025/09 | OK                      |
    | 1.92.2b dock      | 1.92.2.1    | 2025/09 | OK                      |
@@ -252,7 +248,7 @@ Windows OS is all OK.
 ---
 
 Windows11 (main)
-- **Nim Compiler Version 2.2.4**
+- **Nim Compiler Version 2.2.6**
 - **GCC (Rev1, Built by MSYS2 project) 15.2.0**
 - Visual Studio C++/C 2022
 - git version 2.46.0.windows.1
@@ -260,7 +256,7 @@ Windows11 (main)
 - MSys2/MinGW tools
 
 Linux Debian 13
-- **Nim Compiler Version 2.2.4**
+- **Nim Compiler Version 2.2.6**
 - gcc 14.2.0
 - make: GNU Make 4.4.1
 

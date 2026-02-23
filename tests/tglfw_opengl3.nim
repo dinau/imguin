@@ -73,7 +73,7 @@ proc main() =
   glfwWindowHint(GLFWResizable, GLFW_TRUE)
   #
   glfwWindowHint(GLFWVisible, GLFW_FALSE)
-  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight, "ImGui / CImGui demo 2025/02")
+  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight, "ImGui / CImGui demo 2026/02")
   if glfwWin.isNil:
     quit(-1)
   glfwWin.makeContextCurrent()
@@ -128,6 +128,9 @@ proc winMain(hWin: glfw.GLFWWindow) =
   igStyleColorsClassic(nil)
 
   var pio = igGetIO()
+  ImFontAtlas_AddFontDefaultVector(pio.Fonts, nil)
+  igGetStyle().FontScaleMain = 1.2
+
 
   # main loop
   while not hWin.windowShouldClose:
@@ -189,7 +192,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
 
       # Show file open dialog
       when defined(windows):
-        if igButton("Open file", ImVec2(x: 0, y: 0)):
+        if igButton("Open file".cstring, ImVec2_c(x: 0, y: 0)):
            sFnameSelected = openFileDialog("File open dialog", getCurrentDir() / "\0", ["*.nim", "*.nims"], "Text file")
         igSameLine()
         # Show hint
@@ -202,7 +205,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
         let (_,fname,ext) = sFnameSelected.splitFile()
         igText("Selected file = %s", (fname & ext).cstring)
       # Counter up
-      if igButton("Button", ImVec2(x: 0.0f, y: 0.0f)):
+      if igButton("Button", ImVec2_c(x: 0.0f, y: 0.0f)):
         inc counter
       igSameLine()
       igText("counter = %d", counter)
@@ -212,7 +215,7 @@ proc winMain(hWin: glfw.GLFWWindow) =
     if showAnotherWindow:
       igBegin("imgui Another Window", addr showAnotherWindow, 0)
       igText("Hello from imgui")
-      if igButton("Close me", ImVec2(x: 0.0f, y: 0.0f)):
+      if igButton("Close me", ImVec2_c(x: 0.0f, y: 0.0f)):
         showAnotherWindow = false
       igEnd()
 

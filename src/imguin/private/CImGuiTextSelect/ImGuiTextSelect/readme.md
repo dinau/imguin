@@ -59,9 +59,11 @@ See [the example code](/example/main.cpp) for a full program using ImGuiTextSele
 
 // The lines to show in the window
 // You will need to supply TextSelect instances with functions that:
-//   1. Take a line number (starting from 0) and return that line in an std::string_view
+//   1. Take a line number (starting from 0) and return that line in an
+//      std::string_view
 //   2. Return the total number of lines in the window
-// A vector is a convenient way to fulfill the above requirements, but you may use whatever you like.
+// A vector is a convenient way to fulfill the above requirements, but you may
+// use whatever you like.
 std::vector<std::string_view> lines{
     "Line 1",
     "Line 2",
@@ -71,41 +73,43 @@ std::vector<std::string_view> lines{
     "UTF-8 characters Ë ⑤ 三【 】┌──┐"
 };
 
-std::string_view getLineAtIdx(size_t idx) {
+std::string_view getLineAtIdx(std::size_t idx) {
     return lines[idx];
 }
 
-size_t getNumLines() {
+std::size_t getNumLines() {
     return lines.size();
 }
 
-// Create a TextSelect instance. You can pass `true` as third argument to enable word wrapping.
-// Wrapping is disabled by default.
+// Create a TextSelect instance. This takes an optional third bool parameter to
+// enable word wrapping (disabled by default; pass true to enable).
 TextSelect textSelect{ getLineAtIdx, getNumLines };
 
-// ---------- In the main render loop: ----------
+// ------------------------- In the main render loop: -------------------------
 
 // Create a window to contain the text
 ImGui::SetNextWindowSize({ 300, 200 });
 ImGui::Begin("Text selection");
 
 // Create a child window with the "NoMove" flag
-// This allows mouse drags to select text (instead of moving the window), while still
-// allowing the window to be moved from the title bar.
+// This allows mouse drags to select text (instead of moving the window), while
+// still allowing the window to be moved from the title bar.
 ImGui::BeginChild("text", {}, 0, ImGuiWindowFlags_NoMove);
 
 // Display each line
 for (const auto& line : lines) {
-    // Call `TextUnformatted` or `TextWrapped` depending on what flag was passed to the constructor
     ImGui::TextUnformatted(line.data());
+
+    // If word wrapping is enabled, call this instead:
+    // ImGui::TextWrapped("%s", line.data());
 }
 
 // Update TextSelect instance (all text selection is handled in this method)
 textSelect.update();
 
 // Register a context menu (optional)
-// The TextSelect class provides the hasSelection, copy, selectAll, and clearSelection
-// methods for manual control.
+// The TextSelect class provides the hasSelection, copy, selectAll, and
+// clearSelection methods for manual control.
 if (ImGui::BeginPopupContextWindow()) {
     ImGui::BeginDisabled(!textSelect.hasSelection());
     if (ImGui::MenuItem("Copy", "Ctrl+C")) {

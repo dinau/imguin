@@ -43,7 +43,7 @@ proc igPlotLines*[T](label:string,arry:openArray[T],size:int= arry.len
                                ,overlayText:string = ""
                                ,smin:float = igGetFLTMax()
                                ,smax:float = igGetFLTMax()
-                               ,graphSize:Imvec2 = ImVec2(x:0,y:0)
+                               ,graphSize:Imvec2_c = ImVec2_c(x:0,y:0)
                                ,stride:int = sizeof(cfloat)) {.inline.} =
 
   igPlotLinesFloatPtr(label.cstring,cast[ptr T](unsafeAddr arry), size.cint
@@ -87,8 +87,8 @@ proc igMenuItem*(label: cstring, shortcut: cstring = nil, selected: bool = false
 proc igMenuItem*(label: cstring, shortcut: cstring, p_selected: ptr bool, enabled: bool = true): bool {.importc: "igMenuItem_BoolPtr".}
 proc igMenuItemEx*(label: cstring, icon: cstring, shortcut: cstring = nil, selected: bool = false, enabled: bool = true): bool {.importc: "igMenuItemEx".}
 
-proc igBeginChild*(str_id: cstring, size: ImVec2 = ImVec2(x: 0, y: 0), border: bool = false, flags: ImGuiWindowFlags = 0.ImGuiWindowFlags): bool {.importc: "igBeginChild_Str".}
-proc igBeginChild*(id: ImGuiID, size: ImVec2 = ImVec2(x: 0, y: 0), border: bool = false, flags: ImGuiWindowFlags = 0.ImGuiWindowFlags): bool {.importc: "igBeginChild_ID".}
+proc igBeginChild*(str_id: cstring, size: ImVec2_c = ImVec2_c(x: 0, y: 0), border: bool = false, flags: ImGuiWindowFlags = 0.ImGuiWindowFlags): bool {.importc: "igBeginChild_Str".}
+proc igBeginChild*(id: ImGuiID, size: ImVec2_c = ImVec2_c(x: 0, y: 0), border: bool = false, flags: ImGuiWindowFlags = 0.ImGuiWindowFlags): bool {.importc: "igBeginChild_ID".}
 
 when not defined(igGetIO):
   template igGetIO*(): ptr ImGuiIO =

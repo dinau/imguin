@@ -24,7 +24,7 @@ solutions.
 
 > [!NOTE]
 > ImGuiFileDialog follow the master and docking branch of ImGui.
-> Currently : [![Wrapped Dear ImGui Version](https://img.shields.io/badge/Dear%20ImGui%20Version-1.92.0-blue.svg)](https://github.com/ocornut/imgui)
+> Currently : [![Wrapped Dear ImGui Version](https://img.shields.io/badge/Dear%20ImGui%20Version-1.92.3-blue.svg)](https://github.com/ocornut/imgui)
 
 ### Documentation :
 
@@ -106,6 +106,8 @@ Android Requirements : Api 21 mini
 - you can use your own FileSystem Api
     - by default Api Dirent and std::filesystem are defined
 	- you can override GetDrieveList for specify by ex on android other fs, like local and SDCards
+- can select all displayed files with "ctrl+a" as in any OS 
+- natural sorting for filenames and extension on demand
 
 ### WARNINGS :
 - the nav system keyboard behavior is not working as expected, so maybe full of bug for ImGuiFileDialog
@@ -159,12 +161,12 @@ You need to have the opengl library installed
 
 ### On Linux :
 
-You need many lib : (X11, xrandr, xinerama, xcursor, mesa)
+You need many lib : (X11, xrandr, xinerama, xcursor, mesa, wayland)
 
 If you are on debian you can run :
 
 sudo apt-get update 
-sudo apt-get install libgl1-mesa-dev libx11-dev libxi-dev libxrandr-dev libxinerama-dev libxcursor-dev
+sudo apt-get install libgl1-mesa-dev libx11-dev libxi-dev libxrandr-dev libxinerama-dev libxcursor-dev libwayland-dev
 
 ### On MacOs :
 

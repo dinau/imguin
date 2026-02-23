@@ -23,16 +23,16 @@ Link: [Dear ImGui](https://github.com/ocornut/imgui)
 
 ---
 
-- Windows OS 10 or later
+- Windows OS 11 or later
    1. Install [MSys2/MinGW](https://www.msys2.org/) (Windows OS)
-   1. Install libraries
+   1. Install packages
    
       ```sh
-      pacman -S mingw-w64-x86_64-{gcc,glfw,pkg-config} make
+      pacman -S mingw-w64-ucrt-x86_64-{gcc,glfw,pkg-config} make
       ```
 
-- Linux: Ubuntu 24.04 / Debian13 families  
-   1. Install libraries
+- Linux: Ubuntu / Debian families  
+   1. Install packages
 
       ```sh
       $ sudo apt install gcc lib{opengl-dev,gl1-mesa-dev,glfw3-dev} make pkg-config

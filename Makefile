@@ -16,7 +16,7 @@ install:
 	#@-nimble build
 
 clean:
-	@-rm tests/tglfw_opengl3$(EXE)
+	(@-rm tests/tglfw_opengl3$(EXE); @$(MAKE) -C src/imguin/private/updater $@)
 
 EXT_LIB_DIR = ../libs
 TARGET_DIR = src/imguin/private

@@ -5,7 +5,7 @@
   - [Prerequisites](#prerequisites)
   - [Build and run](#build-and-run)
   - [Custom window](#custom-window)
-  - [Using this project](#using-this-project)
+  - [Projects that use cimgui_toggle](#projects-that-use-cimgui_toggle)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -17,7 +17,9 @@
 
 ---
 
-`cimgui_toggle` is C language wrapper for [imgui_toggle](https://github.com/cmdwtf/imgui_toggle) library 
+`cimgui_toggle` is C wrapper for [imgui_toggle](https://github.com/cmdwtf/imgui_toggle) library 
+
+ImGui / CImGui : 1.92.6 (2026/02)
 
 ![alt](img/simple.png)
 
@@ -27,20 +29,18 @@
 
 1. Windows OS  
 - MSys2/MinGW tools installed.  
-Install at least,
 
    ```sh
    pacman -S make mingw-w64-ucrt-x86_64-{gcc,glfw,pkgconf}
    ```
 
 1. Linux OS (Ubuntu / Debian families)  
-Install at least,
 
    ```sh
    $ sudo apt install make pkgconf lib{opengl-dev,gl1-mesa-dev,glfw3,glfw3-dev}
    ```
 
-1. Git installed
+1. Install Git command 
 
 ### Build and run
 
@@ -52,14 +52,14 @@ Install at least,
    git clone --recursive https://github.com/dinau/cimgui_toggle
    ```
 
-1. Build and run  C language demo
+1. Build and run C demo
 
    ````
    cd cimgui_toggle/demo/c
    make run
    ````
 
-1. Build and run  C++ language demo
+1. Build and run  C++ demo
 
    ````
    cd cimgui_toggle/demo/cpp
@@ -73,15 +73,13 @@ Install at least,
 ![alt](img/custom.png)
 
 
-### Using this project
+### Projects that use cimgui_toggle
 
 ---
 
-| Language [^order]    |          | Project                                                             |
-| -------------------: | :---:    | :----------------------------------------------------------------:  |
-| **NeLua**            | Compiler | [NeLuaImGui](https://github.com/dinau/neluaImGui)                   |
-| **Nim**              | Compiler | [ImGuin](https://github.com/dinau/imguin)                           |
-| **Zig**, C lang.     | Compiler | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build) |
-| **Zig**              | Compiler | [ImGuinZ](https://github.com/dinau/imguinz)                         |
-
-[^order]: Alphabectial order
+| Language             |          | Project                                                                                                 |
+| -------------------: | :---:    | :----------------------------------------------------------------:                                      |
+| **NeLua**            | Compiler | [NeLuaImGui](https://github.com/dinau/neluaImGui) / [NeLuaImGui2](https://github.com/dinau/neluaImGui2) |
+| **Nim**              | Compiler | [ImGuin](https://github.com/dinau/imguin)                                                               |
+| **Zig**, C           | Compiler | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build)                                     |
+| **Zig**              | Compiler | [ImGuinZ](https://github.com/dinau/imguinz)                                                             |
