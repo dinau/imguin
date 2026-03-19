@@ -26,7 +26,7 @@ updater:
 
 gen: copylibs updater
 
-copylibs: imgui implot imnodes imguizmo ImGuiFileDialog imgui_toggle implot3d imspinner imCTE ImGuiTextSelect
+copylibs: imgui implot imnodes imguizmo ImGuiFileDialog imgui_toggle implot3d imspinner imCTE ImGuiTextSelect imgui-knobs
 
 imgui:
 	@echo [ CImGui ] copying...
@@ -66,19 +66,19 @@ ImGuiFileDialog:
 imgui_toggle:
 	@echo [ c$@ ] copying...
 	@-mkdir -p $(TARGET_DIR)/c$@/libs/$@
-	@cp -f $(EXT_LIB_DIR)/c$@/{LICENSE,*.cpp,*.h,README.md}         $(TARGET_DIR)/c$@/
-	@cp -f $(EXT_LIB_DIR)/c$@/libs/$@/{LICENSE,*.cpp,*.h,README.md} $(TARGET_DIR)/c$@/libs/$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/{LICENSE,*.cpp,*.h,README.md}                 $(TARGET_DIR)/c$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/libs/$@/{LICENSE,*.cpp,*.h,README.md}         $(TARGET_DIR)/c$@/libs/$@/
 
 implot3d:
 	@echo [ CImPlot3D ] copying...
 	@-mkdir -p $(TARGET_DIR)/c$@/$@
-	@cp -f $(EXT_LIB_DIR)/c$@/{*.cpp,*.h,README.md}            $(TARGET_DIR)/c$@/
-	@cp -f $(EXT_LIB_DIR)/c$@/$@/{LICENSE,*.cpp,*.h,README.md} $(TARGET_DIR)/c$@/$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/{*.cpp,*.h,README.md}                          $(TARGET_DIR)/c$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/$@/{LICENSE,*.cpp,*.h,README.md}               $(TARGET_DIR)/c$@/$@/
 
 imspinner:
 	@echo [ ImSpinner ] copying...
 	@-mkdir -p $(TARGET_DIR)/$@
-	@cp -f $(EXT_LIB_DIR)/$@/{LICENSE.txt,*.cpp,*.h,README.md}               $(TARGET_DIR)/$@/
+	@cp -f $(EXT_LIB_DIR)/$@/{LICENSE.txt,*.cpp,*.h,README.md}                $(TARGET_DIR)/$@/
 	@echo "" >  $(TARGET_DIR)/$@/cimspinner_config.h
 
 imCTE:
@@ -93,7 +93,13 @@ ImGuiTextSelect:
 	@echo [ C$@ ] copying...
 	@-mkdir -p $(TARGET_DIR)/C$@/$@
 	@cp -f $(EXT_LIB_DIR)/C$@/{LICENSE,*.cpp,*.h,README.md}                     $(TARGET_DIR)/c$@/
-	@cp -f $(EXT_LIB_DIR)/C$@/libs/$@/{LICENSE.txt,*.cpp,*.hpp,docs/*.md}              $(TARGET_DIR)/c$@/$@/
+	@cp -f $(EXT_LIB_DIR)/C$@/libs/$@/{LICENSE.txt,*.cpp,*.hpp,docs/*.md}       $(TARGET_DIR)/c$@/$@/
+
+imgui-knobs:
+	@echo [ c$@ ] copying...
+	@-mkdir -p $(TARGET_DIR)/c$@/$@
+	@cp -f $(EXT_LIB_DIR)/c$@/{LICENSE,*.cpp,*.h,README.md}                     $(TARGET_DIR)/c$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/libs/$@/{LICENSE,*.cpp,*.h,*.md}                  $(TARGET_DIR)/c$@/$@/
 
 libs:
 	-mkdir -p ../$@
@@ -124,6 +130,8 @@ cimCTE:
 	git clone --recurse-submodules https://github.com/cimgui/$@  $(GIT_LIBS)/$@
 cimguitextselect:
 	git clone --recurse-submodules https://github.com/dinau/CImGuiTextSelect  $(GIT_LIBS)/CImGuiTExtSelect
+cimgui-knobs:
+	git clone --recurse-submodules https://github.com/dinau/cimgui-knobs  $(GIT_LIBS)/cimgui-knobs
 
 help:
 	@echo See. https://github.com/dinau/imguin

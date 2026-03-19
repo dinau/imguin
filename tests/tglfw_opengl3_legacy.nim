@@ -1,19 +1,16 @@
 # Compiling:
-# nim c -d:strip -d:ImSpinner tglfw_opengl3.nim
+# nim c -d:strip -d:ImSpinner tglfw_opengl3_legacy.nim
 
 import std/[os, strutils, math]
-import glfw             # nimble install glfw : (https://github.com/johnnovak/nim-glfw)
-import imguin/[glad/gl] # OpenGL library
+import nimgl/[opengl, glfw]         # OpenGL and GLFW
 import imguin/[glfw_opengl, simple]
-# or
-#import imguin/[cimgui, impl_glfw, impl_opengl, simple]
-# is also OK
 
 when defined(windows):
   import tinydialogs
 
 const MainWinWidth = 1024
 const MainWinHeight = 800
+
 
 {.passC: "-DSPINNER_RAINBOWMIX".}
 {.passC: "-DSPINNER_DNADOTS".}
@@ -50,10 +47,61 @@ block:
   if fViewport:
     fDocking = true
 
-#----------
-# gui_main
-#----------
-proc gui_main(win: glfw.Window) =
+#---------------------
+# Forward definitions
+#---------------------
+proc winMain(hWin: glfw.GLFWWindow)
+
+#------
+# main
+#------
+proc main() =
+  doAssert glfwInit()
+  defer: glfwTerminate()
+
+  if TransparentViewport:
+    glfwWindowHint(GLFWVisible, GLFW_FALSE)
+
+  glfwWindowHint(GLFWContextVersionMajor, 3)
+  glfwWindowHint(GLFWContextVersionMinor, 3)
+  glfwWindowHint(GLFWOpenglForwardCompat, GLFW_TRUE)
+  glfwWindowHint(GLFWOpenglProfile, GLFW_OPENGL_CORE_PROFILE)
+  glfwWindowHint(GLFWResizable, GLFW_TRUE)
+  #
+  glfwWindowHint(GLFWVisible, GLFW_FALSE)
+  var glfwWin = glfwCreateWindow(MainWinWidth, MainWinHeight, "ImGui / CImGui demo 2026/02")
+  if glfwWin.isNil:
+    quit(-1)
+  glfwWin.makeContextCurrent()
+  defer: glfwWin.destroyWindow()
+
+  glfwSwapInterval(1) # Enable vsync
+
+  doAssert glInit() # OpenGL init
+
+  # Setup ImGui
+  let context = igCreateContext(nil)
+  defer: context.igDestroyContext()
+  if fDocking:
+    var pio = igGetIO()
+    pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_DockingEnable.cint
+    if fViewport:
+      pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_ViewportsEnable.cint
+      pio.ConfigViewports_NoAutomerge = true
+
+  # GLFW + OpenGL
+  const glsl_version = "#version 330" # GL 3.3
+  doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr impl_glfw.GLFWwindow](glfwwin), true)
+  defer: ImGui_ImplGlfw_Shutdown()
+  doAssert ImGui_ImplOpenGL3_Init(glsl_version)
+  defer: ImGui_ImplOpenGL3_Shutdown()
+
+  glfwWin.winMain()
+
+#---------
+# winMain
+#---------
+proc winMain(hWin: glfw.GLFWWindow) =
   var
     showDemoWindow = true
     showAnotherWindow = false
@@ -66,7 +114,7 @@ proc gui_main(win: glfw.Window) =
     showWindowDelay = 1 # TODO
 
   if TransparentViewport:
-    clearColor = ccolor(elm: (x: 0f, y: 0f, z: 0f, w: 0f)) # Transparent
+    clearColor = ccolor(elm: (x: 0f, y: 0f, z: 0f, w: 0.0f)) # Transparent
   else:
     clearColor = ccolor(elm: (x: 0.25f, y: 0.65f, z: 0.85f, w: 1.0f))
 
@@ -76,11 +124,10 @@ proc gui_main(win: glfw.Window) =
   ImFontAtlas_AddFontDefaultVector(pio.Fonts, nil)
   igGetStyle().FontScaleMain = 1.2
 
-  #-----------
+
   # main loop
-  #-----------
-  while not win.shouldClose:
-    glfw.pollEvents()
+  while not hWin.windowShouldClose:
+    glfwPollEvents()
 
     # start imgui frame
     ImGui_ImplOpenGL3_NewFrame()
@@ -119,7 +166,7 @@ proc gui_main(win: glfw.Window) =
       #-------------
       # Normal demo
       #-------------
-      var s = "GLFW v" & $glfw.versionString()
+      var s = "GLFW v" & $glfwGetVersionString()
       igText(s.cstring)
       s = "OpenGL v" & ($cast[cstring](glGetString(GL_VERSION))).split[0]
       igText(s.cstring)
@@ -172,75 +219,22 @@ proc gui_main(win: glfw.Window) =
     ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData())
 
     if 0 != (pio.ConfigFlags and ImGui_ConfigFlags_ViewportsEnable.cint):
-      var backup_current_window = glfw.currentContext()
+      var backup_current_window = glfwGetCurrentContext()
       igUpdatePlatformWindows()
       igRenderPlatformWindowsDefault(nil, nil)
       backup_current_window.makeContextCurrent()
 
-    win.swapBuffers()
+    hWin.swapBuffers()
     if not showFirstWindow and not showDemoWindow and not showAnotherWindow:
-      win.shouldClose = true # End program
+      hwin.setWindowShouldClose(true) # End program
 
     if showWindowDelay > 0:
       dec showWindowDelay
     else:
       once: # Avoid flickering screen at startup.
-        win.show()
+        hWin.showWindow()
 
-#------
-# main
-#------
-proc main() =
-  glfw.initialize()
-  var glfwWin: glfw.Window
-
-  var cfg = DefaultOpenglWindowConfig
-  const glsl_version = "#version 330" # GL 3.3
-  cfg.version = glv33 # GL 3.3
-  cfg.forwardCompat = true
-  cfg.profile = opCoreProfile
-  cfg.resizable = true
-  if TransparentViewport:
-    cfg.visible = false
-
-  when defined(linux) and not defined(android): # For WSL2: WSLg
-    cfg.contextCreationApi = ccaEglContextApi
-
-  cfg.visible = false # See show()
-  cfg.size = (w: MainWinWidth, h: MainWinHeight)
-  cfg.title = "Dear ImGui + GLFW OpenGL"
-  glfwWin = newWindow(cfg)
-  if glfwWin.isNil:
-    echo "Error!: GLFW create window"
-    quit 1
-
-  glfw.makeContextCurrent(glfwWin)
-  defer: glfwWin.destroy()
-
-  if not gladLoadGL(cast[proc(name: cstring): pointer {.cdecl.}](glfw.getProcAddress)):
-    echo "Error!: initializing OpenGL"
-    quit 1
-
-  glfw.swapInterval(1) # Enable vsync
-
-  # Setup Dear ImGui
-  let context = igCreateContext(nil)
-  defer: context.igDestroyContext()
-  if fDocking:
-    var pio = igGetIO()
-    pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_DockingEnable.cint
-    if fViewport:
-      pio.ConfigFlags = pio.ConfigFlags or ImGui_ConfigFlags_ViewportsEnable.cint
-      pio.ConfigViewports_NoAutomerge = true
-
-  # GLFW + OpenGL
-  doAssert ImGui_ImplGlfw_InitForOpenGL(cast[ptr impl_glfw.GLFWwindow](glfwwin.getHandle()), true)
-  defer: ImGui_ImplGlfw_Shutdown()
-  doAssert ImGui_ImplOpenGL3_Init(glsl_version)
-  defer: ImGui_ImplOpenGL3_Shutdown()
-
-  glfwWin.gui_main()
-
+    #### end while
 #------
 # main
 #------

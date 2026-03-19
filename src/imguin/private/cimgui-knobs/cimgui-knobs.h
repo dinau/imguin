@@ -1,5 +1,9 @@
 #pragma once
 
+#if !defined(EXPORT)
+#  define EXPORT
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -30,7 +34,7 @@ typedef enum IgKnobVariant {
     IgKnobVariant_Space = 1 << 6,
 } IgKnobVariant;
 
-bool IgKnobFloat(
+EXPORT bool IgKnobFloat(
     const char *label,
     float *p_value,
     float v_min,
@@ -44,7 +48,7 @@ bool IgKnobFloat(
     float angle_min,
     float angle_max);
 
-bool IgKnobInt(
+EXPORT bool IgKnobInt(
     const char *label,
     int *p_value,
     int v_min,

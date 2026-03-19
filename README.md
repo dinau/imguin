@@ -112,11 +112,11 @@ Additional examples
 
 ---
 
-   | Frontends | Backends                       |
-   | ---       | -------------------            |
-   | GLFW      | OpenGL3, SDL2, SDL3            |
-   | SDL2      | OpenGL3, sdlrenderer2           |
-   | SDL3      | OpenGL3, sdlrenderer3, sdlgpu3 |
+   | Frontends | Backends                                        |
+   | ---       | -------------------                             |
+   | GLFW      | OpenGL3, Vulkan(2026/03)                        |
+   | SDL2      | OpenGL3, sdlrenderer2                           |
+   | SDL3      | OpenGL3, sdlrenderer3, sdlgpu3, Vulkan(2026/03) |
 
 [^fed]: Front end
 
@@ -202,8 +202,9 @@ Additional examples
 - Confirmed version  
 Windows OS is all OK.
 
-   | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) |
-   | :--------------:  | ---------   | :----:  | :---:                   |
+   | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) | Notice                         |
+   | :--------------:  | ---------   | :----:  | :---:                   | ---                            |
+   | 1.92.6  dock      | 1.92.6.1    | 2026/03 | OK                      | Breaking changed impl_glfw.nim |
    | 1.92.6  dock      | 1.92.6.0    | 2026/02 | OK                      |
    | 1.92.4  dock      | 1.92.4.0    | 2025/11 | OK                      |
    | 1.92.3  dock      | 1.92.3.0    | 2025/09 | OK                      |

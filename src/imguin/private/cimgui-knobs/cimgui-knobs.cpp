@@ -3,7 +3,7 @@
 
 extern "C" {
 
-bool IgKnobFloat(
+EXPORT bool IgKnobFloat(
     const char *label,
     float *p_value,
     float v_min,
@@ -22,7 +22,7 @@ bool IgKnobFloat(
                             angle_max);
 }
 
-bool IgKnobInt(
+EXPORT bool IgKnobInt(
     const char *label,
     int *p_value,
     int v_min,

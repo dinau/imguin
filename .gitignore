@@ -1,3 +1,4 @@
+impl_vulkan_def_all.nim
 *.pdf
 *.stop
 *.zip

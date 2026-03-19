@@ -23,6 +23,7 @@ const CImNodesPath         = joinPath(currentSourceDir(),"private/cimnodes").rep
 const CImGuizmoPath        = joinPath(currentSourceDir(),"private/cimguizmo").replace("\\", "/")
 #
 const CImKnobsPath         = joinPath(currentSourceDir(),"private/cimgui-knobs").replace("\\", "/")
+const ImKnobsPath          = joinPath(currentSourceDir(),"private/cimgui-knobs/imgui-knobs").replace("\\", "/")
 #
 const CImGuiFileDialogPath = joinPath(currentSourceDir(),"private/CImGuiFileDialog/libs/ImGuiFileDialog").replace("\\", "/")
 #
@@ -125,8 +126,10 @@ else: # Use generated header by Futark in your programs.
 
   {.passC:"-I" & CImguiPath.}
   {.passC:"-I" & ImguiPath.}
+  {.passC:"-I" & ImguiPath & "/backends".}
 
   {.compile:joinPath(CImguiPath,"cimgui.cpp").replace("\\", "/").}
+  {.compile:joinPath(CImguiPath,"cimgui_impl.cpp").replace("\\", "/").}
   {.compile:joinPath(ImguiPath,"imgui.cpp").replace("\\", "/").}
   {.compile:joinPath(ImguiPath,"imgui_demo.cpp").replace("\\", "/").}
   {.compile:joinPath(ImguiPath,"imgui_draw.cpp").replace("\\", "/").}
@@ -165,8 +168,9 @@ else: # Use generated header by Futark in your programs.
 
   when defined(ImKnobsEnable) or defined(ImKnobs):
     {.passC:"-I" & CImKnobsPath.}
+    {.passC:"-I" & ImKnobsPath.}
     {.compile:joinPath(CImKnobsPath,"cimgui-knobs.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImKnobsPath,"imgui-knobs.cpp").replace("\\", "/").}
+    {.compile:joinPath(ImKnobsPath,"imgui-knobs.cpp").replace("\\", "/").}
 
   when defined(ImGuiFileDialogEnable) or defined(ImGuiFileDialog):
     {.passC:"-I" & CImGuiFileDialogPath.}

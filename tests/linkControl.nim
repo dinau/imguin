@@ -1,28 +1,28 @@
-switch "app","gui" # dismiss background Window
+switch "app", "gui" # dismiss background Window
 
 #---------------------------------------
 # Select static link or shared/dll link
 #---------------------------------------
 when defined(windows):
-  const STATIC_LINK_GLFW = false
-  const STATIC_LINK_CC = true      #libstd++ or libc
-  switch "passL","-lgdi32 -limm32 -lcomdlg32 -luser32 -lshell32"
+  const STATIC_LINK_GLFW = false # true: statically link glfw3
+  const STATIC_LINK_CC = true #libstd++ or libc
+  switch "passL", "-lgdi32 -limm32 -lcomdlg32 -luser32 -lshell32"
 else: # for Linux
   const STATIC_LINK_GLFW = false
-  const STATIC_LINK_CC= false
+  const STATIC_LINK_CC = false
 
 #####
 when STATIC_LINK_GLFW: # GLFW static link
-  switch "define","glfwStaticLib"
+  switch "define", "glfwStaticLib"
 else: # shared/dll
   when defined(windows):
-    switch "passL","-L."
-    switch "passL","-lglfw3dll"
+    switch "passL", "-L."
+    switch "passL", "-lglfw3dll"
     switch "define", "glfwDLL"
     #switch "define","cimguiDLL"
   else:
-    switch "passL","-lglfw"
-    switch "passL","-lX11"
+    switch "passL", "-lglfw"
+    switch "passL", "-lX11"
 
 when STATIC_LINK_CC: # gcc static link
   switch "passC", "-static"
