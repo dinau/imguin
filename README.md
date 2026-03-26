@@ -26,6 +26,12 @@ This project is Dear ImGui wrapper library for Nim[^notice].
 ,updated project [nimgl-imgui](https://github.com/dinau/nimgl-imgui) (ImGui v1.89.9)  ,sub project [nim_implot](https://github.com/dinau/nim_implot) and test project [nimgl_test](https://github.com/dinau/nimgl_test),  
 or [https://github.com/daniel-j/nimgl-imgui](https://github.com/daniel-j/nimgl-imgui) (ImGui v1.91.1)
 
+#### WASM demo (WIP)
+
+---
+
+[glfw_opengl3_wasm](https://dinau.github.io/imguin/wasm/demo/glfw_opengl3_wasm.html)
+
 #### Screenshot
 
 ---
@@ -52,7 +58,7 @@ Note: First see examples project  [ImGuin_examples](https://github.com/dinau/img
 
 ---
 
-- [Nim-2.2.6](https://nim-lang.org) or later
+- [Nim-2.2.8](https://nim-lang.org) or later
 - Windows11 or later  
 [MSys2/MinGW](https://www.msys2.org/) command line tools (Unix tools), make, cp, rm, git, ...etc
 

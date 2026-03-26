@@ -43,4 +43,8 @@ proc ImGui_ImplGlfw_Setcallbackschainforallwindows*(chainforallwindows: bool): v
 proc ImGui_ImplGlfw_Shutdown*(): void
 proc ImGui_ImplGlfw_Sleep*(milliseconds: cint)
 proc ImGui_ImplGlfw_Windowfocuscallback*(window: ptr Glfwwindow; focused: cint): void
+when defined(emscripten):
+  proc ImGui_ImplGlfw_InstallEmscriptenCallbacks*(window: ptr Glfwwindow, canvas_selector:cstring): void
+  #{.emit:"extern void ImGui_ImplGlfw_InstallEmscriptenCallbacks(GLFWwindow* window, const char* canvas_selector);".}
+
 {.pop.}

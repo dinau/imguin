@@ -7,6 +7,7 @@ license       = "MIT"
 srcDir        = "src"
 skipDirs      = @["src/img"
                  ,"src/imguin/private/updater"
+                 ,"wasm"
                  ]
 #bin           = @["imguin"]
 
@@ -20,6 +21,7 @@ requires "stb_image"
 requires "tinydialogs"
 requires "glfw"
 requires "https://github.com/DanielBelmes/VulkanNim"
+requires "https://github.com/Anuken/staticglfw"
 #requires "futhark == 0.15.0"
 
 task test,"Run test app":

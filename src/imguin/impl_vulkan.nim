@@ -128,10 +128,11 @@ const ImguiBackendsPath    = joinPath(currentSourceDir(),"private/cimgui/imgui/b
 
 when defined(windows):
   {.passC:"""  -DIMGUI_IMPL_API="extern \"C\" __declspec(dllexport)"  """.}
-  when defined(vcc):
-    {.passL:"vulkan-1".}     # link "libvulkan-1.lib" included Official Vulkan SDK
-  else:
-    {.passL:"-lvulkan-1.dll".} # MinGW: link "libvulkan-1.dll.a"
+  when not defined(volk):
+    when defined(vcc):
+      {.passL:"vulkan-1".}     # link "libvulkan-1.lib" included Official Vulkan SDK
+    else:
+      {.passL:"-lvulkan-1.dll".} # MinGW: link "libvulkan-1.dll.a"
 else: # Linux
   {.passC:""" -DIMGUI_IMPL_API="extern \"C\""  """.}
   {.passL:"-lvulkan".}
