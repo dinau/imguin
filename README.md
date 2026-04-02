@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [ImGuin](#imguin)
+  - [Try Wasm demo in your browser](#try-wasm-demo-in-your-browser)
   - [Screenshot](#screenshot)
     - [tests folder](#tests-folder)
     - [Dear ImGui + Naylib(Raylib) + rlImgui example](#dear-imgui--naylibraylib--rlimgui-example)
@@ -26,11 +27,14 @@ This project is Dear ImGui wrapper library for Nim[^notice].
 ,updated project [nimgl-imgui](https://github.com/dinau/nimgl-imgui) (ImGui v1.89.9)  ,sub project [nim_implot](https://github.com/dinau/nim_implot) and test project [nimgl_test](https://github.com/dinau/nimgl_test),  
 or [https://github.com/daniel-j/nimgl-imgui](https://github.com/daniel-j/nimgl-imgui) (ImGui v1.91.1)
 
-#### WASM demo (WIP)
+#### Try Wasm demo in your browser
 
 ---
 
-[glfw_opengl3_wasm](https://dinau.github.io/imguin/wasm/demo/glfw_opengl3_wasm.html)
+Click link for live demo: [glfw_opengl3_wasm_base](https://dinau.github.io/imguin/wasm/demo/glfw_opengl3_wasm_base.html)  
+![alt](src/img/wasm_demo_small.gif)
+
+See [Wasm-example: glfw_opengl3_wasm_base](https://github.com/dinau/imguin_examples#wasm-example-glfw_opengl3_wasm_base)
 
 #### Screenshot
 
@@ -42,6 +46,10 @@ Note: First see examples project  [ImGuin_examples](https://github.com/dinau/img
 
 ---
 
+```sh
+nimble test
+```
+
 [tglfw_opengl3.nim](https://github.com/dinau/imguin/blob/main/tests/tglfw_opengl3.nim)
 
 ![alt](https://github.com/dinau/imguin/raw/main/src/img/topimage.gif)
@@ -50,7 +58,7 @@ Note: First see examples project  [ImGuin_examples](https://github.com/dinau/img
 
 ---
 
-[rlimgui_basic](https://github.com/dinau/imguin_examples/blob/main/rlimgui_basic/rlimgui_basic.nim)
+[rlimgui_basic (Naylib / Raylib / rlImgui)](https://github.com/dinau/imguin_examples#rlimgui_basic-naylib--Raylib--rlimgui)
 
 ![alt](https://github.com/dinau/imguin_examples/raw/main/img/rlimgui.gif)  
 
@@ -123,6 +131,9 @@ Additional examples
    | GLFW      | OpenGL3, Vulkan(2026/03)                        |
    | SDL2      | OpenGL3, sdlrenderer2                           |
    | SDL3      | OpenGL3, sdlrenderer3, sdlgpu3, Vulkan(2026/03) |
+   | WASM      | WebGL 2.0                                       |
+
+   
 
 [^fed]: Front end
 
@@ -210,24 +221,25 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) | Notice                         |
    | :--------------:  | ---------   | :----:  | :---:                   | ---                            |
+   | 1.92.6  dock      | 1.92.6.2    | 2026/03 | OK                      | Added Wasm function            |
    | 1.92.6  dock      | 1.92.6.1    | 2026/03 | OK                      | Breaking changed impl_glfw.nim |
-   | 1.92.6  dock      | 1.92.6.0    | 2026/02 | OK                      |
-   | 1.92.4  dock      | 1.92.4.0    | 2025/11 | OK                      |
-   | 1.92.3  dock      | 1.92.3.0    | 2025/09 | OK                      |
-   | 1.92.2b dock      | 1.92.2.1    | 2025/09 | OK                      |
-   | 1.92.2b dock      | 1.92.2.0    | 2025/08 | OK                      |
-   | 1.92.0 dock       | 1.92.0.2    | 2025/08 | OK                      |
-   | 1.92.0 dock       | 1.92.0.1    | 2025/07 | OK                      |
-   | 1.91.9b dock      | 1.91.9.4    | 2025/06 | OK                      |
-   | 1.91.8dock        | 1.91.8.2    | 2025/03 | OK                      |
-   | 1.91.6dock        | 1.91.6.15   | 2025/01 | (4)                     |
-   | 1.91.4dock        | 1.91.4.2    | 2024/12 | OK                      |
-   | 1.91.3dock        | 1.91.3.1    | 2024/10 | (4)                     |
-   | 1.91.2dock        | 1.91.2.0    | 2024/10 | (4)                     |
-   | 1.91.1dock        | 1.91.1.2    | 2024/09 | Except ImNodes example  |
-   | 1.91.0dock        | 1.91.0.0    | 2024/08 | (4)                     |
-   | 1.90.4dock        | 1.90.4.2    | 2024/02 | Use nim-2.0.2           |
-   | 1.89.9dock        | 1.89.9.8    | 2023/12 | OK (1)(2)               |
+   | 1.92.6  dock      | 1.92.6.0    | 2026/02 | OK                      |                                |
+   | 1.92.4  dock      | 1.92.4.0    | 2025/11 | OK                      |                                |
+   | 1.92.3  dock      | 1.92.3.0    | 2025/09 | OK                      |                                |
+   | 1.92.2b dock      | 1.92.2.1    | 2025/09 | OK                      |                                |
+   | 1.92.2b dock      | 1.92.2.0    | 2025/08 | OK                      |                                |
+   | 1.92.0 dock       | 1.92.0.2    | 2025/08 | OK                      |                                |
+   | 1.92.0 dock       | 1.92.0.1    | 2025/07 | OK                      |                                |
+   | 1.91.9b dock      | 1.91.9.4    | 2025/06 | OK                      |                                |
+   | 1.91.8 dock       | 1.91.8.2    | 2025/03 | OK                      |                                |
+   | 1.91.6 dock       | 1.91.6.15   | 2025/01 | (4)                     |                                |
+   | 1.91.4 dock       | 1.91.4.2    | 2024/12 | OK                      |                                |
+   | 1.91.3 dock       | 1.91.3.1    | 2024/10 | (4)                     |                                |
+   | 1.91.2 dock       | 1.91.2.0    | 2024/10 | (4)                     |                                |
+   | 1.91.1 dock       | 1.91.1.2    | 2024/09 | Except ImNodes example  |                                |
+   | 1.91.0 dock       | 1.91.0.0    | 2024/08 | (4)                     |                                |
+   | 1.90.4 dock       | 1.90.4.2    | 2024/02 | Use nim-2.0.2           |                                |
+   | 1.89.9 dock       | 1.89.9.8    | 2023/12 | OK (1)(2)               |                                |
 
   (1) Except imnodes and SDL2 example.  
   (2) Works well only if it is compiled debug mode.  

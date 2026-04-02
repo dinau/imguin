@@ -7,8 +7,14 @@ proc currentSourceDir(): string {.compileTime.} =
   result = result[0 ..< result.rfind("/")]
 
 #--- To specify the place that has "stdbool.h"
-const ClangVersion = 21
-const ClangIncludePath = fmt"c:/drvDx/msys64/ucrt64/lib/clang/{ClangVersion}/include"
+when defined(windows):
+  const ClangVersion = 22
+  const ClangIncludePath = fmt"c:/drvDx/msys64/ucrt64/lib/clang/{ClangVersion}/include"
+elif defined(macosx):
+  const ClangIncludePath = staticExec("xcrun --show-sdk-path").strip() & "/usr/include"
+else: # Linux
+  const ClangIncludePath = "/usr/lib/llvm-16/lib/clang/16/include"
+
 #const ClangIncludePath = fmt"c:/drvDx/msys64/mingw64/lib/clang/{ClangVersion}/include"
 
 # Set root path of ImGui/CImGui
@@ -95,14 +101,20 @@ else: # Use generated header by Futark in your programs.
 
   # for glfw3
   when true:
-    # Use GLFW of glfw-4|3.x.x package
+    # Use GLFW of glfw-3.4 package : https://github.com/johnnovak/nim-glfw
     when defined(windows):
       const dirs = staticExec("nimble path glfw").strip.split("\n")
       {.passC:"-I" & joinPath(dirs[0],"glfw","include").replace("\\", "/").} # dirs[0]: Select max hash version: TODO
     when defined(linux):
-      {.passC:"-I/usr/include".replace("\\", "/").} # Debian families
+      when defined(emscripten):
+        discard
+      else:
+        {.passC:"-I/usr/include".replace("\\", "/").} # Debian families
+    when defined(macosx):
+      const sdkPath = staticExec("xcrun --show-sdk-path").strip()
+      {.passC:("-I" & sdkPath & "/usr/include").}
   else:
-    # Use GLFW of nimgl package
+    # Use GLFW of "nimgl" package
     const dirs = staticExec("nimble path nimgl").strip.split("\n")
     {.passC:"-I" & joinPath(dirs[0],"nimgl","private","glfw","include").replace("\\", "/").} # dirs[0]: Select max hash version: TODO
   #
