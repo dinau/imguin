@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\mimi\AppData\Local\Temp\tmpgr7t2toh.js
+// include: C:\Users\mimi\AppData\Local\Temp\tmpowmwxw4y.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -209,21 +209,21 @@ Module['FS_createPath']("/utils/fonticon", "fa6", true, true);
 
   })();
 
-// end include: C:\Users\mimi\AppData\Local\Temp\tmpgr7t2toh.js
-// include: C:\Users\mimi\AppData\Local\Temp\tmpco_yq96b.js
+// end include: C:\Users\mimi\AppData\Local\Temp\tmpowmwxw4y.js
+// include: C:\Users\mimi\AppData\Local\Temp\tmpnpneahiq.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: C:\Users\mimi\AppData\Local\Temp\tmpco_yq96b.js
-// include: C:\Users\mimi\AppData\Local\Temp\tmp0dq43fkc.js
+  // end include: C:\Users\mimi\AppData\Local\Temp\tmpnpneahiq.js
+// include: C:\Users\mimi\AppData\Local\Temp\tmpine8yq3f.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: C:\Users\mimi\AppData\Local\Temp\tmp0dq43fkc.js
+  // end include: C:\Users\mimi\AppData\Local\Temp\tmpine8yq3f.js
 
 
 var arguments_ = [];
@@ -4460,8 +4460,6 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
   var GL = {
   counter:1,
   buffers:[],
-  mappedBuffers:{
-  },
   programs:[],
   framebuffers:[],
   renderbuffers:[],
@@ -7603,22 +7601,20 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
     };
   var _glBindBuffer = _emscripten_glBindBuffer;
 
-  var _emscripten_glBindSampler = (unit, sampler) => {
-      GLctx.bindSampler(unit, GL.samplers[sampler]);
-    };
-  var _glBindSampler = _emscripten_glBindSampler;
-
   var _emscripten_glBindTexture = (target, texture) => {
       GLctx.bindTexture(target, GL.textures[texture]);
     };
   var _glBindTexture = _emscripten_glBindTexture;
 
+  
   var _emscripten_glBindVertexArray = (vao) => {
       GLctx.bindVertexArray(GL.vaos[vao]);
       var ibo = GLctx.getParameter(0x8895 /*ELEMENT_ARRAY_BUFFER_BINDING*/);
       GLctx.currentElementArrayBufferBinding = ibo ? (ibo.name | 0) : 0;
     };
   var _glBindVertexArray = _emscripten_glBindVertexArray;
+  var _emscripten_glBindVertexArrayOES = _glBindVertexArray;
+  var _glBindVertexArrayOES = _emscripten_glBindVertexArrayOES;
 
   var _emscripten_glBlendEquation = (x0) => GLctx.blendEquation(x0);
   var _glBlendEquation = _emscripten_glBlendEquation;
@@ -7631,18 +7627,6 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
 
   var _emscripten_glBufferData = (target, size, data, usage) => {
   
-      if (GL.currentContext.version >= 2) {
-        // If size is zero, WebGL would interpret uploading the whole input
-        // arraybuffer (starting from given offset), which would not make sense in
-        // WebAssembly, so avoid uploading if size is zero. However we must still
-        // call bufferData to establish a backing storage of zero bytes.
-        if (data && size) {
-          GLctx.bufferData(target, HEAPU8, usage, data, size);
-        } else {
-          GLctx.bufferData(target, size, usage);
-        }
-        return;
-      }
       // N.b. here first form specifies a heap subarray, second form an integer
       // size, so the ?: code here is polymorphic. It is advised to avoid
       // randomly mixing both uses in calling code, to avoid any potential JS
@@ -7652,10 +7636,6 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
   var _glBufferData = _emscripten_glBufferData;
 
   var _emscripten_glBufferSubData = (target, offset, size, data) => {
-      if (GL.currentContext.version >= 2) {
-        size && GLctx.bufferSubData(target, offset, HEAPU8, data, size);
-        return;
-      }
       GLctx.bufferSubData(target, offset, HEAPU8.subarray(data, data+size));
     };
   var _glBufferSubData = _emscripten_glBufferSubData;
@@ -7757,6 +7737,7 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
     };
   var _glDeleteTextures = _emscripten_glDeleteTextures;
 
+  
   var _emscripten_glDeleteVertexArrays = (n, vaos) => {
       for (var i = 0; i < n; i++) {
         var id = HEAP32[(((vaos)+(i*4))>>2)];
@@ -7765,6 +7746,8 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
       }
     };
   var _glDeleteVertexArrays = _emscripten_glDeleteVertexArrays;
+  var _emscripten_glDeleteVertexArraysOES = _glDeleteVertexArrays;
+  var _glDeleteVertexArraysOES = _emscripten_glDeleteVertexArraysOES;
 
   var _emscripten_glDetachShader = (program, shader) => {
       GLctx.detachShader(GL.programs[program], GL.shaders[shader]);
@@ -7794,7 +7777,6 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
               switch(type) {
                 case 0x1401 /* GL_UNSIGNED_BYTE */: arrayClass = Uint8Array; break;
                 case 0x1403 /* GL_UNSIGNED_SHORT */: arrayClass = Uint16Array; break;
-                case 0x1405 /* GL_UNSIGNED_INT */: arrayClass = Uint32Array; break;
                 default:
                   GL.recordError(0x502 /* GL_INVALID_OPERATION */);
                   return;
@@ -7845,11 +7827,14 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
     };
   var _glGenTextures = _emscripten_glGenTextures;
 
+  
   var _emscripten_glGenVertexArrays = (n, arrays) => {
       GL.genObject(n, arrays, 'createVertexArray', GL.vaos
         );
     };
   var _glGenVertexArrays = _emscripten_glGenVertexArrays;
+  var _emscripten_glGenVertexArraysOES = _glGenVertexArrays;
+  var _glGenVertexArraysOES = _emscripten_glGenVertexArraysOES;
 
   
   var _emscripten_glGetAttribLocation = (program, name) =>
@@ -8378,10 +8363,6 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
           GLctx.readPixels(x, y, width, height, format, type, pixels);
           return;
         }
-        var heap = heapObjectForWebGLType(type);
-        var target = toTypedArrayIndex(pixels, heap);
-        GLctx.readPixels(x, y, width, height, format, type, heap, target);
-        return;
       }
       var pixelData = emscriptenWebGLGetTexPixelData(type, format, width, height, pixels, format);
       if (!pixelData) {
@@ -8411,12 +8392,6 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
           GLctx.texImage2D(target, level, internalFormat, width, height, border, format, type, pixels);
           return;
         }
-        if (pixels) {
-          var heap = heapObjectForWebGLType(type);
-          var index = toTypedArrayIndex(pixels, heap);
-          GLctx.texImage2D(target, level, internalFormat, width, height, border, format, type, heap, index);
-          return;
-        }
       }
       var pixelData = pixels ? emscriptenWebGLGetTexPixelData(type, format, width, height, pixels, internalFormat) : null;
       GLctx.texImage2D(target, level, internalFormat, width, height, border, format, type, pixelData);
@@ -8433,11 +8408,6 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
       if (GL.currentContext.version >= 2) {
         if (GLctx.currentPixelUnpackBufferBinding) {
           GLctx.texSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
-          return;
-        }
-        if (pixels) {
-          var heap = heapObjectForWebGLType(type);
-          GLctx.texSubImage2D(target, level, xoffset, yoffset, width, height, format, type, heap, toTypedArrayIndex(pixels, heap));
           return;
         }
       }
@@ -8474,11 +8444,6 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
   var miniTempWebGLFloatBuffers = [];
   
   var _emscripten_glUniformMatrix4fv = (location, count, transpose, value) => {
-  
-      if (GL.currentContext.version >= 2) {
-        count && GLctx.uniformMatrix4fv(webglGetUniformLocation(location), !!transpose, HEAPF32, ((value)>>2), count*16);
-        return;
-      }
   
       if (count <= 18) {
         // avoid allocation when uploading few enough uniforms
@@ -8736,8 +8701,6 @@ if (Module['wasmBinary']) wasmBinary = Module['wasmBinary'];
   'emscriptenWebGLGetUniform',
   'emscriptenWebGLGetVertexAttrib',
   '__glGetActiveAttribOrUniform',
-  'emscriptenWebGLGetBufferBinding',
-  'emscriptenWebGLValidateMapBufferTarget',
   'writeGLArray',
   'registerWebGlEventCallback',
   'runAndAbortIfError',
@@ -9063,7 +9026,7 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('onSbrkGrow');
 }
 var ASM_CONSTS = {
-  387032: ($0) => { return Module.glfwGetWindow(UTF8ToString($0)); }
+  387064: ($0) => { return Module.glfwGetWindow(UTF8ToString($0)); }
 };
 function ImGui_ImplGlfw_EmscriptenOpenURL(url) { url = url ? UTF8ToString(url) : null; if (url) window.open(url, '_blank'); }
 
@@ -9292,11 +9255,9 @@ var wasmImports = {
   /** @export */
   glBindBuffer: _glBindBuffer,
   /** @export */
-  glBindSampler: _glBindSampler,
-  /** @export */
   glBindTexture: _glBindTexture,
   /** @export */
-  glBindVertexArray: _glBindVertexArray,
+  glBindVertexArrayOES: _glBindVertexArrayOES,
   /** @export */
   glBlendEquation: _glBlendEquation,
   /** @export */
@@ -9326,7 +9287,7 @@ var wasmImports = {
   /** @export */
   glDeleteTextures: _glDeleteTextures,
   /** @export */
-  glDeleteVertexArrays: _glDeleteVertexArrays,
+  glDeleteVertexArraysOES: _glDeleteVertexArraysOES,
   /** @export */
   glDetachShader: _glDetachShader,
   /** @export */
@@ -9342,7 +9303,7 @@ var wasmImports = {
   /** @export */
   glGenTextures: _glGenTextures,
   /** @export */
-  glGenVertexArrays: _glGenVertexArrays,
+  glGenVertexArraysOES: _glGenVertexArraysOES,
   /** @export */
   glGetAttribLocation: _glGetAttribLocation,
   /** @export */
