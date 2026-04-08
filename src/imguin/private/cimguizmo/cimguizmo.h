@@ -68,6 +68,10 @@ struct Style
 #else
 #endif // CIMGUI_DEFINE_ENUMS_AND_STRUCTS
 
+
+
+
+
 #ifndef CIMGUI_DEFINE_ENUMS_AND_STRUCTS
 typedef ImGuizmo::Style Style;
 typedef ImGuizmo::COLOR COLOR;
@@ -90,8 +94,8 @@ CIMGUI_API void ImGuizmo_SetOrthographic(bool isOrthographic);
 CIMGUI_API void ImGuizmo_DrawCubes(const float* view,const float* projection,const float* matrices,int matrixCount);
 CIMGUI_API void ImGuizmo_DrawGrid(const float* view,const float* projection,const float* matrix,const float gridSize);
 CIMGUI_API bool ImGuizmo_Manipulate(const float* view,const float* projection,OPERATION operation,MODE mode,float* matrix,float* deltaMatrix,const float* snap,const float* localBounds,const float* boundsSnap);
-CIMGUI_API void ImGuizmo_ViewManipulate_Float(float* view,float length,ImVec2 position,ImVec2 size,ImU32 backgroundColor);
-CIMGUI_API void ImGuizmo_ViewManipulate_FloatPtr(float* view,const float* projection,OPERATION operation,MODE mode,float* matrix,float length,ImVec2 position,ImVec2 size,ImU32 backgroundColor);
+CIMGUI_API void ImGuizmo_ViewManipulate_Float(float* view,float length,ImVec2_c position,ImVec2_c size,ImU32 backgroundColor);
+CIMGUI_API void ImGuizmo_ViewManipulate_FloatPtr(float* view,const float* projection,OPERATION operation,MODE mode,float* matrix,float length,ImVec2_c position,ImVec2_c size,ImU32 backgroundColor);
 CIMGUI_API void ImGuizmo_SetAlternativeWindow(ImGuiWindow* window);
 CIMGUI_API void ImGuizmo_SetID(int id);
 CIMGUI_API void ImGuizmo_PushID_Str(const char* str_id);

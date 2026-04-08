@@ -334,16 +334,18 @@ type
     ImGui_StyleVar_TableAngledHeadersTextAlign = 32,
     ImGui_StyleVar_TreeLinesSize = 33, ImGui_StyleVar_TreeLinesRounding = 34,
     ImGui_StyleVar_ButtonTextAlign = 35, ImGui_StyleVar_SelectableTextAlign = 36,
-    ImGui_StyleVar_SeparatorTextBorderSize = 37,
-    ImGui_StyleVar_SeparatorTextAlign = 38,
-    ImGui_StyleVar_SeparatorTextPadding = 39,
-    ImGui_StyleVar_DockingSeparatorSize = 40, ImGui_StyleVar_COUNT = 41
+    ImGui_StyleVar_SeparatorSize = 37,
+    ImGui_StyleVar_SeparatorTextBorderSize = 38,
+    ImGui_StyleVar_SeparatorTextAlign = 39,
+    ImGui_StyleVar_SeparatorTextPadding = 40,
+    ImGui_StyleVar_DockingSeparatorSize = 41, ImGui_StyleVar_COUNT = 42
 type
   enum_ImGuiButtonFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_ButtonFlags_None = 0, ImGui_ButtonFlags_MouseButtonLeft = 1,
     ImGui_ButtonFlags_MouseButtonRight = 2,
     ImGui_ButtonFlags_MouseButtonMiddle = 4,
-    ImGui_ButtonFlags_MouseButtonMask_private = 7, ImGui_ButtonFlags_EnableNav = 8
+    ImGui_ButtonFlags_MouseButtonMask_private = 7,
+    ImGui_ButtonFlags_EnableNav = 8, ImGui_ButtonFlags_AllowOverlap = 4096
 type
   enum_ImGuiColorEditFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_ColorEditFlags_None = 0, ImGui_ColorEditFlags_NoAlpha = 2,
@@ -479,8 +481,10 @@ type
     ImGui_MultiSelectFlags_ClearOnClickVoid = 1024,
     ImGui_MultiSelectFlags_ScopeWindow = 2048,
     ImGui_MultiSelectFlags_ScopeRect = 4096,
-    ImGui_MultiSelectFlags_SelectOnClick = 8192,
-    ImGui_MultiSelectFlags_SelectOnClickRelease = 16384,
+    ImGui_MultiSelectFlags_SelectOnAuto = 8192,
+    ImGui_MultiSelectFlags_SelectOnClickAlways = 16384,
+    ImGui_MultiSelectFlags_SelectOnClickRelease = 32768,
+    ImGui_MultiSelectFlags_SelectOnMask_private = 57344,
     ImGui_MultiSelectFlags_NavWrapX = 65536,
     ImGui_MultiSelectFlags_NoSelectOnRightClick = 131072
 type
@@ -571,7 +575,7 @@ type
 type
   enum_ImGuiInputTextFlagsPrivate_private* {.size: sizeof(cuint).} = enum
     ImGui_InputTextFlags_Multiline = 67108864,
-    ImGui_InputTextFlags_MergedItem = 134217728,
+    ImGui_InputTextFlags_TempInput = 134217728,
     ImGui_InputTextFlags_LocalizeDecimalPoint = 268435456
 type
   enum_ImGuiButtonFlagsPrivate_private* {.size: sizeof(cuint).} = enum
@@ -583,7 +587,6 @@ type
     ImGui_ButtonFlags_PressedOnDragDropHold = 512,
     ImGui_ButtonFlags_PressedOnMask_private = 1008,
     ImGui_ButtonFlags_FlattenChildren = 2048,
-    ImGui_ButtonFlags_AllowOverlap = 4096,
     ImGui_ButtonFlags_AlignTextBaseLine = 32768,
     ImGui_ButtonFlags_NoKeyModsAllowed = 65536,
     ImGui_ButtonFlags_NoHoldingActiveId = 131072,
@@ -1289,13 +1292,13 @@ type
 type
   struct_stbrp_node* = object
 type
+  struct_IO_marker* = object
+type
   struct_ImGuiInputTextDeactivateData* = object
 type
   struct_ImPlot3DContext* = object
 type
-  struct_ImVec2* = object
-    x*: cfloat
-    y*: cfloat
+  struct_IO_wide_data* = object
 type
   struct_ImGuiDockNodeSettings* = object
 type
@@ -1308,6 +1311,8 @@ type
   CIMGUI_API* = object
 type
   struct_STB_TexteditState* = object
+type
+  struct_IO_codecvt* = object
 type
   struct_TextSelect* = object
 type
@@ -1692,6 +1697,7 @@ type
     NavWindow*: ptr ImGuiWindow
     NavFocusScopeId*: ImGuiID
     NavLayer*: ImGuiNavLayer
+    NavIdItemFlags*: ImGuiItemFlags
     NavActivateId*: ImGuiID
     NavActivateDownId*: ImGuiID
     NavActivatePressedId*: ImGuiID
@@ -1699,6 +1705,8 @@ type
     NavFocusRoute*: ImVector_ImGuiFocusScopeData
     NavHighlightActivatedId*: ImGuiID
     NavHighlightActivatedTimer*: cfloat
+    NavOpenContextMenuItemId*: ImGuiID
+    NavOpenContextMenuWindowId*: ImGuiID
     NavNextActivateId*: ImGuiID
     NavNextActivateFlags*: ImGuiActivateFlags
     NavInputSource*: ImGuiInputSource
@@ -1799,6 +1807,7 @@ type
     InputTextDeactivatedState*: ImGuiInputTextDeactivatedState
     InputTextPasswordFontBackupBaked*: ImFontBaked
     InputTextPasswordFontBackupFlags*: ImFontFlags
+    InputTextReactivateId*: ImGuiID
     TempInputId*: ImGuiID
     DataTypeZeroValue*: ImGuiDataTypeStorage
     BeginMenuDepth*: cint
@@ -1841,6 +1850,7 @@ type
     SettingsTables*: ImChunkStream_ImGuiTableSettings
     Hooks*: ImVector_ImGuiContextHook
     HookIdNext*: ImGuiID
+    DemoMarkerCallback*: ImGuiDemoMarkerCallback
     LocalizationTable*: array[13'i64, cstring]
     LogEnabled*: bool
     LogLineFirstItem*: bool
@@ -2030,15 +2040,16 @@ type
     AnalogValue*: cfloat
   ImGuiListClipper* = struct_ImGuiListClipper
   struct_ImGuiListClipper* {.pure, inheritable, bycopy.} = object
-    Ctx*: ptr ImGuiContext
     DisplayStart*: cint
     DisplayEnd*: cint
+    UserIndex*: cint
     ItemsCount*: cint
     ItemsHeight*: cfloat
+    Flags*: ImGuiListClipperFlags
     StartPosY*: cdouble
     StartSeekOffsetY*: cdouble
+    Ctx*: ptr ImGuiContext
     TempData*: pointer
-    Flags*: ImGuiListClipperFlags
   ImGuiMultiSelectIO* = struct_ImGuiMultiSelectIO
   struct_ImGuiMultiSelectIO* {.pure, inheritable, bycopy.} = object
     Requests*: ImVector_ImGuiSelectionRequest
@@ -2207,6 +2218,7 @@ type
     ColorButtonPosition*: ImGuiDir
     ButtonTextAlign*: ImVec2_c
     SelectableTextAlign*: ImVec2_c
+    SeparatorSize*: cfloat
     SeparatorTextBorderSize*: cfloat
     SeparatorTextAlign*: ImVec2_c
     SeparatorTextPadding*: ImVec2_c
@@ -2451,7 +2463,8 @@ type
     CursorFollow*: bool
     CursorCenterY*: bool
     SelectedAllMouseLock*: bool
-    Edited*: bool
+    EditedBefore*: bool
+    EditedThisFrame*: bool
     WantReloadUserBuf*: bool
     LastMoveDirectionLR*: ImS8
     ReloadSelectionStart*: cint
@@ -2767,8 +2780,9 @@ type
     ResizedColumn*: ImGuiTableColumnIdx
     LastResizedColumn*: ImGuiTableColumnIdx
     HeldHeaderColumn*: ImGuiTableColumnIdx
+    LastHeldHeaderColumn*: ImGuiTableColumnIdx
     ReorderColumn*: ImGuiTableColumnIdx
-    ReorderColumnDir*: ImGuiTableColumnIdx
+    ReorderColumnDstOrder*: ImGuiTableColumnIdx
     LeftMostEnabledColumn*: ImGuiTableColumnIdx
     RightMostEnabledColumn*: ImGuiTableColumnIdx
     LeftMostStretchedColumn*: ImGuiTableColumnIdx
@@ -3389,7 +3403,7 @@ type
   ImDrawTextFlags_private* = enum_ImDrawTextFlags_private
   ImWcharClass* = enum_ImWcharClass
   ImFileHandle* = ptr FILE
-  FILE* = struct_iobuf
+  FILE* = struct_IO_FILE
   ImVec1* = struct_ImVec1
   struct_ImVec1* {.pure, inheritable, bycopy.} = object
     x*: cfloat
@@ -3613,7 +3627,7 @@ type
     LastAlpha*: cfloat
     LastFocusedHadNavWindow*: bool
     PlatformMonitor*: cshort
-    BgFgDrawListsLastFrame*: array[2'i64, cint]
+    BgFgDrawListsLastTimeActive*: array[2'i64, cfloat]
     BgFgDrawLists*: array[2'i64, ptr ImDrawList]
     DrawDataP*: ImDrawData
     DrawDataBuilder*: ImDrawDataBuilder
@@ -3667,6 +3681,7 @@ type
     CopyToClipboardLastTime*: cfloat
   ImGuiContextHookCallback* = proc (a0: ptr ImGuiContext; a1: ptr ImGuiContextHook): void {.cdecl.}
   ImGuiContextHookType* = enum_ImGuiContextHookType
+  ImGuiDemoMarkerCallback* = proc (a0: cstring; a1: cint; a2: cstring): void {.cdecl.}
   struct_ImVector_ImFontAtlasPtr* {.pure, inheritable, bycopy.} = object
     Size*: cint
     Capacity*: cint
@@ -3889,7 +3904,7 @@ type
     Blocks*: ImVector_ImFontBakedPtr
   ImStableVector_ImFontBaked_32* = struct_ImStableVector_ImFontBaked_32
   ImTextureRef* = struct_ImTextureRef_c
-  ImVec2* = struct_ImVec2
+  ImVec2* = struct_ImVec2_c
   ImVec2i* = struct_ImVec2i_c
   ImVec4* = struct_ImVec4_c
   ImColor* = struct_ImColor_c
@@ -3905,6 +3920,8 @@ type
     tm_wday*: cint
     tm_yday*: cint
     tm_isdst*: cint
+    tm_gmtoff*: clong
+    tm_zone*: cstring
   ImPlotContext* = struct_ImPlotContext
   struct_ImPlotContext* {.pure, inheritable, bycopy.} = object
     Plots*: ImPool_ImPlotPlot
@@ -4235,7 +4252,7 @@ type
   struct_ImPlotTime_c* {.pure, inheritable, bycopy.} = object
     S*: time_t
     Us*: cint
-  time_t* = compiler_time64_t
+  time_t* = compiler_time_t
   ImPlotColormapData* = struct_ImPlotColormapData
   struct_ImPlotColormapData* {.pure, inheritable, bycopy.} = object
     Keys*: ImVector_ImU32
@@ -4559,7 +4576,7 @@ type
   struct_ImNodesStyle* {.pure, inheritable, bycopy.} = object
     GridSpacing*: cfloat
     NodeCornerRounding*: cfloat
-    NodePadding*: ImVec2
+    NodePadding*: ImVec2_c
     NodeBorderThickness*: cfloat
     LinkThickness*: cfloat
     LinkLineSegmentsPerLength*: cfloat
@@ -4570,8 +4587,8 @@ type
     PinLineThickness*: cfloat
     PinHoverRadius*: cfloat
     PinOffset*: cfloat
-    MiniMapPadding*: ImVec2
-    MiniMapOffset*: ImVec2
+    MiniMapPadding*: ImVec2_c
+    MiniMapOffset*: ImVec2_c
     Flags*: ImNodesStyleFlags
     Colors*: array[29'i64, cuint]
   ImNodesMiniMapLocation_private* = enum_ImNodesMiniMapLocation_private
@@ -4665,9 +4682,40 @@ type
     Palette*: ptr ImGuiTogglePalette
   ImGuiToggleFlags* = cint
   ImGuiToggleA11yStyle* = cint
-  struct_iobuf* {.pure, inheritable, bycopy.} = object
-    internal_Placeholder*: pointer
-  compiler_time64_t* = clonglong
+  struct_IO_FILE* {.pure, inheritable, bycopy.} = object
+    internal_flags*: cint
+    internal_IO_read_ptr*: cstring
+    internal_IO_read_end*: cstring
+    internal_IO_read_base*: cstring
+    internal_IO_write_base*: cstring
+    internal_IO_write_ptr*: cstring
+    internal_IO_write_end*: cstring
+    internal_IO_buf_base*: cstring
+    internal_IO_buf_end*: cstring
+    internal_IO_save_base*: cstring
+    internal_IO_backup_base*: cstring
+    internal_IO_save_end*: cstring
+    internal_markers*: ptr struct_IO_marker
+    internal_chain*: ptr struct_IO_FILE
+    internal_fileno*: cint
+    internal_flags2* {.bitsize: 24'i64.}: cint
+    internal_short_backupbuf*: array[1'i64, cschar]
+    internal_old_offset*: compiler_off_t
+    internal_cur_column*: cushort
+    internal_vtable_offset*: cschar
+    internal_shortbuf*: array[1'i64, cschar]
+    internal_lock*: pointer
+    internal_offset*: compiler_off64_t
+    internal_codecvt*: ptr struct_IO_codecvt
+    internal_wide_data*: ptr struct_IO_wide_data
+    internal_freeres_list*: ptr struct_IO_FILE
+    internal_freeres_buf*: pointer
+    internal_prevchain*: ptr ptr struct_IO_FILE
+    internal_mode*: cint
+    internal_unused2*: array[20'i64, cschar]
+  compiler_time_t* = clong
+  compiler_off_t* = clong
+  compiler_off64_t* = clong
 when extern is typedesc:
   type
     EXTERN* = extern
@@ -4804,7 +4852,6 @@ else:
       CIMTOGGLE_API* = CIMGUI_API
   else:
     let CIMTOGGLE_API* = CIMGUI_API
-var GImGui* {.importc: "GImGui".}: ptr ImGuiContext
 proc ImVec2_ImVec2_Nil*(): ptr ImVec2 {.cdecl, importc: "ImVec2_ImVec2_Nil".}
 proc ImVec2_destroy*(self: ptr ImVec2): void {.cdecl, importc: "ImVec2_destroy".}
 proc ImVec2_ImVec2_Float*(internal_x: cfloat; internal_y: cfloat): ptr ImVec2 {.cdecl, importc: "ImVec2_ImVec2_Float".}
@@ -5040,6 +5087,7 @@ proc igCollapsingHeader_TreeNodeFlags*(label: cstring; flags: ImGuiTreeNodeFlags
 proc igCollapsingHeader_BoolPtr*(label: cstring; p_visible: ptr bool; flags: ImGuiTreeNodeFlags): bool {.cdecl, importc: "igCollapsingHeader_BoolPtr".}
 proc igSetNextItemOpen*(is_open: bool; cond: ImGuiCond): void {.cdecl, importc: "igSetNextItemOpen".}
 proc igSetNextItemStorageID*(storage_id: ImGuiID): void {.cdecl, importc: "igSetNextItemStorageID".}
+proc igTreeNodeGetOpen*(storage_id: ImGuiID): bool {.cdecl, importc: "igTreeNodeGetOpen".}
 proc igSelectable_Bool*(label: cstring; selected: bool; flags: ImGuiSelectableFlags; size: ImVec2_c): bool {.cdecl, importc: "igSelectable_Bool".}
 proc igSelectable_BoolPtr*(label: cstring; p_selected: ptr bool; flags: ImGuiSelectableFlags; size: ImVec2_c): bool {.cdecl, importc: "igSelectable_BoolPtr".}
 proc igBeginMultiSelect*(flags: ImGuiMultiSelectFlags; selection_size: cint; items_count: cint): ptr ImGuiMultiSelectIO {.cdecl, importc: "igBeginMultiSelect".}
@@ -5500,6 +5548,7 @@ proc ImGuiViewport_ImGuiViewport*(): ptr ImGuiViewport {.cdecl, importc: "ImGuiV
 proc ImGuiViewport_destroy*(self: ptr ImGuiViewport): void {.cdecl, importc: "ImGuiViewport_destroy".}
 proc ImGuiViewport_GetCenter*(self: ptr ImGuiViewport): ImVec2_c {.cdecl, importc: "ImGuiViewport_GetCenter".}
 proc ImGuiViewport_GetWorkCenter*(self: ptr ImGuiViewport): ImVec2_c {.cdecl, importc: "ImGuiViewport_GetWorkCenter".}
+proc ImGuiViewport_GetDebugName*(self: ptr ImGuiViewport): cstring {.cdecl, importc: "ImGuiViewport_GetDebugName".}
 proc ImGuiPlatformIO_ImGuiPlatformIO*(): ptr ImGuiPlatformIO {.cdecl, importc: "ImGuiPlatformIO_ImGuiPlatformIO".}
 proc ImGuiPlatformIO_destroy*(self: ptr ImGuiPlatformIO): void {.cdecl, importc: "ImGuiPlatformIO_destroy".}
 proc ImGuiPlatformIO_ClearPlatformHandlers*(self: ptr ImGuiPlatformIO): void {.cdecl, importc: "ImGuiPlatformIO_ClearPlatformHandlers".}
@@ -5696,6 +5745,7 @@ proc ImGuiInputTextState_ClearFreeMemory*(self: ptr ImGuiInputTextState): void {
 proc ImGuiInputTextState_OnKeyPressed*(self: ptr ImGuiInputTextState; key: cint): void {.cdecl, importc: "ImGuiInputTextState_OnKeyPressed".}
 proc ImGuiInputTextState_OnCharPressed*(self: ptr ImGuiInputTextState; c: cuint): void {.cdecl, importc: "ImGuiInputTextState_OnCharPressed".}
 proc ImGuiInputTextState_GetPreferredOffsetX*(self: ptr ImGuiInputTextState): cfloat {.cdecl, importc: "ImGuiInputTextState_GetPreferredOffsetX".}
+proc ImGuiInputTextState_GetText*(self: ptr ImGuiInputTextState): cstring {.cdecl, importc: "ImGuiInputTextState_GetText".}
 proc ImGuiInputTextState_CursorAnimReset*(self: ptr ImGuiInputTextState): void {.cdecl, importc: "ImGuiInputTextState_CursorAnimReset".}
 proc ImGuiInputTextState_CursorClamp*(self: ptr ImGuiInputTextState): void {.cdecl, importc: "ImGuiInputTextState_CursorClamp".}
 proc ImGuiInputTextState_HasSelection*(self: ptr ImGuiInputTextState): bool {.cdecl, importc: "ImGuiInputTextState_HasSelection".}
@@ -5960,6 +6010,8 @@ proc igFindBlockingModal*(window: ptr ImGuiWindow): ptr ImGuiWindow {.cdecl, imp
 proc igFindBestWindowPosForPopup*(window: ptr ImGuiWindow): ImVec2_c {.cdecl, importc: "igFindBestWindowPosForPopup".}
 proc igFindBestWindowPosForPopupEx*(ref_pos: ImVec2_c; size: ImVec2_c; last_dir: ptr ImGuiDir; r_outer: ImRect_c; r_avoid: ImRect_c; policy: ImGuiPopupPositionPolicy): ImVec2_c {.cdecl, importc: "igFindBestWindowPosForPopupEx".}
 proc igGetMouseButtonFromPopupFlags*(flags: ImGuiPopupFlags): ImGuiMouseButton {.cdecl, importc: "igGetMouseButtonFromPopupFlags".}
+proc igIsPopupOpenRequestForItem*(flags: ImGuiPopupFlags; id: ImGuiID): bool {.cdecl, importc: "igIsPopupOpenRequestForItem".}
+proc igIsPopupOpenRequestForWindow*(flags: ImGuiPopupFlags): bool {.cdecl, importc: "igIsPopupOpenRequestForWindow".}
 proc igBeginTooltipEx*(tooltip_flags: ImGuiTooltipFlags; extra_window_flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginTooltipEx".}
 proc igBeginTooltipHidden*(): bool {.cdecl, importc: "igBeginTooltipHidden".}
 proc igBeginViewportSideBar*(name: cstring; viewport: ptr ImGuiViewport; dir: ImGuiDir; size: cfloat; window_flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginViewportSideBar".}
@@ -6144,6 +6196,7 @@ proc igTableCalcMaxColumnWidth*(table: ptr ImGuiTable; column_n: cint): cfloat {
 proc igTableSetColumnWidthAutoSingle*(table: ptr ImGuiTable; column_n: cint): void {.cdecl, importc: "igTableSetColumnWidthAutoSingle".}
 proc igTableSetColumnWidthAutoAll*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSetColumnWidthAutoAll".}
 proc igTableSetColumnDisplayOrder*(table: ptr ImGuiTable; column_n: cint; dst_order: cint): void {.cdecl, importc: "igTableSetColumnDisplayOrder".}
+proc igTableQueueSetColumnDisplayOrder*(table: ptr ImGuiTable; column_n: cint; dst_order: cint): void {.cdecl, importc: "igTableQueueSetColumnDisplayOrder".}
 proc igTableRemove*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableRemove".}
 proc igTableGcCompactTransientBuffers_TablePtr*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableGcCompactTransientBuffers_TablePtr".}
 proc igTableGcCompactTransientBuffers_TableTempDataPtr*(table: ptr ImGuiTableTempData): void {.cdecl, importc: "igTableGcCompactTransientBuffers_TableTempDataPtr".}
@@ -6217,6 +6270,7 @@ proc igGetWindowScrollbarRect*(window: ptr ImGuiWindow; axis: ImGuiAxis): ImRect
 proc igGetWindowScrollbarID*(window: ptr ImGuiWindow; axis: ImGuiAxis): ImGuiID {.cdecl, importc: "igGetWindowScrollbarID".}
 proc igGetWindowResizeCornerID*(window: ptr ImGuiWindow; n: cint): ImGuiID {.cdecl, importc: "igGetWindowResizeCornerID".}
 proc igGetWindowResizeBorderID*(window: ptr ImGuiWindow; dir: ImGuiDir): ImGuiID {.cdecl, importc: "igGetWindowResizeBorderID".}
+proc igExtendHitBoxWhenNearViewportEdge*(window: ptr ImGuiWindow; bb: ptr ImRect; threshold: cfloat; axis: ImGuiAxis): void {.cdecl, importc: "igExtendHitBoxWhenNearViewportEdge".}
 proc igButtonBehavior*(bb: ImRect_c; id: ImGuiID; out_hovered: ptr bool; out_held: ptr bool; flags: ImGuiButtonFlags): bool {.cdecl, importc: "igButtonBehavior".}
 proc igDragBehavior*(id: ImGuiID; data_type: ImGuiDataType; p_v: pointer; v_speed: cfloat; p_min: pointer; p_max: pointer; format: cstring; flags: ImGuiSliderFlags): bool {.cdecl, importc: "igDragBehavior".}
 proc igSliderBehavior*(bb: ImRect_c; id: ImGuiID; data_type: ImGuiDataType; p_v: pointer; p_min: pointer; p_max: pointer; format: cstring; flags: ImGuiSliderFlags; out_grab_bb: ptr ImRect): bool {.cdecl, importc: "igSliderBehavior".}
@@ -6225,7 +6279,6 @@ proc igTreeNodeBehavior*(id: ImGuiID; flags: ImGuiTreeNodeFlags; label: cstring;
 proc igTreeNodeDrawLineToChildNode*(target_pos: ImVec2_c): void {.cdecl, importc: "igTreeNodeDrawLineToChildNode".}
 proc igTreeNodeDrawLineToTreePop*(data: ptr ImGuiTreeNodeStackData): void {.cdecl, importc: "igTreeNodeDrawLineToTreePop".}
 proc igTreePushOverrideID*(id: ImGuiID): void {.cdecl, importc: "igTreePushOverrideID".}
-proc igTreeNodeGetOpen*(storage_id: ImGuiID): bool {.cdecl, importc: "igTreeNodeGetOpen".}
 proc igTreeNodeSetOpen*(storage_id: ImGuiID; open: bool): void {.cdecl, importc: "igTreeNodeSetOpen".}
 proc igTreeNodeUpdateNextOpen*(storage_id: ImGuiID; flags: ImGuiTreeNodeFlags): bool {.cdecl, importc: "igTreeNodeUpdateNextOpen".}
 proc igDataTypeGetInfo*(data_type: ImGuiDataType): ptr ImGuiDataTypeInfo {.cdecl, importc: "igDataTypeGetInfo".}
@@ -6237,7 +6290,7 @@ proc igDataTypeClamp*(data_type: ImGuiDataType; p_data: pointer; p_min: pointer;
 proc igDataTypeIsZero*(data_type: ImGuiDataType; p_data: pointer): bool {.cdecl, importc: "igDataTypeIsZero".}
 proc igInputTextEx*(label: cstring; hint: cstring; buf: cstring; buf_size: cint; size_arg: ImVec2_c; flags: ImGuiInputTextFlags; callback: ImGuiInputTextCallback; user_data: pointer): bool {.cdecl, importc: "igInputTextEx".}
 proc igInputTextDeactivateHook*(id: ImGuiID): void {.cdecl, importc: "igInputTextDeactivateHook".}
-proc igTempInputText*(bb: ImRect_c; id: ImGuiID; label: cstring; buf: cstring; buf_size: cint; flags: ImGuiInputTextFlags): bool {.cdecl, importc: "igTempInputText".}
+proc igTempInputText*(bb: ImRect_c; id: ImGuiID; label: cstring; buf: cstring; buf_size: csize_t; flags: ImGuiInputTextFlags; callback: ImGuiInputTextCallback; user_data: pointer): bool {.cdecl, importc: "igTempInputText".}
 proc igTempInputScalar*(bb: ImRect_c; id: ImGuiID; label: cstring; data_type: ImGuiDataType; p_data: pointer; format: cstring; p_clamp_min: pointer; p_clamp_max: pointer): bool {.cdecl, importc: "igTempInputScalar".}
 proc igTempInputIsActive*(id: ImGuiID): bool {.cdecl, importc: "igTempInputIsActive".}
 proc igGetInputTextState*(id: ImGuiID): ptr ImGuiInputTextState {.cdecl, importc: "igGetInputTextState".}
@@ -6262,6 +6315,7 @@ proc igErrorCheckUsingSetCursorPosToExtendParentBoundaries*(): void {.cdecl, imp
 proc igErrorCheckEndFrameFinalizeErrorTooltip*(): void {.cdecl, importc: "igErrorCheckEndFrameFinalizeErrorTooltip".}
 proc igBeginErrorTooltip*(): bool {.cdecl, importc: "igBeginErrorTooltip".}
 proc igEndErrorTooltip*(): void {.cdecl, importc: "igEndErrorTooltip".}
+proc igDemoMarker*(file: cstring; line: cint; section: cstring): void {.cdecl, importc: "igDemoMarker".}
 proc igDebugAllocHook*(info: ptr ImGuiDebugAllocInfo; frame_count: cint; ptr_arg: pointer; size: csize_t): void {.cdecl, importc: "igDebugAllocHook".}
 proc igDebugDrawCursorPos*(col: ImU32): void {.cdecl, importc: "igDebugDrawCursorPos".}
 proc igDebugDrawLineExtents*(col: ImU32): void {.cdecl, importc: "igDebugDrawLineExtents".}
@@ -6281,7 +6335,7 @@ proc igDebugNodeDockNode*(node: ptr ImGuiDockNode; label: cstring): void {.cdecl
 proc igDebugNodeDrawList*(window: ptr ImGuiWindow; viewport: ptr ImGuiViewportP; draw_list: ptr ImDrawList; label: cstring): void {.cdecl, importc: "igDebugNodeDrawList".}
 proc igDebugNodeDrawCmdShowMeshAndBoundingBox*(out_draw_list: ptr ImDrawList; draw_list: ptr ImDrawList; draw_cmd: ptr ImDrawCmd; show_mesh: bool; show_aabb: bool): void {.cdecl, importc: "igDebugNodeDrawCmdShowMeshAndBoundingBox".}
 proc igDebugNodeFont*(font: ptr ImFont): void {.cdecl, importc: "igDebugNodeFont".}
-proc igDebugNodeFontGlyphesForSrcMask*(font: ptr ImFont; baked: ptr ImFontBaked; src_mask: cint): void {.cdecl, importc: "igDebugNodeFontGlyphesForSrcMask".}
+proc igDebugNodeFontGlyphsForSrcMask*(font: ptr ImFont; baked: ptr ImFontBaked; src_mask: cint): void {.cdecl, importc: "igDebugNodeFontGlyphsForSrcMask".}
 proc igDebugNodeFontGlyph*(font: ptr ImFont; glyph: ptr ImFontGlyph): void {.cdecl, importc: "igDebugNodeFontGlyph".}
 proc igDebugNodeTexture*(tex: ptr ImTextureData; int_id: cint; highlight_rect: ptr ImFontAtlasRect): void {.cdecl, importc: "igDebugNodeTexture".}
 proc igDebugNodeStorage*(storage: ptr ImGuiStorage; label: cstring): void {.cdecl, importc: "igDebugNodeStorage".}
@@ -7638,8 +7692,8 @@ proc imnodes_SetCurrentContext*(ctx: ptr ImNodesContext): void {.cdecl, importc:
 proc imnodes_EditorContextCreate*(): ptr ImNodesEditorContext {.cdecl, importc: "imnodes_EditorContextCreate".}
 proc imnodes_EditorContextFree*(noname1: ptr ImNodesEditorContext): void {.cdecl, importc: "imnodes_EditorContextFree".}
 proc imnodes_EditorContextSet*(noname1: ptr ImNodesEditorContext): void {.cdecl, importc: "imnodes_EditorContextSet".}
-proc imnodes_EditorContextGetPanning*(pOut: ptr ImVec2): void {.cdecl, importc: "imnodes_EditorContextGetPanning".}
-proc imnodes_EditorContextResetPanning*(pos: ImVec2): void {.cdecl, importc: "imnodes_EditorContextResetPanning".}
+proc imnodes_EditorContextGetPanning*(): ImVec2_c {.cdecl, importc: "imnodes_EditorContextGetPanning".}
+proc imnodes_EditorContextResetPanning*(pos: ImVec2_c): void {.cdecl, importc: "imnodes_EditorContextResetPanning".}
 proc imnodes_EditorContextMoveToNode*(node_id: cint): void {.cdecl, importc: "imnodes_EditorContextMoveToNode".}
 proc imnodes_GetIO*(): ptr ImNodesIO {.cdecl, importc: "imnodes_GetIO".}
 proc imnodes_GetStyle*(): ptr ImNodesStyle {.cdecl, importc: "imnodes_GetStyle".}
@@ -7652,11 +7706,11 @@ proc imnodes_MiniMap*(minimap_size_fraction: cfloat; location: ImNodesMiniMapLoc
 proc imnodes_PushColorStyle*(item: ImNodesCol; color: cuint): void {.cdecl, importc: "imnodes_PushColorStyle".}
 proc imnodes_PopColorStyle*(): void {.cdecl, importc: "imnodes_PopColorStyle".}
 proc imnodes_PushStyleVar_Float*(style_item: ImNodesStyleVar; value: cfloat): void {.cdecl, importc: "imnodes_PushStyleVar_Float".}
-proc imnodes_PushStyleVar_Vec2*(style_item: ImNodesStyleVar; value: ImVec2): void {.cdecl, importc: "imnodes_PushStyleVar_Vec2".}
+proc imnodes_PushStyleVar_Vec2*(style_item: ImNodesStyleVar; value: ImVec2_c): void {.cdecl, importc: "imnodes_PushStyleVar_Vec2".}
 proc imnodes_PopStyleVar*(count: cint): void {.cdecl, importc: "imnodes_PopStyleVar".}
 proc imnodes_BeginNode*(id: cint): void {.cdecl, importc: "imnodes_BeginNode".}
 proc imnodes_EndNode*(): void {.cdecl, importc: "imnodes_EndNode".}
-proc imnodes_GetNodeDimensions*(pOut: ptr ImVec2; id: cint): void {.cdecl, importc: "imnodes_GetNodeDimensions".}
+proc imnodes_GetNodeDimensions*(id: cint): ImVec2_c {.cdecl, importc: "imnodes_GetNodeDimensions".}
 proc imnodes_BeginNodeTitleBar*(): void {.cdecl, importc: "imnodes_BeginNodeTitleBar".}
 proc imnodes_EndNodeTitleBar*(): void {.cdecl, importc: "imnodes_EndNodeTitleBar".}
 proc imnodes_BeginInputAttribute*(id: cint; shape: ImNodesPinShape): void {.cdecl, importc: "imnodes_BeginInputAttribute".}
@@ -7669,12 +7723,12 @@ proc imnodes_PushAttributeFlag*(flag: ImNodesAttributeFlags): void {.cdecl, impo
 proc imnodes_PopAttributeFlag*(): void {.cdecl, importc: "imnodes_PopAttributeFlag".}
 proc imnodes_Link*(id: cint; start_attribute_id: cint; end_attribute_id: cint): void {.cdecl, importc: "imnodes_Link".}
 proc imnodes_SetNodeDraggable*(node_id: cint; draggable: bool): void {.cdecl, importc: "imnodes_SetNodeDraggable".}
-proc imnodes_SetNodeScreenSpacePos*(node_id: cint; screen_space_pos: ImVec2): void {.cdecl, importc: "imnodes_SetNodeScreenSpacePos".}
-proc imnodes_SetNodeEditorSpacePos*(node_id: cint; editor_space_pos: ImVec2): void {.cdecl, importc: "imnodes_SetNodeEditorSpacePos".}
-proc imnodes_SetNodeGridSpacePos*(node_id: cint; grid_pos: ImVec2): void {.cdecl, importc: "imnodes_SetNodeGridSpacePos".}
-proc imnodes_GetNodeScreenSpacePos*(pOut: ptr ImVec2; node_id: cint): void {.cdecl, importc: "imnodes_GetNodeScreenSpacePos".}
-proc imnodes_GetNodeEditorSpacePos*(pOut: ptr ImVec2; node_id: cint): void {.cdecl, importc: "imnodes_GetNodeEditorSpacePos".}
-proc imnodes_GetNodeGridSpacePos*(pOut: ptr ImVec2; node_id: cint): void {.cdecl, importc: "imnodes_GetNodeGridSpacePos".}
+proc imnodes_SetNodeScreenSpacePos*(node_id: cint; screen_space_pos: ImVec2_c): void {.cdecl, importc: "imnodes_SetNodeScreenSpacePos".}
+proc imnodes_SetNodeEditorSpacePos*(node_id: cint; editor_space_pos: ImVec2_c): void {.cdecl, importc: "imnodes_SetNodeEditorSpacePos".}
+proc imnodes_SetNodeGridSpacePos*(node_id: cint; grid_pos: ImVec2_c): void {.cdecl, importc: "imnodes_SetNodeGridSpacePos".}
+proc imnodes_GetNodeScreenSpacePos*(node_id: cint): ImVec2_c {.cdecl, importc: "imnodes_GetNodeScreenSpacePos".}
+proc imnodes_GetNodeEditorSpacePos*(node_id: cint): ImVec2_c {.cdecl, importc: "imnodes_GetNodeEditorSpacePos".}
+proc imnodes_GetNodeGridSpacePos*(node_id: cint): ImVec2_c {.cdecl, importc: "imnodes_GetNodeGridSpacePos".}
 proc imnodes_SnapNodeToGrid*(node_id: cint): void {.cdecl, importc: "imnodes_SnapNodeToGrid".}
 proc imnodes_IsEditorHovered*(): bool {.cdecl, importc: "imnodes_IsEditorHovered".}
 proc imnodes_IsNodeHovered*(node_id: ptr cint): bool {.cdecl, importc: "imnodes_IsNodeHovered".}
@@ -7724,8 +7778,8 @@ proc ImGuizmo_SetOrthographic*(isOrthographic: bool): void {.cdecl, importc: "Im
 proc ImGuizmo_DrawCubes*(view: ptr cfloat; projection: ptr cfloat; matrices: ptr cfloat; matrixCount: cint): void {.cdecl, importc: "ImGuizmo_DrawCubes".}
 proc ImGuizmo_DrawGrid*(view: ptr cfloat; projection: ptr cfloat; matrix: ptr cfloat; gridSize: cfloat): void {.cdecl, importc: "ImGuizmo_DrawGrid".}
 proc ImGuizmo_Manipulate*(view: ptr cfloat; projection: ptr cfloat; operation: OPERATION; mode: MODE; matrix: ptr cfloat; deltaMatrix: ptr cfloat; snap: ptr cfloat; localBounds: ptr cfloat; boundsSnap: ptr cfloat): bool {.cdecl, importc: "ImGuizmo_Manipulate".}
-proc ImGuizmo_ViewManipulate_Float*(view: ptr cfloat; length: cfloat; position: ImVec2; size: ImVec2; backgroundColor: ImU32): void {.cdecl, importc: "ImGuizmo_ViewManipulate_Float".}
-proc ImGuizmo_ViewManipulate_FloatPtr*(view: ptr cfloat; projection: ptr cfloat; operation: OPERATION; mode: MODE; matrix: ptr cfloat; length: cfloat; position: ImVec2; size: ImVec2; backgroundColor: ImU32): void {.cdecl, importc: "ImGuizmo_ViewManipulate_FloatPtr".}
+proc ImGuizmo_ViewManipulate_Float*(view: ptr cfloat; length: cfloat; position: ImVec2_c; size: ImVec2_c; backgroundColor: ImU32): void {.cdecl, importc: "ImGuizmo_ViewManipulate_Float".}
+proc ImGuizmo_ViewManipulate_FloatPtr*(view: ptr cfloat; projection: ptr cfloat; operation: OPERATION; mode: MODE; matrix: ptr cfloat; length: cfloat; position: ImVec2_c; size: ImVec2_c; backgroundColor: ImU32): void {.cdecl, importc: "ImGuizmo_ViewManipulate_FloatPtr".}
 proc ImGuizmo_SetAlternativeWindow*(window: ptr ImGuiWindow): void {.cdecl, importc: "ImGuizmo_SetAlternativeWindow".}
 proc ImGuizmo_SetID*(id: cint): void {.cdecl, importc: "ImGuizmo_SetID".}
 proc ImGuizmo_PushID_Str*(str_id: cstring): void {.cdecl, importc: "ImGuizmo_PushID_Str".}

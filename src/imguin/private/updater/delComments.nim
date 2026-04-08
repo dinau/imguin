@@ -1,4 +1,4 @@
-import strutils,pegs,re,os
+import strutils,pegs,os
 
 if paramCount() == 0: quit 1
 let fname = os.commandLineParams()[0]
@@ -9,11 +9,10 @@ let fname = os.commandLineParams()[0]
 var sOut:seq[string]
 
 for line in lines(fname):
-  let sline = line
-  if sline =~ peg"{@}'##'@$":
+  if line =~ peg"{@}'##'@$":
     sOut.add(matches[0])
   else:
-    sOut.add(sline)
+    sOut.add(line)
 
 writefile(fname, sOut.join("\n"))
 
@@ -22,25 +21,24 @@ writefile(fname, sOut.join("\n"))
 #-------------------
 while true:
   var
-    fConbine = false
     prevLine = ""
     count = 0
   sOut= @[]
   for line in lines(fname):
     let sline = line
-    if fConbine:
-      fConbine = false
+    if prevLine != "":
       sOut.add(prevline & sline.strip )
+      prevline = ""
       inc count
       continue
-    if (0 <= sline.find(re"proc.+,$")) or (0 <= sline.find(re"proc.+\.$")) or (0 <= sline.find(re"proc.+;$")) or (0 <= sline.find(re"proc.+\($")):
-    #if (sline =~ peg"'proc'@','$") or (sline =~ peg"'proc'@'.'$") or (sline =~ peg"'proc'@';'$"):
-    #if contains(sline,peg"'proc'@','$") or contains(sline, peg"'proc'@'.'$") or contains(sline, peg"'proc'@';'$"):
-      fConbine = true
-      prevline = sline
+    #if (0 <= sline.find(re"proc.+,$")) or (0 <= sline.find(re"proc.+\.$")) or (0 <= sline.find(re"proc.+;$")) or (0 <= sline.find(re"proc.+\($")):
+    if contains(sline, peg"'proc'"):
+      if contains(sline, peg"',' $") or contains(sline, peg"'.' $") or contains(sline, peg"';' $") or contains(sline, peg"'(' $"):
+        prevline = sline
+      else:
+        sOut.add(sline)
     else:
       sOut.add(sline)
   writefile(fname, sOut.join("\n"))
-  #echo count
   if count == 0:
     break

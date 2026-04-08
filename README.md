@@ -19,7 +19,7 @@
 
 ### ImGuin
 
-Updated to latest [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui) version: : **v1.92.6 dock** (2026/02)
+Updated to latest [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui) version: : **v1.92.7 dock** (2026/04)
 
 This project is Dear ImGui wrapper library for Nim[^notice].
 
@@ -131,7 +131,7 @@ Additional examples
    | GLFW      | OpenGL3, Vulkan(2026/03)                        |
    | SDL2      | OpenGL3, sdlrenderer2                           |
    | SDL3      | OpenGL3, sdlrenderer3, sdlgpu3, Vulkan(2026/03) |
-   | WASM      | WebGL 2.0                                       |
+   | WASM      | WebGL 2.0(2026/04)                              |
 
    
 
@@ -149,13 +149,13 @@ Additional examples
       nimble install futhark
       ```
    
-      It must exist `libclang.a` file in the library path (e.g. in `c:\llvm\lib`).
+      It must exist `libclang.a` file in the library path (e.g. in `c:\llvm\lib` or `c:/msys64/ucrt64/bin`).
    
    1. Linux Debian / Ubuntu families
    
        ```sh
-       sudo apt install  clang-16
-       nimble install --passL:"-L/usr/lib/llvm-16/lib" futhark
+       sudo apt install libclang-19-dev
+       nimble install --passL:"-L/usr/lib/llvm-19" futhark
        ```
    
    Important Notice: Confirm Futhark version is **v0.15.0** at this time.
@@ -221,6 +221,7 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) | Notice                         |
    | :--------------:  | ---------   | :----:  | :---:                   | ---                            |
+   | 1.92.7  dock      | 1.92.7.0    | 2026/04 | OK                      |                                |
    | 1.92.6  dock      | 1.92.6.2    | 2026/03 | OK                      | Added Wasm function            |
    | 1.92.6  dock      | 1.92.6.1    | 2026/03 | OK                      | Breaking changed impl_glfw.nim |
    | 1.92.6  dock      | 1.92.6.0    | 2026/02 | OK                      |                                |

@@ -110,11 +110,14 @@ CIMGUI_API void ImGui_ImplSDL3_Shutdown(void);
 typedef struct ImGui_ImplVulkanH_Frame ImGui_ImplVulkanH_Frame;
 typedef struct ImGui_ImplVulkanH_Window ImGui_ImplVulkanH_Window;
 typedef struct ImGui_ImplVulkan_PipelineInfo ImGui_ImplVulkan_PipelineInfo;
+typedef struct ImVector_VkDynamicState {int Size;int Capacity;VkDynamicState* Data;} ImVector_VkDynamicState;
+
 struct ImGui_ImplVulkan_PipelineInfo
 {
     VkRenderPass RenderPass;
     uint32_t Subpass;
     VkSampleCountFlagBits MSAASamples;
+    ImVector_VkDynamicState ExtraDynamicStates;
     VkPipelineRenderingCreateInfoKHR PipelineRenderingCreateInfo;
     VkImageUsageFlags SwapChainImageUsage;
 };
@@ -192,6 +195,7 @@ struct ImGui_ImplVulkanH_Window
 #ifndef CIMGUI_DEFINE_ENUMS_AND_STRUCTS
 typedef ImVector<ImGui_ImplVulkanH_Frame> ImVector_ImGui_ImplVulkanH_Frame;
 typedef ImVector<ImGui_ImplVulkanH_FrameSemaphores> ImVector_ImGui_ImplVulkanH_FrameSemaphores;
+typedef ImVector<VkDynamicState> ImVector_VkDynamicState;
 #endif //CIMGUI_DEFINE_ENUMS_AND_STRUCTS
 CIMGUI_API void ImGui_ImplVulkanH_CreateOrResizeWindow(VkInstance instance,VkPhysicalDevice physical_device,VkDevice device,ImGui_ImplVulkanH_Window* wd,uint32_t queue_family,const VkAllocationCallbacks* allocator,int w,int h,uint32_t min_image_count,VkImageUsageFlags image_usage);
 CIMGUI_API void ImGui_ImplVulkanH_DestroyWindow(VkInstance instance,VkDevice device,ImGui_ImplVulkanH_Window* wd,const VkAllocationCallbacks* allocator);

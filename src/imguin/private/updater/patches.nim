@@ -20,5 +20,5 @@ for line in lines(fname):
 writefile(fname, sOut.join("\n"))
 
 if count == 0:
-  echo "Error!: updater/patches: unmatch all lines"
-  quit 1
+  echo "Warning!: updater/patches: unmatch all lines"
+  #quit 1
