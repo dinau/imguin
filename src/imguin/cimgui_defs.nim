@@ -4682,6 +4682,15 @@ type
     Palette*: ptr ImGuiTogglePalette
   ImGuiToggleFlags* = cint
   ImGuiToggleA11yStyle* = cint
+  struct_ImGuiImageState* {.pure, inheritable, bycopy.} = object
+    zoomPanEnabled*: bool
+    maintainAspectRatio*: bool
+    maxZoomLevel*: cfloat
+    textureSize*: ImVec2_c
+    zoomLevel*: cfloat
+    panOffset*: ImVec2_c
+    mousePosition*: ImVec2_c
+  ImGuiImageState* = struct_ImGuiImageState
   struct_IO_FILE* {.pure, inheritable, bycopy.} = object
     internal_flags*: cint
     internal_IO_read_ptr*: cstring
@@ -7842,3 +7851,7 @@ proc ImGuiTogglePresets_iOSStyle*(size_scale: cfloat; light_mode: bool): ImGuiTo
 proc ImGuiTogglePresets_MaterialStyle*(size_scale: cfloat): ImGuiToggleConfig {.cdecl, importc: "ImGuiTogglePresets_MaterialStyle".}
 proc ImGuiTogglePresets_MinecraftStyle*(size_scale: cfloat): ImGuiToggleConfig {.cdecl, importc: "ImGuiTogglePresets_MinecraftStyle".}
 proc ImGuiToggleConfig_init*(config: ptr ImGuiToggleConfig): void {.cdecl, importc: "ImGuiToggleConfig_init".}
+proc ImGuiImage_State_Init*(state: ptr ImGuiImageState): void {.cdecl, importc: "ImGuiImage_State_Init".}
+proc ImGuiImage_Zoomable*(texRef: ImTextureRef_c; displaySize: ptr ImVec2_c; state: ptr ImGuiImageState): void {.cdecl, importc: "ImGuiImage_Zoomable".}
+proc ImGuiImage_ZoomableUV*(texRef: ImTextureRef_c; displaySize: ptr ImVec2_c; uv0: ptr ImVec2_c; uv1: ptr ImVec2_c; state: ptr ImGuiImageState): void {.cdecl, importc: "ImGuiImage_ZoomableUV".}
+proc ImGuiImage_ZoomableFull*(texRef: ImTextureRef_c; displaySize: ptr ImVec2_c; uv0: ptr ImVec2_c; uv1: ptr ImVec2_c; bgColor: ptr ImVec4_c; tintColor: ptr ImVec4_c; state: ptr ImGuiImageState): void {.cdecl, importc: "ImGuiImage_ZoomableFull".}

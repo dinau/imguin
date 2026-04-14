@@ -18,31 +18,34 @@ else: # Linux
 #const ClangIncludePath = fmt"c:/drvDx/msys64/mingw64/lib/clang/{ClangVersion}/include"
 
 # Set root path of ImGui/CImGui
-const CImguiPath           = joinPath(currentSourceDir(),"private/cimgui").replace("\\", "/")
+const CImguiPath              = joinPath(currentSourceDir(),"private/cimgui").replace("\\", "/")
 #
-const CImPlotPath          = joinPath(currentSourceDir(),"private/cimplot").replace("\\", "/")
+const CImPlotPath             = joinPath(currentSourceDir(),"private/cimplot").replace("\\", "/")
 #
-const CImPlot3dPath        = joinPath(currentSourceDir(),"private/cimplot3d").replace("\\", "/")
+const CImPlot3dPath           = joinPath(currentSourceDir(),"private/cimplot3d").replace("\\", "/")
 #
-const CImNodesPath         = joinPath(currentSourceDir(),"private/cimnodes").replace("\\", "/")
+const CImNodesPath            = joinPath(currentSourceDir(),"private/cimnodes").replace("\\", "/")
 #
-const CImGuizmoPath        = joinPath(currentSourceDir(),"private/cimguizmo").replace("\\", "/")
+const CImGuizmoPath           = joinPath(currentSourceDir(),"private/cimguizmo").replace("\\", "/")
 #
-const CImKnobsPath         = joinPath(currentSourceDir(),"private/cimgui-knobs").replace("\\", "/")
-const ImKnobsPath          = joinPath(currentSourceDir(),"private/cimgui-knobs/imgui-knobs").replace("\\", "/")
+const CImKnobsPath            = joinPath(currentSourceDir(),"private/cimgui-knobs").replace("\\", "/")
+const ImKnobsPath             = joinPath(currentSourceDir(),"private/cimgui-knobs/imgui-knobs").replace("\\", "/")
 #
-const CImGuiFileDialogPath = joinPath(currentSourceDir(),"private/CImGuiFileDialog/libs/ImGuiFileDialog").replace("\\", "/")
+const CImGuiFileDialogPath    = joinPath(currentSourceDir(),"private/CImGuiFileDialog/libs/ImGuiFileDialog").replace("\\", "/")
 #
-const CImGuiTogglePath     = joinPath(currentSourceDir(),"private/cimgui_toggle").replace("\\", "/")
-const ImGuiTogglePath      = joinPath(currentSourceDir(),"private/cimgui_toggle/libs/imgui_toggle").replace("\\", "/")
+const CImGuiTogglePath        = joinPath(currentSourceDir(),"private/cimgui_toggle").replace("\\", "/")
+const ImGuiTogglePath         = joinPath(currentSourceDir(),"private/cimgui_toggle/libs/imgui_toggle").replace("\\", "/")
 #
-const CImSpinnerPath       = joinPath(currentSourceDir(),"private/imspinner").replace("\\", "/")
+const CImSpinnerPath          = joinPath(currentSourceDir(),"private/imspinner").replace("\\", "/")
 #
-const CImCTEPath               = joinPath(currentSourceDir(),"private/cimCTE").replace("\\", "/")
-const ImGuiColorTextEditPath   = joinPath(currentSourceDir(),"private/cimCTE/ImGuiColorTextEdit").replace("\\", "/")
+const CImCTEPath              = joinPath(currentSourceDir(),"private/cimCTE").replace("\\", "/")
+const ImGuiColorTextEditPath  = joinPath(currentSourceDir(),"private/cimCTE/ImGuiColorTextEdit").replace("\\", "/")
 #
-const CImGuiTextSelectPath     = joinPath(currentSourceDir(),"private/CImGuiTextSelect").replace("\\", "/")
-const ImGuiTextSelectPath      = joinPath(currentSourceDir(),"private/CImGuiTextSelect/ImGuiTextSelect").replace("\\", "/")
+const CImGuiTextSelectPath    = joinPath(currentSourceDir(),"private/CImGuiTextSelect").replace("\\", "/")
+const ImGuiTextSelectPath     = joinPath(currentSourceDir(),"private/CImGuiTextSelect/ImGuiTextSelect").replace("\\", "/")
+#
+const CImGuiZoomableImagePath = joinPath(currentSourceDir(),"private/cimgui_zoomable_image").replace("\\", "/")
+const ImGuiZoomableImagePath  = joinPath(currentSourceDir(),"private/cimgui_zoomable_image/imgui_zoomable_image").replace("\\", "/")
 #
 const IconFontPath         = joinPath(currentSourceDir(),"private/fonticon").replace("\\", "/")
 
@@ -62,6 +65,7 @@ when defined(useFuthark): # Generate header files with Futhark.
     path    CImSpinnerPath
     path    CImCTEPath
     path    CImGuiTextSelectPath
+    path    CImGuiZoomableImagePath
     #path    IconFontPath
     #define "IMGUI_IMPL_API=\"extern \"C\" __declspec(dllexport)\""
     #define "IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1"
@@ -87,6 +91,9 @@ when defined(useFuthark): # Generate header files with Futhark.
     "cimgui_offset_rect.h"
     "cimgui_toggle_palette.h"
     "cimgui_toggle_presets.h"
+    #
+    "cimgui_zoomable_image.h"
+
     #define "CIMGUI_USE_SDLRENDERER2"
     #define "CIMGUI_USE_SDLRENDERER3"
     #"cimgui_impl.h"
@@ -219,3 +226,8 @@ else: # Use generated header by Futark in your programs.
     {.passC:"-I" & ImGuiTextSelectPath.}
     {.compile:joinPath(CImGuiTextSelectPath,"ctextselect.cpp").replace("\\", "/").}
     {.compile:joinPath(ImGuiTextSelectPath,"textselect.cpp").replace("\\", "/").}
+
+  when defined(ImGuiZoomableImageEnable) or defined(ImGuiZoomableImage) :
+    {.passC:"-I" & CImGuiZoomableImagePath.}
+    {.passC:"-I" & ImGuiZoomableImagePath.}
+    {.compile:joinPath(CImGuiZoomableImagePath,"cimgui_zoomable_image.cpp").replace("\\", "/").}

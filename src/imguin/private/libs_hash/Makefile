@@ -15,3 +15,17 @@ savehash:
 EXT_LIBS_DIR = ../../../../../libs
 
 checkout:
+	(cd $(EXT_LIBS_DIR)/cimCTE; git checkout 789630ae8873d1c42a25724a416a7d0551cc3ade)
+	(cd $(EXT_LIBS_DIR)/cimgui; git checkout 0e533fd0b70f6add19825bea83b66743d5b8d95b)
+	(cd $(EXT_LIBS_DIR)/cimgui_toggle; git checkout 9d9f77b750b2e8cd911735243310da1a5fceab10)
+	(cd $(EXT_LIBS_DIR)/cimgui_zoomable_image; git checkout 13a987a59284b753901b4e0e93771479239d24fe)
+	(cd $(EXT_LIBS_DIR)/CImGuiFileDialog; git checkout 0a58e0ae399a2a07850a1c4591f8eeefde68ffda)
+	(cd $(EXT_LIBS_DIR)/cimgui-knobs; git checkout f096c7e2e0be9e752e3962076e32e6854bf3beb7)
+	(cd $(EXT_LIBS_DIR)/CImGuiTextSelect; git checkout d768715d43d50503bef3d87b5f898298be48785d)
+	(cd $(EXT_LIBS_DIR)/cimguizmo; git checkout 77e8ff47dc16a688edb06526b2f19c845b653bc7)
+	(cd $(EXT_LIBS_DIR)/cimnodes; git checkout 32200c016794ab14abce095a871ec2fa5d9223e5)
+	(cd $(EXT_LIBS_DIR)/cimplot; git checkout 7ed0a0713c1cbf296df5a625d65e52ce6d6ae68b)
+	(cd $(EXT_LIBS_DIR)/cimplot3d; git checkout e2fd995b9de593e60c5687f82564936999376a78)
+	(cd $(EXT_LIBS_DIR)/imspinner; git checkout 7af2bdef7e8e3f59f6bed77c35abe96771bfe5b7)
+	(cd $(EXT_LIBS_DIR)/rlImGui; git checkout 286e11acd6c785004c9550c7ed3762add2ae3d47)
+	(cd $(EXT_LIBS_DIR)/cimgui/imgui; git checkout f5f6ca07be7ce0ea9eed6c04d55833bac3f6b50b)

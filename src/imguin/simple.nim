@@ -94,4 +94,22 @@ when not defined(igGetIO):
   template igGetIO*(): ptr ImGuiIO =
     igGetIO_Nil()
 
+
+#
+proc ImGuiImage_Zoomable*(
+    texRef: ImTextureRef_c;
+    displaySize: ImVec2_c;
+    state: ptr ImGuiImageState;
+    uv0 = ImVec2_c(x: 0, y: 0); # Default value
+    uv1 = ImVec2_c(x: 1, y: 1);
+    bgColor = ImVec4_c(x: 0, y: 0, z: 0, w: 0);
+    tintColor = ImVec4_c(x: 1, y: 1, z: 1, w: 1)
+) =
+  var ds = displaySize
+  var u0 = uv0
+  var u1 = uv1
+  var bg = bgColor
+  var tc = tintColor
+  ImGuiImage_ZoomableFull(texRef, addr ds, addr u0, addr u1, addr bg, addr tc, state)
+
 {.pop.}

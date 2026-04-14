@@ -4,16 +4,20 @@ const cmdGetHash = "git show --format='%H' --no-patch"
 const LIBS_DIR = "../../../../../libs"
 
 var libDirs = @[
+                "cimCTE",
                 "cimgui",
-                "cimgui/imgui",
                 "cimgui_toggle",
+                "cimgui_zoomable_image",
                 "CImGuiFileDialog",
+                "cimgui-knobs",
+                "CImGuiTextSelect",
                 "cimguizmo",
                 "cimnodes",
                 "cimplot",
                 "cimplot3d",
-                "cimspinner",
-                "cimCTE",
+                "imspinner",
+                "rlImGui",
+                "cimgui/imgui",
               ]
 
 var sOutHeader = fmt"""

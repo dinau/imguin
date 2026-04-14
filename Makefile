@@ -26,7 +26,8 @@ updater:
 
 gen: copylibs updater
 
-copylibs: imgui implot imnodes imguizmo ImGuiFileDialog imgui_toggle implot3d imspinner imCTE ImGuiTextSelect imgui-knobs
+copylibs: imgui implot imnodes imguizmo ImGuiFileDialog imgui_toggle implot3d imspinner imCTE ImGuiTextSelect imgui-knobs \
+	        imgui_zoomable_image
 
 imgui:
 	@echo [ CImGui ] copying...
@@ -101,13 +102,20 @@ imgui-knobs:
 	@cp -f $(EXT_LIB_DIR)/c$@/{LICENSE,*.cpp,*.h,README.md}                     $(TARGET_DIR)/c$@/
 	@cp -f $(EXT_LIB_DIR)/c$@/libs/$@/{LICENSE,*.cpp,*.h,*.md}                  $(TARGET_DIR)/c$@/$@/
 
+imgui_zoomable_image:
+	@echo [ c$@ ] copying...
+	@-mkdir -p $(TARGET_DIR)/c$@/$@
+	@cp -f $(EXT_LIB_DIR)/c$@/{LICENSE,*.cpp,*.h,README.md}                     $(TARGET_DIR)/c$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/libs/$@/{LICENSE,*.h,*.md}                  $(TARGET_DIR)/c$@/$@/
+
 libs:
 	-mkdir -p ../$@
 
 
 .PHONY: cimgui cimplot cimnodes cimguizmo cimguifiledialog cimgui_toggle cimCTE
 
-clonelibs: cimgui cimplot cimnodes cimguizmo cimgui_toggle cimplot3d imspinner_git imCTE cimguitextselect
+clonelibs: cimgui cimplot cimnodes cimguizmo cimgui_toggle cimplot3d imspinner_git imCTE cimguitextselect \
+	         cimgui-knobs cimgui_zoomable_image
 
 GIT_LIBS = ../libs
 cimgui:
@@ -131,7 +139,9 @@ cimCTE:
 cimguitextselect:
 	git clone --recurse-submodules https://github.com/dinau/CImGuiTextSelect  $(GIT_LIBS)/CImGuiTExtSelect
 cimgui-knobs:
-	git clone --recurse-submodules https://github.com/dinau/cimgui-knobs  $(GIT_LIBS)/cimgui-knobs
+	git clone --recurse-submodules https://github.com/dinau/$@  $(GIT_LIBS)/$@
+cimgui_zoomable_image:
+	git clone --recurse-submodules https://github.com/dinau/$@  $(GIT_LIBS)/$@
 
 help:
 	@echo See. https://github.com/dinau/imguin
