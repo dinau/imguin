@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\mimi\AppData\Local\Temp\tmpowmwxw4y.js
+// include: C:\drvdx\msys64\tmp\tmpcw5o86im.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -160,6 +160,28 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
         if (!check) throw new Error(msg);
       }
 Module['FS_createPath']("/", "img", true, true);
+Module['FS_createPath']("/", "licenses_window", true, true);
+Module['FS_createPath']("/licenses_window", "resources", true, true);
+Module['FS_createPath']("/licenses_window/resources", "licenses", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses", "CImGuiFileDialog", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses/CImGuiFileDialog", "libs", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses/CImGuiFileDialog/libs", "ImGuiFileDialog", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses/CImGuiFileDialog/libs/ImGuiFileDialog", "stb", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses", "cimgui-knobs", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses/cimgui-knobs", "imgui-knobs", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses", "cimgui", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses/cimgui", "imgui", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses", "cimgui_toggle", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses/cimgui_toggle", "libs", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses/cimgui_toggle/libs", "imgui_toggle", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses", "cimplot", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses/cimplot", "implot", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses", "cimplot3d", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses/cimplot3d", "implot3d", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses", "fonticon", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses/fonticon", "fa6", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses", "imgui-knobs", true, true);
+Module['FS_createPath']("/licenses_window/resources/licenses", "imspinner", true, true);
 Module['FS_createPath']("/", "res", true, true);
 Module['FS_createPath']("/res", "img", true, true);
 Module['FS_createPath']("/", "utils", true, true);
@@ -205,25 +227,25 @@ Module['FS_createPath']("/utils/fonticon", "fa6", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/img/animal_paradise-480.gif", "start": 0, "end": 103928}, {"filename": "/res/img/n.png", "start": 103928, "end": 104331}, {"filename": "/utils/fonticon/fa6/fa-solid-900.ttf", "start": 104331, "end": 498959}], "remote_package_size": 498959});
+    loadPackage({"files": [{"filename": "/img/animal_paradise-480.gif", "start": 0, "end": 103928}, {"filename": "/licenses_window/resources/licenses/CImGuiFileDialog/libs/ImGuiFileDialog/stb/LICENSE", "start": 103928, "end": 106475}, {"filename": "/licenses_window/resources/licenses/cimgui-knobs/imgui-knobs/LICENSE", "start": 106475, "end": 107569}, {"filename": "/licenses_window/resources/licenses/cimgui/LICENSE", "start": 107569, "end": 108650}, {"filename": "/licenses_window/resources/licenses/cimgui/imgui/LICENSE.txt", "start": 108650, "end": 109754}, {"filename": "/licenses_window/resources/licenses/cimgui_toggle/LICENSE", "start": 109754, "end": 110816}, {"filename": "/licenses_window/resources/licenses/cimgui_toggle/libs/imgui_toggle/LICENSE", "start": 110816, "end": 111497}, {"filename": "/licenses_window/resources/licenses/cimplot/LICENSE", "start": 111497, "end": 112578}, {"filename": "/licenses_window/resources/licenses/cimplot/implot/LICENSE", "start": 112578, "end": 113646}, {"filename": "/licenses_window/resources/licenses/cimplot3d/dummy.txt", "start": 113646, "end": 113651}, {"filename": "/licenses_window/resources/licenses/cimplot3d/implot3d/LICENSE", "start": 113651, "end": 114753}, {"filename": "/licenses_window/resources/licenses/fonticon/fa6/LICENSE.txt", "start": 114753, "end": 122180}, {"filename": "/licenses_window/resources/licenses/imgui-knobs/LICENSE", "start": 122180, "end": 123274}, {"filename": "/licenses_window/resources/licenses/imspinner/LICENSE.txt", "start": 123274, "end": 124375}, {"filename": "/res/img/n.png", "start": 124375, "end": 124778}, {"filename": "/utils/fonticon/fa6/fa-solid-900.ttf", "start": 124778, "end": 519406}], "remote_package_size": 519406});
 
   })();
 
-// end include: C:\Users\mimi\AppData\Local\Temp\tmpowmwxw4y.js
-// include: C:\Users\mimi\AppData\Local\Temp\tmpnpneahiq.js
+// end include: C:\drvdx\msys64\tmp\tmpcw5o86im.js
+// include: C:\drvdx\msys64\tmp\tmp_m6k2ery.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: C:\Users\mimi\AppData\Local\Temp\tmpnpneahiq.js
-// include: C:\Users\mimi\AppData\Local\Temp\tmpine8yq3f.js
+  // end include: C:\drvdx\msys64\tmp\tmp_m6k2ery.js
+// include: C:\drvdx\msys64\tmp\tmpa5tdxr0j.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: C:\Users\mimi\AppData\Local\Temp\tmpine8yq3f.js
+  // end include: C:\drvdx\msys64\tmp\tmpa5tdxr0j.js
 
 
 var arguments_ = [];
@@ -9026,7 +9048,7 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('onSbrkGrow');
 }
 var ASM_CONSTS = {
-  387064: ($0) => { return Module.glfwGetWindow(UTF8ToString($0)); }
+  409096: ($0) => { return Module.glfwGetWindow(UTF8ToString($0)); }
 };
 function ImGui_ImplGlfw_EmscriptenOpenURL(url) { url = url ? UTF8ToString(url) : null; if (url) window.open(url, '_blank'); }
 
