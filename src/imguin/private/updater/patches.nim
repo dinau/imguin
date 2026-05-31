@@ -14,11 +14,23 @@ for line in lines(fname):
     sOut.add("    x*: cfloat")
     sOut.add("    y*: cfloat")
     inc count
+    echo "\n########################"
+    echo "  Defined \"struct_ImVec2\""
+    echo "########################\n"
+  elif sline =~ peg"@'string = 4,'":
+    let srep = sline.replace(peg"'string = '", "String =")
+    sOut.add(srep)
+    echo "\n####################################################"
+    echo "  Replaced enum_Color.string with enum_Color.String."
+    echo "####################################################\n"
+    inc count
   else:
     sOut.add(sline)
 
 writefile(fname, sOut.join("\n"))
 
 if count == 0:
+  echo "########################"
   echo "Warning!: updater/patches: unmatch all lines"
+  echo "########################"
   #quit 1

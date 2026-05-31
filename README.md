@@ -19,13 +19,11 @@
 
 ### ImGuin
 
-Updated to latest [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui) version: : **v1.92.7 dock** (2026/04)
+Updated to latest [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui)
+version: : **v1.92.8 dock** (2026/06)
 
 This project is Dear ImGui wrapper library for Nim[^notice].
 
-[^notice]: It may be better to use the **mainstream** project [nimgl/imgui](https://github.com/nimgl/imgui) (ImGui v1.85)  
-,updated project [nimgl-imgui](https://github.com/dinau/nimgl-imgui) (ImGui v1.89.9)  ,sub project [nim_implot](https://github.com/dinau/nim_implot) and test project [nimgl_test](https://github.com/dinau/nimgl_test),  
-or [https://github.com/daniel-j/nimgl-imgui](https://github.com/daniel-j/nimgl-imgui) (ImGui v1.91.1)
 
 #### Try Wasm demo in your browser
 
@@ -117,6 +115,7 @@ Library name / C lang. wrapper
 - [x] [ImSpinner](https://github.com/dalerank/imspinner) 
 - [x] [ImGuiColorTextEdit](https://github.com/santaclose/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE) (2025/03)
 - [x] [ImGuiTextSelect](https://github.com/AidanSun05/ImGuiTextSelect) / [CImGuiTextSelect](https://github.com/dinau/CImGuiTextSelect) (2025/09)
+- [x] [imgui_zoomable_image](https://github.com/danielm5/imgui_zoomable_image) / [cimgui_zoomable_image](https://github.com/dinau/cimgui_zoomable_image) (2026/04)
 - [ ] [ImGui_Markdown](https://github.com/enkisoftware/imgui_markdown) (2025/09) WIP
 
 https://github.com/nothings/stb
@@ -162,7 +161,7 @@ Additional examples
        nimble install --passL:"-L/usr/lib/llvm-19" futhark
        ```
    
-   Important Notice: Confirm Futhark version is **v0.15.0** at this time.
+   Important Notice: Confirm Futhark version is **v0.16.0** at this time.
 
    ```sh
    nimble dump futhark
@@ -225,6 +224,7 @@ Windows OS is all OK.
 
    | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) | Notice                         |
    | :--------------:  | ---------   | :----:  | :---:                   | ---                            |
+   | 1.92.8  dock      | 1.92.8.0    | 2026/06 | OK                      |                                |
    | 1.92.7  dock      | 1.92.7.0    | 2026/04 | OK                      |                                |
    | 1.92.6  dock      | 1.92.6.2    | 2026/03 | OK                      | Added Wasm function            |
    | 1.92.6  dock      | 1.92.6.1    | 2026/03 | OK                      | Breaking changed impl_glfw.nim |
@@ -272,12 +272,12 @@ Windows OS is all OK.
 ---
 
 Windows11 (main)
-- **Nim Compiler Version 2.2.6**
-- **GCC (Rev1, Built by MSYS2 project) 15.2.0**
+- **Nim Compiler Version 2.2.10**
+- **GCC (Rev1, Built by MSYS2 project) 16.1.0**
 - Visual Studio C++/C 2022
 - git version 2.46.0.windows.1
 - Make: GNU Make 4.4.1
-- MSys2/MinGW tools
+- MSys2/MinGW-UCRT tools
 
 Linux Debian 13
 - **Nim Compiler Version 2.2.6**
@@ -352,3 +352,7 @@ Notes:
 - This project builds and runs Dear ImGui + ImPlot3D / ImPlotusing Nim.
 - ImPlot3D is compiled from source (implot3d.h / implot3d.cpp)
 - ImPlot is compiled from source (implot.h / implot.cpp)
+
+[^notice]: It may be better to use the **mainstream** project [nimgl/imgui](https://github.com/nimgl/imgui) (ImGui v1.85)  
+,updated project [nimgl-imgui](https://github.com/dinau/nimgl-imgui) (ImGui v1.89.9)  ,sub project [nim_implot](https://github.com/dinau/nim_implot) and test project [nimgl_test](https://github.com/dinau/nimgl_test),  
+or [https://github.com/daniel-j/nimgl-imgui](https://github.com/daniel-j/nimgl-imgui) (ImGui v1.91.1)

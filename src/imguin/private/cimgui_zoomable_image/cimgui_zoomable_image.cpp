@@ -8,11 +8,13 @@
 // This C wrapper follows the same MIT license terms.
 //------------------------------------------------------------------------------
 
-#include "cimgui_zoomable_image.h"
 #include "imgui_zoomable_image.h"
+#include "cimgui_zoomable_image.h"
 
 #include <cmath>  // for std::numeric_limits (NaN init)
 #include <limits>
+
+
 
 // ----------------------------------- Helpers --------------------------------
 
@@ -52,18 +54,18 @@ void ImGuiImage_State_Init(ImGuiImageState* state)
     state->zoomPanEnabled      = true;
     state->maintainAspectRatio = false;
     state->maxZoomLevel        = 0.0f;
-    state->textureSize         = ImVec2_c{0.0f, 0.0f};
+    state->textureSize         = ImVec2{0.0f, 0.0f};
     state->zoomLevel           = 1.0f;
-    state->panOffset           = ImVec2_c{0.0f, 0.0f};
+    state->panOffset           = ImVec2{0.0f, 0.0f};
 
     // Initialize mousePosition to NaN (outside the image)
     const float nan = std::numeric_limits<float>::quiet_NaN();
-    state->mousePosition = ImVec2_c{nan, nan};
+    state->mousePosition = ImVec2{nan, nan};
 }
 
 void ImGuiImage_Zoomable(
-    ImTextureRef_c   texRef,
-    const ImVec2_c*  displaySize,
+    ImTextureRef   texRef,
+    const ImVec2*  displaySize,
     ImGuiImageState* state)
 {
     ImGuiImage::Zoomable(
@@ -75,10 +77,10 @@ void ImGuiImage_Zoomable(
 }
 
 void ImGuiImage_ZoomableUV(
-    ImTextureRef_c   texRef,
-    const ImVec2_c*  displaySize,
-    const ImVec2_c*  uv0,
-    const ImVec2_c*  uv1,
+    ImTextureRef   texRef,
+    const ImVec2*  displaySize,
+    const ImVec2*  uv0,
+    const ImVec2*  uv1,
     ImGuiImageState* state)
 {
     ImGuiImage::Zoomable(
@@ -91,12 +93,12 @@ void ImGuiImage_ZoomableUV(
 }
 
 void ImGuiImage_ZoomableFull(
-    ImTextureRef_c   texRef,
-    const ImVec2_c*  displaySize,
-    const ImVec2_c*  uv0,
-    const ImVec2_c*  uv1,
-    const ImVec4_c*  bgColor,
-    const ImVec4_c*  tintColor,
+    ImTextureRef   texRef,
+    const ImVec2*  displaySize,
+    const ImVec2*  uv0,
+    const ImVec2*  uv1,
+    const ImVec4*  bgColor,
+    const ImVec4*  tintColor,
     ImGuiImageState* state)
 {
     ImGuiImage::Zoomable(

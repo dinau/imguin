@@ -9,7 +9,7 @@ struct IMGUI_API ImOffsetRect
     {
         float Offsets[4];
 
-        struct  
+        struct
         {
             float       Top;
             float       Left;
@@ -39,3 +39,8 @@ static inline ImOffsetRect operator+(const ImOffsetRect& lhs, const ImOffsetRect
 static inline ImOffsetRect operator-(const ImOffsetRect& lhs, const ImOffsetRect& rhs) { return ImOffsetRect(lhs.Top - rhs.Top, lhs.Left - rhs.Left, lhs.Bottom - rhs.Bottom, lhs.Right - rhs.Right); }
 static inline ImOffsetRect operator*(const ImOffsetRect& lhs, const ImOffsetRect& rhs) { return ImOffsetRect(lhs.Top * rhs.Top, lhs.Left * rhs.Left, lhs.Bottom * rhs.Bottom, lhs.Right * rhs.Right); }
 IM_MSVC_RUNTIME_CHECKS_RESTORE
+
+
+#if IMGUI_VERSION_NUM >= 19274
+static inline ImOffsetRect ImLerp(ImOffsetRect a, ImOffsetRect b, float t) { return (a + (b - a) * t); }
+#endif // IMGUI_VERSION_NUM >= 19274

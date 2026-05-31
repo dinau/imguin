@@ -490,7 +490,11 @@ void ImGuiToggleRenderer::DrawRectBorder(ImRect bounds, ImU32 color_border, floa
     const float half_thickness = thickness * 0.5f;
     bounds.Expand(-half_thickness);
 
+#if IMGUI_VERSION_NUM < 19276
     _drawList->AddRect(bounds.Min, bounds.Max, color_border, rounding, ImDrawFlags_None, thickness);
+#else
+    _drawList->AddRect(bounds.Min, bounds.Max, color_border, rounding, thickness);
+#endif
 }
 
 void ImGuiToggleRenderer::DrawCircleBorder(const ImVec2& center, float radius, ImU32 color_border, float thickness)
@@ -511,7 +515,11 @@ void ImGuiToggleRenderer::DrawRectShadow(ImRect bounds, ImU32 color_shadow, floa
     const float half_thickness = thickness * 0.5f;
     bounds.Expand(half_thickness);
 
+#if IMGUI_VERSION_NUM < 19276
     _drawList->AddRect(bounds.Min, bounds.Max, color_shadow, rounding, ImDrawFlags_None, thickness);
+#else
+    _drawList->AddRect(bounds.Min, bounds.Max, color_shadow, rounding, thickness);
+#endif
 }
 
 void ImGuiToggleRenderer::DrawCircleShadow(const ImVec2& center, float radius, ImU32 color_border, float thickness)

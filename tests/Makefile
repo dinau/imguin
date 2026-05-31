@@ -7,6 +7,8 @@ TARGET2 = tglfw_opengl3_legacy
 
 all:
 	nim c -r -d:strip -d:ImSpinner $(TARGET1).nim
+
+legacy:
 	nim c -r -d:strip -d:ImSpinner $(TARGET2).nim
 
 clean:

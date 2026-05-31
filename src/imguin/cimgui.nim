@@ -179,11 +179,11 @@ else: # Use generated header by Futark in your programs.
   when defined(ImGuizmoEnable) or defined(ImGuizmo):
     {.passC:"-I" & CImGuizmoPath.}
     {.compile:joinPath(CImGuizmoPath,"cimguizmo.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/GraphEditor.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/ImCurveEdit.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/ImGradient.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/ImGuizmo.cpp").replace("\\", "/").}
-    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/ImSequencer.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/src/GraphEditor.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/src/ImCurveEdit.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/src/ImGradient.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/src/ImGuizmo.cpp").replace("\\", "/").}
+    {.compile:joinPath(CImGuizmoPath,"ImGuizmo/src/ImSequencer.cpp").replace("\\", "/").}
 
   when defined(ImKnobsEnable) or defined(ImKnobs):
     {.passC:"-I" & CImKnobsPath.}
@@ -216,10 +216,11 @@ else: # Use generated header by Futark in your programs.
     {.passC:"-I" & ImGuiColorTextEditPath.}
     {.passC:"-I" & joinPath(ImGuiColorTextEditPath, "vendor", "regex", "include").replace("\\", "/").}
     {.compile:joinPath(CImCTEPath,"cimCTE.cpp").replace("\\", "/").}
-    {.compile:joinPath(ImGuiColorTextEditPath,"ImGuiDebugPanel.cpp").replace("\\", "/").}
-    {.compile:joinPath(ImGuiColorTextEditPath,"LanguageDefinitions.cpp").replace("\\", "/").}
+    #{.compile:joinPath(ImGuiColorTextEditPath,"ImGuiDebugPanel.cpp").replace("\\", "/").}
+    #{.compile:joinPath(ImGuiColorTextEditPath,"LanguageDefinitions.cpp").replace("\\", "/").}
     {.compile:joinPath(ImGuiColorTextEditPath,"TextEditor.cpp").replace("\\", "/").}
-    {.compile:joinPath(ImGuiColorTextEditPath,"UnitTests.cpp").replace("\\", "/").}
+    {.compile:joinPath(ImGuiColorTextEditPath,"TextDiff.cpp").replace("\\", "/").}
+    #{.compile:joinPath(ImGuiColorTextEditPath,"UnitTests.cpp").replace("\\", "/").}
 
   when defined(ImGuiTextSelectEnable) or defined(ImGuiTextSelect) :
     {.passC:"-I" & CImGuiTextSelectPath.}

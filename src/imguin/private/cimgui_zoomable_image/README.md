@@ -2,9 +2,9 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [CImGui Zoomable Image](#cimgui-zoomable-image)
+  - [Try Wasm live demo in your browser](#try-wasm-live-demo-in-your-browser)
   - [Prerequisites](#prerequisites)
   - [Build and run](#build-and-run)
-  - [Snap shot](#snap-shot)
   - [Demo program](#demo-program)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -13,14 +13,26 @@
 
 ---
 
+[^langs]: Zig, Nim, Nelua, etc 
 
-**Currently work in progress.**
-
-
-This project introduces C API to [Dear Imgui Zoomable Image Display(ImGuiImage)](https://github.com/danielm5/imgui_zoomable_image) to use it with other languages and
+This project introduces C API for [Dear Imgui Zoomable Image Display(ImGuiImage)](https://github.com/danielm5/imgui_zoomable_image) to use it with other languages[^langs] and
 a simple demo program in C.
 
-Link: [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui)
+- Link  
+[Dear ImGui](https://github.com/ocornut/imgui)  
+[CImGui](https://github.com/cimgui/cimgui)  
+[Dear Bindings](https://github.com/dearimgui/dear_bindings)
+
+#### Try Wasm live demo in your browser
+
+---
+
+Click link for live demo: [Click here](https://dinau.github.io/cimgui_zoomable_image/wasm/)  
+
+
+![alt](img/snapshot.png)
+
+See [Wasm example in Nim: glfw_opengl3_imgui_zoomable_image](https://github.com/dinau/imguin_examples/tree/main/glfw_opengl3_imgui_zoomable_image)
 
 #### Prerequisites
 
@@ -50,21 +62,17 @@ Link: [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.c
    ```sh
    git clone --recursive https://github.com/dinau/cimgui_zoomable_image
    ```
-1. Go to demo folder
+
+1. Go to demo with **CImGui** folder
 
    ```sh
-   cd cimgui_zoomable_image/demo/c
+   cd cimgui_zoomable_image/demo/cimui
    make run 
    ```
 
-#### Snap shot
+1. Go to demo with **Dear Bindings** folder
 
----
-
-![alt](img/snapshot.png)
-
-#### Demo program 
-
----
-
-[main.c](demo/c/main.c)
+   ```sh
+   cd cimgui_zoomable_image/demo/dcimui
+   make run 
+   ```

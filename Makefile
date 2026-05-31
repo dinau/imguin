@@ -51,9 +51,10 @@ imnodes:
 
 imguizmo:
 	@echo [ CImGuizmo ] copying...
-	@-mkdir -p $(TARGET_DIR)/c$@/ImGuizmo
-	@cp -f $(EXT_LIB_DIR)/c$@/{LICENSE,*.cpp,*.h,README.md}          $(TARGET_DIR)/c$@/
-	@cp -f $(EXT_LIB_DIR)/c$@/ImGuizmo/{LICENSE,*.cpp,*.h,README.md} $(TARGET_DIR)/c$@/ImGuizmo/
+	@-mkdir -p $(TARGET_DIR)/c$@/ImGuizmo/src
+	@cp -f $(EXT_LIB_DIR)/c$@/{LICENSE,*.cpp,*.h,README.md}        $(TARGET_DIR)/c$@/
+	@cp -f $(EXT_LIB_DIR)/c$@/ImGuizmo/{LICENSE,README.md}         $(TARGET_DIR)/c$@/ImGuizmo/
+	@cp -f $(EXT_LIB_DIR)/c$@/ImGuizmo/src/{*.cpp,*.h}             $(TARGET_DIR)/c$@/ImGuizmo/src/
 
 ImGuiFileDialog:
 	@echo [ C$@ ] copying...

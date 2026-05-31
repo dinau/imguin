@@ -15,7 +15,11 @@ namespace ImGuiKnobs {
             auto *draw_list = ImGui::GetWindowDrawList();
 
             draw_list->PathArcTo(center, radius, start_angle, end_angle);
+#if IMGUI_VERSION_NUM < 19276
             draw_list->PathStroke(color, 0, thickness);
+#else
+            draw_list->PathStroke(color,thickness);
+#endif
         }
 
         template<typename DataType>

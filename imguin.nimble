@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.92.7.0"
+version       = "1.92.8.0"
 author        = "dinau"
 description   = "Imguin: ImGui / ImPlot / ImNodes wrapper using Futhark"
 license       = "MIT"
@@ -22,7 +22,7 @@ requires "tinydialogs"
 requires "glfw"
 requires "https://github.com/DanielBelmes/VulkanNim"
 requires "https://github.com/Anuken/staticglfw"
-#requires "futhark == 0.15.0"
+#requires "futhark == 0.16.0"
 
 task test,"Run test app":
   withDir "tests":
