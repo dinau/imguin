@@ -1,358 +1,370 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+# ImGuin
 
-- [ImGuin](#imguin)
-  - [Try Wasm demo in your browser](#try-wasm-demo-in-your-browser)
-  - [Screenshot](#screenshot)
-    - [tests folder](#tests-folder)
-    - [Dear ImGui + Naylib(Raylib) + rlImgui example](#dear-imgui--naylibraylib--rlimgui-example)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Available libraries](#available-libraries)
-  - [Frontends and Backends](#frontends-and-backends)
-  - [Update / Downgrade Dear ImGui and CImGui by yourself](#update--downgrade-dear-imgui-and-cimgui-by-yourself)
-  - [TODO](#todo)
-  - [My tools version](#my-tools-version)
-  - [Other link](#other-link)
+ImGuin is a Nim wrapper[^nimgl_note] for [Dear ImGui](https://github.com/ocornut/imgui) through
+[CImGui](https://github.com/cimgui/cimgui). It bundles Nim bindings and build
+support for Dear ImGui and several popular Dear ImGui extensions.
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+Current bundled Dear ImGui / CImGui version: **v1.92.8 dock**  
+Current ImGuin package version: **1.92.8.0**  
+Updated: **2026/06**
 
-### ImGuin
+[^nimgl_note]: Depending on your project requirements, the mainstream
+[nimgl/imgui](https://github.com/nimgl/imgui) project or related Nim ImGui
+packages may also be worth checking. See [Related Projects](#related-projects).
 
-Updated to latest [Dear ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui)
-version: : **v1.92.8 dock** (2026/06)
+## Contents
 
-This project is Dear ImGui wrapper library for Nim[^notice].
+- [Demo](#demo)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Install](#install)
+- [Quick Start](#quick-start)
+- [Supported Frontends and Backends](#supported-frontends-and-backends)
+- [Bundled Libraries](#bundled-libraries)
+- [Examples](#examples)
+- [Development](#development)
+- [Version Compatibility](#version-compatibility)
+- [Tool Versions](#tool-versions)
+- [Related Projects](#related-projects)
+- [Notes](#notes)
 
+## Demo
 
-#### Try Wasm demo in your browser
+Try the WebAssembly demo in your browser:
+[glfw_opengl3_wasm_base](https://dinau.github.io/imguin/wasm/demo/glfw_opengl3_wasm_base.html)
 
----
+![WebAssembly demo](src/img/wasm_demo_small.gif)
 
-Click link for live demo: [glfw_opengl3_wasm_base](https://dinau.github.io/imguin/wasm/demo/glfw_opengl3_wasm_base.html)  
-![alt](src/img/wasm_demo_small.gif)
+Source and build notes:
+[Wasm example: glfw_opengl3_wasm_base](https://github.com/dinau/imguin_examples#wasm-example-glfw_opengl3_wasm_base)
 
-See [Wasm-example: glfw_opengl3_wasm_base](https://github.com/dinau/imguin_examples#wasm-example-glfw_opengl3_wasm_base)
+## Features
 
-#### Screenshot
+- Dear ImGui bindings for Nim, generated with Futhark.
+- Static-link focused C/C++ library integration.
+- GLFW, SDL2, SDL3, Vulkan, OpenGL3, SDL renderer, SDL GPU, and WebAssembly examples.
+- Bundled wrappers for ImPlot, ImNodes, ImGuizmo, ImGuiFileDialog, ImPlot3D, and more.
+- [Simple test application](tests/tglfw_opengl3.nim) available through `nimble test` or `nimble make`.
 
----
+## Requirements
 
-Note: First see examples project  [ImGuin_examples](https://github.com/dinau/imguin_examples)
+### Nim
 
-##### tests folder
+- [Nim](https://nim-lang.org) **2.2.4 or later**
 
----
+### Windows
+
+- Windows 11 or later is recommended.
+- [MSYS2 / MinGW](https://www.msys2.org/) command-line tools.
+- `make`, `cp`, `rm`, `git`, and related Unix-style tools.
+
+Install GLFW for the UCRT64 environment:
+
+```sh
+pacman -S mingw-w64-ucrt-x86_64-glfw make
+```
+
+### Linux
+
+Ubuntu / Debian family distributions are tested most often.
+
+```sh
+sudo apt install gcc g++ make git curl xz-utils
+sudo apt install libopengl-dev libgl1-mesa-dev libglfw3-dev \
+  libxcursor-dev libxinerama-dev libxi-dev libsdl2-dev
+```
+
+Install Nim with `choosenim` if Nim is not already installed:
+
+```sh
+curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+```
+
+Make sure the Nimble binary directory is available in your `PATH`, for example:
+
+```sh
+export PATH="$HOME/.nimble/bin:$PATH"
+```
+
+## Install
+
+```sh
+nimble refresh
+nimble uninstall imguin
+nimble install imguin
+```
+
+If you are installing from a local checkout:
+
+```sh
+nimble install
+```
+
+## Quick Start
+
+Run the default GLFW + OpenGL3 test application:
 
 ```sh
 nimble test
 ```
 
-[tglfw_opengl3.nim](https://github.com/dinau/imguin/blob/main/tests/tglfw_opengl3.nim)
-
-![alt](https://github.com/dinau/imguin/raw/main/src/img/topimage.gif)
-
-##### Dear ImGui + Naylib(Raylib) + rlImgui example
-
----
-
-[rlimgui_basic (Naylib / Raylib / rlImgui)](https://github.com/dinau/imguin_examples#rlimgui_basic-naylib--Raylib--rlimgui)
-
-![alt](https://github.com/dinau/imguin_examples/raw/main/img/rlimgui.gif)  
-
-#### Prerequisites
-
----
-
-- [Nim-2.2.8](https://nim-lang.org) or later
-- Windows11 or later  
-[MSys2/MinGW](https://www.msys2.org/) command line tools (Unix tools), make, cp, rm, git, ...etc
-
-  ```sh
-  pacman -S mingw-w64-ucrt-x86_64-glfw make
-  ```
-
-- Linux: Ubuntu / Debian families 
-
-   ```sh
-   $ sudo apt install gcc g++ make git curl xz-utils
-   $ sudo apt install lib{opengl-dev,gl1-mesa-dev,glfw3-dev,xcursor-dev,xinerama-dev,xi-dev,sdl2-dev} 
-   ```
-
-   - Install nim
-
-      ```sh
-      curl https://nim-lang.org/choosenim/init.sh -sSf | sh
-      ```
-
-      You must now ensure that the Nimble bin dir is in your PATH.
-      Place the following line in the ~/.profile or ~/.bashrc file.
-      export PATH=/home/username/.nimble/bin:$PATH
-
-#### Install
-
----
+Build the same test application without running it:
 
 ```sh
-nimble refresh
-nimble uninstall imguin  # Remove old versions if exists. 
-nimble install imguin
+nimble make
 ```
 
-#### Available libraries 
+The main test source is:
+[tests/tglfw_opengl3.nim](https://github.com/dinau/imguin/blob/main/tests/tglfw_opengl3.nim)
 
----
+![GLFW OpenGL3 test application](src/img/topimage.gif)
 
-Library name / C lang. wrapper
-- [x] [ImGui](https://github.com/ocornut/imgui) / [CImGui](https://github.com/cimgui/cimgui)
-- [x] [ImPlot](https://github.com/epezent/implot) / [CImPlot](https://github.com/cimgui/cimplot)
-- [x] [ImNodes](https://github.com/Nelarius/imnodes) / [CImNodes](https://github.com/cimgui/cimnodes)
-- [x] [ImGuizmo](https://github.com/CedricGuillemet/ImGuizmo) / [CImGuizmo](https://github.com/cimgui/cimguizmo)
-- [x] [ImGui-Knobs](https://github.com/altschuler/imgui-knobs) / [CImGui-Knobs](https://github.com/dinau/imguin/tree/main/src/imguin/private/cimgui-knobs)
-- [x] [ImGuiFileDialog](https://github.com/aiekick/ImGuiFileDialog) / [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog)
-- [x] [ImGui_Toggle](https://github.com/cmdwtf/imgui_toggle) / [CimGui_Toggle](https://github.com/dinau/cimgui_toggle)
-- [x] [ImPlot3d](https://github.com/brenocq/implot3d) / [CImPlot3d](https://github.com/cimgui/cimplot3d) 
-- [x] [ImSpinner](https://github.com/dalerank/imspinner) 
-- [x] [ImGuiColorTextEdit](https://github.com/santaclose/ImGuiColorTextEdit) / [cimCTE](https://github.com/cimgui/cimCTE) (2025/03)
-- [x] [ImGuiTextSelect](https://github.com/AidanSun05/ImGuiTextSelect) / [CImGuiTextSelect](https://github.com/dinau/CImGuiTextSelect) (2025/09)
-- [x] [imgui_zoomable_image](https://github.com/danielm5/imgui_zoomable_image) / [cimgui_zoomable_image](https://github.com/dinau/cimgui_zoomable_image) (2026/04)
-- [ ] [ImGui_Markdown](https://github.com/enkisoftware/imgui_markdown) (2025/09) WIP
+## Supported Frontends and Backends
 
-https://github.com/nothings/stb
+| Frontend | Backends |
+| --- | --- |
+| GLFW | OpenGL3, Vulkan (2026/03) |
+| SDL2 | OpenGL3, SDL_Renderer2 |
+| SDL3 | OpenGL3, SDL_Renderer3, SDL_GPU3, Vulkan (2026/03) |
+| WASM | WebGL 2.0 (2026/04) |
 
-https://github.com/FortAwesome/Font-Awesome
+## Bundled Libraries
 
-Additional examples
-- [x] [Naylib](https://github.com/planetis-m/naylib)([Raylib](https://github.com/raysan5/raylib)) , [rlImGui](https://github.com/raylib-extras/rlImGui) (2025/10)
+| Status | Library | C wrapper / integration |
+| --- | --- | --- |
+| Done | [Dear ImGui](https://github.com/ocornut/imgui) | [CImGui](https://github.com/cimgui/cimgui) |
+| Done | [ImPlot](https://github.com/epezent/implot) | [CImPlot](https://github.com/cimgui/cimplot) |
+| Done | [ImNodes](https://github.com/Nelarius/imnodes) | [CImNodes](https://github.com/cimgui/cimnodes) |
+| Done | [ImGuizmo](https://github.com/CedricGuillemet/ImGuizmo) | [CImGuizmo](https://github.com/cimgui/cimguizmo) |
+| Done | [ImGui-Knobs](https://github.com/altschuler/imgui-knobs) | [CImGui-Knobs](https://github.com/dinau/imguin/tree/main/src/imguin/private/cimgui-knobs) |
+| Done | [ImGuiFileDialog](https://github.com/aiekick/ImGuiFileDialog) | [CImGuiFileDialog](https://github.com/dinau/CImGuiFileDialog) |
+| Done | [ImGui_Toggle](https://github.com/cmdwtf/imgui_toggle) | [CImGui_Toggle](https://github.com/dinau/cimgui_toggle) |
+| Done | [ImPlot3D](https://github.com/brenocq/implot3d) | [CImPlot3D](https://github.com/cimgui/cimplot3d) |
+| Done | [ImSpinner](https://github.com/dalerank/imspinner) | Built from source |
+| Done | [ImGuiColorTextEdit](https://github.com/santaclose/ImGuiColorTextEdit) | [cimCTE](https://github.com/cimgui/cimCTE), 2025/03 |
+| Done | [ImGuiTextSelect](https://github.com/AidanSun05/ImGuiTextSelect) | [CImGuiTextSelect](https://github.com/dinau/CImGuiTextSelect), 2025/09 |
+| Done | [imgui_zoomable_image](https://github.com/danielm5/imgui_zoomable_image) | [cimgui_zoomable_image](https://github.com/dinau/cimgui_zoomable_image), 2026/04 |
+| WIP | [ImGui_Markdown](https://github.com/enkisoftware/imgui_markdown) | Planned, 2025/09 |
 
-####  Frontends and Backends 
+Additional libraries and assets:
 
----
+- [stb](https://github.com/nothings/stb)
+- [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
+- [Naylib](https://github.com/planetis-m/naylib) / [Raylib](https://github.com/raysan5/raylib) with [rlImGui](https://github.com/raylib-extras/rlImGui)
 
-   | Frontends | Backends                                        |
-   | ---       | -------------------                             |
-   | GLFW      | OpenGL3, Vulkan(2026/03)                        |
-   | SDL2      | OpenGL3, sdlrenderer2                           |
-   | SDL3      | OpenGL3, sdlrenderer3, sdlgpu3, Vulkan(2026/03) |
-   | WASM      | WebGL 2.0(2026/04)                              |
+## Examples
 
-   
+The main example repository is
+[ImGuin examples](https://github.com/dinau/imguin_examples).
 
-[^fed]: Front end
+### GLFW + OpenGL3
 
-#### Update / Downgrade Dear ImGui and CImGui by yourself
+```sh
+nimble test
+```
 
----
+### Dear ImGui + Naylib / Raylib + rlImGui
 
-- Prerequisite  
-   1. Windows10 or later
-   Clang/LLVM refer to [Futhark installation](https://github.com/PMunch/futhark#installation).
-   
-      ```sh
-      nimble install futhark
-      ```
-   
-      It must exist `libclang.a` file in the library path (e.g. in `c:\llvm\lib` or `c:/msys64/ucrt64/bin`).
-   
-   1. Linux Debian / Ubuntu families
-   
-       ```sh
-       sudo apt install libclang-19-dev
-       nimble install --passL:"-L/usr/lib/llvm-19" futhark
-       ```
-   
-   Important Notice: Confirm Futhark version is **v0.16.0** at this time.
+[rlimgui_basic example](https://github.com/dinau/imguin_examples#rlimgui_basic-naylib--Raylib--rlimgui)
 
-   ```sh
-   nimble dump futhark
-   ```
+![rlImGui example](https://github.com/dinau/imguin_examples/raw/main/img/rlimgui.gif)
 
-- Update / Downgrade  ImGui/CImGui
-   1. Compose development folders  
-   First move to your working folder you like, then
-   
-      ```sh
-      mkdir imguin_dev
-      cd imguin_dev
-      git clone https://github.com/dinau/imguin
-      cd imguin
-      ```
-   
-   1. Clone ImGui/CImGui etc. sources at once forever  
-   
-      ```sh
-      pwd
-      imguin
-      make clonelibs
-      ```
-   
-      Cloned libraries are under `../libs/` folder
-   1. **Recursively** update the sources using git `pull` or `fetch` in the each library folder,  
-      ../libs/cimgui  
-      ../libs/cimguizmo  
-      ../libs/cimnodes  
-      ../libs/cimplot  
-      ... snip ...
-   1.  `checkout` arbitrary version with git command in the respective folder
-   
-   1. Specify your `Clang` include path to  `ClangIncludePath` in `imguin/src/imguin/cimgui.nim`.
-   
-   1. Generate [the definition file](src/imguin/cimgui_defs.nim) uisng [Futhark](https://github.com/PMunch/futhark),  
-   
-      ```sh
-      pwd
-      imguin
-      make gen
-      ```
-   
-   1. Install updated files  
-   Properly edit the version info etc in `imguin.nimble` file, then
-   
-      ```sh
-      pwd
-      imguin
-      nimble uninstall imguin  # Remove old versions if it exists. 
-      nimble install 
-      ```
-   
-      That's all.  
-      Repeat from `3.` if you'd like to update or downgrade to other version.
-   
+## Development
 
-- Confirmed version  
-Windows OS is all OK.
+The repository includes scripts for updating or downgrading the bundled Dear ImGui,
+CImGui, and extension sources. These steps are intended for package maintainers.
 
-   | ImGui/CImGui Ver. | ImGuin Ver. | Date    | Linux Debian Family (3) | Notice                         |
-   | :--------------:  | ---------   | :----:  | :---:                   | ---                            |
-   | 1.92.8  dock      | 1.92.8.0    | 2026/06 | OK                      |                                |
-   | 1.92.7  dock      | 1.92.7.0    | 2026/04 | OK                      |                                |
-   | 1.92.6  dock      | 1.92.6.2    | 2026/03 | OK                      | Added Wasm function            |
-   | 1.92.6  dock      | 1.92.6.1    | 2026/03 | OK                      | Breaking changed impl_glfw.nim |
-   | 1.92.6  dock      | 1.92.6.0    | 2026/02 | OK                      |                                |
-   | 1.92.4  dock      | 1.92.4.0    | 2025/11 | OK                      |                                |
-   | 1.92.3  dock      | 1.92.3.0    | 2025/09 | OK                      |                                |
-   | 1.92.2b dock      | 1.92.2.1    | 2025/09 | OK                      |                                |
-   | 1.92.2b dock      | 1.92.2.0    | 2025/08 | OK                      |                                |
-   | 1.92.0 dock       | 1.92.0.2    | 2025/08 | OK                      |                                |
-   | 1.92.0 dock       | 1.92.0.1    | 2025/07 | OK                      |                                |
-   | 1.91.9b dock      | 1.91.9.4    | 2025/06 | OK                      |                                |
-   | 1.91.8 dock       | 1.91.8.2    | 2025/03 | OK                      |                                |
-   | 1.91.6 dock       | 1.91.6.15   | 2025/01 | (4)                     |                                |
-   | 1.91.4 dock       | 1.91.4.2    | 2024/12 | OK                      |                                |
-   | 1.91.3 dock       | 1.91.3.1    | 2024/10 | (4)                     |                                |
-   | 1.91.2 dock       | 1.91.2.0    | 2024/10 | (4)                     |                                |
-   | 1.91.1 dock       | 1.91.1.2    | 2024/09 | Except ImNodes example  |                                |
-   | 1.91.0 dock       | 1.91.0.0    | 2024/08 | (4)                     |                                |
-   | 1.90.4 dock       | 1.90.4.2    | 2024/02 | Use nim-2.0.2           |                                |
-   | 1.89.9 dock       | 1.89.9.8    | 2023/12 | OK (1)(2)               |                                |
+### Futhark Setup
 
-  (1) Except imnodes and SDL2 example.  
-  (2) Works well only if it is compiled debug mode.  
-  (3) Dedian / Ubuntu familiy.  
-  (4) Doesn't check, but probably will work well.
+Install Futhark:
 
-#### TODO
+```sh
+nimble install futhark
+```
 
----
+Confirm the installed Futhark version:
 
-1. ~~Whether can it use `cimgui.dll` ? (Now it can only be static link)~~ Closed. Only be static link.
-1. ~~Easier compilation for SDL2 app~~. (2024/09) Done.
-1. ~~Added: ImNodes/CImNodes~~ (2023/10) Done
-1. ~~Unfortunately ImGui 1.89.7 dosn't work well at this moment.(2023/07)~~ Done. (2023/08)
-1. ~~Whether can it do `nimble install imguin` ?~~ [Done (2023/09) (#Issue 13)](https://github.com/dinau/imguin/issues/13)
-1. ~~Add Font Awesome (Icon Font) demo.~~  Done (2023/04).
-1. ~~Can it compile with MSVC (--cc:vcc) ?~~ Done. Except SDL2 demo. (2023/03), TODO (2024/09)
-1. ~~Can it compile with Clang (--cc:clang) ?~~ Done. (2023/03)
-1. ~~Add SDL2 example.~~ Done. [examples/sdl2_opengl3](https://github.com/dinau/imguin_examples/blob/main/sdl2_opengl3/sdl2_opengl3.nim) (2023/03)
-- First step is done. (2023/03)
+```sh
+nimble dump futhark
+```
 
+The currently expected Futhark version is **v0.16.0**.
 
-#### My tools version
+#### Windows
 
----
+Install Clang / LLVM. See the
+[Futhark installation guide](https://github.com/PMunch/futhark#installation).
 
-Windows11 (main)
-- **Nim Compiler Version 2.2.10**
-- **GCC (Rev1, Built by MSYS2 project) 16.1.0**
+`libclang.a` must be available in the library path, for example:
+
+- `c:\llvm\lib`
+- `c:\msys64\ucrt64\bin`
+
+#### Linux
+
+For Debian / Ubuntu family distributions:
+
+```sh
+sudo apt install libclang-19-dev
+nimble install --passL:"-L/usr/lib/llvm-19" futhark
+```
+
+### Update Bundled Sources
+
+Clone this repository into a development workspace:
+
+```sh
+mkdir imguin_dev
+cd imguin_dev
+git clone https://github.com/dinau/imguin
+cd imguin
+```
+
+Clone the upstream C/C++ libraries:
+
+```sh
+make clonelibs
+```
+
+The external libraries are cloned under `../libs/`.
+
+Update or checkout each library version as needed, for example:
+
+- `../libs/cimgui`
+- `../libs/cimguizmo`
+- `../libs/cimnodes`
+- `../libs/cimplot`
+
+Then regenerate the Nim definitions:
+
+```sh
+make gen
+```
+
+If needed, update the version metadata in `imguin.nimble`, then install the local
+package:
+
+```sh
+nimble uninstall imguin
+nimble install
+```
+
+Repeat the update, checkout, and `make gen` steps when moving to another upstream
+version.
+
+## Version Compatibility
+
+Windows builds are confirmed unless otherwise noted.
+
+| ImGui / CImGui | ImGuin | Date | Linux Debian family | Notes |
+| :---: | --- | :---: | :---: | --- |
+| 1.92.8 dock | 1.92.8.0 | 2026/06 | OK | |
+| 1.92.7 dock | 1.92.7.0 | 2026/04 | OK | |
+| 1.92.6 dock | 1.92.6.2 | 2026/03 | OK | Added Wasm function |
+| 1.92.6 dock | 1.92.6.1 | 2026/03 | OK | Breaking change in `impl_glfw.nim` |
+| 1.92.6 dock | 1.92.6.0 | 2026/02 | OK | |
+| 1.92.4 dock | 1.92.4.0 | 2025/11 | OK | |
+| 1.92.3 dock | 1.92.3.0 | 2025/09 | OK | |
+| 1.92.2b dock | 1.92.2.1 | 2025/09 | OK | |
+| 1.92.2b dock | 1.92.2.0 | 2025/08 | OK | |
+| 1.92.0 dock | 1.92.0.2 | 2025/08 | OK | |
+| 1.92.0 dock | 1.92.0.1 | 2025/07 | OK | |
+| 1.91.9b dock | 1.91.9.4 | 2025/06 | OK | |
+| 1.91.8 dock | 1.91.8.2 | 2025/03 | OK | |
+| 1.91.6 dock | 1.91.6.15 | 2025/01 | Not checked | Probably works |
+| 1.91.4 dock | 1.91.4.2 | 2024/12 | OK | |
+| 1.91.3 dock | 1.91.3.1 | 2024/10 | Not checked | Probably works |
+| 1.91.2 dock | 1.91.2.0 | 2024/10 | Not checked | Probably works |
+| 1.91.1 dock | 1.91.1.2 | 2024/09 | Partial | Except ImNodes example |
+| 1.91.0 dock | 1.91.0.0 | 2024/08 | Not checked | Probably works |
+| 1.90.4 dock | 1.90.4.2 | 2024/02 | Use Nim 2.0.2 | |
+| 1.89.9 dock | 1.89.9.8 | 2023/12 | Partial | Except ImNodes and SDL2 examples; works best in debug mode |
+
+## Tool Versions
+
+### Windows 11
+
+- Nim Compiler Version 2.2.10
+- GCC 16.1.0, MSYS2 build
 - Visual Studio C++/C 2022
-- git version 2.46.0.windows.1
-- Make: GNU Make 4.4.1
-- MSys2/MinGW-UCRT tools
+- Git 2.46.0.windows.1
+- GNU Make 4.4.1
+- MSYS2 / MinGW-UCRT tools
 
-Linux Debian 13
-- **Nim Compiler Version 2.2.6**
-- gcc 14.2.0
-- make: GNU Make 4.4.1
+### Linux Debian 13
 
-#### Other link
+- Nim Compiler Version 2.2.6
+- GCC 14.2.0
+- GNU Make 4.4.1
 
----
+## Related Projects
 
-- File Dialog
-   - [Cross Platform File Dialog for Dear-ImGui ](https://github.com/gallickgunner/ImGui-Addons)
-   - [SDL2 ImGui File Dialogs - CLI and Client Library](https://github.com/samuelvenable/SDL2-ImGui-FileDialogs)
-   - [SDL3 ImGui File Dialogs - CLI and Client Library](https://github.com/samuelvenable/SDL3-ImGui-FileDialogs)
-   - [A Dear ImGui based File Dialog without any extra dependencies](https://github.com/Julianiolo/ImGuiFD)
-- Other
-   - [Node Editor built using Dear ImGui](https://github.com/thedmd/imgui-node-editor)
-- GUI
-   - [nuklear-nim (Public archived)](https://github.com/zacharycarter/nuklear-nim)
+### Nim / ImGui
 
-- Graphical
-  - [Immediate Mode Plotting](https://github.com/epezent/implot)
-     ![alt](https://raw.githubusercontent.com/wiki/epezent/implot/screenshots3/stem.gif)
+- [nimgl/imgui](https://github.com/nimgl/imgui)
+- [nimgl-imgui](https://github.com/dinau/nimgl-imgui)
+- [nim_implot](https://github.com/dinau/nim_implot)
+- [nimgl_test](https://github.com/dinau/nimgl_test)
+- [daniel-j/nimgl-imgui](https://github.com/daniel-j/nimgl-imgui)
 
+### Similar ImGui / CImGui Projects
 
-- Similar project ImGui / CImGui
+| Language | Type | Project |
+| ---: | :---: | --- |
+| Lua | Script | [LuaJITImGui](https://github.com/dinau/luajitImGui) |
+| NeLua | Compiler | [NeLuaImGui](https://github.com/dinau/neluaImGui), [NeLuaImGui2](https://github.com/dinau/neluaImGui2) |
+| Nim | Compiler | [ImGuin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
+| Python | Script | [DearPyGui for 32-bit Windows binary](https://github.com/dinau/DearPyGui32/tree/win32) |
+| Ruby | Script | [igRuby examples](https://github.com/dinau/igruby_examples) |
+| Zig / C | Compiler | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build) |
+| Zig | Compiler | [ImGuinZ](https://github.com/dinau/imguinz) |
 
-| Language             |          | Project                                                                                                                                         |
-| -------------------: | :---:    | :----------------------------------------------------------------:                                                                              |
-| **Lua**              | Script   | [LuaJITImGui](https://github.com/dinau/luajitImGui)                                                                                             |
-| **NeLua**            | Compiler | [NeLuaImGui](https://github.com/dinau/neluaImGui) / [NeLuaImGui2](https://github.com/dinau/neluaImGui2)                                         |
-| **Nim**              | Compiler | [ImGuin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
-| **Python**           | Script   | [DearPyGui for 32bit WindowsOS Binary](https://github.com/dinau/DearPyGui32/tree/win32)                                                         |
-| **Ruby**             | Script   | [igRuby_Examples](https://github.com/dinau/igruby_examples)                                                                                     |
-| **Zig**, C lang.     | Compiler | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build)                                                                             |
-| **Zig**              | Compiler | [ImGuinZ](https://github.com/dinau/imguinz)                                                                                                     |
+### File Dialogs
 
-- SDL Game tutorial Platfromer
+- [Cross Platform File Dialog for Dear ImGui](https://github.com/gallickgunner/ImGui-Addons)
+- [SDL2 ImGui File Dialogs](https://github.com/samuelvenable/SDL2-ImGui-FileDialogs)
+- [SDL3 ImGui File Dialogs](https://github.com/samuelvenable/SDL3-ImGui-FileDialogs)
+- [Dear ImGui file dialog without extra dependencies](https://github.com/Julianiolo/ImGuiFD)
 
-   ![ald](https://github.com/dinau/nelua-platformer/raw/main/img/platformer-nelua-sdl2.gif)
+### Other UI / Graphics Links
 
-| Language             |          | SDL         | Project                                                                                                                                               |
-| -------------------: | :---:    | :---:       | :----------------------------------------------------------------:                                                                                    |
-| **LuaJIT**           | Script   | SDL2        | [LuaJIT-Platformer](https://github.com/dinau/luajit-platformer)
-| **Nelua**            | Compiler | SDL2        | [NeLua-Platformer](https://github.com/dinau/nelua-platformer)
-| **Nim**              | Compiler | SDL3 / SDL2 | [Nim-Platformer-sdl2](https://github.com/def-/nim-platformer)/ [Nim-Platformer-sdl3](https://github.com/dinau/sdl3_nim/tree/main/examples/platformer) |
-| **Ruby**             | Script   | SDL3        | [Ruby-Platformer](https://github.com/dinau/ruby-platformer)                                                                                           |
-| **Zig**              | Compiler | SDL2        | [Zig-Platformer](https://github.com/dinau/zig-platformer)                                                                                             |
+- [Node Editor built using Dear ImGui](https://github.com/thedmd/imgui-node-editor)
+- [nuklear-nim](https://github.com/zacharycarter/nuklear-nim) (archived)
+- [Immediate Mode Plotting](https://github.com/epezent/implot)
+- [SOIL2](https://github.com/SpartanJ/SOIL2)
 
-- Other link2
-   - https://github.com/SpartanJ/SOIL2  
-   SOIL2 is a tiny C library used primarily for uploading textures into OpenGL. 
+![ImPlot screenshot](https://raw.githubusercontent.com/wiki/epezent/implot/screenshots3/stem.gif)
 
-- Memo
+### SDL Platformer Examples
 
-   ```sh
-   error: assignment to 'char **' from incompatible pointer type 'const char * const*' [-Wincompatible-pointer-types]
-   ```
-   
-   ```nim
-   type ConstCstring {.importc: const char *.} = cstring
-   ```
+![SDL platformer](https://github.com/dinau/nelua-platformer/raw/main/img/platformer-nelua-sdl2.gif)
 
+| Language | Type | SDL | Project |
+| ---: | :---: | :---: | --- |
+| LuaJIT | Script | SDL2 | [LuaJIT-Platformer](https://github.com/dinau/luajit-platformer) |
+| Nelua | Compiler | SDL2 | [NeLua-Platformer](https://github.com/dinau/nelua-platformer) |
+| Nim | Compiler | SDL3 / SDL2 | [Nim-Platformer-sdl2](https://github.com/def-/nim-platformer), [Nim-Platformer-sdl3](https://github.com/dinau/sdl3_nim/tree/main/examples/platformer) |
+| Ruby | Script | SDL3 | [Ruby-Platformer](https://github.com/dinau/ruby-platformer) |
+| Zig | Compiler | SDL2 | [Zig-Platformer](https://github.com/dinau/zig-platformer) |
 
+## Notes
 
-Notes:
+### ImPlot / ImPlot3D
 
-- Using ImPlot3D / ImPlot with Nim
-- Nim + ImGui + ImPlot3D / ImPlot demo
-- Build with ImPlot3D / ImPlot
-- ImPlot3D integration example
-- This project builds and runs Dear ImGui + ImPlot3D / ImPlotusing Nim.
-- ImPlot3D is compiled from source (implot3d.h / implot3d.cpp)
-- ImPlot is compiled from source (implot.h / implot.cpp)
+- This project builds and runs Dear ImGui, ImPlot, and ImPlot3D from Nim.
+- ImPlot is compiled from source with `implot.h` and `implot.cpp`.
+- ImPlot3D is compiled from source with `implot3d.h` and `implot3d.cpp`.
 
-[^notice]: It may be better to use the **mainstream** project [nimgl/imgui](https://github.com/nimgl/imgui) (ImGui v1.85)  
-,updated project [nimgl-imgui](https://github.com/dinau/nimgl-imgui) (ImGui v1.89.9)  ,sub project [nim_implot](https://github.com/dinau/nim_implot) and test project [nimgl_test](https://github.com/dinau/nimgl_test),  
-or [https://github.com/daniel-j/nimgl-imgui](https://github.com/daniel-j/nimgl-imgui) (ImGui v1.91.1)
+### Const CString Workaround
+
+If you hit this C compiler warning:
+
+```sh
+error: assignment to 'char **' from incompatible pointer type 'const char * const*' [-Wincompatible-pointer-types]
+```
+
+This Nim declaration may help:
+
+```nim
+type ConstCstring {.importc: "const char *".} = cstring
+```

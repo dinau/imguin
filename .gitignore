@@ -1,4 +1,6 @@
 1st.bat
+AGENT.md
+*.xml
 impl_vulkan_def_all.nim
 *.pdf
 *.stop
