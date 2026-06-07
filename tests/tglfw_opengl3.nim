@@ -38,6 +38,9 @@ proc gui_main(win: var AppWindow) =
       # ImSpinner demo
       const red = ImColor(Value: ImVec4(x: 1.0, y: 0.0, z: 0.0, w: 1.0))
       SpinnerDnaDotsEx("DnaDots", 16, 2, red, 1.2, 8, 0.25, true)
+      igSameLine()
+
+      igTextLinkOpenURL("Open imguin_examples project", "https://github.com/dinau/imguin_examples")
 
       # Show information
       igText(getFrontendVersionString())
