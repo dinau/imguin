@@ -23,7 +23,7 @@ import stb_image/read as stbi
 proc loadIni*(win: var AppWindow)
 proc saveIni*(win: var AppWindow)
 proc setTheme*(win: var AppWindow, theme: Theme): string {.discardable.}
-proc loadTileBarIcon*(win: AppWindow, iconName: string)
+proc loadTitleBarIcon*(win: AppWindow, iconName: string)
 
 #--------------
 # Configration
@@ -122,7 +122,7 @@ proc createImGui*(w: cint = 1024, h: cint = 900, title: string = "ImGui window i
   # Load title bar icon
   #---------------------
   var IconName = os.joinPath(os.getAppDir(), "res/img/n.png")
-  loadTileBarIcon(result, IconName)
+  loadTitleBarIcon(result, IconName)
 
   # Setup ImGui
   result.context = igCreateContext(nil)
@@ -344,7 +344,7 @@ proc getThemeLabel*(win: AppWindow): string =
 #---------------------
 # Load title bar icon
 #---------------------
-proc loadTileBarIcon*(win: AppWindow, iconName: string) =
+proc loadTitleBarIcon*(win: AppWindow, iconName: string) =
   let handle = win.glfwWin.getHandle()
   if iconName.fileExists:
     var
