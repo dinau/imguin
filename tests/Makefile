@@ -16,7 +16,7 @@ clean:
 	@-rm -fr .nimcache
 
 run: all
-	./$(TARGET)$(EXE)
+	./$(TARGET1)$(EXE)
 
 fmt:
 	nimpretty --maxLineLen:1000 *.nim

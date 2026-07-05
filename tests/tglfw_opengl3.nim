@@ -37,18 +37,14 @@ proc gui_main(win: var AppWindow) =
 
       # ImSpinner demo
       const red = ImColor(Value: ImVec4(x: 1.0, y: 0.0, z: 0.0, w: 1.0))
-      SpinnerDnaDotsEx("DnaDots", 16, 2, red, 1.2, 8, 0.25, true)
-      igSameLine()
-
+      SpinnerDnaDotsEx("DnaDots", 16, 2, red, 1.2, 8, 0.25, true); igSameLine()
       igTextLinkOpenURL("Open imguin_examples project", "https://github.com/dinau/imguin_examples")
 
       # Show information
       igText(getFrontendVersionString())
       igText(getBackendVersionString())
-      igText("Dear ImGui"); igSameLine()
-      igText(igGetVersion())
-      igText("Nim-"); igSameLine()
-      igText(NimVersion);
+      igText("Dear ImGui"); igSameLine(); igText(igGetVersion())
+      igText("Nim-"); igSameLine(); igText(NimVersion);
 
       igInputTextWithHint("InputText", "Input text here", sBuf)
       igText(("Input result:" & sBuf).cstring)
@@ -57,23 +53,22 @@ proc gui_main(win: var AppWindow) =
       igColorEdit3("Background color", win.ini.clearColor.array3, 0.ImGuiColorEditFlags)
 
       # Counter up
-      if igButton("Button", ImVec2_c(x: 0.0f, y: 0.0f)):
+      if igButton("Button", ImVec2(x: 0.0f, y: 0.0f)):
         inc counter
-      igSameLine()
-      igText("counter = %d", counter)
+      igSameLine(); igText("counter = %d", counter)
       igText("Application average %.3f ms/frame (%.1f FPS)".cstring, (1000.0f / igGetIO().Framerate).cfloat, igGetIO().Framerate.cfloat)
 
     # render
     win.render()
 
-    if not showFirstWindow :
+    if not showFirstWindow:
       win.shouldClose = true # Exit program
 
   #### end while
 
 # main
 proc main() =
-  var win = createImGui(MainWinWidth, MainWinHeight, title = "ImGui Window")
+  var win = createImGui(MainWinWidth, MainWinHeight, title = "Dear ImGui Window")
   defer: destroyImGui(win)
 
   when true: # Use CJK fonts

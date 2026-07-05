@@ -2,7 +2,7 @@
 # nim c -d:strip -d:ImSpinner tglfw_opengl3_legacy.nim
 
 import std/[os, strutils, math]
-import nimgl/[opengl, glfw]         # OpenGL and GLFW
+import nimgl/[opengl, glfw] # OpenGL and GLFW
 import imguin/[glfw_opengl, simple]
 
 when defined(windows):

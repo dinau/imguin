@@ -97,6 +97,8 @@ nimble install imguin
 If you are installing from a local checkout:
 
 ```sh
+pwd
+imguin
 nimble install
 ```
 
@@ -280,7 +282,7 @@ Windows builds are confirmed unless otherwise noted.
 | 1.90.4 dock | 1.90.4.2 | 2024/02 | Use Nim 2.0.2 | |
 | 1.89.9 dock | 1.89.9.8 | 2023/12 | Partial | Except ImNodes and SDL2 examples; works best in debug mode |
 
-## Tool Versions
+## My Tool Versions
 
 ### Windows 11
 
@@ -316,8 +318,7 @@ Windows builds are confirmed unless otherwise noted.
 | Nim | Compiler | [ImGuin](https://github.com/dinau/imguin), [Nimgl_test](https://github.com/dinau/nimgl_test), [Nim_implot](https://github.com/dinau/nim_implot) |
 | Python | Script | [DearPyGui for 32-bit Windows binary](https://github.com/dinau/DearPyGui32/tree/win32) |
 | Ruby | Script | [igRuby examples](https://github.com/dinau/igruby_examples) |
-| Zig / C | Compiler | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build) |
-| Zig | Compiler | [ImGuinZ](https://github.com/dinau/imguinz) |
+| Zig | Compiler | [ImGuinz](https://github.com/dinau/imguinz) / [ImGuinz2](https://github.com/dinau/imguinz2) |
 
 ### File Dialogs
 
