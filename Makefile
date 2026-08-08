@@ -86,10 +86,14 @@ imspinner:
 imCTE:
 	@echo [ $@ ] copying...
 	@-mkdir -p $(TARGET_DIR)/c$@/ImGuiColorTextEdit/vendor/regex
+	@-mkdir -p $(TARGET_DIR)/c$@/ImGuiColorTextEdit/extras
+	@-mkdir -p $(TARGET_DIR)/c$@/ImGuiColorTextEdit/example
 	@cp -f $(EXT_LIB_DIR)/c$@/{*.cpp,*.h,README.md}                            $(TARGET_DIR)/c$@/
 	@cp -f $(EXT_LIB_DIR)/c$@/ImGuiColorTextEdit/{LICENSE,*.cpp,*.h,README.md} $(TARGET_DIR)/c$@/ImGuiColorTextEdit/
 	@cp -f $(EXT_LIB_DIR)/c$@/ImGuiColorTextEdit/vendor/regex/*.*              $(TARGET_DIR)/c$@/ImGuiColorTextEdit/vendor/regex/
 	@cp -rf $(EXT_LIB_DIR)/c$@/ImGuiColorTextEdit/vendor/regex/include         $(TARGET_DIR)/c$@/ImGuiColorTextEdit/vendor/regex/include
+	@cp -rf $(EXT_LIB_DIR)/c$@/ImGuiColorTextEdit/extras/*                     $(TARGET_DIR)/c$@/ImGuiColorTextEdit/extras/
+	@cp -rf $(EXT_LIB_DIR)/c$@/ImGuiColorTextEdit/example/*                    $(TARGET_DIR)/c$@/ImGuiColorTextEdit/example/
 
 ImGuiTextSelect:
 	@echo [ C$@ ] copying...

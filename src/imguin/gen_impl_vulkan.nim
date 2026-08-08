@@ -1,3 +1,8 @@
+# Comment out cimgui/imgui/backends/imgui_impl_vulkan.h
+#        Line 169 for Dear ImGui v1.92.9b
+#        // IMGUI_IMPL_API VkDescriptorSet  ImGui_ImplVulkan_AddTexture(VkSampler sampler, VkImageView image_view, VkImageLayout image_layout); // Ignore VkSampler
+#        2026/08/06
+
 import std/[os,strutils,strformat]
 
 const NIM_DEFS_FILE = "impl_vulkan_def_all.nim"
@@ -7,7 +12,7 @@ proc currentSourceDir(): string {.compileTime.} =
   result = result[0 ..< result.rfind("/")]
 
 #--- To specify the place that has "stdbool.h"
-const ClangVersion = 21
+const ClangVersion = 22
 const ClangIncludePath  = fmt"c:/drvDx/msys64/ucrt64/lib/clang/{ClangVersion}/include"
 const VulkanIncludePath = fmt"c:/drvDx/msys64/ucrt64/include/vulkan"
 

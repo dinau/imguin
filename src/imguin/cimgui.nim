@@ -215,12 +215,17 @@ else: # Use generated header by Futark in your programs.
     {.passC:"-I" & CImCTEPath.}
     {.passC:"-I" & ImGuiColorTextEditPath.}
     {.passC:"-I" & joinPath(ImGuiColorTextEditPath, "vendor", "regex", "include").replace("\\", "/").}
+    {.passC:"-I" & joinPath(ImGuiColorTextEditPath, "extras" ).replace("\\", "/").}
+    {.passC:"-I" & joinPath(ImGuiColorTextEditPath, "example" ).replace("\\", "/").}
     {.compile:joinPath(CImCTEPath,"cimCTE.cpp").replace("\\", "/").}
     #{.compile:joinPath(ImGuiColorTextEditPath,"ImGuiDebugPanel.cpp").replace("\\", "/").}
     #{.compile:joinPath(ImGuiColorTextEditPath,"LanguageDefinitions.cpp").replace("\\", "/").}
     {.compile:joinPath(ImGuiColorTextEditPath,"TextEditor.cpp").replace("\\", "/").}
     {.compile:joinPath(ImGuiColorTextEditPath,"TextDiff.cpp").replace("\\", "/").}
     #{.compile:joinPath(ImGuiColorTextEditPath,"UnitTests.cpp").replace("\\", "/").}
+    #{.compile:joinPath(ImGuiColorTextEditPath,"extras","LspBridge.cpp").replace("\\", "/").}
+    {.compile:joinPath(ImGuiColorTextEditPath,"extras","TrieAutoComplete.cpp").replace("\\", "/").}
+    {.compile:joinPath(ImGuiColorTextEditPath,"example","dejavu.cpp").replace("\\", "/").}
 
   when defined(ImGuiTextSelectEnable) or defined(ImGuiTextSelect) :
     {.passC:"-I" & CImGuiTextSelectPath.}

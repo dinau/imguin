@@ -104,7 +104,7 @@ proc ImGui_ImplVulkanH_SelectPresentMode*(physical_device: VkPhysicalDevice; sur
 proc ImGui_ImplVulkanH_SelectQueueFamilyIndex*(physical_device: VkPhysicalDevice): uint32
 proc ImGui_ImplVulkanH_SelectSurfaceFormat*(physical_device: VkPhysicalDevice; surface: VkSurfaceKHR; request_formats: ptr VkFormat; request_formats_count: cint; request_color_space: VkColorSpaceKHR): VkSurfaceFormatKHR
 proc ImGui_ImplVulkanH_Window_ImGui_ImplVulkanH_Window*(): ptr ImGui_ImplVulkanH_Window
-proc ImGui_ImplVulkan_AddTexture*(sampler: VkSampler; image_view: VkImageView; image_layout: VkImageLayout): VkDescriptorSet
+proc ImGui_ImplVulkan_AddTexture*(image_view: VkImageView; image_layout: VkImageLayout): VkDescriptorSet
 proc ImGui_ImplVulkan_CreateMainPipeline*( info: ptr ImGui_ImplVulkan_PipelineInfo): void
 proc ImGui_ImplVulkan_Init*(info: ptr ImGui_ImplVulkan_InitInfo): bool
 proc ImGui_ImplVulkan_LoadFunctions*(api_version: uint32; loader_func: proc ( a0: cstring; a1: pointer): PFN_vkVoidFunction)

@@ -33,7 +33,10 @@ type
     ImGui_ItemFlags_None = 0, ImGui_ItemFlags_NoTabStop = 1,
     ImGui_ItemFlags_NoNav = 2, ImGui_ItemFlags_NoNavDefaultFocus = 4,
     ImGui_ItemFlags_ButtonRepeat = 8, ImGui_ItemFlags_AutoClosePopups = 16,
-    ImGui_ItemFlags_AllowDuplicateId = 32, ImGui_ItemFlags_Disabled = 64
+    ImGui_ItemFlags_AllowDuplicateId = 32, ImGui_ItemFlags_Disabled = 64,
+    ImGui_ItemFlags_LiveEditOnInputText = 128,
+    ImGui_ItemFlags_LiveEditOnInputScalar = 256,
+    ImGui_ItemFlags_LiveEditOnInput = 384
 type
   enum_ImGuiInputTextFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_InputTextFlags_None = 0, ImGui_InputTextFlags_CharsDecimal = 1,
@@ -334,13 +337,14 @@ type
     ImGui_StyleVar_TableAngledHeadersAngle = 31,
     ImGui_StyleVar_TableAngledHeadersTextAlign = 32,
     ImGui_StyleVar_TreeLinesSize = 33, ImGui_StyleVar_TreeLinesRounding = 34,
-    ImGui_StyleVar_DragDropTargetRounding = 35,
-    ImGui_StyleVar_ButtonTextAlign = 36, ImGui_StyleVar_SelectableTextAlign = 37,
-    ImGui_StyleVar_SeparatorSize = 38,
-    ImGui_StyleVar_SeparatorTextBorderSize = 39,
-    ImGui_StyleVar_SeparatorTextAlign = 40,
-    ImGui_StyleVar_SeparatorTextPadding = 41,
-    ImGui_StyleVar_DockingSeparatorSize = 42, ImGui_StyleVar_COUNT = 43
+    ImGui_StyleVar_MenuItemRounding = 35, ImGui_StyleVar_SelectableRounding = 36,
+    ImGui_StyleVar_DragDropTargetRounding = 37,
+    ImGui_StyleVar_ButtonTextAlign = 38, ImGui_StyleVar_SelectableTextAlign = 39,
+    ImGui_StyleVar_SeparatorSize = 40,
+    ImGui_StyleVar_SeparatorTextBorderSize = 41,
+    ImGui_StyleVar_SeparatorTextAlign = 42,
+    ImGui_StyleVar_SeparatorTextPadding = 43,
+    ImGui_StyleVar_DockingSeparatorSize = 44, ImGui_StyleVar_COUNT = 45
 type
   enum_ImGuiButtonFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_ButtonFlags_None = 0, ImGui_ButtonFlags_MouseButtonLeft = 1,
@@ -371,10 +375,11 @@ type
     ImGui_ColorEditFlags_PickerHueBar = 33554432,
     ImGui_ColorEditFlags_PickerHueWheel = 67108864,
     ImGui_ColorEditFlags_PickerMask_private = 100663296,
-    ImGui_ColorEditFlags_InputRGB = 134217728,
-    ImGui_ColorEditFlags_DefaultOptions_private = 177209344,
-    ImGui_ColorEditFlags_InputHSV = 268435456,
-    ImGui_ColorEditFlags_InputMask_private = 402653184
+    ImGui_ColorEditFlags_PickerNoRotate = 134217728,
+    ImGui_ColorEditFlags_InputRGB = 268435456,
+    ImGui_ColorEditFlags_DefaultOptions_private = 311427072,
+    ImGui_ColorEditFlags_InputHSV = 536870912,
+    ImGui_ColorEditFlags_InputMask_private = 805306368
 type
   enum_ImGuiSliderFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_SliderFlags_None = 0, ImGui_SliderFlags_Logarithmic = 32,
@@ -488,7 +493,8 @@ type
     ImGui_MultiSelectFlags_SelectOnClickRelease = 32768,
     ImGui_MultiSelectFlags_SelectOnMask_private = 57344,
     ImGui_MultiSelectFlags_NavWrapX = 65536,
-    ImGui_MultiSelectFlags_NoSelectOnRightClick = 131072
+    ImGui_MultiSelectFlags_NoSelectOnRightClick = 131072,
+    ImGui_MultiSelectFlags_CheckboxMode_private = 1048576
 type
   enum_ImGuiSelectionRequestType* {.size: sizeof(cuint).} = enum
     ImGui_SelectionRequestType_None = 0, ImGui_SelectionRequestType_SetAll = 1,
@@ -509,7 +515,8 @@ type
   enum_ImDrawListFlags_private* {.size: sizeof(cuint).} = enum
     ImDrawListFlags_None = 0, ImDrawListFlags_AntiAliasedLines = 1,
     ImDrawListFlags_AntiAliasedLinesUseTex = 2,
-    ImDrawListFlags_AntiAliasedFill = 4, ImDrawListFlags_AllowVtxOffset = 8
+    ImDrawListFlags_AntiAliasedFill = 4, ImDrawListFlags_AllowVtxOffset = 8,
+    ImDrawListFlags_TextNoPixelSnap = 16
 type
   enum_ImTextureFormat* {.size: sizeof(cuint).} = enum
     ImTextureFormat_RGBA32 = 0, ImTextureFormat_Alpha8 = 1
@@ -550,7 +557,7 @@ type
     ImGui_DataType_Pointer = 12, ImGui_DataType_ID = 13
 type
   enum_ImGuiItemFlagsPrivate_private* {.size: sizeof(cuint).} = enum
-    ImGui_ItemFlags_Default_private = 16, ImGui_ItemFlags_ReadOnly = 2048,
+    ImGui_ItemFlags_Default_private = 144, ImGui_ItemFlags_ReadOnly = 2048,
     ImGui_ItemFlags_MixedValue = 4096,
     ImGui_ItemFlags_NoWindowHoverableCheck = 8192,
     ImGui_ItemFlags_AllowOverlap = 16384,
@@ -746,8 +753,7 @@ type
 type
   enum_ImGuiNavRenderCursorFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_NavRenderCursorFlags_None = 0, ImGui_NavRenderCursorFlags_Compact = 2,
-    ImGui_NavRenderCursorFlags_AlwaysDraw = 4,
-    ImGui_NavRenderCursorFlags_NoRounding = 8
+    ImGui_NavRenderCursorFlags_AlwaysDraw = 4
 type
   enum_ImGuiNavMoveFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_NavMoveFlags_None = 0, ImGui_NavMoveFlags_LoopX = 1,
@@ -815,11 +821,12 @@ type
   enum_ImGuiLocKey* {.size: sizeof(cuint).} = enum
     ImGui_LocKey_VersionStr = 0, ImGui_LocKey_TableSizeOne = 1,
     ImGui_LocKey_TableSizeAllFit = 2, ImGui_LocKey_TableSizeAllDefault = 3,
-    ImGui_LocKey_TableResetOrder = 4, ImGui_LocKey_WindowingMainMenuBar = 5,
-    ImGui_LocKey_WindowingPopup = 6, ImGui_LocKey_WindowingUntitled = 7,
-    ImGui_LocKey_OpenLink_s = 8, ImGui_LocKey_CopyLink = 9,
-    ImGui_LocKey_DockingHideTabBar = 10, ImGui_LocKey_DockingHoldShiftToDock = 11,
-    ImGui_LocKey_DockingDragToUndockOrMoveNode = 12, ImGui_LocKey_COUNT = 13
+    ImGui_LocKey_TableReset = 4, ImGui_LocKey_TableResetOrder = 5,
+    ImGui_LocKey_TableResetVisibility = 6, ImGui_LocKey_WindowingMainMenuBar = 7,
+    ImGui_LocKey_WindowingPopup = 8, ImGui_LocKey_WindowingUntitled = 9,
+    ImGui_LocKey_OpenLink_s = 10, ImGui_LocKey_CopyLink = 11,
+    ImGui_LocKey_DockingHideTabBar = 12, ImGui_LocKey_DockingHoldShiftToDock = 13,
+    ImGui_LocKey_DockingDragToUndockOrMoveNode = 14, ImGui_LocKey_COUNT = 15
 type
   enum_ImGuiDebugLogFlags_private* {.size: sizeof(cuint).} = enum
     ImGui_DebugLogFlags_None = 0, ImGui_DebugLogFlags_EventError = 1,
@@ -831,7 +838,8 @@ type
     ImGui_DebugLogFlags_EventInputRouting = 512,
     ImGui_DebugLogFlags_EventDocking = 1024,
     ImGui_DebugLogFlags_EventViewport = 2048,
-    ImGui_DebugLogFlags_EventMask_private = 4095,
+    ImGui_DebugLogFlags_EventTable = 4096,
+    ImGui_DebugLogFlags_EventMask_private = 8191,
     ImGui_DebugLogFlags_OutputToTTY = 1048576,
     ImGui_DebugLogFlags_OutputToDebugger = 2097152,
     ImGui_DebugLogFlags_OutputToTestEngine = 4194304
@@ -1161,6 +1169,12 @@ type
     text = 0, keyword = 1, declaration = 2, number = 3, String = 4,
     punctuation = 5, preprocessor = 6, identifier = 7, knownIdentifier = 8, comment = 9, background = 10, cursor = 11, selection = 12, whitespace = 13, matchingBracketBackground = 14, matchingBracketActive = 15, matchingBracketLevel1 = 16, matchingBracketLevel2 = 17, matchingBracketLevel3 = 18, matchingBracketError = 19, lineNumber = 20, currentLineNumber = 21, count = 22
 type
+  enum_BreakOption* {.size: sizeof(cuint).} = enum
+    mustBreak = 0, allowBreak = 1, noBreak = 2, undefined = 3
+type
+  enum_Type* {.size: sizeof(cuint).} = enum
+    success = 0, warning = 1, error = 2, info = 3
+type
   enum_ImNodesCol_private* {.size: sizeof(cuint).} = enum
     ImNodesCol_NodeBackground = 0, ImNodesCol_NodeBackgroundHovered = 1,
     ImNodesCol_NodeBackgroundSelected = 2, ImNodesCol_NodeOutline = 3,
@@ -1293,6 +1307,8 @@ type
 type
   struct_ImGuiDockRequest* = object
 type
+  struct_TextDiff* = object
+type
   struct_ImNodesEditorContext* = object
 type
   struct_ImGuiTableColumnsSettings* = object
@@ -1301,15 +1317,17 @@ type
 type
   struct_Palette* = object
 type
+  struct_Notifications* = object
+type
   struct_Language* = object
+type
+  struct_TrieAutoComplete* = object
 type
   struct_ImGuiInputTextDeactivateData* = object
 type
   struct_AutoCompleteConfig* = object
 type
   struct_ImPlot3DContext* = object
-type
-  struct_Trie* = object
 type
   struct_CodePoint* = object
 type
@@ -1329,7 +1347,7 @@ type
 type
   CIMGUI_API* = object
 type
-  struct_STB_TexteditState* = object
+  struct_LineBreakConfig* = object
 type
   struct_TextSelect* = object
 type
@@ -1351,7 +1369,7 @@ type
   ImDrawData* = struct_ImDrawData
   struct_ImDrawData* {.pure, inheritable, bycopy.} = object
     Valid*: bool
-    CmdListsCount*: cint
+    FrameCount*: cint
     TotalIdxCount*: cint
     TotalVtxCount*: cint
     CmdLists*: ImVector_ImDrawListPtr
@@ -1387,7 +1405,7 @@ type
     FontSize*: cfloat
     FontScale*: cfloat
     CurveTessellationTol*: cfloat
-    CircleSegmentMaxError*: cfloat
+    CircleTessellationMaxError*: cfloat
     InitialFringeScale*: cfloat
     InitialFlags*: ImDrawListFlags
     ClipRectFullscreen*: ImVec4_c
@@ -1565,6 +1583,7 @@ type
     UniqueID*: cint
     Status*: ImTextureStatus
     BackendUserData*: pointer
+    QueueUserData*: pointer
     TexID*: ImTextureID
     Format*: ImTextureFormat
     Width*: cint
@@ -1650,10 +1669,13 @@ type
     HoveredIdAllowOverlap*: bool
     HoveredIdIsDisabled*: bool
     ItemUnclipByLog*: bool
+    AnyIdHasBeenEditedThisFrame*: bool
     ActiveId*: ImGuiID
     ActiveIdIsAlive*: ImGuiID
     ActiveIdTimer*: cfloat
     ActiveIdIsJustActivated*: bool
+    ActiveIdWasSelected*: bool
+    ActiveIdWasSoleSelected*: bool
     ActiveIdAllowOverlap*: bool
     ActiveIdNoClearOnFocusLoss*: bool
     ActiveIdHasBeenPressedBefore*: bool
@@ -1670,6 +1692,8 @@ type
     ActiveIdValueOnActivation*: ImGuiDataTypeStorage
     LastActiveId*: ImGuiID
     LastActiveIdTimer*: cfloat
+    LastActiveIdWasSelected*: bool
+    LastActiveIdWasSoleSelected*: bool
     LastKeyModsChangeTime*: cdouble
     LastKeyModsChangeFromNoneTime*: cdouble
     LastKeyboardKeyPressTime*: cdouble
@@ -1830,7 +1854,6 @@ type
     DataTypeZeroValue*: ImGuiDataTypeStorage
     BeginMenuDepth*: cint
     BeginComboDepth*: cint
-    ColorEditOptions*: ImGuiColorEditFlags
     ColorEditCurrentID*: ImGuiID
     ColorEditSavedID*: ImGuiID
     ColorEditSavedHue*: cfloat
@@ -1860,6 +1883,7 @@ type
     UserTextures*: ImVector_ImTextureDataPtr
     DockContext*: ImGuiDockContext
     DockNodeWindowMenuHandler*: proc (a0: ptr ImGuiContext; a1: ptr ImGuiDockNode; a2: ptr ImGuiTabBar): void {.cdecl.}
+    SessionDate*: ImGuiPackedDate
     SettingsLoaded*: bool
     SettingsDirtyTimer*: cfloat
     SettingsIniData*: ImGuiTextBuffer
@@ -1869,7 +1893,7 @@ type
     Hooks*: ImVector_ImGuiContextHook
     HookIdNext*: ImGuiID
     DemoMarkerCallback*: ImGuiDemoMarkerCallback
-    LocalizationTable*: array[13'i64, cstring]
+    LocalizationTable*: array[15'i64, cstring]
     LogEnabled*: bool
     LogLineFirstItem*: bool
     LogFlags*: ImGuiLogFlags
@@ -1952,19 +1976,24 @@ type
     ConfigViewportsPlatformFocusSetsImGuiFocus*: bool
     ConfigDpiScaleFonts*: bool
     ConfigDpiScaleViewports*: bool
-    MouseDrawCursor*: bool
     ConfigMacOSXBehaviors*: bool
     ConfigInputTrickleEventQueue*: bool
     ConfigInputTextCursorBlink*: bool
     ConfigInputTextEnterKeepActive*: bool
+    ConfigColorEditFlags*: ImGuiColorEditFlags
     ConfigDragClickToInputText*: bool
     ConfigWindowsResizeFromEdges*: bool
     ConfigWindowsMoveFromTitleBarOnly*: bool
     ConfigWindowsCopyContentsWithCtrlC*: bool
     ConfigScrollbarScrollByPage*: bool
+    ConfigIniSettingsSaveLastUsedDate*: bool
+    ConfigIniSettingsAutoDiscardMonths*: cint
+    ConfigDebugIniSettings*: bool
+    MouseDrawCursor*: bool
     ConfigMemoryCompactTimer*: cfloat
     MouseDoubleClickTime*: cfloat
     MouseDoubleClickMaxDist*: cfloat
+    MouseSingleClickDelay*: cfloat
     MouseDragThreshold*: cfloat
     KeyRepeatDelay*: cfloat
     KeyRepeatRate*: cfloat
@@ -1978,7 +2007,6 @@ type
     ConfigDebugBeginReturnValueOnce*: bool
     ConfigDebugBeginReturnValueLoop*: bool
     ConfigDebugIgnoreFocusLoss*: bool
-    ConfigDebugIniSettings*: bool
     BackendPlatformName*: cstring
     BackendRendererName*: cstring
     BackendPlatformUserData*: pointer
@@ -2099,6 +2127,7 @@ type
     Platform_SetImeDataFn*: proc (a0: ptr ImGuiContext; a1: ptr ImGuiViewport; a2: ptr ImGuiPlatformImeData): void {.cdecl.}
     Platform_ImeUserData*: pointer
     Platform_LocaleDecimalPoint*: ImWchar
+    Platform_SessionDate*: cint
     Renderer_TextureMaxWidth*: cint
     Renderer_TextureMaxHeight*: cint
     Renderer_RenderState*: pointer
@@ -2232,6 +2261,8 @@ type
     TreeLinesFlags*: ImGuiTreeNodeFlags
     TreeLinesSize*: cfloat
     TreeLinesRounding*: cfloat
+    MenuItemRounding*: cfloat
+    SelectableRounding*: cfloat
     DragDropTargetRounding*: cfloat
     DragDropTargetBorderSize*: cfloat
     DragDropTargetPadding*: cfloat
@@ -2239,6 +2270,7 @@ type
     ColorButtonPosition*: ImGuiDir
     ButtonTextAlign*: ImVec2_c
     SelectableTextAlign*: ImVec2_c
+    InputTextCursorSize*: cfloat
     SeparatorSize*: cfloat
     SeparatorTextBorderSize*: cfloat
     SeparatorTextAlign*: ImVec2_c
@@ -2325,6 +2357,11 @@ type
   struct_ImGuiTextIndex* {.pure, inheritable, bycopy.} = object
     Offsets*: ImVector_int
     EndOffset*: cint
+  ImGuiPackedDate* = struct_ImGuiPackedDate
+  struct_ImGuiPackedDate* {.pure, inheritable, bycopy.} = object
+    Year* {.bitsize: 7'i64.}: ImU16
+    Month* {.bitsize: 4'i64.}: ImU16
+    Day* {.bitsize: 5'i64.}: ImU16
   ImDrawDataBuilder* = struct_ImDrawDataBuilder
   struct_ImDrawDataBuilder* {.pure, inheritable, bycopy.} = object
     Layers*: array[2'i64, ptr ImVector_ImDrawListPtr]
@@ -2424,9 +2461,9 @@ type
     SelectedTabId*: ImGuiID
     WantCloseTabId*: ImGuiID
     RefViewportId*: ImGuiID
-    AuthorityForPos* {.bitsize: 3'i64.}: ImGuiDataAuthority
-    AuthorityForSize* {.bitsize: 3'i64.}: ImGuiDataAuthority
-    AuthorityForViewport* {.bitsize: 3'i64.}: ImGuiDataAuthority
+    AuthorityForPos* {.bitsize: 3'i64.}: ImU8
+    AuthorityForSize* {.bitsize: 3'i64.}: ImU8
+    AuthorityForViewport* {.bitsize: 3'i64.}: ImU8
     IsVisible* {.bitsize: 1'i64.}: bool
     IsFocused* {.bitsize: 1'i64.}: bool
     IsBgDrawnThisFrame* {.bitsize: 1'i64.}: bool
@@ -2463,7 +2500,7 @@ type
     BackupCurrLineSize*: ImVec2_c
     BackupCurrLineTextBaseOffset*: cfloat
     BackupActiveIdIsAlive*: ImGuiID
-    BackupActiveIdHasBeenEditedThisFrame*: bool
+    BackupAnyIdHasBeenEditedThisFrame*: bool
     BackupDeactivatedIdIsAlive*: bool
     BackupHoveredIdIsAlive*: bool
     BackupIsSameLine*: bool
@@ -2545,6 +2582,7 @@ type
     NavIdPassedBy*: bool
     RangeSrcPassedBy*: bool
     RangeDstPassedBy*: bool
+    IsSoleOrUnknownSelectionSize*: bool
   ImGuiNavItemData* = struct_ImGuiNavItemData
   struct_ImGuiNavItemData* {.pure, inheritable, bycopy.} = object
     Window*: ptr ImGuiWindow
@@ -2572,6 +2610,8 @@ type
     ShowTablesRectsType*: cint
     HighlightMonitorIdx*: cint
     HighlightViewportID*: ImGuiID
+    SettingsDiscardMonths*: cint
+    SettingsHighlightOldEntries*: bool
     ShowFontPreview*: bool
   ImGuiNextWindowData* = struct_ImGuiNextWindowData
   struct_ImGuiNextWindowData* {.pure, inheritable, bycopy.} = object
@@ -2601,7 +2641,7 @@ type
   ImGuiNextItemData* = struct_ImGuiNextItemData
   struct_ImGuiNextItemData* {.pure, inheritable, bycopy.} = object
     HasFlags*: ImGuiNextItemDataFlags
-    ItemFlags*: ImGuiItemFlags
+    ItemFlagsSet*: ImGuiItemFlags
     FocusScopeId*: ImGuiID
     SelectionUserData*: ImGuiSelectionUserData
     Width*: cfloat
@@ -2823,6 +2863,7 @@ type
     IsLayoutLocked*: bool
     IsInsideRow*: bool
     IsInitializing*: bool
+    IsReconcileMode*: bool
     IsSortSpecsDirty*: bool
     IsUsingHeaders*: bool
     IsContextPopupOpen*: bool
@@ -2830,8 +2871,10 @@ type
     IsSettingsRequestLoad*: bool
     IsSettingsDirty*: bool
     IsDefaultDisplayOrder*: bool
+    IsDefaultVisibility*: bool
     IsResetAllRequest*: bool
     IsResetDisplayOrderRequest*: bool
+    IsResetVisibilityRequest*: bool
     IsUnfrozenRows*: bool
     IsDefaultSizingPolicy*: bool
     IsActiveIdAliveBeforeTable*: bool
@@ -2858,7 +2901,8 @@ type
     StretchWeight*: cfloat
     InitStretchWeightOrWidth*: cfloat
     ClipRect*: ImRect_c
-    UserID*: ImGuiID
+    ID*: ImGuiID
+    UserData*: ImGuiID
     WorkMinX*: cfloat
     WorkMaxX*: cfloat
     ItemWidth*: cfloat
@@ -2882,10 +2926,14 @@ type
     IsVisibleY*: bool
     IsRequestOutput*: bool
     IsSkipItems*: bool
-    IsPreserveWidthAuto*: bool
+    IsPreserveWidthAuto* {.bitsize: 1'i64.}: bool
+    IsJustCreated* {.bitsize: 1'i64.}: bool
+    IsLoadedSettings* {.bitsize: 1'i64.}: bool
+    IsNeedReconcileSrc* {.bitsize: 1'i64.}: bool
+    IsNeedReconcileDst* {.bitsize: 1'i64.}: bool
     NavLayerCurrent*: ImS8
-    AutoFitQueue*: ImU8
-    CannotSkipItemsQueue*: ImU8
+    AutoFitQueue* {.bitsize: 4'i64.}: ImU8
+    CannotSkipItemsQueue* {.bitsize: 4'i64.}: ImU8
     SortDirection* {.bitsize: 2'i64.}: ImU8
     SortDirectionsAvailCount* {.bitsize: 2'i64.}: ImU8
     SortDirectionsAvailMask* {.bitsize: 4'i64.}: ImU8
@@ -2905,6 +2953,9 @@ type
     LastTimeActive*: cfloat
     AngledHeadersExtraWidth*: cfloat
     AngledHeadersRequests*: ImVector_ImGuiTableHeaderData
+    ReconcileColumnsRequests*: ImVector_ImGuiTableReconcileColumnData
+    OldColumnsRawData*: pointer
+    OldColumnsData*: ImSpan_ImGuiTableColumn
     UserOuterSize*: ImVec2_c
     DrawSplitter*: ImDrawListSplitter
     HostBackupWorkRect*: ImRect_c
@@ -2922,7 +2973,8 @@ type
     RefScale*: cfloat
     ColumnsCount*: ImGuiTableColumnIdx
     ColumnsCountMax*: ImGuiTableColumnIdx
-    WantApply*: bool
+    LastUsedDate*: ImGuiPackedDate
+    WantApply* {.bitsize: 1'i64.}: bool
   ImGuiTableColumnsSettings* = struct_ImGuiTableColumnsSettings
   ImGuiTreeNodeStackData* = struct_ImGuiTreeNodeStackData
   struct_ImGuiTreeNodeStackData* {.pure, inheritable, bycopy.} = object
@@ -3134,11 +3186,27 @@ type
     DockId*: ImGuiID
     ClassId*: ImGuiID
     DockOrder*: cshort
-    Collapsed*: bool
-    IsChild*: bool
-    WantApply*: bool
-    WantDelete*: bool
+    LastUsedDate*: ImGuiPackedDate
+    Collapsed* {.bitsize: 1'i64.}: bool
+    IsChild* {.bitsize: 1'i64.}: bool
+    WantApply* {.bitsize: 1'i64.}: bool
+    WantDelete* {.bitsize: 1'i64.}: bool
   STB_TexteditState* = struct_STB_TexteditState
+  struct_STB_TexteditState* {.pure, inheritable, bycopy.} = object
+    cursor*: cint
+    select_start*: cint
+    select_end*: cint
+    insert_mode*: uint8
+    row_count_per_page*: cint
+    cursor_at_end_of_line*: uint8
+    initialized*: uint8
+    has_preferred_x*: uint8
+    single_line*: uint8
+    padding1*: uint8
+    padding2*: uint8
+    padding3*: uint8
+    preferred_x*: cfloat
+    undostate*: StbUndoState
   stbrp_node* = struct_stbrp_node
   struct_ImVector_const_charPtr* {.pure, inheritable, bycopy.} = object
     Size*: cint
@@ -3402,7 +3470,7 @@ type
     Capacity*: cint
     Data*: ptr ptr ImGuiViewport
   ImVector_ImGuiViewportPtr* = struct_ImVector_ImGuiViewportPtr
-  ImGuiDataAuthority* = cint
+  ImGuiDataAuthority* = cuint
   ImGuiLayoutType* = cint
   ImGuiActivateFlags* = cint
   ImGuiDebugLogFlags* = cint
@@ -3482,6 +3550,7 @@ type
   ImGuiInputTextDeactivatedState* = struct_ImGuiInputTextDeactivatedState
   struct_ImGuiInputTextDeactivatedState* {.pure, inheritable, bycopy.} = object
     ID*: ImGuiID
+    ElapseFrame*: cint
     TextA*: ImVector_char
   ImStbTexteditState* = STB_TexteditState
   ImGuiWindowRefreshFlags_private* = enum_ImGuiWindowRefreshFlags_private
@@ -3661,6 +3730,15 @@ type
     WorkInsetMax*: ImVec2_c
     BuildWorkInsetMin*: ImVec2_c
     BuildWorkInsetMax*: ImVec2_c
+  ImGuiSettingsCleanupArgs* = struct_ImGuiSettingsCleanupArgs
+  struct_ImGuiSettingsCleanupArgs* {.pure, inheritable, bycopy.} = object
+    TypeHashFilter*: ImGuiID
+    DiscardOlderThanMonths*: cint
+    DiscardWhenMissingDate*: bool
+    DiscardAll*: bool
+    SetCurrentSessionDateToAll*: bool
+    SetCurrentSessionDateWhenMissingDate*: bool
+    internal_DiscardOlderThanDate*: cint
   ImGuiLocKey* = enum_ImGuiLocKey
   ImGuiErrorCallback* = proc (a0: ptr ImGuiContext; a1: pointer; a2: cstring): void {.cdecl.}
   ImGuiDebugLogFlags_private* = enum_ImGuiDebugLogFlags_private
@@ -3861,6 +3939,16 @@ type
     Capacity*: cint
     Data*: ptr ImGuiTabItem
   ImVector_ImGuiTabItem* = struct_ImVector_ImGuiTabItem
+  ImGuiTableReconcileColumnData* = struct_ImGuiTableReconcileColumnData
+  struct_ImGuiTableReconcileColumnData* {.pure, inheritable, bycopy.} = object
+    ID*: ImGuiID
+    NameOffset*: ImS16
+    Flags*: ImGuiTableColumnFlags
+    InitWidthOrWeight*: cfloat
+    UserData*: ImGuiID
+    ColumnNewIdx*: ImGuiTableColumnIdx
+    ColumnOldIdx*: ImGuiTableColumnIdx
+    ColumnOldData*: ImGuiTableColumn
   ImGuiTableCellData* = struct_ImGuiTableCellData
   struct_ImGuiTableCellData* {.pure, inheritable, bycopy.} = object
     BgColor*: ImU32
@@ -3892,16 +3980,22 @@ type
     Capacity*: cint
     Data*: ptr ImGuiTableHeaderData
   ImVector_ImGuiTableHeaderData* = struct_ImVector_ImGuiTableHeaderData
+  struct_ImVector_ImGuiTableReconcileColumnData* {.pure, inheritable, bycopy.} = object
+    Size*: cint
+    Capacity*: cint
+    Data*: ptr ImGuiTableReconcileColumnData
+  ImVector_ImGuiTableReconcileColumnData* = struct_ImVector_ImGuiTableReconcileColumnData
   ImGuiTableColumnSettings* = struct_ImGuiTableColumnSettings
   struct_ImGuiTableColumnSettings* {.pure, inheritable, bycopy.} = object
     WidthOrWeight*: cfloat
-    UserID*: ImGuiID
+    ID*: ImGuiID
     Index*: ImGuiTableColumnIdx
     DisplayOrder*: ImGuiTableColumnIdx
     SortOrder*: ImGuiTableColumnIdx
     SortDirection* {.bitsize: 2'i64.}: ImU8
     IsEnabled* {.bitsize: 2'i64.}: ImS8
     IsStretch* {.bitsize: 1'i64.}: ImU8
+    IsLoaded* {.bitsize: 1'i64.}: bool
   stbrp_node_im* = stbrp_node
   stbrp_context_opaque* = struct_stbrp_context_opaque
   struct_stbrp_context_opaque* {.pure, inheritable, bycopy.} = object
@@ -3926,6 +4020,28 @@ type
     Capacity*: cint
     Blocks*: ImVector_ImFontBakedPtr
   ImStableVector_ImFontBaked_32* = struct_ImStableVector_ImFontBaked_32
+  StbUndoRecord* = struct_StbUndoRecord
+  struct_StbUndoRecord* {.pure, inheritable, bycopy.} = object
+    where*: cint
+    insert_length*: cint
+    delete_length*: cint
+    char_storage*: cint
+  StbUndoState* = struct_StbUndoState
+  struct_StbUndoState* {.pure, inheritable, bycopy.} = object
+    undo_rec*: array[99'i64, StbUndoRecord]
+    undo_char*: array[999'i64, cschar]
+    undo_point*: cshort
+    redo_point*: cshort
+    undo_char_point*: cint
+    redo_char_point*: cint
+  StbTexteditRow* = struct_StbTexteditRow
+  struct_StbTexteditRow* {.pure, inheritable, bycopy.} = object
+    x0*: cfloat
+    x1*: cfloat
+    baseline_y_delta*: cfloat
+    ymin*: cfloat
+    ymax*: cfloat
+    num_chars*: cint
   ImTextureRef* = struct_ImTextureRef_c
   ImVec2* = struct_ImVec2_c
   ImVec2i* = struct_ImVec2i_c
@@ -4558,28 +4674,38 @@ type
   ImPlot3DStyle* = struct_ImPlot3DStyle_c
   LeafColor* = proc (a0: cint): ImColor {.cdecl.}
   TextEditor* = struct_TextEditor
-  struct_CursorPosition_c* {.pure, inheritable, bycopy.} = object
-    line*: cint
-    column*: cint
-  CursorPosition_c* = struct_CursorPosition_c
-  struct_CursorSelection_c* {.pure, inheritable, bycopy.} = object
-    start*: CursorPosition_c
-    end_field*: CursorPosition_c
-  CursorSelection_c* = struct_CursorSelection_c
+  struct_DocPos_c* {.pure, inheritable, bycopy.} = object
+    line*: csize_t
+    index*: csize_t
+  DocPos_c* = struct_DocPos_c
+  struct_DocSelection_c* {.pure, inheritable, bycopy.} = object
+    start*: DocPos_c
+    end_field*: DocPos_c
+  DocSelection_c* = struct_DocSelection_c
+  struct_VisPos_c* {.pure, inheritable, bycopy.} = object
+    row*: csize_t
+    column*: csize_t
+  VisPos_c* = struct_VisPos_c
   Scroll* = enum_Scroll
   struct_Decorator* {.pure, inheritable, bycopy.} = object
-    line*: cint
+    line*: csize_t
     width*: cfloat
     height*: cfloat
     glyphSize*: ImVec2_c
     userData*: pointer
   Decorator* = struct_Decorator
+  struct_PopupData* {.pure, inheritable, bycopy.} = object
+    pos*: DocPos_c
+    userData*: pointer
+  PopupData* = struct_PopupData
   Color* = enum_Color
+  BreakOption* = enum_BreakOption
   struct_Glyph* {.pure, inheritable, bycopy.} = object
     codepoint*: ImWchar
     color*: Color
+    breakOption*: BreakOption
+    squiggle*: csize_t
   Glyph* = struct_Glyph
-  Trie* = struct_Trie
   CodePoint* = struct_CodePoint
   Change* = struct_Change
   Palette* = struct_Palette
@@ -4587,11 +4713,14 @@ type
   Language* = struct_Language
   AutoCompleteState* = struct_AutoCompleteState
   AutoCompleteConfig* = struct_AutoCompleteConfig
+  LineBreakConfig* = struct_LineBreakConfig
   TextDiff* = struct_TextDiff
-  struct_TextDiff* {.pure, inheritable, bycopy.} = object
-    internal_TextEditor*: TextEditor
-  CursorPosition* = struct_CursorPosition_c
-  CursorSelection* = struct_CursorSelection_c
+  TrieAutoComplete* = struct_TrieAutoComplete
+  Notifications* = struct_Notifications
+  Type* = enum_Type
+  DocPos* = struct_DocPos_c
+  VisPos* = struct_VisPos_c
+  DocSelection* = struct_DocSelection_c
   TextSelect* = struct_TextSelect
   GetLineAtIdxFn* = proc (a0: csize_t; a1: pointer; a2: ptr csize_t): cstring {.cdecl.}
   GetNumLinesFn* = proc (a0: pointer): csize_t {.cdecl.}
@@ -5099,7 +5228,6 @@ proc igColorEdit4*(label: cstring; col: array[4'i64, cfloat]; flags: ImGuiColorE
 proc igColorPicker3*(label: cstring; col: array[3'i64, cfloat]; flags: ImGuiColorEditFlags): bool {.cdecl, importc: "igColorPicker3".}
 proc igColorPicker4*(label: cstring; col: array[4'i64, cfloat]; flags: ImGuiColorEditFlags; ref_col: ptr cfloat): bool {.cdecl, importc: "igColorPicker4".}
 proc igColorButton*(desc_id: cstring; col: ImVec4_c; flags: ImGuiColorEditFlags; size: ImVec2_c): bool {.cdecl, importc: "igColorButton".}
-proc igSetColorEditOptions*(flags: ImGuiColorEditFlags): void {.cdecl, importc: "igSetColorEditOptions".}
 proc igTreeNode_Str*(label: cstring): bool {.cdecl, importc: "igTreeNode_Str".}
 proc igTreeNode_StrStr*(str_id: cstring; fmt: cstring): bool {.cdecl, varargs, importc: "igTreeNode_StrStr".}
 proc igTreeNode_Ptr*(ptr_id: pointer; fmt: cstring): bool {.cdecl, varargs, importc: "igTreeNode_Ptr".}
@@ -5155,9 +5283,9 @@ proc igSetItemTooltipV*(fmt: cstring): void {.cdecl, varargs, importc: "igSetIte
 proc igBeginPopup*(str_id: cstring; flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginPopup".}
 proc igBeginPopupModal*(name: cstring; p_open: ptr bool; flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginPopupModal".}
 proc igEndPopup*(): void {.cdecl, importc: "igEndPopup".}
-proc igOpenPopup_Str*(str_id: cstring; popup_flags: ImGuiPopupFlags): void {.cdecl, importc: "igOpenPopup_Str".}
-proc igOpenPopup_ID*(id: ImGuiID; popup_flags: ImGuiPopupFlags): void {.cdecl, importc: "igOpenPopup_ID".}
-proc igOpenPopupOnItemClick*(str_id: cstring; popup_flags: ImGuiPopupFlags): void {.cdecl, importc: "igOpenPopupOnItemClick".}
+proc igOpenPopup_Str*(str_id: cstring; popup_flags: ImGuiPopupFlags): bool {.cdecl, importc: "igOpenPopup_Str".}
+proc igOpenPopup_ID*(id: ImGuiID; popup_flags: ImGuiPopupFlags): bool {.cdecl, importc: "igOpenPopup_ID".}
+proc igOpenPopupOnItemClick*(str_id: cstring; popup_flags: ImGuiPopupFlags): bool {.cdecl, importc: "igOpenPopupOnItemClick".}
 proc igCloseCurrentPopup*(): void {.cdecl, importc: "igCloseCurrentPopup".}
 proc igBeginPopupContextItem*(str_id: cstring; popup_flags: ImGuiPopupFlags): bool {.cdecl, importc: "igBeginPopupContextItem".}
 proc igBeginPopupContextWindow*(str_id: cstring; popup_flags: ImGuiPopupFlags): bool {.cdecl, importc: "igBeginPopupContextWindow".}
@@ -5168,7 +5296,7 @@ proc igEndTable*(): void {.cdecl, importc: "igEndTable".}
 proc igTableNextRow*(row_flags: ImGuiTableRowFlags; min_row_height: cfloat): void {.cdecl, importc: "igTableNextRow".}
 proc igTableNextColumn*(): bool {.cdecl, importc: "igTableNextColumn".}
 proc igTableSetColumnIndex*(column_n: cint): bool {.cdecl, importc: "igTableSetColumnIndex".}
-proc igTableSetupColumn*(label: cstring; flags: ImGuiTableColumnFlags; init_width_or_weight: cfloat; user_id: ImGuiID): void {.cdecl, importc: "igTableSetupColumn".}
+proc igTableSetupColumn*(label: cstring; flags: ImGuiTableColumnFlags; init_width_or_weight: cfloat; user_data: ImGuiID): void {.cdecl, importc: "igTableSetupColumn".}
 proc igTableSetupScrollFreeze*(cols: cint; rows: cint): void {.cdecl, importc: "igTableSetupScrollFreeze".}
 proc igTableHeader*(label: cstring): void {.cdecl, importc: "igTableHeader".}
 proc igTableHeadersRow*(): void {.cdecl, importc: "igTableHeadersRow".}
@@ -5242,6 +5370,7 @@ proc igGetItemRectMin*(): ImVec2_c {.cdecl, importc: "igGetItemRectMin".}
 proc igGetItemRectMax*(): ImVec2_c {.cdecl, importc: "igGetItemRectMax".}
 proc igGetItemRectSize*(): ImVec2_c {.cdecl, importc: "igGetItemRectSize".}
 proc igGetItemFlags*(): ImGuiItemFlags {.cdecl, importc: "igGetItemFlags".}
+proc igGetItemClickedCountWithSingleClickDelay*(mouse_button: ImGuiMouseButton; delay: cfloat): cint {.cdecl, importc: "igGetItemClickedCountWithSingleClickDelay".}
 proc igGetMainViewport*(): ptr ImGuiViewport {.cdecl, importc: "igGetMainViewport".}
 proc igGetBackgroundDrawList*(viewport: ptr ImGuiViewport): ptr ImDrawList {.cdecl, importc: "igGetBackgroundDrawList".}
 proc igGetForegroundDrawList_ViewportPtr*(viewport: ptr ImGuiViewport): ptr ImDrawList {.cdecl, importc: "igGetForegroundDrawList_ViewportPtr".}
@@ -5547,10 +5676,10 @@ proc ImFontAtlas_AddFontFromMemoryTTF*(self: ptr ImFontAtlas; font_data: pointer
 proc ImFontAtlas_AddFontFromMemoryCompressedTTF*(self: ptr ImFontAtlas; compressed_font_data: pointer; compressed_font_data_size: cint; size_pixels: cfloat; font_cfg: ptr ImFontConfig; glyph_ranges: ptr ImWchar): ptr ImFont {.cdecl, importc: "ImFontAtlas_AddFontFromMemoryCompressedTTF".}
 proc ImFontAtlas_AddFontFromMemoryCompressedBase85TTF*(self: ptr ImFontAtlas; compressed_font_data_base85: cstring; size_pixels: cfloat; font_cfg: ptr ImFontConfig; glyph_ranges: ptr ImWchar): ptr ImFont {.cdecl, importc: "ImFontAtlas_AddFontFromMemoryCompressedBase85TTF".}
 proc ImFontAtlas_RemoveFont*(self: ptr ImFontAtlas; font: ptr ImFont): void {.cdecl, importc: "ImFontAtlas_RemoveFont".}
-proc ImFontAtlas_Clear*(self: ptr ImFontAtlas): void {.cdecl, importc: "ImFontAtlas_Clear".}
-proc ImFontAtlas_ClearFonts*(self: ptr ImFontAtlas): void {.cdecl, importc: "ImFontAtlas_ClearFonts".}
 proc ImFontAtlas_CompactCache*(self: ptr ImFontAtlas): void {.cdecl, importc: "ImFontAtlas_CompactCache".}
 proc ImFontAtlas_SetFontLoader*(self: ptr ImFontAtlas; font_loader: ptr ImFontLoader): void {.cdecl, importc: "ImFontAtlas_SetFontLoader".}
+proc ImFontAtlas_Clear*(self: ptr ImFontAtlas): void {.cdecl, importc: "ImFontAtlas_Clear".}
+proc ImFontAtlas_ClearFonts*(self: ptr ImFontAtlas): void {.cdecl, importc: "ImFontAtlas_ClearFonts".}
 proc ImFontAtlas_ClearInputData*(self: ptr ImFontAtlas): void {.cdecl, importc: "ImFontAtlas_ClearInputData".}
 proc ImFontAtlas_ClearTexData*(self: ptr ImFontAtlas): void {.cdecl, importc: "ImFontAtlas_ClearTexData".}
 proc ImFontAtlas_GetGlyphRangesDefault*(self: ptr ImFontAtlas): ptr ImWchar {.cdecl, importc: "ImFontAtlas_GetGlyphRangesDefault".}
@@ -5676,6 +5805,7 @@ proc igImFloor_Float*(f: cfloat): cfloat {.cdecl, importc: "igImFloor_Float".}
 proc igImFloor_Vec2*(v: ImVec2_c): ImVec2_c {.cdecl, importc: "igImFloor_Vec2".}
 proc igImTrunc64*(f: cfloat): cfloat {.cdecl, importc: "igImTrunc64".}
 proc igImRound64*(f: cfloat): cfloat {.cdecl, importc: "igImRound64".}
+proc igImCeilFast*(f: cfloat): cfloat {.cdecl, importc: "igImCeilFast".}
 proc igImModPositive*(a: cint; b: cint): cint {.cdecl, importc: "igImModPositive".}
 proc igImDot*(a: ImVec2_c; b: ImVec2_c): cfloat {.cdecl, importc: "igImDot".}
 proc igImRotate*(v: ImVec2_c; cos_a: cfloat; sin_a: cfloat): ImVec2_c {.cdecl, importc: "igImRotate".}
@@ -5752,6 +5882,12 @@ proc ImGuiTextIndex_size*(self: ptr ImGuiTextIndex): cint {.cdecl, importc: "ImG
 proc ImGuiTextIndex_get_line_begin*(self: ptr ImGuiTextIndex; base: cstring; n: cint): cstring {.cdecl, importc: "ImGuiTextIndex_get_line_begin".}
 proc ImGuiTextIndex_get_line_end*(self: ptr ImGuiTextIndex; base: cstring; n: cint): cstring {.cdecl, importc: "ImGuiTextIndex_get_line_end".}
 proc ImGuiTextIndex_append*(self: ptr ImGuiTextIndex; base: cstring; old_size: cint; new_size: cint): void {.cdecl, importc: "ImGuiTextIndex_append".}
+proc ImGuiPackedDate_ImGuiPackedDate_Nil*(): ptr ImGuiPackedDate {.cdecl, importc: "ImGuiPackedDate_ImGuiPackedDate_Nil".}
+proc ImGuiPackedDate_destroy*(self: ptr ImGuiPackedDate): void {.cdecl, importc: "ImGuiPackedDate_destroy".}
+proc ImGuiPackedDate_ImGuiPackedDate_Int*(yyyymmdd: cint): ptr ImGuiPackedDate {.cdecl, importc: "ImGuiPackedDate_ImGuiPackedDate_Int".}
+proc ImGuiPackedDate_IsValid*(self: ptr ImGuiPackedDate): bool {.cdecl, importc: "ImGuiPackedDate_IsValid".}
+proc ImGuiPackedDate_Unpack*(self: ptr ImGuiPackedDate): cint {.cdecl, importc: "ImGuiPackedDate_Unpack".}
+proc ImGuiPackedDate_SubtractMonths*(self: ptr ImGuiPackedDate; m: cint): void {.cdecl, importc: "ImGuiPackedDate_SubtractMonths".}
 proc igImLowerBound*(in_begin: ptr ImGuiStoragePair; in_end: ptr ImGuiStoragePair; key: ImGuiID): ptr ImGuiStoragePair {.cdecl, importc: "igImLowerBound".}
 proc ImDrawListSharedData_ImDrawListSharedData*(): ptr ImDrawListSharedData {.cdecl, importc: "ImDrawListSharedData_ImDrawListSharedData".}
 proc ImDrawListSharedData_destroy*(self: ptr ImDrawListSharedData): void {.cdecl, importc: "ImDrawListSharedData_destroy".}
@@ -5909,6 +6045,76 @@ proc ImGuiTableColumnSettings_destroy*(self: ptr ImGuiTableColumnSettings): void
 proc ImGuiTableSettings_ImGuiTableSettings*(): ptr ImGuiTableSettings {.cdecl, importc: "ImGuiTableSettings_ImGuiTableSettings".}
 proc ImGuiTableSettings_destroy*(self: ptr ImGuiTableSettings): void {.cdecl, importc: "ImGuiTableSettings_destroy".}
 proc ImGuiTableSettings_GetColumnSettings*(self: ptr ImGuiTableSettings): ptr ImGuiTableColumnSettings {.cdecl, importc: "ImGuiTableSettings_GetColumnSettings".}
+proc igTableOpenContextMenu*(column_n: cint): void {.cdecl, importc: "igTableOpenContextMenu".}
+proc igTableSetColumnWidth*(column_n: cint; width: cfloat): void {.cdecl, importc: "igTableSetColumnWidth".}
+proc igTableSetColumnSortDirection*(column_n: cint; sort_direction: ImGuiSortDirection; append_to_sort_specs: bool): void {.cdecl, importc: "igTableSetColumnSortDirection".}
+proc igTableGetHoveredRow*(): cint {.cdecl, importc: "igTableGetHoveredRow".}
+proc igTableGetHeaderRowHeight*(): cfloat {.cdecl, importc: "igTableGetHeaderRowHeight".}
+proc igTableGetHeaderAngledMaxLabelWidth*(): cfloat {.cdecl, importc: "igTableGetHeaderAngledMaxLabelWidth".}
+proc igTablePushBackgroundChannel*(): void {.cdecl, importc: "igTablePushBackgroundChannel".}
+proc igTablePopBackgroundChannel*(): void {.cdecl, importc: "igTablePopBackgroundChannel".}
+proc igTablePushColumnChannel*(column_n: cint): void {.cdecl, importc: "igTablePushColumnChannel".}
+proc igTablePopColumnChannel*(): void {.cdecl, importc: "igTablePopColumnChannel".}
+proc igTableAngledHeadersRowEx*(row_id: ImGuiID; angle: cfloat; max_label_width: cfloat; data: ptr ImGuiTableHeaderData; data_count: cint): void {.cdecl, importc: "igTableAngledHeadersRowEx".}
+proc igGetCurrentTable*(): ptr ImGuiTable {.cdecl, importc: "igGetCurrentTable".}
+proc igTableFindByID*(id: ImGuiID): ptr ImGuiTable {.cdecl, importc: "igTableFindByID".}
+proc igBeginTableEx*(name: cstring; id: ImGuiID; columns_count: cint; flags: ImGuiTableFlags; outer_size: ImVec2_c; inner_width: cfloat): bool {.cdecl, importc: "igBeginTableEx".}
+proc igTableBeginInitMemory*(table: ptr ImGuiTable; columns_count: cint): void {.cdecl, importc: "igTableBeginInitMemory".}
+proc igTableApplyQueuedRequests*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableApplyQueuedRequests".}
+proc igTableSetupDrawChannels*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSetupDrawChannels".}
+proc igTableReconcileColumns*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableReconcileColumns".}
+proc igTableUpdateLayout*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableUpdateLayout".}
+proc igTableUpdateBorders*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableUpdateBorders".}
+proc igTableUpdateColumnsWeightFromWidth*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableUpdateColumnsWeightFromWidth".}
+proc igTableApplyExternalUnclipRect*(table: ptr ImGuiTable; rect: ptr ImRect): void {.cdecl, importc: "igTableApplyExternalUnclipRect".}
+proc igTableDrawBorders*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableDrawBorders".}
+proc igTableDrawDefaultContextMenu*(table: ptr ImGuiTable; flags_for_section_to_display: ImGuiTableFlags): void {.cdecl, importc: "igTableDrawDefaultContextMenu".}
+proc igTableBeginContextMenuPopup*(table: ptr ImGuiTable): bool {.cdecl, importc: "igTableBeginContextMenuPopup".}
+proc igTableMergeDrawChannels*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableMergeDrawChannels".}
+proc igTableGetInstanceData*(table: ptr ImGuiTable; instance_no: cint): ptr ImGuiTableInstanceData {.cdecl, importc: "igTableGetInstanceData".}
+proc igTableGetInstanceID*(table: ptr ImGuiTable; instance_no: cint): ImGuiID {.cdecl, importc: "igTableGetInstanceID".}
+proc igTableFixDisplayOrder*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableFixDisplayOrder".}
+proc igTableSortSpecsSanitize*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSortSpecsSanitize".}
+proc igTableSortSpecsBuild*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSortSpecsBuild".}
+proc igTableInitColumnDefaults*(table: ptr ImGuiTable; column: ptr ImGuiTableColumn; init_mask: ImGuiTableColumnFlags): void {.cdecl, importc: "igTableInitColumnDefaults".}
+proc igTableGetColumnNextSortDirection*(column: ptr ImGuiTableColumn): ImGuiSortDirection {.cdecl, importc: "igTableGetColumnNextSortDirection".}
+proc igTableFixColumnSortDirection*(table: ptr ImGuiTable; column: ptr ImGuiTableColumn): void {.cdecl, importc: "igTableFixColumnSortDirection".}
+proc igTableGetColumnWidthAuto*(table: ptr ImGuiTable; column: ptr ImGuiTableColumn): cfloat {.cdecl, importc: "igTableGetColumnWidthAuto".}
+proc igTableBeginRow*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableBeginRow".}
+proc igTableEndRow*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableEndRow".}
+proc igTableBeginCell*(table: ptr ImGuiTable; column_n: cint): void {.cdecl, importc: "igTableBeginCell".}
+proc igTableEndCell*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableEndCell".}
+proc igTableGetCellBgRect*(table: ptr ImGuiTable; column_n: cint): ImRect_c {.cdecl, importc: "igTableGetCellBgRect".}
+proc igTableGetColumnName_TablePtr*(table: ptr ImGuiTable; column_n: cint): cstring {.cdecl, importc: "igTableGetColumnName_TablePtr".}
+proc igTableGetColumnResizeID*(table: ptr ImGuiTable; column_n: cint; instance_no: cint): ImGuiID {.cdecl, importc: "igTableGetColumnResizeID".}
+proc igTableCalcMaxColumnWidth*(table: ptr ImGuiTable; column_n: cint): cfloat {.cdecl, importc: "igTableCalcMaxColumnWidth".}
+proc igTableSetColumnWidthAutoSingle*(table: ptr ImGuiTable; column_n: cint): void {.cdecl, importc: "igTableSetColumnWidthAutoSingle".}
+proc igTableSetColumnWidthAutoAll*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSetColumnWidthAutoAll".}
+proc igTableSetColumnDisplayOrder*(table: ptr ImGuiTable; column_n: cint; dst_order: cint): void {.cdecl, importc: "igTableSetColumnDisplayOrder".}
+proc igTableQueueSetColumnDisplayOrder*(table: ptr ImGuiTable; column_n: cint; dst_order: cint): void {.cdecl, importc: "igTableQueueSetColumnDisplayOrder".}
+proc igTableRemove*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableRemove".}
+proc igTableGcCompactTransientBuffers_TablePtr*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableGcCompactTransientBuffers_TablePtr".}
+proc igTableGcCompactTransientBuffers_TableTempDataPtr*(table: ptr ImGuiTableTempData): void {.cdecl, importc: "igTableGcCompactTransientBuffers_TableTempDataPtr".}
+proc igTableGcCompactSettings*(): void {.cdecl, importc: "igTableGcCompactSettings".}
+proc igTableLoadSettings*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableLoadSettings".}
+proc igTableLoadSettingsForColumns*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableLoadSettingsForColumns".}
+proc igTableLoadSettingsForColumn*(column: ptr ImGuiTableColumn; column_settings: ptr ImGuiTableColumnSettings; load_flags: ImGuiTableFlags): void {.cdecl, importc: "igTableLoadSettingsForColumn".}
+proc igTableSaveSettings*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSaveSettings".}
+proc igTableResetSettings*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableResetSettings".}
+proc igTableGetBoundSettings*(table: ptr ImGuiTable): ptr ImGuiTableSettings {.cdecl, importc: "igTableGetBoundSettings".}
+proc igTableSettingsAddSettingsHandler*(): void {.cdecl, importc: "igTableSettingsAddSettingsHandler".}
+proc igTableSettingsCreate*(id: ImGuiID; columns_count: cint): ptr ImGuiTableSettings {.cdecl, importc: "igTableSettingsCreate".}
+proc igTableSettingsFindByID*(id: ImGuiID): ptr ImGuiTableSettings {.cdecl, importc: "igTableSettingsFindByID".}
+proc igSetWindowClipRectBeforeSetChannel*(window: ptr ImGuiWindow; clip_rect: ImRect_c): void {.cdecl, importc: "igSetWindowClipRectBeforeSetChannel".}
+proc igBeginColumns*(str_id: cstring; count: cint; flags: ImGuiOldColumnFlags): void {.cdecl, importc: "igBeginColumns".}
+proc igEndColumns*(): void {.cdecl, importc: "igEndColumns".}
+proc igPushColumnClipRect*(column_index: cint): void {.cdecl, importc: "igPushColumnClipRect".}
+proc igPushColumnsBackground*(): void {.cdecl, importc: "igPushColumnsBackground".}
+proc igPopColumnsBackground*(): void {.cdecl, importc: "igPopColumnsBackground".}
+proc igGetColumnsID*(str_id: cstring; count: cint): ImGuiID {.cdecl, importc: "igGetColumnsID".}
+proc igFindOrCreateColumns*(window: ptr ImGuiWindow; id: ImGuiID): ptr ImGuiOldColumns {.cdecl, importc: "igFindOrCreateColumns".}
+proc igGetColumnOffsetFromNorm*(columns: ptr ImGuiOldColumns; offset_norm: cfloat): cfloat {.cdecl, importc: "igGetColumnOffsetFromNorm".}
+proc igGetColumnNormFromOffset*(columns: ptr ImGuiOldColumns; offset: cfloat): cfloat {.cdecl, importc: "igGetColumnNormFromOffset".}
 proc igGetIO_ContextPtr*(ctx: ptr ImGuiContext): ptr ImGuiIO {.cdecl, importc: "igGetIO_ContextPtr".}
 proc igGetPlatformIO_ContextPtr*(ctx: ptr ImGuiContext): ptr ImGuiPlatformIO {.cdecl, importc: "igGetPlatformIO_ContextPtr".}
 proc igGetScale*(): cfloat {.cdecl, importc: "igGetScale".}
@@ -5981,6 +6187,7 @@ proc igFindHoveredViewportFromPlatformWindowStack*(mouse_platform_pos: ImVec2_c)
 proc igMarkIniSettingsDirty_Nil*(): void {.cdecl, importc: "igMarkIniSettingsDirty_Nil".}
 proc igMarkIniSettingsDirty_WindowPtr*(window: ptr ImGuiWindow): void {.cdecl, importc: "igMarkIniSettingsDirty_WindowPtr".}
 proc igClearIniSettings*(): void {.cdecl, importc: "igClearIniSettings".}
+proc igCleanupIniSettings*(args: ptr ImGuiSettingsCleanupArgs): void {.cdecl, importc: "igCleanupIniSettings".}
 proc igAddSettingsHandler*(handler: ptr ImGuiSettingsHandler): void {.cdecl, importc: "igAddSettingsHandler".}
 proc igRemoveSettingsHandler*(type_name: cstring): void {.cdecl, importc: "igRemoveSettingsHandler".}
 proc igFindSettingsHandler*(type_name: cstring): ptr ImGuiSettingsHandler {.cdecl, importc: "igFindSettingsHandler".}
@@ -6034,7 +6241,7 @@ proc igBeginChildEx*(name: cstring; id: ImGuiID; size_arg: ImVec2_c; child_flags
 proc igFindFrontMostVisibleChildWindow*(window: ptr ImGuiWindow): ptr ImGuiWindow {.cdecl, importc: "igFindFrontMostVisibleChildWindow".}
 proc igBeginPopupEx*(id: ImGuiID; extra_window_flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginPopupEx".}
 proc igBeginPopupMenuEx*(id: ImGuiID; label: cstring; extra_window_flags: ImGuiWindowFlags): bool {.cdecl, importc: "igBeginPopupMenuEx".}
-proc igOpenPopupEx*(id: ImGuiID; popup_flags: ImGuiPopupFlags): void {.cdecl, importc: "igOpenPopupEx".}
+proc igOpenPopupEx*(id: ImGuiID; popup_flags: ImGuiPopupFlags): bool {.cdecl, importc: "igOpenPopupEx".}
 proc igClosePopupToLevel*(remaining: cint; restore_focus_to_window_under_popup: bool): void {.cdecl, importc: "igClosePopupToLevel".}
 proc igClosePopupsOverWindow*(ref_window: ptr ImGuiWindow; restore_focus_to_window_under_popup: bool): void {.cdecl, importc: "igClosePopupsOverWindow".}
 proc igClosePopupsExceptModals*(): void {.cdecl, importc: "igClosePopupsExceptModals".}
@@ -6175,77 +6382,11 @@ proc igTypingSelectFindBestLeadingMatch*(req: ptr ImGuiTypingSelectRequest; item
 proc igBeginBoxSelect*(scope_rect: ImRect_c; window: ptr ImGuiWindow; box_select_id: ImGuiID; ms_flags: ImGuiMultiSelectFlags): bool {.cdecl, importc: "igBeginBoxSelect".}
 proc igEndBoxSelect*(scope_rect: ImRect_c; ms_flags: ImGuiMultiSelectFlags): void {.cdecl, importc: "igEndBoxSelect".}
 proc igMultiSelectItemHeader*(id: ImGuiID; p_selected: ptr bool; p_button_flags: ptr ImGuiButtonFlags): void {.cdecl, importc: "igMultiSelectItemHeader".}
-proc igMultiSelectItemFooter*(id: ImGuiID; p_selected: ptr bool; p_pressed: ptr bool): void {.cdecl, importc: "igMultiSelectItemFooter".}
+proc igMultiSelectItemFooter*(id: ImGuiID; p_selected: ptr bool; p_pressed: ptr bool; extra_flags: ImGuiMultiSelectFlags): void {.cdecl, importc: "igMultiSelectItemFooter".}
 proc igMultiSelectAddSetAll*(ms: ptr ImGuiMultiSelectTempData; selected: bool): void {.cdecl, importc: "igMultiSelectAddSetAll".}
 proc igMultiSelectAddSetRange*(ms: ptr ImGuiMultiSelectTempData; selected: bool; range_dir: cint; first_item: ImGuiSelectionUserData; last_item: ImGuiSelectionUserData): void {.cdecl, importc: "igMultiSelectAddSetRange".}
 proc igGetBoxSelectState*(id: ImGuiID): ptr ImGuiBoxSelectState {.cdecl, importc: "igGetBoxSelectState".}
 proc igGetMultiSelectState*(id: ImGuiID): ptr ImGuiMultiSelectState {.cdecl, importc: "igGetMultiSelectState".}
-proc igSetWindowClipRectBeforeSetChannel*(window: ptr ImGuiWindow; clip_rect: ImRect_c): void {.cdecl, importc: "igSetWindowClipRectBeforeSetChannel".}
-proc igBeginColumns*(str_id: cstring; count: cint; flags: ImGuiOldColumnFlags): void {.cdecl, importc: "igBeginColumns".}
-proc igEndColumns*(): void {.cdecl, importc: "igEndColumns".}
-proc igPushColumnClipRect*(column_index: cint): void {.cdecl, importc: "igPushColumnClipRect".}
-proc igPushColumnsBackground*(): void {.cdecl, importc: "igPushColumnsBackground".}
-proc igPopColumnsBackground*(): void {.cdecl, importc: "igPopColumnsBackground".}
-proc igGetColumnsID*(str_id: cstring; count: cint): ImGuiID {.cdecl, importc: "igGetColumnsID".}
-proc igFindOrCreateColumns*(window: ptr ImGuiWindow; id: ImGuiID): ptr ImGuiOldColumns {.cdecl, importc: "igFindOrCreateColumns".}
-proc igGetColumnOffsetFromNorm*(columns: ptr ImGuiOldColumns; offset_norm: cfloat): cfloat {.cdecl, importc: "igGetColumnOffsetFromNorm".}
-proc igGetColumnNormFromOffset*(columns: ptr ImGuiOldColumns; offset: cfloat): cfloat {.cdecl, importc: "igGetColumnNormFromOffset".}
-proc igTableOpenContextMenu*(column_n: cint): void {.cdecl, importc: "igTableOpenContextMenu".}
-proc igTableSetColumnWidth*(column_n: cint; width: cfloat): void {.cdecl, importc: "igTableSetColumnWidth".}
-proc igTableSetColumnSortDirection*(column_n: cint; sort_direction: ImGuiSortDirection; append_to_sort_specs: bool): void {.cdecl, importc: "igTableSetColumnSortDirection".}
-proc igTableGetHoveredRow*(): cint {.cdecl, importc: "igTableGetHoveredRow".}
-proc igTableGetHeaderRowHeight*(): cfloat {.cdecl, importc: "igTableGetHeaderRowHeight".}
-proc igTableGetHeaderAngledMaxLabelWidth*(): cfloat {.cdecl, importc: "igTableGetHeaderAngledMaxLabelWidth".}
-proc igTablePushBackgroundChannel*(): void {.cdecl, importc: "igTablePushBackgroundChannel".}
-proc igTablePopBackgroundChannel*(): void {.cdecl, importc: "igTablePopBackgroundChannel".}
-proc igTablePushColumnChannel*(column_n: cint): void {.cdecl, importc: "igTablePushColumnChannel".}
-proc igTablePopColumnChannel*(): void {.cdecl, importc: "igTablePopColumnChannel".}
-proc igTableAngledHeadersRowEx*(row_id: ImGuiID; angle: cfloat; max_label_width: cfloat; data: ptr ImGuiTableHeaderData; data_count: cint): void {.cdecl, importc: "igTableAngledHeadersRowEx".}
-proc igGetCurrentTable*(): ptr ImGuiTable {.cdecl, importc: "igGetCurrentTable".}
-proc igTableFindByID*(id: ImGuiID): ptr ImGuiTable {.cdecl, importc: "igTableFindByID".}
-proc igBeginTableEx*(name: cstring; id: ImGuiID; columns_count: cint; flags: ImGuiTableFlags; outer_size: ImVec2_c; inner_width: cfloat): bool {.cdecl, importc: "igBeginTableEx".}
-proc igTableBeginInitMemory*(table: ptr ImGuiTable; columns_count: cint): void {.cdecl, importc: "igTableBeginInitMemory".}
-proc igTableBeginApplyRequests*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableBeginApplyRequests".}
-proc igTableSetupDrawChannels*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSetupDrawChannels".}
-proc igTableUpdateLayout*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableUpdateLayout".}
-proc igTableUpdateBorders*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableUpdateBorders".}
-proc igTableUpdateColumnsWeightFromWidth*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableUpdateColumnsWeightFromWidth".}
-proc igTableApplyExternalUnclipRect*(table: ptr ImGuiTable; rect: ptr ImRect): void {.cdecl, importc: "igTableApplyExternalUnclipRect".}
-proc igTableDrawBorders*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableDrawBorders".}
-proc igTableDrawDefaultContextMenu*(table: ptr ImGuiTable; flags_for_section_to_display: ImGuiTableFlags): void {.cdecl, importc: "igTableDrawDefaultContextMenu".}
-proc igTableBeginContextMenuPopup*(table: ptr ImGuiTable): bool {.cdecl, importc: "igTableBeginContextMenuPopup".}
-proc igTableMergeDrawChannels*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableMergeDrawChannels".}
-proc igTableGetInstanceData*(table: ptr ImGuiTable; instance_no: cint): ptr ImGuiTableInstanceData {.cdecl, importc: "igTableGetInstanceData".}
-proc igTableGetInstanceID*(table: ptr ImGuiTable; instance_no: cint): ImGuiID {.cdecl, importc: "igTableGetInstanceID".}
-proc igTableFixDisplayOrder*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableFixDisplayOrder".}
-proc igTableSortSpecsSanitize*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSortSpecsSanitize".}
-proc igTableSortSpecsBuild*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSortSpecsBuild".}
-proc igTableGetColumnNextSortDirection*(column: ptr ImGuiTableColumn): ImGuiSortDirection {.cdecl, importc: "igTableGetColumnNextSortDirection".}
-proc igTableFixColumnSortDirection*(table: ptr ImGuiTable; column: ptr ImGuiTableColumn): void {.cdecl, importc: "igTableFixColumnSortDirection".}
-proc igTableGetColumnWidthAuto*(table: ptr ImGuiTable; column: ptr ImGuiTableColumn): cfloat {.cdecl, importc: "igTableGetColumnWidthAuto".}
-proc igTableBeginRow*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableBeginRow".}
-proc igTableEndRow*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableEndRow".}
-proc igTableBeginCell*(table: ptr ImGuiTable; column_n: cint): void {.cdecl, importc: "igTableBeginCell".}
-proc igTableEndCell*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableEndCell".}
-proc igTableGetCellBgRect*(table: ptr ImGuiTable; column_n: cint): ImRect_c {.cdecl, importc: "igTableGetCellBgRect".}
-proc igTableGetColumnName_TablePtr*(table: ptr ImGuiTable; column_n: cint): cstring {.cdecl, importc: "igTableGetColumnName_TablePtr".}
-proc igTableGetColumnResizeID*(table: ptr ImGuiTable; column_n: cint; instance_no: cint): ImGuiID {.cdecl, importc: "igTableGetColumnResizeID".}
-proc igTableCalcMaxColumnWidth*(table: ptr ImGuiTable; column_n: cint): cfloat {.cdecl, importc: "igTableCalcMaxColumnWidth".}
-proc igTableSetColumnWidthAutoSingle*(table: ptr ImGuiTable; column_n: cint): void {.cdecl, importc: "igTableSetColumnWidthAutoSingle".}
-proc igTableSetColumnWidthAutoAll*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSetColumnWidthAutoAll".}
-proc igTableSetColumnDisplayOrder*(table: ptr ImGuiTable; column_n: cint; dst_order: cint): void {.cdecl, importc: "igTableSetColumnDisplayOrder".}
-proc igTableQueueSetColumnDisplayOrder*(table: ptr ImGuiTable; column_n: cint; dst_order: cint): void {.cdecl, importc: "igTableQueueSetColumnDisplayOrder".}
-proc igTableRemove*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableRemove".}
-proc igTableGcCompactTransientBuffers_TablePtr*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableGcCompactTransientBuffers_TablePtr".}
-proc igTableGcCompactTransientBuffers_TableTempDataPtr*(table: ptr ImGuiTableTempData): void {.cdecl, importc: "igTableGcCompactTransientBuffers_TableTempDataPtr".}
-proc igTableGcCompactSettings*(): void {.cdecl, importc: "igTableGcCompactSettings".}
-proc igTableLoadSettings*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableLoadSettings".}
-proc igTableSaveSettings*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableSaveSettings".}
-proc igTableResetSettings*(table: ptr ImGuiTable): void {.cdecl, importc: "igTableResetSettings".}
-proc igTableGetBoundSettings*(table: ptr ImGuiTable): ptr ImGuiTableSettings {.cdecl, importc: "igTableGetBoundSettings".}
-proc igTableSettingsAddSettingsHandler*(): void {.cdecl, importc: "igTableSettingsAddSettingsHandler".}
-proc igTableSettingsCreate*(id: ImGuiID; columns_count: cint): ptr ImGuiTableSettings {.cdecl, importc: "igTableSettingsCreate".}
-proc igTableSettingsFindByID*(id: ImGuiID): ptr ImGuiTableSettings {.cdecl, importc: "igTableSettingsFindByID".}
 proc igGetCurrentTabBar*(): ptr ImGuiTabBar {.cdecl, importc: "igGetCurrentTabBar".}
 proc igTabBarFindByID*(id: ImGuiID): ptr ImGuiTabBar {.cdecl, importc: "igTabBarFindByID".}
 proc igTabBarRemove*(tab_bar: ptr ImGuiTabBar): void {.cdecl, importc: "igTabBarRemove".}
@@ -6279,7 +6420,7 @@ proc igRenderFrame*(p_min: ImVec2_c; p_max: ImVec2_c; fill_col: ImU32; borders: 
 proc igRenderFrameBorder*(p_min: ImVec2_c; p_max: ImVec2_c; rounding: cfloat): void {.cdecl, importc: "igRenderFrameBorder".}
 proc igRenderColorComponentMarker*(bb: ImRect_c; col: ImU32; rounding: cfloat): void {.cdecl, importc: "igRenderColorComponentMarker".}
 proc igRenderColorRectWithAlphaCheckerboard*(draw_list: ptr ImDrawList; p_min: ImVec2_c; p_max: ImVec2_c; fill_col: ImU32; grid_step: cfloat; grid_off: ImVec2_c; rounding: cfloat; flags: ImDrawFlags): void {.cdecl, importc: "igRenderColorRectWithAlphaCheckerboard".}
-proc igRenderNavCursor*(bb: ImRect_c; id: ImGuiID; flags: ImGuiNavRenderCursorFlags): void {.cdecl, importc: "igRenderNavCursor".}
+proc igRenderNavCursor*(bb: ImRect_c; id: ImGuiID; flags: ImGuiNavRenderCursorFlags; rounding: cfloat): void {.cdecl, importc: "igRenderNavCursor".}
 proc igFindRenderedTextEnd*(text: cstring; text_end: cstring): cstring {.cdecl, importc: "igFindRenderedTextEnd".}
 proc igRenderMouseCursor*(pos: ImVec2_c; scale: cfloat; mouse_cursor: ImGuiMouseCursor; col_fill: ImU32; col_border: ImU32; col_shadow: ImU32): void {.cdecl, importc: "igRenderMouseCursor".}
 proc igRenderArrow*(draw_list: ptr ImDrawList; pos: ImVec2_c; col: ImU32; dir: ImGuiDir; scale: cfloat): void {.cdecl, importc: "igRenderArrow".}
@@ -6379,7 +6520,7 @@ proc igDebugNodeTexture*(tex: ptr ImTextureData; int_id: cint; highlight_rect: p
 proc igDebugNodeStorage*(storage: ptr ImGuiStorage; label: cstring): void {.cdecl, importc: "igDebugNodeStorage".}
 proc igDebugNodeTabBar*(tab_bar: ptr ImGuiTabBar; label: cstring): void {.cdecl, importc: "igDebugNodeTabBar".}
 proc igDebugNodeTable*(table: ptr ImGuiTable): void {.cdecl, importc: "igDebugNodeTable".}
-proc igDebugNodeTableSettings*(settings: ptr ImGuiTableSettings): void {.cdecl, importc: "igDebugNodeTableSettings".}
+proc igDebugNodeTableSettings*(settings: ptr ImGuiTableSettings; table: ptr ImGuiTable): void {.cdecl, importc: "igDebugNodeTableSettings".}
 proc igDebugNodeInputTextState*(state: ptr ImGuiInputTextState): void {.cdecl, importc: "igDebugNodeInputTextState".}
 proc igDebugNodeTypingSelectState*(state: ptr ImGuiTypingSelectState): void {.cdecl, importc: "igDebugNodeTypingSelectState".}
 proc igDebugNodeMultiSelectState*(state: ptr ImGuiMultiSelectState): void {.cdecl, importc: "igDebugNodeMultiSelectState".}
@@ -6449,6 +6590,7 @@ proc igImFontAtlasTextureBlockPostProcessMultiply*(data: ptr ImFontAtlasPostProc
 proc igImFontAtlasTextureBlockFill*(dst_tex: ptr ImTextureData; dst_x: cint; dst_y: cint; w: cint; h: cint; col: ImU32): void {.cdecl, importc: "igImFontAtlasTextureBlockFill".}
 proc igImFontAtlasTextureBlockCopy*(src_tex: ptr ImTextureData; src_x: cint; src_y: cint; dst_tex: ptr ImTextureData; dst_x: cint; dst_y: cint; w: cint; h: cint): void {.cdecl, importc: "igImFontAtlasTextureBlockCopy".}
 proc igImFontAtlasTextureBlockQueueUpload*(atlas: ptr ImFontAtlas; tex: ptr ImTextureData; x: cint; y: cint; w: cint; h: cint): void {.cdecl, importc: "igImFontAtlasTextureBlockQueueUpload".}
+proc igImTextureDataUpdateNewFrame*(tex: ptr ImTextureData): bool {.cdecl, importc: "igImTextureDataUpdateNewFrame".}
 proc igImTextureDataQueueUpload*(tex: ptr ImTextureData; x: cint; y: cint; w: cint; h: cint): void {.cdecl, importc: "igImTextureDataQueueUpload".}
 proc igImTextureDataGetFormatBytesPerPixel*(format: ImTextureFormat): cint {.cdecl, importc: "igImTextureDataGetFormatBytesPerPixel".}
 proc igImTextureDataGetStatusName*(status: ImTextureStatus): cstring {.cdecl, importc: "igImTextureDataGetStatusName".}
@@ -7653,14 +7795,27 @@ proc SpinnerSplineAngEx*(label: cstring; radius: cfloat; thickness: cfloat; colo
 proc demoSpinners*(): void {.cdecl, importc: "demoSpinners".}
 proc TextEditor_TextEditor*(): ptr TextEditor {.cdecl, importc: "TextEditor_TextEditor".}
 proc TextEditor_destroy*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_destroy".}
-proc TextEditor_SetTabSize*(self: ptr TextEditor; value: cint): void {.cdecl, importc: "TextEditor_SetTabSize".}
-proc TextEditor_GetTabSize*(self: ptr TextEditor): cint {.cdecl, importc: "TextEditor_GetTabSize".}
+proc DocPos_DocPos_Nil*(): ptr DocPos {.cdecl, importc: "DocPos_DocPos_Nil".}
+proc DocPos_destroy*(self: ptr DocPos): void {.cdecl, importc: "DocPos_destroy".}
+proc DocPos_DocPos_size_t*(line: csize_t; index: csize_t): ptr DocPos {.cdecl, importc: "DocPos_DocPos_size_t".}
+proc DocSelection_DocSelection_Nil*(): ptr DocSelection {.cdecl, importc: "DocSelection_DocSelection_Nil".}
+proc DocSelection_destroy*(self: ptr DocSelection): void {.cdecl, importc: "DocSelection_destroy".}
+proc DocSelection_DocSelection_DocPos*(start: DocPos_c; end_arg: DocPos_c): ptr DocSelection {.cdecl, importc: "DocSelection_DocSelection_DocPos".}
+proc VisPos_VisPos_Nil*(): ptr VisPos {.cdecl, importc: "VisPos_VisPos_Nil".}
+proc VisPos_destroy*(self: ptr VisPos): void {.cdecl, importc: "VisPos_destroy".}
+proc VisPos_VisPos_size_t*(row: csize_t; column: csize_t): ptr VisPos {.cdecl, importc: "VisPos_VisPos_size_t".}
+proc TextEditor_SetTabSize*(self: ptr TextEditor; value: csize_t): void {.cdecl, importc: "TextEditor_SetTabSize".}
+proc TextEditor_GetTabSize*(self: ptr TextEditor): csize_t {.cdecl, importc: "TextEditor_GetTabSize".}
 proc TextEditor_SetInsertSpacesOnTabs*(self: ptr TextEditor; value: bool): void {.cdecl, importc: "TextEditor_SetInsertSpacesOnTabs".}
 proc TextEditor_IsInsertSpacesOnTabs*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsInsertSpacesOnTabs".}
 proc TextEditor_SetLineSpacing*(self: ptr TextEditor; value: cfloat): void {.cdecl, importc: "TextEditor_SetLineSpacing".}
 proc TextEditor_GetLineSpacing*(self: ptr TextEditor): cfloat {.cdecl, importc: "TextEditor_GetLineSpacing".}
+proc TextEditor_SetWordWrapEnabled*(self: ptr TextEditor; value: bool): void {.cdecl, importc: "TextEditor_SetWordWrapEnabled".}
+proc TextEditor_IsWordWrapEnabled*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsWordWrapEnabled".}
 proc TextEditor_SetReadOnlyEnabled*(self: ptr TextEditor; value: bool): void {.cdecl, importc: "TextEditor_SetReadOnlyEnabled".}
 proc TextEditor_IsReadOnlyEnabled*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsReadOnlyEnabled".}
+proc TextEditor_SetCaretsVisible*(self: ptr TextEditor; value: bool): void {.cdecl, importc: "TextEditor_SetCaretsVisible".}
+proc TextEditor_IsCaretsVisible*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsCaretsVisible".}
 proc TextEditor_SetAutoIndentEnabled*(self: ptr TextEditor; value: bool): void {.cdecl, importc: "TextEditor_SetAutoIndentEnabled".}
 proc TextEditor_IsAutoIndentEnabled*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsAutoIndentEnabled".}
 proc TextEditor_SetShowWhitespacesEnabled*(self: ptr TextEditor; value: bool): void {.cdecl, importc: "TextEditor_SetShowWhitespacesEnabled".}
@@ -7671,6 +7826,10 @@ proc TextEditor_SetShowTabsEnabled*(self: ptr TextEditor; value: bool): void {.c
 proc TextEditor_IsShowTabsEnabled*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsShowTabsEnabled".}
 proc TextEditor_SetShowLineNumbersEnabled*(self: ptr TextEditor; value: bool): void {.cdecl, importc: "TextEditor_SetShowLineNumbersEnabled".}
 proc TextEditor_IsShowLineNumbersEnabled*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsShowLineNumbersEnabled".}
+proc TextEditor_SetShowMiniMapEnabled*(self: ptr TextEditor; value: bool): void {.cdecl, importc: "TextEditor_SetShowMiniMapEnabled".}
+proc TextEditor_IsShowMiniMapEnabled*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsShowMiniMapEnabled".}
+proc TextEditor_SetMiniMapColumns*(self: ptr TextEditor; value: csize_t): void {.cdecl, importc: "TextEditor_SetMiniMapColumns".}
+proc TextEditor_GetMiniMapColumns*(self: ptr TextEditor): csize_t {.cdecl, importc: "TextEditor_GetMiniMapColumns".}
 proc TextEditor_SetShowScrollbarMiniMapEnabled*(self: ptr TextEditor; value: bool): void {.cdecl, importc: "TextEditor_SetShowScrollbarMiniMapEnabled".}
 proc TextEditor_IsShowScrollbarMiniMapEnabled*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsShowScrollbarMiniMapEnabled".}
 proc TextEditor_SetShowPanScrollIndicatorEnabled*(self: ptr TextEditor; value: bool): void {.cdecl, importc: "TextEditor_SetShowPanScrollIndicatorEnabled".}
@@ -7679,21 +7838,31 @@ proc TextEditor_SetShowMatchingBrackets*(self: ptr TextEditor; value: bool): voi
 proc TextEditor_IsShowingMatchingBrackets*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsShowingMatchingBrackets".}
 proc TextEditor_SetCompletePairedGlyphs*(self: ptr TextEditor; value: bool): void {.cdecl, importc: "TextEditor_SetCompletePairedGlyphs".}
 proc TextEditor_IsCompletingPairedGlyphs*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsCompletingPairedGlyphs".}
+proc TextEditor_SetLineFoldingEnabled*(self: ptr TextEditor; value: bool): void {.cdecl, importc: "TextEditor_SetLineFoldingEnabled".}
+proc TextEditor_IsLineFoldingEnabled*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsLineFoldingEnabled".}
 proc TextEditor_SetOverwriteEnabled*(self: ptr TextEditor; value: bool): void {.cdecl, importc: "TextEditor_SetOverwriteEnabled".}
 proc TextEditor_IsOverwriteEnabled*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsOverwriteEnabled".}
 proc TextEditor_SetMiddleMousePanMode*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_SetMiddleMousePanMode".}
 proc TextEditor_SetMiddleMouseScrollMode*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_SetMiddleMouseScrollMode".}
 proc TextEditor_IsMiddleMousePanMode*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsMiddleMousePanMode".}
+proc TextEditor_SetLineNumberLeftMargin*(self: ptr TextEditor; value: csize_t): void {.cdecl, importc: "TextEditor_SetLineNumberLeftMargin".}
+proc TextEditor_GetLineNumberLeftMargin*(self: ptr TextEditor): csize_t {.cdecl, importc: "TextEditor_GetLineNumberLeftMargin".}
+proc TextEditor_SetDecorationLeftMargin*(self: ptr TextEditor; value: csize_t): void {.cdecl, importc: "TextEditor_SetDecorationLeftMargin".}
+proc TextEditor_GetDecorationLeftMargin*(self: ptr TextEditor): csize_t {.cdecl, importc: "TextEditor_GetDecorationLeftMargin".}
+proc TextEditor_SetTextLeftMargin*(self: ptr TextEditor; value: csize_t): void {.cdecl, importc: "TextEditor_SetTextLeftMargin".}
+proc TextEditor_GetTextLeftMargin*(self: ptr TextEditor): csize_t {.cdecl, importc: "TextEditor_GetTextLeftMargin".}
 proc TextEditor_SetText*(self: ptr TextEditor; text: cstring): void {.cdecl, importc: "TextEditor_SetText".}
 proc TextEditor_GetText*(self: ptr TextEditor): cstring {.cdecl, importc: "TextEditor_GetText".}
 proc TextEditor_GetCursorText*(self: ptr TextEditor; cursor: csize_t): cstring {.cdecl, importc: "TextEditor_GetCursorText".}
-proc TextEditor_GetLineText*(self: ptr TextEditor; line: cint): cstring {.cdecl, importc: "TextEditor_GetLineText".}
-proc TextEditor_GetSectionText*(self: ptr TextEditor; startLine: cint; startColumn: cint; endLine: cint; endColumn: cint): cstring {.cdecl, importc: "TextEditor_GetSectionText".}
-proc TextEditor_ReplaceSectionText*(self: ptr TextEditor; startLine: cint; startColumn: cint; endLine: cint; endColumn: cint; text: cstring): void {.cdecl, importc: "TextEditor_ReplaceSectionText".}
+proc TextEditor_GetLineText*(self: ptr TextEditor; line: csize_t): cstring {.cdecl, importc: "TextEditor_GetLineText".}
+proc TextEditor_GetSectionText_DocPos*(self: ptr TextEditor; start: DocPos_c; end_arg: DocPos_c): cstring {.cdecl, importc: "TextEditor_GetSectionText_DocPos".}
+proc TextEditor_GetSectionText_DocSelection*(self: ptr TextEditor; selection: DocSelection_c): cstring {.cdecl, importc: "TextEditor_GetSectionText_DocSelection".}
+proc TextEditor_ReplaceSectionText_DocPos*(self: ptr TextEditor; start: DocPos_c; end_arg: DocPos_c; text: cstring): void {.cdecl, importc: "TextEditor_ReplaceSectionText_DocPos".}
+proc TextEditor_ReplaceSectionText_DocSelection*(self: ptr TextEditor; selection: DocSelection_c; text: cstring): void {.cdecl, importc: "TextEditor_ReplaceSectionText_DocSelection".}
 proc TextEditor_ClearText*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_ClearText".}
 proc TextEditor_IsEmpty*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_IsEmpty".}
-proc TextEditor_GetLineCount*(self: ptr TextEditor): cint {.cdecl, importc: "TextEditor_GetLineCount".}
-proc TextEditor_Render*(self: ptr TextEditor; title: cstring; size: ImVec2_c; border: bool): void {.cdecl, importc: "TextEditor_Render".}
+proc TextEditor_GetLineCount*(self: ptr TextEditor): csize_t {.cdecl, importc: "TextEditor_GetLineCount".}
+proc TextEditor_Render*(self: ptr TextEditor; title: cstring; size: ImVec2_c; childFlags: ImGuiChildFlags; windowFlags: ImGuiWindowFlags): void {.cdecl, importc: "TextEditor_Render".}
 proc TextEditor_SetFocus*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_SetFocus".}
 proc TextEditor_Cut*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_Cut".}
 proc TextEditor_Copy*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_Copy".}
@@ -7703,14 +7872,13 @@ proc TextEditor_Redo*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_
 proc TextEditor_CanUndo*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_CanUndo".}
 proc TextEditor_CanRedo*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_CanRedo".}
 proc TextEditor_GetUndoIndex*(self: ptr TextEditor): csize_t {.cdecl, importc: "TextEditor_GetUndoIndex".}
-proc TextEditor_SetCursor*(self: ptr TextEditor; line: cint; column: cint): void {.cdecl, importc: "TextEditor_SetCursor".}
 proc TextEditor_SelectAll*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_SelectAll".}
-proc TextEditor_SelectLine*(self: ptr TextEditor; line: cint): void {.cdecl, importc: "TextEditor_SelectLine".}
-proc TextEditor_SelectLines*(self: ptr TextEditor; start: cint; end_arg: cint): void {.cdecl, importc: "TextEditor_SelectLines".}
-proc TextEditor_SelectRegion*(self: ptr TextEditor; startLine: cint; startColumn: cint; endLine: cint; endColumn: cint): void {.cdecl, importc: "TextEditor_SelectRegion".}
+proc TextEditor_SelectLine*(self: ptr TextEditor; line: csize_t): void {.cdecl, importc: "TextEditor_SelectLine".}
+proc TextEditor_SelectLines*(self: ptr TextEditor; start: csize_t; end_arg: csize_t): void {.cdecl, importc: "TextEditor_SelectLines".}
+proc TextEditor_SelectRegion*(self: ptr TextEditor; start: DocPos_c; end_arg: DocPos_c): void {.cdecl, importc: "TextEditor_SelectRegion".}
 proc TextEditor_SelectToBrackets*(self: ptr TextEditor; includeBrackets: bool): void {.cdecl, importc: "TextEditor_SelectToBrackets".}
-proc TextEditor_GrowSelectionsToCurlyBrackets*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_GrowSelectionsToCurlyBrackets".}
-proc TextEditor_ShrinkSelectionsToCurlyBrackets*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_ShrinkSelectionsToCurlyBrackets".}
+proc TextEditor_GrowSelections*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_GrowSelections".}
+proc TextEditor_ShrinkSelections*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_ShrinkSelections".}
 proc TextEditor_AddNextOccurrence*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_AddNextOccurrence".}
 proc TextEditor_SelectAllOccurrences*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_SelectAllOccurrences".}
 proc TextEditor_AnyCursorHasSelection*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_AnyCursorHasSelection".}
@@ -7718,29 +7886,27 @@ proc TextEditor_AllCursorsHaveSelection*(self: ptr TextEditor): bool {.cdecl, im
 proc TextEditor_CurrentCursorHasSelection*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_CurrentCursorHasSelection".}
 proc TextEditor_ClearCursors*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_ClearCursors".}
 proc TextEditor_GetNumberOfCursors*(self: ptr TextEditor): csize_t {.cdecl, importc: "TextEditor_GetNumberOfCursors".}
-proc TextEditor_GetCursor_size_t*(self: ptr TextEditor; line: ptr cint; column: ptr cint; cursor: csize_t): void {.cdecl, importc: "TextEditor_GetCursor_size_t".}
-proc TextEditor_GetCursor_IntPtr*(self: ptr TextEditor; startLine: ptr cint; startColumn: ptr cint; endLine: ptr cint; endColumn: ptr cint; cursor: csize_t): void {.cdecl, importc: "TextEditor_GetCursor_IntPtr".}
-proc TextEditor_GetMainCursor*(self: ptr TextEditor; line: ptr cint; column: ptr cint): void {.cdecl, importc: "TextEditor_GetMainCursor".}
-proc TextEditor_GetCurrentCursor*(self: ptr TextEditor; line: ptr cint; column: ptr cint): void {.cdecl, importc: "TextEditor_GetCurrentCursor".}
-proc CursorPosition_CursorPosition_Nil*(): ptr CursorPosition {.cdecl, importc: "CursorPosition_CursorPosition_Nil".}
-proc CursorPosition_destroy*(self: ptr CursorPosition): void {.cdecl, importc: "CursorPosition_destroy".}
-proc CursorPosition_CursorPosition_Int*(l: cint; c: cint): ptr CursorPosition {.cdecl, importc: "CursorPosition_CursorPosition_Int".}
-proc CursorSelection_CursorSelection_Nil*(): ptr CursorSelection {.cdecl, importc: "CursorSelection_CursorSelection_Nil".}
-proc CursorSelection_destroy*(self: ptr CursorSelection): void {.cdecl, importc: "CursorSelection_destroy".}
-proc CursorSelection_CursorSelection_CursorPosition*(s: CursorPosition_c; e: CursorPosition_c): ptr CursorSelection {.cdecl, importc: "CursorSelection_CursorSelection_CursorPosition".}
-proc TextEditor_GetMainCursorPosition*(self: ptr TextEditor): CursorPosition_c {.cdecl, importc: "TextEditor_GetMainCursorPosition".}
-proc TextEditor_GetCurrentCursorPosition*(self: ptr TextEditor): CursorPosition_c {.cdecl, importc: "TextEditor_GetCurrentCursorPosition".}
-proc TextEditor_GetCursorPosition*(self: ptr TextEditor; cursor: csize_t): CursorPosition_c {.cdecl, importc: "TextEditor_GetCursorPosition".}
-proc TextEditor_GetCursorSelection*(self: ptr TextEditor; cursor: csize_t): CursorSelection_c {.cdecl, importc: "TextEditor_GetCursorSelection".}
-proc TextEditor_GetMainCursorSelection*(self: ptr TextEditor): CursorSelection_c {.cdecl, importc: "TextEditor_GetMainCursorSelection".}
-proc TextEditor_GetWordAtScreenPos*(self: ptr TextEditor; screenPos: ImVec2_c): cstring {.cdecl, importc: "TextEditor_GetWordAtScreenPos".}
-proc TextEditor_ScrollToLine*(self: ptr TextEditor; line: cint; alignment: Scroll): void {.cdecl, importc: "TextEditor_ScrollToLine".}
-proc TextEditor_GetFirstVisibleLine*(self: ptr TextEditor): cint {.cdecl, importc: "TextEditor_GetFirstVisibleLine".}
-proc TextEditor_GetLastVisibleLine*(self: ptr TextEditor): cint {.cdecl, importc: "TextEditor_GetLastVisibleLine".}
-proc TextEditor_GetFirstVisibleColumn*(self: ptr TextEditor): cint {.cdecl, importc: "TextEditor_GetFirstVisibleColumn".}
-proc TextEditor_GetLastVisibleColumn*(self: ptr TextEditor): cint {.cdecl, importc: "TextEditor_GetLastVisibleColumn".}
+proc TextEditor_GetCursorPosition*(self: ptr TextEditor; cursor: csize_t): DocPos_c {.cdecl, importc: "TextEditor_GetCursorPosition".}
+proc TextEditor_GetMainCursorPosition*(self: ptr TextEditor): DocPos_c {.cdecl, importc: "TextEditor_GetMainCursorPosition".}
+proc TextEditor_GetCurrentCursorPosition*(self: ptr TextEditor): DocPos_c {.cdecl, importc: "TextEditor_GetCurrentCursorPosition".}
+proc TextEditor_GetCursorSelection*(self: ptr TextEditor; cursor: csize_t): DocSelection_c {.cdecl, importc: "TextEditor_GetCursorSelection".}
+proc TextEditor_GetMainCursorSelection*(self: ptr TextEditor): DocSelection_c {.cdecl, importc: "TextEditor_GetMainCursorSelection".}
+proc TextEditor_GetCurrentCursorSelection*(self: ptr TextEditor): DocSelection_c {.cdecl, importc: "TextEditor_GetCurrentCursorSelection".}
+proc TextEditor_IsMousePosOverGlyph*(self: ptr TextEditor; mousePos: ImVec2_c): bool {.cdecl, importc: "TextEditor_IsMousePosOverGlyph".}
+proc TextEditor_GetDocPosAtMousePos*(self: ptr TextEditor; mousePos: ImVec2_c): DocPos_c {.cdecl, importc: "TextEditor_GetDocPosAtMousePos".}
+proc TextEditor_GetWordAtMousePos*(self: ptr TextEditor; mousePos: ImVec2_c): cstring {.cdecl, importc: "TextEditor_GetWordAtMousePos".}
+proc TextEditor_ScrollToLine*(self: ptr TextEditor; line: csize_t; alignment: Scroll): void {.cdecl, importc: "TextEditor_ScrollToLine".}
+proc TextEditor_GetFirstVisibleRow*(self: ptr TextEditor): csize_t {.cdecl, importc: "TextEditor_GetFirstVisibleRow".}
+proc TextEditor_GetLastVisibleRow*(self: ptr TextEditor): csize_t {.cdecl, importc: "TextEditor_GetLastVisibleRow".}
+proc TextEditor_GetFirstVisibleColumn*(self: ptr TextEditor): csize_t {.cdecl, importc: "TextEditor_GetFirstVisibleColumn".}
+proc TextEditor_GetLastVisibleColumn*(self: ptr TextEditor): csize_t {.cdecl, importc: "TextEditor_GetLastVisibleColumn".}
+proc TextEditor_SetCursor*(self: ptr TextEditor; pos: DocPos_c): void {.cdecl, importc: "TextEditor_SetCursor".}
 proc TextEditor_GetLineHeight*(self: ptr TextEditor): cfloat {.cdecl, importc: "TextEditor_GetLineHeight".}
 proc TextEditor_GetGlyphWidth*(self: ptr TextEditor): cfloat {.cdecl, importc: "TextEditor_GetGlyphWidth".}
+proc TextEditor_DocPos2VisPos*(self: ptr TextEditor; pos: DocPos_c): VisPos_c {.cdecl, importc: "TextEditor_DocPos2VisPos".}
+proc TextEditor_VisPos2DocPos*(self: ptr TextEditor; pos: VisPos_c): DocPos_c {.cdecl, importc: "TextEditor_VisPos2DocPos".}
+proc TextEditor_IsDocPosVisible*(self: ptr TextEditor; pos: DocPos_c): bool {.cdecl, importc: "TextEditor_IsDocPosVisible".}
+proc TextEditor_IsVisPosOverGlyph*(self: ptr TextEditor; pos: VisPos_c): bool {.cdecl, importc: "TextEditor_IsVisPosOverGlyph".}
 proc TextEditor_SelectFirstOccurrenceOf*(self: ptr TextEditor; text: cstring; caseSensitive: bool; wholeWord: bool): void {.cdecl, importc: "TextEditor_SelectFirstOccurrenceOf".}
 proc TextEditor_SelectNextOccurrenceOf*(self: ptr TextEditor; text: cstring; caseSensitive: bool; wholeWord: bool): void {.cdecl, importc: "TextEditor_SelectNextOccurrenceOf".}
 proc TextEditor_SelectAllOccurrencesOf*(self: ptr TextEditor; text: cstring; caseSensitive: bool; wholeWord: bool): void {.cdecl, importc: "TextEditor_SelectAllOccurrencesOf".}
@@ -7755,24 +7921,40 @@ proc TextEditor_SetReplaceAllButtonLabel*(self: ptr TextEditor; label: cstring):
 proc TextEditor_HasFindString*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_HasFindString".}
 proc TextEditor_FindNext*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_FindNext".}
 proc TextEditor_FindAll*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_FindAll".}
-proc TextEditor_AddMarker*(self: ptr TextEditor; line: cint; lineNumberColor: ImU32; textColor: ImU32; lineNumberTooltip: cstring; textTooltip: cstring): void {.cdecl, importc: "TextEditor_AddMarker".}
+proc TextEditor_AddMarker*(self: ptr TextEditor; line: csize_t; lineNumberColor: ImU32; textColor: ImU32; lineNumberTooltip: cstring; textTooltip: cstring): void {.cdecl, importc: "TextEditor_AddMarker".}
 proc TextEditor_ClearMarkers*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_ClearMarkers".}
 proc TextEditor_HasMarkers*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_HasMarkers".}
+proc TextEditor_AddSquiggle*(self: ptr TextEditor; start: DocPos_c; end_arg: DocPos_c; type_arg: csize_t; color: ImU32; tooltip: cstring): void {.cdecl, importc: "TextEditor_AddSquiggle".}
+proc TextEditor_ClearSquiggles_DocPos*(self: ptr TextEditor; start: DocPos_c; end_arg: DocPos_c): void {.cdecl, importc: "TextEditor_ClearSquiggles_DocPos".}
+proc TextEditor_ClearSquiggles_size_t*(self: ptr TextEditor; type_arg: csize_t): void {.cdecl, importc: "TextEditor_ClearSquiggles_size_t".}
+proc TextEditor_ClearSquiggles_Nil*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_ClearSquiggles_Nil".}
+proc TextEditor_HasSquiggles*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_HasSquiggles".}
 proc TextEditor_SetChangeCallback*(self: ptr TextEditor; cb: proc (): void {.cdecl.}; delay: cint): void {.cdecl, importc: "TextEditor_SetChangeCallback".}
-proc TextEditor_SetInsertor*(self: ptr TextEditor; cb: proc (a0: cint): pointer {.cdecl.}): void {.cdecl, importc: "TextEditor_SetInsertor".}
-proc TextEditor_SetDeletor*(self: ptr TextEditor; cb: proc (a0: cint; a1: pointer): void {.cdecl.}): void {.cdecl, importc: "TextEditor_SetDeletor".}
-proc TextEditor_SetUserData*(self: ptr TextEditor; line: cint; data: pointer): void {.cdecl, importc: "TextEditor_SetUserData".}
-proc TextEditor_GetUserData*(self: ptr TextEditor; line: cint): pointer {.cdecl, importc: "TextEditor_GetUserData".}
-proc TextEditor_IterateUserData*(self: ptr TextEditor; cb: proc (a0: cint; a1: pointer): void {.cdecl.}): void {.cdecl, importc: "TextEditor_IterateUserData".}
-proc TextEditor_SetLineDecorator*(self: ptr TextEditor; width: cfloat; cb: proc (a0: Decorator): void {.cdecl.}): void {.cdecl, importc: "TextEditor_SetLineDecorator".}
+proc TextEditor_SetInsertor*(self: ptr TextEditor; cb: proc (a0: csize_t): pointer {.cdecl.}): void {.cdecl, importc: "TextEditor_SetInsertor".}
+proc TextEditor_SetDeletor*(self: ptr TextEditor; cb: proc (a0: csize_t; a1: pointer): void {.cdecl.}): void {.cdecl, importc: "TextEditor_SetDeletor".}
+proc TextEditor_SetUserData*(self: ptr TextEditor; line: csize_t; data: pointer): void {.cdecl, importc: "TextEditor_SetUserData".}
+proc TextEditor_GetUserData*(self: ptr TextEditor; line: csize_t): pointer {.cdecl, importc: "TextEditor_GetUserData".}
+proc TextEditor_IterateUserData*(self: ptr TextEditor; cb: proc (a0: csize_t; a1: pointer): void {.cdecl.}): void {.cdecl, importc: "TextEditor_IterateUserData".}
+proc TextEditor_SetLineDecorator*(self: ptr TextEditor; width: csize_t; cb: proc (a0: ptr Decorator): void {.cdecl.}): void {.cdecl, importc: "TextEditor_SetLineDecorator".}
 proc TextEditor_ClearLineDecorator*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_ClearLineDecorator".}
 proc TextEditor_HasLineDecorator*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_HasLineDecorator".}
-proc TextEditor_SetLineNumberContextMenuCallback*(self: ptr TextEditor; cb: proc (a0: cint): void {.cdecl.}): void {.cdecl, importc: "TextEditor_SetLineNumberContextMenuCallback".}
+proc TextEditor_SetLineNumberContextMenuCallback*(self: ptr TextEditor; cb: proc (a0: ptr PopupData): void {.cdecl.}): void {.cdecl, importc: "TextEditor_SetLineNumberContextMenuCallback".}
 proc TextEditor_ClearLineNumberContextMenuCallback*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_ClearLineNumberContextMenuCallback".}
 proc TextEditor_HasLineNumberContextMenuCallback*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_HasLineNumberContextMenuCallback".}
-proc TextEditor_SetTextContextMenuCallback*(self: ptr TextEditor; cb: proc (a0: cint; a1: cint): void {.cdecl.}): void {.cdecl, importc: "TextEditor_SetTextContextMenuCallback".}
+proc TextEditor_SetTextContextMenuCallback*(self: ptr TextEditor; cb: proc (a0: ptr PopupData): void {.cdecl.}): void {.cdecl, importc: "TextEditor_SetTextContextMenuCallback".}
 proc TextEditor_ClearTextContextMenuCallback*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_ClearTextContextMenuCallback".}
 proc TextEditor_HasTextContextMenuCallback*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_HasTextContextMenuCallback".}
+proc TextEditor_SetTextHoverCallback*(self: ptr TextEditor; cb: proc (a0: ptr PopupData): void {.cdecl.}): void {.cdecl, importc: "TextEditor_SetTextHoverCallback".}
+proc TextEditor_ClearTextHoverCallback*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_ClearTextHoverCallback".}
+proc TextEditor_HasTextHoverCallback*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_HasTextHoverCallback".}
+proc TextEditor_FoldAroundLine*(self: ptr TextEditor; line: csize_t): void {.cdecl, importc: "TextEditor_FoldAroundLine".}
+proc TextEditor_UnfoldAroundLine*(self: ptr TextEditor; line: csize_t): void {.cdecl, importc: "TextEditor_UnfoldAroundLine".}
+proc TextEditor_ToggleAtLine*(self: ptr TextEditor; line: csize_t): void {.cdecl, importc: "TextEditor_ToggleAtLine".}
+proc TextEditor_UnfoldAll*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_UnfoldAll".}
+proc TextEditor_IsLineFoldable*(self: ptr TextEditor; line: csize_t): bool {.cdecl, importc: "TextEditor_IsLineFoldable".}
+proc TextEditor_IsLineFolded*(self: ptr TextEditor; line: csize_t): bool {.cdecl, importc: "TextEditor_IsLineFolded".}
+proc TextEditor_IsLineVisible*(self: ptr TextEditor; line: csize_t): bool {.cdecl, importc: "TextEditor_IsLineVisible".}
+proc TextEditor_IsLineHidden*(self: ptr TextEditor; line: csize_t): bool {.cdecl, importc: "TextEditor_IsLineHidden".}
 proc TextEditor_IndentLines*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_IndentLines".}
 proc TextEditor_DeindentLines*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_DeindentLines".}
 proc TextEditor_MoveUpLines*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_MoveUpLines".}
@@ -7785,6 +7967,7 @@ proc TextEditor_StripTrailingWhitespaces*(self: ptr TextEditor): void {.cdecl, i
 proc TextEditor_FilterLines*(self: ptr TextEditor; cb: proc (a0: cstring): cstring {.cdecl.}): void {.cdecl, importc: "TextEditor_FilterLines".}
 proc TextEditor_TabsToSpaces*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_TabsToSpaces".}
 proc TextEditor_SpacesToTabs*(self: ptr TextEditor): void {.cdecl, importc: "TextEditor_SpacesToTabs".}
+proc Palette_get*(self: ptr Palette; color: Color): ImU32 {.cdecl, importc: "Palette_get".}
 proc TextEditor_SetPalette*(self: ptr TextEditor; newPalette: ptr Palette): void {.cdecl, importc: "TextEditor_SetPalette".}
 proc TextEditor_GetPalette*(self: ptr TextEditor): ptr Palette {.cdecl, importc: "TextEditor_GetPalette".}
 proc TextEditor_SetDefaultPalette*(aValue: ptr Palette): void {.cdecl, importc: "TextEditor_SetDefaultPalette".}
@@ -7795,6 +7978,9 @@ proc Glyph_Glyph_Nil*(): ptr Glyph {.cdecl, importc: "Glyph_Glyph_Nil".}
 proc Glyph_destroy*(self: ptr Glyph): void {.cdecl, importc: "Glyph_destroy".}
 proc Glyph_Glyph_Wchar*(cp: ImWchar): ptr Glyph {.cdecl, importc: "Glyph_Glyph_Wchar".}
 proc Glyph_Glyph_WcharColor*(cp: ImWchar; col: Color): ptr Glyph {.cdecl, importc: "Glyph_Glyph_WcharColor".}
+proc Iterator_Iterator_Nil*(): ptr Iterator {.cdecl, importc: "Iterator_Iterator_Nil".}
+proc Iterator_destroy*(self: ptr Iterator): void {.cdecl, importc: "Iterator_destroy".}
+proc Iterator_Iterator_GlyphPtr*(g: ptr Glyph): ptr Iterator {.cdecl, importc: "Iterator_Iterator_GlyphPtr".}
 proc Language_C*(): ptr Language {.cdecl, importc: "Language_C".}
 proc Language_Cpp*(): ptr Language {.cdecl, importc: "Language_Cpp".}
 proc Language_Cs*(): ptr Language {.cdecl, importc: "Language_Cs".}
@@ -7806,16 +7992,13 @@ proc Language_Hlsl*(): ptr Language {.cdecl, importc: "Language_Hlsl".}
 proc Language_Json*(): ptr Language {.cdecl, importc: "Language_Json".}
 proc Language_Markdown*(): ptr Language {.cdecl, importc: "Language_Markdown".}
 proc Language_Sql*(): ptr Language {.cdecl, importc: "Language_Sql".}
-proc TextEditor_SetLanguage*(self: ptr TextEditor; l: ptr Language): void {.cdecl, importc: "TextEditor_SetLanguage".}
+proc TextEditor_SetLanguage*(self: ptr TextEditor; language: ptr Language): void {.cdecl, importc: "TextEditor_SetLanguage".}
 proc TextEditor_GetLanguage*(self: ptr TextEditor): ptr Language {.cdecl, importc: "TextEditor_GetLanguage".}
 proc TextEditor_HasLanguage*(self: ptr TextEditor): bool {.cdecl, importc: "TextEditor_HasLanguage".}
 proc TextEditor_GetLanguageName*(self: ptr TextEditor): cstring {.cdecl, importc: "TextEditor_GetLanguageName".}
+proc TextEditor_SetLanguageChangeCallback*(self: ptr TextEditor; cb: proc (): void {.cdecl.}): void {.cdecl, importc: "TextEditor_SetLanguageChangeCallback".}
 proc TextEditor_IterateIdentifiers*(self: ptr TextEditor; cb: proc (a0: cstring): void {.cdecl.}): void {.cdecl, importc: "TextEditor_IterateIdentifiers".}
-proc TextEditor_SetAutoCompleteConfig*(self: ptr TextEditor; config: ptr AutoCompleteConfig): void {.cdecl, importc: "TextEditor_SetAutoCompleteConfig".}
-proc Trie_Trie*(): ptr Trie {.cdecl, importc: "Trie_Trie".}
-proc Trie_destroy*(self: ptr Trie): void {.cdecl, importc: "Trie_destroy".}
-proc Trie_clear*(self: ptr Trie): void {.cdecl, importc: "Trie_clear".}
-proc Trie_insert*(self: ptr Trie; word: cstring): void {.cdecl, importc: "Trie_insert".}
+proc TextEditor_SetAutoCompleteConfig*(self: ptr TextEditor; autoCompleteConfig: ptr AutoCompleteConfig): void {.cdecl, importc: "TextEditor_SetAutoCompleteConfig".}
 proc CodePoint_write*(i: cstring; codepoint: ImWchar): csize_t {.cdecl, importc: "CodePoint_write".}
 proc CodePoint_isLetter*(codepoint: ImWchar): bool {.cdecl, importc: "CodePoint_isLetter".}
 proc CodePoint_isNumber*(codepoint: ImWchar): bool {.cdecl, importc: "CodePoint_isNumber".}
@@ -7825,6 +8008,7 @@ proc CodePoint_isXidStart*(codepoint: ImWchar): bool {.cdecl, importc: "CodePoin
 proc CodePoint_isXidContinue*(codepoint: ImWchar): bool {.cdecl, importc: "CodePoint_isXidContinue".}
 proc CodePoint_isLower*(codepoint: ImWchar): bool {.cdecl, importc: "CodePoint_isLower".}
 proc CodePoint_isUpper*(codepoint: ImWchar): bool {.cdecl, importc: "CodePoint_isUpper".}
+proc CodePoint_isEastAsian*(codepoint: ImWchar): bool {.cdecl, importc: "CodePoint_isEastAsian".}
 proc CodePoint_toUpper*(codepoint: ImWchar): ImWchar {.cdecl, importc: "CodePoint_toUpper".}
 proc CodePoint_toLower*(codepoint: ImWchar): ImWchar {.cdecl, importc: "CodePoint_toLower".}
 proc CodePoint_isPairOpener*(ch: ImWchar): bool {.cdecl, importc: "CodePoint_isPairOpener".}
@@ -7835,18 +8019,52 @@ proc CodePoint_isMatchingPair*(open: ImWchar; close: ImWchar): bool {.cdecl, imp
 proc CodePoint_isBracketOpener*(ch: ImWchar): bool {.cdecl, importc: "CodePoint_isBracketOpener".}
 proc CodePoint_isBracketCloser*(ch: ImWchar): bool {.cdecl, importc: "CodePoint_isBracketCloser".}
 proc CodePoint_isMatchingBrackets*(open: ImWchar; close: ImWchar): bool {.cdecl, importc: "CodePoint_isMatchingBrackets".}
+proc TextEditor_SetLineBreakConfig*(self: ptr TextEditor; newConfig: ptr LineBreakConfig): void {.cdecl, importc: "TextEditor_SetLineBreakConfig".}
 proc TextEditor_SetImGuiContext*(ctx: ptr ImGuiContext): void {.cdecl, importc: "TextEditor_SetImGuiContext".}
 proc TextDiff_TextDiff*(): ptr TextDiff {.cdecl, importc: "TextDiff_TextDiff".}
 proc TextDiff_destroy*(self: ptr TextDiff): void {.cdecl, importc: "TextDiff_destroy".}
 proc TextDiff_SetSideBySideMode*(self: ptr TextDiff; flag: bool): void {.cdecl, importc: "TextDiff_SetSideBySideMode".}
 proc TextDiff_GetSideBySideMode*(self: ptr TextDiff): bool {.cdecl, importc: "TextDiff_GetSideBySideMode".}
-proc TextDiff_SetText*(self: ptr TextDiff; left: cstring; right: cstring): void {.cdecl, importc: "TextDiff_SetText".}
-proc TextDiff_SetLanguage*(self: ptr TextDiff; l: ptr Language): void {.cdecl, importc: "TextDiff_SetLanguage".}
+proc TextDiff_SetTabSize*(self: ptr TextDiff; value: csize_t): void {.cdecl, importc: "TextDiff_SetTabSize".}
+proc TextDiff_GetTabSize*(self: ptr TextDiff): csize_t {.cdecl, importc: "TextDiff_GetTabSize".}
+proc TextDiff_SetLineSpacing*(self: ptr TextDiff; value: cfloat): void {.cdecl, importc: "TextDiff_SetLineSpacing".}
+proc TextDiff_GetLineSpacing*(self: ptr TextDiff): cfloat {.cdecl, importc: "TextDiff_GetLineSpacing".}
+proc TextDiff_SetWordWrapEnabled*(self: ptr TextDiff; value: bool): void {.cdecl, importc: "TextDiff_SetWordWrapEnabled".}
+proc TextDiff_IsWordWrapEnabled*(self: ptr TextDiff): bool {.cdecl, importc: "TextDiff_IsWordWrapEnabled".}
+proc TextDiff_SetShowWhitespacesEnabled*(self: ptr TextDiff; value: bool): void {.cdecl, importc: "TextDiff_SetShowWhitespacesEnabled".}
+proc TextDiff_IsShowWhitespacesEnabled*(self: ptr TextDiff): bool {.cdecl, importc: "TextDiff_IsShowWhitespacesEnabled".}
+proc TextDiff_SetShowSpacesEnabled*(self: ptr TextDiff; value: bool): void {.cdecl, importc: "TextDiff_SetShowSpacesEnabled".}
+proc TextDiff_IsShowSpacesEnabled*(self: ptr TextDiff): bool {.cdecl, importc: "TextDiff_IsShowSpacesEnabled".}
+proc TextDiff_SetShowTabsEnabled*(self: ptr TextDiff; value: bool): void {.cdecl, importc: "TextDiff_SetShowTabsEnabled".}
+proc TextDiff_IsShowTabsEnabled*(self: ptr TextDiff): bool {.cdecl, importc: "TextDiff_IsShowTabsEnabled".}
+proc TextDiff_SetShowScrollbarMiniMapEnabled*(self: ptr TextDiff; value: bool): void {.cdecl, importc: "TextDiff_SetShowScrollbarMiniMapEnabled".}
+proc TextDiff_IsShowScrollbarMiniMapEnabled*(self: ptr TextDiff): bool {.cdecl, importc: "TextDiff_IsShowScrollbarMiniMapEnabled".}
+proc TextDiff_SetLanguage*(self: ptr TextDiff; language: ptr Language): void {.cdecl, importc: "TextDiff_SetLanguage".}
+proc TextDiff_GetLanguage*(self: ptr TextDiff): ptr Language {.cdecl, importc: "TextDiff_GetLanguage".}
 proc TextDiff_SetColors*(self: ptr TextDiff; ac: ImU32; dc: ImU32): void {.cdecl, importc: "TextDiff_SetColors".}
-proc TextDiff_Render*(self: ptr TextDiff; title: cstring; size: ImVec2_c; border: bool): void {.cdecl, importc: "TextDiff_Render".}
+proc TextDiff_SetPalette*(self: ptr TextDiff; newPalette: ptr Palette): void {.cdecl, importc: "TextDiff_SetPalette".}
+proc TextDiff_GetPalette*(self: ptr TextDiff): ptr Palette {.cdecl, importc: "TextDiff_GetPalette".}
+proc TextDiff_SetFocus*(self: ptr TextDiff): void {.cdecl, importc: "TextDiff_SetFocus".}
+proc TextDiff_SetText*(self: ptr TextDiff; left: cstring; right: cstring): void {.cdecl, importc: "TextDiff_SetText".}
+proc TextDiff_Render*(self: ptr TextDiff; title: cstring; size: ImVec2_c; childFlags: ImGuiChildFlags; windowFlags: ImGuiWindowFlags): void {.cdecl, importc: "TextDiff_Render".}
+proc TrieAutoComplete_TrieAutoComplete*(): ptr TrieAutoComplete {.cdecl, importc: "TrieAutoComplete_TrieAutoComplete".}
+proc TrieAutoComplete_destroy*(self: ptr TrieAutoComplete): void {.cdecl, importc: "TrieAutoComplete_destroy".}
+proc TrieAutoComplete_Connect*(self: ptr TrieAutoComplete; editor: ptr TextEditor): void {.cdecl, importc: "TrieAutoComplete_Connect".}
+proc TrieAutoComplete_Disconnect*(self: ptr TrieAutoComplete): void {.cdecl, importc: "TrieAutoComplete_Disconnect".}
+proc TrieAutoComplete_IsConnected*(self: ptr TrieAutoComplete): bool {.cdecl, importc: "TrieAutoComplete_IsConnected".}
+proc Notifications_Notifications*(): ptr Notifications {.cdecl, importc: "Notifications_Notifications".}
+proc Notifications_destroy*(self: ptr Notifications): void {.cdecl, importc: "Notifications_destroy".}
+proc Notifications_Add*(self: ptr Notifications; type_arg: Type; message: cstring; dismissTime: cint): void {.cdecl, importc: "Notifications_Add".}
+proc Notifications_Render*(self: ptr Notifications; pos: ImVec2_c): void {.cdecl, importc: "Notifications_Render".}
+proc Palette_Palette*(): ptr Palette {.cdecl, importc: "Palette_Palette".}
+proc Palette_destroy*(a0: ptr Palette): void {.cdecl, importc: "Palette_destroy".}
+proc Palette_set*(a0: ptr Palette; a1: ImU32; a2: cint): void {.cdecl, importc: "Palette_set".}
+proc Palette_const_get*(a0: ptr Palette; a1: Color): ImU32 {.cdecl, importc: "Palette_const_get".}
 proc TextEditor_GetText_alloc*(self: ptr TextEditor): cstring {.cdecl, importc: "TextEditor_GetText_alloc".}
 proc TextEditor_GetText_free*(ptr_arg: cstring): void {.cdecl, importc: "TextEditor_GetText_free".}
 proc TextEditor_GetText_static*(self: ptr TextEditor): cstring {.cdecl, importc: "TextEditor_GetText_static".}
+proc GetDejavu*(deja: ptr pointer): cint {.cdecl, importc: "GetDejavu".}
+proc SetDejavu*(): void {.cdecl, importc: "SetDejavu".}
 proc textselect_create*(getLineAtIdx: GetLineAtIdxFn; getNumLines: GetNumLinesFn; userdata: pointer; enableWordWrap: cint): ptr TextSelect {.cdecl, importc: "textselect_create".}
 proc textselect_destroy*(ts: ptr TextSelect): void {.cdecl, importc: "textselect_destroy".}
 proc textselect_has_selection*(ts: ptr TextSelect): cint {.cdecl, importc: "textselect_has_selection".}
@@ -7984,6 +8202,7 @@ proc ImGuizmo_SetAxisLimit*(value: cfloat): void {.cdecl, importc: "ImGuizmo_Set
 proc ImGuizmo_SetAxisMask*(x: bool; y: bool; z: bool): void {.cdecl, importc: "ImGuizmo_SetAxisMask".}
 proc ImGuizmo_SetPlaneLimit*(value: cfloat): void {.cdecl, importc: "ImGuizmo_SetPlaneLimit".}
 proc ImGuizmo_IsOver_FloatPtr*(position: ptr cfloat; pixelRadius: cfloat): bool {.cdecl, importc: "ImGuizmo_IsOver_FloatPtr".}
+proc ImGuizmo_ComputeMouseRay*(view: ptr cfloat; projection: ptr cfloat; mousePosition: ImVec2_c; rectPosition: ImVec2_c; rectSize: ImVec2_c; rayOrigin: ptr cfloat; rayDirection: ptr cfloat): void {.cdecl, importc: "ImGuizmo_ComputeMouseRay".}
 proc Style_Style*(): ptr Style {.cdecl, importc: "Style_Style".}
 proc Style_destroy*(self: ptr Style): void {.cdecl, importc: "Style_destroy".}
 proc ImGuizmo_GetStyle*(): ptr Style {.cdecl, importc: "ImGuizmo_GetStyle".}

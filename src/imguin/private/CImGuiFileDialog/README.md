@@ -46,9 +46,8 @@ Added color, IconFont
 
 ---
 
-- ImGuiFileDialog  v0.6.9-WIP (2026/02/13)  
-git hash: da42ca6f34b2d6b6cdcf783c731a400f2c3cd072
-- CImGui / ImGui 1.92.6 (2026/02)
+- ImGuiFileDialog  v0.6.9-WIP (2026/03/12)  
+git hash: d0e97b2adc3d3452d72c750c7305dc0291acd052
 
 #### Prerequisites
 

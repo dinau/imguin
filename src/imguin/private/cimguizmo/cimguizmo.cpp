@@ -188,6 +188,10 @@ CIMGUI_API bool ImGuizmo_IsOver_FloatPtr(float* position,float pixelRadius)
 {
     return ImGuizmo::IsOver(position,pixelRadius);
 }
+CIMGUI_API void ImGuizmo_ComputeMouseRay(const float* view,const float* projection,const ImVec2_c mousePosition,const ImVec2_c rectPosition,const ImVec2_c rectSize,float* rayOrigin,float* rayDirection)
+{
+    return ImGuizmo::ComputeMouseRay(view,projection,ConvertToCPP_ImVec2(mousePosition),ConvertToCPP_ImVec2(rectPosition),ConvertToCPP_ImVec2(rectSize),rayOrigin,rayDirection);
+}
 CIMGUI_API Style* Style_Style(void)
 {
     return IM_NEW(Style)();

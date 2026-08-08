@@ -139,6 +139,7 @@ CIMGUI_API void ImGuizmo_SetAxisLimit(float value);
 CIMGUI_API void ImGuizmo_SetAxisMask(bool x,bool y,bool z);
 CIMGUI_API void ImGuizmo_SetPlaneLimit(float value);
 CIMGUI_API bool ImGuizmo_IsOver_FloatPtr(float* position,float pixelRadius);
+CIMGUI_API void ImGuizmo_ComputeMouseRay(const float* view,const float* projection,const ImVec2_c mousePosition,const ImVec2_c rectPosition,const ImVec2_c rectSize,float* rayOrigin,float* rayDirection);
 CIMGUI_API Style* Style_Style(void);
 CIMGUI_API void Style_destroy(Style* self);
 CIMGUI_API Style* ImGuizmo_GetStyle(void);

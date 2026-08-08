@@ -15,7 +15,7 @@
 
 [^langs]: Zig, Nim, Nelua, etc 
 
-This project introduces C API for [Dear Imgui Zoomable Image Display(ImGuiImage)](https://github.com/danielm5/imgui_zoomable_image) to use it with other languages[^langs] and
+This project introduces C API for [Dear ImGui Zoomable Image Display(ImGuiImage)](https://github.com/danielm5/imgui_zoomable_image) to use it with other languages[^langs] and
 a simple demo program in C.
 
 - Link  
@@ -66,13 +66,13 @@ See [Wasm example in Nim: glfw_opengl3_imgui_zoomable_image](https://github.com/
 1. Go to demo with **CImGui** folder
 
    ```sh
-   cd cimgui_zoomable_image/demo/cimui
+   cd cimgui_zoomable_image/demo/cimugi
    make run 
    ```
 
 1. Go to demo with **Dear Bindings** folder
 
    ```sh
-   cd cimgui_zoomable_image/demo/dcimui
+   cd cimgui_zoomable_image/demo/dcimgui
    make run 
    ```

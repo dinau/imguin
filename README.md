@@ -258,29 +258,30 @@ version.
 
 Windows builds are confirmed unless otherwise noted.
 
-| ImGui / CImGui | ImGuin | Date | Linux Debian family | Notes |
-| :---: | --- | :---: | :---: | --- |
-| 1.92.8 dock | 1.92.8.0 | 2026/06 | OK | |
-| 1.92.7 dock | 1.92.7.0 | 2026/04 | OK | |
-| 1.92.6 dock | 1.92.6.2 | 2026/03 | OK | Added Wasm function |
-| 1.92.6 dock | 1.92.6.1 | 2026/03 | OK | Breaking change in `impl_glfw.nim` |
-| 1.92.6 dock | 1.92.6.0 | 2026/02 | OK | |
-| 1.92.4 dock | 1.92.4.0 | 2025/11 | OK | |
-| 1.92.3 dock | 1.92.3.0 | 2025/09 | OK | |
-| 1.92.2b dock | 1.92.2.1 | 2025/09 | OK | |
-| 1.92.2b dock | 1.92.2.0 | 2025/08 | OK | |
-| 1.92.0 dock | 1.92.0.2 | 2025/08 | OK | |
-| 1.92.0 dock | 1.92.0.1 | 2025/07 | OK | |
-| 1.91.9b dock | 1.91.9.4 | 2025/06 | OK | |
-| 1.91.8 dock | 1.91.8.2 | 2025/03 | OK | |
-| 1.91.6 dock | 1.91.6.15 | 2025/01 | Not checked | Probably works |
-| 1.91.4 dock | 1.91.4.2 | 2024/12 | OK | |
-| 1.91.3 dock | 1.91.3.1 | 2024/10 | Not checked | Probably works |
-| 1.91.2 dock | 1.91.2.0 | 2024/10 | Not checked | Probably works |
-| 1.91.1 dock | 1.91.1.2 | 2024/09 | Partial | Except ImNodes example |
-| 1.91.0 dock | 1.91.0.0 | 2024/08 | Not checked | Probably works |
-| 1.90.4 dock | 1.90.4.2 | 2024/02 | Use Nim 2.0.2 | |
-| 1.89.9 dock | 1.89.9.8 | 2023/12 | Partial | Except ImNodes and SDL2 examples; works best in debug mode |
+| ImGui / CImGui | ImGuin    | Date    | Linux Debian family | Notes                                                      |
+| :---:          | ---       | :---:   | :---:               | ---                                                        |
+| 1.92.9b dock   | 1.92.9.0  | 2026/07 | OK                  |                                                            |
+| 1.92.8 dock    | 1.92.8.0  | 2026/06 | OK                  |                                                            |
+| 1.92.7 dock    | 1.92.7.0  | 2026/04 | OK                  |                                                            |
+| 1.92.6 dock    | 1.92.6.2  | 2026/03 | OK                  | Added Wasm function                                        |
+| 1.92.6 dock    | 1.92.6.1  | 2026/03 | OK                  | Breaking change in `impl_glfw.nim`                         |
+| 1.92.6 dock    | 1.92.6.0  | 2026/02 | OK                  |                                                            |
+| 1.92.4 dock    | 1.92.4.0  | 2025/11 | OK                  |                                                            |
+| 1.92.3 dock    | 1.92.3.0  | 2025/09 | OK                  |                                                            |
+| 1.92.2b dock   | 1.92.2.1  | 2025/09 | OK                  |                                                            |
+| 1.92.2b dock   | 1.92.2.0  | 2025/08 | OK                  |                                                            |
+| 1.92.0 dock    | 1.92.0.2  | 2025/08 | OK                  |                                                            |
+| 1.92.0 dock    | 1.92.0.1  | 2025/07 | OK                  |                                                            |
+| 1.91.9b dock   | 1.91.9.4  | 2025/06 | OK                  |                                                            |
+| 1.91.8 dock    | 1.91.8.2  | 2025/03 | OK                  |                                                            |
+| 1.91.6 dock    | 1.91.6.15 | 2025/01 | Not checked         | Probably works                                             |
+| 1.91.4 dock    | 1.91.4.2  | 2024/12 | OK                  |                                                            |
+| 1.91.3 dock    | 1.91.3.1  | 2024/10 | Not checked         | Probably works                                             |
+| 1.91.2 dock    | 1.91.2.0  | 2024/10 | Not checked         | Probably works                                             |
+| 1.91.1 dock    | 1.91.1.2  | 2024/09 | Partial             | Except ImNodes example                                     |
+| 1.91.0 dock    | 1.91.0.0  | 2024/08 | Not checked         | Probably works                                             |
+| 1.90.4 dock    | 1.90.4.2  | 2024/02 | Use Nim 2.0.2       |                                                            |
+| 1.89.9 dock    | 1.89.9.8  | 2023/12 | Partial             | Except ImNodes and SDL2 examples; works best in debug mode |
 
 ## My Tool Versions
 
@@ -288,14 +289,14 @@ Windows builds are confirmed unless otherwise noted.
 
 - Nim Compiler Version 2.2.10
 - GCC 16.1.0, MSYS2 build
-- Visual Studio C++/C 2022
+- Clang version 22.1.8
 - Git 2.46.0.windows.1
 - GNU Make 4.4.1
 - MSYS2 / MinGW-UCRT tools
 
 ### Linux Debian 13
 
-- Nim Compiler Version 2.2.6
+- Nim Compiler Version 2.2.10
 - GCC 14.2.0
 - GNU Make 4.4.1
 

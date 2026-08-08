@@ -4,40 +4,43 @@
 #include "imgui_internal.h"
 #include "./ImGuiColorTextEdit/TextEditor.h"
 #include "./ImGuiColorTextEdit/TextDiff.h"
+#include "./ImGuiColorTextEdit/extras/TrieAutoComplete.h"
+#include "./ImGuiColorTextEdit/extras/Notifications.h"
+#include "./ImGuiColorTextEdit/example/dejavu.h"
 #include "cimCTE.h"
 #include <cstring>
 
 
-static inline CursorPosition ConvertToCPP_CursorPosition(const CursorPosition_c& src)
+static inline DocPos ConvertToCPP_DocPos(const DocPos_c& src)
 {
-    CursorPosition dest;
+    DocPos dest;
     dest.line = src.line;
-    dest.column = src.column;
+    dest.index = src.index;
     return dest;
 }
-static inline CursorPosition_c ConvertFromCPP_CursorPosition(const CursorPosition& src)
+static inline DocPos_c ConvertFromCPP_DocPos(const DocPos& src)
 {
-    CursorPosition_c dest;
+    DocPos_c dest;
     dest.line = src.line;
-    dest.column = src.column;
+    dest.index = src.index;
     return dest;
 }
-static inline CursorSelection ConvertToCPP_CursorSelection(const CursorSelection_c& src)
+static inline DocSelection ConvertToCPP_DocSelection(const DocSelection_c& src)
 {
-    CursorSelection dest;
+    DocSelection dest;
     dest.start.line = src.start.line;
-    dest.start.column = src.start.column;
+    dest.start.index = src.start.index;
     dest.end.line = src.end.line;
-    dest.end.column = src.end.column;
+    dest.end.index = src.end.index;
     return dest;
 }
-static inline CursorSelection_c ConvertFromCPP_CursorSelection(const CursorSelection& src)
+static inline DocSelection_c ConvertFromCPP_DocSelection(const DocSelection& src)
 {
-    CursorSelection_c dest;
+    DocSelection_c dest;
     dest.start.line = src.start.line;
-    dest.start.column = src.start.column;
+    dest.start.index = src.start.index;
     dest.end.line = src.end.line;
-    dest.end.column = src.end.column;
+    dest.end.index = src.end.index;
     return dest;
 }
 static inline ImVec2 ConvertToCPP_ImVec2(const ImVec2_c& src)
@@ -53,6 +56,20 @@ static inline ImVec2_c ConvertFromCPP_ImVec2(const ImVec2& src)
     dest.x = src.x;
     dest.y = src.y;
     return dest;
+}
+static inline VisPos ConvertToCPP_VisPos(const VisPos_c& src)
+{
+    VisPos dest;
+    dest.row = src.row;
+    dest.column = src.column;
+    return dest;
+}
+static inline VisPos_c ConvertFromCPP_VisPos(const VisPos& src)
+{
+    VisPos_c dest;
+    dest.row = src.row;
+    dest.column = src.column;
+    return dest;
 }CIMGUI_API TextEditor* TextEditor_TextEditor(void)
 {
     return IM_NEW(TextEditor)();
@@ -61,11 +78,47 @@ CIMGUI_API void TextEditor_destroy(TextEditor* self)
 {
     IM_DELETE(self);
 }
-CIMGUI_API void TextEditor_SetTabSize(TextEditor* self,int value)
+CIMGUI_API DocPos* DocPos_DocPos_Nil(void)
+{
+    return IM_NEW(DocPos)();
+}
+CIMGUI_API void DocPos_destroy(DocPos* self)
+{
+    IM_DELETE(self);
+}
+CIMGUI_API DocPos* DocPos_DocPos_size_t(size_t line,size_t index)
+{
+    return IM_NEW(DocPos)(line,index);
+}
+CIMGUI_API DocSelection* DocSelection_DocSelection_Nil(void)
+{
+    return IM_NEW(DocSelection)();
+}
+CIMGUI_API void DocSelection_destroy(DocSelection* self)
+{
+    IM_DELETE(self);
+}
+CIMGUI_API DocSelection* DocSelection_DocSelection_DocPos(DocPos_c start,DocPos_c end)
+{
+    return IM_NEW(DocSelection)(ConvertToCPP_DocPos(start),ConvertToCPP_DocPos(end));
+}
+CIMGUI_API VisPos* VisPos_VisPos_Nil(void)
+{
+    return IM_NEW(VisPos)();
+}
+CIMGUI_API void VisPos_destroy(VisPos* self)
+{
+    IM_DELETE(self);
+}
+CIMGUI_API VisPos* VisPos_VisPos_size_t(size_t row,size_t column)
+{
+    return IM_NEW(VisPos)(row,column);
+}
+CIMGUI_API void TextEditor_SetTabSize(TextEditor* self,size_t value)
 {
     return self->SetTabSize(value);
 }
-CIMGUI_API int TextEditor_GetTabSize(TextEditor* self)
+CIMGUI_API size_t TextEditor_GetTabSize(TextEditor* self)
 {
     return self->GetTabSize();
 }
@@ -85,6 +138,14 @@ CIMGUI_API float TextEditor_GetLineSpacing(TextEditor* self)
 {
     return self->GetLineSpacing();
 }
+CIMGUI_API void TextEditor_SetWordWrapEnabled(TextEditor* self,bool value)
+{
+    return self->SetWordWrapEnabled(value);
+}
+CIMGUI_API bool TextEditor_IsWordWrapEnabled(TextEditor* self)
+{
+    return self->IsWordWrapEnabled();
+}
 CIMGUI_API void TextEditor_SetReadOnlyEnabled(TextEditor* self,bool value)
 {
     return self->SetReadOnlyEnabled(value);
@@ -92,6 +153,14 @@ CIMGUI_API void TextEditor_SetReadOnlyEnabled(TextEditor* self,bool value)
 CIMGUI_API bool TextEditor_IsReadOnlyEnabled(TextEditor* self)
 {
     return self->IsReadOnlyEnabled();
+}
+CIMGUI_API void TextEditor_SetCaretsVisible(TextEditor* self,bool value)
+{
+    return self->SetCaretsVisible(value);
+}
+CIMGUI_API bool TextEditor_IsCaretsVisible(TextEditor* self)
+{
+    return self->IsCaretsVisible();
 }
 CIMGUI_API void TextEditor_SetAutoIndentEnabled(TextEditor* self,bool value)
 {
@@ -133,6 +202,22 @@ CIMGUI_API bool TextEditor_IsShowLineNumbersEnabled(TextEditor* self)
 {
     return self->IsShowLineNumbersEnabled();
 }
+CIMGUI_API void TextEditor_SetShowMiniMapEnabled(TextEditor* self,bool value)
+{
+    return self->SetShowMiniMapEnabled(value);
+}
+CIMGUI_API bool TextEditor_IsShowMiniMapEnabled(TextEditor* self)
+{
+    return self->IsShowMiniMapEnabled();
+}
+CIMGUI_API void TextEditor_SetMiniMapColumns(TextEditor* self,size_t value)
+{
+    return self->SetMiniMapColumns(value);
+}
+CIMGUI_API size_t TextEditor_GetMiniMapColumns(TextEditor* self)
+{
+    return self->GetMiniMapColumns();
+}
 CIMGUI_API void TextEditor_SetShowScrollbarMiniMapEnabled(TextEditor* self,bool value)
 {
     return self->SetShowScrollbarMiniMapEnabled(value);
@@ -165,6 +250,14 @@ CIMGUI_API bool TextEditor_IsCompletingPairedGlyphs(TextEditor* self)
 {
     return self->IsCompletingPairedGlyphs();
 }
+CIMGUI_API void TextEditor_SetLineFoldingEnabled(TextEditor* self,bool value)
+{
+    return self->SetLineFoldingEnabled(value);
+}
+CIMGUI_API bool TextEditor_IsLineFoldingEnabled(TextEditor* self)
+{
+    return self->IsLineFoldingEnabled();
+}
 CIMGUI_API void TextEditor_SetOverwriteEnabled(TextEditor* self,bool value)
 {
     return self->SetOverwriteEnabled(value);
@@ -185,33 +278,71 @@ CIMGUI_API bool TextEditor_IsMiddleMousePanMode(TextEditor* self)
 {
     return self->IsMiddleMousePanMode();
 }
+CIMGUI_API void TextEditor_SetLineNumberLeftMargin(TextEditor* self,size_t value)
+{
+    return self->SetLineNumberLeftMargin(value);
+}
+CIMGUI_API size_t TextEditor_GetLineNumberLeftMargin(TextEditor* self)
+{
+    return self->GetLineNumberLeftMargin();
+}
+CIMGUI_API void TextEditor_SetDecorationLeftMargin(TextEditor* self,size_t value)
+{
+    return self->SetDecorationLeftMargin(value);
+}
+CIMGUI_API size_t TextEditor_GetDecorationLeftMargin(TextEditor* self)
+{
+    return self->GetDecorationLeftMargin();
+}
+CIMGUI_API void TextEditor_SetTextLeftMargin(TextEditor* self,size_t value)
+{
+    return self->SetTextLeftMargin(value);
+}
+CIMGUI_API size_t TextEditor_GetTextLeftMargin(TextEditor* self)
+{
+    return self->GetTextLeftMargin();
+}
 CIMGUI_API void TextEditor_SetText(TextEditor* self,const char* text)
 {
     return self->SetText(text);
 }
 CIMGUI_API const char* TextEditor_GetText(TextEditor* self)
 {
-    static std::string str = self->GetText();
+    static std::string str;
+    str.assign(self->GetText());
     return str.c_str();
 }
 CIMGUI_API const char* TextEditor_GetCursorText(TextEditor* self,size_t cursor)
 {
-    static std::string str = self->GetCursorText(cursor);
+    static std::string str;
+    str.assign(self->GetCursorText(cursor));
     return str.c_str();
 }
-CIMGUI_API const char* TextEditor_GetLineText(TextEditor* self,int line)
+CIMGUI_API const char* TextEditor_GetLineText(TextEditor* self,size_t line)
 {
-    static std::string str = self->GetLineText(line);
+    static std::string str;
+    str.assign(self->GetLineText(line));
     return str.c_str();
 }
-CIMGUI_API const char* TextEditor_GetSectionText(TextEditor* self,int startLine,int startColumn,int endLine,int endColumn)
+CIMGUI_API const char* TextEditor_GetSectionText_DocPos(TextEditor* self,DocPos_c start,DocPos_c end)
 {
-    static std::string str = self->GetSectionText(startLine,startColumn,endLine,endColumn);
+    static std::string str;
+    str.assign(self->GetSectionText(ConvertToCPP_DocPos(start),ConvertToCPP_DocPos(end)));
     return str.c_str();
 }
-CIMGUI_API void TextEditor_ReplaceSectionText(TextEditor* self,int startLine,int startColumn,int endLine,int endColumn,const char* text)
+CIMGUI_API const char* TextEditor_GetSectionText_DocSelection(TextEditor* self,const DocSelection_c selection)
 {
-    return self->ReplaceSectionText(startLine,startColumn,endLine,endColumn,text);
+    static std::string str;
+    str.assign(self->GetSectionText(ConvertToCPP_DocSelection(selection)));
+    return str.c_str();
+}
+CIMGUI_API void TextEditor_ReplaceSectionText_DocPos(TextEditor* self,DocPos_c start,DocPos_c end,const char* text)
+{
+    return self->ReplaceSectionText(ConvertToCPP_DocPos(start),ConvertToCPP_DocPos(end),text);
+}
+CIMGUI_API void TextEditor_ReplaceSectionText_DocSelection(TextEditor* self,const DocSelection_c selection,const char* text)
+{
+    return self->ReplaceSectionText(ConvertToCPP_DocSelection(selection),text);
 }
 CIMGUI_API void TextEditor_ClearText(TextEditor* self)
 {
@@ -221,13 +352,13 @@ CIMGUI_API bool TextEditor_IsEmpty(TextEditor* self)
 {
     return self->IsEmpty();
 }
-CIMGUI_API int TextEditor_GetLineCount(TextEditor* self)
+CIMGUI_API size_t TextEditor_GetLineCount(TextEditor* self)
 {
     return self->GetLineCount();
 }
-CIMGUI_API void TextEditor_Render(TextEditor* self,const char* title,const ImVec2_c size,bool border)
+CIMGUI_API void TextEditor_Render(TextEditor* self,const char* title,const ImVec2_c size,ImGuiChildFlags childFlags,ImGuiWindowFlags windowFlags)
 {
-    return self->Render(title,ConvertToCPP_ImVec2(size),border);
+    return self->Render(title,ConvertToCPP_ImVec2(size),childFlags,windowFlags);
 }
 CIMGUI_API void TextEditor_SetFocus(TextEditor* self)
 {
@@ -265,37 +396,33 @@ CIMGUI_API size_t TextEditor_GetUndoIndex(TextEditor* self)
 {
     return self->GetUndoIndex();
 }
-CIMGUI_API void TextEditor_SetCursor(TextEditor* self,int line,int column)
-{
-    return self->SetCursor(line,column);
-}
 CIMGUI_API void TextEditor_SelectAll(TextEditor* self)
 {
     return self->SelectAll();
 }
-CIMGUI_API void TextEditor_SelectLine(TextEditor* self,int line)
+CIMGUI_API void TextEditor_SelectLine(TextEditor* self,size_t line)
 {
     return self->SelectLine(line);
 }
-CIMGUI_API void TextEditor_SelectLines(TextEditor* self,int start,int end)
+CIMGUI_API void TextEditor_SelectLines(TextEditor* self,size_t start,size_t end)
 {
     return self->SelectLines(start,end);
 }
-CIMGUI_API void TextEditor_SelectRegion(TextEditor* self,int startLine,int startColumn,int endLine,int endColumn)
+CIMGUI_API void TextEditor_SelectRegion(TextEditor* self,DocPos_c start,DocPos_c end)
 {
-    return self->SelectRegion(startLine,startColumn,endLine,endColumn);
+    return self->SelectRegion(ConvertToCPP_DocPos(start),ConvertToCPP_DocPos(end));
 }
 CIMGUI_API void TextEditor_SelectToBrackets(TextEditor* self,bool includeBrackets)
 {
     return self->SelectToBrackets(includeBrackets);
 }
-CIMGUI_API void TextEditor_GrowSelectionsToCurlyBrackets(TextEditor* self)
+CIMGUI_API void TextEditor_GrowSelections(TextEditor* self)
 {
-    return self->GrowSelectionsToCurlyBrackets();
+    return self->GrowSelections();
 }
-CIMGUI_API void TextEditor_ShrinkSelectionsToCurlyBrackets(TextEditor* self)
+CIMGUI_API void TextEditor_ShrinkSelections(TextEditor* self)
 {
-    return self->ShrinkSelectionsToCurlyBrackets();
+    return self->ShrinkSelections();
 }
 CIMGUI_API void TextEditor_AddNextOccurrence(TextEditor* self)
 {
@@ -325,90 +452,67 @@ CIMGUI_API size_t TextEditor_GetNumberOfCursors(TextEditor* self)
 {
     return self->GetNumberOfCursors();
 }
-CIMGUI_API void TextEditor_GetCursor_size_t(TextEditor* self,int* line,int* column,size_t cursor)
+CIMGUI_API DocPos_c TextEditor_GetCursorPosition(TextEditor* self,size_t cursor)
 {
-    return self->GetCursor(*line,*column,cursor);
+    return ConvertFromCPP_DocPos(self->GetCursorPosition(cursor));
 }
-CIMGUI_API void TextEditor_GetCursor_IntPtr(TextEditor* self,int* startLine,int* startColumn,int* endLine,int* endColumn,size_t cursor)
+CIMGUI_API DocPos_c TextEditor_GetMainCursorPosition(TextEditor* self)
 {
-    return self->GetCursor(*startLine,*startColumn,*endLine,*endColumn,cursor);
+    return ConvertFromCPP_DocPos(self->GetMainCursorPosition());
 }
-CIMGUI_API void TextEditor_GetMainCursor(TextEditor* self,int* line,int* column)
+CIMGUI_API DocPos_c TextEditor_GetCurrentCursorPosition(TextEditor* self)
 {
-    return self->GetMainCursor(*line,*column);
+    return ConvertFromCPP_DocPos(self->GetCurrentCursorPosition());
 }
-CIMGUI_API void TextEditor_GetCurrentCursor(TextEditor* self,int* line,int* column)
+CIMGUI_API DocSelection_c TextEditor_GetCursorSelection(TextEditor* self,size_t cursor)
 {
-    return self->GetCurrentCursor(*line,*column);
+    return ConvertFromCPP_DocSelection(self->GetCursorSelection(cursor));
 }
-CIMGUI_API CursorPosition* CursorPosition_CursorPosition_Nil(void)
+CIMGUI_API DocSelection_c TextEditor_GetMainCursorSelection(TextEditor* self)
 {
-    return IM_NEW(CursorPosition)();
+    return ConvertFromCPP_DocSelection(self->GetMainCursorSelection());
 }
-CIMGUI_API void CursorPosition_destroy(CursorPosition* self)
+CIMGUI_API DocSelection_c TextEditor_GetCurrentCursorSelection(TextEditor* self)
 {
-    IM_DELETE(self);
+    return ConvertFromCPP_DocSelection(self->GetCurrentCursorSelection());
 }
-CIMGUI_API CursorPosition* CursorPosition_CursorPosition_Int(int l,int c)
+CIMGUI_API bool TextEditor_IsMousePosOverGlyph(TextEditor* self,const ImVec2_c mousePos)
 {
-    return IM_NEW(CursorPosition)(l,c);
+    return self->IsMousePosOverGlyph(ConvertToCPP_ImVec2(mousePos));
 }
-CIMGUI_API CursorSelection* CursorSelection_CursorSelection_Nil(void)
+CIMGUI_API DocPos_c TextEditor_GetDocPosAtMousePos(TextEditor* self,const ImVec2_c mousePos)
 {
-    return IM_NEW(CursorSelection)();
+    return ConvertFromCPP_DocPos(self->GetDocPosAtMousePos(ConvertToCPP_ImVec2(mousePos)));
 }
-CIMGUI_API void CursorSelection_destroy(CursorSelection* self)
+CIMGUI_API const char* TextEditor_GetWordAtMousePos(TextEditor* self,const ImVec2_c mousePos)
 {
-    IM_DELETE(self);
-}
-CIMGUI_API CursorSelection* CursorSelection_CursorSelection_CursorPosition(CursorPosition_c s,CursorPosition_c e)
-{
-    return IM_NEW(CursorSelection)(ConvertToCPP_CursorPosition(s),ConvertToCPP_CursorPosition(e));
-}
-CIMGUI_API CursorPosition_c TextEditor_GetMainCursorPosition(TextEditor* self)
-{
-    return ConvertFromCPP_CursorPosition(self->GetMainCursorPosition());
-}
-CIMGUI_API CursorPosition_c TextEditor_GetCurrentCursorPosition(TextEditor* self)
-{
-    return ConvertFromCPP_CursorPosition(self->GetCurrentCursorPosition());
-}
-CIMGUI_API CursorPosition_c TextEditor_GetCursorPosition(TextEditor* self,size_t cursor)
-{
-    return ConvertFromCPP_CursorPosition(self->GetCursorPosition(cursor));
-}
-CIMGUI_API CursorSelection_c TextEditor_GetCursorSelection(TextEditor* self,size_t cursor)
-{
-    return ConvertFromCPP_CursorSelection(self->GetCursorSelection(cursor));
-}
-CIMGUI_API CursorSelection_c TextEditor_GetMainCursorSelection(TextEditor* self)
-{
-    return ConvertFromCPP_CursorSelection(self->GetMainCursorSelection());
-}
-CIMGUI_API const char* TextEditor_GetWordAtScreenPos(TextEditor* self,const ImVec2_c screenPos)
-{
-    static std::string str = self->GetWordAtScreenPos(ConvertToCPP_ImVec2(screenPos));
+    static std::string str;
+    str.assign(self->GetWordAtMousePos(ConvertToCPP_ImVec2(mousePos)));
     return str.c_str();
 }
-CIMGUI_API void TextEditor_ScrollToLine(TextEditor* self,int line,Scroll alignment)
+CIMGUI_API void TextEditor_ScrollToLine(TextEditor* self,size_t line,Scroll alignment)
 {
     return self->ScrollToLine(line,alignment);
 }
-CIMGUI_API int TextEditor_GetFirstVisibleLine(TextEditor* self)
+CIMGUI_API size_t TextEditor_GetFirstVisibleRow(TextEditor* self)
 {
-    return self->GetFirstVisibleLine();
+    return self->GetFirstVisibleRow();
 }
-CIMGUI_API int TextEditor_GetLastVisibleLine(TextEditor* self)
+CIMGUI_API size_t TextEditor_GetLastVisibleRow(TextEditor* self)
 {
-    return self->GetLastVisibleLine();
+    return self->GetLastVisibleRow();
 }
-CIMGUI_API int TextEditor_GetFirstVisibleColumn(TextEditor* self)
+CIMGUI_API size_t TextEditor_GetFirstVisibleColumn(TextEditor* self)
 {
     return self->GetFirstVisibleColumn();
 }
-CIMGUI_API int TextEditor_GetLastVisibleColumn(TextEditor* self)
+CIMGUI_API size_t TextEditor_GetLastVisibleColumn(TextEditor* self)
 {
     return self->GetLastVisibleColumn();
+}
+CIMGUI_API void TextEditor_SetCursor(TextEditor* self,DocPos_c pos)
+{
+    return self->SetCursor(ConvertToCPP_DocPos(pos));
 }
 CIMGUI_API float TextEditor_GetLineHeight(TextEditor* self)
 {
@@ -417,6 +521,22 @@ CIMGUI_API float TextEditor_GetLineHeight(TextEditor* self)
 CIMGUI_API float TextEditor_GetGlyphWidth(TextEditor* self)
 {
     return self->GetGlyphWidth();
+}
+CIMGUI_API VisPos_c TextEditor_DocPos2VisPos(TextEditor* self,DocPos_c pos)
+{
+    return ConvertFromCPP_VisPos(self->DocPos2VisPos(ConvertToCPP_DocPos(pos)));
+}
+CIMGUI_API DocPos_c TextEditor_VisPos2DocPos(TextEditor* self,VisPos_c pos)
+{
+    return ConvertFromCPP_DocPos(self->VisPos2DocPos(ConvertToCPP_VisPos(pos)));
+}
+CIMGUI_API bool TextEditor_IsDocPosVisible(TextEditor* self,DocPos_c pos)
+{
+    return self->IsDocPosVisible(ConvertToCPP_DocPos(pos));
+}
+CIMGUI_API bool TextEditor_IsVisPosOverGlyph(TextEditor* self,VisPos_c pos)
+{
+    return self->IsVisPosOverGlyph(ConvertToCPP_VisPos(pos));
 }
 CIMGUI_API void TextEditor_SelectFirstOccurrenceOf(TextEditor* self,const char* text,bool caseSensitive,bool wholeWord)
 {
@@ -474,7 +594,7 @@ CIMGUI_API void TextEditor_FindAll(TextEditor* self)
 {
     return self->FindAll();
 }
-CIMGUI_API void TextEditor_AddMarker(TextEditor* self,int line,ImU32 lineNumberColor,ImU32 textColor,const char* lineNumberTooltip,const char* textTooltip)
+CIMGUI_API void TextEditor_AddMarker(TextEditor* self,size_t line,ImU32 lineNumberColor,ImU32 textColor,const char* lineNumberTooltip,const char* textTooltip)
 {
     return self->AddMarker(line,lineNumberColor,textColor,lineNumberTooltip,textTooltip);
 }
@@ -486,33 +606,53 @@ CIMGUI_API bool TextEditor_HasMarkers(TextEditor* self)
 {
     return self->HasMarkers();
 }
+CIMGUI_API void TextEditor_AddSquiggle(TextEditor* self,DocPos_c start,DocPos_c end,size_t type,ImU32 color,const char* tooltip)
+{
+    return self->AddSquiggle(ConvertToCPP_DocPos(start),ConvertToCPP_DocPos(end),type,color,tooltip);
+}
+CIMGUI_API void TextEditor_ClearSquiggles_DocPos(TextEditor* self,DocPos_c start,DocPos_c end)
+{
+    return self->ClearSquiggles(ConvertToCPP_DocPos(start),ConvertToCPP_DocPos(end));
+}
+CIMGUI_API void TextEditor_ClearSquiggles_size_t(TextEditor* self,size_t type)
+{
+    return self->ClearSquiggles(type);
+}
+CIMGUI_API void TextEditor_ClearSquiggles_Nil(TextEditor* self)
+{
+    return self->ClearSquiggles();
+}
+CIMGUI_API bool TextEditor_HasSquiggles(TextEditor* self)
+{
+    return self->HasSquiggles();
+}
 CIMGUI_API void TextEditor_SetChangeCallback(TextEditor* self,void(*cb)(),int delay)
 {
     return self->SetChangeCallback([cb](){cb();},delay);
 }
-CIMGUI_API void TextEditor_SetInsertor(TextEditor* self,void*(*cb)(int))
+CIMGUI_API void TextEditor_SetInsertor(TextEditor* self,void*(*cb)(size_t))
 {
-    return self->SetInsertor([cb](int line){return cb(line);});
+    return self->SetInsertor([cb](size_t line){return cb(line);});
 }
-CIMGUI_API void TextEditor_SetDeletor(TextEditor* self,void(*cb)(int,void*))
+CIMGUI_API void TextEditor_SetDeletor(TextEditor* self,void(*cb)(size_t,void*))
 {
-    return self->SetDeletor([cb](int line,void* data){cb(line,data);});
+    return self->SetDeletor([cb](size_t line,void* data){cb(line,data);});
 }
-CIMGUI_API void TextEditor_SetUserData(TextEditor* self,int line,void* data)
+CIMGUI_API void TextEditor_SetUserData(TextEditor* self,size_t line,void* data)
 {
     return self->SetUserData(line,data);
 }
-CIMGUI_API void* TextEditor_GetUserData(TextEditor* self,int line)
+CIMGUI_API void* TextEditor_GetUserData(TextEditor* self,size_t line)
 {
     return self->GetUserData(line);
 }
-CIMGUI_API void TextEditor_IterateUserData(TextEditor* self,void(*cb)(int,void*))
+CIMGUI_API void TextEditor_IterateUserData(TextEditor* self,void(*cb)(size_t,void*))
 {
-    return self->IterateUserData([cb](int line,void* data){cb(line,data);});
+    return self->IterateUserData([cb](size_t line,void* data){cb(line,data);});
 }
-CIMGUI_API void TextEditor_SetLineDecorator(TextEditor* self,float width,void(*cb)(Decorator&))
+CIMGUI_API void TextEditor_SetLineDecorator(TextEditor* self,size_t width,void(*cb)(Decorator*))
 {
-    return self->SetLineDecorator(width,[cb](Decorator& decorator){cb(decorator);});
+    return self->SetLineDecorator(width,[cb](Decorator& decorator){cb(&decorator);});
 }
 CIMGUI_API void TextEditor_ClearLineDecorator(TextEditor* self)
 {
@@ -522,9 +662,9 @@ CIMGUI_API bool TextEditor_HasLineDecorator(TextEditor* self)
 {
     return self->HasLineDecorator();
 }
-CIMGUI_API void TextEditor_SetLineNumberContextMenuCallback(TextEditor* self,void(*cb)(int))
+CIMGUI_API void TextEditor_SetLineNumberContextMenuCallback(TextEditor* self,void(*cb)(PopupData*))
 {
-    return self->SetLineNumberContextMenuCallback([cb](int line){cb(line);});
+    return self->SetLineNumberContextMenuCallback([cb](PopupData& data){cb(&data);});
 }
 CIMGUI_API void TextEditor_ClearLineNumberContextMenuCallback(TextEditor* self)
 {
@@ -534,9 +674,9 @@ CIMGUI_API bool TextEditor_HasLineNumberContextMenuCallback(TextEditor* self)
 {
     return self->HasLineNumberContextMenuCallback();
 }
-CIMGUI_API void TextEditor_SetTextContextMenuCallback(TextEditor* self,void(*cb)(int,int))
+CIMGUI_API void TextEditor_SetTextContextMenuCallback(TextEditor* self,void(*cb)(PopupData*))
 {
-    return self->SetTextContextMenuCallback([cb](int line,int column){cb(line,column);});
+    return self->SetTextContextMenuCallback([cb](PopupData& data){cb(&data);});
 }
 CIMGUI_API void TextEditor_ClearTextContextMenuCallback(TextEditor* self)
 {
@@ -545,6 +685,50 @@ CIMGUI_API void TextEditor_ClearTextContextMenuCallback(TextEditor* self)
 CIMGUI_API bool TextEditor_HasTextContextMenuCallback(TextEditor* self)
 {
     return self->HasTextContextMenuCallback();
+}
+CIMGUI_API void TextEditor_SetTextHoverCallback(TextEditor* self,void(*cb)(PopupData*))
+{
+    return self->SetTextHoverCallback([cb](PopupData& data){cb(&data);});
+}
+CIMGUI_API void TextEditor_ClearTextHoverCallback(TextEditor* self)
+{
+    return self->ClearTextHoverCallback();
+}
+CIMGUI_API bool TextEditor_HasTextHoverCallback(TextEditor* self)
+{
+    return self->HasTextHoverCallback();
+}
+CIMGUI_API void TextEditor_FoldAroundLine(TextEditor* self,size_t line)
+{
+    return self->FoldAroundLine(line);
+}
+CIMGUI_API void TextEditor_UnfoldAroundLine(TextEditor* self,size_t line)
+{
+    return self->UnfoldAroundLine(line);
+}
+CIMGUI_API void TextEditor_ToggleAtLine(TextEditor* self,size_t line)
+{
+    return self->ToggleAtLine(line);
+}
+CIMGUI_API void TextEditor_UnfoldAll(TextEditor* self)
+{
+    return self->UnfoldAll();
+}
+CIMGUI_API bool TextEditor_IsLineFoldable(TextEditor* self,size_t line)
+{
+    return self->IsLineFoldable(line);
+}
+CIMGUI_API bool TextEditor_IsLineFolded(TextEditor* self,size_t line)
+{
+    return self->IsLineFolded(line);
+}
+CIMGUI_API bool TextEditor_IsLineVisible(TextEditor* self,size_t line)
+{
+    return self->IsLineVisible(line);
+}
+CIMGUI_API bool TextEditor_IsLineHidden(TextEditor* self,size_t line)
+{
+    return self->IsLineHidden(line);
 }
 CIMGUI_API void TextEditor_IndentLines(TextEditor* self)
 {
@@ -594,6 +778,10 @@ CIMGUI_API void TextEditor_SpacesToTabs(TextEditor* self)
 {
     return self->SpacesToTabs();
 }
+CIMGUI_API ImU32 Palette_get(Palette* self,Color color)
+{
+    return self->get(color);
+}
 CIMGUI_API void TextEditor_SetPalette(TextEditor* self,const Palette* newPalette)
 {
     return self->SetPalette(*newPalette);
@@ -633,6 +821,18 @@ CIMGUI_API Glyph* Glyph_Glyph_Wchar(ImWchar cp)
 CIMGUI_API Glyph* Glyph_Glyph_WcharColor(ImWchar cp,Color col)
 {
     return IM_NEW(Glyph)(cp,col);
+}
+CIMGUI_API Iterator* Iterator_Iterator_Nil(void)
+{
+    return IM_NEW(Iterator)();
+}
+CIMGUI_API void Iterator_destroy(Iterator* self)
+{
+    IM_DELETE(self);
+}
+CIMGUI_API Iterator* Iterator_Iterator_GlyphPtr(Glyph* g)
+{
+    return IM_NEW(Iterator)(g);
 }
 CIMGUI_API const Language* Language_C()
 {
@@ -678,9 +878,9 @@ CIMGUI_API const Language* Language_Sql()
 {
     return TextEditor::Language::Sql();
 }
-CIMGUI_API void TextEditor_SetLanguage(TextEditor* self,const Language* l)
+CIMGUI_API void TextEditor_SetLanguage(TextEditor* self,const Language* language)
 {
-    return self->SetLanguage(l);
+    return self->SetLanguage(language);
 }
 CIMGUI_API const Language* TextEditor_GetLanguage(TextEditor* self)
 {
@@ -692,32 +892,21 @@ CIMGUI_API bool TextEditor_HasLanguage(TextEditor* self)
 }
 CIMGUI_API const char* TextEditor_GetLanguageName(TextEditor* self)
 {
-    static std::string str = self->GetLanguageName();
+    static std::string str;
+    str.assign(self->GetLanguageName());
     return str.c_str();
+}
+CIMGUI_API void TextEditor_SetLanguageChangeCallback(TextEditor* self,void(*cb)())
+{
+    return self->SetLanguageChangeCallback([cb](){cb();});
 }
 CIMGUI_API void TextEditor_IterateIdentifiers(TextEditor* self,void(*cb)(const char*))
 {
     return self->IterateIdentifiers([cb](const std::string& identifier){cb(identifier.c_str());});
 }
-CIMGUI_API void TextEditor_SetAutoCompleteConfig(TextEditor* self,const AutoCompleteConfig* config)
+CIMGUI_API void TextEditor_SetAutoCompleteConfig(TextEditor* self,const AutoCompleteConfig* autoCompleteConfig)
 {
-    return self->SetAutoCompleteConfig(config);
-}
-CIMGUI_API Trie* Trie_Trie(void)
-{
-    return IM_NEW(Trie)();
-}
-CIMGUI_API void Trie_destroy(Trie* self)
-{
-    IM_DELETE(self);
-}
-CIMGUI_API void Trie_clear(Trie* self)
-{
-    return self->clear();
-}
-CIMGUI_API void Trie_insert(Trie* self,const char* word)
-{
-    return self->insert(word);
+    return self->SetAutoCompleteConfig(autoCompleteConfig);
 }
 CIMGUI_API size_t CodePoint_write(char* i,ImWchar codepoint)
 {
@@ -754,6 +943,10 @@ CIMGUI_API bool CodePoint_isLower(ImWchar codepoint)
 CIMGUI_API bool CodePoint_isUpper(ImWchar codepoint)
 {
     return TextEditor::CodePoint::isUpper(codepoint);
+}
+CIMGUI_API bool CodePoint_isEastAsian(ImWchar codepoint)
+{
+    return TextEditor::CodePoint::isEastAsian(codepoint);
 }
 CIMGUI_API ImWchar CodePoint_toUpper(ImWchar codepoint)
 {
@@ -795,6 +988,10 @@ CIMGUI_API bool CodePoint_isMatchingBrackets(ImWchar open,ImWchar close)
 {
     return TextEditor::CodePoint::isMatchingBrackets(open,close);
 }
+CIMGUI_API void TextEditor_SetLineBreakConfig(TextEditor* self,LineBreakConfig* newConfig)
+{
+    return self->SetLineBreakConfig(*newConfig);
+}
 CIMGUI_API void TextEditor_SetImGuiContext(ImGuiContext* ctx)
 {
     return TextEditor::SetImGuiContext(ctx);
@@ -815,25 +1012,148 @@ CIMGUI_API bool TextDiff_GetSideBySideMode(TextDiff* self)
 {
     return self->GetSideBySideMode();
 }
-CIMGUI_API void TextDiff_SetText(TextDiff* self,const char* left,const char* right)
+CIMGUI_API void TextDiff_SetTabSize(TextDiff* self,size_t value)
 {
-    return self->SetText(left,right);
+    return self->SetTabSize(value);
 }
-CIMGUI_API void TextDiff_SetLanguage(TextDiff* self,const Language* l)
+CIMGUI_API size_t TextDiff_GetTabSize(TextDiff* self)
 {
-    return self->SetLanguage(l);
+    return self->GetTabSize();
+}
+CIMGUI_API void TextDiff_SetLineSpacing(TextDiff* self,float value)
+{
+    return self->SetLineSpacing(value);
+}
+CIMGUI_API float TextDiff_GetLineSpacing(TextDiff* self)
+{
+    return self->GetLineSpacing();
+}
+CIMGUI_API void TextDiff_SetWordWrapEnabled(TextDiff* self,bool value)
+{
+    return self->SetWordWrapEnabled(value);
+}
+CIMGUI_API bool TextDiff_IsWordWrapEnabled(TextDiff* self)
+{
+    return self->IsWordWrapEnabled();
+}
+CIMGUI_API void TextDiff_SetShowWhitespacesEnabled(TextDiff* self,bool value)
+{
+    return self->SetShowWhitespacesEnabled(value);
+}
+CIMGUI_API bool TextDiff_IsShowWhitespacesEnabled(TextDiff* self)
+{
+    return self->IsShowWhitespacesEnabled();
+}
+CIMGUI_API void TextDiff_SetShowSpacesEnabled(TextDiff* self,bool value)
+{
+    return self->SetShowSpacesEnabled(value);
+}
+CIMGUI_API bool TextDiff_IsShowSpacesEnabled(TextDiff* self)
+{
+    return self->IsShowSpacesEnabled();
+}
+CIMGUI_API void TextDiff_SetShowTabsEnabled(TextDiff* self,bool value)
+{
+    return self->SetShowTabsEnabled(value);
+}
+CIMGUI_API bool TextDiff_IsShowTabsEnabled(TextDiff* self)
+{
+    return self->IsShowTabsEnabled();
+}
+CIMGUI_API void TextDiff_SetShowScrollbarMiniMapEnabled(TextDiff* self,bool value)
+{
+    return self->SetShowScrollbarMiniMapEnabled(value);
+}
+CIMGUI_API bool TextDiff_IsShowScrollbarMiniMapEnabled(TextDiff* self)
+{
+    return self->IsShowScrollbarMiniMapEnabled();
+}
+CIMGUI_API void TextDiff_SetLanguage(TextDiff* self,const Language* language)
+{
+    return self->SetLanguage(language);
+}
+CIMGUI_API const Language* TextDiff_GetLanguage(TextDiff* self)
+{
+    return self->GetLanguage();
 }
 CIMGUI_API void TextDiff_SetColors(TextDiff* self,ImU32 ac,ImU32 dc)
 {
     return self->SetColors(ac,dc);
 }
-CIMGUI_API void TextDiff_Render(TextDiff* self,const char* title,const ImVec2_c size,bool border)
+CIMGUI_API void TextDiff_SetPalette(TextDiff* self,const Palette* newPalette)
 {
-    return self->Render(title,ConvertToCPP_ImVec2(size),border);
+    return self->SetPalette(*newPalette);
+}
+CIMGUI_API const Palette* TextDiff_GetPalette(TextDiff* self)
+{
+    return &self->GetPalette();
+}
+CIMGUI_API void TextDiff_SetFocus(TextDiff* self)
+{
+    return self->SetFocus();
+}
+CIMGUI_API void TextDiff_SetText(TextDiff* self,const char* left,const char* right)
+{
+    return self->SetText(left,right);
+}
+CIMGUI_API void TextDiff_Render(TextDiff* self,const char* title,const ImVec2_c size,ImGuiChildFlags childFlags,ImGuiWindowFlags windowFlags)
+{
+    return self->Render(title,ConvertToCPP_ImVec2(size),childFlags,windowFlags);
+}
+CIMGUI_API TrieAutoComplete* TrieAutoComplete_TrieAutoComplete(void)
+{
+    return IM_NEW(TrieAutoComplete)();
+}
+CIMGUI_API void TrieAutoComplete_destroy(TrieAutoComplete* self)
+{
+    IM_DELETE(self);
+}
+CIMGUI_API void TrieAutoComplete_Connect(TrieAutoComplete* self,TextEditor* editor)
+{
+    return self->Connect(editor);
+}
+CIMGUI_API void TrieAutoComplete_Disconnect(TrieAutoComplete* self)
+{
+    return self->Disconnect();
+}
+CIMGUI_API bool TrieAutoComplete_IsConnected(TrieAutoComplete* self)
+{
+    return self->IsConnected();
+}
+CIMGUI_API Notifications* Notifications_Notifications(void)
+{
+    return IM_NEW(Notifications)();
+}
+CIMGUI_API void Notifications_destroy(Notifications* self)
+{
+    IM_DELETE(self);
+}
+CIMGUI_API void Notifications_Add(Notifications* self,Type type,const char* message,int dismissTime)
+{
+    return self->Add(type,std::string(message),dismissTime);
+}
+CIMGUI_API void Notifications_Render(Notifications* self,ImVec2_c pos)
+{
+    return self->Render(ConvertToCPP_ImVec2(pos));
 }
 
 ////////////////manually generated
-
+CIMGUI_API Palette* Palette_Palette()
+{
+    return IM_NEW(Palette)();
+}
+CIMGUI_API void Palette_destroy(Palette* self)
+{
+    IM_DELETE(self);
+}
+CIMGUI_API void Palette_set(Palette* self,ImU32 col,int pos)
+{
+    (*self)[pos] = col;
+}
+CIMGUI_API ImU32 Palette_const_get(const Palette* self,Color color)
+{
+    return self->get(color);
+}
 CIMGUI_API char* TextEditor_GetText_alloc(TextEditor* self)
 {
     std::string str = self->GetText();
@@ -847,15 +1167,35 @@ CIMGUI_API void TextEditor_GetText_free(char* ptr)
 }
 CIMGUI_API const char* TextEditor_GetText_static(TextEditor* self)
 {
-    static std::string str = self->GetText();
+    static std::string str;
+    str.assign(self->GetText());
     return str.c_str();
 }
-// CIMGUI_API void TextEditor_IterateIdentifiers(TextEditor* self, void(*cb)(const char *))
-// {
-	// self->IterateIdentifiers([cb](const std::string& identifier) {
-		// cb(identifier.c_str());
-	// });
-// }
+////////////Dejavu
+CIMGUI_API int GetDejavu(void** deja)
+{
+	*deja = (void*) &dejavu;
+	return dejavuSize;
+}
+CIMGUI_API void SetDejavu()
+{
+    auto& io = ImGui::GetIO();
+    ImFontConfig config;
+    std::memcpy(config.Name, "DejaVu", 7);
+    config.FontDataOwnedByAtlas = false;
+    config.OversampleH = 1;
+    config.OversampleV = 1;
+#ifdef IMGUI_ENABLE_FREETYPE
+    config.FontLoaderFlags = ImGuiFreeTypeLoaderFlags_MonoHinting;
+#endif
+    io.Fonts->Clear();
+    io.Fonts->AddFontFromMemoryCompressedTTF((void*) &dejavu, dejavuSize, 15.0f, &config);
+#ifdef IMGUI_ENABLE_FREETYPE
+    io.Fonts->SetFontLoader(ImGuiFreeType::GetFontLoader());
+#else
+    io.Fonts->SetFontLoader(ImFontAtlasGetFontLoaderForStbTruetype());
+#endif
+}
 
 
 

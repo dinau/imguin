@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2025 Daniel Moreno
+// Copyright (c) 2025-2026 Daniel Moreno
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -98,10 +98,11 @@
 
 // Library Version
 // ===============
-// Integer encoded as XYYZZ for use in #if preprocessor conditionals:
+// Integer encoded as major * 10000 + minor * 1000 + patch for use in #if
+// preprocessor conditionals:
 //  e.g. '#if IMGUI_ZOOMABLE_IMAGE_VERSION_NUM >= 12345'
-#define IMGUI_ZOOMABLE_IMAGE_VERSION      "0.1.0"
-#define IMGUI_ZOOMABLE_IMAGE_VERSION_NUM  1000
+#define IMGUI_ZOOMABLE_IMAGE_VERSION      "0.1.1"
+#define IMGUI_ZOOMABLE_IMAGE_VERSION_NUM  1001
 
 // ----------------------------------- Interface ------------------------------
 namespace ImGuiImage
@@ -236,7 +237,7 @@ namespace ImGuiImage
     State* s{ state };
     if (s == nullptr)
     { // We cannot zoom or pan without a state, just show the image
-      ImGui::Image(texRef, imageSize, uv0, uv1, tintColor, bgColor);
+      ImGui::ImageWithBg(texRef, imageSize, uv0, uv1, bgColor, tintColor);
       return;
     }
 
@@ -288,7 +289,7 @@ namespace ImGuiImage
     const ImVec2 uv1New{ t1.x + uv1.x * s1, t1.y + uv1.y * s1 };
 
     // Display the texture
-    ImGui::Image(texRef, displaySize, uv0New, uv1New, tintColor, bgColor);
+    ImGui::ImageWithBg(texRef, displaySize, uv0New, uv1New, bgColor, tintColor);
 
     // Handle mouse events
     if(ImGui::IsItemHovered())

@@ -19,7 +19,7 @@
 
 `cimgui_toggle` is C wrapper for [imgui_toggle](https://github.com/cmdwtf/imgui_toggle) library 
 
-ImGui / CImGui : 1.92.6 (2026/02)
+Dear ImGui / CImGui : 1.92.x 
 
 ![alt](img/simple.png)
 
@@ -81,5 +81,5 @@ ImGui / CImGui : 1.92.6 (2026/02)
 | -------------------: | :---:    | :----------------------------------------------------------------:                                      |
 | **NeLua**            | Compiler | [NeLuaImGui](https://github.com/dinau/neluaImGui) / [NeLuaImGui2](https://github.com/dinau/neluaImGui2) |
 | **Nim**              | Compiler | [ImGuin](https://github.com/dinau/imguin)                                                               |
-| **Zig**, C           | Compiler | [Dear_Bindings_Build](https://github.com/dinau/dear_bindings_build)                                     |
-| **Zig**              | Compiler | [ImGuinZ](https://github.com/dinau/imguinz)                                                             |
+| **Zig**              | Compiler | [ImGuinz](https://github.com/dinau/imguinz)                                                             |
+| **Zig**, C           | Compiler | [Imguinz2](https://github.com/dinau/dear_bindings_build)                                                |
