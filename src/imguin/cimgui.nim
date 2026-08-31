@@ -13,7 +13,7 @@ when defined(windows):
 elif defined(macosx):
   const ClangIncludePath = staticExec("xcrun --show-sdk-path").strip() & "/usr/include"
 else: # Linux
-  const ClangIncludePath = "/usr/lib/llvm-16/lib/clang/16/include"
+  const ClangIncludePath = staticExec("clang -print-resource-dir").strip() & "/include"
 
 #const ClangIncludePath = fmt"c:/drvDx/msys64/mingw64/lib/clang/{ClangVersion}/include"
 
